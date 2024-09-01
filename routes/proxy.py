@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, redirect, render_template
 import cfg
 
 import requests
@@ -12,7 +12,7 @@ def proxyRequest(proxypath):
     permittedProxies = ("i.pximg.net", "s.pximg.net", "ugoira.com")
 
     if proxypath.split("/")[0] not in permittedProxies:
-        return render_template("error.html", error=f"domain '{proxypath.split('/')[0]}' is not allowed"), 401
+        return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
     def requestContent():
 
