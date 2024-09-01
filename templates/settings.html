@@ -1,0 +1,16 @@
+{% extends "layouts/default.html" %}
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+
+<h1>Settings</h1>
+
+<h2>Log in to your Pixiv account</h2>
+<p>To do this, you must get your Pixiv PHPSESSID cookie. See the guide <a href="https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/" rel="noopener noreferrer">from PixivFE</a> for details.</p>
+
+<form action="/settings/token" method="POST">
+	<input type="text" placeholder="PHPSESSID" name="token" autocomplete="off"></input>
+	<button type="submit" value="Log in">Log in</button>
+</form>
+
+{% endblock %}

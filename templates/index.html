@@ -1,0 +1,10 @@
+{% extends "layouts/default.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>Welcome to PyXiv!</h1>
+{% if g.isAuthorized %}
+<p>You are logged in with Session {{ g.userPxSession }} and CSRF {{ g.userPxCSRF }}</p>
+{% else %}
+<p>You are not logged in. You can log in <a href="/settings">here</a></p>
+{% endif %}
+{% endblock %}

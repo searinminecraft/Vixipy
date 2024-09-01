@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+	<head>
+		<title>{% if not self.title %}PyXiv{% else %}{% block title %}{% endblock %}{% endif %} - PyXiv</title>
+	</head>
+	<body>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>
