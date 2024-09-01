@@ -25,7 +25,7 @@ def setSession():
         try:
             api.getLatestFromFollowing("all", 1)
         except api.PixivError as e:
-            return render_template("error.html", error="Cannot use token. Make sure it's valid."), 400
+            return render_template("error.html", error=f"Cannot use token. Make sure it's valid. ({e})"), 400
 
         # If you're curious, this test URL is an illustration of Anna Yanami.
         # And don't worry its definitely not NSFW
@@ -37,14 +37,14 @@ def setSession():
                           )
 
         if req.status_code != 200:
-            return render_template("error.html", error="Cannot use token. Make sure it's valid."), 400
+            return render_template("error.html", error="Cannot use token. Make sure it's valid. (failed at status code)"), 400
 
         r = re.search(csrfMatch, req.text)
 
         try:
             csrf = r.group(1)
         except IndexError:
-            return render_template("error.html", error="Cannot use token. Make sure it's valid."), 400
+            return render_template("error.html", error="Cannot use token. Make sure it's valid. (failed at: csrf)"), 400
 
         resp = make_response(redirect(url_for("settings.mainSettings"), code=303)) 
         resp.set_cookie("PyXivSession", f['token'])

@@ -1,9 +1,11 @@
 from flask import Blueprint, redirect, render_template
-import cfg
 
+import cfg
 import requests
 
 proxy = Blueprint("proxy", __name__, url_prefix="/proxy")
+
+# TODO: Caching, so my poor computer won't constantly re-download the porn
 
 @proxy.route("/<path:proxypath>", methods=["GET"])
 def proxyRequest(proxypath):
@@ -29,4 +31,4 @@ def proxyRequest(proxypath):
             for ch in r.iter_content(10*1024):
                 yield ch
 
-    return requestContent(), {"Content-Type": None} #  that works somehow
+    return requestContent(), {"Content-Type": None, "Cache-Control": "max-age=31536000"} #  that works somehow

@@ -1,10 +1,38 @@
 <!doctype html>
 <html>
 	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/static/style.css">
 		<title>{% if not self.title %}PyXiv{% else %}{% block title %}{% endblock %}{% endif %} - PyXiv</title>
 	</head>
 	<body>
-		{% block content %}
-		{% endblock %}
+		<nav class="navbar">
+			<div class="mainact">
+				<a class="branding" href="/">PyXiv</a>
+				<a href="/discover">Discover</a>
+				<a href="/rankings">Rankings</a>
+				<a href="/newest">Newest</a>
+			</div>
+			<form action="/tag" method="POST">
+				<input type="text" autocomplete="off" placeholder="Search artworks...">
+			</form>
+			<div class="actions">
+				{% if not g.isAuthorized %}
+				<a href="/settings">Log in</a>
+				{% else %}
+				<a class="curruser" href="/users/{{ g.curruserId }}" alt={{ g.currusername }}>
+					<img class="profileimg" src="{{ g.curruserimage }}"/>
+					<span>{{ g.currusername }}</span>
+				</a>
+				{% endif %}
+			</div>
+		</nav>
+		<main>
+			{% block content %}
+			{% endblock %}
+		</main>
 	</body>
 </html>

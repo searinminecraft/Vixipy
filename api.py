@@ -9,26 +9,32 @@ def checkSuccess(f):
 
     def inner(*args, **kwargs):
         r = f(*args, **kwargs)
-        if r["error"] == True:
-            raise PixivError(r["message"])
+        try:
+            if r["error"] == True:
+                raise PixivError(r["message"])
+        except Exception:
+            raise PixivError(r)
+
         return r
     return inner
 
 def getHeaders():
 
-    if g.get('userPxSession'):
-        print("using user provided pxsession")
-
-    return {
+    headers ={
         "Cookie": f"PHPSESSID={g.get('userPxSession') if g.get('userPxSession') else cfg.PxSession}",
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0", #  tbh maybe I should just use a Windows UA
         "Accept-Language": cfg.PxAcceptLang
     }
 
-@checkSuccess
-def getLanding():
+    if g.get("userPxCSRF"):
+        headers["X-CSRF-Token"] = g.userPxCSRF
 
-    req = requests.get("https://www.pixiv.net/ajax/top/illust",
+    return headers
+
+@checkSuccess
+def getLanding(mode: str = "all"):
+
+    req = requests.get(f"https://www.pixiv.net/ajax/top/illust?mode={mode}",
                  headers=getHeaders())
     return req.json()
 
@@ -39,3 +45,8 @@ def getLatestFromFollowing(mode: str, page: int):
                        headers=getHeaders())
     return req.json()
 
+@checkSuccess
+def getUserInfo(userId: int):
+
+    req = requests.get(f"https://www.pixiv.net/ajax/user/{userId}?full=1", headers=getHeaders())
+    return req.json()

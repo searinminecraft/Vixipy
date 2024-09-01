@@ -4,6 +4,8 @@
 <h1>Welcome to PyXiv!</h1>
 {% if g.isAuthorized %}
 <p>You are logged in with Session {{ g.userPxSession }} and CSRF {{ g.userPxCSRF }}</p>
+
+<pre>{{ data }}</pre>
 {% else %}
 <p>You are not logged in. You can log in <a href="/settings">here</a></p>
 {% endif %}
