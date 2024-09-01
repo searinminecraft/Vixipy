@@ -3,8 +3,10 @@ from flask import Flask, Response, g, make_response, render_template, request
 import api
 
 from routes.settings import settings
+from routes.proxy import proxy
 
 app = Flask(__name__)
+app.register_blueprint(proxy)
 app.register_blueprint(settings)
 
 def authRequired(f):
