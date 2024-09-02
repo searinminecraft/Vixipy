@@ -4,8 +4,13 @@
 {% block content %}
 <div class="error-page">
 	<img src="/static/yanami.png" alt="Anna Yanami" id="yanami"/>
+	{% if pixivError %}
+	<h1>Pixiv Error!</h1>
+	<p>An error occurred trying to complete a request to pixiv. Please contact the instance administrator. ({{ error }})</p>
+	{% else %}
 	<h1>Error!</h1>
 	<p>Sorry, this isn't supposed to happen. Have a Yanami instead.</p>
 	<pre>{{ error }}</pre>
+	{% endif %}
 </div>
 {% endblock %}

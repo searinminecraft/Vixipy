@@ -31,7 +31,7 @@ def create_app():
 
     @app.errorhandler(api.PixivError)
     def handlePxError(e):
-        resp = make_response(render_template("error.html", error=f"Pixiv: {e}"))
+        resp = make_response(render_template("error.html", error=e, pixivError=True))
         return resp, 500
 
     @app.errorhandler(404)
