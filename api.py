@@ -51,3 +51,15 @@ def getUserInfo(userId: int):
 
     req = requests.get(f"https://www.pixiv.net/ajax/user/{userId}?full=1", headers=getHeaders())
     return req.json()
+
+@checkSuccess
+def getArtworkInfo(_id: int):
+
+    req = requests.get(f"https://www.pixiv.net/ajax/illust/{_id}", headers=getHeaders())
+    return req.json()
+
+@checkSuccess
+def getArtworkPages(_id: int):
+
+    req = requests.get(f"https://www.pixiv.net/ajax/illust/{_id}/pages", headers=getHeaders())
+    return req.json()

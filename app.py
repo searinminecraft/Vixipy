@@ -1,24 +1,19 @@
 from flask import Flask, Response, g, make_response, render_template, request
 
-config = {
-    "CACHE_TYPE": "SimpleCache",  # Flask-Caching related configs
-    "CACHE_DEFAULT_TIMEOUT": 600
-}
-
 import api
 
 from core.landing import getLanding
 
 from routes import settings
 from routes import proxy
+from routes import artworks
 
 def create_app():
     app = Flask(__name__)
 
-    app.config.from_mapping(config)
-
     app.register_blueprint(proxy.proxy)
     app.register_blueprint(settings.settings)
+    app.register_blueprint(artworks.artworks)
 
     def authRequired(f):
         def inner(*args, **kwargs):

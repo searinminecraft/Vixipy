@@ -1,20 +1,69 @@
 from utils.converters import makeProxy
 
-class Artwork:
-
+class Tag:
     def __init__(self, data):
 
+        self.tag = data["tag"]
+        self.enTranslation = data["translation"]["en"] if data.get("translation") else None
+
+class ArtworkPage:
+    def __init__(self, data):
+        self.width = data["width"]
+        self.height = data["height"]
+
+        self.originalUrl = makeProxy(data["urls"]["original"])
+        self.thumbUrl = makeProxy(data["urls"]["regular"])
+
+class ArtworkPages:
+    def __init__(self, data):
+        self.pages = []
+
+        for page in data:
+            self.pages.append(ArtworkPage(page))
+
+class Artwork:
+    def __init__(self, data):
+        self._id = data["id"]
+        self.title = data["title"]
+        self.xRestrict = data["xRestrict"]
+        self.thumbUrl = makeProxy(data["urls"]["regular"])
+        self.originalUrl = makeProxy(data["urls"]["original"])
+        self.pageCount = data["pageCount"]
+        
+        self.viewCount = data["viewCount"]
+        self.likeCount = data["likeCount"]
+        self.bookmarkCount = data["bookmarkCount"]
+        self.tags: list[Tag] = []
+
+        self.bookmarked = data["bookmarkData"] is not None
+        self.liked = data["likeData"] == True
+
+        self.authorName = data["userName"]
+        self.authorId = data["userId"]
+
+        for tag in data["tags"]["tags"]:
+            self.tags.append(Tag(tag))
+
+    @property
+    def xRestrictClassification(self):
+        match self.xRestrict:
+            case 0:
+                return None
+            case 1:
+                return "R-18G"
+            case _:
+                return "R-18"
+
+
+class ArtworkEntry:
+    def __init__(self, data):
         self._id = data["id"]
         self.title = data["title"]
         self.isAI = data["aiType"] == 2
         self.thumbUrl = makeProxy(data["url"])
-        self.tags = data["tags"]
-        self.bookmarkData = data["bookmarkData"]
         self.description = data["description"] if data["description"] != "" else None
         self.pageCount = data["pageCount"]
         self.xRestrict = data["xRestrict"]
-        self.width = data["width"]
-        self.height = data["height"]
         self.authorId = data["userId"]
         self.authorName = data["userName"]
         self.authorProfilePic = makeProxy(data["profileImageUrl"])
@@ -31,15 +80,16 @@ class Artwork:
                 return "R-18"
 
 class RecommendByTag:
-
-    def __init__(self, name: str, artworks: list[Artwork]):
-
+    def __init__(self, name: str, artworks: list[ArtworkEntry]):
         self.name: str = name
-        self.artworks: list[Artwork] = artworks
+        self.artworks: list[ArtworkEntry] = artworks
 
 class LandingPageLoggedIn:
+    def __init__(self, recommended: list[ArtworkEntry], recommendByTag: list[RecommendByTag]):
+        self.recommended: list[ArtworkEntry] = recommended
+        self.recommendByTag: list[RecommendByTag] = recommendByTag
 
-    def __init__(self, recommended: list[Artwork], recommendByTag: list[RecommendByTag]):
-
-        self.recommended: list[Artwork] = recommended
-        self.recommendByTag: list["recommendByTag"] = recommendByTag
+class ArtworkDetailsPage:
+    def __init__(self, artwork: Artwork, pages: ArtworkPages):
+        self.artwork: Artwork = artwork
+        self.pages: ArtworkPages = pages 
