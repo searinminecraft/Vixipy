@@ -10,6 +10,7 @@ from routes import proxy
 from routes import devtest
 from routes import artworks
 from routes import discover
+from routes import userAction
 
 def create_app():
     app = Flask(__name__)
@@ -19,6 +20,7 @@ def create_app():
     app.register_blueprint(artworks.artworks)
     app.register_blueprint(devtest.devtest)
     app.register_blueprint(discover.discover)
+    app.register_blueprint(userAction.userAction)
 
     def authRequired(f):
         def inner(*args, **kwargs):

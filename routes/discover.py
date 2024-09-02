@@ -7,6 +7,6 @@ discover = Blueprint("discover", __name__, url_prefix="/discover")
 @discover.route("/")
 def discoverMain():
 
-    data = getDiscoveryData("all")
+    data = getDiscoveryData("all", 50)
 
     return render_template("discover.html", data=data)

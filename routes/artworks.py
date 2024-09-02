@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 
 from core.artwork import getArtwork, getArtworkPages
+from core.user import getUser
 from classes import ArtworkDetailsPage
 
 
@@ -11,5 +12,6 @@ def artworkGet(_id: int):
 
     artworkData = getArtwork(_id)
     pageData = getArtworkPages(_id)
+    userData = getUser(artworkData.authorId)
 
-    return render_template("artwork.html", data=ArtworkDetailsPage(artworkData, pageData))
+    return render_template("artwork.html", data=ArtworkDetailsPage(artworkData, pageData, userData))

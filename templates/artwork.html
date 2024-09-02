@@ -23,6 +23,39 @@
 
 	<div class="illust-title">
 		<span>{{ data.artwork.title }}</span>
+		{% if g.isAuthorized %}
+		<div class="illust-actions">
+			{% if data.artwork.bookmarked %}
+				<a href="/self/removebookmark/{{ data.artwork.bookmarkId }}?r=/artworks/{{ data.artwork._id }}">
+					<img src="/static/icons/bookmarked.svg"/>
+					<span>{{ data.artwork.bookmarkCount }}</span>
+				</a>
+			{% else %}
+				<a href="/self/addbookmark/{{ data.artwork._id }}?r=/artworks/{{ data.artwork._id }}">
+					<img src="/static/icons/bookmark.svg"/>
+					<span>{{ data.artwork.bookmarkCount }}</span>
+				</a>
+			{% endif %}
+
+			{% if data.artwork.liked %}
+				<a href="#">
+					<img src="/static/icons/liked.svg"/>
+					<span>{{ data.artwork.likeCount }}</span>
+				</a>
+			{% else %}
+				<a href="/self/like/{{ data.artwork._id }}?r=/artworks/{{ data.artwork._id }}">
+					<img src="/static/icons/like.svg"/>
+					<span>{{ data.artwork.likeCount }}</span>
+				</a>
+			{% endif %}
+		</div>
+		{% endif %}
+	</div>
+	<div class="illust-author">
+		<a href="/users/{{ data.user._id }}">
+			<img src="{{ data.user.image}}" alt="{{ data.user.name}}"/>
+			<span>{{ data.user.name }}</span>
+		</a>
 	</div>
 </div>
 

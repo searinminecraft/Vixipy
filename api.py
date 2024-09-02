@@ -33,6 +33,27 @@ def pixivReq(endpoint):
 
     return resp
 
+def pixivPostReq(endpoint, *, jsonPayload: dict = None, rawPayload: str = None):
+
+    start = time.perf_counter()
+    if jsonPayload:
+        req = requests.post("https://www.pixiv.net" + endpoint, headers=getHeaders(), json=jsonPayload)
+    elif rawPayload:
+        req = requests.post("https://www.pixiv.net" + endpoint, headers={**getHeaders(), "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"}, data=rawPayload)
+    else:
+        raise TypeError("Neither json payload nor raw payload were provided.")
+    end = time.perf_counter()
+
+    print(f"Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
+
+    resp = req.json()
+    if resp["error"]:
+        raise PixivError(resp["message"])
+
+    return resp
+
+
+
 def getLanding(mode: str = "all"):
     return pixivReq(f"/ajax/top/illust?mode={mode}")
 

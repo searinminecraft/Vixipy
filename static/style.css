@@ -175,9 +175,12 @@ footer .links {
 }
 
 .illust-area {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
 	background-color: #181825;
 	padding: 1em 2em;
-	width: 100%
+	width: 100%;
 }
 
 .illust-area .illusts {
@@ -204,6 +207,42 @@ footer .links {
 
 .illust-area .illust-title span {
 	font-size: 24px
+}
+
+.illust-area .illust-author a {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.illust-area .illust-author img {
+	aspect-ratio: 1/1;
+	height: 24px;
+	width: 24px;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 50%;
+	background-color: #313244
+}
+
+.illust-area .illust-author span {
+	font-size: 18px
+}
+
+.illust-area .illust-actions {
+	display: flex;
+	gap: 8px;
+}
+
+.illust-area .illust-actions a {
+	display: flex;
+	align-items: center;
+	color: #cdd6f4;
+	gap: 6px;
+}
+
+.illust-area .illust-actions span {
+	font-size: 12px
 }
 
 .error-page {

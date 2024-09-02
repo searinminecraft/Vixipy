@@ -2,6 +2,7 @@ from flask import Blueprint, abort, redirect
 
 import cfg
 import requests
+import time
 
 proxy = Blueprint("proxy", __name__, url_prefix="/proxy")
 
@@ -45,10 +46,15 @@ def proxyRequest(proxypath):
 
     def requestContent():
 
+        start = time.perf_counter()
+
         with requests.get(f"https://{proxypath}", stream=True,
                           headers=headers) as r:
 
             for ch in r.iter_content(10*1024):
                 yield ch
 
+        end = time.perf_counter()
+
+        print(f"Completed proxy request https://{proxypath} in {round((end - start) * 1000)}ms")
     return requestContent(), respHeaders

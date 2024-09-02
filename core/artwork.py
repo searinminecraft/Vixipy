@@ -10,6 +10,4 @@ def getArtwork(_id: int):
 def getArtworkPages(_id: int):
 
     data = api.getArtworkPages(_id)["body"]
-    print(data)
-    
     return [ArtworkPage(x) for x in data]

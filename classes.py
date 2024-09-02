@@ -1,5 +1,21 @@
 from utils.converters import makeProxy
 
+class User:
+
+    def __init__(self, data):
+        
+        self._id = data["userId"]
+        self.name = data["name"]
+        self.comment = data["comment"]
+        self.image = makeProxy(data["image"])
+        self.imageBig = makeProxy(data["imageBig"])
+        self.following = data["following"]
+        self.mypixiv = data["mypixivCount"]
+        self.premium = data["premium"]
+        self.official = data["official"]
+
+        self.background = makeProxy(data["background"]["url"]) if data["background"] else None
+
 class Tag:
     def __init__(self, data):
 
@@ -27,6 +43,8 @@ class Artwork:
         self.likeCount = data["likeCount"]
         self.bookmarkCount = data["bookmarkCount"]
         self.tags: list[Tag] = []
+
+        self.bookmarkId = data["bookmarkData"]["id"] if data["bookmarkData"] else None
 
         self.bookmarked = data["bookmarkData"] is not None
         self.liked = data["likeData"] == True
@@ -83,6 +101,7 @@ class LandingPageLoggedIn:
         self.recommendByTag: list[RecommendByTag] = recommendByTag
 
 class ArtworkDetailsPage:
-    def __init__(self, artwork: Artwork, pages: list[Artwork]):
+    def __init__(self, artwork: Artwork, pages: list[Artwork], user: User):
         self.artwork: Artwork = artwork
-        self.pages: list[Artwork] = pages 
+        self.pages: list[Artwork] = pages
+        self.user: User = user
