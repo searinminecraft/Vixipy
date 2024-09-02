@@ -47,3 +47,6 @@ def getArtworkInfo(_id: int):
 
 def getArtworkPages(_id: int):
     return pixivReq(f"/ajax/illust/{_id}/pages")
+
+def getDiscovery(mode: str = "all", limit: int = 30):
+    return pixivReq(f"/ajax/discovery/artworks?mode={mode}&limit={limit}")
