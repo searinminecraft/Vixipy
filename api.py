@@ -16,6 +16,7 @@ def checkSuccess(f):
             raise PixivError(r)
 
         return r
+
     return inner
 
 def getHeaders():

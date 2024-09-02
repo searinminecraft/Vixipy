@@ -7,7 +7,7 @@ config = {
 
 import api
 
-from core.index import getLanding
+from core.landing import getLanding
 
 from routes import settings
 from routes import proxy
@@ -35,7 +35,10 @@ def create_app():
         return resp, 500
 
     @app.before_request
-    def getPxSession():
+    def beforeReq():
+
+        g.version = "1.0"
+
         g.userPxSession = request.cookies.get("PyXivSession")
         g.userPxCSRF = request.cookies.get("PyXivCSRF")
 
@@ -52,10 +55,11 @@ def create_app():
     @app.route('/')
     def home():
 
-
         if g.isAuthorized:
             data = getLanding("all")
             return render_template("index.html", data=data)
+
+        return render_template("index.html")
 
     @app.route('/authtest')
     @authRequired

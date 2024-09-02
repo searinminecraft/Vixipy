@@ -1,0 +1,16 @@
+<div class="artwork-entry">
+	<a href="/artworks/{{ d._id }}">
+		<img src="{{ d.thumbUrl }}" loading="lazy" alt="{{ d.title }}">
+	</a>
+	<div class="title">
+		<a href="/artworks/{{ d._id }}">{{ d.title }}</a>
+	</div>
+	<div class="artwork-author">
+		<a href="{{ d.authorUrl }}">
+			<img src="{{ d.authorProfilePic }}"
+				loading="lazy"
+				alt="{{ d.authorName }}"/>
+			<span>{{ d.authorName }}</span>
+		</a>
+	</div>
+</div>

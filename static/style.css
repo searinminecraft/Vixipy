@@ -21,7 +21,8 @@ nav {
 	padding: 0 1em;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #11111b
+	background-color: #11111b;
+	padding: 8px 1em
 }
 
 a {
@@ -30,8 +31,9 @@ a {
 }
 
 main {
-	height: 100%;
+	flex-grow: 1;
 	padding: 1em;
+	margin-bottom: 12px;
 }
 
 input[type="text"] {
@@ -52,6 +54,20 @@ button {
 	border-radius: 5px;
 	border: none;
 	padding: 4px 12px;
+}
+
+footer {
+	background-color: #181825;
+	width: 100%;
+	padding: 8px 1em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+footer .links {
+	display: flex;
+	gap: 1em;
 }
 
 .navbar .mainact {
@@ -85,11 +101,67 @@ button {
 
 .navbar .actions .profileimg {
 	aspect-ratio: 1/1;
-	height: 36px;
-	width: 36px;
+	height: 26px;
+	width: 26px;
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
 	background-color: #313244
+}
+
+.container {
+	width: 100%
+}
+
+.artwork-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	justify-content: space-evenly;
+}
+
+.artwork-entry {
+	max-width: 250px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 6px
+}
+
+.artwork-entry .title {
+	width: 100%;
+	overflow: hidden;
+}
+
+.artwork-entry .title a {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 250px;
+	color: #ccd6f4;
+	font-size: 22px
+}
+
+.artwork-entry img {
+	width: 250px;
+	height: 250px;
+	border-radius: 6px;
+	background-color: #cdd6f4
+}
+
+.artwork-entry .artwork-author a {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.artwork-entry .artwork-author img {
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 50%;
+	width: 18px;
+	height: 18px;
+	background-color: #313224
 }
 

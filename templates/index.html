@@ -3,9 +3,27 @@
 {% block content %}
 <h1>Welcome to PyXiv!</h1>
 {% if g.isAuthorized %}
-<p>You are logged in with Session {{ g.userPxSession }} and CSRF {{ g.userPxCSRF }}</p>
 
-<pre>{{ data }}</pre>
+
+<div class="container">
+	<h2>Recommended Artworks</h2>
+	<div class="artwork-container">
+		{% for d in data.recommended %}
+		{% include "components/artwork-prev.html" %}
+		{% endfor %}
+	</div>
+</div>
+
+{% for t in data.recommendByTag %}
+<div class="container">
+	<h2>Recommended Artworks with tag <a href="/tag/{{ t.name }}">#{{ t.name }}</a></h2>
+	<div class="artwork-container">
+		{% for d in t.artworks %}
+		{% include "components/artwork-prev.html" %}
+		{% endfor %}
+	</div>
+</div>
+{% endfor %}
 {% else %}
 <p>You are not logged in. You can log in <a href="/settings">here</a></p>
 {% endif %}

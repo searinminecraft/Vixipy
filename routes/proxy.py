@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template
+from flask import Blueprint, abort, redirect
 
 import cfg
 import requests
@@ -16,14 +16,34 @@ def proxyRequest(proxypath):
     if proxypath.split("/")[0] not in permittedProxies:
         return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
+    headers = {
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0"
+    }
+
+    respHeaders = {
+        "Cache-Control": "max-age=31536000"
+    }
+
+    if proxypath.split("/")[0] in ("i.pximg.net", "s.pximg.net"):
+        headers["Referer"] = "https://www.pixiv.net"
+
+    # try to get first
+
+    try:
+        r = requests.get(f"https://{proxypath}", stream=True, headers=headers)
+        r.raise_for_status()
+        respHeaders["Content-Type"] = r.headers["Content-Type"]
+
+        #  sometimes pixiv does not return content-length for whatever reason
+        try:
+            respHeaders["Content-Length"] = r.headers["Content-Length"]
+        except KeyError:
+            pass
+        r.close()
+    except Exception as e:
+        abort(500)
+
     def requestContent():
-
-        headers = {
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0"
-        }
-
-        if proxypath.split("/")[0] in ("i.pximg.net", "s.pximg.net"):
-            headers["Referer"] = "https://www.pixiv.net"
 
         with requests.get(f"https://{proxypath}", stream=True,
                           headers=headers) as r:
@@ -31,4 +51,4 @@ def proxyRequest(proxypath):
             for ch in r.iter_content(10*1024):
                 yield ch
 
-    return requestContent(), {"Content-Type": None, "Cache-Control": "max-age=31536000"} #  that works somehow
+    return requestContent(), respHeaders
