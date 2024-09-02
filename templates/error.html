@@ -2,6 +2,10 @@
 {% block title %}Error{% endblock %}
 
 {% block content %}
-<h1>Error!</h1>
-<pre>{{ error }}</pre>
+<div class="error-page">
+	<img src="/static/yanami.png" alt="Anna Yanami" id="yanami"/>
+	<h1>Error!</h1>
+	<p>Sorry, this isn't supposed to happen. Have a Yanami instead.</p>
+	<pre>{{ error }}</pre>
+</div>
 {% endblock %}

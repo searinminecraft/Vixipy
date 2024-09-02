@@ -1,23 +1,10 @@
 from flask import g
 import requests
 import cfg
+import time
 
 class PixivError(Exception):
     pass
-
-def checkSuccess(f):
-
-    def inner(*args, **kwargs):
-        r = f(*args, **kwargs)
-        try:
-            if r["error"] == True:
-                raise PixivError(r["message"])
-        except Exception:
-            raise PixivError(r)
-
-        return r
-
-    return inner
 
 def getHeaders():
 
@@ -32,34 +19,31 @@ def getHeaders():
 
     return headers
 
-@checkSuccess
+def pixivReq(endpoint):
+    
+    start = time.perf_counter()
+    req = requests.get("https://www.pixiv.net" + endpoint, headers=getHeaders())
+    end = time.perf_counter()
+
+    print(f"Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
+
+    resp = req.json()
+    if resp["error"]:
+        raise PixivError(resp["message"])
+
+    return resp
+
 def getLanding(mode: str = "all"):
+    return pixivReq(f"/ajax/top/illust?mode={mode}")
 
-    req = requests.get(f"https://www.pixiv.net/ajax/top/illust?mode={mode}",
-                 headers=getHeaders())
-    return req.json()
-
-@checkSuccess
 def getLatestFromFollowing(mode: str, page: int):
+    return pixivReq(f"/ajax/follow_latest/illust?mode={mode}&p={page}")
 
-    req = requests.get(f"https://www.pixiv.net/ajax/follow_latest/illust?mode={mode}&p={page}",
-                       headers=getHeaders())
-    return req.json()
-
-@checkSuccess
 def getUserInfo(userId: int):
+    return pixivReq(f"/ajax/user/{userId}?full=1")
 
-    req = requests.get(f"https://www.pixiv.net/ajax/user/{userId}?full=1", headers=getHeaders())
-    return req.json()
-
-@checkSuccess
 def getArtworkInfo(_id: int):
+    return pixivReq (f"/ajax/illust/{_id}")
 
-    req = requests.get(f"https://www.pixiv.net/ajax/illust/{_id}", headers=getHeaders())
-    return req.json()
-
-@checkSuccess
 def getArtworkPages(_id: int):
-
-    req = requests.get(f"https://www.pixiv.net/ajax/illust/{_id}/pages", headers=getHeaders())
-    return req.json()
+    return pixivReq(f"/ajax/illust/{_id}/pages")

@@ -14,13 +14,6 @@ class ArtworkPage:
         self.originalUrl = makeProxy(data["urls"]["original"])
         self.thumbUrl = makeProxy(data["urls"]["regular"])
 
-class ArtworkPages:
-    def __init__(self, data):
-        self.pages = []
-
-        for page in data:
-            self.pages.append(ArtworkPage(page))
-
 class Artwork:
     def __init__(self, data):
         self._id = data["id"]
@@ -90,6 +83,6 @@ class LandingPageLoggedIn:
         self.recommendByTag: list[RecommendByTag] = recommendByTag
 
 class ArtworkDetailsPage:
-    def __init__(self, artwork: Artwork, pages: ArtworkPages):
+    def __init__(self, artwork: Artwork, pages: list[Artwork]):
         self.artwork: Artwork = artwork
-        self.pages: ArtworkPages = pages 
+        self.pages: list[Artwork] = pages 

@@ -53,4 +53,11 @@ def setSession():
     else:
         return render_template("error.html", error="No token supplied."), 400
 
+@settings.route("/logout")
+def logout():
+
+    resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
+    resp.delete_cookie("PyXivSession")
+    resp.delete_cookie("PyXivCSRF")
+    return resp
         

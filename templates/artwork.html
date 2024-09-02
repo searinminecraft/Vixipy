@@ -2,14 +2,28 @@
 {% block title %}{{ data.artwork.title }}{% endblock %}
 
 {% block content %}
-<div class=illust-area">
-	{% if data.artwork.pageCount > 1 %}
-	{% for x in data.pages.pages %}
-	<img src="{{ x.thumbUrl}}" />
-	{% endfor %}
-	{% else %}
-	<img src="{{ data.artwork.thumbUrl }}">
-	{% endif %}
+<div class="illust-area">
+	<div class="illusts">
+		{% if data.artwork.pageCount > 1 %}
+		{% for x in data.pages %}
+		<div class="illust">
+			<a href="{{ x.originalUrl }}">
+				<img src="{{ x.thumbUrl }}" />
+			</a>
+		</div>
+		{% endfor %}
+		{% else %}
+		<div class="illust">
+			<a href="{{ data.artwork.originalUrl }}">
+				<img src="{{ data.artwork.thumbUrl }}" />
+			</a>
+		</div>
+		{% endif %}
+	</div>
+
+	<div class="illust-title">
+		<span>{{ data.artwork.title }}</span>
+	</div>
 </div>
 
 {% endblock %}
