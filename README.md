@@ -15,6 +15,10 @@ This is still in heavy development, so it may take a while before it reaches a s
 * Log in
 * Personalised landing page
 
+# Screenshot
+
+![Screenshot of PyXiv's landing page, logged in as coolesdingdev](/screenshot.png)
+
 # Install instructions
 Later until this project is mature enough for production
 
