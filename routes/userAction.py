@@ -1,8 +1,13 @@
-from flask import Blueprint, redirect, request
+from flask import Blueprint, g, redirect, request
 
 import api
 
 userAction = Blueprint("userAction", __name__, url_prefix="/self")
+
+@userAction.route("/")
+def redirectToSelf():
+
+    return redirect(f"/users/{g.curruserId}")
 
 @userAction.route("/addbookmark/<int:_id>")
 def addBookmark(_id: int):
