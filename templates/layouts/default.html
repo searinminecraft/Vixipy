@@ -7,6 +7,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/static/style.css">
 		<title>{% if not self.title %}PyXiv{% else %}{% block title %}{% endblock %}{% endif %} - PyXiv</title>
+
+		<script>
+			function cannotUnlike() {
+				alert("You cannot unlike posts.")
+			}
+		</script>
 	</head>
 	<body>
 		<nav class="navbar">
@@ -38,6 +44,7 @@
 		<footer>
 			<span>PyXiv {{ g.version }} - This website is not affiliated with pixiv. Illustrations &copy; pixiv and authors</span>
 			<div class="links">
+				<a href="/about">About</a>
 				<a href="https://codeberg.org/kita/PyXiv" target="_blank">Source Code</a>
 				<a href="https://codeberg.org/kita/PyXiv/src/branch/main/LICENSE" target="_blank">License</a>
 			</div>
