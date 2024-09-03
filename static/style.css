@@ -250,6 +250,16 @@ footer .links {
 	flex-wrap: wrap;
 }
 
+.illust-area .illust-metadata {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 14px;
+}
+
+.illust-area .illust-metadata span {
+	margin: 0 4px;
+}
+
 .illust-area .illust-tags .tag {
 	margin: 0 6px;
 	font-size: 14px;

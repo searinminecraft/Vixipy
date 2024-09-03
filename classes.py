@@ -35,9 +35,11 @@ class Artwork:
         self._id = data["id"]
         self.title = data["title"]
         self.xRestrict = data["xRestrict"]
+        self.isAI = data["aiType"] == 2
         self.thumbUrl = makeProxy(data["urls"]["regular"])
         self.originalUrl = makeProxy(data["urls"]["original"])
         self.pageCount = data["pageCount"]
+        self.description = data["description"]
         
         self.viewCount = data["viewCount"]
         self.likeCount = data["likeCount"]

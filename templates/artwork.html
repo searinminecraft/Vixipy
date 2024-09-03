@@ -63,12 +63,24 @@
 
 		{% endif %}
 	</div>
+	<div class="illust-metadata">
+		{% if data.artwork.isAI %}
+		<span>AI Generated</span>
+		{% endif %}
+		{% if data.artwork.xRestrict != 0 %}
+		<span>{{ data.artwork.xRestrictClassification }}</span>
+		{% endif %}
+		<span>{{ data.artwork.viewCount }} views</span>
+		<span>{{ data.artwork.likeCount }} likes</span>
+		<span>{{ data.artwork.bookmarkCount }} bookmarks</span>
+	</div>
 	<div class="illust-author">
 		<a href="/users/{{ data.user._id }}">
 			<img src="{{ data.user.image}}" alt="{{ data.user.name}}"/>
 			<span>{{ data.user.name }}</span>
 		</a>
 	</div>
+	<br>
 	<div class="illust-tags">
 		{% for tag in data.artwork.tags %}
 		<div class="tag">
@@ -81,6 +93,8 @@
 		</div>
 		{% endfor %}
 	</div>
+	<br>
+	{{ data.artwork.description|safe }}
 </div>
 
 <h2>Related</h2>
