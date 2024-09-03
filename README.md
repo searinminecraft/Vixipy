@@ -15,9 +15,13 @@ This is still in heavy development, so it may take a while before it reaches a s
 * Log in
 * Personalised landing page
 
-# Screenshot
+# Screenshots
 
-![Screenshot of PyXiv's landing page, logged in as coolesdingdev](/screenshot.png)
+![Screenshot of PyXiv's landing page, logged in as coolesdingdev](/screenshots/screenshot.png)
+
+![Screenshot of an illustration of Anna Yanami, with various information as well as related artworks](/screenshots/artwork.png)
+
+![Screenshot of the discovery page](/screenshots/discover.png)
 
 # Install instructions
 Later until this project is mature enough for production
