@@ -4,7 +4,6 @@ import traceback
 import api
 
 from core.landing import getLanding
-from utils.decorators import authRequired
 
 from routes import settings
 from routes import proxy
@@ -72,5 +71,10 @@ def create_app():
             return render_template("index.html", data=data)
 
         return render_template("index.html")
+
+    @app.route('/about')
+    def about():
+
+        return render_template("about.html")
 
     return app
