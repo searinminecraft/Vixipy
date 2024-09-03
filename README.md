@@ -10,6 +10,8 @@ PyXiv is yet another privacy respecting pixiv frontend, allowing you to enjoy co
 
 This is still in heavy development, so it may take a while before it reaches a stable state.
 
+A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
+
 # Features currently present
 * Built-in proxy (to retrieve illustrations and images from pixiv)
 * Log in
