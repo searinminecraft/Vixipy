@@ -23,6 +23,7 @@ def create_app():
     app.register_blueprint(discover.discover)
     app.register_blueprint(userAction.userAction)
     @app.errorhandler(api.PixivError)
+
     def handlePxError(e):
         resp = make_response(render_template("error.html", error=e, pixivError=True))
         return resp, 500
@@ -40,6 +41,8 @@ def create_app():
     @app.before_request
     def beforeReq():
 
+        route = request.full_path.split("/")[1] 
+
         g.version = "1.0"
 
         g.userPxSession = request.cookies.get("PyXivSession")
@@ -47,11 +50,15 @@ def create_app():
 
         if not g.userPxSession and not g.userPxCSRF:
             g.isAuthorized = False
+
+            if route in ('self', ):
+                return render_template("unauthorized.html"), 401
+
         else:
             g.isAuthorized = True
 
 
-            if request.full_path.split("/")[1] not in ('static', 'proxy'):
+            if route not in ('static', 'proxy'):
                 userdata = api.getUserInfo(int(str(g.userPxSession).split("_")[0]))["body"]
                 g.curruserId = userdata["userId"]
                 g.currusername = userdata["name"]
@@ -65,10 +72,5 @@ def create_app():
             return render_template("index.html", data=data)
 
         return render_template("index.html")
-
-    @app.route('/authtest')
-    @authRequired
-    def authtest():
-        return api.getLanding()
 
     return app
