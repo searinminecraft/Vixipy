@@ -22,3 +22,10 @@ def deleteBookmark(_id: int):
     api.pixivPostReq("/ajax/illusts/bookmarks/delete", rawPayload=f"bookmark_id={_id}")
 
     return redirect(request.args["r"])
+
+@userAction.route("/like/<int:_id>")
+def likeIllust(_id: int):
+
+    api.pixivPostReq("/ajax/illusts/like", jsonPayload={"illust_id": str(_id)})
+
+    return redirect(request.args["r"])

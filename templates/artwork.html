@@ -27,7 +27,7 @@
 		<div class="illust-actions">
 			{% if data.artwork.bookmarked %}
 				<a href="/self/removebookmark/{{ data.artwork.bookmarkId }}?r=/artworks/{{ data.artwork._id }}">
-					<img src="/static/icons/bookmarked.svg"/>
+					<img src={{"/static/icons/bookmarked.svg"}}/>
 					<span>{{ data.artwork.bookmarkCount }}</span>
 				</a>
 			{% else %}
@@ -38,7 +38,7 @@
 			{% endif %}
 
 			{% if data.artwork.liked %}
-				<a href="#">
+				<a href="#" onclick="cannotUnlike()">
 					<img src="/static/icons/liked.svg"/>
 					<span>{{ data.artwork.likeCount }}</span>
 				</a>
@@ -49,6 +49,18 @@
 				</a>
 			{% endif %}
 		</div>
+		{% else %}
+		<div class="illust-actions">
+				<a href="/self/addbookmark/{{ data.artwork._id }}?r=/artworks/{{ data.artwork._id }}">
+					<img src="/static/icons/bookmark.svg"/>
+					<span>{{ data.artwork.bookmarkCount }}</span>
+				</a>
+				<a href="/self/like/{{ data.artwork._id }}?r=/artworks/{{ data.artwork._id }}">
+					<img src="/static/icons/like.svg"/>
+					<span>{{ data.artwork.likeCount }}</span>
+				</a>
+		</div>
+
 		{% endif %}
 	</div>
 	<div class="illust-author">
