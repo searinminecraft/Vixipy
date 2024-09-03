@@ -16,14 +16,25 @@ A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
 * Built-in proxy (to retrieve illustrations and images from pixiv)
 * Log in
 * Personalised landing page
+* Like and bookmark posts
+* Discovery
+* Related artworks
+
+# Planned features
+* AI / R-18 / R-18G filter
 
 # Screenshots
+
+<details>
+<summary>Show screenshots</summary>
 
 ![Screenshot of PyXiv's landing page, logged in as coolesdingdev](/screenshots/screenshot.png)
 
 ![Screenshot of an illustration of Anna Yanami, with various information as well as related artworks](/screenshots/artwork.png)
 
 ![Screenshot of the discovery page](/screenshots/discover.png)
+
+</details>
 
 # Install instructions
 1. Create a virtual environment, then activate

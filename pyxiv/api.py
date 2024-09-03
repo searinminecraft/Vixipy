@@ -38,6 +38,15 @@ def pixivReq(endpoint):
 
 
 def pixivPostReq(endpoint, *, jsonPayload: dict = None, rawPayload: str = None):
+    """
+    Send a POST request to pixiv.
+
+    Params:
+
+    endpoint: the endpoint path to send a request to
+    jsonPayload: the payload as a dict
+    rawPayload: the raw url-encoded payload
+    """
 
     start = time.perf_counter()
     if jsonPayload:
@@ -67,28 +76,49 @@ def pixivPostReq(endpoint, *, jsonPayload: dict = None, rawPayload: str = None):
 
 
 def getLanding(mode: str = "all"):
+    """
+    Get the landing page. Usually the front page of pixiv
+    """
     return pixivReq(f"/ajax/top/illust?mode={mode}")
 
 
 def getLatestFromFollowing(mode: str, page: int):
+    """
+    Get the latest works from users the user is following
+    """
     return pixivReq(f"/ajax/follow_latest/illust?mode={mode}&p={page}")
 
 
 def getUserInfo(userId: int):
+    """
+    Get information about a user
+    """
     return pixivReq(f"/ajax/user/{userId}?full=1")
 
 
 def getArtworkInfo(_id: int):
+    """
+    Get information about an artwork
+    """
     return pixivReq(f"/ajax/illust/{_id}")
 
 
 def getArtworkPages(_id: int):
+    """
+    Get the pages of an artwork
+    """
     return pixivReq(f"/ajax/illust/{_id}/pages")
 
 
 def getDiscovery(mode: str = "all", limit: int = 30):
+    """
+    Get the artworks on discovery
+    """
     return pixivReq(f"/ajax/discovery/artworks?mode={mode}&limit={limit}")
 
 
 def getRelatedArtworks(_id: int, limit: int = 30):
+    """
+    Get the related artworks for an artwork
+    """
     return pixivReq(f"/ajax/illust/{_id}/recommend/init?limit={limit}")

@@ -4,6 +4,7 @@ from ..classes import ArtworkEntry
 
 
 def getDiscoveryData(mode: str, limit: int = 30):
+    """Get's the discovery data"""
 
     data = api.getDiscovery(mode, limit)["body"]
 

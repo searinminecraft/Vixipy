@@ -38,6 +38,7 @@ class ArtworkPage:
         self.thumbUrl = makeProxy(data["urls"]["regular"])
 
 
+
 class Artwork:
     def __init__(self, data):
         self._id = data["id"]
@@ -82,7 +83,6 @@ class ArtworkEntry:
         self.title = data["title"]
         self.isAI = data["aiType"] == 2
         self.thumbUrl = makeProxy(data["url"])
-        self.description = data["description"] if data["description"] != "" else None
         self.pageCount = data["pageCount"]
         self.xRestrict = data["xRestrict"]
         self.authorId = data["userId"]

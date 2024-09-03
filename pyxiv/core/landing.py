@@ -4,6 +4,10 @@ from ..classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn
 
 
 def getLanding(mode: str):
+    """
+    Gets the landing page.
+    If the user is logged out, the rankings are returned instead.
+    """
 
     data = api.getLanding(mode)["body"]
 
