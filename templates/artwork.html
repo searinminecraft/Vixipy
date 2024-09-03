@@ -71,4 +71,14 @@
 	</div>
 </div>
 
+<h2>Related</h2>
+
+<div class="container">
+	<div class="artwork-container">
+		{% for d in data.related %}
+		{% include "components/artwork-prev.html" %}
+		{% endfor %}
+	</div>
+</div>
+
 {% endblock %}
