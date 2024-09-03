@@ -101,7 +101,7 @@ class LandingPageLoggedIn:
         self.recommendByTag: list[RecommendByTag] = recommendByTag
 
 class ArtworkDetailsPage:
-    def __init__(self, artwork: Artwork, pages: list[Artwork], user: User):
+    def __init__(self, artwork: Artwork, pages: list[ArtworkPage], user: User):
         self.artwork: Artwork = artwork
         self.pages: list[Artwork] = pages
         self.user: User = user
