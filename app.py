@@ -4,6 +4,7 @@ import traceback
 import api
 
 from core.landing import getLanding
+from utils.decorators import authRequired
 
 from routes import settings
 from routes import proxy
@@ -21,16 +22,6 @@ def create_app():
     app.register_blueprint(devtest.devtest)
     app.register_blueprint(discover.discover)
     app.register_blueprint(userAction.userAction)
-
-    def authRequired(f):
-        def inner(*args, **kwargs):
-            if not g.userPxSession and not g.userPxCSRF:
-                return render_template("unauthorized.html"), 401
-
-            return f(*args, **kwargs)
-
-        return inner
-
     @app.errorhandler(api.PixivError)
     def handlePxError(e):
         resp = make_response(render_template("error.html", error=e, pixivError=True))
