@@ -1,6 +1,6 @@
 from flask import Blueprint, abort, redirect
 
-import cfg
+from .. import cfg
 import requests
 import time
 

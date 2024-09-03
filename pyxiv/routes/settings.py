@@ -12,8 +12,8 @@ from flask import (
 import re
 import requests
 
-import api
-import cfg
+from .. import api
+from .. import cfg
 
 settings = Blueprint("settings", __name__, url_prefix="/settings")
 

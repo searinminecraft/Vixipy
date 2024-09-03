@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template
 
-from core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
-from core.user import getUser
-from classes import ArtworkDetailsPage
+from ..core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
+from ..core.user import getUser
+from ..classes import ArtworkDetailsPage
 
 
 artworks = Blueprint("artworks", __name__, url_prefix="/artworks")

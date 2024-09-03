@@ -1,6 +1,6 @@
 from flask import Blueprint, g, redirect, request
 
-import api
+from .. import api
 
 userAction = Blueprint("userAction", __name__, url_prefix="/self")
 

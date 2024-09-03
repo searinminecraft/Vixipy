@@ -1,16 +1,16 @@
 from flask import Flask, Response, g, make_response, render_template, request
 import traceback
 
-import api
+from . import api
 
-from core.landing import getLanding
+from .core.landing import getLanding
 
-from routes import settings
-from routes import proxy
-from routes import devtest
-from routes import artworks
-from routes import discover
-from routes import userAction
+from .routes import settings
+from .routes import proxy
+from .routes import devtest
+from .routes import artworks
+from .routes import discover
+from .routes import userAction
 
 
 def create_app():

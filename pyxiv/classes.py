@@ -1,4 +1,4 @@
-from utils.converters import makeProxy
+from .utils.converters import makeProxy
 
 
 class User:

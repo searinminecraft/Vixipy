@@ -1,6 +1,6 @@
-import api
+from .. import api
 
-from classes import User
+from ..classes import User
 
 
 def getUser(_id: int):

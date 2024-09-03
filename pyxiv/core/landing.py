@@ -1,6 +1,6 @@
-import api
+from .. import api
 
-from classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn
+from ..classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn
 
 
 def getLanding(mode: str):

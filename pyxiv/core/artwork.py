@@ -1,6 +1,6 @@
-import api
+from .. import api
 
-from classes import Artwork, ArtworkPage, ArtworkEntry
+from ..classes import Artwork, ArtworkPage, ArtworkEntry
 
 
 def getArtwork(_id: int):

@@ -1,6 +1,6 @@
 from flask import g
 import requests
-import cfg
+from . import cfg
 import time
 
 

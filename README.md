@@ -26,7 +26,22 @@ A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
 ![Screenshot of the discovery page](/screenshots/discover.png)
 
 # Install instructions
-Later until this project is mature enough for production
+1. Create a virtual environment, then activate
+```
+python -m venv venv
+source venv/bin/activate
+```
+
+2. Install deps
+```
+pip install -r requirements.txt
+```
+
+3. Open `run.sh` and put in your pixiv account's token to the `PYXIV_TOKEN` variable. See guide from [PixivFE](https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/) for details. You can also configure other settings like port, workers, and Accept-Language header.
+
+4. Finally, execute `run.sh`
+
+PyXiv should now be running on http://localhost:8000
 
 # See also
 * [PixivFE](https://codeberg.org/VnPower/PixivFE) - The project I took inspiration from

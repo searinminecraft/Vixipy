@@ -1,6 +1,6 @@
-import api
+from .. import api
 
-from classes import ArtworkEntry
+from ..classes import ArtworkEntry
 
 
 def getDiscoveryData(mode: str, limit: int = 30):
