@@ -245,6 +245,16 @@ footer .links {
 	font-size: 12px
 }
 
+.illust-area .illust-tags {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.illust-area .illust-tags .tag {
+	margin: 0 6px;
+	font-size: 14px;
+}
+
 .error-page {
 	width: 100%;
 	height: 100%;

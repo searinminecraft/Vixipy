@@ -69,6 +69,18 @@
 			<span>{{ data.user.name }}</span>
 		</a>
 	</div>
+	<div class="illust-tags">
+		{% for tag in data.artwork.tags %}
+		<div class="tag">
+			<a href="/tag/{{ tag.tag }}">
+				#{{ tag.tag }}
+			</a>
+			{% if tag.enTranslation %}
+			<i>{{ tag.enTranslation }}</i>
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
 </div>
 
 <h2>Related</h2>
