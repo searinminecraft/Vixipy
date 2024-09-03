@@ -2,6 +2,7 @@ import api
 
 from classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn
 
+
 def getLanding(mode: str):
 
     data = api.getLanding(mode)["body"]

@@ -1,9 +1,10 @@
 from utils.converters import makeProxy
 
+
 class User:
 
     def __init__(self, data):
-        
+
         self._id = data["userId"]
         self.name = data["name"]
         self.comment = data["comment"]
@@ -14,13 +15,19 @@ class User:
         self.premium = data["premium"]
         self.official = data["official"]
 
-        self.background = makeProxy(data["background"]["url"]) if data["background"] else None
+        self.background = (
+            makeProxy(data["background"]["url"]) if data["background"] else None
+        )
+
 
 class Tag:
     def __init__(self, data):
 
         self.tag = data["tag"]
-        self.enTranslation = data["translation"]["en"] if data.get("translation") else None
+        self.enTranslation = (
+            data["translation"]["en"] if data.get("translation") else None
+        )
+
 
 class ArtworkPage:
     def __init__(self, data):
@@ -29,6 +36,7 @@ class ArtworkPage:
 
         self.originalUrl = makeProxy(data["urls"]["original"])
         self.thumbUrl = makeProxy(data["urls"]["regular"])
+
 
 class Artwork:
     def __init__(self, data):
@@ -40,7 +48,7 @@ class Artwork:
         self.originalUrl = makeProxy(data["urls"]["original"])
         self.pageCount = data["pageCount"]
         self.description = data["description"]
-        
+
         self.viewCount = data["viewCount"]
         self.likeCount = data["likeCount"]
         self.bookmarkCount = data["bookmarkCount"]
@@ -63,9 +71,9 @@ class Artwork:
             case 0:
                 return None
             case 1:
-                return "R-18G"
-            case _:
                 return "R-18"
+            case _:
+                return "R-18G"
 
 
 class ArtworkEntry:
@@ -88,25 +96,33 @@ class ArtworkEntry:
             case 0:
                 return None
             case 1:
-                return "R-18G"
-            case _:
                 return "R-18"
+            case _:
+                return "R-18G"
+
 
 class RecommendByTag:
     def __init__(self, name: str, artworks: list[ArtworkEntry]):
         self.name: str = name
         self.artworks: list[ArtworkEntry] = artworks
 
+
 class LandingPageLoggedIn:
-    def __init__(self, recommended: list[ArtworkEntry], recommendByTag: list[RecommendByTag]):
+    def __init__(
+        self, recommended: list[ArtworkEntry], recommendByTag: list[RecommendByTag]
+    ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag
 
+
 class ArtworkDetailsPage:
-    def __init__(self, artwork: Artwork,
-                 pages: list[ArtworkPage],
-                 user: User,
-                 related: list[ArtworkEntry]):
+    def __init__(
+        self,
+        artwork: Artwork,
+        pages: list[ArtworkPage],
+        user: User,
+        related: list[ArtworkEntry],
+    ):
 
         self.artwork: Artwork = artwork
         self.pages: list[Artwork] = pages

@@ -8,6 +8,7 @@ proxy = Blueprint("proxy", __name__, url_prefix="/proxy")
 
 # TODO: Caching, so my poor computer won't constantly re-download the porn
 
+
 @proxy.route("/<path:proxypath>", methods=["GET"])
 def proxyRequest(proxypath):
 
@@ -18,12 +19,10 @@ def proxyRequest(proxypath):
         return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
     headers = {
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0"
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0"
     }
 
-    respHeaders = {
-        "Cache-Control": "max-age=31536000"
-    }
+    respHeaders = {"Cache-Control": "max-age=31536000"}
 
     if proxypath.split("/")[0] in ("i.pximg.net", "s.pximg.net"):
         headers["Referer"] = "https://www.pixiv.net"
@@ -48,13 +47,15 @@ def proxyRequest(proxypath):
 
         start = time.perf_counter()
 
-        with requests.get(f"https://{proxypath}", stream=True,
-                          headers=headers) as r:
+        with requests.get(f"https://{proxypath}", stream=True, headers=headers) as r:
 
-            for ch in r.iter_content(10*1024):
+            for ch in r.iter_content(10 * 1024):
                 yield ch
 
         end = time.perf_counter()
 
-        print(f"Completed proxy request https://{proxypath} in {round((end - start) * 1000)}ms")
+        print(
+            f"Completed proxy request https://{proxypath} in {round((end - start) * 1000)}ms"
+        )
+
     return requestContent(), respHeaders

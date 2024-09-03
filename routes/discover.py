@@ -4,6 +4,7 @@ from core.discovery import getDiscoveryData
 
 discover = Blueprint("discover", __name__, url_prefix="/discover")
 
+
 @discover.route("/")
 def discoverMain():
 

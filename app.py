@@ -12,6 +12,7 @@ from routes import artworks
 from routes import discover
 from routes import userAction
 
+
 def create_app():
     app = Flask(__name__)
 
@@ -21,8 +22,8 @@ def create_app():
     app.register_blueprint(devtest.devtest)
     app.register_blueprint(discover.discover)
     app.register_blueprint(userAction.userAction)
-    @app.errorhandler(api.PixivError)
 
+    @app.errorhandler(api.PixivError)
     def handlePxError(e):
         resp = make_response(render_template("error.html", error=e, pixivError=True))
         return resp, 500
@@ -34,13 +35,15 @@ def create_app():
     @app.errorhandler(Exception)
     def handleError(e):
         traceback.print_exc()
-        resp = make_response(render_template("error.html", error=f"{e.__class__.__name__}: {e}"))
+        resp = make_response(
+            render_template("error.html", error=f"{e.__class__.__name__}: {e}")
+        )
         return resp, 500
 
     @app.before_request
     def beforeReq():
 
-        route = request.full_path.split("/")[1] 
+        route = request.full_path.split("/")[1]
 
         g.version = "1.0"
 
@@ -50,20 +53,21 @@ def create_app():
         if not g.userPxSession and not g.userPxCSRF:
             g.isAuthorized = False
 
-            if route in ('self', ):
+            if route in ("self",):
                 return render_template("unauthorized.html"), 401
 
         else:
             g.isAuthorized = True
 
-
-            if route not in ('static', 'proxy'):
-                userdata = api.getUserInfo(int(str(g.userPxSession).split("_")[0]))["body"]
+            if route not in ("static", "proxy"):
+                userdata = api.getUserInfo(int(str(g.userPxSession).split("_")[0]))[
+                    "body"
+                ]
                 g.curruserId = userdata["userId"]
                 g.currusername = userdata["name"]
                 g.curruserimage = userdata["image"].replace("https://", "/proxy/")
 
-    @app.route('/')
+    @app.route("/")
     def home():
 
         if g.isAuthorized:
@@ -72,7 +76,7 @@ def create_app():
 
         return render_template("index.html")
 
-    @app.route('/about')
+    @app.route("/about")
     def about():
 
         return render_template("about.html")

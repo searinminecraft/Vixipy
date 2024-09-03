@@ -3,15 +3,17 @@ import requests
 import cfg
 import time
 
+
 class PixivError(Exception):
     pass
 
+
 def getHeaders():
 
-    headers ={
+    headers = {
         "Cookie": f"PHPSESSID={g.get('userPxSession') if g.get('userPxSession') else cfg.PxSession}",
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0", #  tbh maybe I should just use a Windows UA
-        "Accept-Language": cfg.PxAcceptLang
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",  #  tbh maybe I should just use a Windows UA
+        "Accept-Language": cfg.PxAcceptLang,
     }
 
     if g.get("userPxCSRF"):
@@ -19,8 +21,9 @@ def getHeaders():
 
     return headers
 
+
 def pixivReq(endpoint):
-    
+
     start = time.perf_counter()
     req = requests.get("https://www.pixiv.net" + endpoint, headers=getHeaders())
     end = time.perf_counter()
@@ -33,13 +36,23 @@ def pixivReq(endpoint):
 
     return resp
 
+
 def pixivPostReq(endpoint, *, jsonPayload: dict = None, rawPayload: str = None):
 
     start = time.perf_counter()
     if jsonPayload:
-        req = requests.post("https://www.pixiv.net" + endpoint, headers=getHeaders(), json=jsonPayload)
+        req = requests.post(
+            "https://www.pixiv.net" + endpoint, headers=getHeaders(), json=jsonPayload
+        )
     elif rawPayload:
-        req = requests.post("https://www.pixiv.net" + endpoint, headers={**getHeaders(), "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"}, data=rawPayload)
+        req = requests.post(
+            "https://www.pixiv.net" + endpoint,
+            headers={
+                **getHeaders(),
+                "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+            },
+            data=rawPayload,
+        )
     else:
         raise TypeError("Neither json payload nor raw payload were provided.")
     end = time.perf_counter()
@@ -53,24 +66,29 @@ def pixivPostReq(endpoint, *, jsonPayload: dict = None, rawPayload: str = None):
     return resp
 
 
-
 def getLanding(mode: str = "all"):
     return pixivReq(f"/ajax/top/illust?mode={mode}")
+
 
 def getLatestFromFollowing(mode: str, page: int):
     return pixivReq(f"/ajax/follow_latest/illust?mode={mode}&p={page}")
 
+
 def getUserInfo(userId: int):
     return pixivReq(f"/ajax/user/{userId}?full=1")
 
+
 def getArtworkInfo(_id: int):
-    return pixivReq (f"/ajax/illust/{_id}")
+    return pixivReq(f"/ajax/illust/{_id}")
+
 
 def getArtworkPages(_id: int):
     return pixivReq(f"/ajax/illust/{_id}/pages")
 
+
 def getDiscovery(mode: str = "all", limit: int = 30):
     return pixivReq(f"/ajax/discovery/artworks?mode={mode}&limit={limit}")
+
 
 def getRelatedArtworks(_id: int, limit: int = 30):
     return pixivReq(f"/ajax/illust/{_id}/recommend/init?limit={limit}")
