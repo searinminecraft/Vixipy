@@ -22,7 +22,7 @@ nav {
 	align-items: center;
 	justify-content: space-between;
 	background-color: #11111b;
-	padding: 8px 1em
+	padding: 12px 1em
 }
 
 input[type="radio"] {
@@ -39,6 +39,10 @@ label, select, textarea {
 		align-items: unset;
 		gap: 8px;
 		flex-direction: column
+	}
+
+	.navbar .actions .curruser span {
+		display: block !important ;
 	}
 }
 
@@ -97,9 +101,10 @@ footer .links {
 }
 
 .navbar .branding {
-	font-size: 18px;
+	font-size: 24px;
 	text-decoration: none;
 	font-weight: 600;
+	margin-right: 8px;
 }
 
 .navbar .actions {
@@ -115,10 +120,14 @@ footer .links {
 	gap: 6px;
 }
 
+.navbar .actions .curruser span {
+	display: none;
+}
+
 .navbar .actions .profileimg {
 	aspect-ratio: 1/1;
-	height: 26px;
-	width: 26px;
+	height: 32px;
+	width: 32px;
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
@@ -270,6 +279,56 @@ footer .links {
 .illust-area .illust-tags .tag {
 	margin: 0 6px;
 	font-size: 14px;
+}
+
+.user-container {
+	background-color: #181825;
+	width: 100%;
+	padding: 4px;
+}
+
+.user-container img.user-banner {
+	width: 100%;
+	max-height: 270px;
+	object-fit: cover;
+	object-position: center center;
+}
+
+.user-container .user-main,
+.user-container .user-data {
+	padding: 2em;
+	display: flex;
+}
+
+.user-container .user-main .user-info {
+	display: flex;
+}
+
+.user-container .user-main .user-info img.user-pfp {
+	aspect-ratio: 1/1;
+	height: 108px;
+	width: 108px;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 50%;
+	background-color: #313244;
+	margin-right: 2em
+}
+
+.user-container .user-main .user-info .user-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.user-container .user-main .user-info .user-name {
+	font-size: 26px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+
+.user-container .user-main .user-info .user-name .badge {
+	margin-left: 8px;
 }
 
 .error-page {

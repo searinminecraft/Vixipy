@@ -1,6 +1,8 @@
 from flask import Flask, Response, g, make_response, render_template, request
 import traceback
 
+from requests import ConnectionError
+
 from . import api
 
 from .core.landing import getLanding
@@ -11,6 +13,7 @@ from .routes import devtest
 from .routes import artworks
 from .routes import discover
 from .routes import userAction
+from .routes import users
 
 
 def create_app():
@@ -22,6 +25,7 @@ def create_app():
     app.register_blueprint(devtest.devtest)
     app.register_blueprint(discover.discover)
     app.register_blueprint(userAction.userAction)
+    app.register_blueprint(users.users)
 
     @app.errorhandler(api.PixivError)
     def handlePxError(e):
@@ -40,6 +44,16 @@ def create_app():
         )
         return resp, 500
 
+    @app.errorhandler(ConnectionError)
+    def handleConnectionError(e):
+        resp = make_response(
+            render_template(
+                "error.html",
+                error=f"Unable to complete request. Check instance's network connection or contact the instance administrator if the issue persists.",
+            )
+        )
+        return resp, 500
+
     @app.before_request
     def beforeReq():
 
@@ -49,7 +63,7 @@ def create_app():
 
         g.userPxSession = request.cookies.get("PyXivSession")
         g.userPxCSRF = request.cookies.get("PyXivCSRF")
-        g.userProxyServer = request.cookies.get("PyXivProxy")
+        g.userProxyServer = request.cookies.get("PyXivProxy", "")
 
         if not g.userPxSession and not g.userPxCSRF:
             g.isAuthorized = False

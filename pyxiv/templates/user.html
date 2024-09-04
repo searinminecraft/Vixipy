@@ -1,0 +1,36 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{ user.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="user-container">
+		{% if user.background %}
+		<a href="{{ user.background }}">
+			<img class="user-banner" src="{{ user.background }}" alt="{{ user.name }}'s background"/>
+		</a>
+		{% endif %}
+		<div class="user-main">
+			<div class="user-info">
+				<img class="user-pfp" src="{{ user.imageBig }}" alt="{{ user.name }}'s profile picture"/>
+				<div class="user-details">
+					<span class="user-name">
+						{{ user.name }}
+						{% if user.official %}
+						<img class="badge" src="/static/icons/verified.svg" title="This user is an official account"/>
+						{% endif %}
+						{% if user.premium %}
+						<img class="badge" src="/static/icons/premium.svg" title="This user is subscribed to pixiv premium"/>
+						{% endif %}
+					</span>
+					<span class="user-stats">{{ user.following }} following - {{ user.mypixiv }} mypixiv</span>
+				</div>
+			</div>
+		</div>
+		{% if user.comment %}
+		<div class="user-data">
+			{{ user.comment | safe }}
+		</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
