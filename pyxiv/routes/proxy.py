@@ -12,6 +12,8 @@ proxy = Blueprint("proxy", __name__, url_prefix="/proxy")
 @proxy.route("/<path:proxypath>", methods=["GET"])
 def proxyRequest(proxypath):
 
+    proxypath = proxypath.replace("https://", "")
+
     # not letting anyone use this for malicious intent :trolley:
     permittedProxies = ("i.pximg.net", "s.pximg.net", "ugoira.com")
 
@@ -44,6 +46,8 @@ def proxyRequest(proxypath):
         abort(500)
 
     def requestContent():
+
+        print(f"Started proxy request to https://{proxypath}")
 
         start = time.perf_counter()
 
