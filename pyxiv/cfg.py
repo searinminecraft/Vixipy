@@ -1,4 +1,3 @@
-
 import os
 
 PxSession = os.environ.get("PYXIV_TOKEN")

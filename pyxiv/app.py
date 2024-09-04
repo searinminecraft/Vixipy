@@ -76,6 +76,10 @@ def create_app():
 
         return render_template("index.html")
 
+    @app.route("/robots.txt")
+    def robotsTxt():
+        return "User-Agent: *\nDisallow: /"
+
     @app.route("/about")
     def about():
 
