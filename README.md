@@ -1,6 +1,6 @@
 <div align="center">
     
-![PyXiv logo](/static/pyxiv_wide.png)
+![PyXiv logo](/pyxiv/static/pyxiv_wide.png)
 
 # PyXiv
 
