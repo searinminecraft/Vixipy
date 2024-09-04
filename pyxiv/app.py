@@ -78,7 +78,8 @@ def create_app():
 
     @app.route("/robots.txt")
     def robotsTxt():
-        return "User-Agent: *\nDisallow: /"
+        print("Possible crawler:", request.user_agent, "accessed the robots.txt")
+        return "User-Agent: *\nDisallow: /", {"Content-Type": "text/plain"}
 
     @app.route("/about")
     def about():
