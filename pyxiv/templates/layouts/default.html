@@ -8,6 +8,9 @@
 		<link rel="stylesheet" href="/static/style.css">
 		<title>{% block title %}{% endblock %} | {{ g.instanceName }}</title>
 
+		{% block additionalHeadData %}
+		{% endblock %}
+
 		<script>
 			function cannotUnlike() {
 				alert("You cannot unlike posts.")

@@ -1,6 +1,15 @@
 {% extends "layouts/default.html" %}
 {% block title %}{{ data.artwork.title }}{% endblock %}
 
+{% block additionalHeadData %}
+<meta property="og:title" content="{{ data.artwork.title }} - PyXiv">
+<meta property="og:site_name" content="PyXiv">
+<meta property="og:type" content="article">
+<meta property="og:description" content="{{ data.artwork.title }} by {{ data.user.name }}">
+<meta property="og:image" content="https://embed.pixiv.net/artwork.php?illust_id={{ data.artwork._id }}">
+<meta property="og:url" content="/artworks/{{ data.artwork._id }}">
+{% endblock %}
+
 {% block content %}
 <div class="illust-area">
 	<div class="illusts">
