@@ -59,7 +59,7 @@ def create_app():
 
         route = request.full_path.split("/")[1]
 
-        g.version = "1.0"
+        g.version = "1.1"
 
         g.userPxSession = request.cookies.get("PyXivSession")
         g.userPxCSRF = request.cookies.get("PyXivCSRF")
