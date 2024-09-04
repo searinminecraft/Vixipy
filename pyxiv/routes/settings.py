@@ -1,6 +1,5 @@
 from flask import (
     Blueprint,
-    abort,
     make_response,
     redirect,
     request,
@@ -16,6 +15,8 @@ from .. import api
 from .. import cfg
 
 settings = Blueprint("settings", __name__, url_prefix="/settings")
+
+COOKIE_MAXAGE = 60 * 60 * 24 * 7  #  7 days
 
 
 @settings.route("/")
@@ -76,8 +77,10 @@ def setSession():
             )
 
         resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
-        resp.set_cookie("PyXivSession", f["token"])
-        resp.set_cookie("PyXivCSRF", csrf)
+        resp.set_cookie(
+            "PyXivSession", f["token"], max_age=COOKIE_MAXAGE, httponly=True
+        )
+        resp.set_cookie("PyXivCSRF", csrf, max_age=COOKIE_MAXAGE, httponly=True)
         return resp
     else:
         return render_template("error.html", error="No token supplied."), 400
@@ -89,4 +92,16 @@ def logout():
     resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
     resp.delete_cookie("PyXivSession")
     resp.delete_cookie("PyXivCSRF")
+    return resp
+
+
+@settings.post("/imgproxy")
+def setImgProxy():
+
+    f = request.form
+
+    resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
+    resp.set_cookie(
+        "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True
+    )
     return resp

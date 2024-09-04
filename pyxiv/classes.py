@@ -38,7 +38,6 @@ class ArtworkPage:
         self.thumbUrl = makeProxy(data["urls"]["regular"])
 
 
-
 class Artwork:
     def __init__(self, data):
         self._id = data["id"]

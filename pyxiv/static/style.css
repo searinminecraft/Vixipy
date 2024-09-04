@@ -25,6 +25,14 @@ nav {
 	padding: 8px 1em
 }
 
+input[type="radio"] {
+	display: inline-block
+}
+
+label, select, textarea {
+	display: block
+}
+
 @media screen and (max-width: 750px) {
 	nav {
 		justify-content: unset;
