@@ -4,6 +4,7 @@ import traceback
 from requests import ConnectionError
 
 from . import api
+from . import cfg
 
 from .core.landing import getLanding
 
@@ -60,6 +61,7 @@ def create_app():
         route = request.full_path.split("/")[1]
 
         g.version = "1.1"
+        g.instanceName = cfg.PxInstanceName
 
         g.userPxSession = request.cookies.get("PyXivSession")
         g.userPxCSRF = request.cookies.get("PyXivCSRF")

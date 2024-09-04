@@ -6,7 +6,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/static/style.css">
-		<title>{% if not self.title %}PyXiv{% else %}{% block title %}{% endblock %}{% endif %} - PyXiv</title>
+		<title>{% block title %}{% endblock %} | {{ g.instanceName }}</title>
 
 		<script>
 			function cannotUnlike() {
@@ -17,7 +17,7 @@
 	<body>
 		<nav class="navbar">
 			<div class="mainact">
-				<a class="branding" href="/">PyXiv</a>
+				<a class="branding" href="/">{{ g.instanceName }}</a>
 				<a href="/discover">Discover</a>
 				<a href="/rankings">Rankings</a>
 				<a href="/newest">Newest</a>
