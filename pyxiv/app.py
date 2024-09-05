@@ -6,7 +6,7 @@ from requests import ConnectionError
 from . import api
 from . import cfg
 
-from .core.landing import getLanding
+from .core.landing import getLandingPage, getLandingRanked
 
 from .routes import settings
 from .routes import proxy
@@ -88,10 +88,11 @@ def create_app():
     def home():
 
         if g.isAuthorized:
-            data = getLanding("all")
+            data = getLandingPage("all")
             return render_template("index.html", data=data)
 
-        return render_template("index.html")
+        data = getLandingRanked()
+        return render_template("index.html", data=data)
 
     @app.route("/robots.txt")
     def robotsTxt():

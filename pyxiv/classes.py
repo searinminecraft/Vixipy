@@ -1,5 +1,8 @@
 from .utils.converters import makeProxy
 
+#  tbh maybe i should make a Python library
+#  that interacts with the pixiv api...
+
 
 class User:
 
@@ -105,6 +108,30 @@ class ArtworkEntry(PartialArtwork):
         self.pageCount = data["pageCount"]
         self.authorProfilePic = makeProxy(data["profileImageUrl"])
         self.authorUrl = f"/users/{self.authorId}"
+
+
+class RankingEntry(ArtworkEntry):
+    def __init__(self, data):
+
+        #  this one has a different structure, so we need to reuse
+        #  the classes when possible
+
+        super().__init__(
+            {
+                "id": data["illust_id"],
+                "title": data["title"],
+                "url": data["url"],
+                "userId": data["user_id"],
+                "userName": data["user_name"],
+                "xRestrict": 0,  #  no way to determine
+                "aiType": 0,
+                "illustType": int(data["illust_type"]),
+                "pageCount": int(data["illust_page_count"]),
+                "profileImageUrl": data["profile_img"],
+            }
+        )
+
+        self.rank = data["rank"]
 
 
 class RecommendByTag:

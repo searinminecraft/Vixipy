@@ -24,6 +24,16 @@
 </div>
 {% endfor %}
 {% else %}
-<p>You are not logged in. You can log in <a href="/settings">here</a></p>
+
+<div class="container">
+	<h2>Today's rankings</h2>
+	<div class="artwork-container">
+		{% for d in data %}
+		{% include "components/artwork-prev.html" %}
+		{% endfor %}
+	</div>
+</div>
+
+
 {% endif %}
 {% endblock %}

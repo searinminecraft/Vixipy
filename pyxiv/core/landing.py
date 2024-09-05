@@ -1,15 +1,13 @@
-from .. import api
+from ..api import getLanding, getRanking
+from ..classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn, RankingEntry
 
-from ..classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn
 
-
-def getLanding(mode: str):
+def getLandingPage(mode: str):
     """
     Gets the landing page.
-    If the user is logged out, the rankings are returned instead.
     """
 
-    data = api.getLanding(mode)["body"]
+    data = getLanding(mode)["body"]
 
     artworks = {}
     recommended = []
@@ -28,3 +26,10 @@ def getLanding(mode: str):
         recommendByTag.append(RecommendByTag(idx["tag"], ids))
 
     return LandingPageLoggedIn(recommended, recommendByTag)
+
+
+def getLandingRanked():
+
+    data = getRanking()["contents"]
+
+    return [RankingEntry(x) for x in data]

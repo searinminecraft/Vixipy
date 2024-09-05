@@ -171,7 +171,9 @@ footer .links {
 	width: 250px;
 	height: 250px;
 	border-radius: 6px;
-	background-color: #cdd6f4
+	background-color: #cdd6f4;
+	object-fit: cover;
+	object-position: top center
 }
 
 .artwork-entry .artwork-author a {
@@ -208,14 +210,11 @@ footer .links {
 	justify-content: center;
 	align-items: center;
 	padding: 4px 8px;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.45);
 	color: #fff;
 	border-radius: 12px;
 	margin-right: 6px;
-}
-
-.artwork-entry .artwork-additional span {
-	margin-left: 6px
+	gap: 6px;
 }
 
 .artwork-entry .artwork-additional .metadata-icon {

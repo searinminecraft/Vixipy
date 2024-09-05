@@ -31,7 +31,7 @@ def pixivReq(endpoint):
     print(f"Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
 
     resp = req.json()
-    if resp["error"]:
+    if resp.get("error"):
         raise PixivError(resp["message"])
 
     return resp
@@ -122,3 +122,20 @@ def getRelatedArtworks(_id: int, limit: int = 30):
     Get the related artworks for an artwork
     """
     return pixivReq(f"/ajax/illust/{_id}/recommend/init?limit={limit}")
+
+
+def getRanking(
+    *, mode: str = "daily", date: int = None, content: str = None, p: int = 1
+):
+    """
+    Get artwork ranking data
+    """
+    path = f"/ranking.php?format=json&mode={mode}&p={p}"
+
+    if date:
+        path += f"&date={date}"
+
+    if content:
+        path += f"&content={content}"
+
+    return pixivReq(path)

@@ -1,6 +1,11 @@
 <div class="artwork-entry">
 	<div class="artwork-image">
 		<div class="artwork-additional">
+			{% if d.rank %}
+			<div class="metadata-chip">
+				<span>{{ d.rank }}</span>
+			</div>
+			{% endif %}
 			{% if d.isUgoira %}
 			<div class="metadata-chip">
 				<img class="metadata-icon" src="/static/icons/play_arrow.svg" />
