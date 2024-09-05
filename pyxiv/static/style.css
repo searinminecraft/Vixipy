@@ -190,6 +190,41 @@ footer .links {
 	background-color: #313224
 }
 
+.artwork-entry .artwork-image {
+	position: relative
+}
+
+.artwork-entry .artwork-additional {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	padding: 8px 8px 8px
+}
+
+.artwork-entry .artwork-additional .metadata-chip {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 4px 8px;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #fff;
+	border-radius: 12px;
+	margin-right: 6px;
+}
+
+.artwork-entry .artwork-additional span {
+	margin-left: 6px
+}
+
+.artwork-entry .artwork-additional .metadata-icon {
+	width: unset;
+	height: unset;
+	background-color: unset;
+	border-radius: unset;
+}
+
 .illust-area {
 	display: flex;
 	flex-direction: column;
@@ -344,5 +379,4 @@ footer .links {
 	width: 384px;
 	height: 384px;
 }
-
 

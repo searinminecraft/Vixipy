@@ -38,12 +38,45 @@ class ArtworkPage:
         self.thumbUrl = makeProxy(data["urls"]["regular"])
 
 
-class Artwork:
+class PartialArtwork:
+
     def __init__(self, data):
         self._id = data["id"]
         self.title = data["title"]
         self.xRestrict = data["xRestrict"]
         self.isAI = data["aiType"] == 2
+        self.illustType = data["illustType"]
+        self.isUgoira = self.illustType == 2
+        self.pageCount = data["pageCount"]
+        self.authorName = data["userName"]
+        self.authorId = data["userId"]
+
+    @property
+    def xRestrictClassification(self):
+        match self.xRestrict:
+            case 0:
+                return None
+            case 1:
+                return "R-18"
+            case _:
+                return "R-18G"
+
+    @property
+    def illustTypeClassification(self):
+        match self.illustType:
+            case 0:
+                return "Illustration"
+            case 1:
+                return "Manga"
+            case 2:
+                return "Ugoira"
+
+
+class Artwork(PartialArtwork):
+    def __init__(self, data):
+
+        super().__init__(data)
+
         self.thumbUrl = makeProxy(data["urls"]["regular"])
         self.originalUrl = makeProxy(data["urls"]["original"])
         self.pageCount = data["pageCount"]
@@ -59,45 +92,19 @@ class Artwork:
         self.bookmarked = data["bookmarkData"] is not None
         self.liked = data["likeData"] == True
 
-        self.authorName = data["userName"]
-        self.authorId = data["userId"]
-
         for tag in data["tags"]["tags"]:
             self.tags.append(Tag(tag))
 
-    @property
-    def xRestrictClassification(self):
-        match self.xRestrict:
-            case 0:
-                return None
-            case 1:
-                return "R-18"
-            case _:
-                return "R-18G"
 
-
-class ArtworkEntry:
+class ArtworkEntry(PartialArtwork):
     def __init__(self, data):
-        self._id = data["id"]
-        self.title = data["title"]
-        self.isAI = data["aiType"] == 2
+
+        super().__init__(data)
+
         self.thumbUrl = makeProxy(data["url"])
         self.pageCount = data["pageCount"]
-        self.xRestrict = data["xRestrict"]
-        self.authorId = data["userId"]
-        self.authorName = data["userName"]
         self.authorProfilePic = makeProxy(data["profileImageUrl"])
         self.authorUrl = f"/users/{self.authorId}"
-
-    @property
-    def xRestrictClassification(self):
-        match self.xRestrict:
-            case 0:
-                return None
-            case 1:
-                return "R-18"
-            case _:
-                return "R-18G"
 
 
 class RecommendByTag:

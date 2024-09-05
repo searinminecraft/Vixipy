@@ -13,6 +13,12 @@
 
 {% block content %}
 <div class="illust-area">
+	{% if data.artwork.isUgoira %}
+	<div>
+		<h2>PyXiv does not support Ugoira yet.</h2>
+		<p>You can go to <a href="https://ugoira.com/i/{{ data.artwork._id }}" rel="noopener noreferrer">ugoira.com</a> to view as well as download it instead.</p>
+	</div>
+	{% else %}
 	<div class="illusts">
 		{% if data.artwork.pageCount > 1 %}
 		{% for x in data.pages %}
@@ -30,6 +36,7 @@
 		</div>
 		{% endif %}
 	</div>
+	{% endif %}
 
 	<div class="illust-title">
 		<span>{{ data.artwork.title }}</span>
