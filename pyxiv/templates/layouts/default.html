@@ -27,7 +27,7 @@
 				<a href="/settings">Settings</a>
 			</div>
 			<form action="/tag" method="POST">
-				<input type="text" autocomplete="off" placeholder="Search artworks...">
+				<input type="text" autocomplete="off" name="tag" placeholder="Search artworks...">
 			</form>
 			<div class="actions">
 				{% if not g.isAuthorized %}

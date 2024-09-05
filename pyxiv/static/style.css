@@ -146,7 +146,16 @@ footer .links {
 	justify-content: space-evenly;
 }
 
+.artwork-scroll-container {
+	width: 100%;
+	display: flex;
+	gap: 8px;
+	overflow: hidden;
+	overflow-x: scroll
+}
+
 .artwork-entry {
+	min-width: 250px;
 	max-width: 250px;
 	overflow: hidden;
 	display: flex;
@@ -161,6 +170,8 @@ footer .links {
 
 .artwork-entry .title a {
 	white-space: nowrap;
+	overflow: hidden;
+	display: inline;
 	text-overflow: ellipsis;
 	max-width: 250px;
 	color: #ccd6f4;
@@ -363,6 +374,34 @@ footer .links {
 
 .user-container .user-main .user-info .user-name .badge {
 	margin-left: 8px;
+}
+
+.tag-meta {
+	display: flex;
+	background-color: #181825;
+	width: 100%;
+	height: 250px;
+}
+
+.tag-meta a.imglink {
+	position: relative
+}
+
+.tag-meta img {
+	height: 100%;
+	width: 225px;
+	object-fit: cover;
+	object-position: center left;
+	background-color: #313244;
+	margin-right: 2em;
+}
+
+.tag-meta .grad {
+	position: absolute;
+	top: 0;
+	width: 225px;
+	height: 100%;
+	background-image: linear-gradient(90deg, rgba(0,0,0,0), #181825)
 }
 
 .error-page {

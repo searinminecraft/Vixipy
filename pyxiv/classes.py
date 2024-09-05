@@ -32,6 +32,24 @@ class Tag:
         )
 
 
+class TagInfo:
+    def __init__(self, data):
+
+        self.tag = data["tag"]
+        self.word = data["word"]
+        self.abstract = (
+            data["pixpedia"]["abstract"] if data["pixpedia"].get("abstract") else None
+        )
+        self.image = makeProxy(data["pixpedia"]["image"])
+        self.imageId = int(data["pixpedia"]["id"])
+        self.imageTag = data["pixpedia"]["tag"]
+        self.enTranslation = (
+            data["tagTranslation"][self.tag]["en"]
+            if data["tagTranslation"] != {}
+            else None
+        )
+
+
 class ArtworkPage:
     def __init__(self, data):
         self.width = data["width"]
@@ -146,6 +164,28 @@ class LandingPageLoggedIn:
     ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag
+
+
+class SearchResults:
+    def __init__(self, data):
+        self.popularRecent = [ArtworkEntry(x) for x in data["popular"]["recent"]]
+        self.popularAllTime = [ArtworkEntry(x) for x in data["popular"]["permanent"]]
+        self.relatedTags = []
+        self.lastPage = data["illustManga"]["lastPage"]
+        self.total = data["illustManga"]["total"]
+        self.results = [ArtworkEntry(x) for x in data["illustManga"]["data"]]
+
+        for related in data["relatedTags"]:
+
+            newTagData = {}
+
+            newTagData["tag"] = related
+            if related in data["tagTranslation"]:
+                newTagData["translation"] = {
+                    "en": data["tagTranslation"][related]["en"]
+                }
+
+            self.relatedTags.append(Tag(newTagData))
 
 
 class ArtworkDetailsPage:

@@ -8,13 +8,7 @@ from . import cfg
 
 from .core.landing import getLandingPage, getLandingRanked
 
-from .routes import settings
-from .routes import proxy
-from .routes import devtest
-from .routes import artworks
-from .routes import discover
-from .routes import userAction
-from .routes import users
+from .routes import settings, proxy, devtest, artworks, discover, userAction, users, tag
 
 
 def create_app():
@@ -27,6 +21,7 @@ def create_app():
     app.register_blueprint(discover.discover)
     app.register_blueprint(userAction.userAction)
     app.register_blueprint(users.users)
+    app.register_blueprint(tag.tag)
 
     @app.errorhandler(api.PixivError)
     def handlePxError(e):

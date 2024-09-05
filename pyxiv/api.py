@@ -139,3 +139,66 @@ def getRanking(
         path += f"&content={content}"
 
     return pixivReq(path)
+
+
+# holy shit.
+def searchArtwork(
+    keyword: str,
+    *,
+    order: str = None,
+    mode: str = "safe",
+    s_mode: str = "s_tag",
+    wlt: int = None,
+    wgt: int = None,
+    hlt: int = None,
+    hgt: int = None,
+    ratio: int = None,
+    tool: str = None,
+    scd: str = None,
+    ecd: str = None,
+    p: int = 1,
+):
+    """
+    Search artworks
+
+    params: just refer to https://daydreamer-json.github.io/pixiv-ajax-api-docs/#search-artworks
+    """
+
+    path = f"/ajax/search/artworks/{keyword}?word={keyword}&mode={mode}&s_mode={s_mode}&p={p}"
+
+    if order:
+        path += f"&order=order"
+
+    if wlt:
+        path += f"&wlt={wlt}"
+
+    if hlt:
+        path += f"&hlt={hlt}"
+
+    if wgt:
+        path += f"&wgt={wgt}"
+
+    if hgt:
+        path += f"&hgt={hgt}"
+
+    if ratio:
+        path += f"&ratio={ratio}"
+
+    if tool:
+        path += f"&tool={tool}"
+
+    if scd:
+        path += f"&scd={scd}"
+
+    if ecd:
+        path += f"&ecd={ecd}"
+
+    return pixivReq(path)
+
+
+def getTagInfo(tag: str):
+    """
+    Get information about a tag
+    """
+
+    return pixivReq(f"/ajax/search/tags/{tag}")
