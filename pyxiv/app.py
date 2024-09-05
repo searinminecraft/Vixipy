@@ -60,6 +60,10 @@ def create_app():
 
         route = request.full_path.split("/")[1]
 
+
+        if route in ("static", "proxy", "robots.txt"):
+            return
+
         g.version = "1.1"
         g.instanceName = cfg.PxInstanceName
 
@@ -76,13 +80,12 @@ def create_app():
         else:
             g.isAuthorized = True
 
-            if route not in ("static", "proxy"):
-                userdata = api.getUserInfo(int(str(g.userPxSession).split("_")[0]))[
-                    "body"
-                ]
-                g.curruserId = userdata["userId"]
-                g.currusername = userdata["name"]
-                g.curruserimage = userdata["image"].replace("https://", "/proxy/")
+            userdata = api.getUserInfo(int(str(g.userPxSession).split("_")[0]))[
+                "body"
+            ]
+            g.curruserId = userdata["userId"]
+            g.currusername = userdata["name"]
+            g.curruserimage = userdata["image"].replace("https://", "/proxy/")
 
     @app.route("/")
     def home():
@@ -96,7 +99,7 @@ def create_app():
     @app.route("/robots.txt")
     def robotsTxt():
         print("Possible crawler:", request.user_agent, "accessed the robots.txt")
-        return "", {"Content-Type": "text/plain"}
+        return "User-Agent: *\nDisallow: /\nDisallow: /proxy\nAllow: /artworks/*\nAllow: /users/*", {"Content-Type": "text/plain"}
 
     @app.route("/about")
     def about():
