@@ -83,7 +83,8 @@ def create_app():
     def home():
 
         if g.isAuthorized:
-            data = getLandingPage("all")
+            mode = request.args.get("mode", "all")
+            data = getLandingPage(mode)
             return render_template("index.html", data=data)
 
         data = getLandingRanked()

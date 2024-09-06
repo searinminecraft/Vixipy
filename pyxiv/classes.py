@@ -160,10 +160,14 @@ class RecommendByTag:
 
 class LandingPageLoggedIn:
     def __init__(
-        self, recommended: list[ArtworkEntry], recommendByTag: list[RecommendByTag]
+        self,
+        recommended: list[ArtworkEntry],
+        recommendByTag: list[RecommendByTag],
+        newestFromFollowing: list[ArtworkEntry],
     ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag
+        self.newestFromFollowing: list[ArtworkEntry] = newestFromFollowing
 
 
 class SearchResults:

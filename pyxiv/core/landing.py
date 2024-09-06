@@ -1,5 +1,15 @@
-from ..api import getLanding, getRanking
+from ..api import getLanding, getRanking, getLatestFromFollowing
 from ..classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn, RankingEntry
+
+
+def getFollowingNew(mode: str, page: int = 1):
+    """
+    Gets new artworks from users you follow
+    """
+
+    data = getLatestFromFollowing(mode, page)["body"]
+
+    return [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]
 
 
 def getLandingPage(mode: str):
@@ -8,6 +18,7 @@ def getLandingPage(mode: str):
     """
 
     data = getLanding(mode)["body"]
+    newFromFollowing = getFollowingNew(mode)
 
     artworks = {}
     recommended = []
@@ -25,7 +36,7 @@ def getLandingPage(mode: str):
             ids.append(artworks[_id])
         recommendByTag.append(RecommendByTag(idx["tag"], ids))
 
-    return LandingPageLoggedIn(recommended, recommendByTag)
+    return LandingPageLoggedIn(recommended, recommendByTag, newFromFollowing)
 
 
 def getLandingRanked():

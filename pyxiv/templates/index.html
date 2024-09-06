@@ -5,11 +5,28 @@
 {% if g.isAuthorized %}
 
 <div class="container">
+	<h2>Newest from following users</h2>
+	<div class="artwork-scroll-container">
+		{% if data.newestFromFollowing | length > 0 %}
+		{% for d in data.newestFromFollowing %}
+		{% include "components/artwork-prev.html" %}
+		{% endfor %}
+		{% else %}
+		<p>Nothing to show!</p>
+		{% endif %}
+	</div>
+</div>
+
+<div class="container">
 	<h2>Recommended Artworks</h2>
 	<div class="artwork-container">
+		{% if data.recommended | length > 0 %}
 		{% for d in data.recommended %}
 		{% include "components/artwork-prev.html" %}
 		{% endfor %}
+		{% else %}
+		<p>Nothing to show!</p>
+		{% endif %}
 	</div>
 </div>
 
