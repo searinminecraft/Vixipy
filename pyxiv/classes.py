@@ -49,6 +49,7 @@ class TagInfo:
         except (KeyError, IndexError, TypeError):
             self.enTranslation = None
 
+
 class ArtworkPage:
     def __init__(self, data):
         self.width = data["width"]

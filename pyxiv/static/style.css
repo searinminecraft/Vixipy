@@ -138,6 +138,19 @@ footer .links {
 	width: 100%
 }
 
+.paginator {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 3em;
+	margin: 16px 0
+}
+
+.paginator a,
+.paginator span {
+	font-size: 24px;
+}
+
 .artwork-container {
 	width: 100%;
 	display: flex;

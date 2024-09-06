@@ -7,10 +7,41 @@ tag = Blueprint("tag", __name__, url_prefix="/tag")
 
 @tag.route("/<name>")
 def tagMain(name):
-    data = searchArtwork(name, **request.args)
+
+    args = request.args.copy()
+
+    data = searchArtwork(name, **args)
     tagInfo = getTagInfo(name)
 
-    return render_template("tag.html", data=data, tagInfo=tagInfo)
+    try:
+        currPage = args.pop("p")
+    except KeyError:
+        currPage = 1
+
+    if int(currPage) > data.lastPage:
+        return (
+            render_template(
+                "error.html",
+                error=f"Exceeded maximum pages ({currPage} > {data.lastPage}). Did you really try?",
+            ),
+            400,
+        )
+
+    if len(args) > 0:
+        useSym = "&"
+    else:
+        useSym = "?"
+
+    path = url_for("tag.tagMain", name=name, **args)
+
+    return render_template(
+        "tag.html",
+        data=data,
+        tagInfo=tagInfo,
+        currPage=currPage,
+        path=path,
+        useSym=useSym,
+    )
 
 
 @tag.post("/")

@@ -55,5 +55,23 @@
 	</div>
 </div>
 
+<div class="paginator">
+
+{% if currPage | int > 1 %}
+<a href={{ path + useSym + "p=" + ((currPage | int - 1) | string)  }}>&lt;</a>
+{% else %}
+<a href="">&lt;</a>
+{% endif %}
+
+<span>Page {{ currPage }} of {{ data.lastPage }}</span>
+
+{% if currPage | int != data.lastPage %}
+<a href={{ path + useSym + "p=" + ((currPage | int + 1) | string)  }}>&gt;</a>
+{% else %}
+<a href="">&gt;</a>
+{% endif %}
+
+</div>
+
 {% endblock %}
 
