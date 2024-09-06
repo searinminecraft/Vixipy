@@ -16,12 +16,17 @@ A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
 * Built-in proxy (to retrieve illustrations and images from pixiv)
 * Log in
 * Personalised landing page
-* Like and bookmark posts
+* Like and bookmark artworks
 * Discovery
+* View artworks
 * Related artworks
+* Search tags
+* View users (but not their artworks yet)
 
 # Planned features
 * AI / R-18 / R-18G filter
+* Tag search control
+* Image proxy caching
 
 # Screenshots
 
@@ -30,9 +35,13 @@ A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
 
 ![Screenshot of PyXiv's landing page, logged in as coolesdingdev](/screenshots/screenshot.png)
 
+![Screenshot of PyXiv's landing page, showing rankings](/screenshots/home_rankings.png)
+
 ![Screenshot of an illustration of Anna Yanami, with various information as well as related artworks](/screenshots/artwork.png)
 
 ![Screenshot of the discovery page](/screenshots/discover.png)
+
+![Screenshot of a tag search for "八奈見杏菜 (Anna Yanami)"](/screenshots/tag_search.png)
 
 </details>
 
