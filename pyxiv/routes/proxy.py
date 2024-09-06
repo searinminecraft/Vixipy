@@ -6,6 +6,17 @@ import time
 
 proxy = Blueprint("proxy", __name__, url_prefix="/proxy")
 
+
+@proxy.errorhandler(requests.ConnectionError)
+def handleConnectionError(e):
+    return f"Unable to complete request due to error: {e}", 500
+
+
+@proxy.errorhandler(requests.HTTPError)
+def handleHttpError(e):
+    return f"Unable to complete request due to error: {e}", 500
+
+
 # TODO: Caching, so my poor computer won't constantly re-download the porn
 
 
@@ -31,19 +42,15 @@ def proxyRequest(proxypath):
 
     # try to get first
 
+    r = requests.get(f"https://{proxypath}", stream=True, headers=headers)
+    r.raise_for_status()
+    respHeaders["Content-Type"] = r.headers["Content-Type"]
+    #  sometimes pixiv does not return content-length for whatever reason
     try:
-        r = requests.get(f"https://{proxypath}", stream=True, headers=headers)
-        r.raise_for_status()
-        respHeaders["Content-Type"] = r.headers["Content-Type"]
-
-        #  sometimes pixiv does not return content-length for whatever reason
-        try:
-            respHeaders["Content-Length"] = r.headers["Content-Length"]
-        except KeyError:
-            pass
-        r.close()
-    except Exception as e:
-        abort(500)
+        respHeaders["Content-Length"] = r.headers["Content-Length"]
+    except KeyError:
+        pass
+    r.close()
 
     def requestContent():
 
