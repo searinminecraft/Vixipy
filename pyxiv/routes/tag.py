@@ -10,9 +10,8 @@ def tagMain(name):
     data = searchArtwork(name, **request.args)
     tagInfo = getTagInfo(name)
 
-    return render_template(
-        "tag.html", data=data, tagInfo=tagInfo
-    )
+    return render_template("tag.html", data=data, tagInfo=tagInfo)
+
 
 @tag.post("/")
 def handleSearchBox():

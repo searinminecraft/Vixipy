@@ -43,11 +43,15 @@ class TagInfo:
         self.image = makeProxy(data["pixpedia"]["image"])
         self.imageId = int(data["pixpedia"]["id"])
         self.imageTag = data["pixpedia"]["tag"]
-        self.enTranslation = (
-            data["tagTranslation"][self.tag]["en"]
-            if len(data["tagTranslation"]) != 0
-            else None
-        )
+
+        @property
+        def enTranslation(self):
+            if len(data["tagTranslation"]) != 0:
+                if self.tag in data["tagTranslation"]:
+                    if data["tagTranslation"].get("en"):
+                        if data["tagTranslation"][self.tag]["en"] != "":
+                            return data["tagTranslation"]["en"]
+            return None
 
 
 class ArtworkPage:
