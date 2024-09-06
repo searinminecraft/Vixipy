@@ -380,7 +380,7 @@ footer .links {
 	display: flex;
 	background-color: #181825;
 	width: 100%;
-	height: 250px;
+	min-height: 250px;
 }
 
 .tag-meta a.imglink {
