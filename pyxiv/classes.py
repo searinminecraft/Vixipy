@@ -40,8 +40,14 @@ class TagInfo:
         self.abstract = (
             data["pixpedia"]["abstract"] if data["pixpedia"].get("abstract") else None
         )
-        self.image = makeProxy(data["pixpedia"]["image"])
-        self.imageId = int(data["pixpedia"]["id"])
+        self.image = (
+            makeProxy(data["pixpedia"]["image"])
+            if data["pixpedia"].get("image")
+            else "/static/yanami.png"
+        )
+        self.imageId = (
+            int(data["pixpedia"]["id"]) if data["pixpedia"].get("id") else 121839265
+        )
         self.imageTag = data["pixpedia"]["tag"]
 
         try:
