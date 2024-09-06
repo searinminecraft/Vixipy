@@ -7,6 +7,7 @@ from . import api
 from . import cfg
 
 from .core.landing import getLandingPage, getLandingRanked
+from .core.user import getUser
 
 from .routes import settings, proxy, devtest, artworks, discover, userAction, users, tag
 
@@ -55,7 +56,7 @@ def create_app():
 
         route = request.full_path.split("/")[1]
 
-        if route in ("static", "proxy", "robots.txt"):
+        if route in ("static", "proxy", "robots.txt", "favicon.ico"):
             return
 
         g.version = "1.2"
@@ -74,10 +75,7 @@ def create_app():
         else:
             g.isAuthorized = True
 
-            userdata = api.getUserInfo(int(str(g.userPxSession).split("_")[0]))["body"]
-            g.curruserId = userdata["userId"]
-            g.currusername = userdata["name"]
-            g.curruserimage = userdata["image"].replace("https://", "/proxy/")
+            g.userdata = getUser(g.userPxSession.split("_")[0])
 
     @app.route("/")
     def home():

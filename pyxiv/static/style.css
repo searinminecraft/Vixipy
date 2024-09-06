@@ -37,12 +37,17 @@ label, select, textarea {
 	nav {
 		justify-content: unset;
 		align-items: unset;
-		gap: 8px;
+		gap: 12px;
 		flex-direction: column
 	}
 
 	.navbar .actions .curruser span {
 		display: block !important ;
+	}
+
+	.navbar .actions .userActions {
+		top: 150px !important;
+		right: unset !important;
 	}
 }
 
@@ -120,7 +125,7 @@ footer .links {
 	gap: 6px;
 }
 
-.navbar .actions .curruser span {
+.navbar .actions .curruser span.name {
 	display: none;
 }
 
@@ -131,7 +136,43 @@ footer .links {
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: #313244
+	background-color: #313244;
+}
+
+.navbar .actions .menuToggler {
+	display: none
+}
+
+.navbar .actions .menu-label {
+	display: flex;
+	align-items: center;
+	gap: 8px
+}
+
+.navbar .actions .userActions {
+	display: none;
+	position: absolute;
+	top: 65px;
+	right: 10px;
+	background-color: #181825;
+	border-radius: 5px;
+	border: 2px solid;
+	border-color: #585b70
+}
+
+.navbar .actions .userActions .userActionsMain {
+	display: flex;
+	flex-direction: column;
+	padding: 8px;
+	gap: 6px
+}
+
+.navbar .actions .userActions .userActionsMain span {
+	font-weight: bold;
+}
+
+.navbar .actions .menuToggler:checked ~ .userActions {
+	display: block;
 }
 
 .container {

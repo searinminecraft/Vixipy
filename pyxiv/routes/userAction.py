@@ -8,7 +8,7 @@ userAction = Blueprint("userAction", __name__, url_prefix="/self")
 @userAction.route("/")
 def redirectToSelf():
 
-    return redirect(f"/users/{g.curruserId}")
+    return redirect(f"/users/{g.userdata._id}")
 
 
 @userAction.route("/addbookmark/<int:_id>")

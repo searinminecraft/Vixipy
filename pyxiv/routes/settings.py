@@ -89,7 +89,7 @@ def setSession():
 @settings.route("/logout")
 def logout():
 
-    resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
+    resp = make_response(redirect("/", code=303))
     resp.delete_cookie("PyXivSession")
     resp.delete_cookie("PyXivCSRF")
     return resp

@@ -33,10 +33,21 @@
 				{% if not g.isAuthorized %}
 				<a href="/settings">Log in</a>
 				{% else %}
-				<a class="curruser" href="/users/{{ g.curruserId }}" alt={{ g.currusername }}>
-					<img class="profileimg" src="{{ g.curruserimage }}"/>
-					<span>{{ g.currusername }}</span>
-				</a>
+				<span class="curruser" title="{{ g.userdata.name }}">
+					<input type="checkbox" id="menuToggler" class="menuToggler">
+					<label for="menuToggler" class="menu-label">
+						<img class="profileimg" src="{{ g.userdata.image }}"/>
+						<span class="name">{{ g.userdata.name }}</span>
+					</label>
+					<div class="userActions">
+						<div class="userActionsMain">
+							<span>Signed in as {{ g.userdata.name }}</span>
+							<a href="/self">Profile</a>
+							<a href="/self/bookmarks">Bookmarks</a>
+							<a href="/settings/logout">Sign out</a>
+						</div>
+					</div>
+				</span>
 				{% endif %}
 			</div>
 		</nav>
