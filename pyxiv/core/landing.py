@@ -33,7 +33,9 @@ def getLandingPage(mode: str):
     for idx in data["page"]["recommendByTag"]:
         ids = []
         for _id in idx["ids"]:
-            ids.append(artworks[_id])
+            if _id in artworks:
+                ids.append(artworks[_id])
+        
         recommendByTag.append(RecommendByTag(idx["tag"], ids))
 
     return LandingPageLoggedIn(recommended, recommendByTag, newFromFollowing)
