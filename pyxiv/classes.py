@@ -45,7 +45,7 @@ class TagInfo:
         self.imageTag = data["pixpedia"]["tag"]
         self.enTranslation = (
             data["tagTranslation"][self.tag]["en"]
-            if data["tagTranslation"] != {}
+            if len(data["tagTranslation"]) != 0
             else None
         )
 
