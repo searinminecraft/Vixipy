@@ -44,15 +44,10 @@ class TagInfo:
         self.imageId = int(data["pixpedia"]["id"])
         self.imageTag = data["pixpedia"]["tag"]
 
-        @property
-        def enTranslation(self):
-            if len(data["tagTranslation"]) != 0:
-                if self.tag in data["tagTranslation"]:
-                    if data["tagTranslation"].get("en"):
-                        if data["tagTranslation"][self.tag]["en"] != "":
-                            return data["tagTranslation"]["en"]
-            return None
-
+        try:
+            self.enTranslation = data["tagTranslation"][self.tag]["en"]
+        except (KeyError, IndexError, TypeError):
+            self.enTranslation = None
 
 class ArtworkPage:
     def __init__(self, data):
