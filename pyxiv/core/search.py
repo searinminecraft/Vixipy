@@ -3,14 +3,14 @@ from ..api import getTagInfo as gt
 from ..classes import SearchResults, TagInfo
 
 
-def searchArtwork(keyword: str, **kwargs):
+def searchArtwork(keyword: str, **kwargs) -> SearchResults:
 
     data = s(keyword, **kwargs)["body"]
 
     return SearchResults(data)
 
 
-def getTagInfo(tag: str):
+def getTagInfo(tag: str) -> TagInfo:
 
     data = gt(tag)["body"]
 

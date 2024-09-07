@@ -5,81 +5,164 @@ from .utils.converters import makeProxy
 
 
 class User:
+    """
+    Represents a user
+
+    Properties:
+    ===========
+
+    `int` _id: The user's ID
+    `str` name: The user's name
+    `str` comment: The user's biography
+    `str` image: The user's profile picture
+    `str` imageBig: The user's profile picture in a higher resolution
+    `int` following: The amount of users the user is following
+    `int` mypixiv: The user's mypixiv count
+    `bool` premium: Whether the user is subscribed to pixiv premium
+    `bool` official: Whether the user is an official account from pixiv
+    `str` background: The user's banner. Returns `None` if not set
+    """
 
     def __init__(self, data):
 
-        self._id = data["userId"]
-        self.name = data["name"]
-        self.comment = data["comment"]
-        self.image = makeProxy(data["image"])
-        self.imageBig = makeProxy(data["imageBig"])
-        self.following = data["following"]
-        self.mypixiv = data["mypixivCount"]
-        self.premium = data["premium"]
-        self.official = data["official"]
+        self._id: int = data["userId"]
+        self.name: str = data["name"]
+        self.comment: str = data["comment"]
+        self.image: str = makeProxy(data["image"])
+        self.imageBig: str = makeProxy(data["imageBig"])
+        self.following: int = data["following"]
+        self.mypixiv: int = data["mypixivCount"]
+        self.premium: bool = data["premium"]
+        self.official: bool = data["official"]
 
-        self.background = (
+        self.background: str = (
             makeProxy(data["background"]["url"]) if data["background"] else None
         )
 
 
 class Tag:
+    """
+    Represents a tag
+
+    Properties:
+    ===========
+
+    `str` tag: The tag's name
+    `str` enTranslation: The tag's English translation. `None` if not specified
+    """
+
     def __init__(self, data):
 
-        self.tag = data["tag"]
-        self.enTranslation = (
+        self.tag: str = data["tag"]
+        self.enTranslation: str = (
             data["translation"]["en"] if data.get("translation") else None
         )
 
 
 class TagInfo:
+    """
+    Represents information about a tag.
+
+    Properties:
+    ===========
+
+    `str` tag: The tag's name
+    `str` word: Unknown, but it seems to be the same as `tag`
+    `str` abstract: The tag's abstract or description. `None` if not set
+    `str` image: The tag's image. Returns Anna Yanami if not set
+    `int` imageId: The tag's image ID. Returns 121839265 or Anna Yanami if not set
+    `str` imageTag: ?
+    """
+
     def __init__(self, data):
 
-        self.tag = data["tag"]
-        self.word = data["word"]
-        self.abstract = (
+        self.tag: str = data["tag"]
+        self.word: str = data["word"]
+        self.abstract: str = (
             data["pixpedia"]["abstract"] if data["pixpedia"].get("abstract") else None
         )
-        self.image = (
+        self.image: str = (
             makeProxy(data["pixpedia"]["image"])
             if data["pixpedia"].get("image")
             else "/static/yanami.png"
         )
-        self.imageId = (
+        self.imageId: int = (
             int(data["pixpedia"]["id"]) if data["pixpedia"].get("id") else 121839265
         )
-        self.imageTag = data["pixpedia"]["tag"]
+        self.imageTag: str = data["pixpedia"]["tag"]
 
         try:
-            self.enTranslation = data["tagTranslation"][self.tag]["en"]
+            self.enTranslation: str = data["tagTranslation"][self.tag]["en"]
         except (KeyError, IndexError, TypeError):
-            self.enTranslation = None
+            self.enTranslation: str = None
 
 
 class ArtworkPage:
-    def __init__(self, data):
-        self.width = data["width"]
-        self.height = data["height"]
+    """
+    Represents a page in an artwork.
 
-        self.originalUrl = makeProxy(data["urls"]["original"])
-        self.thumbUrl = makeProxy(data["urls"]["regular"])
+    Properties:
+    ===========
+
+    `int` width: Image width
+    `int` height: Image height
+    `str` originalUrl: The original quality image URL
+    `str` thumbUrl: The image's thumbnail URL. Use `originalUrl` to get the original quality.
+    """
+
+    def __init__(self, data):
+        self.width: int = data["width"]
+        self.height: int = data["height"]
+
+        self.originalUrl: str = makeProxy(data["urls"]["original"])
+        self.thumbUrl: str = makeProxy(data["urls"]["regular"])
 
 
 class PartialArtwork:
+    """
+    Base class for all artwork-related classes.
+
+    Properties:
+    ===========
+
+    `int` _id: The artwork ID
+    `int` title: The artwork's title
+    `int` xRestrict: The raw value of the content filter type.
+    Can be any of the following:
+
+    0: Not rated
+    1: R-18G
+    Other: R-18
+
+    `bool` isAI: Whether the artwork is AI generated
+    `int` illustType: The raw value of the type of illustration.
+    Can be any of the following:
+
+    0: Illustration
+    1: Manga
+    2: Ugoira
+
+    `bool` isUgoira: Whether the artwork is Ugoira.
+    `int` pageCount: The amount of pages of the artwork
+    `str` authorName: The name of the author
+    `int` authorId: The ID of the author
+    `str` xRestrictClassification: A string representation of the content filter
+    `str` illustTypeClassification: A string representation of the artwork type
+    """
 
     def __init__(self, data):
-        self._id = data["id"]
-        self.title = data["title"]
-        self.xRestrict = data["xRestrict"]
-        self.isAI = data["aiType"] == 2
-        self.illustType = data["illustType"]
-        self.isUgoira = self.illustType == 2
-        self.pageCount = data["pageCount"]
-        self.authorName = data["userName"]
-        self.authorId = data["userId"]
+        self._id: int = data["id"]
+        self.title: int = data["title"]
+        self.xRestrict: int = data["xRestrict"]
+        self.isAI: bool = data["aiType"] == 2
+        self.illustType: int = data["illustType"]
+        self.isUgoira: bool = self.illustType == 2
+        self.pageCount: int = data["pageCount"]
+        self.authorName: str = data["userName"]
+        self.authorId: int = data["userId"]
 
     @property
-    def xRestrictClassification(self):
+    def xRestrictClassification(self) -> str:
         match self.xRestrict:
             case 0:
                 return None
@@ -89,7 +172,7 @@ class PartialArtwork:
                 return "R-18G"
 
     @property
-    def illustTypeClassification(self):
+    def illustTypeClassification(self) -> str:
         match self.illustType:
             case 0:
                 return "Illustration"
@@ -100,41 +183,81 @@ class PartialArtwork:
 
 
 class Artwork(PartialArtwork):
+    """
+    Represents an artwork.
+    This is a subclass of `PartialArtwork`
+
+    Properties:
+    ===========
+
+    `str` thumbUrl: The thumbnail image URL
+    `str` originalUrl: The original quality image URL
+    `int` viewCount: The amount of views the artwork has
+    `int` likeCount: The amount of likes the artwork has
+    `int` bookmarkCount: The amount of bookmarks the artwork has
+    `list[Tag]` tags: The artwork's tags
+    `int` bookmarkId: The ID of the current user's bookmark. `None` if the user hasn't bookmarked the artwork
+    `bool` bookmarked: Whether the current user has bookmarked the post
+    `bool` liked: Whether the current user has liked the post
+    """
+
     def __init__(self, data):
 
         super().__init__(data)
 
-        self.thumbUrl = makeProxy(data["urls"]["regular"])
-        self.originalUrl = makeProxy(data["urls"]["original"])
-        self.pageCount = data["pageCount"]
-        self.description = data["description"]
+        self.thumbUrl: str = makeProxy(data["urls"]["regular"])
+        self.originalUrl: str = makeProxy(data["urls"]["original"])
+        self.description: str = data["description"]
 
-        self.viewCount = data["viewCount"]
-        self.likeCount = data["likeCount"]
-        self.bookmarkCount = data["bookmarkCount"]
+        self.viewCount: int = data["viewCount"]
+        self.likeCount: int = data["likeCount"]
+        self.bookmarkCount: int = data["bookmarkCount"]
         self.tags: list[Tag] = []
 
-        self.bookmarkId = data["bookmarkData"]["id"] if data["bookmarkData"] else None
+        self.bookmarkId: int = (
+            data["bookmarkData"]["id"] if data["bookmarkData"] else None
+        )
 
-        self.bookmarked = data["bookmarkData"] is not None
-        self.liked = data["likeData"] == True
+        self.bookmarked: bool = data["bookmarkData"] is not None
+        self.liked: int = data["likeData"] == True
 
         for tag in data["tags"]["tags"]:
             self.tags.append(Tag(tag))
 
 
 class ArtworkEntry(PartialArtwork):
+    """
+    Represents an artwork entry (the artworks shown in recommended, rankings, etc.)
+    This is a subclass of `PartialArtwork`
+
+    Properties:
+    ===========
+
+    `str` thumbUrl: The thumbnail image URL
+    `str` authorProfilePic: The author's profile picture
+    `str` authorUrl: The author's URL
+    """
+
     def __init__(self, data):
 
         super().__init__(data)
 
-        self.thumbUrl = makeProxy(data["url"])
-        self.pageCount = data["pageCount"]
-        self.authorProfilePic = makeProxy(data["profileImageUrl"])
-        self.authorUrl = f"/users/{self.authorId}"
+        self.thumbUrl: str = makeProxy(data["url"])
+        self.authorProfilePic: str = makeProxy(data["profileImageUrl"])
+        self.authorUrl: str = f"/users/{self.authorId}"
 
 
 class RankingEntry(ArtworkEntry):
+    """
+    Represents an entry in rankings.
+    This is a subclass of `ArtworkEntry`
+
+    Properties:
+    ===========
+
+    `int` rank: The artwork's rank
+    """
+
     def __init__(self, data):
 
         #  this one has a different structure, so we need to reuse
@@ -155,7 +278,80 @@ class RankingEntry(ArtworkEntry):
             }
         )
 
-        self.rank = data["rank"]
+        self.rank: int = data["rank"]
+
+
+class SearchResults:
+    """
+    Represents search results.
+
+    Properties:
+    ===========
+
+    `list[ArtworkEntry]` popularRecent: The recent popular artworks
+    `list[ArtworkEntry]` popularAllTime: The all-time popular artworks
+    `list[Tag]` relatedTags: The related tags
+    `int` lastPage: The last page. Hard-capped to 1000 by the API
+    `list[ArtworkEntry]` results: The results of the search.
+    """
+
+    def __init__(self, data):
+        self.popularRecent: list[ArtworkEntry] = [
+            ArtworkEntry(x) for x in data["popular"]["recent"]
+        ]
+        self.popularAllTime: list[ArtworkEntry] = [
+            ArtworkEntry(x) for x in data["popular"]["permanent"]
+        ]
+        self.relatedTags: list[Tag] = []
+        self.lastPage: int = data["illustManga"]["lastPage"]
+        self.total: int = data["illustManga"]["total"]
+        self.results: list[ArtworkEntry] = [
+            ArtworkEntry(x) for x in data["illustManga"]["data"]
+        ]
+
+        for related in data["relatedTags"]:
+
+            newTagData = {}
+
+            newTagData["tag"] = related
+            if related in data["tagTranslation"]:
+                newTagData["translation"] = {
+                    "en": data["tagTranslation"][related]["en"]
+                }
+
+            self.relatedTags.append(Tag(newTagData))
+
+
+class UserBookmarks:
+    """
+    Represents a user's bookmarks.
+
+    Properties:
+    ===========
+
+    `list[ArtworkEntry]` works: The artworks the user has bookmarked
+    `int` total: The total bookmarks
+    """
+
+    def __init__(self, data):
+        self.works: list[ArtworkEntry] = [ArtworkEntry(x) for x in data["works"]]
+
+        self.total: int = data["total"]
+
+
+class ArtworkDetailsPage:
+    def __init__(
+        self,
+        artwork: Artwork,
+        pages: list[ArtworkPage],
+        user: User,
+        related: list[ArtworkEntry],
+    ):
+
+        self.artwork: Artwork = artwork
+        self.pages: list[Artwork] = pages
+        self.user: User = user
+        self.related: list[ArtworkEntry] = related
 
 
 class RecommendByTag:
@@ -174,40 +370,3 @@ class LandingPageLoggedIn:
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag
         self.newestFromFollowing: list[ArtworkEntry] = newestFromFollowing
-
-
-class SearchResults:
-    def __init__(self, data):
-        self.popularRecent = [ArtworkEntry(x) for x in data["popular"]["recent"]]
-        self.popularAllTime = [ArtworkEntry(x) for x in data["popular"]["permanent"]]
-        self.relatedTags = []
-        self.lastPage = data["illustManga"]["lastPage"]
-        self.total = data["illustManga"]["total"]
-        self.results = [ArtworkEntry(x) for x in data["illustManga"]["data"]]
-
-        for related in data["relatedTags"]:
-
-            newTagData = {}
-
-            newTagData["tag"] = related
-            if related in data["tagTranslation"]:
-                newTagData["translation"] = {
-                    "en": data["tagTranslation"][related]["en"]
-                }
-
-            self.relatedTags.append(Tag(newTagData))
-
-
-class ArtworkDetailsPage:
-    def __init__(
-        self,
-        artwork: Artwork,
-        pages: list[ArtworkPage],
-        user: User,
-        related: list[ArtworkEntry],
-    ):
-
-        self.artwork: Artwork = artwork
-        self.pages: list[Artwork] = pages
-        self.user: User = user
-        self.related: list[ArtworkEntry] = related

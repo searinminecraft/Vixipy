@@ -202,3 +202,10 @@ def getTagInfo(tag: str):
     """
 
     return pixivReq(f"/ajax/search/tags/{tag}")
+
+def getUserBookmarks(_id: int, tag: str = "", offset: int = 0, limit: int = 30):
+    """
+    Get a user's bookmarks
+    """
+
+    return pixivReq(f"/ajax/user/{_id}/illusts/bookmarks?tag={tag}&offset={offset}&limit={limit}")
