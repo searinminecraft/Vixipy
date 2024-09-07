@@ -1,0 +1,13 @@
+{% extends "layouts/default.html" %}
+{% block title %}Discover{% endblock %}
+
+{% block content %}
+<h1>Newest Artworks</h1>
+<div class="container">
+	<div class="artwork-container">
+		{% for d in data %}
+		{% include "components/artwork-prev.html" %}
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

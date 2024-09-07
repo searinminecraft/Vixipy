@@ -11,7 +11,17 @@ from .core.user import getUser
 
 from .classes import User
 
-from .routes import settings, proxy, devtest, artworks, discover, userAction, users, tag
+from .routes import (
+    settings,
+    proxy,
+    devtest,
+    artworks,
+    discover,
+    userAction,
+    users,
+    tag,
+    newest,
+)
 
 
 def create_app():
@@ -25,6 +35,7 @@ def create_app():
     app.register_blueprint(userAction.userAction)
     app.register_blueprint(users.users)
     app.register_blueprint(tag.tag)
+    app.register_blueprint(newest.newest)
 
     @app.errorhandler(api.PixivError)
     def handlePxError(e):
