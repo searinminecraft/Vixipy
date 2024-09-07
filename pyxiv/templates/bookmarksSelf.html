@@ -1,0 +1,25 @@
+{% extends "layouts/default.html" %}
+{% block title %}Your bookmarks{% endblock %}
+
+{% block content %}
+<h1>Your bookmarks</h1>
+<div class="container">
+    <div class="artwork-container">
+        {% for d in data.works %}
+        {% include "components/artwork-prev.html" %}
+        {% endfor %}
+    </div>
+    <div class="paginator">
+        {% if canGoPrevious %}
+        <a href="?offset={{ (request.args['offset'] | int) - 30 }}">&lt;</a>
+        {% else %}
+        <a>&lt;</a>
+        {% endif %}
+        {% if canGoNext %}
+        <a href="?offset={{ (request.args.get('offset', 0) | int) + 30 }}">&gt;</a>
+        {% else %}
+        <a>&gt;</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

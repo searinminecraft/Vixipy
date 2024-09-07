@@ -13,7 +13,7 @@ def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
     return [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]
 
 
-def getUser(_id: int):
+def getUser(_id: int) -> User:
     """Get a user"""
 
     data = api.getUserInfo(_id)["body"]

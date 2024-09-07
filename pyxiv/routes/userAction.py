@@ -1,6 +1,7 @@
-from flask import Blueprint, g, redirect, request
+from flask import Blueprint, g, redirect, render_template, request
 
 from .. import api
+from ..core.user import getUserBookmarks
 
 userAction = Blueprint("userAction", __name__, url_prefix="/self")
 
@@ -9,6 +10,42 @@ userAction = Blueprint("userAction", __name__, url_prefix="/self")
 def redirectToSelf():
 
     return redirect(f"/users/{g.userdata._id}")
+
+
+@userAction.route("/bookmarks")
+def yourBookmarks():
+
+    offset = request.args.get("offset")
+
+    if offset:
+        try:
+            data = getUserBookmarks(g.userdata._id, offset=offset)
+            if len(data.works) > 30:
+                r, extra = divmod(data.total, int(offset))
+                d, _ = divmod(extra, int(offset))
+
+                canGoPrevious = True
+                if d > 0:
+                    canGoNext = True
+                else:
+                    canGoNext = False
+            else:
+                canGoNext = False
+                canGoPrevious = False
+        except ZeroDivisionError:
+            canGoNext = True
+            canGoPrevious = False
+    else:
+        data = getUserBookmarks(g.userdata._id)
+        canGoPrevious = False
+        canGoNext = True
+
+    return render_template(
+        "bookmarksSelf.html",
+        data=data,
+        canGoNext=canGoNext,
+        canGoPrevious=canGoPrevious,
+    )
 
 
 @userAction.route("/addbookmark/<int:_id>")

@@ -9,6 +9,8 @@ from . import cfg
 from .core.landing import getLandingPage, getLandingRanked
 from .core.user import getUser
 
+from .classes import User
+
 from .routes import settings, proxy, devtest, artworks, discover, userAction, users, tag
 
 
@@ -75,7 +77,7 @@ def create_app():
         else:
             g.isAuthorized = True
 
-            g.userdata = getUser(g.userPxSession.split("_")[0])
+            g.userdata: User = getUser(g.userPxSession.split("_")[0])
 
     @app.route("/")
     def home():

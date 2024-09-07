@@ -157,7 +157,8 @@ footer .links {
 	background-color: #181825;
 	border-radius: 5px;
 	border: 2px solid;
-	border-color: #585b70
+	border-color: #585b70;
+	z-index: 1
 }
 
 .navbar .actions .userActions .userActionsMain {
