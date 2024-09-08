@@ -3,16 +3,14 @@
 
 {% block content %}
 <div class="error-page">
-	<a href="/artworks/121839265">
-		<img src="/static/yanami.png" alt="Anna Yanami" id="yanami"/>
-	</a>
+	<img src="/static/yanami.png" alt="Snek, PyXiv's mascot" id="yanami"/>
 
 	{% if pixivError %}
-	<h1>Pixiv Error!</h1>
+	<h1>pixiv Error!</h1>
 	<p>An error occurred trying to complete a request to pixiv. Please contact the instance administrator. ({{ error }})</p>
 	{% else %}
 	<h1>Error!</h1>
-	<p>Sorry, this isn't supposed to happen. Have a Yanami instead.</p>
+	<p>Sorry, this isn't supposed to happen. Have Snek instead.</p>
 	<p>{{ error }}</p>
 	{% endif %}
 </div>
