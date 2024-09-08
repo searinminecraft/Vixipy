@@ -56,8 +56,6 @@ def proxyRequest(proxypath):
 
     def requestContent():
 
-        print(f"Started proxy request to https://{proxypath}")
-
         start = time.perf_counter()
 
         for ch in r.iter_content(10 * 1024):
@@ -66,7 +64,7 @@ def proxyRequest(proxypath):
         end = time.perf_counter()
 
         print(
-            "Completed proxy request to",
+            "PROXY    | Completed proxy request to",
             f"https://{proxypath}",
             f"(Connection start: {round((connEnd - connStart) * 1000)}ms,",
             f"complete stream: {round((end - start) * 1000)}ms)",
