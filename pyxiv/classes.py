@@ -126,7 +126,7 @@ class PartialArtwork:
     ===========
 
     `int` _id: The artwork ID
-    `int` title: The artwork's title
+    `str` title: The artwork's title
     `int` xRestrict: The raw value of the content filter type.
     Can be any of the following:
 
@@ -152,7 +152,7 @@ class PartialArtwork:
 
     def __init__(self, data):
         self._id: int = data["id"]
-        self.title: int = data["title"]
+        self.title: str = data["title"]
         self.xRestrict: int = data["xRestrict"]
         self.isAI: bool = data["aiType"] == 2
         self.illustType: int = data["illustType"]
