@@ -42,15 +42,17 @@ def proxyRequest(proxypath):
 
     # try to get first
 
+    connStart = time.perf_counter()
     r = requests.get(f"https://{proxypath}", stream=True, headers=headers)
     r.raise_for_status()
+    connEnd = time.perf_counter()
+
     respHeaders["Content-Type"] = r.headers["Content-Type"]
     #  sometimes pixiv does not return content-length for whatever reason
     try:
         respHeaders["Content-Length"] = r.headers["Content-Length"]
     except KeyError:
         pass
-    r.close()
 
     def requestContent():
 
@@ -58,15 +60,18 @@ def proxyRequest(proxypath):
 
         start = time.perf_counter()
 
-        with requests.get(f"https://{proxypath}", stream=True, headers=headers) as r:
-
-            for ch in r.iter_content(10 * 1024):
-                yield ch
+        for ch in r.iter_content(10 * 1024):
+            yield ch
 
         end = time.perf_counter()
 
         print(
-            f"Completed proxy request https://{proxypath} in {round((end - start) * 1000)}ms"
+            "Completed proxy request to",
+            f"https://{proxypath}",
+            f"(Connection start: {round((connEnd - connStart) * 1000)}ms,",
+            f"complete stream: {round((end - start) * 1000)}ms)",
         )
+
+        r.close()
 
     return requestContent(), respHeaders
