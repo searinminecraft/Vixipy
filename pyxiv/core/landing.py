@@ -1,7 +1,7 @@
 from ..api import getLanding, getRanking
 from ..classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn, RankingEntry
 from ..core.user import getFollowingNew
-
+from ..utils.filtering import filterEntriesFromPreferences
 
 def getLandingPage(mode: str) -> LandingPageLoggedIn:
     """
@@ -29,7 +29,7 @@ def getLandingPage(mode: str) -> LandingPageLoggedIn:
 
         recommendByTag.append(RecommendByTag(idx["tag"], ids))
 
-    return LandingPageLoggedIn(recommended, recommendByTag, newFromFollowing)
+    return LandingPageLoggedIn(filterEntriesFromPreferences(recommended), recommendByTag, newFromFollowing)
 
 
 def getLandingRanked() -> list[RankingEntry]:

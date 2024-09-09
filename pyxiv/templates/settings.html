@@ -26,7 +26,24 @@
 
 {% endif %}
 
-<h2>Proxy server</h2>
+<h1>General</h1>
+
+<form action="/settings/setPref" method="POST">
+	{% set hideAIPref = (request.cookies.get('PyXivHideAI') == '1') %}
+	{% set hideR18Pref = (request.cookies.get('PyXivHideR18') == '1') %}
+	<label>
+		<input type="checkbox" name="hideAI" {% if hideAIPref %}checked{% endif %}>
+		Hide AI Generated artworks
+	</label>
+	<label>
+		<input type="checkbox" name="hideR18" {% if hideR18Pref %}checked{% endif %}>
+		Hide R-18/R-18G artworks
+	</label>
+	<br>
+	<button type="submit">Save preferences</button>
+</form>
+
+<h1>Proxy server</h1>
 <p>A pixiv image proxy server allows you to access images from pixiv without your device making any connection to pixiv servers.</p>
 
 <p>PyXiv has a built-in proxy server, but if you don't like it or if you find it too slow (it may just be the instance owner's/vps' network connection :p), you can specify one below. Only images from the domain <code>i.pximg.net</code> will use the specified proxy server.</p>
@@ -52,7 +69,6 @@
 
 <h2>Custom proxy server</h2>
 <p>You can specify a custom image proxy here.</p>
-
 <h3>Examples</h3>
 
 <ul>

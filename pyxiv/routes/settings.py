@@ -105,3 +105,35 @@ def setImgProxy():
         "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True
     )
     return resp
+
+@settings.post("/setPref")
+def setPreferences():
+    hideAIPref = request.form.get('hideAI')
+    hideR18Pref = request.form.get('hideR18')
+
+    resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
+
+    resp.delete_cookie("PyXivHideAI")
+    resp.delete_cookie("PyXivHideR18")
+
+    for pref in request.form:
+        match pref:
+            case "hideAI":
+                resp.set_cookie(
+                        "PyXivHideAI",
+                        '1',
+                        max_age=COOKIE_MAXAGE,
+                        httponly=True
+                )
+            case "hideR18":
+                resp.set_cookie(
+                        "PyXivHideR18",
+                        '1',
+                        max_age=COOKIE_MAXAGE,
+                        httponly=True
+                )
+            case _:
+                pass
+
+    return resp
+

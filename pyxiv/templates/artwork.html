@@ -116,6 +116,12 @@
 
 <h2>Related</h2>
 
+{% if g.get('omittedByFilter') %}
+<i>Some entries have been hidden due to filters</i>
+<br>
+<br>
+{% endif %}
+
 <div class="container">
 	<div class="artwork-container">
 		{% for d in data.related %}

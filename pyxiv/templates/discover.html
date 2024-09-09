@@ -3,6 +3,10 @@
 
 {% block content %}
 <h1>Discover Artworks</h1>
+{% if g.get('omittedByFilter') %}
+<i>Some entries have been hidden due to filters</i>
+{% endif %}
+
 {% if not g.isAuthorized %}
 <p>Note: the suggestions are based on the instance's pixiv account's algorithm and personalisation</p>
 {% endif %}

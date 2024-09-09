@@ -1,6 +1,7 @@
 from .. import api
 
 from ..classes import Artwork, ArtworkPage, ArtworkEntry
+from ..utils.filtering import filterEntriesFromPreferences
 
 
 def getArtwork(_id: int) -> Artwork:
@@ -21,4 +22,4 @@ def getRelatedArtworks(_id: int, limit: int = 30) -> list[ArtworkEntry]:
     """Get's the related artworks for the specified artwork ID"""
 
     data = api.getRelatedArtworks(_id, limit)["body"]
-    return [ArtworkEntry(x) for x in data["illusts"]]
+    return filterEntriesFromPreferences([ArtworkEntry(x) for x in data["illusts"]])

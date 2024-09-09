@@ -2,7 +2,12 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 <h1>Welcome to PyXiv!</h1>
+
 {% if g.isAuthorized %}
+
+{% if g.get('omittedByFilter') %}
+<i>Some entries have been hidden due to filters</i>
+{% endif %}
 
 <div class="container">
 	<h2>Newest from following users</h2>

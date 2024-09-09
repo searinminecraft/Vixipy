@@ -20,6 +20,11 @@
 	</div>
 </div>
 
+<br>
+{% if g.get('omittedByFilter') %}
+<i>Some entries have been hidden due to filters</i>
+{% endif %}
+
 <h1>Popular artworks</h1>
 
 <div class="container">
@@ -49,9 +54,13 @@
 
 <div class="container">
 	<div class="artwork-container">
+		{% if data.results | length != 0 %}
 		{% for d in data.results %}
 		{% include "components/artwork-prev.html" %}
 		{% endfor %}
+		{% else %}
+		<p>Nothing to show!</p>
+		{% endif %}
 	</div>
 </div>
 
