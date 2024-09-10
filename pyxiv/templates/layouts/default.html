@@ -1,9 +1,6 @@
 <!doctype html>
 <html>
 	<head>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/static/style.css">
 		<title>{% block title %}{% endblock %} | {{ g.instanceName }}</title>
@@ -18,7 +15,7 @@
 		</script>
 	</head>
 	<body>
-		<nav class="navbar">
+		<header class="navbar">
 			<div class="mainact">
 				<a class="branding" href="/">{{ g.instanceName }}</a>
 				<a href="/discover">Discover</a>
@@ -50,10 +47,12 @@
 				</span>
 				{% endif %}
 			</div>
-		</nav>
+		</header>
 		<main>
+			<div class="content">
 			{% block content %}
 			{% endblock %}
+			</div>
 		</main>
 		<footer>
 			<span>PyXiv {{ g.version }} - This website is not affiliated with pixiv. Illustrations &copy; pixiv and authors</span>

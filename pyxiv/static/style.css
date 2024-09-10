@@ -13,10 +13,10 @@ body {
 	color: #cdd6f4;
 	background-color: #1e1e2e;
 	margin: 0;
-	font-family: "Lato", sans-serif;
+	font-family: sans-serif;
 }
 
-nav {
+header {
 	display: flex;
 	padding: 0 1em;
 	align-items: center;
@@ -34,7 +34,7 @@ label, select, textarea {
 }
 
 @media screen and (max-width: 750px) {
-	nav {
+	header {
 		justify-content: unset;
 		align-items: unset;
 		gap: 12px;
@@ -60,6 +60,13 @@ main {
 	flex-grow: 1;
 	padding: 1em;
 	margin-bottom: 12px;
+	display: flex;
+	justify-content: center;
+}
+
+.content {
+	max-width: 1200px;
+	width: 100%;
 }
 
 input[type="text"] {
