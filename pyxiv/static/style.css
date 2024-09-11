@@ -517,6 +517,23 @@ hr {
 	background-image: linear-gradient(90deg, rgba(0,0,0,0), #181825)
 }
 
+.related-tags {
+	width: 100%;
+	display: flex;
+	overflow: hidden;
+	overflow-x: scroll;
+	scrollbar-width: none;
+	gap: 16px;
+	align-items: center;
+}
+
+.related-tags .tag {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	flex-shrink: 0
+}
+
 .error-page {
 	width: 100%;
 	height: 100%;
