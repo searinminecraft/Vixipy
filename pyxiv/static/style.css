@@ -421,6 +421,7 @@ hr {
 
 .illust-area .illust-tags {
 	display: flex;
+	align-items: center;
 	flex-wrap: wrap;
 }
 
@@ -437,6 +438,13 @@ hr {
 .illust-area .illust-tags .tag {
 	margin: 0 6px;
 	font-size: 14px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.illust-area .illust-tags .tag i {
+	padding-top: 3px;
 }
 
 .user-container {
@@ -523,15 +531,19 @@ hr {
 	overflow: hidden;
 	overflow-x: scroll;
 	scrollbar-width: none;
-	gap: 16px;
 	align-items: center;
 }
 
 .related-tags .tag {
 	display: flex;
 	gap: 6px;
+	margin-right: 16px;
 	align-items: center;
 	flex-shrink: 0
+}
+
+.related-tags .tag i {
+	padding-top: 3px;
 }
 
 .error-page {
