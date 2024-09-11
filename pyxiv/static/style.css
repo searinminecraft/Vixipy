@@ -451,6 +451,10 @@ hr {
 	padding-top: 3px;
 }
 
+.illust-area .illust-description a {
+	display: inline-block
+}
+
 .user-container {
 	background-color: #181825;
 	width: 100%;
