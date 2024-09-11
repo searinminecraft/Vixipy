@@ -38,6 +38,7 @@
 	</div>
 	{% endif %}
 
+	<br>
 	<div class="illust-title">
 		<span>{{ data.artwork.title }}</span>
 		{% if g.isAuthorized %}
@@ -110,12 +111,14 @@
 		</div>
 		{% endfor %}
 	</div>
-	<br>
+	{% if data.artwork.description %}
 	<div class="illust-description">
+		<h3>Description</h3>
 		<p>
 		{{ data.artwork.description|safe }}
 		</p>
 	</div>
+	{% endif %}
 </div>
 
 <h2>Related</h2>

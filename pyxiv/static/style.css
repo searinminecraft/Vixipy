@@ -291,7 +291,7 @@ hr {
 .artwork-entry img {
 	width: 250px;
 	height: 250px;
-	border-radius: 6px;
+	border-radius: 12px;
 	background-color: #cdd6f4;
 	object-fit: cover;
 	object-position: top center
@@ -323,7 +323,7 @@ hr {
 	left: 0;
 	right: 0;
 	display: flex;
-	padding: 8px 8px 8px
+	padding: 6px 6px 6px
 }
 
 .artwork-entry .artwork-additional .metadata-chip {
@@ -336,7 +336,7 @@ hr {
 	font-weight: bold;
 	height: 32px;
 	min-width: 32px;
-	border-radius: 12px;
+	border-radius: 14px;
 	margin-right: 6px;
 	gap: 6px;
 }
@@ -353,8 +353,13 @@ hr {
 	flex-direction: column;
 	gap: 6px;
 	background-color: #181825;
-	padding: 1em 2em;
+	padding: 2em;
 	width: 100%;
+	border-radius: 24px;
+}
+
+.illust-area hr {
+	width: 80%
 }
 
 .illust-area .illusts {
@@ -370,7 +375,8 @@ hr {
 
 .illust-area .illust img {
 	max-height: 1000px;
-	max-width: 100%
+	max-width: 100%;
+	border-radius: 16px;
 }
 
 .illust-area .illust-title {
@@ -458,7 +464,7 @@ hr {
 .user-container {
 	background-color: #181825;
 	width: 100%;
-	padding: 4px;
+	border-radius: 24px;
 }
 
 .user-container img.user-banner {
@@ -466,6 +472,7 @@ hr {
 	max-height: 270px;
 	object-fit: cover;
 	object-position: center center;
+	border-radius: 24px 24px 0 0;
 }
 
 .user-container .user-main,
@@ -510,6 +517,7 @@ hr {
 	background-color: #181825;
 	width: 100%;
 	min-height: 250px;
+	border-radius: 24px;
 }
 
 .tag-meta a.imglink {
@@ -523,6 +531,7 @@ hr {
 	object-position: center left;
 	background-color: #313244;
 	margin-right: 2em;
+	border-radius: 24px 0 0 24px;
 }
 
 .tag-meta .grad {
