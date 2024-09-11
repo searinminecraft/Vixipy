@@ -28,7 +28,7 @@
 			</form>
 			<div class="actions">
 				{% if not g.isAuthorized %}
-				<a href="/settings">Log in</a>
+				<b><a href="/settings">Log in</a></b>
 				{% else %}
 				<span class="curruser" title="{{ g.userdata.name }}">
 					<input type="checkbox" id="menuToggler" class="menuToggler">

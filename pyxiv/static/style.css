@@ -19,11 +19,11 @@ body {
 
 header {
 	display: flex;
-	padding: 0 1em;
 	align-items: center;
 	justify-content: space-between;
 	background-color: #11111b;
-	padding: 12px 1em
+	padding: 12px 1.5em;
+	border-radius: 0 0 24px 24px;
 }
 
 input[type="radio"] {
@@ -54,7 +54,8 @@ label, select, textarea {
 		justify-content: unset;
 		align-items: unset;
 		gap: 12px;
-		flex-direction: column
+		flex-direction: column;
+		padding-bottom: 1em;
 	}
 
 	footer {
@@ -88,7 +89,7 @@ a {
 main {
 	flex-grow: 1;
 	padding: 1em;
-	margin-bottom: 12px;
+	margin: 12px 0;
 	display: flex;
 	justify-content: center;
 }
@@ -146,8 +147,9 @@ hr {
 .navbar input[type="text"] {
 	height: 32px;
 	border: none !important;
+	padding: 4px 16px !important;
 	width: 384px;
-	border-radius: unset !important
+	border-radius: 32px;
 }
 
 .navbar .mainact {
