@@ -1,7 +1,6 @@
 {% extends "layouts/default.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<h1>Welcome to PyXiv!</h1>
 
 {% if g.isAuthorized %}
 
@@ -10,7 +9,7 @@
 {% endif %}
 
 <div class="container">
-	<h2>Newest from following users</h2>
+	<h2>Newest from users you follow</h2>
 	<div class="artwork-scroll-container">
 		{% if data.newestFromFollowing | length > 0 %}
 		{% for d in data.newestFromFollowing %}
@@ -23,7 +22,7 @@
 </div>
 
 <div class="container">
-	<h2>Recommended Artworks</h2>
+	<h2>Recommended works</h2>
 	<div class="artwork-container">
 		{% if data.recommended | length > 0 %}
 		{% for d in data.recommended %}
@@ -37,7 +36,7 @@
 
 {% for t in data.recommendByTag %}
 <div class="container">
-	<h2>Recommended Artworks with tag <a href="/tag/{{ t.name }}">#{{ t.name }}</a></h2>
+	<h2>Recommended works with tag <a href="/tag/{{ t.name }}">#{{ t.name }}</a></h2>
 	<div class="artwork-container">
 		{% for d in t.artworks %}
 		{% include "components/artwork-prev.html" %}

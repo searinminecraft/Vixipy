@@ -14,6 +14,7 @@ body {
 	background-color: #1e1e2e;
 	margin: 0;
 	font-family: sans-serif;
+	accent-color: #74c7ec
 }
 
 header {
@@ -33,12 +34,35 @@ label, select, textarea {
 	display: block
 }
 
+*::-webkit-scrollbar {
+	width: 0.5em;
+	background-color: #11111b
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #74c7ec;
+	border-radius: 25px;
+}
+
+.artwork-scroll-container::-webkit-scrollbar {
+	height: 4px;
+	background-color: transparent !important;
+}
+
 @media screen and (max-width: 750px) {
 	header {
 		justify-content: unset;
 		align-items: unset;
 		gap: 12px;
 		flex-direction: column
+	}
+
+	footer {
+		flex-direction: column;
+		justify-content: unset !important;
+		text-align: center;
+		gap: 12px;
+		padding: 12px 0 !important;
 	}
 
 	.navbar .actions .curruser span {
@@ -49,6 +73,11 @@ label, select, textarea {
 		top: 150px !important;
 		right: unset !important;
 	}
+
+	.navbar input[type="text"] {
+		width: 100% !important;
+	}
+
 }
 
 a {
@@ -72,20 +101,26 @@ main {
 input[type="text"] {
 	border-color: #313244;
 	background-color: #181825;
-	font-size: 18px;
-	padding: 4px;
+	font-size: 16px;
+	padding: 4px 6px;
 	color: #cdd6f4;
 	border-style: solid;
-	border-radius: 5px
+	border-radius: 5px;
+	height: 36px;
+	font-family: sans-serif;
+	width: 24em;
 }
 
 button {
 	color: #11111b;
 	background-color: #74c7ec;
-	font-size: 18px;
+	font-size: 16px;
 	border-radius: 5px;
 	border: none;
 	padding: 4px 12px;
+	height: 32px;
+	font-family: sans-serif;
+	font-weight: bold;
 }
 
 footer {
@@ -100,6 +135,19 @@ footer {
 footer .links {
 	display: flex;
 	gap: 1em;
+}
+
+hr {
+	border: 1px solid;
+	border-radius: 10px;
+	border-color: #313244
+}
+
+.navbar input[type="text"] {
+	height: 32px;
+	border: none !important;
+	width: 384px;
+	border-radius: unset !important
 }
 
 .navbar .mainact {
@@ -285,14 +333,17 @@ footer .links {
 	padding: 4px 8px;
 	background-color: rgba(0, 0, 0, 0.45);
 	color: #fff;
+	font-weight: bold;
+	height: 32px;
+	min-width: 32px;
 	border-radius: 12px;
 	margin-right: 6px;
 	gap: 6px;
 }
 
 .artwork-entry .artwork-additional .metadata-icon {
-	width: unset;
-	height: unset;
+	width: 18px;
+	height: 18px;
 	background-color: unset;
 	border-radius: unset;
 }

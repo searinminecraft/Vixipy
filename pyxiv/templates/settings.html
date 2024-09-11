@@ -5,9 +5,11 @@
 
 <h1>Settings</h1>
 
+<hr>
+
 {% if not g.isAuthorized %}
 
-<h2>Log in to your pixiv account</h2>
+<h1>Log in to your pixiv account</h1>
 <p>Log in to your pixiv account to get a personalised feed and the ability to like and bookmark posts. To do this, you must get your pixiv PHPSESSID cookie. See the guide <a href="https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/" rel="noopener noreferrer">from PixivFE</a> for details. Your token is stored locally and will not be stored on the server.</p>
 
 <form action="/settings/token" method="POST">
@@ -17,7 +19,7 @@
 
 {% else %}
 
-<h2>Log out</h2>
+<h1>Log out</h1>
 <p>Click on the button below to securely log out.</p>
 
 <form action="/settings/logout">
@@ -25,6 +27,8 @@
 </form>
 
 {% endif %}
+<br>
+<hr>
 
 <h1>General</h1>
 
@@ -42,6 +46,9 @@
 	<br>
 	<button type="submit">Save preferences</button>
 </form>
+
+<br>
+<hr>
 
 <h1>Proxy server</h1>
 <p>A pixiv image proxy server allows you to access images from pixiv without your device making any connection to pixiv servers.</p>
