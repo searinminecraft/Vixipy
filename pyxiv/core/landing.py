@@ -1,7 +1,22 @@
-from ..api import getLanding, getRanking
-from ..classes import ArtworkEntry, RecommendByTag, LandingPageLoggedIn, RankingEntry
+from ..api import getLanding, getRanking, getRecommendedUsers
+from ..classes import (
+    ArtworkEntry,
+    RecommendByTag,
+    LandingPageLoggedIn,
+    RankingEntry,
+    RecommendedUser,
+)
 from ..core.user import getFollowingNew
 from ..utils.filtering import filterEntriesFromPreferences
+
+
+def _getRecommendedUsers(limit: int = 10):
+    """Get recommended users"""
+
+    data = getRecommendedUsers(limit)["body"]
+
+    return [RecommendedUser(x) for x in data["users"]]
+
 
 def getLandingPage(mode: str) -> LandingPageLoggedIn:
     """
@@ -10,6 +25,7 @@ def getLandingPage(mode: str) -> LandingPageLoggedIn:
 
     data = getLanding(mode)["body"]
     newFromFollowing = getFollowingNew(mode)
+    recommendedUsers = _getRecommendedUsers()
 
     artworks = {}
     recommended = []
@@ -29,7 +45,12 @@ def getLandingPage(mode: str) -> LandingPageLoggedIn:
 
         recommendByTag.append(RecommendByTag(idx["tag"], ids))
 
-    return LandingPageLoggedIn(filterEntriesFromPreferences(recommended), recommendByTag, newFromFollowing)
+    return LandingPageLoggedIn(
+        filterEntriesFromPreferences(recommended),
+        recommendByTag,
+        newFromFollowing,
+        recommendedUsers,
+    )
 
 
 def getLandingRanked() -> list[RankingEntry]:

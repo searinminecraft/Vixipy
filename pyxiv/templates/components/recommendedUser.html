@@ -1,0 +1,19 @@
+<a href="/users/{{ d._id }}">
+<div class="recommended-user">
+    <div class="profileImage">
+        <img src="{{ d.imageBig }}">
+        <div class="grad"></div>
+    </div>
+    <div class="user-details">
+        <h2 class="user-name">
+            {{ d.name }}
+            {% if d.premium %}
+			<img class="badge" src="/static/icons/premium.svg" title="This user is subscribed to pixiv premium"/>
+			{% endif %}
+        </h2>
+        {% if d.acceptRequest %}
+        <p class="accept-commission">Accepting commissions</p>
+        {% endif %}
+    </div>
+</div>
+</a>

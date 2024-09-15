@@ -4,9 +4,9 @@ from .utils.converters import makeProxy
 #  that interacts with the pixiv api...
 
 
-class User:
+class PartialUser:
     """
-    Represents a user
+    Base class for all user-related classes
 
     Properties:
     ===========
@@ -16,27 +16,70 @@ class User:
     `str` comment: The user's biography
     `str` image: The user's profile picture
     `str` imageBig: The user's profile picture in a higher resolution
-    `int` following: The amount of users the user is following
-    `int` mypixiv: The user's mypixiv count
-    `bool` premium: Whether the user is subscribed to pixiv premium
-    `bool` official: Whether the user is an official account from pixiv
     `str` background: The user's banner. Returns `None` if not set
+    `bool` premium: Whether the user is subscribed to pixiv premium
     """
 
     def __init__(self, data):
 
-        self._id: int = data["userId"]
+        self._id: int = int(data["userId"])
         self.name: str = data["name"]
         self.comment: str = data["comment"]
         self.image: str = makeProxy(data["image"])
         self.imageBig: str = makeProxy(data["imageBig"])
-        self.following: int = data["following"]
-        self.mypixiv: int = data["mypixivCount"]
         self.premium: bool = data["premium"]
-        self.official: bool = data["official"]
-
         self.background: str = (
             makeProxy(data["background"]["url"]) if data["background"] else None
+        )
+
+
+class User(PartialUser):
+    """
+    Represents a user
+    This is a subclass of `PartialUser`
+
+    Properties:
+    ===========
+
+    `int` following: The amount of users the user is following
+    `int` mypixiv: The user's mypixiv count
+    `bool` official: Whether the user is an official account from pixiv
+    """
+
+    def __init__(self, data):
+
+        super().__init__(data)
+
+        self.following: int = data["following"]
+        self.mypixiv: int = data["mypixivCount"]
+        self.official: bool = data["official"]
+
+
+class RecommendedUser(PartialUser):
+    """
+    Represents a recommended user
+    This is a subclass of `PartialUser`
+
+    Properties:
+    ===========
+
+    `dict` commission: Raw properties for commission data. For internal use
+    `bool` acceptRequest: Whether the user is accepting commissions
+    `bool` isSubscribedReopenNotification: Whether the current is subscribed to when the user will reopen commissions again
+    """
+
+    def __init__(self, data):
+
+        super().__init__(data)
+
+        self.commission = data["commission"]
+        self.acceptRequest = (
+            self.commission["acceptRequest"] if self.commission else False
+        )
+        self.isSubscribedReopenNotification = (
+            self.commission["isSubscribedReopenNotification"]
+            if self.commission
+            else False
         )
 
 
@@ -369,7 +412,9 @@ class LandingPageLoggedIn:
         recommended: list[ArtworkEntry],
         recommendByTag: list[RecommendByTag],
         newestFromFollowing: list[ArtworkEntry],
+        recommendedUsers: list[RecommendedUser]
     ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag
         self.newestFromFollowing: list[ArtworkEntry] = newestFromFollowing
+        self.recommendedUsers: list[RecommendedUser] = recommendedUsers

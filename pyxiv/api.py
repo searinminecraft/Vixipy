@@ -28,7 +28,9 @@ def pixivReq(endpoint):
     req = requests.get("https://www.pixiv.net" + endpoint, headers=getHeaders())
     end = time.perf_counter()
 
-    print(f"PIXIVAPI | Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
+    print(
+        f"PIXIVAPI | Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms"
+    )
 
     resp = req.json()
     if resp.get("error"):
@@ -66,7 +68,9 @@ def pixivPostReq(endpoint, *, jsonPayload: dict = None, rawPayload: str = None):
         raise TypeError("Neither json payload nor raw payload were provided.")
     end = time.perf_counter()
 
-    print(f"PIXIVAPI | POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
+    print(
+        f"PIXIVAPI | POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms"
+    )
 
     resp = req.json()
     if resp["error"]:
@@ -218,3 +222,9 @@ def getNewestArtworks():
     """Get newest artworks"""
 
     return pixivReq("/ajax/illust/new")
+
+
+def getRecommendedUsers(limit: int = 10):
+    """Get recommended users (shown in pixiv landing page)"""
+
+    return pixivReq(f"/ajax/discovery/users?limit={limit}")

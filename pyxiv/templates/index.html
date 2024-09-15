@@ -34,6 +34,15 @@
 	</div>
 </div>
 
+<div class="container">
+	<h2>Recommended users</h2>
+	<div class="artwork-scroll-container">
+		{% for d in data.recommendedUsers%}
+		{% include "components/recommendedUser.html" %}
+		{% endfor %}
+	</div>
+</div>
+
 {% for t in data.recommendByTag %}
 <div class="container">
 	<h2>Recommended works with tag <a href="/tag/{{ t.name }}">#{{ t.name }}</a></h2>
