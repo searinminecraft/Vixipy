@@ -412,7 +412,7 @@ class LandingPageLoggedIn:
         recommended: list[ArtworkEntry],
         recommendByTag: list[RecommendByTag],
         newestFromFollowing: list[ArtworkEntry],
-        recommendedUsers: list[RecommendedUser]
+        recommendedUsers: list[RecommendedUser],
     ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag

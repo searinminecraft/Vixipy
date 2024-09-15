@@ -4,6 +4,7 @@ from ..core.discovery import getNewestArtworks
 
 newest = Blueprint("newest", __name__, url_prefix="/newest")
 
+
 @newest.route("/")
 def newestMain():
 
