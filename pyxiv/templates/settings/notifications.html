@@ -1,0 +1,47 @@
+{% extends "settings/settingsMain.html" %}
+{% set currentSection = "notifications" %}
+
+{% block settingsPage%}
+
+<h2>Notifications</h2>
+
+<p>You can tweak your pixiv account's notification/mail settings here.</p>
+<p><b>NOTE:</b> these do nothing for now and serves a more of a placeholder.</p>
+<br>
+
+<form action="/settings/setNotificationPrefs" method="post">
+<h3>Notification preferences</h3>
+{% for x in nsItems %}
+<div class="toggle-switch">
+	<label for="{{x}}">{{ nsItems[x]["label"] }}</label>
+	{% if nsItems[x]["disabled"] %}
+	<input type="checkbox" id="{{x}}" disabled checked>
+	{% else %}
+	<input type="checkbox" id="{{x}}" {% if nsItems[x]['value'] == 1 %}checked{% endif %}>
+	{% endif %}
+</div>
+{% endfor %}
+<br>
+<button type="submit">Save preferences</button>
+</form>
+
+<h3>Mail preferences</h3>
+
+<form action="/settings/setMailPrefs" method="post">
+{% for x in msItems %}
+<div class="toggle-switch">
+	<label for="{{x}}">{{ msItems[x]["label"] }}</label>
+	{% if msItems[x]["disabled"] %}
+	<input type="checkbox" id="{{x}}" disabled checked>
+	{% else %}
+	<input type="checkbox" id="{{x}}" {% if msItems[x]['value'] == 1 %}checked{% endif %}>
+	{% endif %}
+</div>
+{% endfor %}
+<br>
+<button type="submit">Save preferences</button>
+</form>
+
+
+
+{% endblock %}
