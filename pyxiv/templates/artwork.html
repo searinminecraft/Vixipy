@@ -14,10 +14,11 @@
 {% block content %}
 <div class="illust-area">
 	{% if data.artwork.isUgoira %}
-	<div>
-		<h2>PyXiv does not support Ugoira yet.</h2>
-		<p>You can go to <a href="https://ugoira.com/i/{{ data.artwork._id }}" rel="noopener noreferrer">ugoira.com</a> to view as well as download it instead.</p>
+	<div class="illusts">
+		<video class="ugoira" autoplay muted loop disablepictureinpicture playsinline poster="{{ data.pages[0].thumbUrl }}" src="/proxy/ugoira/{{ data.artwork._id }}">
 	</div>
+	<a href="/proxy/ugoira/{{ data.artwork._id }}">Download</a>
+	<a href="https://ugoira.com/i/{{ data.artwork._id }}">Go to ugoira.com for more options like GIF conversion.</a>
 	{% else %}
 	<div class="illusts">
 		{% if data.artwork.pageCount > 1 %}
