@@ -228,3 +228,21 @@ def getRecommendedUsers(limit: int = 10):
     """Get recommended users (shown in pixiv landing page)"""
 
     return pixivReq(f"/ajax/discovery/users?limit={limit}")
+
+def getUserArtworks(_id: int):
+
+    return pixivReq(f"/ajax/user/{_id}/profile/all")
+
+def getUserIllustEntries(_id: int, *, work_category: str = "illustManga", lang: str = "en", ids: list):
+
+    path = (
+        f"/ajax/user/{_id}/profile/illusts"
+        f"?work_category={work_category}"
+        "&is_first_page=0"
+        f"&lang={lang}"
+    )
+
+    for e in ids:
+        path += f"&ids[]={e}"
+
+    return pixivReq(path)

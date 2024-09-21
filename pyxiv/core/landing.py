@@ -15,8 +15,24 @@ def _getRecommendedUsers(limit: int = 10):
 
     data = getRecommendedUsers(limit)["body"]
 
-    return [RecommendedUser(x) for x in data["users"]]
+    res = []
+    artworks = {}
+    users = {}
 
+    for a in data["thumbnails"]["illust"]:
+        artworks[int(a["id"])] = a
+
+    for u in data["users"]:
+        users[int(u["userId"])] = u
+
+    for r in data["recommendedUsers"]:
+        recent = []
+        for ar in r["recentIllustIds"]:
+            recent.append(ArtworkEntry(artworks[int(ar)]))
+        
+        res.append(RecommendedUser(users[int(r["userId"])], recent))
+
+    return res
 
 def getLandingPage(mode: str) -> LandingPageLoggedIn:
     """

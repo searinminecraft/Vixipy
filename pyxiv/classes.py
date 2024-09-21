@@ -55,34 +55,6 @@ class User(PartialUser):
         self.official: bool = data["official"]
 
 
-class RecommendedUser(PartialUser):
-    """
-    Represents a recommended user
-    This is a subclass of `PartialUser`
-
-    Properties:
-    ===========
-
-    `dict` commission: Raw properties for commission data. For internal use
-    `bool` acceptRequest: Whether the user is accepting commissions
-    `bool` isSubscribedReopenNotification: Whether the current is subscribed to when the user will reopen commissions again
-    """
-
-    def __init__(self, data):
-
-        super().__init__(data)
-
-        self.commission = data["commission"]
-        self.acceptRequest = (
-            self.commission["acceptRequest"] if self.commission else False
-        )
-        self.isSubscribedReopenNotification = (
-            self.commission["isSubscribedReopenNotification"]
-            if self.commission
-            else False
-        )
-
-
 class Tag:
     """
     Represents a tag
@@ -291,6 +263,36 @@ class ArtworkEntry(PartialArtwork):
 
     def __repr__(self):
         return f"<ArtworkEntry _id={self._id} title={self.title} author={self.authorName} xRestrict={self.xRestrict} isAI={self.isAI} isUgoira={self.isUgoira}>"
+
+
+class RecommendedUser(PartialUser):
+    """
+    Represents a recommended user
+    This is a subclass of `PartialUser`
+
+    Properties:
+    ===========
+
+    `dict` commission: Raw properties for commission data. For internal use
+    `bool` acceptRequest: Whether the user is accepting commissions
+    `bool` isSubscribedReopenNotification: Whether the current is subscribed to when the user will reopen commissions again
+    """
+
+    def __init__(self, data, recentArtworks: list[ArtworkEntry]):
+
+        super().__init__(data)
+
+        self.commission = data["commission"]
+        self.acceptRequest = (
+            self.commission["acceptRequest"] if self.commission else False
+        )
+        self.isSubscribedReopenNotification = (
+            self.commission["isSubscribedReopenNotification"]
+            if self.commission
+            else False
+        )
+        self.recentArtworks: list[ArtworkEntry] = recentArtworks
+
 
 
 class RankingEntry(ArtworkEntry):
