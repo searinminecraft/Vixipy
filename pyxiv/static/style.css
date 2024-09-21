@@ -121,7 +121,7 @@ input[type="text"] {
 .toggle-switch input {
 	appearance: none;
 	cursor: pointer;
-	width: 48px;
+	min-width: 48px;
 	height: 28px;
 	background-color: #6c7086;
 	border-radius: 14px;
@@ -667,6 +667,9 @@ hr {
 
 .settings .side {
 	flex: 30%;
+	display: flex;
+	row-gap: 6px;
+	flex-direction: column;
 }
 
 .settings .side a {
@@ -676,12 +679,17 @@ hr {
 	font-weight: bold;
 	align-items: center;
 	color: #a6adc8;
+	border-radius: 32px;
+	transition: 125ms ease
+}
+
+.settings .side a:hover {
+	background-color: #45475a
 }
 
 .settings .side a.selected {
 	background-color: #74c7ec;
-	border-radius: 32px;
-	color: #11111b
+	color: #11111b !important
 }
 
 .settings .side a > svg {

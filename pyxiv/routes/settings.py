@@ -37,6 +37,25 @@ def mainSettings(ep):
             return render_template("settings/account.html")
         case "viewing":
             return render_template("settings/viewing.html")
+        case "notifications":
+            c = api.getUserSettings()["body"]
+            
+            notificationSettingsItems = {}
+            mailSettingsItems = {}
+
+            for ns in c["notifications"]["items"]:
+                if ns["type"] != "setting":
+                    continue
+
+                notificationSettingsItems[ns["settingKey"]] = {"label": ns["label"], "disabled": ns["disabled"], "value": ns["value"]}
+
+            for ms in c["mail"]["items"]:
+                if ms["type"] != "setting":
+                    continue
+
+                mailSettingsItems[ms["settingKey"]] = {"label": ms["label"], "disabled": ms["disabled"], "value": ms["value"]}
+
+            return render_template("settings/notifications.html", nsItems=notificationSettingsItems, msItems=mailSettingsItems)
         case "about":
             return render_template("about")
         case "premium":
