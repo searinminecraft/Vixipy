@@ -1,0 +1,46 @@
+{% extends "settings/settingsMain.html" %}
+{% set currentSection = "index" %}
+
+{% block settingsPage %}
+
+<h2>PyXiv Settings</h2>
+
+<h3>Proxy server</h3>
+<p>A pixiv image proxy server allows you to access images from pixiv without your device making any connection to pixiv servers.</p>
+
+<p>PyXiv has a built-in proxy server, but if you don't like it or if you find it too slow (it may just be the instance owner's/vps' network connection :p), you can specify one below. Only images from the domain <code>i.pximg.net</code> will use the specified proxy server.</p>
+<br>
+<p>Your current preferred proxy server: {{ g.userProxyServer}}</p>
+
+<form action="/settings/imgproxy" method="POST">
+	<label>
+		<input type="radio" name="image-proxy" required="true" value>
+		Use built-in proxy server (should be reliable enough)
+	</label>
+	<label>
+		<input type="radio" name="image-proxy" required="true" value="https://pximg.exozy.me">
+		https://pximg.exozy.me
+	</label>
+	<label>
+		<input type="radio" name="image-proxy" required="true" value="https://i.pixiv.re">
+		https://i.pixiv.re
+	</label>
+	<br>
+	<button type="submit">Use selected proxy</button>
+</form>
+
+<h4>Custom proxy server</h4>
+<p>You can specify a custom image proxy here.</p>
+<h3>Examples</h3>
+
+<ul>
+	<li>https://pximg.exozy.me</li>
+	<li>http://localhost:5000/proxy/i.pximg.net</li>
+</ul>
+
+<form action="/settings/imgproxy" method="POST">
+	<input type="text" name="image-proxy" autocomplete="off" required="true"></input>
+	<button type="submit">Use proxy server</button>
+</form>
+{% endblock %}
+

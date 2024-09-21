@@ -18,11 +18,24 @@ settings = Blueprint("settings", __name__, url_prefix="/settings")
 
 COOKIE_MAXAGE = 60 * 60 * 24 * 7  #  7 days
 
-
 @settings.route("/")
-def mainSettings():
-    return render_template("settings.html")
+def settingsIndex():
+    return render_template("settings/pyxivSettings.html")
 
+@settings.route("/<ep>")
+def mainSettings(ep):
+    match ep:
+        case "account":
+            return render_template("settings/account.html")
+        case "viewing":
+            return render_template("settings/viewing.html")
+        case "about":
+            return render_template("about")
+        case "premium":
+            #  :trolley:
+            return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=303)
+        case _:
+            return render_template("error.html", error="Invalid endpoint: " + ep), 404
 
 @settings.post("/token")
 def setSession():
@@ -76,7 +89,7 @@ def setSession():
                 400,
             )
 
-        resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
+        resp = make_response(redirect(url_for("settings.mainSettings", ep="account"), code=303))
         resp.set_cookie(
             "PyXivSession", f["token"], max_age=COOKIE_MAXAGE, httponly=True
         )
@@ -100,22 +113,23 @@ def setImgProxy():
 
     f = request.form
 
-    resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
+    resp = make_response(redirect(url_for("settings.settingsIndex"), code=303))
     resp.set_cookie(
         "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True
     )
     return resp
 
 
-@settings.post("/setPref")
+@settings.post("/setDisplayPrefs")
 def setPreferences():
     hideAIPref = request.form.get("hideAI")
     hideR18Pref = request.form.get("hideR18")
 
-    resp = make_response(redirect(url_for("settings.mainSettings"), code=303))
+    resp = make_response(redirect(url_for("settings.mainSettings", ep="viewing"), code=303))
 
     resp.delete_cookie("PyXivHideAI")
     resp.delete_cookie("PyXivHideR18")
+    resp.delete_cookie("PyXivHideR18G")
 
     for pref in request.form:
         match pref:
@@ -126,6 +140,10 @@ def setPreferences():
             case "hideR18":
                 resp.set_cookie(
                     "PyXivHideR18", "1", max_age=COOKIE_MAXAGE, httponly=True
+                )
+            case "hideR18G":
+                resp.set_cookie(
+                    "PyXivHideR18G", "1", max_age=COOKIE_MAXAGE, httponly=True
                 )
             case _:
                 pass

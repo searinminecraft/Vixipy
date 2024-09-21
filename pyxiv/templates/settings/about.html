@@ -1,0 +1,23 @@
+{% extends "settings/settingsMain.html" %}
+{% set currentSection = "about" %}
+
+{% block settingsPage %}
+
+<h1>PyXiv {{ g.version }}</h1>
+
+<p>PyXiv is a free, open source, and privacy respecting frontend for pixiv, allowing you to enjoy content from pixiv without the tracking. Heck, this website doesn't even require JavaScript, try it out.</p>
+
+<h2>License</h2>
+
+<p>PyXiv is free software. You can modify and redistribute this program freely under the terms of the GNU Affero General Public License, either version 3 of the license or any future version.</p>
+<p>PyXiv comes with absolutely no warranty. We will of course not be responsible for any loss or termination of pixiv accounts.</p>
+
+<h2>Honorable mentions</h2>
+
+<ul>
+	<li><a href="https://codeberg.org/VnPower/PixivFE">PixivFE</a> - the project I mostly took inspiration from. It's an awesome project.</li>
+	<li><a href="https://codeberg.org/Peaksol/LiteXiv">LiteXiv</a></li>
+	<li><a href="https://codeberg.org/PrivacyDev/freexiv">freexiv</a> - A minimal pixiv frontend written in Python, and probably the only one I can find that's coded in Python.</li>
+</ul>
+
+{% endblock %}

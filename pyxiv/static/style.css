@@ -58,14 +58,6 @@ label, select, textarea {
 		padding-bottom: 1em;
 	}
 
-	footer {
-		flex-direction: column;
-		justify-content: unset !important;
-		text-align: center;
-		gap: 12px;
-		padding: 12px 0 !important;
-	}
-
 	.navbar .actions .curruser span {
 		display: block !important ;
 	}
@@ -79,6 +71,14 @@ label, select, textarea {
 		width: 100% !important;
 	}
 
+	.settings {
+		flex-direction: column;
+	}
+
+	.settings .side,
+	.settings .content {
+		flex: unset !important;
+	}
 }
 
 a {
@@ -118,23 +118,9 @@ button {
 	font-size: 16px;
 	border-radius: 16px;
 	border: none;
-	padding: 4px 12px;
+	padding: 4px 18px;
 	height: 32px;
 	font-family: sans-serif;
-}
-
-footer {
-	background-color: #181825;
-	width: 100%;
-	padding: 8px 1em;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-footer .links {
-	display: flex;
-	gap: 1em;
 }
 
 hr {
@@ -631,3 +617,42 @@ hr {
 	height: 384px;
 }
 
+.settings {
+	display: flex;
+	gap: 1em;
+	height: 100%;
+}
+
+.settings .side {
+	flex: 30%;
+}
+
+.settings .side a {
+	display: flex;
+	width: 100%;
+	padding: 12px 1em;
+	font-weight: bold;
+	align-items: center;
+	color: #a6adc8;
+}
+
+.settings .side a.selected {
+	background-color: #74c7ec;
+	border-radius: 32px;
+	color: #11111b
+}
+
+.settings .side a > svg {
+	margin-right: 6px;
+	transform: translateY(-1px);
+	fill: currentColor;
+}
+
+.settings .content {
+	flex: 70%;
+	background-color: #181825;
+	border-radius: 24px;
+	overflow: hidden;
+	overflow-y: scroll;
+	padding: 1em 2em;
+}
