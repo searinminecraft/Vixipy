@@ -58,6 +58,8 @@ def mainSettings(ep):
             return render_template("settings/notifications.html", nsItems=notificationSettingsItems, msItems=mailSettingsItems)
         case "about":
             return render_template("about")
+        case "license":
+            return render_template("settings/license.html")
         case "premium":
             #  :trolley:
             return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=303)
