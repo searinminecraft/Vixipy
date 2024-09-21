@@ -1,6 +1,6 @@
 from .. import api
 
-from ..classes import User, UserBookmarks, ArtworkEntry
+from ..classes import User, UserBookmarks, ArtworkEntry, UserSettingsState
 
 
 def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
@@ -28,3 +28,7 @@ def getUserBookmarks(
     data = api.getUserBookmarks(_id, tag, offset, limit)["body"]
 
     return UserBookmarks(data)
+
+def getUserSettingsState():
+
+    return UserSettingsState(api.getUserSettingsState()["body"])

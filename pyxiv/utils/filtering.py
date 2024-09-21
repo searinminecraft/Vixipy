@@ -12,7 +12,7 @@ def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
             print("FILTER   | Delete", entry, "because isAI =", entry.isAI)
             new.remove(entry)
 
-        if request.cookies.get("PyXivHideR18") == "1" and entry.xRestrict != 0:
+        if request.cookies.get("PyXivHideR18") == "1" and entry.xRestrict == 1:
             print(
                 "FILTER   | Delete",
                 entry,
@@ -22,11 +22,19 @@ def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
             try:
                 new.remove(entry)
             except ValueError:
-                print(
-                    "FILTER   | Cannot delete",
-                    entry,
-                    "it may have already been deleted by AI filter.",
-                )
+                pass
+
+        if request.cookies.get("PyXivHideR18G") == "1" and entry.xRestrict == 2:
+            print(
+                "FILTER   | Delete",
+                entry,
+                "due to rating",
+                entry.xRestrictClassification,
+            )
+            try:
+                new.remove(entry)
+            except ValueError:
+                pass
 
     if new != entries:
         g.omittedByFilter = True

@@ -246,3 +246,13 @@ def getUserIllustEntries(_id: int, *, work_category: str = "illustManga", lang: 
         path += f"&ids[]={e}"
 
     return pixivReq(path)
+
+
+def getUserSettings():
+
+    return pixivReq("/ajax/settings")
+
+
+def getUserSettingsState():
+
+    return pixivReq("/ajax/settings/self")

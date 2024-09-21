@@ -369,6 +369,24 @@ class SearchResults:
 
             self.relatedTags.append(Tag(newTagData))
 
+class UserSettingsState:
+    def __init__(self, data):
+
+        _ = data["user_status"]
+        self.userId = int(_["user_id"])
+        self.pixivId = _["user_account"]
+        self.userName = _["user_name"]
+        self.userBirth = _["user_birth"]
+        self.xRestrictEnabled = int(_["user_x_restrict"]) >= 1
+        self.r18GEnabled = int(_["user_x_restrict"]) == 2
+        self.profileImg = makeProxy(_["profile_img"]["main"])
+        self.age = _["age"]
+        self.isIllustCreator = _["is_illust_creator"]
+        self.isNovelCreator = _["is_novel_creator"]
+        self.hideAiWorks = _["hide_ai_works"]
+        self.readingStatusEnabled = _["reading_status_enabled"]
+        self.location = _["location"]
+
 
 class UserBookmarks:
     """

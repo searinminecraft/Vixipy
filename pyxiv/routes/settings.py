@@ -14,9 +14,17 @@ import requests
 from .. import api
 from .. import cfg
 
+from ..core.user import getUserSettingsState
+
 settings = Blueprint("settings", __name__, url_prefix="/settings")
 
 COOKIE_MAXAGE = 60 * 60 * 24 * 7  #  7 days
+
+
+@settings.before_request
+def getUserState():
+
+    g.userState = getUserSettingsState()
 
 @settings.route("/")
 def settingsIndex():
