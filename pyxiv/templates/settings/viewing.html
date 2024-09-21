@@ -1,26 +1,34 @@
 {% extends "settings/settingsMain.html" %}
 {% set currentSection = "display" %}
 
+
 {% block settingsPage %}
 
 <h2>Display settings</h2>
+{% if g.isAuthorized %}
+<p><b>NOTE:</b> These settings will not apply to your pixiv account.<p>
+{% endif %}
 
 <form action="/settings/setDisplayPrefs" method="POST">
 	{% set hideAIPref = (request.cookies.get('PyXivHideAI') == '1') %}
 	{% set hideR18Pref = (request.cookies.get('PyXivHideR18') == '1') %}
-	<label>
-		<input type="checkbox" name="hideAI" {% if hideAIPref %}checked{% endif %}>
-		Hide AI Generated artworks
-	</label>
-	<label>
-		<input type="checkbox" name="hideR18" {% if hideR18Pref %}checked{% endif %}>
-		Hide explicit (R-18) content
-	</label>
-	<label>
-		<input type="checkbox" name="hideR18G" {% if hideR18Pref %}checked{% endif %}>
-		Hide ero-guro (R-18G) content
-	</label>
-
+	{% set hideR18GPref = (request.cookies.get('PyXivHideR18G') == '1')%}
+	<div class="toggle-switch">
+		<label for="hideAI">Hide AI-generated works</label>
+		<input type="checkbox" name="hideAI" id="hideAI" {% if hideAIPref %}checked{% endif %}>
+	</div>
+	<div class="toggle-switch">
+		<label for="hideR18">Hide explicit content (R-18)</label>
+		<input type="checkbox" name="hideR18" id="hideR18" {% if hideR18Pref %}checked{% endif %} >
+	</div>
+	<div class="toggle-switch">
+		<label for="hideR16G">Hide ero-guro (R-18G) content</label>
+		<input type="checkbox" name="hideR18G" id="hideR18G" {% if hideR18GPref %}checked{% endif %}>
+	</div>
+	<div class="toggle-switch">
+		<label>Hide ads (PyXiv has no ads)</label>
+		<input type="checkbox" disabled checked>
+	</div>
 	<br>
 	<button type="submit">Save preferences</button>
 </form>

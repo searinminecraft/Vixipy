@@ -112,6 +112,48 @@ input[type="text"] {
 	width: 24em;
 }
 
+.toggle-switch {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.toggle-switch input {
+	appearance: none;
+	cursor: pointer;
+	width: 48px;
+	height: 28px;
+	background-color: #6c7086;
+	border-radius: 14px;
+	position: relative;
+	border: 3px solid transparent
+}
+
+.toggle-switch input::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 22px;
+	height: 22px;
+	background-color: #9399b2;
+	border-radius: 12px;
+	transition: .15s ease
+}
+
+.toggle-switch input:disabled {
+	opacity: 0.4
+}
+
+.toggle-switch input:checked {
+	background-color: #74c7ec
+}
+
+.toggle-switch input:checked::after {
+	left: 48%;
+	background-color: #11111b
+}
+
 button {
 	color: #11111b;
 	background-color: #74c7ec;
