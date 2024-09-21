@@ -13,6 +13,8 @@ def tagMain(name):
     data = searchArtwork(name, **args)
     tagInfo = getTagInfo(name)
 
+    g.tag = name
+
     try:
         currPage = args.pop("p")
     except KeyError:
