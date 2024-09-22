@@ -705,3 +705,32 @@ hr {
 	border-radius: 24px;
 	padding: 1em 2em;
 }
+
+.messages {
+	width: 100%;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-bottom: 2em
+}
+
+.message {
+	border-radius: 16px;
+	padding: 1em 1.5em;
+	display: flex;
+	align-items: center;
+	background-color: #313244;
+}
+
+.message.error {
+	background-color: #f38ba8;
+	color: #11111b;
+
+}
+
+.message > svg {
+	fill: currentColor;
+	margin-right: 6px;
+	transform: translateY(-1px)
+}

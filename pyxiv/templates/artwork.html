@@ -2,10 +2,10 @@
 {% block title %}{{ data.artwork.title }}{% endblock %}
 
 {% block additionalHeadData %}
-<meta property="og:title" content="{{ data.artwork.title }} - PyXiv">
+<meta property="og:title" content="{{ data.artwork.title }}">
 <meta property="og:site_name" content="PyXiv">
 <meta property="og:type" content="article">
-<meta property="og:description" content="{{ data.artwork.title }} by {{ data.user.name }}">
+<meta property="og:description" content="{{ data.artwork.title }} by {{ data.user.name }} -- {{ data.artwork.viewCount}} views, {{ data.artwork.likeCount}} likes, {{ data.artwork.bookmarkCount }} bookmarks">
 <meta property="og:image" content="https://embed.pixiv.net/artwork.php?illust_id={{ data.artwork._id }}">
 <meta property="og:url" content="/artworks/{{ data.artwork._id }}">
 <meta content="summary_large_image" name="twitter:card" />
@@ -15,8 +15,11 @@
 <div class="illust-area">
 	{% if data.artwork.isUgoira %}
 	<div class="illusts">
-		<video class="ugoira" autoplay muted loop disablepictureinpicture playsinline poster="{{ data.pages[0].thumbUrl }}" src="/proxy/ugoira/{{ data.artwork._id }}">
+		<div class="illust">
+			<video class="ugoira" autoplay muted loop disablepictureinpicture playsinline poster="{{ data.pages[0].thumbUrl }}" src="/proxy/ugoira/{{ data.artwork._id }}">
+		</div>
 	</div>
+	<br>
 	<a href="/proxy/ugoira/{{ data.artwork._id }}">Download</a>
 	<a href="https://ugoira.com/i/{{ data.artwork._id }}">Go to ugoira.com for more options like GIF conversion.</a>
 	{% else %}

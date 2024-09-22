@@ -6,6 +6,7 @@ from flask import (
     g,
     render_template,
     url_for,
+    flash,
 )
 
 import re
@@ -79,12 +80,8 @@ def setSession():
         try:
             api.getLatestFromFollowing("all", 1)
         except api.PixivError as e:
-            return (
-                render_template(
-                    "error.html", error=f"Cannot use token. Make sure it's valid. ({e})"
-                ),
-                400,
-            )
+            flash(f"Cannot use token: {e}", "error")
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
         # If you're curious, this test URL is an illustration of Anna Yanami.
         # And don't worry its definitely not NSFW
@@ -97,26 +94,16 @@ def setSession():
         )
 
         if req.status_code != 200:
-            return (
-                render_template(
-                    "error.html",
-                    error="Cannot use token. Make sure it's valid. (failed at status code)",
-                ),
-                400,
-            )
+            flash(f"Cannot use token. pixiv returned code {req.status_code}", "error")
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
         r = re.search(csrfMatch, req.text)
 
         try:
             csrf = r.group(1)
         except IndexError:
-            return (
-                render_template(
-                    "error.html",
-                    error="Cannot use token. Make sure it's valid. (failed at: csrf)",
-                ),
-                400,
-            )
+            flash(f"Cannot use token: Couldn't obtain CSRF token.", "error")
+            return redirect(url_for("settings.settingsMain", ep="account"))
 
         resp = make_response(redirect(url_for("settings.mainSettings", ep="account"), code=303))
         resp.set_cookie(
@@ -125,7 +112,8 @@ def setSession():
         resp.set_cookie("PyXivCSRF", csrf, max_age=COOKIE_MAXAGE, httponly=True)
         return resp
     else:
-        return render_template("error.html", error="No token supplied."), 400
+        flash("No token was supplied.", "error")
+        return redirect(url_for("settings.mainSettings"))
 
 
 @settings.route("/logout")
@@ -134,6 +122,7 @@ def logout():
     resp = make_response(redirect("/", code=303))
     resp.delete_cookie("PyXivSession")
     resp.delete_cookie("PyXivCSRF")
+    flash("You have successfully terminated the session. Goodbye!")
     return resp
 
 

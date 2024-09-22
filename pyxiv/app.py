@@ -1,4 +1,4 @@
-from flask import Flask, Response, g, make_response, render_template, request
+from flask import Flask, Response, g, make_response, render_template, request, flash
 import traceback
 
 from requests import ConnectionError
@@ -26,6 +26,7 @@ from .routes import (
 
 def create_app():
     app = Flask(__name__)
+    app.secret_key = cfg.PyXivSecret
 
     app.register_blueprint(proxy.proxy)
     app.register_blueprint(settings.settings)
@@ -87,8 +88,27 @@ def create_app():
 
         else:
             g.isAuthorized = True
+            
+            try:
+                g.userdata: User = getUser(g.userPxSession.split("_")[0])
+            except api.PixivError:
+                flash("Token is not valid anymore (logged out?), so you were signed out.", "error")
+                g.userdata = None
+                g.isAuthorized = False
+                del g.userPxSession
+                del g.userPxCSRF
 
-            g.userdata: User = getUser(g.userPxSession.split("_")[0])
+                g.invalidSession = True
+
+    
+    @app.after_request
+    def afterReq(r):
+        if g.get("invalidSession", False):
+
+            r.delete_cookie("PyXivCSRF")
+            r.delete_cookie("PyXivSession")
+
+        return r
 
     @app.route("/")
     def home():
