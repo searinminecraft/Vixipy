@@ -74,6 +74,31 @@ class Tag:
         )
 
 
+class Comment:
+    """
+    Represents a comment.
+
+    Properties:
+    ===========
+    """
+
+    def __init__(self, data):
+        self._id = int(data["id"])
+        self.authorId = int(data["userId"])
+        self.username = data["userName"]
+        self.img = makeProxy(data["img"])
+        self.isDeletedUser = data["isDeletedUser"]
+        self.comment = data["comment"]
+        self.stampId = int(data["stampId"]) if data["stampId"] else None
+        self.commentDate = data["commentDate"]
+        self.commentParentId = (
+            int(data["commentParentId"]) if data["commentParentId"] else None
+        )
+        self.commentUserId = int(data["commentUserId"])
+        self.editable = data["editable"]
+        self.hasReplies = data["hasReplies"]
+
+
 class TagInfo:
     """
     Represents information about a tag.
@@ -227,6 +252,8 @@ class Artwork(PartialArtwork):
         self.viewCount: int = data["viewCount"]
         self.likeCount: int = data["likeCount"]
         self.bookmarkCount: int = data["bookmarkCount"]
+        self.commentCount: int = data["commentCount"]
+        self.commentOff: bool = data["commentOff"] == 1
         self.tags: list[Tag] = []
 
         self.bookmarkId: int = (

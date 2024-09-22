@@ -99,7 +99,8 @@ main {
 	width: 100%;
 }
 
-input[type="text"] {
+input[type="text"],
+textarea {
 	border-color: #313244;
 	background-color: #181825;
 	font-size: 16px;
@@ -110,6 +111,7 @@ input[type="text"] {
 	height: 36px;
 	font-family: sans-serif;
 	width: 24em;
+	resize: none;
 }
 
 .toggle-switch {
@@ -733,4 +735,78 @@ hr {
 	fill: currentColor;
 	margin-right: 6px;
 	transform: translateY(-1px)
+}
+
+.comments {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1em;
+	padding: 1em;
+}
+
+.comments .comment {
+	display: flex
+}
+
+.comments .comment .author-profile-pic,
+.comment-entry .author-profile-pic {
+	aspect-ratio: 1/1;
+	height: 44px;
+	width: 44px;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 50%;
+	background-color: #313244;
+	margin-right: 16px;
+}
+
+.comments .comment .author-name a {
+	color: #cdd6f4;
+}
+
+.comments .comment .stamp {
+	border-radius: 16px;
+}
+
+.comments .comment .comment-main span {
+	font-weight: bold;
+}
+
+.comments .comment .comment-main {
+	padding: 1em;
+	background-color: #313244;
+	border-radius: 0 16px 16px 16px;
+	width: 460px;
+}
+
+.comments .comment .comment-main p {
+	word-break: break-word
+}
+
+.comment-entry {
+	display: flex;
+}
+
+.comment-entry form {
+	flex: 100%;
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+}
+
+.comment-entry textarea {
+	border-radius: 22px;
+	border: none !important;
+	padding: 8px 1em;
+	flex: 100%;
+}
+
+.comment-entry button[type=submit] {
+	width: 38px;
+	height: 36px;
+	border-radius: 20px;
+	padding: unset !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

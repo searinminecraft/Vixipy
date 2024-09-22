@@ -1,0 +1,54 @@
+{% extends "layouts/default.html" %}
+{% block title %}Comments{% endblock %}
+
+{% block content %}
+<a href="/artworks/{{ illustId }}">&lt; Return to artwork</a>
+
+{% set commentCount = comments|length %}
+
+<h1>Comments ({{ commentCount }})</h1>
+
+{% if g.isAuthorized %}
+<div class="comment-entry">
+	<img src="{{ g.userdata.image }}" class="author-profile-pic">
+	<form action="/self/comment?author={{ authorId }}&id={{ illustId }}" method="POST">
+		<textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" name="comment" autocomplete="off" required placeholder="Comment as {{ g.userdata.name }}..."></textarea>
+		<button type="submit">
+			<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-160v-240l320-80-320-80v-240l760 320-760 320Z"/></svg>
+		</button>
+	</form>
+</div>
+{% else %}
+<div class="comment-entry">
+	<img src="/proxy/s.pximg.net/common/images/no_profile.png" class="author-profile-pic">
+	<form>
+		<textarea disabled autocomplete="off" required placeholder="Log in to post comments"></textarea>
+		<button type="submit" disabled>
+			<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-160v-240l320-80-320-80v-240l760 320-760 320Z"/></svg>
+		</button>
+	</form>
+</div>
+{% endif %}
+
+<hr>
+
+<div class="comments">
+	{% if commentCount > 0 %}
+	{% for comment in comments %}
+	<div class="comment">
+		<a href="/users/{{ comment.authorId }}" alt="{{ comment.username }}"><img class="author-profile-pic" src="{{ comment.img }}" loading="lazy"></a>
+		<div class="comment-main">
+			<span class="author-name"><a href="/users/{{ comment.authorId }}">{{ comment.username }}</a></span>
+			<small>{{ comment.commentDate }}</small>
+			<p>{{ comment.comment }}</p>
+			{% if comment.stampId %}
+			<img class="stamp" loading="lazy" src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{ comment.stampId }}_s.jpg">
+			{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+	{% else %}
+	<p>No comments!</p>
+	{% endif %}
+</div>
+{% endblock %}

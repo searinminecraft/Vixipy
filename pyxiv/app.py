@@ -136,4 +136,9 @@ def create_app():
 
         return render_template("settings/about.html")
 
+    with app.app_context():
+        configData = api.getUserSettingsState()["body"]["user_status"]
+        app.config["stamp_series"] = configData["stamp_series"]
+        app.config["emoji_series"] = configData["emoji_series"]
+
     return app

@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 
 from ..core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
 from ..core.user import getUser
+from ..core.comments import getArtworkComments
 from ..classes import ArtworkDetailsPage
 
 
@@ -19,4 +20,20 @@ def artworkGet(_id: int):
     return render_template(
         "artwork.html",
         data=ArtworkDetailsPage(artworkData, pageData, userData, relatedData),
+    )
+
+
+@artworks.route("/<int:_id>/comments")
+def artworkComments(_id: int):
+
+    artworkData = getArtwork(_id)
+
+    if artworkData.commentOff:
+        flash("Comments are disabled by the author.", "error")
+        return redirect(url_for("artworks.artworkGet", _id=_id))
+
+    data = getArtworkComments(_id, **request.args)
+
+    return render_template(
+        "comments.html", comments=data, illustId=_id, authorId=artworkData.authorId
     )

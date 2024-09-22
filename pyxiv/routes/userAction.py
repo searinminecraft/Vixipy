@@ -1,4 +1,4 @@
-from flask import Blueprint, g, redirect, render_template, request
+from flask import Blueprint, g, redirect, render_template, request, flash, url_for
 
 from .. import api
 from ..core.user import getUserBookmarks
@@ -73,3 +73,15 @@ def likeIllust(_id: int):
     api.pixivPostReq("/ajax/illusts/like", jsonPayload={"illust_id": str(_id)})
 
     return redirect(request.args["r"])
+
+
+@userAction.post("/comment")
+def comment():
+    args = request.args
+    form = request.form
+    try:
+        api.postComment(args["id"], args["author"], form["comment"])
+    except Exception as e:
+        flash(f"Unable to post comment: {e.__class__.__name__}: {e}", "error")
+
+    return redirect(url_for("artworks.artworkComments", _id=args["id"]))

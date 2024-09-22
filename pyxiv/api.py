@@ -2,6 +2,7 @@ from flask import g
 import requests
 from . import cfg
 import time
+from urllib.parse import quote
 
 
 class PixivError(Exception):
@@ -17,7 +18,7 @@ def getHeaders():
     }
 
     if g.get("userPxCSRF"):
-        headers["X-CSRF-Token"] = g.userPxCSRF
+        headers["x-csrf-token"] = g.userPxCSRF
 
     return headers
 
@@ -39,7 +40,13 @@ def pixivReq(endpoint):
     return resp
 
 
-def pixivPostReq(endpoint, *, jsonPayload: dict = None, rawPayload: str = None):
+def pixivPostReq(
+    endpoint,
+    *,
+    jsonPayload: dict = None,
+    rawPayload: str = None,
+    additionalHeaders: dict = {},
+):
     """
     Send a POST request to pixiv.
 
@@ -56,10 +63,13 @@ def pixivPostReq(endpoint, *, jsonPayload: dict = None, rawPayload: str = None):
             "https://www.pixiv.net" + endpoint, headers=getHeaders(), json=jsonPayload
         )
     elif rawPayload:
+        origHeaders = getHeaders()
+
         req = requests.post(
             "https://www.pixiv.net" + endpoint,
             headers={
-                **getHeaders(),
+                **origHeaders,
+                **additionalHeaders,
                 "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
             },
             data=rawPayload,
@@ -112,6 +122,15 @@ def getArtworkPages(_id: int):
     Get the pages of an artwork
     """
     return pixivReq(f"/ajax/illust/{_id}/pages")
+
+
+def getArtworkComments(_id: int, offset: int = 0, limit: int = 100):
+    """
+    Get artwork comments
+    """
+    return pixivReq(
+        f"/ajax/illusts/comments/roots?illust_id={_id}&offset={offset}&limit={limit}"
+    )
 
 
 def getDiscovery(mode: str = "all", limit: int = 30):
@@ -260,3 +279,28 @@ def getUserSettings():
 def getUserSettingsState():
 
     return pixivReq("/ajax/settings/self")
+
+
+def postComment(illustId: int, authorId: int, comment: str):
+
+    return pixivPostReq(
+        "/rpc/post_comment.php",
+        rawPayload=f"type=comment&illust_id={illustId}&author_user_id={authorId}&comment={quote(comment)}",
+        additionalHeaders={
+            "Origin": "https://www.pixiv.net/",
+            "Referer": f"https://www.pixiv.net/en/artworks/{illustId}",
+            "Accept": "application/json",
+        },
+    )
+
+
+def postStamp(illustId: int, authorId: int, stampId: int):
+    return pixivPostReq(
+        "/rpc/post_comment.php",
+        rawPayload=f"type=stamp&illust_id={illustId}&author_user_id={authorId}&stamp_id={stampId}",
+        additionalHeaders={
+            "Origin": "https://www.pixiv.net/",
+            "Referer": f"https://www.pixiv.net/en/artworks/{illustId}",
+            "Accept": "application/json",
+        },
+    )
