@@ -29,10 +29,11 @@ def _getRecommendedUsers(limit: int = 10):
         recent = []
         for ar in r["recentIllustIds"]:
             recent.append(ArtworkEntry(artworks[int(ar)]))
-        
+
         res.append(RecommendedUser(users[int(r["userId"])], recent))
 
     return res
+
 
 def getLandingPage(mode: str) -> LandingPageLoggedIn:
     """

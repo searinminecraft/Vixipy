@@ -229,11 +229,15 @@ def getRecommendedUsers(limit: int = 10):
 
     return pixivReq(f"/ajax/discovery/users?limit={limit}")
 
+
 def getUserArtworks(_id: int):
 
     return pixivReq(f"/ajax/user/{_id}/profile/all")
 
-def getUserIllustEntries(_id: int, *, work_category: str = "illustManga", lang: str = "en", ids: list):
+
+def getUserIllustEntries(
+    _id: int, *, work_category: str = "illustManga", lang: str = "en", ids: list
+):
 
     path = (
         f"/ajax/user/{_id}/profile/illusts"

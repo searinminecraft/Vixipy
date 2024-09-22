@@ -29,6 +29,7 @@ def getUserBookmarks(
 
     return UserBookmarks(data)
 
+
 def getUserSettingsState():
 
     return UserSettingsState(api.getUserSettingsState()["body"])

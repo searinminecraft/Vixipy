@@ -294,7 +294,6 @@ class RecommendedUser(PartialUser):
         self.recentArtworks: list[ArtworkEntry] = recentArtworks
 
 
-
 class RankingEntry(ArtworkEntry):
     """
     Represents an entry in rankings.
@@ -368,6 +367,7 @@ class SearchResults:
                 }
 
             self.relatedTags.append(Tag(newTagData))
+
 
 class UserSettingsState:
     def __init__(self, data):

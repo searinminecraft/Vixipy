@@ -27,9 +27,11 @@ def getUserState():
 
     g.userState = getUserSettingsState()
 
+
 @settings.route("/")
 def settingsIndex():
     return render_template("settings/pyxivSettings.html")
+
 
 @settings.route("/<ep>")
 def mainSettings(ep):
@@ -40,7 +42,7 @@ def mainSettings(ep):
             return render_template("settings/viewing.html")
         case "notifications":
             c = api.getUserSettings()["body"]
-            
+
             notificationSettingsItems = {}
             mailSettingsItems = {}
 
@@ -48,15 +50,27 @@ def mainSettings(ep):
                 if ns["type"] != "setting":
                     continue
 
-                notificationSettingsItems[ns["settingKey"]] = {"label": ns["label"], "disabled": ns["disabled"], "value": ns["value"]}
+                notificationSettingsItems[ns["settingKey"]] = {
+                    "label": ns["label"],
+                    "disabled": ns["disabled"],
+                    "value": ns["value"],
+                }
 
             for ms in c["mail"]["items"]:
                 if ms["type"] != "setting":
                     continue
 
-                mailSettingsItems[ms["settingKey"]] = {"label": ms["label"], "disabled": ms["disabled"], "value": ms["value"]}
+                mailSettingsItems[ms["settingKey"]] = {
+                    "label": ms["label"],
+                    "disabled": ms["disabled"],
+                    "value": ms["value"],
+                }
 
-            return render_template("settings/notifications.html", nsItems=notificationSettingsItems, msItems=mailSettingsItems)
+            return render_template(
+                "settings/notifications.html",
+                nsItems=notificationSettingsItems,
+                msItems=mailSettingsItems,
+            )
         case "about":
             return render_template("about")
         case "license":
@@ -66,6 +80,7 @@ def mainSettings(ep):
             return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=303)
         case _:
             return render_template("error.html", error="Invalid endpoint: " + ep), 404
+
 
 @settings.post("/token")
 def setSession():
@@ -105,7 +120,9 @@ def setSession():
             flash(f"Cannot use token: Couldn't obtain CSRF token.", "error")
             return redirect(url_for("settings.settingsMain", ep="account"))
 
-        resp = make_response(redirect(url_for("settings.mainSettings", ep="account"), code=303))
+        resp = make_response(
+            redirect(url_for("settings.mainSettings", ep="account"), code=303)
+        )
         resp.set_cookie(
             "PyXivSession", f["token"], max_age=COOKIE_MAXAGE, httponly=True
         )
@@ -143,7 +160,9 @@ def setPreferences():
     hideAIPref = request.form.get("hideAI")
     hideR18Pref = request.form.get("hideR18")
 
-    resp = make_response(redirect(url_for("settings.mainSettings", ep="viewing"), code=303))
+    resp = make_response(
+        redirect(url_for("settings.mainSettings", ep="viewing"), code=303)
+    )
 
     resp.delete_cookie("PyXivHideAI")
     resp.delete_cookie("PyXivHideR18")

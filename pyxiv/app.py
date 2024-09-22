@@ -88,11 +88,14 @@ def create_app():
 
         else:
             g.isAuthorized = True
-            
+
             try:
                 g.userdata: User = getUser(g.userPxSession.split("_")[0])
             except api.PixivError:
-                flash("Token is not valid anymore (logged out?), so you were signed out.", "error")
+                flash(
+                    "Token is not valid anymore (logged out?), so you were signed out.",
+                    "error",
+                )
                 g.userdata = None
                 g.isAuthorized = False
                 del g.userPxSession
@@ -100,7 +103,6 @@ def create_app():
 
                 g.invalidSession = True
 
-    
     @app.after_request
     def afterReq(r):
         if g.get("invalidSession", False):
