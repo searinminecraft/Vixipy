@@ -17,7 +17,7 @@
 	{% if nsItems[x]["disabled"] %}
 	<input type="checkbox" id="{{x}}" disabled checked>
 	{% else %}
-	<input type="checkbox" id="{{x}}" {% if nsItems[x]['value'] == 1 %}checked{% endif %}>
+	<input type="checkbox" id="{{x}}" name="{{x}}" {% if nsItems[x]['value'] == 1 %}checked{% endif %}>
 	{% endif %}
 </div>
 {% endfor %}
@@ -34,7 +34,7 @@
 	{% if msItems[x]["disabled"] %}
 	<input type="checkbox" id="{{x}}" disabled checked>
 	{% else %}
-	<input type="checkbox" id="{{x}}" {% if msItems[x]['value'] == 1 %}checked{% endif %}>
+	<input type="checkbox" id="{{x}}" name="{{x}}" {% if msItems[x]['value'] == 1 %}checked{% endif %}>
 	{% endif %}
 </div>
 {% endfor %}
