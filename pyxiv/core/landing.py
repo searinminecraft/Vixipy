@@ -60,7 +60,9 @@ def getLandingPage(mode: str) -> LandingPageLoggedIn:
             if _id in artworks:
                 ids.append(artworks[_id])
 
-        recommendByTag.append(RecommendByTag(idx["tag"], ids))
+        res = RecommendByTag(idx["tag"], ids)
+        res.artworks = filterEntriesFromPreferences(res.artworks)
+        recommendByTag.append(res)
 
     return LandingPageLoggedIn(
         filterEntriesFromPreferences(recommended),

@@ -194,7 +194,8 @@ class PartialArtwork:
         self._id: int = data["id"]
         self.title: str = data["title"]
         self.xRestrict: int = data["xRestrict"]
-        self.isAI: bool = data["aiType"] >= 2
+        self.isAI: bool = data["aiType"] == 2
+        self.aiType: int = data["aiType"]
         self.illustType: int = data["illustType"]
         self.isUgoira: bool = self.illustType == 2
         self.pageCount: int = data["pageCount"]
@@ -289,7 +290,7 @@ class ArtworkEntry(PartialArtwork):
         self.authorUrl: str = f"/users/{self.authorId}"
 
     def __repr__(self):
-        return f"<ArtworkEntry _id={self._id} title={self.title} author={self.authorName} xRestrict={self.xRestrict} isAI={self.isAI} isUgoira={self.isUgoira}>"
+        return f"<ArtworkEntry _id={self._id} title={self.title} author={self.authorName} xRestrict={self.xRestrict} isAI={self.isAI} aiType={self.aiType} isUgoira={self.isUgoira}>"
 
 
 class RecommendedUser(PartialUser):
