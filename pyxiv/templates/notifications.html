@@ -3,6 +3,7 @@
 
 {% block content %}
 <h1>Notifications</h1>
+{% if data|length > 0 %}
 {% for notification in data %}
 <div class="notifications">
 	<div class="notification">
@@ -16,4 +17,7 @@
 	</div>
 </div>
 {% endfor %}
+{% else %}
+<p>No notifications</p>
+{% endif %}
 {% endblock %}
