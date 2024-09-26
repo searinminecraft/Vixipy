@@ -249,7 +249,7 @@ hr {
 .navbar .actions .userActions .userActionsMain {
 	display: flex;
 	flex-direction: column;
-	padding: 8px;
+	padding: 1em;
 	gap: 6px
 }
 
@@ -748,7 +748,8 @@ hr {
 }
 
 .comments .comment .author-profile-pic,
-.comment-entry .author-profile-pic {
+.comment-entry .author-profile-pic,
+.notification .icon {
 	aspect-ratio: 1/1;
 	height: 44px;
 	width: 44px;
@@ -808,4 +809,36 @@ hr {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.notifications {
+	display: flex;
+	column-gap: 1em;
+	flex-direction: column;
+}
+
+.notifications .notification {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.notifications .notification span {
+	font-weight: bold;
+}
+
+.notifications .notification .unread-indicator {
+	background-color: #74c7ec;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin-right: 1em;
+}
+
+.notifications .notification .notification-content {
+	flex: 100%;
+}
+
+.notifications .notification img.icon {
+	margin-right: 1em;
 }
