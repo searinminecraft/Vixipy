@@ -433,6 +433,38 @@ class UserBookmarks:
         self.total: int = data["total"]
 
 
+class Notification:
+    """
+    Represents a notification
+
+    Properties:
+    ===========
+
+    `str` content: the contents of the notification
+    `str` iconUrl: the notification icon url
+    `int` _id: the notification id
+    `bool` isProfileIcon: whether the icon is a profile picture
+    `str` linkUrl: the url the notification will point to
+    `str` notifiedAt: the time the user was notified
+    `bool` targetBlank: whether the link should have the `target=_blank` HTML attribute
+    `bool` unread: whether the notification is unread
+    """
+
+    def __init__(self, data):
+
+        self.content: str = data["content"]
+        self.iconUrl: str = makeProxy(data["iconUrl"])
+        self.isProfileIcon: bool = data["isProfileIcon"]
+        self._id: int = data["id"]
+        # needs more testing, it may be possible that some urls may not contain the language specifier ("/en", etc.)
+        self.linkUrl: str = data["linkUrl"][3:]
+        self.notifiedAt: str = data["notifiedAt"]
+        self.targetBlank: bool = data["targetBlank"]
+        self.notificationType: str = data["type"]
+        self.unread: bool = data["unread"] == 1
+
+
+
 class ArtworkDetailsPage:
     def __init__(
         self,

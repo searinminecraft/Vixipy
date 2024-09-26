@@ -1,7 +1,7 @@
 from flask import Blueprint, g, redirect, render_template, request, flash, url_for
 
 from .. import api
-from ..core.user import getUserBookmarks
+from ..core.user import getUserBookmarks, getNotifications
 
 userAction = Blueprint("userAction", __name__, url_prefix="/self")
 
@@ -85,3 +85,9 @@ def comment():
         flash(f"Unable to post comment: {e.__class__.__name__}: {e}", "error")
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
+
+
+@userAction.route("/notifications")
+def notifications():
+
+    return render_template("notifications.html", data=getNotifications())

@@ -281,6 +281,11 @@ def getUserSettingsState():
     return pixivReq("/ajax/settings/self")
 
 
+def getNotifications():
+
+    return pixivReq("/ajax/notification")
+
+
 def postComment(illustId: int, authorId: int, comment: str):
 
     return pixivPostReq(

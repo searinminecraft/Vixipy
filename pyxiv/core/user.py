@@ -1,6 +1,6 @@
 from .. import api
 
-from ..classes import User, UserBookmarks, ArtworkEntry, UserSettingsState
+from ..classes import User, UserBookmarks, ArtworkEntry, UserSettingsState, Notification
 
 
 def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
@@ -33,3 +33,8 @@ def getUserBookmarks(
 def getUserSettingsState():
 
     return UserSettingsState(api.getUserSettingsState()["body"])
+
+def getNotifications():
+    
+    return [Notification(x) for x in api.getNotifications()["body"]["items"]]
+

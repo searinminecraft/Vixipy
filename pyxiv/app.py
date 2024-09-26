@@ -48,11 +48,9 @@ def create_app():
         return "404 not found", 404
 
     @app.errorhandler(Exception)
-    def handleError(e):
+    def handleInternalError(e):
         traceback.print_exc()
-        resp = make_response(
-            render_template("error.html", error=f"{e.__class__.__name__}: {e}")
-        )
+        resp = make_response(render_template("500.html", error=e, info=traceback.format_exc(), isDebug=app.debug))
         return resp, 500
 
     @app.errorhandler(ConnectionError)
