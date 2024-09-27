@@ -19,11 +19,78 @@ body {
 
 header {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
 	background-color: #11111b;
-	padding: 12px 1.5em;
-	border-radius: 0 0 24px 24px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 1em;
+	padding-right: 1.5em;
+}
+
+header .navbar-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+header .main,
+header .actions {
+	display: flex;
+	align-items: center;
+}
+
+header .main .icon-button {
+	margin-right: 1em
+}
+
+header .main .branding {
+	font-weight: bold;
+	font-size: 22px;
+	color: unset
+}
+
+header #searchbox input,
+header #mobile-searchbox input {
+	border: none;
+	padding: 4px 1em;
+	width: 384px;
+	font-size: 14px;
+}
+
+header #mobile-searchbox {
+	display: none;
+	width: 100%;
+}
+
+header #mobile-searchbox input {
+	width: 100%;
+	margin-top: 6px;
+}
+
+header .actions {
+	display: flex;
+	column-gap: 4px;
+}
+
+
+header .actions button.user-profile {
+	border: unset;
+	background-color: unset;
+	padding: unset;
+	display: flex;
+	align-items: center;
+	margin-left: 1em;
+}
+
+header .actions button.user-profile img {
+	aspect-ratio: 1/1;
+	height: 32px;
+	width: 32px;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 50%;
+	background-color: #313244;
 }
 
 input[type="radio"] {
@@ -50,25 +117,17 @@ label, select, textarea {
 }
 
 @media screen and (max-width: 750px) {
-	header {
-		justify-content: unset;
-		align-items: unset;
-		gap: 12px;
-		flex-direction: column;
-		padding-bottom: 1em;
+
+	header #searchbox {
+		display: none;
 	}
 
-	.navbar .actions .curruser span {
-		display: block !important ;
+	header #mobile-searchbox {
+		display: block;
 	}
 
-	.navbar .actions .userActions {
-		top: 150px !important;
-		right: unset !important;
-	}
-
-	.navbar input[type="text"] {
-		width: 100% !important;
+	header .actions #search {
+		display: flex;
 	}
 
 	.settings {
@@ -155,7 +214,7 @@ textarea {
 	background-color: #11111b
 }
 
-button {
+button.button {
 	color: #11111b;
 	background-color: #74c7ec;
 	font-size: 16px;
@@ -166,99 +225,42 @@ button {
 	font-family: sans-serif;
 }
 
+button.icon-button {
+	border: none;
+	background-color: unset;
+	padding: 8px;
+	color: #6c7086;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: 100ms;
+}
+
+a.icon-button {
+	padding: 8px;
+	color: #6c7086;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: 100ms;
+}
+
+button.icon-button:hover,
+a.icon-button:hover {
+	background-color: #313244
+}
+
+button.icon-button svg,
+a.icon-button svg {
+	fill: currentColor
+}
+
 hr {
 	border: 1px solid;
 	border-radius: 10px;
 	border-color: #313244
-}
-
-.navbar input[type="text"] {
-	height: 32px;
-	border: none !important;
-	padding: 4px 16px !important;
-	width: 384px;
-	border-radius: 32px;
-}
-
-.navbar .mainact {
-	display: flex;
-	gap: 1em;
-	align-items: center;
-}
-
-.navbar .mainact a {
-	color: #cdd6f4;
-}
-
-.navbar .branding {
-	font-size: 24px;
-	text-decoration: none;
-	font-weight: 600;
-	margin-right: 8px;
-}
-
-.navbar .actions {
-	font-size: 18px;
-	display: flex;
-	gap: 6px;
-}
-
-.navbar .actions .curruser {
-	color: #cdd6f4;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-}
-
-.navbar .actions .curruser span.name {
-	display: none;
-}
-
-.navbar .actions .profileimg {
-	aspect-ratio: 1/1;
-	height: 32px;
-	width: 32px;
-	object-fit: cover;
-	object-position: center center;
-	border-radius: 50%;
-	background-color: #313244;
-}
-
-.navbar .actions .menuToggler {
-	display: none
-}
-
-.navbar .actions .menu-label {
-	display: flex;
-	align-items: center;
-	gap: 8px
-}
-
-.navbar .actions .userActions {
-	display: none;
-	position: absolute;
-	top: 65px;
-	right: 10px;
-	background-color: #181825;
-	border-radius: 5px;
-	border: 2px solid;
-	border-color: #585b70;
-	z-index: 1
-}
-
-.navbar .actions .userActions .userActionsMain {
-	display: flex;
-	flex-direction: column;
-	padding: 1em;
-	gap: 6px
-}
-
-.navbar .actions .userActions .userActionsMain span {
-	font-weight: bold;
-}
-
-.navbar .actions .menuToggler:checked ~ .userActions {
-	display: block;
 }
 
 .container {
@@ -355,7 +357,8 @@ hr {
 	left: 0;
 	right: 0;
 	display: flex;
-	padding: 6px 6px 6px
+	padding: 6px 6px 6px;
+	pointer-events: none;
 }
 
 .artwork-entry .artwork-additional .metadata-chip {
@@ -813,7 +816,7 @@ hr {
 
 .notifications {
 	display: flex;
-	column-gap: 1em;
+	row-gap: 1em;
 	flex-direction: column;
 }
 
@@ -841,4 +844,123 @@ hr {
 
 .notifications .notification img.icon {
 	margin-right: 1em;
+}
+
+.notifications .notification svg {
+	fill: #585b70;
+	margin-right: 1em;
+	flex-shrink: 0
+}
+
+.notifications .notification small {
+	color: #585b70;
+	margin-top: 8px;
+}
+
+.backdrop {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: rgba(24, 25, 38, 0.6)
+}
+
+.backdrop[data-visible] {
+	display: block;
+}
+
+#main-menu .main,
+#account-menu .main {
+	height: 100%;
+	width: 300px;
+	background-color: #1e2030;
+	transition: 100ms ease;
+	padding: 1em;
+}
+
+#main-menu .main {
+	transform: translateX(-100%);
+	border-radius: 0 24px 24px 0;
+}
+
+#account-menu .main {
+	position: fixed;
+	right: 0;
+	transform: translateX(100%);
+	border-radius: 24px 0 0 24px;
+}
+
+#main-menu .main[data-visible],
+#account-menu .main[data-visible] {
+	transform: translateX(0)
+}
+
+#main-menu .main .act,
+#account-menu .main .act {
+	display: flex;
+	align-items: center;
+}
+
+#account-menu .main .act {
+	justify-content: space-between;
+	margin-bottom: 1em;
+}
+
+#account-menu .main .act .user-info {
+	display: flex;
+	align-items: center;
+	flex: 100%
+}
+
+#account-menu .main .act .user-info .profile-pic {
+	aspect-ratio: 1/1;
+	height: 34px;
+	width: 34px;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 50%;
+	background-color: #313244;
+	margin-right: 0.5em;
+}
+
+#account-menu .main .act .user-info span {
+	font-weight: bold
+}
+
+#main-menu .main .act h2 {
+	margin-left: 0.5em;
+	margin-right: 0.5em
+}
+
+#main-menu .main .act small {
+	color: #5b6078
+}
+
+#main-menu .main nav {
+	padding: 1em;
+	display: flex;
+	row-gap: 1em;
+	flex-direction: column;
+}
+
+#account-menu .main nav {
+	display: flex;
+	row-gap: 1em;
+	flex-direction: column;
+}
+
+#main-menu .main nav > a,
+#account-menu .main nav > a {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	color: unset;
+}
+
+#main-menu .main nav > a > svg,
+#account-menu .main nav > a > svg {
+	margin-right: 0.5em;
+	fill: currentColor;
+	transform: translateY(-1px)
 }

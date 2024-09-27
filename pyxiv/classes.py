@@ -1,4 +1,5 @@
 from .utils.converters import makeProxy
+from datetime import datetime
 
 #  tbh maybe i should make a Python library
 #  that interacts with the pixiv api...
@@ -201,6 +202,9 @@ class PartialArtwork:
         self.pageCount: int = data["pageCount"]
         self.authorName: str = data["userName"]
         self.authorId: int = data["userId"]
+        self.createDate: datetime.datetime = datetime.fromisoformat(data["createDate"]) if data.get("createDate") else None
+        self.updateDate: datetime.datetime = datetime.fromisoformat(data["updateDate"]) if data.get("updateDate") else None
+        self.uploadDate: datetime.datetime = datetime.fromisoformat(data["uploadDate"]) if data.get("uploadDate") else None
 
     @property
     def xRestrictClassification(self) -> str:
@@ -404,7 +408,8 @@ class UserSettingsState:
         self.userId = int(_["user_id"])
         self.pixivId = _["user_account"]
         self.userName = _["user_name"]
-        self.userBirth = _["user_birth"]
+        self.userCreateTime = datetime.strptime(_["user_create_time"], "%Y-%m-%d %H:%M:%S")
+        self.userBirth = datetime.strptime(_["user_birth"], "%Y-%m-%d")
         self.xRestrictEnabled = int(_["user_x_restrict"]) >= 1
         self.r18GEnabled = int(_["user_x_restrict"]) == 2
         self.profileImg = makeProxy(_["profile_img"]["main"])
@@ -445,9 +450,10 @@ class Notification:
     `int` _id: the notification id
     `bool` isProfileIcon: whether the icon is a profile picture
     `str` linkUrl: the url the notification will point to
-    `str` notifiedAt: the time the user was notified
+    `datetime.datetime` notifiedAt: the time the user was notified
     `bool` targetBlank: whether the link should have the `target=_blank` HTML attribute
     `bool` unread: whether the notification is unread
+    `str` type: the notification type
     """
 
     def __init__(self, data):
@@ -458,10 +464,11 @@ class Notification:
         self._id: int = data["id"]
         # needs more testing, it may be possible that some urls may not contain the language specifier ("/en", etc.)
         self.linkUrl: str = data["linkUrl"][3:]
-        self.notifiedAt: str = data["notifiedAt"]
+        self.notifiedAt: datetime.datetime = datetime.fromisoformat(data["notifiedAt"])
         self.targetBlank: bool = data["targetBlank"]
         self.notificationType: str = data["type"]
         self.unread: bool = data["unread"] == 1
+        self.type: str = data["type"]
 
 
 

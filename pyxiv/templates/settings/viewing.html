@@ -17,6 +17,7 @@
 <p><i>Some of these settings are enforced by the instance.</i></p>
 {% endif %}
 
+
 <form action="/settings/setDisplayPrefs" method="POST">
 	{% set hideAIPref = (request.cookies.get('PyXivHideAI') == '1') %}
 	{% set hideR18Pref = (request.cookies.get('PyXivHideR18') == '1') %}

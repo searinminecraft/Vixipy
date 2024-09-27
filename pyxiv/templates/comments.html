@@ -13,7 +13,7 @@
 	<img src="{{ g.userdata.image }}" class="author-profile-pic">
 	<form action="/self/comment?author={{ authorId }}&id={{ illustId }}" method="POST">
 		<textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" name="comment" autocomplete="off" required placeholder="Comment as {{ g.userdata.name }}..."></textarea>
-		<button type="submit">
+		<button type="submit" class="button">
 			<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-160v-240l320-80-320-80v-240l760 320-760 320Z"/></svg>
 		</button>
 	</form>
@@ -23,7 +23,7 @@
 	<img src="/proxy/s.pximg.net/common/images/no_profile.png" class="author-profile-pic">
 	<form>
 		<textarea disabled autocomplete="off" required placeholder="Log in to post comments"></textarea>
-		<button type="submit" disabled>
+		<button type="submit" disabled class="button">
 			<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-160v-240l320-80-320-80v-240l760 320-760 320Z"/></svg>
 		</button>
 	</form>

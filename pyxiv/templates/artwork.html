@@ -105,6 +105,7 @@
 		{% if data.artwork.xRestrict != 0 %}
 		<span>{{ data.artwork.xRestrictClassification }}</span>
 		{% endif %}
+		<span>{{ data.artwork.uploadDate.strftime("%a %b %d %Y, %H:%M:%S (%Z)") }}</span>
 		<span>{{ data.artwork.viewCount }} views</span>
 		<span>{{ data.artwork.likeCount }} likes</span>
 		<span>{{ data.artwork.bookmarkCount }} bookmarks</span>

@@ -12,16 +12,15 @@
 
 <form action="/settings/token" method="POST">
 	<input type="text" placeholder="PHPSESSID" name="token" autocomplete="off" required="true"></input>
-	<button type="submit" value="Log in">Log in</button>
+	<button type="submit" value="Log in" class="button">Log in</button>
 </form>
 
 {% else %}
-
 <h3>Log out</h3>
 <p>Click on the button below to securely log out.</p>
 
 <form action="/settings/logout">
-	<button type="submit">Log out</button>
+	<button type="submit" class="button">Log out</button>
 </form>
 
 
