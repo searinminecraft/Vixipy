@@ -139,6 +139,20 @@ label, select, textarea {
 	.settings .content {
 		flex: unset !important;
 	}
+
+	.dialog {
+		min-width: unset !important;
+		min-height: unset !important;
+		max-height: unset !important;
+		max-width: unset !important;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.dialog .stamps .stamp img {
+		width: 72px;
+		height: 72px;
+	}
 }
 
 a {
@@ -813,6 +827,7 @@ hr {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-shrink: 0
 }
 
 .notifications {
@@ -964,4 +979,74 @@ hr {
 	margin-right: 0.5em;
 	fill: currentColor;
 	transform: translateY(-1px)
+}
+
+.backdrop .dialog-helper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dialog {
+	padding: 1em;
+	border-radius: 24px;
+	display: flex;
+	flex-direction: column;
+	background-color: #1e1e2e;
+	min-width: 500px;
+	min-height: 250px;
+	max-height: 90%;
+	max-width: 50%;
+	overflow: hidden;
+}
+
+.dialog .title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dialog .title span {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.dialog .dialog-content {
+	overflow: scroll;
+}
+
+.dialog .emojis,
+.dialog .stamps .stamp-series {
+	display: flex;
+	gap: 4px;
+	flex-wrap: wrap;
+}
+
+.dialog .emojis .emoji-button {
+	background-color: unset;
+	border: none;
+	padding: 6px;
+	cursor: pointer;
+}
+
+.dialog .emojis .emoji-button img {
+	width: 24px;
+	height: 24px;
+}
+
+.dialog .stamps .stamp-series {
+	justify-content: center;
+}
+
+.dialog .stamps .stamp {
+	background-color: unset;
+	border: none;
+	padding: 6px;
+	cursor: pointer;
+}
+
+.dialog .stamps .stamp img {
+	border-radius: 8px;
 }

@@ -2,6 +2,7 @@
 {% block title %}Comments{% endblock %}
 
 {% block content %}
+
 <a href="/artworks/{{ illustId }}">&lt; Return to artwork</a>
 
 {% set commentCount = comments|length %}
@@ -12,8 +13,11 @@
 <div class="comment-entry">
 	<img src="{{ g.userdata.image }}" class="author-profile-pic">
 	<form action="/self/comment?author={{ authorId }}&id={{ illustId }}" method="POST">
-		<textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" name="comment" autocomplete="off" required placeholder="Comment as {{ g.userdata.name }}..."></textarea>
-		<button type="submit" class="button">
+		<textarea id="comment-box" oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" name="comment" autocomplete="off" required placeholder="Comment as {{ g.userdata.name }}..."></textarea>
+		<button class="icon-button" id="open-emoji" type="button" title="Insert emojis/stamps">
+			<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M620-520q25 0 42.5-17.5T680-580q0-25-17.5-42.5T620-640q-25 0-42.5 17.5T560-580q0 25 17.5 42.5T620-520Zm-280 0q25 0 42.5-17.5T400-580q0-25-17.5-42.5T340-640q-25 0-42.5 17.5T280-580q0 25 17.5 42.5T340-520Zm140 260q68 0 123.5-38.5T684-400H276q25 63 80.5 101.5T480-260Zm0 180q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+		</button>
+		<button type="submit" class="button" aria-label="Send">
 			<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-160v-240l320-80-320-80v-240l760 320-760 320Z"/></svg>
 		</button>
 	</form>
@@ -51,4 +55,44 @@
 	<p>No comments!</p>
 	{% endif %}
 </div>
+{% endblock %}
+
+{% block additionalDialogs %}
+<div class="backdrop" id="emoji-dialog">
+	<div class="dialog-helper">
+		<div class="dialog">
+			<div class="title">
+				<span>Insert emoji/stamp</span>
+				<button class="icon-button" aria-label="Close" id="emoji-close">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+				</button>
+			</div>
+			<div class="dialog-content">
+				<h5>Emojis</h5>
+				<div class="emojis">
+					{% for emoji in config["emojis"] %}
+					<button id="{{ emoji }}" class="emoji-button" title="{{ emoji }}">
+						<img src="/proxy/s.pximg.net/common/images/emoji/{{config["emojis"][emoji]}}.png">
+					</button>
+					{% endfor %}
+				</div>
+				<h5>Stamps</h5>
+				<form class="stamps" action="/self/postStamp?author={{ authorId }}&id={{ illustId }}" method="POST">
+					{% for stamp in config["stamps"] %}
+					<h6>{{ config["stamps"][stamp]["name"] }} ({{ stamp }})</h6>
+					<div class="stamp-series">
+						{% for id in config["stamps"][stamp]["ids"] %}
+						<button class="stamp" type="submit" name="stampId" value="{{ id }}">
+							<img src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{ id }}_s.jpg">
+						</button>
+					{% endfor %}
+					</div>
+					{% endfor %}
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/static/emojis.js"></script>
 {% endblock %}

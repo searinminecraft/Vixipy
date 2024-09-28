@@ -1,6 +1,7 @@
 from flask import Blueprint, g, redirect, render_template, request, flash, url_for
 
 from .. import api
+from ..core.comments import postComment, postStamp
 from ..core.user import getUserBookmarks, getNotifications
 
 userAction = Blueprint("userAction", __name__, url_prefix="/self")
@@ -80,11 +81,23 @@ def comment():
     args = request.args
     form = request.form
     try:
-        api.postComment(args["id"], args["author"], form["comment"])
+        postComment(args["id"], args["author"], form["comment"])
     except Exception as e:
         flash(f"Unable to post comment: {e.__class__.__name__}: {e}", "error")
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
+
+@userAction.post("/postStamp")
+def stamp():
+    args = request.args
+    form = request.form
+    try:
+        postStamp(args["id"], args["author"], form["stampId"])
+    except Exception as e:
+        flash(f"Unable to send stamp: {e.__class__.__name__}: {e}", "error")
+
+    return redirect(url_for("artworks.artworkComments", _id=args["id"]))
+
 
 
 @userAction.route("/notifications")

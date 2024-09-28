@@ -28,6 +28,69 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = cfg.PyXivSecret
 
+    # https://www.pixiv.net/ajax/settings/self
+    app.config["stamps"] = {
+            "hakuzau": {
+                "name": "ハクゾウ",
+                "ids": (301,302,303,304,305,306,307,308,309,310)
+            },
+            "kitsune": {
+                "name": "キツネ",
+                "ids": (401,402,403,404,405,406,407,408,409,410)
+            },
+            "moemusume": {
+                "name": "萌え娘",
+                "ids": (201,202,203,204,205,206,207,208,209,210)
+            },
+            "dokurochan": {
+                "name": "どくろちゃん",
+                "ids": (101,102,103,104,105,106,107,108,109,110)
+            }
+    }
+
+    app.config["emojis"] = {
+            "normal": 101,
+            "surprise": 102,
+            "serious": 103,
+            "heaven": 104,
+            "happy": 105,
+            "excited": 106,
+            "sing": 107,
+            "cry": 108,
+            "normal2": 201,
+            "shame2": 202,
+            "love2": 203,
+            "interesting2": 204,
+            "blush2": 205,
+            "fire2": 206,
+            "angry2": 207,
+            "shine2": 208,
+            "panic2": 209,
+            "normal3": 301,
+            "satisfaction3": 302,
+            "surprise3": 303,
+            "smile3": 304,
+            "shock3": 305,
+            "gaze3": 306,
+            "wink3": 307,
+            "happy3": 308,
+            "excited3": 309,
+            "love3": 310,
+            "normal4": 401,
+            "surprise4": 402,
+            "serious4": 403,
+            "love4": 404,
+            "shine4": 405,
+            "sweat4": 406,
+            "shame4": 407,
+            "sleep4": 408,
+            # does pixiv really have to have their own emojis
+            # even though theyre in the official unicode spec?
+            "heart": 501,
+            "teardrop": 502,
+            "star": 503
+    }
+
     app.register_blueprint(proxy.proxy)
     app.register_blueprint(settings.settings)
     app.register_blueprint(artworks.artworks)
@@ -133,10 +196,5 @@ def create_app():
     def about():
 
         return render_template("settings/about.html")
-
-    with app.app_context():
-        configData = api.getUserSettingsState()["body"]["user_status"]
-        app.config["stamp_series"] = configData["stamp_series"]
-        app.config["emoji_series"] = configData["emoji_series"]
 
     return app
