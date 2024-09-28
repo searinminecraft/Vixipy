@@ -202,9 +202,21 @@ class PartialArtwork:
         self.pageCount: int = data["pageCount"]
         self.authorName: str = data["userName"]
         self.authorId: int = data["userId"]
-        self.createDate: datetime.datetime = datetime.fromisoformat(data["createDate"]) if data.get("createDate") else None
-        self.updateDate: datetime.datetime = datetime.fromisoformat(data["updateDate"]) if data.get("updateDate") else None
-        self.uploadDate: datetime.datetime = datetime.fromisoformat(data["uploadDate"]) if data.get("uploadDate") else None
+        self.createDate: datetime.datetime = (
+            datetime.fromisoformat(data["createDate"])
+            if data.get("createDate")
+            else None
+        )
+        self.updateDate: datetime.datetime = (
+            datetime.fromisoformat(data["updateDate"])
+            if data.get("updateDate")
+            else None
+        )
+        self.uploadDate: datetime.datetime = (
+            datetime.fromisoformat(data["uploadDate"])
+            if data.get("uploadDate")
+            else None
+        )
 
     @property
     def xRestrictClassification(self) -> str:
@@ -408,7 +420,9 @@ class UserSettingsState:
         self.userId = int(_["user_id"])
         self.pixivId = _["user_account"]
         self.userName = _["user_name"]
-        self.userCreateTime = datetime.strptime(_["user_create_time"], "%Y-%m-%d %H:%M:%S")
+        self.userCreateTime = datetime.strptime(
+            _["user_create_time"], "%Y-%m-%d %H:%M:%S"
+        )
         self.userBirth = datetime.strptime(_["user_birth"], "%Y-%m-%d")
         self.xRestrictEnabled = int(_["user_x_restrict"]) >= 1
         self.r18GEnabled = int(_["user_x_restrict"]) == 2
@@ -469,7 +483,6 @@ class Notification:
         self.notificationType: str = data["type"]
         self.unread: bool = data["unread"] == 1
         self.type: str = data["type"]
-
 
 
 class ArtworkDetailsPage:

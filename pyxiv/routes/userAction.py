@@ -87,6 +87,7 @@ def comment():
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
 
+
 @userAction.post("/postStamp")
 def stamp():
     args = request.args
@@ -97,7 +98,6 @@ def stamp():
         flash(f"Unable to send stamp: {e.__class__.__name__}: {e}", "error")
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
-
 
 
 @userAction.route("/notifications")

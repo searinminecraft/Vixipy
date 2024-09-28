@@ -34,7 +34,7 @@ def getUserSettingsState():
 
     return UserSettingsState(api.getUserSettingsState()["body"])
 
-def getNotifications():
-    
-    return [Notification(x) for x in api.getNotifications()["body"]["items"]]
 
+def getNotifications():
+
+    return [Notification(x) for x in api.getNotifications()["body"]["items"]]

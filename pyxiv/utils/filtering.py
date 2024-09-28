@@ -37,7 +37,15 @@ def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
             print("FILTER   |", entry, "OK")
 
     if current_app.debug:
-        print("FILTER   | Results:", len(entries), "previous,", len(entries) - len(new), "filtered,", len(new), "current")
+        print(
+            "FILTER   | Results:",
+            len(entries),
+            "previous,",
+            len(entries) - len(new),
+            "filtered,",
+            len(new),
+            "current",
+        )
 
     if new != entries:
         g.omittedByFilter = True
