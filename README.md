@@ -22,9 +22,11 @@ A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
 * Related artworks
 * Search tags
 * View users (but not their artworks yet)
+* Hide/filter out R-18, R-18G and AI generated artworks
+* View and post comments/stamps
+* View notifications
 
 # Planned features
-* AI / R-18 / R-18G filter
 * Tag search control
 * Image proxy caching
 
@@ -66,3 +68,9 @@ PyXiv should now be running on http://localhost:8000
 # See also
 * [PixivFE](https://codeberg.org/VnPower/PixivFE) - The project I took inspiration from
 * [LiteXiv](https://codeberg.org/Peaksol/LiteXiv) - Yet another pixiv frontend, written in PHP
+
+# License
+
+PyXiv is licensed under the GNU Affero General Public License version 3. You may modify and redistribute PyXiv as long as you comply with the license.
+
+PyXiv comes with NO WARRANTY, and we will certainly not be responsible for anything that happens to your pixiv account (unless its due to a bug on PyXiv that causes account flagging)
