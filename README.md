@@ -65,6 +65,15 @@ pip install -r requirements.txt
 
 PyXiv should now be running on http://localhost:8000
 
+# Instance List
+> If you're interested in hosting a PyXiv instance and want to be here, please [file an issue](https://codeberg.org/kita/pyxiv/issues/new).
+
+* [NeonW](http://neonw.su:10351) (KZ) - (for now, still needs proper subdomain and SSL)
+
+## Planned and attempted instances
+* ~~adminforge.de~~ denied
+* At my house (maybe?)
+
 # See also
 * [PixivFE](https://codeberg.org/VnPower/PixivFE) - The project I took inspiration from
 * [LiteXiv](https://codeberg.org/Peaksol/LiteXiv) - Yet another pixiv frontend, written in PHP
