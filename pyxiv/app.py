@@ -124,13 +124,7 @@ def create_app():
 
     @app.errorhandler(ConnectionError)
     def handleConnectionError(e):
-        resp = make_response(
-            render_template(
-                "error.html",
-                error=f"Unable to complete request. Check instance's network connection or contact the instance administrator if the issue persists.",
-            )
-        )
-        return resp, 500
+        return handleInternalError(e)
 
     @app.before_request
     def beforeReq():
