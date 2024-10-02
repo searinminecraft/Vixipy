@@ -21,6 +21,11 @@
 						{% if user.premium %}
 						<img class="badge" src="/static/icons/premium.svg" title="This user is subscribed to pixiv premium"/>
 						{% endif %}
+						{% if user._id == 108913558 %}
+						<!-- :3 -->
+						<img class="badge" src="/static/icons/developer.svg" title="The creator of PyXiv">
+						<img class="badge" src="/static/icons/bookmarked.svg" title="<3">
+						{% endif %}
 					</span>
 					<span class="user-stats">{{ user.following }} following - {{ user.mypixiv }} mypixiv</span>
 				</div>
