@@ -1050,3 +1050,16 @@ hr {
 .dialog .stamps .stamp img {
 	border-radius: 8px;
 }
+
+.article-container {
+	background-color: #181825;
+	padding: 1em 2em;
+	border-radius: 24px;
+}
+
+.article-container .article-main-img {
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 24px;
+	margin: 3em 0
+}

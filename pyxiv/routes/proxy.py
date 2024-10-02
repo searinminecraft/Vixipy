@@ -1,4 +1,4 @@
-from flask import Blueprint, abort, redirect
+from flask import Blueprint, abort, redirect, request
 
 from .. import cfg
 import requests
@@ -48,11 +48,11 @@ def retrieveUgoira(_id: int):
 
 @proxy.route("/<path:proxypath>", methods=["GET"])
 def proxyRequest(proxypath):
-
+    
     proxypath = proxypath.replace("https://", "")
 
     # not letting anyone use this for malicious intent :trolley:
-    permittedProxies = ("i.pximg.net", "s.pximg.net")
+    permittedProxies = ("i.pximg.net", "s.pximg.net", "embed.pixiv.net")
 
     if proxypath.split("/")[0] not in permittedProxies:
         return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
@@ -65,6 +65,10 @@ def proxyRequest(proxypath):
 
     if proxypath.split("/")[0] in ("i.pximg.net", "s.pximg.net"):
         headers["Referer"] = "https://www.pixiv.net"
+
+    if proxypath.split("/")[0] == "embed.pixiv.net":
+        proxypath += "?" + request.full_path.split("?")[1]
+
 
     # try to get first
 

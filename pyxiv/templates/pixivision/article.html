@@ -1,0 +1,13 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{ article.title.split("-")[0] }}{% endblock %}
+
+{% block content %}
+<div class="article-container">
+	<h2>{{ article.title }}</h2>
+	<small>Posted on {{ article.date.strftime("%m/%d/%Y") }} - Category: {{ article.category }}</small>
+	{% if article.image %}
+	<img class="article-main-img" src="{{ article.image }}">
+	{% endif %}
+	{{ article._content | safe }}
+</div>
+{% endblock %}
