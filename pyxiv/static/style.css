@@ -1014,7 +1014,8 @@ hr {
 }
 
 .dialog .dialog-content {
-	overflow: scroll;
+	overflow: none;
+	overflow-y: auto;
 }
 
 .dialog .emojis,

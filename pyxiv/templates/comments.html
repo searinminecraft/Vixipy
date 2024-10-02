@@ -72,7 +72,7 @@
 				<div class="emojis">
 					{% for emoji in config["emojis"] %}
 					<button id="{{ emoji }}" class="emoji-button" title="{{ emoji }}">
-						<img src="/proxy/s.pximg.net/common/images/emoji/{{config["emojis"][emoji]}}.png">
+						<img src="/proxy/s.pximg.net/common/images/emoji/{{config["emojis"][emoji]}}.png" loading="lazy">
 					</button>
 					{% endfor %}
 				</div>
@@ -83,7 +83,7 @@
 					<div class="stamp-series">
 						{% for id in config["stamps"][stamp]["ids"] %}
 						<button class="stamp" type="submit" name="stampId" value="{{ id }}">
-							<img src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{ id }}_s.jpg">
+							<img src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{ id }}_s.jpg" loading="lazy">
 						</button>
 					{% endfor %}
 					</div>
