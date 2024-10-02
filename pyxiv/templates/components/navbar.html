@@ -6,8 +6,8 @@
 		</button>
 		<a class="branding" href="/">{{ g.instanceName }}</a>
 	</div>
-	<form action="/tag" method="post" id="searchbox">
-		<input type="text" placeholder="Search works..." {% if g.get('tag') %}value="{{g.tag}}"{% endif %} required autocomplete="off">
+	<form action="/tag" method="POST" id="searchbox">
+		<input type="text" placeholder="Search works..." {% if g.get('tag') %}value="{{g.tag}}"{% endif %} required autocomplete="off" name="tag">
 	</form>
 	<div class="actions">
 		{% if g.isAuthorized %}
@@ -28,8 +28,8 @@
 		{% endif %}
 	</div>
 	</div>
-	<form action="/tag" method="post" id="mobile-searchbox">
-		<input type="text" placeholder="Search works..." {% if g.get('tag') %}value="{{g.tag}}"{% endif %} required autocomplete="off">
+	<form action="/tag" method="POST" id="mobile-searchbox">
+		<input type="text" placeholder="Search works..." {% if g.get('tag') %}value="{{g.tag}}"{% endif %} required autocomplete="off" name="tag">
 	</form>
 
 </header>
