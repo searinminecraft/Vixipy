@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 from ..utils.converters import makeProxy
 
-from pyxivision import Pixivision
+from pyxivision import PixivisionArticle
 
 
 pixivision = Blueprint("pixivision", __name__, url_prefix="/pixivision")
@@ -10,7 +10,7 @@ pixivision = Blueprint("pixivision", __name__, url_prefix="/pixivision")
 def getPixivisionArticle(_id: int):
 
     langPref = request.cookies.get("PyXivPixivisionLang", "en")
-    article = Pixivision(_id, langPref)
+    article = PixivisionArticle(_id, langPref)
 
     if article.image:
         article.image = makeProxy(article.image)

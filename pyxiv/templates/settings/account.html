@@ -16,6 +16,14 @@
 </form>
 
 {% else %}
+<div class="current-user-account">
+	<img alt="{{ g.userState.userName }}" src="{{ g.userState.profileImg }}">
+	<div class="user-info">
+		<h2>{{ g.userState.userName }}</h2>
+		<small>@{{ g.userState.pixivId }}</small>
+	</div>
+</div>
+
 <h3>Log out</h3>
 <p>Click on the button below to securely log out.</p>
 

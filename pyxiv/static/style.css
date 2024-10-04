@@ -2,13 +2,7 @@
 	box-sizing: border-box
 }
 
-html {
-	height: 100%
-}
-
 body {
-	height: 100%;
-	display: flex;
 	flex-direction: column;
 	color: #cdd6f4;
 	background-color: #1e1e2e;
@@ -21,7 +15,11 @@ header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: #11111b;
+	background-color: rgba(17, 17, 27, 90%);
+	backdrop-filter: blur(1rem);
+	position: sticky;
+	top: 0;
+	z-index: 1;
 	padding-top: 12px;
 	padding-bottom: 12px;
 	padding-left: 1em;
@@ -145,8 +143,8 @@ label, select, textarea {
 		min-height: unset !important;
 		max-height: unset !important;
 		max-width: unset !important;
-		width: 100%;
-		height: 100%;
+		width: 90%;
+		height: 90%;
 	}
 	
 	.dialog .stamps .stamp img {
@@ -161,7 +159,6 @@ a {
 }
 
 main {
-	flex-grow: 1;
 	padding: 1em;
 	margin: 12px 0;
 	display: flex;
@@ -175,13 +172,14 @@ main {
 
 input[type="text"],
 textarea {
-	border-color: #313244;
+	border-width: 1px;
+	border-color: #363a4f;
 	background-color: #181825;
 	font-size: 16px;
-	padding: 4px 6px;
+	padding: 4px 12px;
 	color: #cdd6f4;
 	border-style: solid;
-	border-radius: 5px;
+	border-radius: 8px;
 	height: 36px;
 	font-family: sans-serif;
 	resize: none;
@@ -330,7 +328,7 @@ hr {
 .artwork-entry .title a {
 	white-space: nowrap;
 	overflow: hidden;
-	display: inline;
+	display: block;
 	text-overflow: ellipsis;
 	max-width: 250px;
 	color: #ccd6f4;
@@ -725,6 +723,36 @@ hr {
 	padding: 1em 2em;
 }
 
+.settings .content .current-user-account {
+	margin-bottom: 1em;
+	display: flex;
+}
+
+.settings .content .current-user-account img {
+	aspect-ratio: 1/1;
+	height: 104px;
+	width: 104px;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 50%;
+	background-color: #313244;
+	margin-right: 16px;
+	flex-shrink: 0
+}
+
+.settings .content .current-user-account .user-info {
+	flex: 100%;
+}
+
+.settings .content .current-user-account .user-info h2 {
+	margin: 8px 0;
+	font-weight: unset;
+}
+
+.settings .content .current-user-account .user-info small {
+	color: #585b70;
+}
+
 .messages {
 	width: 100%;
 	padding: 1em;
@@ -879,7 +907,10 @@ hr {
 	width: 100%;
 	height: 100%;
 	display: none;
-	background-color: rgba(24, 25, 38, 0.6)
+	background-color: rgba(24, 25, 38, 0.6);
+	z-index: 2;
+	/* RIP low end devices */
+	backdrop-filter: blur(2px)
 }
 
 .backdrop[data-visible] {
@@ -1014,9 +1045,15 @@ hr {
 }
 
 .dialog .dialog-content {
-	overflow: none;
+	overflow: unset;
 	overflow-y: auto;
+	padding: 4px;
 }
+
+.dialog .dialog-content::-webkit-scrollbar {
+	background-color: transparent !important
+	width: 0.2em !important
+} 
 
 .dialog .emojis,
 .dialog .stamps .stamp-series {
