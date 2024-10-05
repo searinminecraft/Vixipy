@@ -164,6 +164,10 @@ def create_app():
 
                 g.invalidSession = True
 
+            g.notificationCount = api.pixivReq("/rpc/notify_count.php?op=count_unread",
+                                              {"Referer": "https://www.pixiv.net/en"})["popboard"]
+            g.hasNotifications = g.notificationCount > 0
+
     @app.after_request
     def afterReq(r):
         if g.get("invalidSession", False):
@@ -196,5 +200,9 @@ def create_app():
     def about():
 
         return render_template("settings/about.html")
+
+    @app.route("/jump.php")
+    def pixivRedir():
+        return render_template("leave.html", dest=list(request.args.keys())[0])
 
     return app

@@ -23,10 +23,12 @@ def getHeaders():
     return headers
 
 
-def pixivReq(endpoint):
+def pixivReq(endpoint, additionalHeaders: dict = {}):
 
     start = time.perf_counter()
-    req = requests.get("https://www.pixiv.net" + endpoint, headers=getHeaders())
+    req = requests.get("https://www.pixiv.net" + endpoint, headers={
+        **getHeaders(), **additionalHeaders
+        })
     end = time.perf_counter()
 
     print(
