@@ -83,3 +83,7 @@ PyXiv should now be running on http://localhost:8000
 PyXiv is licensed under the GNU Affero General Public License version 3. You may modify and redistribute PyXiv as long as you comply with the license.
 
 PyXiv comes with NO WARRANTY, and we will certainly not be responsible for anything that happens to your pixiv account (unless its due to a bug on PyXiv that causes account flagging)
+
+<hr>
+
+*pixiv(R) is a registered trademark of pixiv Inc. We are not affiliated with pixiv Inc. in any way.*
