@@ -1,4 +1,5 @@
 flask
 requests
 gunicorn
+beautifulsoup4
 git+https://codeberg.org/pyxiv/pyxivision

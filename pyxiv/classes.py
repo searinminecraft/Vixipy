@@ -1,5 +1,7 @@
 from .utils.converters import makeProxy
 from datetime import datetime
+from bs4 import BeautifulSoup
+from urllib.parse import quote
 
 #  tbh maybe i should make a Python library
 #  that interacts with the pixiv api...
@@ -264,7 +266,22 @@ class Artwork(PartialArtwork):
 
         self.thumbUrl: str = makeProxy(data["urls"]["regular"])
         self.originalUrl: str = makeProxy(data["urls"]["original"])
-        self.description: str = data["description"]
+        soupDesc = BeautifulSoup(data["description"], "html.parser")
+
+        for link in soupDesc.find_all("a"):
+            # dont append jump.php when pixiv has already done this for us
+            if link.get("href").__contains__("/jump.php?"):
+                continue
+
+            l = link.get("href")
+            replacePixiv = ("users", "artworks")
+
+            if l.__contains__("https://www.pixiv.net") and any([l.__contains__(x) for x in replacePixiv]):
+                link.attrs["href"] = "/" + "/".join(l.split("https://www.pixiv.net")[1].split("/")[2:])
+            else:
+                link.attrs["href"] = "/jump.php?" + quote(l)
+
+        self.description = str(soupDesc)
 
         self.viewCount: int = data["viewCount"]
         self.likeCount: int = data["likeCount"]
