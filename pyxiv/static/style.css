@@ -410,6 +410,7 @@ hr {
 	border-radius: 14px;
 	margin-right: 6px;
 	gap: 6px;
+	backdrop-filter: blur(4px)
 }
 
 .artwork-entry .artwork-additional .metadata-icon {
@@ -578,6 +579,11 @@ hr {
 
 .illust-area .illust-tags .tag i {
 	padding-top: 3px;
+}
+
+.illust-area .illust-description > p {
+	word-wrap: anywhere;
+	word-break: break-word;
 }
 
 .illust-area .illust-description a {
