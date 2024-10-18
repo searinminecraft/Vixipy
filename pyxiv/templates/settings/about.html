@@ -3,25 +3,27 @@
 
 {% block settingsPage %}
 
-<h1>PyXiv {{ g.version }}</h1>
+<h1>About PyXiv</h1>
 
-<p>PyXiv is a free, open source, and privacy respecting frontend for pixiv, allowing you to enjoy content from pixiv without the tracking. Heck, this website doesn't even require JavaScript, try it out.</p>
+<p>PyXiv is a free and open source, privacy respecting pixiv frontend, allowing you to enjoy pixiv content with a piece of mind in terms of privacy, speed, and reliability.</p>
 
-<h2>License</h2>
+<h2>Why PyXiv?</h2>
 
-<p>PyXiv is free software. You can modify and redistribute this program freely under the terms of the GNU Affero General Public License, either version 3 of the license or any future version.</p>
-<p>PyXiv comes with absolutely no warranty. We will of course not be responsible for any loss or termination of pixiv accounts.</p>
+<p>The problem with using pixiv is that it uses so much unnecessary bandwidth, has trackers (Google Tag Manager), is proprietary (and contains proprietary components like ReCAPTCHA), possibly privacy invasive, and is also behind Cloudflare, which you already know has <a href="https://0xacab.org/dCF/deCloudflare">many, many problems.</a></p>
 
-<h2>Honorable mentions</h2>
+<p>With PyXiv, you can enjoy using most pixiv features with a frontend you can trust. Your browser will never connect to any external server, and the backend (or an external image proxy server of your choice that you trust) <a href="https://codeberg.org/pyxiv/PyXiv/src/branch/main/pyxiv/routes/proxy.py">proxies external resources for you</a>, meaning your browser will never connect to pixiv or any third party server. The only things that PyXiv logs are the pixiv API requests, your user agent, and image proxy requests (unless you are using an external image proxy server, which you will have to trust it's privacy practices).</p>
 
-<ul>
-	<li><a href="https://codeberg.org/VnPower/PixivFE">PixivFE</a> - the project I mostly took inspiration from. It's an awesome project.</li>
-	<li><a href="https://codeberg.org/Peaksol/LiteXiv">LiteXiv</a></li>
-	<li><a href="https://codeberg.org/PrivacyDev/freexiv">freexiv</a> - A minimal pixiv frontend written in Python, and probably the only one I can find that's coded in Python.</li>
-</ul>
+<p>Also on the plus side, you don't need an account for viewing full artwork resolution, <a target="_blank" href="/static/img/accountRequired_pixiv.png">unlike pixiv</a>. <s>PyXiv requires an account only when it's April fools day.</s></p>
 
-<h2>Acknowledgements</h2>
-<p>PyXiv is made possible by the following projects</p>
+<h2>How does it compare to other pixiv frontends (PixivFE, etc.)?</h2>
+
+<p>PyXiv is, and is always, never a competitor of any pixiv frontend. Sure, PyXiv does take inspiration from other frontends, but only for the good, and with proper credit or attribution if needed.</p>
+
+<p>Performance-wise, PyXiv somewhat lags behind others, but is sometimes faster or on par with other pixiv frontends.</p>
+
+<h1>Acknowledgements</h1>
+
+<p>PyXiv is made possible through the use of open source projects, which are:</p>
 <ul>
 	<li><a href='https://www.python.org'>Python</a></li>
 	<li><a href='https://github.com/google/material-design-icons'>Material Symbols and Icons</a></li>
@@ -32,5 +34,8 @@
 	<li><a href='https://gunicorn.org'>gunicorn</a></li>
 </ul>
 
-<small>Made with &lt;3 and "fuwa fuwa... pure pure... miracle!" by searingmoonlight (a.k.a Ikuyo Kita)</small>
+<hr>
+<small>PyXiv {{ g.version }}</small>
+
+
 {% endblock %}

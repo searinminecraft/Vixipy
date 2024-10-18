@@ -38,8 +38,8 @@
 	<li>http://localhost:5000/proxy/i.pximg.net</li>
 </ul>
 
-<form action="/settings/imgproxy" method="POST">
-	<input type="text" name="image-proxy" autocomplete="off" required="true"></input>
+<form action="/settings/imgproxy" class="inline-form" method="POST">
+	<input type="text" name="image-proxy" autocomplete="off" placeholder="https://proxy.neonw.su/pixiv" required="true"></input>
 	<button type="submit" class="button">Use proxy server</button>
 </form>
 {% endblock %}
