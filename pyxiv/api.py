@@ -1,4 +1,4 @@
-from flask import g
+from flask import g, request
 import requests
 from . import cfg
 import time
@@ -33,8 +33,11 @@ def pixivReq(endpoint, additionalHeaders: dict = {}):
     end = time.perf_counter()
 
     print(
-        f"PIXIVAPI | Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms"
+        f"PIXIVAPI | Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms [{request.user_agent}]"
     )
+
+    if req.status_code == 429:
+        raise PixivError("Rate limited")
 
     resp = req.json()
     if resp.get("error"):
@@ -82,7 +85,7 @@ def pixivPostReq(
     end = time.perf_counter()
 
     print(
-        f"PIXIVAPI | POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms"
+        f"PIXIVAPI | POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms -- [{request.user_agent}]"
     )
 
     resp = req.json()

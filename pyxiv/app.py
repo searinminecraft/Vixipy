@@ -197,7 +197,7 @@ def create_app():
     def robotsTxt():
         print("Possible crawler:", request.user_agent, "accessed the robots.txt")
         return (
-            "User-Agent: *\nDisallow: /\nDisallow: /proxy\nAllow: /artworks/*\nAllow: /users/*",
+            "\nCrawl-delay: 15\nUser-Agent: *\nDisallow: /\nDisallow: /proxy\nAllow: /artworks/*\nDisallow: /artworks/*/comments\nAllow: /users/*",
             {"Content-Type": "text/plain"},
         )
 
