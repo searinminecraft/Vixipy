@@ -8,7 +8,7 @@ body {
 	background-color: #1e1e2e;
 	margin: 0;
 	font-family: sans-serif;
-	accent-color: #74c7ec
+	accent-color: #cba6f7
 }
 
 header {
@@ -105,7 +105,7 @@ header .actions a[title=Notifications] .notification-indicator {
 	height: 14px;
 	border-radius: 50%;
 	transform: translate(-4px, 4px);
-	background-color: #74c7ec;
+	background-color: #cba6f7;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -130,7 +130,7 @@ label, select, textarea {
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: #74c7ec;
+	background-color: #cba6f7;
 	border-radius: 25px;
 }
 
@@ -179,7 +179,7 @@ label, select, textarea {
 
 a {
 	text-decoration: none;
-	color: #74c7ec
+	color: #cba6f7;
 }
 
 main {
@@ -244,7 +244,7 @@ textarea {
 }
 
 .toggle-switch input:checked {
-	background-color: #74c7ec
+	background-color: #cba6f7
 }
 
 .toggle-switch input:checked::after {
@@ -254,7 +254,7 @@ textarea {
 
 button.button {
 	color: #11111b;
-	background-color: #74c7ec;
+	background-color: #cba6f7;
 	font-size: 16px;
 	border-radius: 16px;
 	border: none;
@@ -368,7 +368,7 @@ hr {
 	width: 250px;
 	height: 250px;
 	border-radius: 16px;
-	background-color: #cdd6f4;
+	background-color: #313244;
 	object-fit: cover;
 	object-position: top center
 }
@@ -386,7 +386,7 @@ hr {
 	border-radius: 50%;
 	width: 18px;
 	height: 18px;
-	background-color: #313224
+	background-color: #313244
 }
 
 .artwork-entry .artwork-image {
@@ -741,7 +741,7 @@ hr {
 }
 
 .settings .side a.selected {
-	background-color: #74c7ec;
+	background-color: #cba6f7;
 	color: #11111b !important
 }
 
@@ -758,19 +758,19 @@ hr {
 	padding: 1em 2em;
 }
 
-.settings .content form.inline-form {
+form.inline-form {
 	width: 100%;
 	display: flex;
 	align-items: center;
 }
 
-.settings .content form.inline-form input {
+form.inline-form input {
 	flex: 100%;
 	margin-right: 12px;
 	border-radius: 18px;
 }
 
-.settings .content form.inline-form button {
+form.inline-form button {
 	flex-shrink: 0
 }
 
@@ -926,7 +926,7 @@ hr {
 }
 
 .notifications .notification .unread-indicator {
-	background-color: #74c7ec;
+	background-color: #cba6f7;
 	flex-shrink: 0;
 	width: 8px;
 	height: 8px;

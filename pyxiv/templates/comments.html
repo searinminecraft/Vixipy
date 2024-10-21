@@ -58,6 +58,7 @@
 {% endblock %}
 
 {% block additionalDialogs %}
+{% if g.isAuthorized %}
 <div class="backdrop" id="emoji-dialog">
 	<div class="dialog-helper">
 		<div class="dialog">
@@ -91,7 +92,7 @@
 				</form>
 				<h5>Custom Stamp ID</h5>
 				<p>If you know a particular stamp ID, you can put it here. This allows you to send stamps that are usually only available for a limited time. <span style="color: #f38ba8;">(<b>Warning:</b> This may result in termination of your pixiv account. Use at your own risk.)</span></p>
-				<form action="/self/postStamp?author={{ authorId }}&id={{ illustId }}" method="POST">
+				<form action="/self/postStamp?author={{ authorId }}&id={{ illustId }}" method="POST" class="inline-form">
 					<input type="text" inputmode="numeric" pattern="\d*" required name="stampId" placeholder="701" style="margin-right: 8px;"/>
 					<button type="submit" class="button">Send</button>
 				</form>
@@ -101,4 +102,6 @@
 </div>
 
 <script src="/static/emojis.js"></script>
+{% endif %}
 {% endblock %}
+
