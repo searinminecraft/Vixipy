@@ -11,4 +11,4 @@ if not PyXivSecret:
     raise RuntimeError("PYXIV_SECRET environment variable was not provided")
 
 PxAcceptLang = os.environ.get("PYXIV_ACCEPTLANG", "en-US,en;q=0.5")
-PxInstanceName = os.environ.get("PYXIV_INSTANCENAME", "PyXiv")
+PxInstanceName = os.environ.get("PYXIV_INSTANCENAME", "Vixipy")

@@ -1,16 +1,14 @@
 <div align="center">
     
-![PyXiv logo](/pyxiv/static/pyxiv_wide.png)
-
-# PyXiv
+# Vixipy
 
 </div>
 
-PyXiv is yet another privacy respecting pixiv frontend, allowing you to enjoy content from pixiv without the tracking. Written in Python using the Flask web framework and other libraries.
+Vixipy is yet another privacy respecting pixiv frontend, allowing you to enjoy content from pixiv without the tracking. Written in Python using the Flask web framework and other libraries.
 
 This is still in heavy development, so it may take a while before it reaches a stable state.
 
-A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
+A mirror of Vixipy can be found on [git.gay](https://git.gay/kita/Vixipy)
 
 # Features currently present
 * Built-in proxy (to retrieve illustrations and images from pixiv)
@@ -30,6 +28,7 @@ A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
 * Tag search control
 * Image proxy caching
 
+<!--
 # Screenshots
 
 <details>
@@ -46,7 +45,7 @@ A mirror of PyXiv can be found on [git.gay](https://git.gay/kita/PyXiv)
 ![Screenshot of a tag search for "八奈見杏菜 (Anna Yanami)"](/screenshots/tag_search.png)
 
 </details>
-
+-->
 # Install instructions
 1. Create a virtual environment, then activate
 ```
@@ -66,9 +65,9 @@ pip install -r requirements.txt
 PyXiv should now be running on http://localhost:8000
 
 # Instance List
-> If you're interested in hosting a PyXiv instance and want to be here, please [file an issue](https://codeberg.org/kita/pyxiv/issues/new).
+> If you're interested in hosting a PyXiv instance and want to be here, please [file an issue](https://codeberg.org/vixipy/Vixipy/issues/new).
 
-* [NeonW](http://neonw.su:10351) (KZ) - (for now, still needs proper subdomain and SSL)
+(none for now. i appreciate if anyone is willing to host one)
 
 ## Planned and attempted instances
 * ~~adminforge.de~~ denied
@@ -80,9 +79,9 @@ PyXiv should now be running on http://localhost:8000
 
 # License
 
-PyXiv is licensed under the GNU Affero General Public License version 3. You may modify and redistribute PyXiv as long as you comply with the license.
+Vixipy is licensed under the GNU Affero General Public License version 3. You may modify and redistribute PyXiv as long as you comply with the license.
 
-PyXiv comes with NO WARRANTY, and we will certainly not be responsible for anything that happens to your pixiv account (unless its due to a bug on PyXiv that causes account flagging)
+Vixipy comes with NO WARRANTY, and we will certainly not be responsible for anything that happens to your pixiv account (unless its due to a bug on PyXiv that causes account flagging)
 
 <hr>
 

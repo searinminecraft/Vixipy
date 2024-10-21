@@ -3,31 +3,31 @@
 
 {% block settingsPage %}
 
-<h1>About PyXiv</h1>
+<h1>About Vixipy</h1>
 
-<p>PyXiv is a free and open source, privacy respecting pixiv frontend, allowing you to enjoy pixiv content with a piece of mind in terms of privacy, speed, and reliability.</p>
+<p>Vixipy is a free and open source, privacy respecting pixiv frontend, allowing you to enjoy pixiv content with a piece of mind in terms of privacy, speed, and reliability.</p>
 
-<h2>Why PyXiv?</h2>
+<h2>Why Vixipy?</h2>
 
 <p>The problem with using pixiv is that it uses so much unnecessary bandwidth, has trackers (Google Tag Manager), is proprietary (and contains proprietary components like ReCAPTCHA), possibly privacy invasive, and is also behind Cloudflare, which you already know has <a href="https://0xacab.org/dCF/deCloudflare">many, many problems.</a></p>
 
-<p>With PyXiv, you can enjoy using most pixiv features with a frontend you can trust. Your browser will never connect to any external server, and the backend (or an external image proxy server of your choice that you trust) <a href="https://codeberg.org/pyxiv/PyXiv/src/branch/main/pyxiv/routes/proxy.py">proxies external resources for you</a>, meaning your browser will never connect to pixiv or any third party server. The only things that PyXiv logs are the pixiv API requests, your user agent, and image proxy requests (unless you are using an external image proxy server, which you will have to trust it's privacy practices).</p>
+<p>With Vixipy, you can enjoy using most pixiv features with a frontend you can trust. Your browser will never connect to any external server, and the backend (or an external image proxy server of your choice that you trust) <a href="https://codeberg.org/pyxiv/PyXiv/src/branch/main/pyxiv/routes/proxy.py">proxies external resources for you</a>, meaning your browser will never connect to pixiv or any third party server. The only things that Vixipy will log are the pixiv API requests, your user agent, and image proxy requests (unless you are using an external image proxy server, which you will have to trust it's privacy practices).</p>
 
 <p>Also on the plus side, you don't need an account for viewing full artwork resolution, <a target="_blank" href="/static/img/accountRequired_pixiv.png">unlike pixiv</a>. <s>PyXiv requires an account only when it's April fools day.</s></p>
 
 <h2>How does it compare to other pixiv frontends (PixivFE, etc.)?</h2>
 
-<p>PyXiv is, and is always, never a competitor of any pixiv frontend. Sure, PyXiv does take inspiration from other frontends, but only for the good, and with proper credit or attribution if needed.</p>
+<p>Vixipy is, and is always, never a competitor of any pixiv frontend. Sure, Vixipy does take inspiration from other frontends, but only for the good, and with proper credit or attribution if needed.</p>
 
-<p>Performance-wise, PyXiv somewhat lags behind others, but is sometimes faster or on par with other pixiv frontends.</p>
+<p>Performance-wise, Vixipy somewhat lags behind others, but is sometimes faster or on par with other pixiv frontends.</p>
 
 <h1>Acknowledgements</h1>
 
-<p>PyXiv is made possible through the use of open source projects, which are:</p>
+<p>Vixipy is made possible through the use of open source projects, which are:</p>
 <ul>
 	<li><a href='https://www.python.org'>Python</a></li>
 	<li><a href='https://github.com/google/material-design-icons'>Material Symbols and Icons</a></li>
-	<li><a href='https://codeberg.org/pyxiv/pyxivision'>pyxivision</a> (sister project of PyXiv)</li>
+	<li><a href='https://codeberg.org/pyxiv/pyxivision'>pyxivision</a> (sister project of Vixipy)</li>
 	<li><a href='https://flask.palletsprojects.com/'>Flask</a></li>
 	<li><a href='https://catppuccin.com'>Catppuccin color scheme</a></li>
 	<li><a href='https://github.com/psf/requests'>Requests: HTTP for Humans™</a></li>
@@ -35,7 +35,7 @@
 </ul>
 
 <hr>
-<small>PyXiv {{ g.version }}</small>
+<small>Vixipy {{ g.version }}</small>
 
 
 {% endblock %}
