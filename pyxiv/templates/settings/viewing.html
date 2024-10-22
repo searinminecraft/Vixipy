@@ -9,12 +9,14 @@
 <p><b>NOTE:</b> These settings will not apply to your pixiv account.<p>
 {% endif %}
 
+{% if not config["authless"] or (g.isAuthorized and config["authless"]) %}
 {% if not g.userState.xRestrictEnabled or not g.userState.r18GEnabled or g.userState.hideAiWorks %}
 {% if not g.isAuthorized%}
 {% else %}
 <p><i>Some of these settings are enforced by your pixiv account's settings.</i></p>
 {% endif %}
 <p><i>Some of these settings are enforced by the instance.</i></p>
+{% endif %}
 {% endif %}
 
 
@@ -23,6 +25,7 @@
 	{% set hideR18Pref = (request.cookies.get('PyXivHideR18') == '1') %}
 	{% set hideR18GPref = (request.cookies.get('PyXivHideR18G') == '1')%}
 
+	{% if not config["authless"] or (g.isAuthorized and config["authless"]) %}
 	<div class="toggle-switch">
 		<label for="hideAI">Hide AI-generated works</label>
 		<input type="checkbox" name="hideAI" id="hideAI" {% if g.userState.hideAiWorks %}disabled checked{% else %}{% if hideAIPref %}checked{% endif %}{% endif %}>
@@ -35,6 +38,13 @@
 		<label for="hideR18G">Hide ero-guro (R-18G) content</label>
 		<input type="checkbox" name="hideR18G" id="hideR18G" {% if not g.userState.r18GEnabled%}disabled checked{% else %}{% if hideR18GPref %}checked{% endif %}{% endif %}>
 	</div>
+	{% else %}
+	<div class="toggle-switch">
+		<label for="hideAI">Hide AI-generated works</label>
+		<input type="checkbox" name="hideAI" id="hideAI" {% if hideAIPref %}checked{% endif %}>
+	</div>
+	{% endif %}
+
 	<div class="toggle-switch">
 		<label>Hide ads (PyXiv has no ads)</label>
 		<input type="checkbox" disabled checked>

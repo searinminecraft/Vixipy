@@ -28,6 +28,7 @@ from .routes import (
 def create_app():
     app = Flask(__name__)
     app.secret_key = cfg.PyXivSecret
+    app.config["authless"] = cfg.AuthlessMode
 
     # https://www.pixiv.net/ajax/settings/self
     app.config["stamps"] = {

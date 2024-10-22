@@ -1,14 +1,14 @@
 import os
+import secrets
 
-PxSession = os.environ.get("PYXIV_TOKEN")
+def setAuthlessMode():
+    global AuthlessMode
+    AuthlessMode = True
 
-if not PxSession:
-    raise RuntimeError("PYXIV_TOKEN environment variable was not provided")
+    return secrets.token_urlsafe(24).lower()
 
-PyXivSecret = os.environ.get("PYXIV_SECRET")
-
-if not PyXivSecret:
-    raise RuntimeError("PYXIV_SECRET environment variable was not provided")
+PxSession = os.environ.get("PYXIV_TOKEN", setAuthlessMode())
+PyXivSecret = os.environ.get("PYXIV_SECRET", "ILoveVixipy")
 
 PxAcceptLang = os.environ.get("PYXIV_ACCEPTLANG", "en-US,en;q=0.5")
 PxInstanceName = os.environ.get("PYXIV_INSTANCENAME", "Vixipy")

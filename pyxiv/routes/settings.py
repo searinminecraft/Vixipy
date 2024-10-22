@@ -25,7 +25,13 @@ COOKIE_MAXAGE = 60 * 60 * 24 * 7  #  7 days
 @settings.before_request
 def getUserState():
 
-    g.userState = getUserSettingsState()
+    if cfg.AuthlessMode and not g.isAuthorized:
+        pass
+    elif not cfg.AuthlessMode and not g.isAuthorized:
+        pass
+    else:
+        g.userState = getUserSettingsState()
+
 
 
 @settings.route("/")
@@ -41,6 +47,9 @@ def mainSettings(ep):
         case "viewing":
             return render_template("settings/viewing.html")
         case "notifications":
+            if not g.isAuthorized:
+                return render_template("unauthorized.html")
+
             c = api.getUserSettings()["body"]
 
             notificationSettingsItems = {}
