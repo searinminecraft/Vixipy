@@ -165,8 +165,10 @@ def create_app():
 
                 g.invalidSession = True
 
-            g.notificationCount = api.pixivReq("/rpc/notify_count.php?op=count_unread",
-                                              {"Referer": "https://www.pixiv.net/en"})["popboard"]
+            g.notificationCount = api.pixivReq(
+                "/rpc/notify_count.php?op=count_unread",
+                {"Referer": "https://www.pixiv.net/en"},
+            )["popboard"]
             g.hasNotifications = g.notificationCount > 0
 
     @app.after_request

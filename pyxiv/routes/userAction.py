@@ -18,12 +18,17 @@ def yourBookmarks():
 
     page = int(request.args.get("p", 1))
 
-    data = getUserBookmarks(g.userdata._id, offset=30*page)
+    data = getUserBookmarks(g.userdata._id, offset=30 * page)
 
     pages, extra = divmod(data.total, 30)
 
-    return render_template("bookmarksSelf.html", data=data, pages=pages, canGoNext=(page < pages and not page == pages), canGoPrevious=(not page == 1))
-
+    return render_template(
+        "bookmarksSelf.html",
+        data=data,
+        pages=pages,
+        canGoNext=(page < pages and not page == pages),
+        canGoPrevious=(not page == 1),
+    )
 
 
 @userAction.route("/addbookmark/<int:_id>")

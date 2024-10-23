@@ -6,6 +6,7 @@ from pyxivision import PixivisionArticle
 
 pixivision = Blueprint("pixivision", __name__, url_prefix="/pixivision")
 
+
 @pixivision.route("/a/<int:_id>")
 def getPixivisionArticle(_id: int):
 
@@ -16,4 +17,3 @@ def getPixivisionArticle(_id: int):
         article.image = makeProxy(article.image)
 
     return render_template("pixivision/article.html", article=article)
-

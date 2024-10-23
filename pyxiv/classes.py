@@ -276,8 +276,12 @@ class Artwork(PartialArtwork):
             l = link.get("href")
             replacePixiv = ("users", "artworks")
 
-            if l.__contains__("https://www.pixiv.net") and any([l.__contains__(x) for x in replacePixiv]):
-                link.attrs["href"] = "/" + "/".join(l.split("https://www.pixiv.net")[1].split("/")[2:])
+            if l.__contains__("https://www.pixiv.net") and any(
+                [l.__contains__(x) for x in replacePixiv]
+            ):
+                link.attrs["href"] = "/" + "/".join(
+                    l.split("https://www.pixiv.net")[1].split("/")[2:]
+                )
             else:
                 link.attrs["href"] = "/jump.php?" + quote(l)
 

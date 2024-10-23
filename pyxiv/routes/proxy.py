@@ -48,7 +48,7 @@ def retrieveUgoira(_id: int):
 
 @proxy.route("/<path:proxypath>", methods=["GET"])
 def proxyRequest(proxypath):
-    
+
     proxypath = proxypath.replace("https://", "")
 
     # not letting anyone use this for malicious intent :trolley:
@@ -68,7 +68,6 @@ def proxyRequest(proxypath):
 
     if proxypath.split("/")[0] == "embed.pixiv.net":
         proxypath += "?" + request.full_path.split("?")[1]
-
 
     # try to get first
 

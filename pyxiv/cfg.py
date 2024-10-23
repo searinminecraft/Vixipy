@@ -3,11 +3,13 @@ import secrets
 
 AuthlessMode = False
 
+
 def setAuthlessMode():
     global AuthlessMode
     AuthlessMode = True
 
     return secrets.token_urlsafe(24).lower().replace("_", "")
+
 
 PxSession = os.environ.get("PYXIV_TOKEN")
 
