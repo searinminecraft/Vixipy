@@ -24,14 +24,12 @@ COOKIE_MAXAGE = 60 * 60 * 24 * 7  #  7 days
 
 @settings.before_request
 def getUserState():
-
     if cfg.AuthlessMode and not g.isAuthorized:
         pass
-    elif not cfg.AuthlessMode and not g.isAuthorized:
+    elif cfg.AuthlessMode:
         pass
     else:
         g.userState = getUserSettingsState()
-
 
 
 @settings.route("/")

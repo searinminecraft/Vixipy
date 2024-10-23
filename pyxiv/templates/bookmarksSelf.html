@@ -1,8 +1,8 @@
 {% extends "layouts/default.html" %}
-{% block title %}Your bookmarks{% endblock %}
+{% block title %}Bookmarks{% endblock %}
 
 {% block content %}
-<h1>Your bookmarks</h1>
+<h1>Your bookmarks ({{ data.total }})</h1>
 <div class="container">
     <div class="artwork-container">
         {% for d in data.works %}
@@ -11,12 +11,13 @@
     </div>
     <div class="paginator">
         {% if canGoPrevious %}
-        <a href="?offset={{ (request.args['offset'] | int) - 30 }}">&lt;</a>
+	<a href="?p={{ (request.args.get('p', 1) | int) - 1 }}">&lt;</a>
         {% else %}
         <a>&lt;</a>
         {% endif %}
+	<span>Page {{ request.args.get('p', 1) }} of {{ pages }}</span>
         {% if canGoNext %}
-        <a href="?offset={{ (request.args.get('offset', 0) | int) + 30 }}">&gt;</a>
+        <a href="?p={{ (request.args.get('p', 1) | int) + 1 }}">&gt;</a>
         {% else %}
         <a>&gt;</a>
         {% endif %}
