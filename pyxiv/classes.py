@@ -323,7 +323,7 @@ class ArtworkEntry(PartialArtwork):
         super().__init__(data)
 
         self.thumbUrl: str = makeProxy(data["url"])
-        self.authorProfilePic: str = makeProxy(data["profileImageUrl"])
+        self.authorProfilePic: str = makeProxy(data.get("profileImageUrl", "https://s.pximg.net/common/images/no_profile_s.png"))
         self.authorUrl: str = f"/users/{self.authorId}"
 
     def __repr__(self):

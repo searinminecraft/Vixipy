@@ -41,30 +41,33 @@
 	</div>
 </div>
 
+{% if currPage | int == 1 %}
+{% if (not data.popularRecent | length == 0 and not data.popularAllTime | length == 0) %}
+
 <h1>Popular artworks</h1>
 
 <div class="container">
+	{% if data.popularRecent | length > 0 %}
 	<h2>Recent</h2>
 	<div class="artwork-scroll-container">
-		{% if data.popularRecent | length == 0 %}
-		<p>Nothing in here!</p>
-		{% else %}
 		{% for d in data.popularRecent %}
 		{% include "components/artwork-prev.html" %}
 		{% endfor %}
-		{% endif %}
 	</div>
-	<h2>All-time</h2>
+	{% endif %}
+
+	{% if data.popularAllTime | length > 0 %}
+	<h2>All time</h2>
 	<div class="artwork-scroll-container">
-		{% if data.popularAllTime | length == 0 %}
-		<p>Nothing in here!</p>
-		{% else %}
 		{% for d in data.popularAllTime %}
 		{% include "components/artwork-prev.html" %}
 		{% endfor %}
-		{% endif %}
 	</div>
+	{% endif %}
 </div>
+
+{% endif %}
+{% endif %}
 
 <h1>Works</h1>
 

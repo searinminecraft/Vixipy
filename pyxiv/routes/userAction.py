@@ -18,9 +18,12 @@ def yourBookmarks():
 
     page = int(request.args.get("p", 1))
 
-    data = getUserBookmarks(g.userdata._id, offset=30 * page)
+    data = getUserBookmarks(g.userdata._id, offset=(30 * page) - 30)
 
     pages, extra = divmod(data.total, 30)
+
+    if extra > 0:
+        pages += 1
 
     return render_template(
         "bookmarksSelf.html",
