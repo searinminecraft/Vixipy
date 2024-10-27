@@ -155,6 +155,51 @@ def setImgProxy():
 
     f = request.form
 
+    notAllowedIps = ("0.",
+                     "10.",
+                     "100.",
+                     "127.",
+                     "169.254.",
+                     "172.16.",
+                     "172.17.",
+                     "172.18.",
+                     "172.19.",
+                     "172.20.",
+                     "172.21.",
+                     "172.22.",
+                     "172.23.",
+                     "172.24.",
+                     "172.25.",
+                     "172.26.",
+                     "172.27.",
+                     "172.28.",
+                     "172.29.",
+                     "172.30.",
+                     "172.31.",
+                     "192.0.0.",
+                     "192.88.",
+                     "192.168.",
+                     "198.18."
+                     "198.19.",
+                     "198.51.100.",
+                     "203.0.113.")
+
+    i = f["image-proxy"].lower().replace("https://", "").replace("http://", "")
+
+    if any([i.startswith(x) for x in notAllowedIps]) or i in ("localhost", "i.pximg.net"):
+        flash(f"This address is not allowed: {i}", "error")
+        return redirect(url_for("settings.settingsIndex"), code=303)
+
+    if i != "":
+        try:
+            req = requests.get(f"http://{i}", headers={"User-Agent": "PyXiv-ProxyServerCheck"}, allow_redirects=True)
+            if not req.text.__contains__("imgaz.pixiv.net"):
+                flash("The URL specified does not seem to be a pixiv image proxy server.", "error")
+                return redirect(url_for("settings.settingsIndex"), code=303)
+        except Exception as e:
+            flash(f"Error: {e}", "error")
+            return redirect(url_for("settings.settingsIndex"), code=303)
+
     resp = make_response(redirect(url_for("settings.settingsIndex"), code=303))
     resp.set_cookie(
         "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True

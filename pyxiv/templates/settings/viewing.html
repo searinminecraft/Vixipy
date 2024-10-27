@@ -11,11 +11,11 @@
 
 {% if not config["authless"] or (g.isAuthorized and config["authless"]) %}
 {% if not g.userState.xRestrictEnabled or not g.userState.r18GEnabled or g.userState.hideAiWorks %}
-{% if not g.isAuthorized%}
-{% else %}
+{% if g.isAuthorized %}
 <p><i>Some of these settings are enforced by your pixiv account's settings.</i></p>
+{% else %}
+<p><i>Some of these settings are enforced by the instance's associated pixiv account.</i></p>
 {% endif %}
-<p><i>Some of these settings are enforced by the instance.</i></p>
 {% endif %}
 {% endif %}
 
