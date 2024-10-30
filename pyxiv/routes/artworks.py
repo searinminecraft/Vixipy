@@ -29,7 +29,7 @@ def artworkComments(_id: int):
     artworkData = getArtwork(_id)
 
     if artworkData.commentOff:
-        flash("Comments are disabled by the author.", "error")
+        flash("The creator turned off comments.", "error")
         return redirect(url_for("artworks.artworkGet", _id=_id))
 
     data = getArtworkComments(_id, **request.args)

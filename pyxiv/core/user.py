@@ -38,3 +38,10 @@ def getUserSettingsState():
 def getNotifications():
 
     return [Notification(x) for x in api.getNotifications()["body"]["items"]]
+
+
+def retrieveUserIllusts(_id: int, illustIds: list[int]) -> list[ArtworkEntry]:
+
+    data = api.retrieveUserIllusts(_id, illustIds)["body"]["works"]
+
+    return [ArtworkEntry(data[x]) for x in data]

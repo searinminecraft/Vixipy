@@ -35,6 +35,15 @@
 </div>
 
 <div class="container">
+	<h2>Today's Rankings</h2>
+	<div class="artwork-scroll-container">
+		{% for d in rankingData %}
+		{% include "components/artwork-prev.html" %}
+		{% endfor %}
+	</div>
+</div>
+
+<div class="container">
 	<h2>Recommended users</h2>
 	<div class="artwork-scroll-container">
 		{% for d in data.recommendedUsers%}

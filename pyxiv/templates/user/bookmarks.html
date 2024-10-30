@@ -1,0 +1,29 @@
+
+{% extends "user/index.html" %}
+{% block userComponent %}
+<h2>{{ user.name }}'s bookmarks ({{ total }})</h2>
+<div class="container">
+	<div class="artwork-container">
+		{% for d in illusts %}
+		{% include "components/artwork-prev.html" %}
+		{% else %}
+		<p>Nothing in here!</p>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="paginator">
+        {% if canGoPrevious %}
+	<a href="?p={{ (request.args.get('p', 1) | int) - 1 }}">&lt;</a>
+        {% else %}
+        <a>&lt;</a>
+        {% endif %}
+	<span>Page {{ request.args.get('p', 1) }} of {{ pages }}</span>
+        {% if canGoNext %}
+        <a href="?p={{ (request.args.get('p', 1) | int) + 1 }}">&gt;</a>
+        {% else %}
+        <a>&gt;</a>
+        {% endif %}
+</div>
+
+{% endblock %}

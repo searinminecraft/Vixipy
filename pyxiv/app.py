@@ -135,7 +135,7 @@ def create_app():
         if route in ("static", "proxy", "robots.txt", "favicon.ico"):
             return
 
-        g.version = "1.6"
+        g.version = "1.7"
         g.instanceName = cfg.PxInstanceName
 
         g.userPxSession = request.cookies.get("PyXivSession")
@@ -186,7 +186,9 @@ def create_app():
         if g.isAuthorized:
             mode = request.args.get("mode", "all")
             data = getLandingPage(mode)
-            return render_template("index.html", data=data)
+            return render_template(
+                "index.html", data=data, rankingData=getLandingRanked()
+            )
 
         data = getLandingRanked()
         return render_template("index.html", data=data)

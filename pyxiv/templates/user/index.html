@@ -38,4 +38,12 @@
 		{% endif %}
 	</div>
 </div>
+
+<a href="/users/{{ user._id }}/illusts">Illustrations</a>
+<a href="/users/{{ user._id }}/manga">Manga</a>
+<a href="/users/{{ user._id }}/bookmarks">Bookmarks</a>
+
+{% block userComponent %}
+{% endblock %}
+
 {% endblock %}

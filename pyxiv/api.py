@@ -312,3 +312,22 @@ def postStamp(illustId: int, authorId: int, stampId: int):
             "Accept": "application/json",
         },
     )
+
+
+def getUserIllustManga(_id: int):
+
+    return pixivReq(f"/ajax/user/{_id}/profile/all")
+
+
+def getUserLatestIllusts(_id: int):
+
+    return pixivReq(f"/ajax/user/{_id}/works/latest")
+
+
+def retrieveUserIllusts(_id: int, illustIds: list[int]):
+    path = f"/ajax/user/{_id}/profile/illusts?work_category=illustManga&is_first_page=1"
+
+    for x in range(len(illustIds)):
+        path += f"&ids[]={illustIds[x]}"
+
+    return pixivReq(path)
