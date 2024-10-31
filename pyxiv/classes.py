@@ -35,6 +35,27 @@ class PartialUser:
             makeProxy(data["background"]["url"]) if data["background"] else None
         )
 
+        soupDesc = BeautifulSoup(data["commentHtml"], "html.parser")
+
+        for link in soupDesc.find_all("a"):
+            # dont append jump.php when pixiv has already done this for us
+            if link.get("href").__contains__("/jump.php?"):
+                continue
+
+            l = link.get("href")
+            replacePixiv = ("users", "artworks")
+
+            if l.__contains__("https://www.pixiv.net") and any(
+                [l.__contains__(x) for x in replacePixiv]
+            ):
+                link.attrs["href"] = "/" + "/".join(
+                    l.split("https://www.pixiv.net")[1].split("/")[2:]
+                )
+            else:
+                link.attrs["href"] = "/jump.php?" + quote(l)
+
+        self.commentHtml = str(soupDesc)
+
 
 class User(PartialUser):
     """
@@ -220,6 +241,28 @@ class PartialArtwork:
             else None
         )
 
+        soupDesc = BeautifulSoup(data["description"], "html.parser")
+
+        for link in soupDesc.find_all("a"):
+            # dont append jump.php when pixiv has already done this for us
+            if link.get("href").__contains__("/jump.php?"):
+                continue
+
+            l = link.get("href")
+            replacePixiv = ("users", "artworks")
+
+            if l.__contains__("https://www.pixiv.net") and any(
+                [l.__contains__(x) for x in replacePixiv]
+            ):
+                link.attrs["href"] = "/" + "/".join(
+                    l.split("https://www.pixiv.net")[1].split("/")[2:]
+                )
+            else:
+                link.attrs["href"] = "/jump.php?" + quote(l)
+
+        self.description = str(soupDesc)
+        self.descriptionRaw = soupDesc.text
+
     @property
     def xRestrictClassification(self) -> str:
         match self.xRestrict:
@@ -266,26 +309,6 @@ class Artwork(PartialArtwork):
 
         self.thumbUrl: str = makeProxy(data["urls"]["regular"])
         self.originalUrl: str = makeProxy(data["urls"]["original"])
-        soupDesc = BeautifulSoup(data["description"], "html.parser")
-
-        for link in soupDesc.find_all("a"):
-            # dont append jump.php when pixiv has already done this for us
-            if link.get("href").__contains__("/jump.php?"):
-                continue
-
-            l = link.get("href")
-            replacePixiv = ("users", "artworks")
-
-            if l.__contains__("https://www.pixiv.net") and any(
-                [l.__contains__(x) for x in replacePixiv]
-            ):
-                link.attrs["href"] = "/" + "/".join(
-                    l.split("https://www.pixiv.net")[1].split("/")[2:]
-                )
-            else:
-                link.attrs["href"] = "/jump.php?" + quote(l)
-
-        self.description = str(soupDesc)
 
         self.viewCount: int = data["viewCount"]
         self.likeCount: int = data["likeCount"]
@@ -391,6 +414,7 @@ class RankingEntry(ArtworkEntry):
                 "illustType": int(data["illust_type"]),
                 "pageCount": int(data["illust_page_count"]),
                 "profileImageUrl": data["profile_img"],
+                "description": "",
             }
         )
 

@@ -324,6 +324,10 @@ def getUserLatestIllusts(_id: int):
     return pixivReq(f"/ajax/user/{_id}/works/latest")
 
 
+def getUserTopIllusts(_id: int):
+    return pixivReq(f"/ajax/user/{_id}/profile/top")
+
+
 def retrieveUserIllusts(_id: int, illustIds: list[int]):
     path = f"/ajax/user/{_id}/profile/illusts?work_category=illustManga&is_first_page=1"
 

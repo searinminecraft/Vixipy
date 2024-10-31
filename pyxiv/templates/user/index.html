@@ -33,17 +33,28 @@
 		</div>
 		{% if user.comment %}
 		<div class="user-data">
-			{{ user.comment | safe }}
+			{{ user.commentHtml | safe }}
 		</div>
 		{% endif %}
 	</div>
 </div>
 
-<a href="/users/{{ user._id }}/illusts">Illustrations</a>
-<a href="/users/{{ user._id }}/manga">Manga</a>
-<a href="/users/{{ user._id }}/bookmarks">Bookmarks</a>
+<br>
 
+<div class="container">
+	<ul class="tab-navigation">
+		<li {% if currentSection == "home" %}class="active"{% endif %}><a href="/users/{{ user._id }}">Home</a></li>
+		<li {% if currentSection == "illust" %}class="active"{% endif %}><a href="/users/{{ user._id }}/illusts#checkpoint">Illustrations</a></li>
+		<li {% if currentSection == "manga" %}class="active"{% endif %}><a href="/users/{{ user._id }}/manga#checkpoint">Manga</a></li>
+		<li {% if currentSection == "bookmarks" %}class="active"{% endif %}><a href="/users/{{ user._id }}/bookmarks#checkpoint">Bookmarks</a>
+	</ul>
+</div>
+
+<br>
+
+<div id="checkpoint">
 {% block userComponent %}
 {% endblock %}
+</div>
 
 {% endblock %}

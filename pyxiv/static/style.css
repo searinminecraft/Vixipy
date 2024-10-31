@@ -291,6 +291,23 @@ button.button.danger {
 	background-color: #f38ba8;
 }
 
+a.button {
+	display: inline-block;
+	color: #11111b;
+	background-color: #cba6f7;
+	font-size: 16px;
+	border-radius: 16px;
+	border: none;
+	padding: 4px 24px;
+	height: 32px;
+	font-family: sans-serif;
+	line-height: 1.5
+}
+
+a.button.danger {
+	background-color: #f38ba8;
+}
+
 button.icon-button {
 	border: none;
 	background-color: unset;
@@ -331,6 +348,11 @@ hr {
 
 .container {
 	width: 100%
+}
+
+.centered {
+	display: flex;
+	justify-content: center;
 }
 
 .paginator {
@@ -630,16 +652,15 @@ hr {
 	max-height: 270px;
 	object-fit: cover;
 	object-position: center center;
-	border-radius: 24px 24px 0 0;
+	border-radius: 24px 24px 12px 12px;
 }
 
-.user-container .user-main,
 .user-container .user-data {
-	padding: 2em;
-	display: flex;
+	padding: 1em;
 }
 
 .user-container .user-main .user-info {
+	padding: 2em;
 	display: flex;
 }
 
@@ -1178,3 +1199,58 @@ form.inline-form button {
 	border-radius: 24px;
 	margin: 3em 0
 }
+
+ul.tab-navigation {
+	display: flex;
+	padding: unset;
+}
+
+ul.tab-navigation li {
+	list-style: none;
+}
+
+ul.tab-navigation li a {
+	color: #a6adc8;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 16px 12px;
+}
+
+ul.tab-navigation li.active a {
+	color: unset;
+	border-top: 4px solid #cba6f7
+}
+
+.featured-work {
+	display: flex;
+	min-width: 600px;
+	padding: 1em;
+}
+
+.featured-work img {
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+	object-position: center center;
+	background-color: #313244;
+	border-radius: 16px;
+	margin-right: 1em;
+	flex-shrink: 0
+}
+
+.featured-work .featured-info {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	flex-direction: column;
+	padding: 1em;
+}
+
+.featured-work .featured-info .description {
+	word-wrap: anywhere;
+	word-break: break-word;
+}
+
+

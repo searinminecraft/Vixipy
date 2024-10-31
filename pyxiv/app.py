@@ -135,7 +135,7 @@ def create_app():
         if route in ("static", "proxy", "robots.txt", "favicon.ico"):
             return
 
-        g.version = "1.7"
+        g.version = "1.8"
         g.instanceName = cfg.PxInstanceName
 
         g.userPxSession = request.cookies.get("PyXivSession")

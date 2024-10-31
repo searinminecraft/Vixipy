@@ -10,8 +10,13 @@ from flask import (
 )
 
 from .. import api
-from ..core.user import getUser, retrieveUserIllusts, getUserBookmarks
-from ..classes import User
+from ..core.user import (
+    getUser,
+    retrieveUserIllusts,
+    getUserBookmarks,
+    getUserTopIllusts,
+)
+from ..classes import User, ArtworkEntry
 
 users = Blueprint("users", __name__, url_prefix="/users")
 
@@ -34,10 +39,27 @@ def userPage(_id: int):
                 "official": True,
             }
         )
+        pickup = []
+        latestIllust = []
+        top = []
+        total = 0
     else:
         user = getUser(_id)
+        data = api.getUserIllustManga(_id)["body"]
+        total = len(data["illusts"]) + len(data["manga"])
 
-    return render_template("user/index.html", user=user)
+        pickup = []
+        for x in data["pickup"]:
+            # unsupported
+            if x["type"] == "illustSeries":
+                continue
+            pickup.append(ArtworkEntry(x))
+
+        top = getUserTopIllusts(_id)
+
+    return render_template(
+        "user/main.html", user=user, pickup=pickup, top=top, total=total
+    )
 
 
 @users.route("/<int:_id>/illusts")

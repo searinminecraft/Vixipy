@@ -40,6 +40,15 @@ def getNotifications():
     return [Notification(x) for x in api.getNotifications()["body"]["items"]]
 
 
+def getUserTopIllusts(_id: int):
+
+    data = api.getUserTopIllusts(_id)["body"]
+    illusts = [ArtworkEntry(data["illusts"][x]) for x in data["illusts"]]
+    manga = [ArtworkEntry(data["manga"][x]) for x in data["manga"]]
+
+    return list(illusts + manga)
+
+
 def retrieveUserIllusts(_id: int, illustIds: list[int]) -> list[ArtworkEntry]:
 
     data = api.retrieveUserIllusts(_id, illustIds)["body"]["works"]
