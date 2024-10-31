@@ -35,6 +35,28 @@ class PartialUser:
             makeProxy(data["background"]["url"]) if data["background"] else None
         )
 
+
+class User(PartialUser):
+    """
+    Represents a user
+    This is a subclass of `PartialUser`
+
+    Properties:
+    ===========
+
+    `int` following: The amount of users the user is following
+    `int` mypixiv: The user's mypixiv count
+    `bool` official: Whether the user is an official account from pixiv
+    `str` commentHtml: The HTML-formatted description
+    """
+
+    def __init__(self, data):
+
+        super().__init__(data)
+
+        self.following: int = data["following"]
+        self.mypixiv: int = data["mypixivCount"]
+        self.official: bool = data["official"]
         soupDesc = BeautifulSoup(data["commentHtml"], "html.parser")
 
         for link in soupDesc.find_all("a"):
@@ -56,27 +78,6 @@ class PartialUser:
 
         self.commentHtml = str(soupDesc)
 
-
-class User(PartialUser):
-    """
-    Represents a user
-    This is a subclass of `PartialUser`
-
-    Properties:
-    ===========
-
-    `int` following: The amount of users the user is following
-    `int` mypixiv: The user's mypixiv count
-    `bool` official: Whether the user is an official account from pixiv
-    """
-
-    def __init__(self, data):
-
-        super().__init__(data)
-
-        self.following: int = data["following"]
-        self.mypixiv: int = data["mypixivCount"]
-        self.official: bool = data["official"]
 
 
 class Tag:
