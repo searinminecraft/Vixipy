@@ -51,7 +51,7 @@ def userPage(_id: int):
         pickup = []
         for x in data["pickup"]:
             # unsupported
-            if x["type"] == "illustSeries":
+            if x["type"] not in ["illust", "manga"]:
                 continue
             pickup.append(ArtworkEntry(x))
 
