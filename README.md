@@ -39,6 +39,8 @@ A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 
 ![](/screenshots/user_profile.png)
 
+![](/screenshots/notifications.png)
+
 ![](/screenshots/comments.png)
 
 ![](/screenshots/emoji.png)
