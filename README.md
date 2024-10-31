@@ -28,24 +28,27 @@ A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 * Tag search control
 * Image proxy caching
 
-<!--
 # Screenshots
 
 <details>
 <summary>Show screenshots</summary>
 
-![Screenshot of PyXiv's landing page, logged in as coolesdingdev](/screenshots/screenshot.png)
+![](/screenshots/landing.png)
 
-![Screenshot of PyXiv's landing page, showing rankings](/screenshots/home_rankings.png)
+![](/screenshots/illust.png)
 
-![Screenshot of an illustration of Anna Yanami, with various information as well as related artworks](/screenshots/artwork.png)
+![](/screenshots/user_profile.png)
 
-![Screenshot of the discovery page](/screenshots/discover.png)
+![](/screenshots/comments.png)
 
-![Screenshot of a tag search for "八奈見杏菜 (Anna Yanami)"](/screenshots/tag_search.png)
+![](/screenshots/emoji.png)
+
+![](/screenshots/bookmarks.png)
+
+![](/screenshots/settings.png)
 
 </details>
--->
+
 # Install instructions
 1. Create a virtual environment, then activate
 ```
