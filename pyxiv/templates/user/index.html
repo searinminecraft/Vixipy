@@ -27,7 +27,7 @@
 						<img class="badge" src="/static/icons/bookmarked.svg" title="<3">
 						{% endif %}
 					</span>
-					<span class="user-stats">{{ user.following }} following - {{ user.mypixiv }} mypixiv</span>
+						<span class="user-stats"><a href="/users/{{ user._id }}/following"><b>{{ user.following }}</b> following</a> - <b>{{ user.mypixiv }}</b> mypixiv</span>
 				</div>
 			</div>
 		</div>

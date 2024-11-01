@@ -199,6 +199,35 @@ label, select, textarea {
 		width: 100%;
 		flex: unset !important;
 	}
+
+	.user-sc {
+		flex-direction: column;
+	}
+
+	.user-sc .user-data {
+		width: 100% !important;
+	}
+
+	.tag-meta {
+		flex-direction: column;
+	}
+
+	.tag-meta .imglink .grad {
+		width: 100%;
+		background-image: linear-gradient(180deg, rgba(0,0,0,0), #181825)
+	}
+
+	.tag-meta .imglink img {
+		width: 100%;
+		height: 250px;
+		object-position: top;
+		border-radius: 24px 24px 16px 16px;
+		margin-right: unset !important;
+	}
+
+	.tag-meta .tag-info {
+		padding: 1em;
+	}
 }
 
 a {
@@ -387,8 +416,8 @@ hr {
 }
 
 .artwork-entry {
-	min-width: 250px;
-	max-width: 250px;
+	min-width: 175px;
+	max-width: 175px;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
@@ -405,14 +434,15 @@ hr {
 	overflow: hidden;
 	display: block;
 	text-overflow: ellipsis;
-	max-width: 250px;
-	color: #ccd6f4;
-	font-size: 22px
+	max-width: 175px;
+	color: unset;
+	font-size: 16px;
+	font-weight: bold;
 }
 
 .artwork-entry img {
-	width: 250px;
-	height: 250px;
+	width: 175px;
+	height: 175px;
 	border-radius: 16px;
 	background-color: #313244;
 	object-fit: cover;
@@ -456,17 +486,21 @@ hr {
 	padding: 4px 8px;
 	background-color: rgba(0, 0, 0, 0.45);
 	color: #fff;
-	height: 32px;
-	min-width: 32px;
+	height: 24px;
+	min-width: 24px;
 	border-radius: 14px;
 	margin-right: 6px;
 	gap: 6px;
 	backdrop-filter: blur(4px)
 }
 
+.artwork-entry .artwork-additional .metadata-chip span {
+	font-size: 12px;
+}
+
 .artwork-entry .artwork-additional .metadata-icon {
-	width: 18px;
-	height: 18px;
+	width: 14px;
+	height: 14px;
 	background-color: unset;
 	border-radius: unset;
 }
@@ -691,6 +725,10 @@ hr {
 	margin-left: 8px;
 }
 
+.user-container .user-main .user-info .user-details .user-stats a {
+	color: unset;
+}
+
 .tag-meta {
 	display: flex;
 	background-color: #181825;
@@ -710,7 +748,7 @@ hr {
 	object-position: center left;
 	background-color: #313244;
 	margin-right: 2em;
-	border-radius: 24px 0 0 24px;
+	border-radius: 24px 16px 16px 24px;
 }
 
 .tag-meta .grad {
@@ -1253,4 +1291,37 @@ ul.tab-navigation li.active a {
 	word-break: break-word;
 }
 
+.user-sc {
+	display: flex
+}
 
+.user-sc .user-data {
+	flex-shrink: 0;
+	width: 450px;
+	padding: 1em;
+	display: flex;
+}
+
+.user-sc .user-data img {
+	aspect-ratio: 1/1;
+	height: 128px;
+	width: 128px;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 50%;
+	background-color: #313244;
+	margin-right: 16px;
+	flex-shrink: 0
+}
+
+.user-sc .user-data .user-info a {
+	color: unset
+}
+
+.user-sc .user-data .user-info h3 {
+	margin: 8px 0
+}
+
+.user-sc .user-data .user-info p {
+	color: #a6adc8
+}

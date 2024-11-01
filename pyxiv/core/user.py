@@ -1,6 +1,6 @@
 from .. import api
 
-from ..classes import User, UserBookmarks, ArtworkEntry, UserSettingsState, Notification
+from ..classes import User, UserBookmarks, ArtworkEntry, UserSettingsState, Notification, UserFollowData
 
 
 def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
@@ -54,3 +54,17 @@ def retrieveUserIllusts(_id: int, illustIds: list[int]) -> list[ArtworkEntry]:
     data = api.retrieveUserIllusts(_id, illustIds)["body"]["works"]
 
     return [ArtworkEntry(data[x]) for x in data]
+
+def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
+    
+    data = api.getUserFollowing(_id, offset, limit)["body"]
+    total = data["total"]
+
+    return total, [UserFollowData(x) for x in data["users"]]
+
+def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
+
+    data = api.getUserFollowers(_id, offset, limit)["body"]
+    total = data["total"]
+
+    return total, [UserFollowData(x) for x in data["users"]]

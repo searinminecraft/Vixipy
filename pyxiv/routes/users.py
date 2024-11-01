@@ -15,6 +15,8 @@ from ..core.user import (
     retrieveUserIllusts,
     getUserBookmarks,
     getUserTopIllusts,
+    getUserFollowing,
+    getUserFollowers,
 )
 from ..classes import User, ArtworkEntry
 
@@ -170,3 +172,40 @@ def userBookmarks(_id: int):
         canGoNext=(page < pages and not page == pages),
         canGoPrevious=(not page == 1),
     )
+
+@users.route("/<int:_id>/following")
+def following(_id: int):
+
+    currPage = int(request.args.get("p", 1))
+
+    total, data = getUserFollowing(_id)
+    user = getUser(_id)
+
+    pages, extra = divmod(total, 30)
+    if extra > 0:
+        pages += 1
+
+    _, data = getUserFollowing(_id, offset=(30*currPage)-30)
+
+    return render_template("user/follows.html", total=total, pages=pages, data=data, mode="following", user=user, canGoNext=(currPage < pages and not currPage == pages), canGoPrevious=())
+
+@users.route("/<int:_id>/followers")
+def followers(_id: int):
+
+    currPage = int(request.args.get("p", 1))
+
+    try:
+        total, data = getUserFollowers(_id)
+    except api.PixivError:
+        flash("Not authorized.", "error")
+        return redirect(f"/users/{_id}/following")
+
+    user = getUser(_id)
+
+    pages, extra = divmod(total, 30)
+    if extra > 0:
+        pages += 1
+
+    _, data = getUserFollowers(_id, offset=(30*currPage)-30)
+
+    return render_template("user/follows.html", total=total, pages=pages, data=data, mode="follows", user=user, canGoNext=(currPage < pages and not currPage == pages), canGoPrevious=())

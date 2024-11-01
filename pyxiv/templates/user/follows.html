@@ -1,0 +1,75 @@
+{% extends "layouts/default.html" %}
+
+{% if mode == "following" %}
+{% set titleT = "followed users" %}
+{% elif mode == "follows" %}
+{% set titleT = "followers" %}
+{% endif%}
+
+{% block title %}{{ user.name }}'s {{ titleT }}{% endblock %}
+
+{% block content %}
+<a href="/users/{{ user._id }}">&lt; Back</a>
+
+<br>
+<br>
+
+<div class="container">
+	<ul class="tab-navigation">
+		<li {% if mode == "following" %}class="active"{% endif %}><a href="/users/{{ user._id }}/following">Following</a></li>
+		<li {% if mode == "follows" %}class="active"{% endif %}><a href="/users/{{ user._id }}/followers">Followers</a>
+	</ul>
+</div>
+
+
+
+<h1>Users ({{ total }})</h1>
+
+<div class="container">
+	{% for u in data %}
+	<div class="user-sc">
+		<div class="user-data">
+			<a href="/users/{{ u.userId }}">
+				<img src="{{ u.profileImageUrl }}" alt="{{ u.userName }}">
+			</a>
+			<div class="user-info">
+				<a href="/users/{{ u.userId }}">
+					<h3>{{ u.userName }}</h3>
+				</a>
+				<p>
+				{% if u.userComment | length > 96 %}
+				{{ u.userComment[:96] }}...
+				{% else %}
+				{{ u.userComment }}
+				{% endif %}
+				</p>
+			</div>
+		</div>
+		<div class="artwork-scroll-container">
+			{% for d in u.illusts %}
+			{% include "components/artwork-prev-min.html" %}
+			{% endfor %}
+		</div>
+	</div>
+	{% else %}
+	<p>No users to show</p>
+	{% endfor %}
+
+	<div class="paginator">
+
+        	{% if canGoPrevious %}
+		<a href="?p={{ (request.args.get('p', 1) | int) - 1 }}">&lt;</a>
+        	{% else %}
+	        <a>&lt;</a>
+	        {% endif %}
+		<span>Page {{ request.args.get('p', 1) }} of {{ pages }}</span>
+	        {% if canGoNext %}
+	        <a href="?p={{ (request.args.get('p', 1) | int) + 1 }}">&gt;</a>
+        	{% else %}
+	        <a>&gt;</a>
+	        {% endif %}
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+<div class="artwork-entry">
+	<div class="artwork-image">
+		<div class="artwork-additional">
+			{% if d.rank %}
+			<div class="metadata-chip">
+				<span>{{ d.rank }}</span>
+			</div>
+			{% endif %}
+			{% if d.isUgoira %}
+			<div class="metadata-chip">
+				<img class="metadata-icon" src="/static/icons/play_arrow.svg" />
+			</div>
+			{% endif %}
+			{% if d.pageCount > 1 %}
+			<div class="metadata-chip">
+				<img class="metadata-icon" src="/static/icons/collections.svg" />
+				<span>{{ d.pageCount }}</span>
+			</div>
+			{% endif %}
+			{% if d.isAI %}
+			<div class="metadata-chip">
+				<img class="metadata-icon" src="/static/icons/ai_gen.svg" />
+			</div>
+			{% endif %}
+			{% if d.xRestrict != 0 %}
+			<div class="metadata-chip">
+				<img class="metadata-icon" src="/static/icons/warning.svg" />
+				<span>{{ d.xRestrictClassification }}</span>
+			</div>
+			{% endif %}
+		</div>
+
+		<a href="/artworks/{{ d._id }}">
+			<img src="{{ d.thumbUrl }}" loading="lazy" alt="{{ d.title }}">
+		</a>
+	</div>
+	<div class="title">
+		<a href="/artworks/{{ d._id }}">{{ d.title }}</a>
+	</div>
+</div>

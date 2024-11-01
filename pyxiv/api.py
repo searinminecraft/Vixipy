@@ -338,3 +338,9 @@ def retrieveUserIllusts(_id: int, illustIds: list[int]):
         path += f"&ids[]={illustIds[x]}"
 
     return pixivReq(path)
+
+def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
+    return pixivReq(f"/ajax/user/{_id}/following?offset={offset}&limit={limit}&rest=show")
+
+def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
+    return pixivReq(f"/ajax/user/{_id}/followers?offset={offset}&limit={limit}&rest=show")

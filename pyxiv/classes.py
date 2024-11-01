@@ -95,7 +95,7 @@ class Tag:
 
         self.tag: str = data["tag"]
         self.enTranslation: str = (
-            data["translation"]["en"] if data.get("translation") else None
+            (data["translation"]["en"] if data["translation"]["en"] != "" else data["translation"]["romaji"] ) if data.get("translation") else None
         )
 
 
@@ -157,9 +157,9 @@ class TagInfo:
         self.imageTag: str = data["pixpedia"]["tag"]
 
         try:
-            self.enTranslation: str = data["tagTranslation"][self.tag]["en"]
-        except (KeyError, IndexError, TypeError):
-            self.enTranslation: str = None
+            self.enTranslation: str = data["tagTranslation"][self.tag]["en"] if data["tagTranslation"][self.tag]["en"] != "" else data["tagTranslation"][self.tag]["romaji"]
+        except Exception:
+            self.enTranslation = None
 
 
 class ArtworkPage:
@@ -356,6 +356,37 @@ class ArtworkEntry(PartialArtwork):
 
     def __repr__(self):
         return f"<ArtworkEntry _id={self._id} title={self.title} author={self.authorName} xRestrict={self.xRestrict} isAI={self.isAI} aiType={self.aiType} isUgoira={self.isUgoira}>"
+
+
+class UserFollowData:
+    """
+    Represents data for following/followed/mypixiv users
+
+    Properties:
+    ===========
+
+    `int` userId: The user's ID
+    `str` userName: The user's name
+    `str` profileImageUrl: proxied profile picture URL
+    `str` userComment: The user's bio
+    `bool` following: Whether the user is following the user
+    `bool` followed: Whether the user has followed the current user
+    `bool` isMypixiv: Whether the user is a current user's mypixiv
+    `list[ArtworkEntry]` illusts: To show off the user's illustrations
+    """
+
+    def __init__(self, data):
+        self.userId: int = int(data["userId"])
+        self.userName: str = data["userName"]
+        self.profileImageUrl: str = makeProxy(data["profileImageUrl"])
+        self.userComment: str = data["userComment"]
+        self.following: bool = data["following"]
+        self.followed: bool = data["followed"]
+        self.isMypixiv: bool = data["followed"]
+        self.illusts: list[ArtworkEntry] = [ArtworkEntry(x) for x in data["illusts"]]
+
+    def __repr__(self):
+        return f"<UserFollowData userId={self.userId} userName={self.userName} profileImageUrl={self.profileImageUrl} following={self.following} followed={self.followed} isMypixiv={self.isMypixiv} illusts={self.illusts}>"
 
 
 class RecommendedUser(PartialUser):
