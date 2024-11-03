@@ -19,7 +19,7 @@ from ..core.user import getUserSettingsState
 
 settings = Blueprint("settings", __name__, url_prefix="/settings")
 
-COOKIE_MAXAGE = 60 * 60 * 24 * 7  #  7 days
+COOKIE_MAXAGE = 2592000
 
 
 @settings.before_request
