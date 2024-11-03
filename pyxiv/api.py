@@ -351,3 +351,6 @@ def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
 
 def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
     return pixivReq(f"/ajax/user/{_id}/followers?offset={offset}&limit={limit}&rest=show")
+
+def addTagToFavorites(tag: str):
+    return pixivPostReq(f"/ajax/favorite_tags/save", jsonPayload={"tags": [tag]})

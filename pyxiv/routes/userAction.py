@@ -89,3 +89,8 @@ def stamp():
 def notifications():
 
     return render_template("notifications.html", data=getNotifications())
+
+@userAction.post("/favorite_tags/save")
+def addTagToFavorites():
+    api.addTagToFavorites(request.form["tag"])
+    return redirect(request.args.get("r", "/"))
