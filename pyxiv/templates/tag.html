@@ -3,20 +3,22 @@
 {% block content %}
 
 <div class="container">
-	<div class="tag-meta">
-		<a class="imglink" href="/artworks/{{ tagInfo.imageId }}">
-		<img src="{{ tagInfo.image }}"/>
-		<div class="grad"></div>
-		</a>
-		<div class="tag-info">
-			<div>
-				{% if tagInfo.enTranslation %}
-				<h2>#{{ tagInfo.tag }} <i>{{ tagInfo.enTranslation }}</i></h2>
-				{% else %}
-				<h2>#{{ tagInfo.tag }}</h2>
-				{% endif %}
-				<small>{{ data.total }} works</small>
-				<p>{{ tagInfo.abstract }}</p>
+	<div class="tag-main">
+		<img class="backdrop-img" src="{{ tagInfo.image }}"/>
+		<div class="tag-meta">
+			<a class="imglink" href="/artworks/{{ tagInfo.imageId }}">
+				<img src="{{ tagInfo.image }}"  alt="#{{ tagInfo.tag }}" title="#{{ tagInfo.tag }}"/>
+			</a>
+			<div class="tag-info">
+				<div>
+					{% if tagInfo.enTranslation %}
+					<h2>#{{ tagInfo.tag }} <i>{{ tagInfo.enTranslation }}</i></h2>
+					{% else %}
+					<h2>#{{ tagInfo.tag }}</h2>
+					{% endif %}
+					<small>{{ data.total }} works</small>
+					<p>{{ tagInfo.abstract }}</p>
+				</div>
 			</div>
 		</div>
 	</div>

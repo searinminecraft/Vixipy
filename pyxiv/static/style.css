@@ -212,11 +212,6 @@ label, select, textarea {
 		flex-direction: column;
 	}
 
-	.tag-meta .imglink .grad {
-		width: 100%;
-		background-image: linear-gradient(180deg, rgba(0,0,0,0), #181825)
-	}
-
 	.tag-meta .imglink img {
 		width: 100%;
 		height: 250px;
@@ -227,6 +222,10 @@ label, select, textarea {
 
 	.tag-meta .tag-info {
 		padding: 1em;
+	}
+
+	.tag-meta .tag-info > div {
+		padding-right: unset !important
 	}
 }
 
@@ -529,14 +528,6 @@ hr {
 	border-radius: 16px 0 0 16px
 }
 
-.recommended-user .profileImage .grad {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-image: linear-gradient(90deg, rgba(0,0,0,0), #181825)
-}
-
 .recommended-user .user-details {
 	flex: 55%;
 	padding: 1em;
@@ -729,9 +720,25 @@ hr {
 	color: unset;
 }
 
+.tag-main {
+	position: relative;
+}
+
+.tag-main .backdrop-img {
+	position: absolute;
+	object-fit: cover;
+	object-position: center;
+	border-radius: 24px;
+	z-index: -1;
+	background-color: #181825;
+	width: 100%;
+	height: 100%;
+}
+
 .tag-meta {
 	display: flex;
-	background-color: #181825;
+	background-color: #181825f0;
+	backdrop-filter: blur(2rem);
 	width: 100%;
 	min-height: 250px;
 	border-radius: 24px;
@@ -743,20 +750,21 @@ hr {
 
 .tag-meta img {
 	height: 100%;
-	width: 225px;
+	width: 350px;
 	object-fit: cover;
-	object-position: center left;
+	object-position: center;
 	background-color: #313244;
 	margin-right: 2em;
 	border-radius: 24px 16px 16px 24px;
 }
 
-.tag-meta .grad {
-	position: absolute;
-	top: 0;
-	width: 225px;
-	height: 100%;
-	background-image: linear-gradient(90deg, rgba(0,0,0,0), #181825)
+.tag-meta .tag-info > div {
+	padding-right: 2em
+}
+
+.tag-meta .tag-info div p {
+	word-wrap: anywhere;
+	word-break: break-word
 }
 
 .related-tags {
