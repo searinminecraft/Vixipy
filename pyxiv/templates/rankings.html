@@ -1,0 +1,11 @@
+{% extends "layouts/default.html" %}
+{% block title %}Rankings{% endblock %}
+
+{% block content %}
+<h2>{{data.date.strftime("%Y/%m/%d")}} Ranking</h2>
+<div class="container artwork-container">
+	{% for d in data.contents %}
+	{% include "components/artwork-prev.html" %}
+	{% endfor %}
+</div>
+{% endblock %}

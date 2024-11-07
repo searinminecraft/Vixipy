@@ -55,24 +55,24 @@
 			{% endif %}
 			{% if data.artwork.bookmarked %}
 				<a href="/self/removebookmark/{{ data.artwork.bookmarkId }}?r=/artworks/{{ data.artwork._id }}">
-					<img src={{"/static/icons/bookmarked.svg"}}/>
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"/></svg>
 					<span>{{ data.artwork.bookmarkCount }}</span>
 				</a>
 			{% else %}
 				<a href="/self/addbookmark/{{ data.artwork._id }}?r=/artworks/{{ data.artwork._id }}">
-					<img src="/static/icons/bookmark.svg"/>
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
 					<span>{{ data.artwork.bookmarkCount }}</span>
 				</a>
 			{% endif %}
 
 			{% if data.artwork.liked %}
 				<a href="#" onclick="cannotUnlike()">
-					<img src="/static/icons/liked.svg"/>
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
 					<span>{{ data.artwork.likeCount }}</span>
 				</a>
 			{% else %}
 				<a href="/self/like/{{ data.artwork._id }}?r=/artworks/{{ data.artwork._id }}">
-					<img src="/static/icons/like.svg"/>
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg>
 					<span>{{ data.artwork.likeCount }}</span>
 				</a>
 			{% endif %}
@@ -87,11 +87,12 @@
 			{% endif %}
 
 				<a href="/self/addbookmark/{{ data.artwork._id }}?r=/artworks/{{ data.artwork._id }}">
-					<img src="/static/icons/bookmark.svg"/>
+
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
 					<span>{{ data.artwork.bookmarkCount }}</span>
 				</a>
 				<a href="/self/like/{{ data.artwork._id }}?r=/artworks/{{ data.artwork._id }}">
-					<img src="/static/icons/like.svg"/>
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg>
 					<span>{{ data.artwork.likeCount }}</span>
 				</a>
 		</div>

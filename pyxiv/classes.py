@@ -426,7 +426,16 @@ class RankingEntry(ArtworkEntry):
     Properties:
     ===========
 
+    `int` attr: Ranking attributes
+    `int` bookmarkable: Whether it can be bookmarked or not
+    `datetime` date: The date it was uploaded
+    `int` height: Illustration height
+    `int` illustBookStyle: ?
+    `dict` illustContentType: Content type
+    `int` ratingCount: Like/bookmark count?
+    `int` width: Illustration width
     `int` rank: The artwork's rank
+    `int` yesRank: ?
     """
 
     def __init__(self, data):
@@ -450,8 +459,34 @@ class RankingEntry(ArtworkEntry):
             }
         )
 
+        self.attr: str = data["attr"]
+        self.bookmarkable: bool = data["bookmarkable"]
+        self.date: datetime = datetime.strptime(data["date"], "%Y年%m月%d日 %H:%M")
+        self.height: int = data["height"]
+        self.illustBookStyle: int = int(data["illust_book_style"])
+        self.illustContentType: dict = data["illust_content_type"]
+        self.illustUploadTimestamp: datetime = datetime.fromtimestamp(data["illust_upload_timestamp"])
+        self.ratingCount: int = data["rating_count"]
+        self.width: int = data["width"]
         self.rank: int = data["rank"]
+        self.yesRank: int = data["yes_rank"]
 
+
+class Ranking:
+    def __init__(self, data):
+        self.content: str = data["content"]
+        self.contents: list[RankingEntry] = [RankingEntry(x) for x in data["contents"]]
+        self._date: int = int(data["date"])
+        self.mode: str = data["mode"]
+        self.next: int = data["next"] if type(data["next"]) == int else None
+        self._nextDate: str = data["next_date"] if type(data["next_date"]) == int else None
+        self.page: int = data["page"]
+        self.prev: int = data["prev"] if type(data["prev"]) == int else None
+        self._prevDate: str = data["prev_date"] if type("prev_date") == int else None
+
+        self.date: datetime = datetime.strptime(str(self._date), "%Y%m%d")
+        self.nextDate: datetime = datetime.strptime(str(self._nextDate), "%Y%m%d") if self._nextDate else None
+        self.prevDate: datetime = datetime.strptime(str(self._prevDate), "%Y%m%d") if self._prevDate else None
 
 class SearchResults:
     """

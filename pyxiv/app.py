@@ -22,6 +22,7 @@ from .routes import (
     tag,
     newest,
     pixivision,
+    ranking,
 )
 
 
@@ -103,6 +104,7 @@ def create_app():
     app.register_blueprint(tag.tag)
     app.register_blueprint(newest.newest)
     app.register_blueprint(pixivision.pixivision)
+    app.register_blueprint(ranking.rankings)
 
     @app.errorhandler(api.PixivError)
     def handlePxError(e):

@@ -1,5 +1,6 @@
 from flask import (
     Blueprint,
+    current_app,
     make_response,
     redirect,
     request,
@@ -9,6 +10,7 @@ from flask import (
     flash,
 )
 
+import hashlib
 import re
 import requests
 
@@ -155,6 +157,7 @@ def setImgProxy():
 
     f = request.form
 
+    integrity = "ba3a6764ecad4ab707a12884e4cc338589045d1e9f0dd12037b440fe81592981"
     notAllowedIps = (
         "0.",
         "10.",
@@ -197,16 +200,24 @@ def setImgProxy():
     if i != "":
         try:
             req = requests.get(
-                f"http://{i}",
+                f"http://{i}/img-original/img/2020/02/04/22/43/08/79286093_p0.png",
                 headers={"User-Agent": "PyXiv-ProxyServerCheck"},
                 allow_redirects=True,
+                timeout=5
             )
-            if not req.text.__contains__("imgaz.pixiv.net"):
+            req.raise_for_status()
+
+            result = hashlib.sha256(req.content).hexdigest()
+
+            if not result == integrity:
                 flash(
-                    "The URL specified does not seem to be a pixiv image proxy server.",
+                    f"Integrity check failed for image proxy test. Expected {integrity}, got {result}",
                     "error",
                 )
                 return redirect(url_for("settings.settingsIndex"), code=303)
+        except requests.ConnectTimeout:
+            flash(f"Timed out trying to check proxy server. It may be down.", "error")
+            return redirect(url_for("settings.settingsIndex"), code=303)
         except Exception as e:
             flash(f"Error: {e}", "error")
             return redirect(url_for("settings.settingsIndex"), code=303)

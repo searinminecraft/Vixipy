@@ -1,6 +1,6 @@
 from .. import api
 
-from ..classes import Artwork, ArtworkPage, ArtworkEntry
+from ..classes import Artwork, ArtworkPage, ArtworkEntry, Ranking
 from ..utils.filtering import filterEntriesFromPreferences
 
 
@@ -23,3 +23,9 @@ def getRelatedArtworks(_id: int, limit: int = 30) -> list[ArtworkEntry]:
 
     data = api.getRelatedArtworks(_id, limit)["body"]
     return filterEntriesFromPreferences([ArtworkEntry(x) for x in data["illusts"]])
+
+def getRanking(mode: str = "daily", date: int = None, content: str = None, p: int = 1):
+    """Get ranking"""
+
+    data = api.getRanking(mode=mode, date=date, content=content, p=p)
+    return Ranking(data)

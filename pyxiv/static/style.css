@@ -4,11 +4,11 @@
 
 body {
 	flex-direction: column;
-	color: #cdd6f4;
-	background-color: #1e1e2e;
+	color: var(--md-sys-color-on-surface);
+	background-color: var(--md-sys-color-surface);
 	margin: 0;
 	font-family: sans-serif;
-	accent-color: #cba6f7
+	accent-color: var(--md-sys-color-primary)
 }
 
 header {
@@ -16,8 +16,7 @@ header {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(17, 17, 27, 90%);
-	backdrop-filter: blur(1rem);
+	background-color: var(--md-sys-color-surface-container);
 	position: sticky;
 	top: 0;
 	z-index: 1;
@@ -56,6 +55,7 @@ header #mobile-searchbox input {
 	padding: 4px 1em;
 	width: 384px;
 	font-size: 14px;
+	background-color: var(--md-sys-color-surface-container-high)
 }
 
 header #mobile-searchbox {
@@ -90,7 +90,7 @@ header .actions button.user-profile img {
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
 }
 
 header .actions a[title=Notifications] {
@@ -105,7 +105,7 @@ header .actions a[title=Notifications] .notification-indicator {
 	height: 14px;
 	border-radius: 50%;
 	transform: translate(-4px, 4px);
-	background-color: #cba6f7;
+	background-color: var(--md-sys-color-primary);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -113,7 +113,7 @@ header .actions a[title=Notifications] .notification-indicator {
 
 header .actions a[title=Notifications] .notification-indicator span {
 	font-size: 12px;
-	color: #1e1e2e
+	color: var(--md-sys-color-on-primary)
 }
 
 input[type="radio"] {
@@ -124,19 +124,9 @@ label, select, textarea {
 	display: block
 }
 
-*::-webkit-scrollbar {
-	width: 0.5em;
-	background-color: #11111b
-}
 
-*::-webkit-scrollbar-thumb {
-	background-color: #cba6f7;
-	border-radius: 25px;
-}
-
-.artwork-scroll-container::-webkit-scrollbar {
-	height: 4px;
-	background-color: transparent !important;
+.artwork-scroll-container {
+	scrollbar-height: small
 }
 
 @media screen and (max-width: 750px) {
@@ -231,7 +221,7 @@ label, select, textarea {
 
 a {
 	text-decoration: none;
-	color: #cba6f7;
+	color: var(--md-sys-color-primary);
 }
 
 main {
@@ -241,7 +231,7 @@ main {
 	justify-content: center;
 }
 
-.content {
+main > .content {
 	max-width: 1200px;
 	width: 100%;
 }
@@ -250,11 +240,11 @@ input[type="text"],
 input[type="password"],
 textarea {
 	border-width: 1px;
-	border-color: #363a4f;
-	background-color: #181825;
+	border-color: var(--md-sys-color-outline);
+	background-color: var(--md-sys-color-surface-container);
 	font-size: 16px;
 	padding: 4px 12px;
-	color: #cdd6f4;
+	color: var(--md-sys-color-secondary);
 	border-style: solid;
 	border-radius: 8px;
 	height: 36px;
@@ -273,7 +263,7 @@ textarea {
 	cursor: pointer;
 	min-width: 48px;
 	height: 28px;
-	background-color: #6c7086;
+	background-color: var(--md-sys-color-outline-variant);
 	border-radius: 14px;
 	position: relative;
 	border: 3px solid transparent
@@ -284,9 +274,10 @@ textarea {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 22px;
-	height: 22px;
-	background-color: #9399b2;
+	border: 2px solid transparent;
+	width: 18px;
+	height: 18px;
+	background-color: var(--md-sys-color-outline);
 	border-radius: 12px;
 	transition: .15s ease
 }
@@ -296,17 +287,17 @@ textarea {
 }
 
 .toggle-switch input:checked {
-	background-color: #cba6f7
+	background-color: var(--md-sys-color-primary)
 }
 
 .toggle-switch input:checked::after {
 	left: 48%;
-	background-color: #11111b
+	background-color: var(--md-sys-color-on-primary)
 }
 
 button.button {
-	color: #11111b;
-	background-color: #cba6f7;
+	color: var(--md-sys-color-on-primary);
+	background-color: var(--md-sys-color-primary);
 	font-size: 16px;
 	border-radius: 16px;
 	border: none;
@@ -316,13 +307,14 @@ button.button {
 }
 
 button.button.danger {
-	background-color: #f38ba8;
+	color: var(--md-sys-color-on-error);
+	background-color: var(--md-sys-color-error);
 }
 
 a.button {
 	display: inline-block;
-	color: #11111b;
-	background-color: #cba6f7;
+	color: var(--md-sys-color-on-primary);
+	background-color: var(--md-sys-color-primary);
 	font-size: 16px;
 	border-radius: 16px;
 	border: none;
@@ -333,14 +325,15 @@ a.button {
 }
 
 a.button.danger {
-	background-color: #f38ba8;
+	color: var(--md-sys-color-on-error);
+	background-color: var(--md-sys-color-error);
 }
 
 button.icon-button {
 	border: none;
 	background-color: unset;
 	padding: 8px;
-	color: #6c7086;
+	color: var(--md-sys-color-inverse-surface);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -350,7 +343,7 @@ button.icon-button {
 
 a.icon-button {
 	padding: 8px;
-	color: #6c7086;
+	color: var(--md-sys-color-inverse-surface);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -360,7 +353,7 @@ a.icon-button {
 
 button.icon-button:hover,
 a.icon-button:hover {
-	background-color: #313244
+	background-color: var(--md-sys-color-surface-dim)
 }
 
 button.icon-button svg,
@@ -371,7 +364,7 @@ a.icon-button svg {
 hr {
 	border: 1px solid;
 	border-radius: 10px;
-	border-color: #313244
+	border-color: var(--md-sys-color-outline-variant)
 }
 
 .container {
@@ -439,11 +432,12 @@ hr {
 	font-weight: bold;
 }
 
-.artwork-entry img {
+.artwork-entry img.img-main {
 	width: 175px;
 	height: 175px;
 	border-radius: 16px;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
+	border: 1px solid var(--md-sys-color-outline);
 	object-fit: cover;
 	object-position: top center
 }
@@ -461,7 +455,7 @@ hr {
 	border-radius: 50%;
 	width: 18px;
 	height: 18px;
-	background-color: #313244
+	background-color: var(--md-sys-color-surface-dim)
 }
 
 .artwork-entry .artwork-image {
@@ -505,13 +499,13 @@ hr {
 }
 
 .recommended-user {
-	background-color: #181825;
+	background-color: var(--md-sys-color-surface-container);
 	min-width: 450px;
 	height: 230px;
 	text-decoration: none;
 	border-radius: 16px;
 	display: flex;
-	color: #cdd6f4;
+	color: var(--md-sys-color-on-surface-container);
 }
 
 .recommended-user .profileImage {
@@ -524,7 +518,7 @@ hr {
 	height: 100%;
 	object-fit: cover;
 	object-position: center center;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
 	border-radius: 16px 0 0 16px
 }
 
@@ -538,23 +532,25 @@ hr {
 	align-items: center;
 }
 
-.recommended-user .user-details .user-name .badge {
+.recommended-user .user-details .user-name svg {
 	margin-left: 6px;
+	fill: var(--md-sys-color-secondary)
 }
 
 .recommended-user .user-details .accept-commission {
-	color: #a6e3a1;
+	color: var(--color-accept-commissions);
 	font-weight: bold;
 }
 
 .illust-area {
 	display: flex;
 	flex-direction: column;
+	background-color: var(--md-sys-color-surface-container-low);
 	gap: 6px;
-	background-color: #181825;
 	padding: 2em;
 	width: 100%;
 	border-radius: 24px;
+	border: 1px solid var(--md-sys-color-outline)
 }
 
 .illust-area hr {
@@ -577,6 +573,7 @@ hr {
 	max-height: 1000px;
 	max-width: 100%;
 	border-radius: 16px;
+	background-color: var(--md-sys-color-surface-dim)
 }
 
 .illust-area .illust-title {
@@ -602,7 +599,7 @@ hr {
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: #313244
+	background-color: var(--md-sys-color-surface-dim)
 }
 
 .illust-area .illust-author span {
@@ -616,9 +613,13 @@ hr {
 
 .illust-area .illust-actions a {
 	display: flex;
+	color: unset;
 	align-items: center;
-	color: #cdd6f4;
 	gap: 6px;
+}
+
+.illust-area .illust-actions a svg {
+	fill: var(--md-sys-color-primary)
 }
 
 .illust-area .illust-actions span {
@@ -667,16 +668,19 @@ hr {
 }
 
 .user-container {
-	background-color: #181825;
+	background-color: var(--md-sys-color-surface-container-high);
+	border: 1px solid var(--md-sys-color-outline-variant)
 	width: 100%;
 	border-radius: 24px;
 }
 
 .user-container img.user-banner {
 	width: 100%;
-	max-height: 270px;
+	min-height: 200px;
+	max-height: 200px;
 	object-fit: cover;
 	object-position: center center;
+	background-color: var(--md-sys-color-surface-dim);
 	border-radius: 24px 24px 12px 12px;
 }
 
@@ -696,7 +700,7 @@ hr {
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
 	margin-right: 2em
 }
 
@@ -712,8 +716,9 @@ hr {
 	align-items: center;
 }
 
-.user-container .user-main .user-info .user-name .badge {
+.user-container .user-main .user-info .user-name svg {
 	margin-left: 8px;
+	fill: var(--md-sys-color-tertiary)
 }
 
 .user-container .user-main .user-info .user-details .user-stats a {
@@ -730,18 +735,19 @@ hr {
 	object-position: center;
 	border-radius: 24px;
 	z-index: -1;
-	background-color: #181825;
+	background-color: var(--md-sys-color-surface-container);
 	width: 100%;
 	height: 100%;
 }
 
 .tag-meta {
 	display: flex;
-	background-color: #181825f0;
+	background-color: var(--container-backdrop);
 	backdrop-filter: blur(2rem);
 	width: 100%;
 	min-height: 250px;
 	border-radius: 24px;
+	border: 1px solid var(--md-sys-color-outline-variant)
 }
 
 .tag-meta a.imglink {
@@ -753,7 +759,7 @@ hr {
 	width: 350px;
 	object-fit: cover;
 	object-position: center;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
 	margin-right: 2em;
 	border-radius: 24px 16px 16px 24px;
 }
@@ -805,7 +811,6 @@ hr {
 .settings {
 	display: flex;
 	gap: 1em;
-	height: 100%;
 }
 
 .settings .side {
@@ -821,30 +826,34 @@ hr {
 	padding: 12px 1em;
 	font-weight: bold;
 	align-items: center;
-	color: #a6adc8;
+	color: var(--md-sys-color-on-surface);
 	border-radius: 32px;
 	font-size: 14px;
 	transition: 125ms ease
 }
 
 .settings .side a:hover {
-	background-color: #45475a
+	background-color: var(--md-sys-color-surface-dim)
 }
 
 .settings .side a.selected {
-	background-color: #cba6f7;
-	color: #11111b !important
+	background-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary) !important
+}
+
+.settings .side a.selected > svg {
+	fill: currentColor !important;
 }
 
 .settings .side a > svg {
 	margin-right: 12px;
 	transform: translateY(-1px);
-	fill: currentColor;
+	fill: var(--md-sys-color-secondary);
 }
 
 .settings .content {
 	flex: 70%;
-	background-color: #181825;
+	background-color: var(--md-sys-color-surface-container-high);
 	border-radius: 24px;
 	padding: 1em 2em;
 }
@@ -872,14 +881,15 @@ form.inline-form button {
 
 .settings .content .current-user-account img {
 	aspect-ratio: 1/1;
-	height: 104px;
-	width: 104px;
+	height: 128px;
+	width: 128px;
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
 	margin-right: 16px;
-	flex-shrink: 0
+	flex-shrink: 0;
+	border: 1px solid var(--md-sys-color-tertiary)
 }
 
 .settings .content .current-user-account .user-info {
@@ -892,7 +902,7 @@ form.inline-form button {
 }
 
 .settings .content .current-user-account .user-info small {
-	color: #585b70;
+	color: var(--md-sys-color-outline);
 }
 
 .messages {
@@ -909,12 +919,13 @@ form.inline-form button {
 	padding: 0.5em 1.5em;
 	display: flex;
 	align-items: center;
-	background-color: #313244;
+	color: var(--md-sys-color-on-secondary);
+	background-color: var(--md-sys-color-secondary);
 }
 
 .message.error {
-	background-color: #f38ba8;
-	color: #11111b;
+	background-color: var(--md-sys-color-error);
+	color: var(--md-sys-color-on-error);
 
 }
 
@@ -945,12 +956,12 @@ form.inline-form button {
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-container-high);
 	margin-right: 16px;
 }
 
 .comments .comment .author-name a {
-	color: #cdd6f4;
+	color: unset
 }
 
 .comments .comment .stamp {
@@ -963,13 +974,14 @@ form.inline-form button {
 
 .comments .comment .comment-main {
 	padding: 1em;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-container-high);
 	border-radius: 0 16px 16px 16px;
 	width: 460px;
 }
 
 .comments .comment .comment-main p {
-	word-break: break-word
+	word-break: break-word;
+	color: var(--md-sys-color-on-surface)
 }
 
 .comment-entry {
@@ -1018,7 +1030,7 @@ form.inline-form button {
 }
 
 .notifications .notification .unread-indicator {
-	background-color: #cba6f7;
+	background-color: var(--md-sys-color-primary);
 	flex-shrink: 0;
 	width: 8px;
 	height: 8px;
@@ -1035,13 +1047,13 @@ form.inline-form button {
 }
 
 .notifications .notification svg {
-	fill: #585b70;
+	fill: var(--md-sys-color-surface-dim);
 	margin-right: 1em;
 	flex-shrink: 0
 }
 
 .notifications .notification small {
-	color: #585b70;
+	color: var(--md-sys-color-outline);	
 	margin-top: 8px;
 }
 
@@ -1051,7 +1063,7 @@ form.inline-form button {
 	width: 100%;
 	height: 100%;
 	display: none;
-	background-color: rgba(24, 25, 38, 0.6);
+	background-color: rgba(0, 0, 0, 0.6);
 	z-index: 2;
 	/* RIP low end devices */
 	backdrop-filter: blur(2px)
@@ -1065,7 +1077,7 @@ form.inline-form button {
 #account-menu .main {
 	height: 100%;
 	width: 300px;
-	background-color: #1e2030;
+	background-color: var(--md-sys-color-surface-container);
 	transition: 100ms ease;
 	padding: 1em;
 }
@@ -1111,7 +1123,7 @@ form.inline-form button {
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
 	margin-right: 0.5em;
 }
 
@@ -1125,7 +1137,7 @@ form.inline-form button {
 }
 
 #main-menu .main .act small {
-	color: #5b6078
+	color: var(--md-sys-color-outline)
 }
 
 #main-menu .main nav {
@@ -1151,8 +1163,8 @@ form.inline-form button {
 
 #main-menu .main nav > a > svg,
 #account-menu .main nav > a > svg {
-	margin-right: 0.5em;
-	fill: currentColor;
+	margin-right: 1em;
+	fill: var(--md-sys-color-secondary);
 	transform: translateY(-1px)
 }
 
@@ -1169,7 +1181,7 @@ form.inline-form button {
 	border-radius: 24px;
 	display: flex;
 	flex-direction: column;
-	background-color: #1e1e2e;
+	background-color: var(--md-sys-color-surface-container);
 	min-width: 500px;
 	min-height: 250px;
 	max-height: 90%;
@@ -1234,7 +1246,7 @@ form.inline-form button {
 }
 
 .article-container {
-	background-color: #181825;
+	background-color: var(--md-sys-container-surface-container-high);
 	padding: 1em 2em;
 	border-radius: 24px;
 }
@@ -1256,7 +1268,7 @@ ul.tab-navigation li {
 }
 
 ul.tab-navigation li a {
-	color: #a6adc8;
+	color: var(--md-sys-color-inverse-surface);
 	font-weight: bold;
 	font-size: 16px;
 	text-decoration: none;
@@ -1265,7 +1277,7 @@ ul.tab-navigation li a {
 
 ul.tab-navigation li.active a {
 	color: unset;
-	border-top: 4px solid #cba6f7
+	border-top: 4px solid var(--md-sys-color-primary)
 }
 
 .featured-work {
@@ -1279,7 +1291,7 @@ ul.tab-navigation li.active a {
 	height: 300px;
 	object-fit: cover;
 	object-position: center center;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
 	border-radius: 16px;
 	margin-right: 1em;
 	flex-shrink: 0
@@ -1317,7 +1329,7 @@ ul.tab-navigation li.active a {
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: #313244;
+	background-color: var(--md-sys-color-surface-dim);
 	margin-right: 16px;
 	flex-shrink: 0
 }
@@ -1331,5 +1343,118 @@ ul.tab-navigation li.active a {
 }
 
 .user-sc .user-data .user-info p {
-	color: #a6adc8
+	color: var(--md-sys-color-on-surface)
+}
+
+
+@media (prefers-color-scheme: dark) {
+:root {
+  --container-backdrop: rgb(35, 30, 35, 80%);
+  --color-accept-commissions: #b1d18a;
+  --md-sys-color-primary: rgb(229 182 242);
+  --md-sys-color-surface-tint: rgb(229 182 242);
+  --md-sys-color-on-primary: rgb(69 33 83);
+  --md-sys-color-primary-container: rgb(93 56 107);
+  --md-sys-color-on-primary-container: rgb(248 216 255);
+  --md-sys-color-secondary: rgb(213 192 215);
+  --md-sys-color-on-secondary: rgb(57 44 61);
+  --md-sys-color-secondary-container: rgb(81 66 84);
+  --md-sys-color-on-secondary-container: rgb(241 220 243);
+  --md-sys-color-tertiary: rgb(245 183 180);
+  --md-sys-color-on-tertiary: rgb(76 37 36);
+  --md-sys-color-tertiary-container: rgb(102 59 57);
+  --md-sys-color-on-tertiary-container: rgb(255 218 216);
+  --md-sys-color-error: rgb(255 180 171);
+  --md-sys-color-on-error: rgb(105 0 5);
+  --md-sys-color-error-container: rgb(147 0 10);
+  --md-sys-color-on-error-container: rgb(255 218 214);
+  --md-sys-color-background: rgb(22 18 23);
+  --md-sys-color-on-background: rgb(233 224 231);
+  --md-sys-color-surface: rgb(22 18 23);
+  --md-sys-color-on-surface: rgb(233 224 231);
+  --md-sys-color-surface-variant: rgb(76 68 77);
+  --md-sys-color-on-surface-variant: rgb(206 195 205);
+  --md-sys-color-outline: rgb(152 142 151);
+  --md-sys-color-outline-variant: rgb(76 68 77);
+  --md-sys-color-shadow: rgb(0 0 0);
+  --md-sys-color-scrim: rgb(0 0 0);
+  --md-sys-color-inverse-surface: rgb(233 224 231);
+  --md-sys-color-inverse-on-surface: rgb(52 47 52);
+  --md-sys-color-inverse-primary: rgb(118 80 132);
+  --md-sys-color-primary-fixed: rgb(248 216 255);
+  --md-sys-color-on-primary-fixed: rgb(46 10 60);
+  --md-sys-color-primary-fixed-dim: rgb(229 182 242);
+  --md-sys-color-on-primary-fixed-variant: rgb(93 56 107);
+  --md-sys-color-secondary-fixed: rgb(241 220 243);
+  --md-sys-color-on-secondary-fixed: rgb(35 23 40);
+  --md-sys-color-secondary-fixed-dim: rgb(213 192 215);
+  --md-sys-color-on-secondary-fixed-variant: rgb(81 66 84);
+  --md-sys-color-tertiary-fixed: rgb(255 218 216);
+  --md-sys-color-on-tertiary-fixed: rgb(51 17 16);
+  --md-sys-color-tertiary-fixed-dim: rgb(245 183 180);
+  --md-sys-color-on-tertiary-fixed-variant: rgb(102 59 57);
+  --md-sys-color-surface-dim: rgb(22 18 23);
+  --md-sys-color-surface-bright: rgb(61 55 61);
+  --md-sys-color-surface-container-lowest: rgb(17 13 18);
+  --md-sys-color-surface-container-low: rgb(31 26 31);
+  --md-sys-color-surface-container: rgb(35 30 35);
+  --md-sys-color-surface-container-high: rgb(45 40 46);
+  --md-sys-color-surface-container-highest: rgb(56 51 57);
+}
+}
+
+@media (prefers-color-scheme: light) {
+:root {
+  --container-backdrop: rgb(245, 235, 242, 80%);
+  --color-accept-commissions: #4c662b;
+  --md-sys-color-primary: rgb(118 80 132);
+  --md-sys-color-surface-tint: rgb(118 80 132);
+  --md-sys-color-on-primary: rgb(255 255 255);
+  --md-sys-color-primary-container: rgb(248 216 255);
+  --md-sys-color-on-primary-container: rgb(46 10 60);
+  --md-sys-color-secondary: rgb(105 89 109);
+  --md-sys-color-on-secondary: rgb(255 255 255);
+  --md-sys-color-secondary-container: rgb(241 220 243);
+  --md-sys-color-on-secondary-container: rgb(35 23 40);
+  --md-sys-color-tertiary: rgb(129 82 79);
+  --md-sys-color-on-tertiary: rgb(255 255 255);
+  --md-sys-color-tertiary-container: rgb(255 218 216);
+  --md-sys-color-on-tertiary-container: rgb(51 17 16);
+  --md-sys-color-error: rgb(186 26 26);
+  --md-sys-color-on-error: rgb(255 255 255);
+  --md-sys-color-error-container: rgb(255 218 214);
+  --md-sys-color-on-error-container: rgb(65 0 2);
+  --md-sys-color-background: rgb(255 247 251);
+  --md-sys-color-on-background: rgb(31 26 31);
+  --md-sys-color-surface: rgb(255 247 251);
+  --md-sys-color-on-surface: rgb(31 26 31);
+  --md-sys-color-surface-variant: rgb(235 223 233);
+  --md-sys-color-on-surface-variant: rgb(76 68 77);
+  --md-sys-color-outline: rgb(125 116 125);
+  --md-sys-color-outline-variant: rgb(206 195 205);
+  --md-sys-color-shadow: rgb(0 0 0);
+  --md-sys-color-scrim: rgb(0 0 0);
+  --md-sys-color-inverse-surface: rgb(52 47 52);
+  --md-sys-color-inverse-on-surface: rgb(248 238 245);
+  --md-sys-color-inverse-primary: rgb(229 182 242);
+  --md-sys-color-primary-fixed: rgb(248 216 255);
+  --md-sys-color-on-primary-fixed: rgb(46 10 60);
+  --md-sys-color-primary-fixed-dim: rgb(229 182 242);
+  --md-sys-color-on-primary-fixed-variant: rgb(93 56 107);
+  --md-sys-color-secondary-fixed: rgb(241 220 243);
+  --md-sys-color-on-secondary-fixed: rgb(35 23 40);
+  --md-sys-color-secondary-fixed-dim: rgb(213 192 215);
+  --md-sys-color-on-secondary-fixed-variant: rgb(81 66 84);
+  --md-sys-color-tertiary-fixed: rgb(255 218 216);
+  --md-sys-color-on-tertiary-fixed: rgb(51 17 16);
+  --md-sys-color-tertiary-fixed-dim: rgb(245 183 180);
+  --md-sys-color-on-tertiary-fixed-variant: rgb(102 59 57);
+  --md-sys-color-surface-dim: rgb(225 215 223);
+  --md-sys-color-surface-bright: rgb(255 247 251);
+  --md-sys-color-surface-container-lowest: rgb(255 255 255);
+  --md-sys-color-surface-container-low: rgb(251 241 248);
+  --md-sys-color-surface-container: rgb(245 235 242);
+  --md-sys-color-surface-container-high: rgb(239 229 237);
+  --md-sys-color-surface-container-highest: rgb(233 224 231);
+}
 }

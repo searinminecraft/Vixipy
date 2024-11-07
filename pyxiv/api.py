@@ -41,7 +41,14 @@ def pixivReq(endpoint, additionalHeaders: dict = {}):
 
     resp = req.json()
     if resp.get("error"):
-        raise PixivError(resp["message"])
+        try:
+            raise PixivError(resp["message"])
+        except KeyError:
+            try:
+                raise PixivError(resp["error"])
+            except KeyError:
+                raise PixivError("Unknown error")
+
 
     return resp
 
@@ -159,12 +166,12 @@ def getRanking(
     """
     Get artwork ranking data
     """
-    path = f"/ranking.php?format=json&mode={mode}&p={p}"
+    path = f"/ranking.php?format=json&p={p}"
 
     if date:
         path += f"&date={date}"
 
-    if content:
+    if content and content != "":
         path += f"&content={content}"
 
     return pixivReq(path)
