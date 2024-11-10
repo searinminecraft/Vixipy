@@ -14,9 +14,11 @@ def getDiscoveryData(mode: str, limit: int = 30) -> list[ArtworkEntry]:
     )
 
 
-def getNewestArtworks() -> list[ArtworkEntry]:
+def getNewestArtworks(
+    lastId: int = 0, limit: int = 20, _type: str = "illust", r18: bool = False
+) -> list[ArtworkEntry]:
     """Get newest artworks"""
 
-    data = api.getNewestArtworks()["body"]
+    data = api.getNewestArtworks(lastId, limit, _type, r18)["body"]
 
     return filterEntriesFromPreferences([ArtworkEntry(x) for x in data["illusts"]])

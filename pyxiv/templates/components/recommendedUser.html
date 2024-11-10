@@ -1,19 +1,16 @@
-<a href="/users/{{ d._id }}">
 <div class="recommended-user">
-    <div class="profileImage">
-        <img src="{{ d.imageBig }}">
-        <div class="grad"></div>
-    </div>
-    <div class="user-details">
-        <h2 class="user-name">
-            {{ d.name }}
-            {% if d.premium %}
-			<img class="badge" src="/static/icons/premium.svg" title="This user is subscribed to pixiv premium"/>
-			{% endif %}
-        </h2>
-        {% if d.acceptRequest %}
-        <p class="accept-commission">Accepting commissions</p>
-        {% endif %}
-    </div>
+	<a class="profile" href="/users/{{ u._id }}">
+		<img src="{{ u.imageBig }}" alt="{{ u.name }}" loading="lazy">
+	</a>
+	<div class="details">
+		<a class="name" href="/users/{{ u._id }}"><h2>{{ u.name }}</h2></a>
+		<p>
+		{% if u.comment | length > 48 %}
+		{{ u.comment[:48] }}...
+		{% else %}
+		{{ u.comment }}
+		{% endif %}
+		</p>
+		<a class="button" href="/self/followUser/{{ u._id }}">Follow</a>
+	</div>
 </div>
-</a>

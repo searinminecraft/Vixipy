@@ -9,11 +9,15 @@ class PixivError(Exception):
     pass
 
 
-def getHeaders():
+def getHeaders(useMobileAgent=False):
 
     headers = {
         "Cookie": f"PHPSESSID={g.get('userPxSession') if g.get('userPxSession') else cfg.PxSession}",
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",  #  tbh maybe I should just use a Windows UA
+        "User-Agent": (
+            "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/132.0"
+            if not useMobileAgent
+            else "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
+        ),  #  tbh maybe I should just use a Windows UA
         "Accept-Language": cfg.PxAcceptLang,
     }
 
@@ -23,12 +27,12 @@ def getHeaders():
     return headers
 
 
-def pixivReq(endpoint, additionalHeaders: dict = {}):
+def pixivReq(endpoint, additionalHeaders: dict = {}, useMobileAgent=False):
 
     start = time.perf_counter()
     req = requests.get(
         "https://www.pixiv.net" + endpoint,
-        headers={**getHeaders(), **additionalHeaders},
+        headers={**getHeaders(useMobileAgent), **additionalHeaders},
     )
     end = time.perf_counter()
 
@@ -40,15 +44,17 @@ def pixivReq(endpoint, additionalHeaders: dict = {}):
         raise PixivError("Rate limited")
 
     resp = req.json()
-    if resp.get("error"):
-        try:
-            raise PixivError(resp["message"])
-        except KeyError:
-            try:
-                raise PixivError(resp["error"])
-            except KeyError:
-                raise PixivError("Unknown error")
+    # isSucceed is used on mobile ajax API, while error is used for regular ajax API
+    if not resp.get("isSucceed", False) or resp.get("error", False):
 
+        if resp.get("error"):
+            try:
+                raise PixivError(resp["message"])
+            except KeyError:
+                try:
+                    raise PixivError(resp["error"])
+                except KeyError:
+                    raise PixivError("Unknown error")
 
     return resp
 
@@ -59,6 +65,7 @@ def pixivPostReq(
     jsonPayload: dict = None,
     rawPayload: str = None,
     additionalHeaders: dict = {},
+    useMobileAgent: bool = False,
 ):
     """
     Send a POST request to pixiv.
@@ -68,6 +75,8 @@ def pixivPostReq(
     endpoint: the endpoint path to send a request to
     jsonPayload: the payload as a dict
     rawPayload: the raw url-encoded payload
+    additionalHeaders: additional headers to pass
+    useMobileAgent: whether to use a mobile user agent
     """
 
     start = time.perf_counter()
@@ -96,8 +105,17 @@ def pixivPostReq(
     )
 
     resp = req.json()
-    if resp["error"]:
-        raise PixivError(resp["message"])
+    # isSucceed is used on mobile ajax API, while error is used for regular ajax API
+    if not resp.get("isSucceed", False) or resp.get("error", False):
+
+        if resp.get("error"):
+            try:
+                raise PixivError(resp["message"])
+            except KeyError:
+                try:
+                    raise PixivError(resp["error"])
+                except KeyError:
+                    raise PixivError("Unknown error")
 
     return resp
 
@@ -169,7 +187,7 @@ def getRanking(
     path = f"/ranking.php?format=json&p={p}"
 
     if date:
-        path += f"&date={date}"
+        path += f"&date={date}&mode={mode}"
 
     if content and content != "":
         path += f"&content={content}"
@@ -250,10 +268,14 @@ def getUserBookmarks(_id: int, tag: str = "", offset: int = 0, limit: int = 30):
     )
 
 
-def getNewestArtworks():
+def getNewestArtworks(
+    lastId: int = 0, limit: int = 20, _type: str = "illust", r18: bool = False
+):
     """Get newest artworks"""
 
-    return pixivReq("/ajax/illust/new")
+    return pixivReq(
+        f"/ajax/illust/new?lastId={lastId}&limit={limit}&type={_type}&r18={str(r18).lower()}"
+    )
 
 
 def getRecommendedUsers(limit: int = 10):
@@ -346,11 +368,42 @@ def retrieveUserIllusts(_id: int, illustIds: list[int]):
 
     return pixivReq(path)
 
+
 def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
-    return pixivReq(f"/ajax/user/{_id}/following?offset={offset}&limit={limit}&rest=show")
+    return pixivReq(
+        f"/ajax/user/{_id}/following?offset={offset}&limit={limit}&rest=show"
+    )
+
 
 def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
-    return pixivReq(f"/ajax/user/{_id}/followers?offset={offset}&limit={limit}&rest=show")
+    return pixivReq(
+        f"/ajax/user/{_id}/followers?offset={offset}&limit={limit}&rest=show"
+    )
+
 
 def addTagToFavorites(tag: str):
     return pixivPostReq(f"/ajax/favorite_tags/save", jsonPayload={"tags": [tag]})
+
+
+def followUser(_id: int, restrict: bool = False):
+    return pixivPostReq(
+        "/touch/ajax_api/ajax_api.php",
+        useMobileAgent=True,
+        rawPayload=f"mode=add_bookmark_user&restrict={int(restrict)}&user_id={_id}",
+        additionalHeaders={
+            "Origin": "https://www.pixiv.net",
+            "Referer": f"https://www.pixiv.net/en/users/{_id}",
+        },
+    )
+
+
+def unfollowUser(_id: int):
+    return pixivPostReq(
+        "/touch/ajax_api/ajax_api.php",
+        useMobileAgent=True,
+        rawPayload=f"mode=delete_bookmark_user&user_id={_id}",
+        additionalHeaders={
+            "Origin": "https://www.pixiv.net",
+            "Referer": f"https://www.pixiv.net/en/users/{_id}",
+        },
+    )

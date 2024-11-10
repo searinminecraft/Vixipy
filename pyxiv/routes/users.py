@@ -173,6 +173,7 @@ def userBookmarks(_id: int):
         canGoPrevious=(not page == 1),
     )
 
+
 @users.route("/<int:_id>/following")
 def following(_id: int):
 
@@ -185,9 +186,19 @@ def following(_id: int):
     if extra > 0:
         pages += 1
 
-    _, data = getUserFollowing(_id, offset=(30*currPage)-30)
+    _, data = getUserFollowing(_id, offset=(30 * currPage) - 30)
 
-    return render_template("user/follows.html", total=total, pages=pages, data=data, mode="following", user=user, canGoNext=(currPage < pages and not currPage == pages), canGoPrevious=())
+    return render_template(
+        "user/follows.html",
+        total=total,
+        pages=pages,
+        data=data,
+        mode="following",
+        user=user,
+        canGoNext=(currPage < pages and not currPage == pages),
+        canGoPrevious=(),
+    )
+
 
 @users.route("/<int:_id>/followers")
 def followers(_id: int):
@@ -206,6 +217,15 @@ def followers(_id: int):
     if extra > 0:
         pages += 1
 
-    _, data = getUserFollowers(_id, offset=(30*currPage)-30)
+    _, data = getUserFollowers(_id, offset=(30 * currPage) - 30)
 
-    return render_template("user/follows.html", total=total, pages=pages, data=data, mode="follows", user=user, canGoNext=(currPage < pages and not currPage == pages), canGoPrevious=())
+    return render_template(
+        "user/follows.html",
+        total=total,
+        pages=pages,
+        data=data,
+        mode="follows",
+        user=user,
+        canGoNext=(currPage < pages and not currPage == pages),
+        canGoPrevious=(),
+    )

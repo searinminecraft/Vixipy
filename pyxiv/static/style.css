@@ -2,13 +2,18 @@
 	box-sizing: border-box
 }
 
+:root {
+	scrollbar-color: var(--md-sys-color-tertiary) var(--md-sys-color-surface-container);
+	scrollbar-width: thin;
+}
+
 body {
 	flex-direction: column;
 	color: var(--md-sys-color-on-surface);
 	background-color: var(--md-sys-color-surface);
 	margin: 0;
-	font-family: sans-serif;
-	accent-color: var(--md-sys-color-primary)
+	font-family: system-ui;
+	accent-color: var(--md-sys-color-primary);
 }
 
 header {
@@ -30,7 +35,7 @@ header .navbar-container {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1600px;
 }
 
 header .main,
@@ -217,6 +222,14 @@ label, select, textarea {
 	.tag-meta .tag-info > div {
 		padding-right: unset !important
 	}
+
+	.illust-area {
+		flex-direction: column;
+	}
+
+	.illust-area > div {
+		width: 100% !important;
+	}
 }
 
 a {
@@ -232,8 +245,9 @@ main {
 }
 
 main > .content {
-	max-width: 1200px;
+	max-width: 1600px;
 	width: 100%;
+	padding: 0 1.5em;
 }
 
 input[type="text"],
@@ -248,7 +262,7 @@ textarea {
 	border-style: solid;
 	border-radius: 8px;
 	height: 36px;
-	font-family: sans-serif;
+	font-family: system-ui;
 	resize: none;
 }
 
@@ -303,7 +317,7 @@ button.button {
 	border: none;
 	padding: 4px 18px;
 	height: 32px;
-	font-family: sans-serif;
+	font-family: system-ui;
 }
 
 button.button.danger {
@@ -320,13 +334,18 @@ a.button {
 	border: none;
 	padding: 4px 24px;
 	height: 32px;
-	font-family: sans-serif;
-	line-height: 1.5
+	line-height: 1.5;
+	cursor: pointer;
 }
 
 a.button.danger {
 	color: var(--md-sys-color-on-error);
 	background-color: var(--md-sys-color-error);
+}
+
+a.button.neutral {
+	color: var(--md-sys-color-on-surface);
+	background-color: var(--md-sys-color-outline)
 }
 
 button.icon-button {
@@ -500,171 +519,158 @@ hr {
 
 .recommended-user {
 	background-color: var(--md-sys-color-surface-container);
-	min-width: 450px;
-	height: 230px;
+	min-width: 600px;
 	text-decoration: none;
-	border-radius: 16px;
+	border-radius: 32px;
 	display: flex;
+	padding: 1.5em;
 	color: var(--md-sys-color-on-surface-container);
+	align-items: flex-start;
 }
 
-.recommended-user .profileImage {
-	flex: 45%;
-	position: relative
+.recommended-user a.profile {
+	flex-shrink: 0;
 }
 
-.recommended-user .profileImage img {
-	width: 100%;
-	height: 100%;
+.recommended-user a.profile img {
+	aspect-ratio: 1/1;
+	height: 96px;
+	width: 96px;
 	object-fit: cover;
 	object-position: center center;
+	border-radius: 50%;
 	background-color: var(--md-sys-color-surface-dim);
-	border-radius: 16px 0 0 16px
+	margin-right: 1em
 }
 
-.recommended-user .user-details {
-	flex: 55%;
-	padding: 1em;
+.recommended-user .details {
+	width: 100%;
 }
 
-.recommended-user .user-details .user-name {
-	display: flex;
-	align-items: center;
+.recommended-user .details > a.name {
+	color: unset
 }
 
-.recommended-user .user-details .user-name svg {
-	margin-left: 6px;
-	fill: var(--md-sys-color-secondary)
+.recommended-user .details > a.name h2 {
+	margin: 8px 0;
 }
 
-.recommended-user .user-details .accept-commission {
-	color: var(--color-accept-commissions);
-	font-weight: bold;
+.recommended-user .details > p {
+	color: var(--md-sys-color-outline);
+	font-size: 12px;
 }
 
 .illust-area {
 	display: flex;
-	flex-direction: column;
-	background-color: var(--md-sys-color-surface-container-low);
-	gap: 6px;
-	padding: 2em;
-	width: 100%;
+	column-gap: 1em;
+	position: relative;
+	margin-bottom: 96px;
+	align-items: flex-start;
+}
+
+.illust-area .illust-main,
+.illust-area .illust-info {
+	padding: 1em;
 	border-radius: 24px;
-	border: 1px solid var(--md-sys-color-outline)
 }
 
-.illust-area hr {
-	width: 80%
+.illust-area .illust-main {
+	width: 60%;
+	background-color: var(--md-sys-color-surface-container-high);
 }
 
-.illust-area .illusts {
+.illust-area .illust-info {
+	width: 40%;
+}
+
+.illust-area .illust-main .illusts {
+	width: 100%;
 	display: flex;
+	justify-content: center;
 	flex-direction: column;
-	gap: 12px;
 }
 
-.illust-area .illust {
+.illust-area .illust-main .illusts img,
+.illust-area .illust-main .illusts video {
+	width: 100%;
+	border-radius: 26px;
+	padding: 12px;
+}
+
+.illust-area .illust-info h1 {
+	margin: 1em 0;
+}
+
+.illust-area .illust-info .description {
+	word-wrap: anywhere;
+	word-break: break-word;
+	margin-bottom: 24px;
+}
+
+.illust-area .illust-info div.taglist span {
+	display: inline-block;
+	margin-right: 8px;
+	font-size: 12px;
+	color: var(--md-sys-color-outline)
+}
+
+.illust-area .illust-info div.taglist span a {
+	font-weight: bold;
+}
+
+.illust-area .illust-info .actions {
 	display: flex;
-	justify-content: center
+	flex-wrap: wrap;
+	padding: unset;
 }
 
-.illust-area .illust img,
-.illust-area .illust video.ugoira {
-	max-height: 1000px;
-	max-width: 100%;
-	border-radius: 16px;
-	background-color: var(--md-sys-color-surface-dim)
-}
-
-.illust-area .illust-title {
-	display: flex;
-	justify-content: space-between;
-	align-items: center
-}
-
-.illust-area .illust-title span {
-	font-size: 24px
-}
-
-.illust-area .illust-author a {
+.illust-area .actions li {
+	list-style: none;
 	display: flex;
 	align-items: center;
-	gap: 6px;
+	padding: 8px;
 }
 
-.illust-area .illust-author img {
+.illust-area .actions li a {
+	color: var(--md-sys-color-outline)
+}
+
+.illust-area .actions li svg {
+	fill: var(--md-sys-color-secondary);
+	margin-right: 8px;
+}
+
+.illust-area .illust-info .user-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 1em 0;
+}
+
+.illust-area .illust-info .user-info .user {
+	display: flex;
+	align-items: center;
+}
+
+.illust-area .illust-info .user-info .user span {
+	font-size: 24px;
+}
+
+.illust-area .illust-info .user-info a {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.illust-area .illust-info .user-info .user img {
 	aspect-ratio: 1/1;
-	height: 24px;
-	width: 24px;
+	height: 32px;
+	width: 32px;
 	object-fit: cover;
 	object-position: center center;
 	border-radius: 50%;
-	background-color: var(--md-sys-color-surface-dim)
-}
-
-.illust-area .illust-author span {
-	font-size: 18px
-}
-
-.illust-area .illust-actions {
-	display: flex;
-	gap: 8px;
-}
-
-.illust-area .illust-actions a {
-	display: flex;
-	color: unset;
-	align-items: center;
-	gap: 6px;
-}
-
-.illust-area .illust-actions a svg {
-	fill: var(--md-sys-color-primary)
-}
-
-.illust-area .illust-actions span {
-	font-size: 12px
-}
-
-.illust-area .illust-tags {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-}
-
-.illust-area .illust-metadata {
-	display: flex;
-	flex-wrap: wrap;
-	font-size: 14px;
-}
-
-.illust-area .illust-metadata span {
-	margin: 0 4px;
-}
-
-.illust-area .illust-tags .tag {
-	margin: 0 6px;
-	font-size: 14px;
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-}
-
-.illust-area .illust-tags .tag a {
-	margin-right: 4px
-}
-
-.illust-area .illust-tags .tag i {
-	padding-top: 3px;
-}
-
-.illust-area .illust-description > p {
-	word-wrap: anywhere;
-	word-break: break-word;
-}
-
-.illust-area .illust-description a {
-	display: inline-block
+	background-color: var(--md-sys-color-surface-dim);
+	margin-right: 1em;
+	transform: translateY(1px)
 }
 
 .user-container {
@@ -707,6 +713,7 @@ hr {
 .user-container .user-main .user-info .user-details {
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start
 }
 
 .user-container .user-main .user-info .user-name {
@@ -1457,4 +1464,10 @@ ul.tab-navigation li.active a {
   --md-sys-color-surface-container-high: rgb(239 229 237);
   --md-sys-color-surface-container-highest: rgb(233 224 231);
 }
+}
+
+.component-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between
 }

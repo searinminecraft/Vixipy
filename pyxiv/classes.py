@@ -54,6 +54,7 @@ class User(PartialUser):
 
         super().__init__(data)
 
+        self.isFollowed: bool = data["isFollowed"]
         self.following: int = data["following"]
         self.mypixiv: int = data["mypixivCount"]
         self.official: bool = data["official"]
@@ -79,7 +80,6 @@ class User(PartialUser):
         self.commentHtml = str(soupDesc)
 
 
-
 class Tag:
     """
     Represents a tag
@@ -95,7 +95,13 @@ class Tag:
 
         self.tag: str = data["tag"]
         self.enTranslation: str = (
-            (data["translation"]["en"] if data["translation"]["en"] != "" else data["translation"]["romaji"] ) if data.get("translation") else None
+            (
+                data["translation"]["en"]
+                if data["translation"]["en"] != ""
+                else data["translation"]["romaji"]
+            )
+            if data.get("translation")
+            else None
         )
 
 
@@ -157,7 +163,11 @@ class TagInfo:
         self.imageTag: str = data["pixpedia"]["tag"]
 
         try:
-            self.enTranslation: str = data["tagTranslation"][self.tag]["en"] if data["tagTranslation"][self.tag]["en"] != "" else data["tagTranslation"][self.tag]["romaji"]
+            self.enTranslation: str = (
+                data["tagTranslation"][self.tag]["en"]
+                if data["tagTranslation"][self.tag]["en"] != ""
+                else data["tagTranslation"][self.tag]["romaji"]
+            )
         except Exception:
             self.enTranslation = None
 
@@ -302,6 +312,7 @@ class Artwork(PartialArtwork):
     `int` bookmarkId: The ID of the current user's bookmark. `None` if the user hasn't bookmarked the artwork
     `bool` bookmarked: Whether the current user has bookmarked the post
     `bool` liked: Whether the current user has liked the post
+    `list[ArtworkEntry]` userIllusts: Other works from user
     """
 
     def __init__(self, data):
@@ -317,6 +328,9 @@ class Artwork(PartialArtwork):
         self.commentCount: int = data["commentCount"]
         self.commentOff: bool = data["commentOff"] == 1
         self.tags: list[Tag] = []
+        self.isOriginal: bool = data["isOriginal"]
+        self.width: int = data["width"]
+        self.height: int = data["height"]
 
         self.bookmarkId: int = (
             data["bookmarkData"]["id"] if data["bookmarkData"] else None
@@ -327,6 +341,13 @@ class Artwork(PartialArtwork):
 
         for tag in data["tags"]["tags"]:
             self.tags.append(Tag(tag))
+
+        self.userIllusts = []
+
+        for i in data["userIllusts"]:
+            if not data["userIllusts"][i]:
+                continue
+            self.userIllusts.append(ArtworkEntry(data["userIllusts"][i]))
 
 
 class ArtworkEntry(PartialArtwork):
@@ -460,12 +481,14 @@ class RankingEntry(ArtworkEntry):
         )
 
         self.attr: str = data["attr"]
-        self.bookmarkable: bool = data["bookmarkable"]
+        self.bookmarkable: bool = data.get("bookmarkable", False)
         self.date: datetime = datetime.strptime(data["date"], "%Y年%m月%d日 %H:%M")
         self.height: int = data["height"]
         self.illustBookStyle: int = int(data["illust_book_style"])
         self.illustContentType: dict = data["illust_content_type"]
-        self.illustUploadTimestamp: datetime = datetime.fromtimestamp(data["illust_upload_timestamp"])
+        self.illustUploadTimestamp: datetime = datetime.fromtimestamp(
+            data["illust_upload_timestamp"]
+        )
         self.ratingCount: int = data["rating_count"]
         self.width: int = data["width"]
         self.rank: int = data["rank"]
@@ -479,14 +502,21 @@ class Ranking:
         self._date: int = int(data["date"])
         self.mode: str = data["mode"]
         self.next: int = data["next"] if type(data["next"]) == int else None
-        self._nextDate: str = data["next_date"] if type(data["next_date"]) == int else None
+        self._nextDate: str = (
+            data["next_date"] if type(data["next_date"]) == int else None
+        )
         self.page: int = data["page"]
         self.prev: int = data["prev"] if type(data["prev"]) == int else None
         self._prevDate: str = data["prev_date"] if type("prev_date") == int else None
 
         self.date: datetime = datetime.strptime(str(self._date), "%Y%m%d")
-        self.nextDate: datetime = datetime.strptime(str(self._nextDate), "%Y%m%d") if self._nextDate else None
-        self.prevDate: datetime = datetime.strptime(str(self._prevDate), "%Y%m%d") if self._prevDate else None
+        self.nextDate: datetime = (
+            datetime.strptime(str(self._nextDate), "%Y%m%d") if self._nextDate else None
+        )
+        self.prevDate: datetime = (
+            datetime.strptime(str(self._prevDate), "%Y%m%d") if self._prevDate else None
+        )
+
 
 class SearchResults:
     """

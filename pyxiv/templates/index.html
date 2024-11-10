@@ -9,7 +9,7 @@
 {% endif %}
 
 <div class="container">
-	<h2>Newest from users you follow</h2>
+	<h2>Latest from following</h2>
 	<div class="artwork-scroll-container">
 		{% if data.newestFromFollowing | length > 0 %}
 		{% for d in data.newestFromFollowing %}
@@ -46,7 +46,7 @@
 <div class="container">
 	<h2>Recommended users</h2>
 	<div class="artwork-scroll-container">
-		{% for d in data.recommendedUsers%}
+		{% for u in data.recommendedUsers%}
 		{% include "components/recommendedUser.html" %}
 		{% endfor %}
 	</div>
@@ -65,7 +65,10 @@
 {% else %}
 
 <div class="container">
-	<h2>Today's rankings</h2>
+	<div class="component-header">
+		<h2>Today's rankings</h2>
+		<a href="/rankings/">View all</a>
+	</div>
 	<div class="artwork-container">
 		{% for d in data %}
 		{% include "components/artwork-prev.html" %}

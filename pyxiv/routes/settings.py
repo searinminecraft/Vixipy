@@ -203,7 +203,7 @@ def setImgProxy():
                 f"http://{i}/img-original/img/2020/02/04/22/43/08/79286093_p0.png",
                 headers={"User-Agent": "PyXiv-ProxyServerCheck"},
                 allow_redirects=True,
-                timeout=5
+                timeout=5,
             )
             req.raise_for_status()
 

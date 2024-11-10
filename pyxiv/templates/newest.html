@@ -2,7 +2,7 @@
 {% block title %}Discover{% endblock %}
 
 {% block content %}
-<h1>Newest Artworks</h1>
+<h1>Newest from all users</h1>
 {% if g.get('omittedByFilter') %}
 <i>Some entries have been hidden due to filters</i>
 
@@ -10,12 +10,22 @@
 <br>
 {% endif %}
 
+{% set type = request.args.get("type", "illust") %}
 
-<div class="container">
-	<div class="artwork-container">
-		{% for d in data %}
-		{% include "components/artwork-prev.html" %}
-		{% endfor %}
-	</div>
+<div class="container component-header">
+	<ul class="tab-navigation">
+		<li {% if type == "illust" %}class="active"{% endif %}><a href="/newest/?type=illust">Illustrations</a></li>
+		<li {% if type == "manga" %}class="active"{% endif %}><a href="/newest/?type=manga">Manga</a></li>
+	</ul>
 </div>
+
+<br>
+<br>
+
+<div class="container artwork-container">
+	{% for d in data %}
+	{% include "components/artwork-prev.html" %}
+	{% endfor %}
+</div>
+
 {% endblock %}
