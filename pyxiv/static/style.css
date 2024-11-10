@@ -230,6 +230,10 @@ label, select, textarea {
 	.illust-area > div {
 		width: 100% !important;
 	}
+
+	main > .content {
+		padding: unset !important
+	}
 }
 
 a {
