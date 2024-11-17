@@ -19,10 +19,11 @@ A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 * View artworks
 * Related artworks
 * Search tags
-* View users (but not their artworks yet)
+* View users (including illustrations, manga, bookmarks, and following users)
 * Hide/filter out R-18, R-18G and AI generated artworks
 * View and post comments/stamps
 * View notifications
+* Follow and unfollow users
 
 # Planned features
 * Tag search control
