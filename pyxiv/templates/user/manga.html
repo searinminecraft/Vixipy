@@ -1,4 +1,4 @@
-`{% extends "user/index.html" %}
+{% extends "user/index.html" %}
 {% set currentSection="manga" %}
 
 {% block userComponent %}
@@ -8,7 +8,7 @@
 		{% for d in illusts %}
 		{% include "components/artwork-prev.html" %}
 		{% else %}
-		<p>Nothing in here!</p>
+		<p>{{ _("Nothing in here!") }}</p>
 		{% endfor %}
 	</div>
 </div>

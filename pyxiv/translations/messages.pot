@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-18 14:33+0800\n"
+"POT-Creation-Date: 2024-11-18 18:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,18 +168,28 @@ msgid "Related"
 msgstr ""
 
 #: pyxiv/templates/artwork.html:133 pyxiv/templates/discover.html:7
-#: pyxiv/templates/index.html:8 pyxiv/templates/tag.html:29
+#: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
+#: pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
 msgstr ""
 
 #: pyxiv/templates/artwork.html:143 pyxiv/templates/user/bookmarks.html:11
 #: pyxiv/templates/user/illusts.html:11 pyxiv/templates/user/main.html:38
+#: pyxiv/templates/user/manga.html:11
 msgid "Nothing in here!"
 msgstr ""
 
 #: pyxiv/templates/bookmarksSelf.html:5
 #, python-format
 msgid "Your bookmarks (%(total)d)"
+msgstr ""
+
+#: pyxiv/templates/comments.html:6
+msgid "Return to artwork"
+msgstr ""
+
+#: pyxiv/templates/comments.html:10
+msgid "Comments"
 msgstr ""
 
 #: pyxiv/templates/comments.html:16
@@ -304,6 +314,7 @@ msgstr ""
 msgid "Manga"
 msgstr ""
 
+#: pyxiv/templates/components/navbar.html:20
 #: pyxiv/templates/notifications.html:2 pyxiv/templates/notifications.html:5
 #: pyxiv/templates/settings/settingsMain.html:25
 msgid "Notifications"
@@ -336,6 +347,11 @@ msgstr ""
 
 #: pyxiv/templates/tag.html:74
 msgid "Works"
+msgstr ""
+
+#: pyxiv/templates/components/navbar.html:10
+#: pyxiv/templates/components/navbar.html:38
+msgid "Search works..."
 msgstr ""
 
 #: pyxiv/templates/layouts/default.html:14
@@ -373,6 +389,70 @@ msgstr ""
 #: pyxiv/templates/settings/account.html:31
 #: pyxiv/templates/settings/account.html:35
 msgid "Log out"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:8
+msgid ""
+"Vixipy is a free and open source, privacy respecting pixiv frontend, "
+"allowing you to enjoy pixiv content with a peace of mind in terms of "
+"privacy, speed, and reliability."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:10
+msgid "Why Vixipy?"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:12
+msgid ""
+"The problem with using pixiv is that it uses so much unnecessary "
+"bandwidth, has trackers (Google Tag Manager), is proprietary (and "
+"contains proprietary components like ReCAPTCHA), possibly privacy "
+"invasive, and is also behind Cloudflare, which you already know has <a "
+"href='https://0xacab.org/dCF/deCloudflare'>many, many problems.</a>"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:14
+msgid ""
+"With Vixipy, you can enjoy using most pixiv features with a frontend you "
+"can trust. Your browser will never connect to any external server except "
+"if you specify an external image proxy server. The only things that "
+"Vixipy will log are the pixiv API requests, your user agent, and image "
+"proxy requests (unless you are using an external image proxy server, "
+"which you will have to trust it's privacy practices)."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:16
+msgid ""
+"Also on the plus side, you don't need an account for viewing full artwork"
+" resolution, <a target='_blank' "
+"href='/static/img/accountRequired_pixiv.png'>unlike pixiv</a>."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:18
+msgid "How does it compare to other pixiv frontends (PixivFE, etc.)?"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:20
+msgid ""
+"Vixipy is, and is always, never a competitor of any pixiv frontend. Sure,"
+" Vixipy does take inspiration from other frontends, but only for the "
+"good, and with proper credit or attribution if needed."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:22
+msgid ""
+"Performance-wise, Vixipy somewhat lags behind others, but is sometimes "
+"faster or on par with other pixiv frontends."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:24
+msgid "Acknowledgements"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:26
+msgid ""
+"Vixipy is made possible through the use of open source projects, which "
+"are:"
 msgstr ""
 
 #: pyxiv/templates/settings/account.html:6
@@ -413,6 +493,21 @@ msgid ""
 "3. The license text is as follows:"
 msgstr ""
 
+#: pyxiv/templates/settings/pyxivSettings.html:6
+#: pyxiv/templates/settings/settingsMain.html:11
+msgid "Vixipy Settings"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:8
+msgid "Proxy server"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:9
+msgid ""
+"A pixiv image proxy server allows you to access images from pixiv without"
+" your device making any connection to pixiv servers."
+msgstr ""
+
 #: pyxiv/templates/settings/pyxivSettings.html:11
 msgid ""
 "Vixipy has a built-in proxy server, but you can specify one below. Only "
@@ -444,15 +539,12 @@ msgstr ""
 msgid "Use proxy server"
 msgstr ""
 
-#: pyxiv/templates/settings/settingsMain.html:11
-msgid "Vixipy Settings"
-msgstr ""
-
 #: pyxiv/templates/settings/settingsMain.html:16
 msgid "Account"
 msgstr ""
 
 #: pyxiv/templates/settings/settingsMain.html:20
+#: pyxiv/templates/settings/viewing.html:7
 msgid "Display Settings"
 msgstr ""
 
@@ -512,6 +604,35 @@ msgstr ""
 msgid "%(user)s's bookmarks (%(total)s)"
 msgstr ""
 
+#: pyxiv/templates/user/follows.html:4
+msgid "followed users"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:6
+msgid "followers"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:9
+#, python-format
+msgid "%(user)s's %(sect)s"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:12
+msgid "Back"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:35
+msgid "Following"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:20
+msgid "Followers"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:26
+msgid "Users"
+msgstr ""
+
 #: pyxiv/templates/user/illusts.html:5
 #, python-format
 msgid "%(user)s's Illustrations"
@@ -525,10 +646,6 @@ msgstr ""
 #: pyxiv/templates/user/index.html:30
 #, python-format
 msgid "<b>%(myPixiv)s</b> mypixiv"
-msgstr ""
-
-#: pyxiv/templates/user/index.html:35
-msgid "Following"
 msgstr ""
 
 #: pyxiv/templates/user/index.html:37

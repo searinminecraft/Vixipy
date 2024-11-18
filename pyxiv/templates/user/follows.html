@@ -6,7 +6,7 @@
 {% set titleT = _("followers") %}
 {% endif%}
 
-{% block title %}{{ _("%(user)s's %(titleT)s", user=user.name, sect=titleT) }}{% endblock %}
+{% block title %}{{ _("%(user)s's %(sect)s", user=user.name, sect=titleT) }}{% endblock %}
 
 {% block content %}
 <a href="/users/{{ user._id }}">&lt; {{ _("Back") }}</a>
@@ -23,7 +23,7 @@
 
 
 
-<h1>{{_("Users") ({{ total }})</h1>
+<h1>{{ _("Users") }} ({{ total }})</h1>
 
 <div class="container">
 	{% for u in data %}
