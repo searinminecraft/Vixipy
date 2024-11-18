@@ -79,6 +79,14 @@ Vixipy should now be running on http://localhost:8000
 * ~~adminforge.de~~ denied
 * At my house (maybe?)
 
+# Translate Vixipy
+
+<a href="https://translate.codeberg.org/engage/vixipy/">
+<img src="https://translate.codeberg.org/widget/vixipy/horizontal-auto.svg" alt="Translation status" />
+</a>
+
+If you have the time, [help translate](https://translate.codeberg.org/engage/vixipy/) Vixipy to make it more accessible. No pressure of course.
+
 # See also
 * [PixivFE](https://codeberg.org/VnPower/PixivFE) - The project I took inspiration from
 * [LiteXiv](https://codeberg.org/Peaksol/LiteXiv) - Yet another pixiv frontend, written in PHP
