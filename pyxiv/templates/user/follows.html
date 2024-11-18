@@ -1,29 +1,29 @@
 {% extends "layouts/default.html" %}
 
 {% if mode == "following" %}
-{% set titleT = "followed users" %}
+{% set titleT = _("followed users") %}
 {% elif mode == "follows" %}
-{% set titleT = "followers" %}
+{% set titleT = _("followers") %}
 {% endif%}
 
-{% block title %}{{ user.name }}'s {{ titleT }}{% endblock %}
+{% block title %}{{ _("%(user)s's %(titleT)s", user=user.name, sect=titleT) }}{% endblock %}
 
 {% block content %}
-<a href="/users/{{ user._id }}">&lt; Back</a>
+<a href="/users/{{ user._id }}">&lt; {{ _("Back") }}</a>
 
 <br>
 <br>
 
 <div class="container">
 	<ul class="tab-navigation">
-		<li {% if mode == "following" %}class="active"{% endif %}><a href="/users/{{ user._id }}/following">Following</a></li>
-		<li {% if mode == "follows" %}class="active"{% endif %}><a href="/users/{{ user._id }}/followers">Followers</a>
+		<li {% if mode == "following" %}class="active"{% endif %}><a href="/users/{{ user._id }}/following">{{ _("Following") }}</a></li>
+		<li {% if mode == "follows" %}class="active"{% endif %}><a href="/users/{{ user._id }}/followers">{{ _("Followers") }}</a>
 	</ul>
 </div>
 
 
 
-<h1>Users ({{ total }})</h1>
+<h1>{{_("Users") ({{ total }})</h1>
 
 <div class="container">
 	{% for u in data %}

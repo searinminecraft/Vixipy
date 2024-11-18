@@ -39,6 +39,8 @@ def userPage(_id: int):
                 "following": 0,
                 "mypixivCount": 0,
                 "official": True,
+                "isFollowed": False,
+                "commentHtml": ""
             }
         )
         pickup = []
@@ -68,7 +70,7 @@ def userPage(_id: int):
 def userIllusts(_id: int):
 
     if _id == 0:
-        flash("Invalid user", "error")
+        flash(_("Invalid user"), "error")
         return redirect("/users/0")
 
     currPage = int(request.args.get("p", 1))
@@ -107,7 +109,7 @@ def userIllusts(_id: int):
 def userManga(_id: int):
 
     if _id == 0:
-        flash("Invalid user", "error")
+        flash(_("Invalid user"), "error")
         return redirect("/users/0")
 
     currPage = int(request.args.get("p", 1))
@@ -146,7 +148,7 @@ def userManga(_id: int):
 def userBookmarks(_id: int):
 
     if _id == 0:
-        flash("Invalid user", "error")
+        flash(_("Invalid user"), "error")
         return redirect("/users/0")
 
     page = int(request.args.get("p", 1))
@@ -177,6 +179,12 @@ def userBookmarks(_id: int):
 @users.route("/<int:_id>/following")
 def following(_id: int):
 
+    if _id == 0:
+        flash(_("Invalid user"), "error")
+        return redirect("/users/0")
+
+
+
     currPage = int(request.args.get("p", 1))
 
     total, data = getUserFollowing(_id)
@@ -203,12 +211,18 @@ def following(_id: int):
 @users.route("/<int:_id>/followers")
 def followers(_id: int):
 
+    if _id == 0:
+        flash(_("Invalid user"), "error")
+        return redirect("/users/0")
+
+
+
     currPage = int(request.args.get("p", 1))
 
     try:
         total, data = getUserFollowers(_id)
     except api.PixivError:
-        flash("Not authorized.", "error")
+        flash(_("Not authorized."), "error")
         return redirect(f"/users/{_id}/following")
 
     user = getUser(_id)

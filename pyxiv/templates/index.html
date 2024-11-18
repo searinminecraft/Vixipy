@@ -5,37 +5,37 @@
 {% if g.isAuthorized %}
 
 {% if g.get('omittedByFilter') %}
-<i>Some entries have been hidden due to filters</i>
+<i>{{ _("Some entries have been hidden due to filters") }}</i>
 {% endif %}
 
 <div class="container">
-	<h2>Latest from following</h2>
+	<h2>{{ _("Latest from following") }}</h2>
 	<div class="artwork-scroll-container">
 		{% if data.newestFromFollowing | length > 0 %}
 		{% for d in data.newestFromFollowing %}
 		{% include "components/artwork-prev.html" %}
 		{% endfor %}
 		{% else %}
-		<p>Nothing to show!</p>
+		<p>{{ _("Nothing to show!") }}</p>
 		{% endif %}
 	</div>
 </div>
 
 <div class="container">
-	<h2>Recommended works</h2>
+	<h2>{{ _("Recommended works") }}</h2>
 	<div class="artwork-container">
 		{% if data.recommended | length > 0 %}
 		{% for d in data.recommended %}
 		{% include "components/artwork-prev.html" %}
 		{% endfor %}
 		{% else %}
-		<p>Nothing to show!</p>
+		<p>{{ _("Nothing to show!") }}</p>
 		{% endif %}
 	</div>
 </div>
 
 <div class="container">
-	<h2>Today's Rankings</h2>
+	<h2>{{ _("Today's Rankings") }}</h2>
 	<div class="artwork-scroll-container">
 		{% for d in rankingData %}
 		{% include "components/artwork-prev.html" %}
@@ -44,7 +44,7 @@
 </div>
 
 <div class="container">
-	<h2>Recommended users</h2>
+	<h2>{{ _("Recommended users") }}</h2>
 	<div class="artwork-scroll-container">
 		{% for u in data.recommendedUsers%}
 		{% include "components/recommendedUser.html" %}
@@ -54,7 +54,7 @@
 
 {% for t in data.recommendByTag %}
 <div class="container">
-	<h2>Recommended works with tag <a href="/tag/{{ t.name }}">#{{ t.name }}</a></h2>
+	<h2>{{ _("Recommended artworks with tag") }} <a href="/tag/{{ t.name }}">#{{ t.name }}</a></h2>
 	<div class="artwork-container">
 		{% for d in t.artworks %}
 		{% include "components/artwork-prev.html" %}
@@ -66,8 +66,8 @@
 
 <div class="container">
 	<div class="component-header">
-		<h2>Today's rankings</h2>
-		<a href="/rankings/">View all</a>
+		<h2>{{ _("Today's Rankings") }}</h2>
+		<a href="/rankings/">{{ _("View all") }}</a>
 	</div>
 	<div class="artwork-container">
 		{% for d in data %}

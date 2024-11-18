@@ -1,4 +1,5 @@
 from flask import Blueprint, g, redirect, render_template, request, flash, url_for
+from flask_babel import _
 
 from .. import api
 from ..core.comments import postComment, postStamp
@@ -42,7 +43,7 @@ def addBookmark(_id: int):
         jsonPayload={"illust_id": str(_id), "restrict": 0, "comment": "", "tags": []},
     )
 
-    flash("Successfully bookmarked post")
+    flash(_("Successfully bookmarked post"))
     return redirect(request.args["r"])
 
 
@@ -51,7 +52,7 @@ def deleteBookmark(_id: int):
 
     api.pixivPostReq("/ajax/illusts/bookmarks/delete", rawPayload=f"bookmark_id={_id}")
 
-    flash("Successfully removed bookmark")
+    flash(_("Successfully removed bookmark"))
     return redirect(request.args["r"])
 
 
@@ -60,7 +61,7 @@ def likeIllust(_id: int):
 
     api.pixivPostReq("/ajax/illusts/like", jsonPayload={"illust_id": str(_id)})
 
-    flash("Successfully liked post")
+    flash(_("Successfully liked post"))
     return redirect(request.args["r"])
 
 
@@ -71,9 +72,9 @@ def comment():
     try:
         postComment(args["id"], args["author"], form["comment"])
     except Exception as e:
-        flash(f"Unable to post comment: {e.__class__.__name__}: {e}", "error")
+        flash(_("Unable to post comment: %(errorClass)s: %(error)s", errorClass=e.__class__.__name__, error=str(e)), "error")
     else:
-        flash("Successfully posted comment")
+        flash(_("Successfully posted comment"))
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
 
@@ -85,9 +86,11 @@ def stamp():
     try:
         postStamp(args["id"], args["author"], form["stampId"])
     except Exception as e:
-        flash(f"Unable to send stamp: {e.__class__.__name__}: {e}", "error")
+        flash(_("Unable to send stamp: %(errorClass)s: %(error)s",
+                errorClass=e.__class__.__name__,
+                error=str(e)), "error")
     else:
-        flash("Successfully sent stamp")
+        flash(_("Successfully sent stamp"))
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
 
@@ -108,22 +111,29 @@ def addTagToFavorites():
 def followUser(_id: int):
     restrict = bool(int(request.args.get("restrict", 0)))
     r = request.args.get("r", "/")
+
+    if _id == 0:
+        flash(_("Invalid user"), "error")
+        return redirect(r, code=303)
     try:
         api.followUser(_id, restrict)
     except api.PixivError:
-        flash("Could not follow user", "error")
+        flash(_("Could not follow user"), "error")
     else:
-        flash("Successfully followed user")
+        flash(_("Successfully followed user"))
     return redirect(r, code=303)
 
 
 @userAction.route("/unfollowUser/<int:_id>")
 def unfollowUser(_id: int):
     r = request.args.get("r", "/")
+    if _id == 0:
+        flash(_("Invalid user"), "error")
+        return redirect(r, code=303)
     try:
         api.unfollowUser(_id)
     except api.PixivError:
-        flash("Could not unfollow user", "error")
+        flash(_("Could not unfollow user"), "error")
     else:
-        flash("Successfully unfollowed user")
+        flash(_("Successfully unfollowed user"))
     return redirect(r, code=303)

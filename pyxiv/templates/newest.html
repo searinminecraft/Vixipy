@@ -1,8 +1,8 @@
 {% extends "layouts/default.html" %}
-{% block title %}Discover{% endblock %}
+{% block title %}{{ _("Newest") }}{% endblock %}
 
 {% block content %}
-<h1>Newest from all users</h1>
+<h1>{{ _("Newest from all users") }}</h1>
 {% if g.get('omittedByFilter') %}
 <i>Some entries have been hidden due to filters</i>
 
@@ -14,8 +14,8 @@
 
 <div class="container component-header">
 	<ul class="tab-navigation">
-		<li {% if type == "illust" %}class="active"{% endif %}><a href="/newest/?type=illust">Illustrations</a></li>
-		<li {% if type == "manga" %}class="active"{% endif %}><a href="/newest/?type=manga">Manga</a></li>
+		<li {% if type == "illust" %}class="active"{% endif %}><a href="/newest/?type=illust">{{ _("Illustrations") }}</a></li>
+		<li {% if type == "manga" %}class="active"{% endif %}><a href="/newest/?type=manga">{{ _("Manga") }}</a></li>
 	</ul>
 </div>
 

@@ -3,7 +3,7 @@
 
 {% block userComponent %}
 {% if pickup | length > 0 %}
-<h2>Featured</h2>
+<h2>{{ _("Featured") }}</h2>
 
 <div class="container">
 	<div class="artwork-scroll-container">
@@ -28,14 +28,14 @@
 </div>
 {% endif %}
 
-<h2>Illustrations and Manga ({{ total }})</h2>
+<h2>{{ _("Illustrations and Manga") }} ({{ total }})</h2>
 
 <div class="container">
 	<div class="artwork-container">
 		{% for d in top %}
 		{% include "components/artwork-prev-min.html" %}
 		{% else %}
-		<p>Nothing in here!</p>
+		<p>{{ _("Nothing in here!") }}</p>
 		{% endfor %}
 	</div>
 </div>
@@ -43,7 +43,7 @@
 {% if top | length > 0 %}
 <br>
 <div class="container centered">
-	<a class="button" href="/users/{{ user._id }}/illusts#checkpoint">View all</a>
+	<a class="button" href="/users/{{ user._id }}/illusts#checkpoint">{{ _("View all") }}</a>
 </div>
 {% endif %}
 

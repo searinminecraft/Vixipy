@@ -6,15 +6,15 @@
 
 <h2>Display settings</h2>
 {% if g.isAuthorized %}
-<p><b>NOTE:</b> These settings will not apply to your pixiv account.<p>
+<p>{{ _("<b>NOTE:</b> These settings will not apply to your pixiv account.") }}<p>
 {% endif %}
 
 {% if not config["authless"] or (g.isAuthorized and config["authless"]) %}
 {% if not g.userState.xRestrictEnabled or not g.userState.r18GEnabled or g.userState.hideAiWorks %}
 {% if g.isAuthorized %}
-<p><i>Some of these settings are enforced by your pixiv account's settings.</i></p>
+<p><i>{{ _("Some of these settings are enforced by your pixiv account's settings.") }}</i></p>
 {% else %}
-<p><i>Some of these settings are enforced by the instance's associated pixiv account.</i></p>
+<p><i>{{ _("Some of these settings are enforced by the instance's associated pixiv account.") }}</i></p>
 {% endif %}
 {% endif %}
 {% endif %}
@@ -27,30 +27,30 @@
 
 	{% if not config["authless"] or (g.isAuthorized and config["authless"]) %}
 	<div class="toggle-switch">
-		<label for="hideAI">Hide AI-generated works</label>
+		<label for="hideAI">{{ _("Hide AI-generated works") }}</label>
 		<input type="checkbox" name="hideAI" id="hideAI" {% if g.userState.hideAiWorks %}disabled checked{% else %}{% if hideAIPref %}checked{% endif %}{% endif %}>
 	</div>
 	<div class="toggle-switch">
-		<label for="hideR18">Hide explicit content (R-18)</label>
+		<label for="hideR18">{{ _("Hide explicit content (R-18)") }}</label>
 		<input type="checkbox" name="hideR18" id="hideR18" {% if not g.userState.xRestrictEnabled %}disabled checked{% else %}{% if hideR18Pref %}checked{% endif %}{% endif %}>
 	</div>
 	<div class="toggle-switch">
-		<label for="hideR18G">Hide ero-guro (R-18G) content</label>
+		<label for="hideR18G">{{ _("Hide ero-guro (R-18G) content") }}</label>
 		<input type="checkbox" name="hideR18G" id="hideR18G" {% if not g.userState.r18GEnabled%}disabled checked{% else %}{% if hideR18GPref %}checked{% endif %}{% endif %}>
 	</div>
 	{% else %}
 	<div class="toggle-switch">
-		<label for="hideAI">Hide AI-generated works</label>
+		<label for="hideAI">{{ _("Hide AI-generated works") }}</label>
 		<input type="checkbox" name="hideAI" id="hideAI" {% if hideAIPref %}checked{% endif %}>
 	</div>
 	{% endif %}
 
 	<div class="toggle-switch">
-		<label>Hide ads (PyXiv has no ads)</label>
+		<label>{{ _("Hide ads (Vixipy has no ads)") }}</label>
 		<input type="checkbox" disabled checked>
 	</div>
 	<br>
-	<button type="submit" class="button">Save preferences</button>
+	<button type="submit" class="button">{{ _("Save preferences") }}</button>
 </form>
 
 {% endblock %}

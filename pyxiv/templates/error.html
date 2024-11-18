@@ -1,5 +1,5 @@
 {% extends "layouts/default.html" %}
-{% block title %}Error{% endblock %}
+{% block title %}{{ _("Error") }}{% endblock %}
 
 {% block content %}
 <div class="error-page">
@@ -7,10 +7,10 @@
 
 	{% if pixivError %}
 	<h1>pixiv Error!</h1>
-	<p>An error occurred trying to complete a request to pixiv. Please contact the instance administrator. ({{ error }})</p>
+	<p>{{ _("An error occurred trying to complete a request to pixiv. Please contact the instance administrator. (%(error)s)", error=error) }}</p>
 	{% else %}
 	<h1>Error!</h1>
-	<p>Sorry, this isn't supposed to happen. Have Snek instead.</p>
+	<p>{{ _("Sorry, this isn't supposed to happen. Have Snek instead.") }}</p>
 	<p>{{ error }}</p>
 	{% endif %}
 </div>

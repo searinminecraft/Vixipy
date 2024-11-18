@@ -1,4 +1,5 @@
 from flask import Flask, Response, g, make_response, render_template, request, flash
+from flask_babel import Babel
 import traceback
 
 from requests import ConnectionError
@@ -30,6 +31,13 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = cfg.PyXivSecret
     app.config["authless"] = cfg.AuthlessMode
+    app.config["languages"] = ["en", "fil"]
+
+    def getLocale():
+        return request.accept_languages.best_match(app.config['languages']) 
+
+    babel = Babel(app, locale_selector=getLocale)
+
 
     # https://www.pixiv.net/ajax/settings/self
     app.config["stamps"] = {

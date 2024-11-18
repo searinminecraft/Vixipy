@@ -8,6 +8,7 @@ from flask import (
     redirect,
     url_for,
 )
+from flask_babel import _
 
 from ..api import PixivError
 from ..core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
@@ -45,7 +46,7 @@ def artworkComments(_id: int):
     artworkData = getArtwork(_id)
 
     if artworkData.commentOff:
-        flash("The creator turned off comments.", "error")
+        flash(_("The creator turned off comments."), "error")
         return redirect(url_for("artworks.artworkGet", _id=_id))
 
     data = getArtworkComments(_id, **request.args)

@@ -27,13 +27,15 @@
 						<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"/></svg>
 						{% endif %}
 					</span>
-					<span class="user-stats"><a href="/users/{{ user._id }}/following"><b>{{ user.following }}</b> following</a> - <b>{{ user.mypixiv }}</b> mypixiv</span>
+					<span class="user-stats"><a href="/users/{{ user._id }}/following">{{ _("<b>%(followingCount)s</b> following", followingCount=user.following) }}</a> - {{ _("<b>%(myPixiv)s</b> mypixiv", myPixiv=user.mypixiv) }}</span>
 					<br>
+					{% if g.isAuthorized %}
 					{% if not user._id == g.userdata._id %}
 					{% if user.isFollowed %}
-					<a class="button neutral" href="/self/unfollowUser/{{ user._id }}?r=/users/{{ user._id }}">Following</a>
+					<a class="button neutral" href="/self/unfollowUser/{{ user._id }}?r=/users/{{ user._id }}">{{ _("Following") }}</a>
 					{% else %}
-					<a class="button" href="/self/followUser/{{ user._id }}?r=/users/{{ user._id }}">Follow</a>
+					<a class="button" href="/self/followUser/{{ user._id }}?r=/users/{{ user._id }}">{{ _("Follow") }}</a>
+					{% endif %}
 					{% endif %}
 					{% endif %}
 				</div>
@@ -51,10 +53,10 @@
 
 <div class="container">
 	<ul class="tab-navigation">
-		<li {% if currentSection == "home" %}class="active"{% endif %}><a href="/users/{{ user._id }}">Home</a></li>
-		<li {% if currentSection == "illust" %}class="active"{% endif %}><a href="/users/{{ user._id }}/illusts#checkpoint">Illustrations</a></li>
-		<li {% if currentSection == "manga" %}class="active"{% endif %}><a href="/users/{{ user._id }}/manga#checkpoint">Manga</a></li>
-		<li {% if currentSection == "bookmarks" %}class="active"{% endif %}><a href="/users/{{ user._id }}/bookmarks#checkpoint">Bookmarks</a>
+		<li {% if currentSection == "home" %}class="active"{% endif %}><a href="/users/{{ user._id }}">{{ _("Home") }}</a></li>
+		<li {% if currentSection == "illust" %}class="active"{% endif %}><a href="/users/{{ user._id }}/illusts#checkpoint">{{ _("Illustrations") }}</a></li>
+		<li {% if currentSection == "manga" %}class="active"{% endif %}><a href="/users/{{ user._id }}/manga#checkpoint">{{ _("Manga") }}</a></li>
+		<li {% if currentSection == "bookmarks" %}class="active"{% endif %}><a href="/users/{{ user._id }}/bookmarks#checkpoint">{{ _("Bookmarks") }}</a>
 	</ul>
 </div>
 

@@ -1,4 +1,4 @@
-window.onload = ()=>{
+document.addEventListener("DOMContentLoaded", ()=>{
 	menuButton = document.querySelector("header #menu")
 	menuUiBackdrop = document.querySelector("#main-menu.backdrop")
 	menuUi = document.querySelector("#main-menu .main")
@@ -30,5 +30,5 @@ window.onload = ()=>{
 		menuUiBackdrop.removeAttribute("data-visible")
 		menuUi.removeAttribute("data-visible")
 	})
-}
+})
 

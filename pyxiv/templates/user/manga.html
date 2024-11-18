@@ -2,7 +2,7 @@
 {% set currentSection="manga" %}
 
 {% block userComponent %}
-<h2>{{ user.name }}'s manga ({{ total }})</h2>
+<h2>{{ _("%(user)s's Manga", user=user.name) }} ({{ total }})</h2>
 <div class="container">
 	<div class="artwork-container">
 		{% for d in illusts %}

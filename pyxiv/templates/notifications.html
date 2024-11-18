@@ -1,8 +1,8 @@
 {% extends "layouts/default.html" %}
-{% block title %}Notifications{% endblock %}
+{% block title %}{{ _("Notifications") }}{% endblock %}
 
 {% block content %}
-<h1>Notifications</h1>
+<h1>{{ _("Notifications") }}</h1>
 {% if data|length > 0 %}
 <div class="notifications">
 {% for notification in data %}
@@ -46,6 +46,6 @@
 {% endfor %}
 </div>
 {% else %}
-<p>No notifications</p>
+<p>{{ _("No notifications") }}</p>
 {% endif %}
 {% endblock %}

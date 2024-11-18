@@ -9,6 +9,7 @@ from flask import (
     url_for,
     flash,
 )
+from flask_babel import _
 
 import hashlib
 import re
@@ -104,7 +105,7 @@ def setSession():
         try:
             api.getLatestFromFollowing("all", 1)
         except api.PixivError as e:
-            flash(f"Cannot use token: {e}", "error")
+            flash(_("Cannot use token: %(error)s", error=e), "error")
             return redirect(url_for("settings.mainSettings", ep="account"))
 
         # If you're curious, this test URL is an illustration of Anna Yanami.
@@ -118,7 +119,7 @@ def setSession():
         )
 
         if req.status_code != 200:
-            flash(f"Cannot use token. pixiv returned code {req.status_code}", "error")
+            flash(_("Cannot use token. pixiv returned code %(status)d", status=req.status_code), "error")
             return redirect(url_for("settings.mainSettings", ep="account"))
 
         r = re.search(csrfMatch, req.text)
@@ -126,7 +127,7 @@ def setSession():
         try:
             csrf = r.group(1)
         except IndexError:
-            flash(f"Cannot use token: Couldn't obtain CSRF token.", "error")
+            flash(_("Unable to extract CSRF"), "error")
             return redirect(url_for("settings.settingsMain", ep="account"))
 
         resp = make_response(
@@ -138,7 +139,7 @@ def setSession():
         resp.set_cookie("PyXivCSRF", csrf, max_age=COOKIE_MAXAGE, httponly=True)
         return resp
     else:
-        flash("No token was supplied.", "error")
+        flash(_("No token was supplied."), "error")
         return redirect(url_for("settings.mainSettings"))
 
 
@@ -148,7 +149,7 @@ def logout():
     resp = make_response(redirect("/", code=303))
     resp.delete_cookie("PyXivSession")
     resp.delete_cookie("PyXivCSRF")
-    flash("You have successfully terminated the session. Goodbye!")
+    flash(_("You have successfully terminated the session. Goodbye!"))
     return resp
 
 
@@ -194,7 +195,7 @@ def setImgProxy():
         "localhost",
         "i.pximg.net",
     ):
-        flash(f"This address is not allowed: {i}", "error")
+        flash(_("This address is not allowed: %(addr)", addr=i), "error")
         return redirect(url_for("settings.settingsIndex"), code=303)
 
     if i != "":
@@ -211,15 +212,17 @@ def setImgProxy():
 
             if not result == integrity:
                 flash(
-                    f"Integrity check failed for image proxy test. Expected {integrity}, got {result}",
+                    _("Integrity check failed for image proxy test. Expected %(integrity)s, got %(result)s",
+                      integrity=integrity,
+                      result=result),
                     "error",
                 )
                 return redirect(url_for("settings.settingsIndex"), code=303)
         except requests.ConnectTimeout:
-            flash(f"Timed out trying to check proxy server. It may be down.", "error")
+            flash(_("Timed out trying to check proxy server. It may be down."), "error")
             return redirect(url_for("settings.settingsIndex"), code=303)
         except Exception as e:
-            flash(f"Error: {e}", "error")
+            flash(_("An error occured trying to check proxy server: %(error)s", error=e), "error")
             return redirect(url_for("settings.settingsIndex"), code=303)
 
     resp = make_response(redirect(url_for("settings.settingsIndex"), code=303))
