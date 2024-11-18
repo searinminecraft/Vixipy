@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-18 18:09+0800\n"
+"POT-Creation-Date: 2024-11-18 18:43+0800\n"
 "PO-Revision-Date: 2024-11-18 07:20+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
 "Language: fil\n"
@@ -215,6 +215,10 @@ msgstr "Magkomento bilang %(user)s…"
 msgid "Log in to post comments"
 msgstr "Mag-log in para mag-post ng komento"
 
+#: pyxiv/templates/comments.html:55
+msgid "No comments!"
+msgstr ""
+
 #: pyxiv/templates/comments.html:66
 msgid "Insert emoji/stamp"
 msgstr "Magpasok ng emoji/stamp"
@@ -376,6 +380,15 @@ msgstr "Lahat ng oras"
 #: pyxiv/templates/tag.html:74
 msgid "Works"
 msgstr "Mga gawa"
+
+#: pyxiv/templates/unauthorized.html:3
+#, fuzzy
+msgid "Unauthorized"
+msgstr "Hindi awtorisado."
+
+#: pyxiv/templates/unauthorized.html:4
+msgid "Provide your pixiv PHPSESSID in settings to perform this action."
+msgstr ""
 
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
