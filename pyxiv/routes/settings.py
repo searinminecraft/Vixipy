@@ -195,7 +195,7 @@ def setImgProxy():
         "localhost",
         "i.pximg.net",
     ):
-        flash(_("This address is not allowed: %(addr)", addr=i), "error")
+        flash(_("This address is not allowed: %(addr)s", addr=i), "error")
         return redirect(url_for("settings.settingsIndex"), code=303)
 
     if i != "":

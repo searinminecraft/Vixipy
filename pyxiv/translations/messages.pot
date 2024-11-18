@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-18 14:03+0800\n"
+"POT-Creation-Date: 2024-11-18 14:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,8 @@ msgid "You have successfully terminated the session. Goodbye!"
 msgstr ""
 
 #: pyxiv/routes/settings.py:198
-msgid "This address is not allowed: %(addr)"
+#, python-format
+msgid "This address is not allowed: %(addr)s"
 msgstr ""
 
 #: pyxiv/routes/settings.py:215
