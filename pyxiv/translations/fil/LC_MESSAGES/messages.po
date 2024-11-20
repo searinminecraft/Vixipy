@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-18 18:43+0800\n"
-"PO-Revision-Date: 2024-11-18 07:20+0000\n"
+"PO-Revision-Date: 2024-11-19 23:07+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.8.1\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/routes/artworks.py:49
@@ -200,11 +201,11 @@ msgstr "Iyong mga bookmark (%(total)d)"
 
 #: pyxiv/templates/comments.html:6
 msgid "Return to artwork"
-msgstr ""
+msgstr "Bumalik sa artwork"
 
 #: pyxiv/templates/comments.html:10
 msgid "Comments"
-msgstr ""
+msgstr "Mga Komento"
 
 #: pyxiv/templates/comments.html:16
 #, python-format
@@ -217,7 +218,7 @@ msgstr "Mag-log in para mag-post ng komento"
 
 #: pyxiv/templates/comments.html:55
 msgid "No comments!"
-msgstr ""
+msgstr "Walang mga komento!"
 
 #: pyxiv/templates/comments.html:66
 msgid "Insert emoji/stamp"
@@ -382,18 +383,18 @@ msgid "Works"
 msgstr "Mga gawa"
 
 #: pyxiv/templates/unauthorized.html:3
-#, fuzzy
 msgid "Unauthorized"
-msgstr "Hindi awtorisado."
+msgstr "Hindi awtorisado"
 
 #: pyxiv/templates/unauthorized.html:4
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
+"Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na ito."
 
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
 msgid "Search works..."
-msgstr ""
+msgstr "Maghanap ng mga gawa…"
 
 #: pyxiv/templates/layouts/default.html:14
 msgid "This website requires JavaScript."
@@ -438,11 +439,14 @@ msgid ""
 "allowing you to enjoy pixiv content with a peace of mind in terms of "
 "privacy, speed, and reliability."
 msgstr ""
+"Ang Vixipy ay isang libre at open source at gumagalang sa pagkapribado na "
+"pixiv frontend, na nagbibigay-daan sa iyo na ma-enjoy ang pixiv content na "
+"may kapayapaan ng isip sa mga tuntunin ng privacy, bilis, at pagiging "
+"maaasahan."
 
 #: pyxiv/templates/settings/about.html:10
-#, fuzzy
 msgid "Why Vixipy?"
-msgstr "Tungkol sa Vixipy"
+msgstr "Bakit Vixipy?"
 
 #: pyxiv/templates/settings/about.html:12
 msgid ""
@@ -452,6 +456,11 @@ msgid ""
 "invasive, and is also behind Cloudflare, which you already know has <a "
 "href='https://0xacab.org/dCF/deCloudflare'>many, many problems.</a>"
 msgstr ""
+"Ang problema sa paggamit ng pixiv ay gumagamit ito ng maraming hindi "
+"kailangan na bandwidth, may mga tracker (Google Tag Manager), ay proprietary "
+"(at naglalaman ng mga proprietary na component tulad ng ReCAPTCHA), maaring "
+"invasive sa pagkapribado, at nasa-likod ng Cloudflare, na alam mo na ay may "
+"<a href='https://0xacab.org/dCF/deCloudflare'>napakaraming problema.</a>"
 
 #: pyxiv/templates/settings/about.html:14
 msgid ""
@@ -462,6 +471,13 @@ msgid ""
 "proxy requests (unless you are using an external image proxy server, "
 "which you will have to trust it's privacy practices)."
 msgstr ""
+"Sa Vixipy, mae-enjoy mo ang karamihan sa mga tampok ng pixiv gamit ang "
+"frontend na mapagkakatiwalaan mo. Hindi kokonekta ang iyong browser sa "
+"anumang panlabas na server maliban kung magtukoy ka ng panlabas na image "
+"proxy server. Ang matatala lamang ng Vixipy ay ang mga hiling sa pixiv API, "
+"iyong user agent, at mga hiling sa image proxy (maliban kung gumagamit ka ng "
+"panlabas na image proxy server, na kailangan mong pagkatiwalaan ang mga "
+"kasanayan sa pagkapribado nito)."
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
@@ -469,10 +485,13 @@ msgid ""
 " resolution, <a target='_blank' "
 "href='/static/img/accountRequired_pixiv.png'>unlike pixiv</a>."
 msgstr ""
+"Bukod pa rito, hindi mo kailangan ng account para sa pagtingin sa buong "
+"resolution ng artwork, <a target='_blank' href='/static/img/"
+"accountRequired_pixiv.png'>hindi tulad ng pixiv</a>."
 
 #: pyxiv/templates/settings/about.html:18
 msgid "How does it compare to other pixiv frontends (PixivFE, etc.)?"
-msgstr ""
+msgstr "Paano ito kumpara sa iba pang mga pixiv frontend (PixivFE, atbp.)?"
 
 #: pyxiv/templates/settings/about.html:20
 msgid ""
@@ -480,22 +499,30 @@ msgid ""
 " Vixipy does take inspiration from other frontends, but only for the "
 "good, and with proper credit or attribution if needed."
 msgstr ""
+"Ang Vixipy ay, at palaging, hindi isang kalaban ng anumang mga pixiv "
+"frontend. Oo, kumukuha ng inspirasyon ang Vixipy mula sa iba pang mga pixiv "
+"frontend, pero para sa mabuti lamamg, at may kredito at pagpapatungkol kung "
+"kailangan."
 
 #: pyxiv/templates/settings/about.html:22
 msgid ""
 "Performance-wise, Vixipy somewhat lags behind others, but is sometimes "
 "faster or on par with other pixiv frontends."
 msgstr ""
+"Sa pagganap, medyo nahuhuli ang Vixipy sa iba, ngunit minsan ay mas mabilis "
+"o kapantay ng iba pang mga pixiv frontend."
 
 #: pyxiv/templates/settings/about.html:24
 msgid "Acknowledgements"
-msgstr ""
+msgstr "Mga Pasasalamat"
 
 #: pyxiv/templates/settings/about.html:26
 msgid ""
 "Vixipy is made possible through the use of open source projects, which "
 "are:"
 msgstr ""
+"Naging posible ang Vixipy sa pamamagitan ng paggamit ng mga open source na "
+"proyekto, na:"
 
 #: pyxiv/templates/settings/account.html:6
 msgid "Account Settings"
@@ -552,15 +579,17 @@ msgid "Vixipy Settings"
 msgstr "Mga Setting sa Vixipy"
 
 #: pyxiv/templates/settings/pyxivSettings.html:8
-#, fuzzy
 msgid "Proxy server"
-msgstr "Gamitin ang proxy server"
+msgstr "Proxy server"
 
 #: pyxiv/templates/settings/pyxivSettings.html:9
 msgid ""
 "A pixiv image proxy server allows you to access images from pixiv without"
 " your device making any connection to pixiv servers."
 msgstr ""
+"Ang isang pixiv image proxy server ay nagbibigay-daan sa iyo na ma-access "
+"ang mga larawan mula sa pixiv nang hindi gumagawa ng anumang koneksyon ang "
+"iyong device sa mga pixiv server."
 
 #: pyxiv/templates/settings/pyxivSettings.html:11
 msgid ""
@@ -666,36 +695,33 @@ msgid "%(user)s's bookmarks (%(total)s)"
 msgstr "Mga bookmark ni %(user)s (%(total)s)"
 
 #: pyxiv/templates/user/follows.html:4
-#, fuzzy
 msgid "followed users"
-msgstr "Matagumpay na nasundan ang user"
+msgstr "mga sinusundan na user"
 
 #: pyxiv/templates/user/follows.html:6
-#, fuzzy
 msgid "followers"
-msgstr "Sundan"
+msgstr "mga tagasunod"
 
 #: pyxiv/templates/user/follows.html:9
-#, fuzzy, python-format
+#, python-format
 msgid "%(user)s's %(sect)s"
-msgstr "Mga illustration ni %(user)s"
+msgstr "%(sect)s ni %(user)s"
 
 #: pyxiv/templates/user/follows.html:12
 msgid "Back"
-msgstr ""
+msgstr "Bumalik"
 
 #: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:35
 msgid "Following"
 msgstr "Sinusundan"
 
 #: pyxiv/templates/user/follows.html:20
-#, fuzzy
 msgid "Followers"
-msgstr "Sundan"
+msgstr "Mga Tagasunod"
 
 #: pyxiv/templates/user/follows.html:26
 msgid "Users"
-msgstr ""
+msgstr "Mga User"
 
 #: pyxiv/templates/user/illusts.html:5
 #, python-format
@@ -710,7 +736,7 @@ msgstr "<b>%(followingCount)s</b> sinusundan"
 #: pyxiv/templates/user/index.html:30
 #, python-format
 msgid "<b>%(myPixiv)s</b> mypixiv"
-msgstr "<b>%(myPixiv)s</b> mypixiv"
+msgstr "<b>%(myPixiv)s</b> mga mypixiv"
 
 #: pyxiv/templates/user/index.html:37
 msgid "Follow"
@@ -728,4 +754,3 @@ msgstr "Mga Illustration at Manga"
 #, python-format
 msgid "%(user)s's Manga"
 msgstr "Mga Manga ni %(user)s"
-
