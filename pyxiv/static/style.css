@@ -54,6 +54,10 @@ header .main .branding {
 	color: unset
 }
 
+header form {
+	align-content: center;
+}
+
 header #searchbox input,
 header #mobile-searchbox input {
 	border: none;
