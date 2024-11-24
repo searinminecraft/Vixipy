@@ -958,6 +958,12 @@ form.inline-form button {
 	display: flex
 }
 
+.comments .comment .comment-main p img {
+	width: 20px;
+	height: 20px;
+	transform: translateY(3.5px)
+}
+
 .comments .comment .author-profile-pic,
 .comment-entry .author-profile-pic,
 .notification .icon {
