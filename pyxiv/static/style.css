@@ -1086,8 +1086,6 @@ form.inline-form button {
 	display: none;
 	background-color: rgba(0, 0, 0, 0.6);
 	z-index: 2;
-	/* RIP low end devices */
-	backdrop-filter: blur(2px)
 }
 
 .backdrop[data-visible] {
