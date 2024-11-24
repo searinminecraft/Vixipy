@@ -175,7 +175,7 @@ label, select, textarea {
 		height: 72px;
 	}
 
-	.settings .content form.inline-form {
+	form.inline-form {
 		flex-direction: column;
 		row-gap: 6px;
 	}
