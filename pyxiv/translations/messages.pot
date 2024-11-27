@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-18 18:43+0800\n"
+"POT-Creation-Date: 2024-11-27 11:30+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,26 +154,30 @@ msgstr ""
 msgid "Original"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:111
+#: pyxiv/templates/artwork.html:103
+msgid "Disabled"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:116
 msgid "View on pixiv"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:120 pyxiv/templates/index.html:70
+#: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
 #: pyxiv/templates/user/main.html:46
 msgid "View all"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:130
+#: pyxiv/templates/artwork.html:135
 msgid "Related"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:133 pyxiv/templates/discover.html:7
+#: pyxiv/templates/artwork.html:138 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
 #: pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:143 pyxiv/templates/user/bookmarks.html:11
+#: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:11
 #: pyxiv/templates/user/illusts.html:11 pyxiv/templates/user/main.html:38
 #: pyxiv/templates/user/manga.html:11
 msgid "Nothing in here!"

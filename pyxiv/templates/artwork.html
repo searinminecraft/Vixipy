@@ -95,8 +95,13 @@
 				<a> {{ data.artwork.viewCount | numberformat }}</a>
 			</li>
 			<li>
+				{% if not data.artwork.commentOff %}
 				<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M880-80 720-240H320q-33 0-56.5-23.5T240-320v-40h440q33 0 56.5-23.5T760-440v-280h40q33 0 56.5 23.5T880-640v560ZM160-473l47-47h393v-280H160v327ZM80-280v-520q0-33 23.5-56.5T160-880h440q33 0 56.5 23.5T680-800v280q0 33-23.5 56.5T600-440H240L80-280Zm80-240v-280 280Z"/></svg>
 				<a href="/artworks/{{ data.artwork._id }}/comments"> {{ data.artwork.commentCount | numberformat }}</a>
+				{% else %}
+				<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M160-240q-33 0-56.5-23.5T80-320v-447l-53-53 57-57L876-85l-57 57-212-212H160Zm720 45L755-320h45v-480H275l-80-80h605q33 0 56.5 23.5T880-800v605ZM160-320h367l-80-80H240v-80h127l-40-40h-87v-80h7l-87-87v367Zm515-80-80-80h125v80h-45ZM555-520l-80-80h245v80H555ZM435-640l-80-80h365v80H435Zm-91 136Zm171-56Z"/></svg>
+				<a>{{ _("Disabled") }}</a>
+				{% endif %}
 			</li>
 			<li>
 				<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M560-280h200v-200h-80v120H560v80ZM200-480h80v-120h120v-80H200v200Zm-40 320q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm0 0v-480 480Z"/></svg>

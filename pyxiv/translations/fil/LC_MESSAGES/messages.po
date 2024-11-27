@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-18 18:43+0800\n"
+"POT-Creation-Date: 2024-11-27 11:30+0800\n"
 "PO-Revision-Date: 2024-11-19 23:07+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.8.1\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/routes/artworks.py:49
@@ -169,26 +168,30 @@ msgstr "Nilikha ng AI"
 msgid "Original"
 msgstr "Orihinal"
 
-#: pyxiv/templates/artwork.html:111
+#: pyxiv/templates/artwork.html:103
+msgid "Disabled"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:116
 msgid "View on pixiv"
 msgstr "Tignan sa pixiv"
 
-#: pyxiv/templates/artwork.html:120 pyxiv/templates/index.html:70
+#: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
 #: pyxiv/templates/user/main.html:46
 msgid "View all"
 msgstr "Tignan lahat"
 
-#: pyxiv/templates/artwork.html:130
+#: pyxiv/templates/artwork.html:135
 msgid "Related"
 msgstr "Kaugnay"
 
-#: pyxiv/templates/artwork.html:133 pyxiv/templates/discover.html:7
+#: pyxiv/templates/artwork.html:138 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
 #: pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
 msgstr "Ang ilang mga entry ay naitago dahil sa mga filter"
 
-#: pyxiv/templates/artwork.html:143 pyxiv/templates/user/bookmarks.html:11
+#: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:11
 #: pyxiv/templates/user/illusts.html:11 pyxiv/templates/user/main.html:38
 #: pyxiv/templates/user/manga.html:11
 msgid "Nothing in here!"
@@ -389,7 +392,8 @@ msgstr "Hindi awtorisado"
 #: pyxiv/templates/unauthorized.html:4
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
-"Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na ito."
+"Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na "
+"ito."
 
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
@@ -439,9 +443,9 @@ msgid ""
 "allowing you to enjoy pixiv content with a peace of mind in terms of "
 "privacy, speed, and reliability."
 msgstr ""
-"Ang Vixipy ay isang libre at open source at gumagalang sa pagkapribado na "
-"pixiv frontend, na nagbibigay-daan sa iyo na ma-enjoy ang pixiv content na "
-"may kapayapaan ng isip sa mga tuntunin ng privacy, bilis, at pagiging "
+"Ang Vixipy ay isang libre at open source at gumagalang sa pagkapribado na"
+" pixiv frontend, na nagbibigay-daan sa iyo na ma-enjoy ang pixiv content "
+"na may kapayapaan ng isip sa mga tuntunin ng privacy, bilis, at pagiging "
 "maaasahan."
 
 #: pyxiv/templates/settings/about.html:10
@@ -457,10 +461,11 @@ msgid ""
 "href='https://0xacab.org/dCF/deCloudflare'>many, many problems.</a>"
 msgstr ""
 "Ang problema sa paggamit ng pixiv ay gumagamit ito ng maraming hindi "
-"kailangan na bandwidth, may mga tracker (Google Tag Manager), ay proprietary "
-"(at naglalaman ng mga proprietary na component tulad ng ReCAPTCHA), maaring "
-"invasive sa pagkapribado, at nasa-likod ng Cloudflare, na alam mo na ay may "
-"<a href='https://0xacab.org/dCF/deCloudflare'>napakaraming problema.</a>"
+"kailangan na bandwidth, may mga tracker (Google Tag Manager), ay "
+"proprietary (at naglalaman ng mga proprietary na component tulad ng "
+"ReCAPTCHA), maaring invasive sa pagkapribado, at nasa-likod ng "
+"Cloudflare, na alam mo na ay may <a "
+"href='https://0xacab.org/dCF/deCloudflare'>napakaraming problema.</a>"
 
 #: pyxiv/templates/settings/about.html:14
 msgid ""
@@ -474,10 +479,10 @@ msgstr ""
 "Sa Vixipy, mae-enjoy mo ang karamihan sa mga tampok ng pixiv gamit ang "
 "frontend na mapagkakatiwalaan mo. Hindi kokonekta ang iyong browser sa "
 "anumang panlabas na server maliban kung magtukoy ka ng panlabas na image "
-"proxy server. Ang matatala lamang ng Vixipy ay ang mga hiling sa pixiv API, "
-"iyong user agent, at mga hiling sa image proxy (maliban kung gumagamit ka ng "
-"panlabas na image proxy server, na kailangan mong pagkatiwalaan ang mga "
-"kasanayan sa pagkapribado nito)."
+"proxy server. Ang matatala lamang ng Vixipy ay ang mga hiling sa pixiv "
+"API, iyong user agent, at mga hiling sa image proxy (maliban kung "
+"gumagamit ka ng panlabas na image proxy server, na kailangan mong "
+"pagkatiwalaan ang mga kasanayan sa pagkapribado nito)."
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
@@ -486,8 +491,8 @@ msgid ""
 "href='/static/img/accountRequired_pixiv.png'>unlike pixiv</a>."
 msgstr ""
 "Bukod pa rito, hindi mo kailangan ng account para sa pagtingin sa buong "
-"resolution ng artwork, <a target='_blank' href='/static/img/"
-"accountRequired_pixiv.png'>hindi tulad ng pixiv</a>."
+"resolution ng artwork, <a target='_blank' "
+"href='/static/img/accountRequired_pixiv.png'>hindi tulad ng pixiv</a>."
 
 #: pyxiv/templates/settings/about.html:18
 msgid "How does it compare to other pixiv frontends (PixivFE, etc.)?"
@@ -500,17 +505,17 @@ msgid ""
 "good, and with proper credit or attribution if needed."
 msgstr ""
 "Ang Vixipy ay, at palaging, hindi isang kalaban ng anumang mga pixiv "
-"frontend. Oo, kumukuha ng inspirasyon ang Vixipy mula sa iba pang mga pixiv "
-"frontend, pero para sa mabuti lamamg, at may kredito at pagpapatungkol kung "
-"kailangan."
+"frontend. Oo, kumukuha ng inspirasyon ang Vixipy mula sa iba pang mga "
+"pixiv frontend, pero para sa mabuti lamamg, at may kredito at "
+"pagpapatungkol kung kailangan."
 
 #: pyxiv/templates/settings/about.html:22
 msgid ""
 "Performance-wise, Vixipy somewhat lags behind others, but is sometimes "
 "faster or on par with other pixiv frontends."
 msgstr ""
-"Sa pagganap, medyo nahuhuli ang Vixipy sa iba, ngunit minsan ay mas mabilis "
-"o kapantay ng iba pang mga pixiv frontend."
+"Sa pagganap, medyo nahuhuli ang Vixipy sa iba, ngunit minsan ay mas "
+"mabilis o kapantay ng iba pang mga pixiv frontend."
 
 #: pyxiv/templates/settings/about.html:24
 msgid "Acknowledgements"
@@ -521,8 +526,8 @@ msgid ""
 "Vixipy is made possible through the use of open source projects, which "
 "are:"
 msgstr ""
-"Naging posible ang Vixipy sa pamamagitan ng paggamit ng mga open source na "
-"proyekto, na:"
+"Naging posible ang Vixipy sa pamamagitan ng paggamit ng mga open source "
+"na proyekto, na:"
 
 #: pyxiv/templates/settings/account.html:6
 msgid "Account Settings"
@@ -587,9 +592,9 @@ msgid ""
 "A pixiv image proxy server allows you to access images from pixiv without"
 " your device making any connection to pixiv servers."
 msgstr ""
-"Ang isang pixiv image proxy server ay nagbibigay-daan sa iyo na ma-access "
-"ang mga larawan mula sa pixiv nang hindi gumagawa ng anumang koneksyon ang "
-"iyong device sa mga pixiv server."
+"Ang isang pixiv image proxy server ay nagbibigay-daan sa iyo na ma-access"
+" ang mga larawan mula sa pixiv nang hindi gumagawa ng anumang koneksyon "
+"ang iyong device sa mga pixiv server."
 
 #: pyxiv/templates/settings/pyxivSettings.html:11
 msgid ""
@@ -754,3 +759,4 @@ msgstr "Mga Illustration at Manga"
 #, python-format
 msgid "%(user)s's Manga"
 msgstr "Mga Manga ni %(user)s"
+
