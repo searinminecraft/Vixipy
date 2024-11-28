@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-27 11:30+0800\n"
+"POT-Creation-Date: 2024-11-28 21:39+0800\n"
 "PO-Revision-Date: 2024-11-19 23:07+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
 "Language: fil\n"
@@ -24,34 +24,49 @@ msgstr ""
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
-#: pyxiv/routes/settings.py:108
+#: pyxiv/routes/settings.py:110
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "Hindi magagamit ang token: %(error)s"
 
-#: pyxiv/routes/settings.py:122
+#: pyxiv/routes/settings.py:124
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "Hindi magagamit ang token. Nagbigay ng code %(status)d and pixiv"
 
-#: pyxiv/routes/settings.py:130
+#: pyxiv/routes/settings.py:132
 msgid "Unable to extract CSRF"
 msgstr "Hindi ma-extract ang CSRF"
 
-#: pyxiv/routes/settings.py:142
+#: pyxiv/routes/settings.py:144
 msgid "No token was supplied."
 msgstr "Walang ibinigay na token."
 
-#: pyxiv/routes/settings.py:152
+#: pyxiv/routes/settings.py:154
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "Matagumpay mong nawakas ang session. Paalam!"
 
-#: pyxiv/routes/settings.py:198
+#: pyxiv/routes/settings.py:170
+msgid "Please specify a URL scheme. Only http and https are accepted."
+msgstr ""
+
+#: pyxiv/routes/settings.py:174
+#, python-format
+msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
+msgstr ""
+
+#: pyxiv/routes/settings.py:178
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "Hindi pinapayagan ang address na ito: %(addr)s"
 
-#: pyxiv/routes/settings.py:215
+#: pyxiv/routes/settings.py:204
+msgid ""
+"Note: the proxy server you have specified is behind Cloudflare. Images "
+"may possibly not load, and may breach your privacy."
+msgstr ""
+
+#: pyxiv/routes/settings.py:210
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
@@ -60,16 +75,21 @@ msgstr ""
 "Nabigo ang pagsuri ng integridad para sa pagsubok ng image proxy. "
 "Inaasahan ang %(integrity)s, nakuha ang %(result)s"
 
-#: pyxiv/routes/settings.py:222
+#: pyxiv/routes/settings.py:217
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr ""
 "Nag-time out habang sinusubukang suriin ang proxy server. Maaring hindi "
 "ito gumagana."
 
-#: pyxiv/routes/settings.py:225
+#: pyxiv/routes/settings.py:220
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
+
+#: pyxiv/routes/settings.py:223
+#, fuzzy
+msgid "Successfully set proxy server"
+msgstr "Gamitin ang proxy server"
 
 #: pyxiv/routes/userAction.py:46
 msgid "Successfully bookmarked post"

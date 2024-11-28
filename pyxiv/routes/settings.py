@@ -12,8 +12,10 @@ from flask import (
 from flask_babel import _
 
 import hashlib
+import ipaddress
 import re
 import requests
+import urllib.parse
 
 from .. import api
 from .. import cfg
@@ -112,7 +114,7 @@ def setSession():
         # And don't worry its definitely not NSFW
         req = requests.get(
             "https://www.pixiv.net/en/artworks/121633055",
-            headers={
+    headers={
                 "Cookie": f"PHPSESSID={f['token']}",
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
             },
@@ -159,54 +161,47 @@ def setImgProxy():
     f = request.form
 
     integrity = "ba3a6764ecad4ab707a12884e4cc338589045d1e9f0dd12037b440fe81592981"
-    notAllowedIps = (
-        "0.",
-        "10.",
-        "100.",
-        "127.",
-        "169.254.",
-        "172.16.",
-        "172.17.",
-        "172.18.",
-        "172.19.",
-        "172.20.",
-        "172.21.",
-        "172.22.",
-        "172.23.",
-        "172.24.",
-        "172.25.",
-        "172.26.",
-        "172.27.",
-        "172.28.",
-        "172.29.",
-        "172.30.",
-        "172.31.",
-        "192.0.0.",
-        "192.88.",
-        "192.168.",
-        "198.18." "198.19.",
-        "198.51.100.",
-        "203.0.113.",
-    )
 
-    i = f["image-proxy"].lower().replace("https://", "").replace("http://", "")
+    p = urllib.parse.urlparse(f["image-proxy"])
+    i = p.hostname
+    scheme = p.scheme if p.scheme != '' else None
 
-    if any([i.startswith(x) for x in notAllowedIps]) or i in (
-        "localhost",
-        "i.pximg.net",
-    ):
+    if not scheme:
+        flash(_("Please specify a URL scheme. Only http and https are accepted."), "error")
+        return redirect(url_for("settings.settingsIndex"), code=303)
+
+    if scheme not in ("http", "https"):
+        flash(_("Invalid URL scheme: %(scheme)s. Only http and https are accepted.", scheme=scheme), "error")
+        return redirect(url_for("settings.settingsIndex"), code=303)
+
+    def denyIp():
         flash(_("This address is not allowed: %(addr)s", addr=i), "error")
         return redirect(url_for("settings.settingsIndex"), code=303)
+
+    try:
+        if ipaddress.ip_address(i).is_private:
+            return denyIp()
+    except ValueError:
+        pass
+
+    if i in ("localhost", "i.pximg.net"):
+        return denyIp()
+
+    finalUrl = f"{f['image-proxy']}/img-original/img/2020/02/04/22/43/08/79286093_p0.png"
 
     if i != "":
         try:
             req = requests.get(
-                f"http://{i}/img-original/img/2020/02/04/22/43/08/79286093_p0.png",
+                finalUrl,
                 headers={"User-Agent": "PyXiv-ProxyServerCheck"},
                 allow_redirects=True,
                 timeout=5,
             )
             req.raise_for_status()
+            isCloudflare = req.headers.get("server") == "cloudflare"
+
+            if isCloudflare:
+                flash( _("Note: the proxy server you have specified is behind Cloudflare. Images may possibly not load, and may breach your privacy.") )
 
             result = hashlib.sha256(req.content).hexdigest()
 
@@ -224,6 +219,8 @@ def setImgProxy():
         except Exception as e:
             flash(_("An error occured trying to check proxy server: %(error)s", error=e), "error")
             return redirect(url_for("settings.settingsIndex"), code=303)
+
+    flash(_("Successfully set proxy server"))
 
     resp = make_response(redirect(url_for("settings.settingsIndex"), code=303))
     resp.set_cookie(
