@@ -1,0 +1,682 @@
+# Translations template for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-11-27 11:30+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: pyxiv/routes/artworks.py:49
+msgid "The creator turned off comments."
+msgstr ""
+
+#: pyxiv/routes/settings.py:108
+#, python-format
+msgid "Cannot use token: %(error)s"
+msgstr ""
+
+#: pyxiv/routes/settings.py:122
+#, python-format
+msgid "Cannot use token. pixiv returned code %(status)d"
+msgstr ""
+
+#: pyxiv/routes/settings.py:130
+msgid "Unable to extract CSRF"
+msgstr ""
+
+#: pyxiv/routes/settings.py:142
+msgid "No token was supplied."
+msgstr ""
+
+#: pyxiv/routes/settings.py:152
+msgid "You have successfully terminated the session. Goodbye!"
+msgstr ""
+
+#: pyxiv/routes/settings.py:198
+#, python-format
+msgid "This address is not allowed: %(addr)s"
+msgstr ""
+
+#: pyxiv/routes/settings.py:215
+#, python-format
+msgid ""
+"Integrity check failed for image proxy test. Expected %(integrity)s, got "
+"%(result)s"
+msgstr ""
+
+#: pyxiv/routes/settings.py:222
+msgid "Timed out trying to check proxy server. It may be down."
+msgstr ""
+
+#: pyxiv/routes/settings.py:225
+#, python-format
+msgid "An error occured trying to check proxy server: %(error)s"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:46
+msgid "Successfully bookmarked post"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:55
+msgid "Successfully removed bookmark"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:64
+msgid "Successfully liked post"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:75
+#, python-format
+msgid "Unable to post comment: %(errorClass)s: %(error)s"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:77
+msgid "Successfully posted comment"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:91
+#, python-format
+msgid "Unable to send stamp: %(errorClass)s: %(error)s"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:93
+msgid "Successfully sent stamp"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:116 pyxiv/routes/userAction.py:131
+#: pyxiv/routes/users.py:73 pyxiv/routes/users.py:112 pyxiv/routes/users.py:151
+#: pyxiv/routes/users.py:183 pyxiv/routes/users.py:215
+msgid "Invalid user"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:121
+msgid "Could not follow user"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:123
+msgid "Successfully followed user"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:136
+msgid "Could not unfollow user"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:138
+msgid "Successfully unfollowed user"
+msgstr ""
+
+#: pyxiv/routes/users.py:225
+msgid "Not authorized."
+msgstr ""
+
+#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:22
+msgid "Internal Server Error"
+msgstr ""
+
+#: pyxiv/templates/500.html:23
+msgid ""
+"If this issue happens again, <a "
+"href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
+msgstr ""
+
+#: pyxiv/templates/artwork.html:21
+#, python-format
+msgid ""
+"Could not load ugoira. <a href='/proxy/ugoira/%(artworkId)d'>Download the"
+" video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
+"ugoira.com</a> for more options."
+msgstr ""
+
+#: pyxiv/templates/artwork.html:27
+msgid "Download"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:31
+msgid "Go to ugoira.com for more options"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:66
+msgid "AI generated"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:72
+msgid "Original"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:103
+msgid "Disabled"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:116
+msgid "View on pixiv"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
+#: pyxiv/templates/user/main.html:46
+msgid "View all"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:135
+msgid "Related"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:138 pyxiv/templates/discover.html:7
+#: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
+#: pyxiv/templates/tag.html:29
+msgid "Some entries have been hidden due to filters"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:11
+#: pyxiv/templates/user/illusts.html:11 pyxiv/templates/user/main.html:38
+#: pyxiv/templates/user/manga.html:11
+msgid "Nothing in here!"
+msgstr ""
+
+#: pyxiv/templates/bookmarksSelf.html:5
+#, python-format
+msgid "Your bookmarks (%(total)d)"
+msgstr ""
+
+#: pyxiv/templates/comments.html:6
+msgid "Return to artwork"
+msgstr ""
+
+#: pyxiv/templates/comments.html:10
+msgid "Comments"
+msgstr ""
+
+#: pyxiv/templates/comments.html:16
+#, python-format
+msgid "Comment as %(user)s..."
+msgstr ""
+
+#: pyxiv/templates/comments.html:29
+msgid "Log in to post comments"
+msgstr ""
+
+#: pyxiv/templates/comments.html:55
+msgid "No comments!"
+msgstr ""
+
+#: pyxiv/templates/comments.html:66
+msgid "Insert emoji/stamp"
+msgstr ""
+
+#: pyxiv/templates/comments.html:72
+msgid "Emojis"
+msgstr ""
+
+#: pyxiv/templates/comments.html:80
+msgid "Stamps"
+msgstr ""
+
+#: pyxiv/templates/comments.html:94
+msgid ""
+"If you know a particular stamp ID, you can put it here. This allows you "
+"to send stamps that are usually only available for a limited time. <span "
+"style='color: #f38ba8;'><b>Warning:</b> This may result in termination of"
+" your pixiv account. Use at your own risk.)"
+msgstr ""
+
+#: pyxiv/templates/comments.html:97
+msgid "Send"
+msgstr ""
+
+#: pyxiv/templates/discover.html:5
+msgid "Discover Artworks"
+msgstr ""
+
+#: pyxiv/templates/discover.html:11
+msgid ""
+"Note: the suggestions are based on the instance's pixiv account's "
+"algorithm and personalisation"
+msgstr ""
+
+#: pyxiv/templates/discover.html:21
+msgid "Reload"
+msgstr ""
+
+#: pyxiv/templates/error.html:2
+msgid "Error"
+msgstr ""
+
+#: pyxiv/templates/error.html:10
+#, python-format
+msgid ""
+"An error occurred trying to complete a request to pixiv. Please contact "
+"the instance administrator. (%(error)s)"
+msgstr ""
+
+#: pyxiv/templates/error.html:13
+msgid "Sorry, this isn't supposed to happen. Have Snek instead."
+msgstr ""
+
+#: pyxiv/templates/index.html:12
+msgid "Latest from following"
+msgstr ""
+
+#: pyxiv/templates/index.html:19 pyxiv/templates/index.html:32
+#: pyxiv/templates/tag.html:83
+msgid "Nothing to show!"
+msgstr ""
+
+#: pyxiv/templates/index.html:25
+msgid "Recommended works"
+msgstr ""
+
+#: pyxiv/templates/index.html:38 pyxiv/templates/index.html:69
+msgid "Today's Rankings"
+msgstr ""
+
+#: pyxiv/templates/index.html:47
+msgid "Recommended users"
+msgstr ""
+
+#: pyxiv/templates/index.html:57
+msgid "Recommended artworks with tag"
+msgstr ""
+
+#: pyxiv/templates/leave.html:2
+msgid "Jump to page"
+msgstr ""
+
+#: pyxiv/templates/leave.html:5
+msgid "You are about to leave Vixipy."
+msgstr ""
+
+#: pyxiv/templates/leave.html:6
+#, python-format
+msgid "Click the link to go to the destination: <a href='%(dest)s'>%(dest)s</a>"
+msgstr ""
+
+#: pyxiv/templates/leave.html:7
+msgid ""
+"Stay safe, using a <a href='https://www.vpngate.net'>VPN</a> or <a "
+"href='https://www.torproject.org/'>Tor</a> is recommended."
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/newest.html:2
+msgid "Newest"
+msgstr ""
+
+#: pyxiv/templates/newest.html:5
+msgid "Newest from all users"
+msgstr ""
+
+#: pyxiv/templates/newest.html:17 pyxiv/templates/user/index.html:57
+msgid "Illustrations"
+msgstr ""
+
+#: pyxiv/templates/newest.html:18 pyxiv/templates/user/index.html:58
+msgid "Manga"
+msgstr ""
+
+#: pyxiv/templates/components/navbar.html:20
+#: pyxiv/templates/notifications.html:2 pyxiv/templates/notifications.html:5
+#: pyxiv/templates/settings/settingsMain.html:25
+msgid "Notifications"
+msgstr ""
+
+#: pyxiv/templates/notifications.html:49
+msgid "No notifications"
+msgstr ""
+
+#: pyxiv/templates/tag.html:19
+#, python-format
+msgid "%(total)s works"
+msgstr ""
+
+#: pyxiv/templates/tag.html:33
+msgid "Related tags"
+msgstr ""
+
+#: pyxiv/templates/tag.html:49
+msgid "Popular artworks"
+msgstr ""
+
+#: pyxiv/templates/tag.html:53
+msgid "Recent"
+msgstr ""
+
+#: pyxiv/templates/tag.html:62
+msgid "All time"
+msgstr ""
+
+#: pyxiv/templates/tag.html:74
+msgid "Works"
+msgstr ""
+
+#: pyxiv/templates/unauthorized.html:3
+msgid "Unauthorized"
+msgstr ""
+
+#: pyxiv/templates/unauthorized.html:4
+msgid "Provide your pixiv PHPSESSID in settings to perform this action."
+msgstr ""
+
+#: pyxiv/templates/components/navbar.html:10
+#: pyxiv/templates/components/navbar.html:38
+msgid "Search works..."
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:14
+msgid "This website requires JavaScript."
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:49 pyxiv/templates/user/index.html:56
+msgid "Home"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:54
+msgid "Discover"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:59
+msgid "Rankings"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:69
+#: pyxiv/templates/layouts/default.html:97
+#: pyxiv/templates/settings/settingsMain.html:2
+#: pyxiv/templates/settings/settingsMain.html:8
+msgid "Settings"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:89
+msgid "Profile"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:93 pyxiv/templates/user/index.html:59
+msgid "Bookmarks"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:101
+#: pyxiv/templates/settings/account.html:31
+#: pyxiv/templates/settings/account.html:35
+msgid "Log out"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:8
+msgid ""
+"Vixipy is a free and open source, privacy respecting pixiv frontend, "
+"allowing you to enjoy pixiv content with a peace of mind in terms of "
+"privacy, speed, and reliability."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:10
+msgid "Why Vixipy?"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:12
+msgid ""
+"The problem with using pixiv is that it uses so much unnecessary "
+"bandwidth, has trackers (Google Tag Manager), is proprietary (and "
+"contains proprietary components like ReCAPTCHA), possibly privacy "
+"invasive, and is also behind Cloudflare, which you already know has <a "
+"href='https://0xacab.org/dCF/deCloudflare'>many, many problems.</a>"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:14
+msgid ""
+"With Vixipy, you can enjoy using most pixiv features with a frontend you "
+"can trust. Your browser will never connect to any external server except "
+"if you specify an external image proxy server. The only things that "
+"Vixipy will log are the pixiv API requests, your user agent, and image "
+"proxy requests (unless you are using an external image proxy server, "
+"which you will have to trust it's privacy practices)."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:16
+msgid ""
+"Also on the plus side, you don't need an account for viewing full artwork"
+" resolution, <a target='_blank' "
+"href='/static/img/accountRequired_pixiv.png'>unlike pixiv</a>."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:18
+msgid "How does it compare to other pixiv frontends (PixivFE, etc.)?"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:20
+msgid ""
+"Vixipy is, and is always, never a competitor of any pixiv frontend. Sure,"
+" Vixipy does take inspiration from other frontends, but only for the "
+"good, and with proper credit or attribution if needed."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:22
+msgid ""
+"Performance-wise, Vixipy somewhat lags behind others, but is sometimes "
+"faster or on par with other pixiv frontends."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:24
+msgid "Acknowledgements"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:26
+msgid ""
+"Vixipy is made possible through the use of open source projects, which "
+"are:"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:6
+msgid "Account Settings"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:11
+msgid ""
+"Log in to your pixiv account to get a personalised feed and the ability "
+"to like and bookmark posts. To do this, you must get your pixiv PHPSESSID"
+" cookie. See the guide <a href='https://pixivfe-docs.pages.dev/obtaining-"
+"pixivfe-token/' rel='noopener noreferer'>from PixivFE</a> for details. "
+"Your token is stored locally and will not be stored on the server."
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:13
+msgid ""
+"<strong>Notice:</strong> By logging in, you agree that the instance will "
+"be sending requests on behalf of <strong>your account</strong>."
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:17
+msgid "Log in"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:32
+msgid "Click on the button below to securely log out"
+msgstr ""
+
+#: pyxiv/templates/settings/license.html:6
+#: pyxiv/templates/settings/settingsMain.html:38
+msgid "License"
+msgstr ""
+
+#: pyxiv/templates/settings/license.html:8
+msgid ""
+"Vixipy is licensed under the GNU Affero General Public License, version "
+"3. The license text is as follows:"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:6
+#: pyxiv/templates/settings/settingsMain.html:11
+msgid "Vixipy Settings"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:8
+msgid "Proxy server"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:9
+msgid ""
+"A pixiv image proxy server allows you to access images from pixiv without"
+" your device making any connection to pixiv servers."
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:11
+msgid ""
+"Vixipy has a built-in proxy server, but you can specify one below. Only "
+"images from the domain <code>i.pximg.net</code> will use the specified "
+"proxy server."
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:13
+msgid "Your current preferred proxy server:"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:18
+msgid "Use built-in proxy server"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:29
+msgid "Use selected proxy"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:32
+msgid "Custom proxy server"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:33
+msgid "You can specify a custom proxy server below."
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:37
+msgid "Use proxy server"
+msgstr ""
+
+#: pyxiv/templates/settings/settingsMain.html:16
+msgid "Account"
+msgstr ""
+
+#: pyxiv/templates/settings/settingsMain.html:20
+#: pyxiv/templates/settings/viewing.html:7
+msgid "Display Settings"
+msgstr ""
+
+#: pyxiv/templates/settings/settingsMain.html:29
+msgid "Privacy"
+msgstr ""
+
+#: pyxiv/templates/settings/settingsMain.html:34
+msgid "About Vixipy"
+msgstr ""
+
+#: pyxiv/templates/settings/settingsMain.html:42
+msgid "Source Code"
+msgstr ""
+
+#: pyxiv/templates/settings/settingsMain.html:46
+msgid "pixiv Premium"
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:9
+msgid "<b>NOTE:</b> These settings will not apply to your pixiv account."
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:15
+msgid "Some of these settings are enforced by your pixiv account's settings."
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:17
+msgid ""
+"Some of these settings are enforced by the instance's associated pixiv "
+"account."
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:30
+#: pyxiv/templates/settings/viewing.html:43
+msgid "Hide AI-generated works"
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:34
+msgid "Hide explicit content (R-18)"
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:38
+msgid "Hide ero-guro (R-18G) content"
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:49
+msgid "Hide ads (Vixipy has no ads)"
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:53
+msgid "Save preferences"
+msgstr ""
+
+#: pyxiv/templates/user/bookmarks.html:5
+#, python-format
+msgid "%(user)s's bookmarks (%(total)s)"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:4
+msgid "followed users"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:6
+msgid "followers"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:9
+#, python-format
+msgid "%(user)s's %(sect)s"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:12
+msgid "Back"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:35
+msgid "Following"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:20
+msgid "Followers"
+msgstr ""
+
+#: pyxiv/templates/user/follows.html:26
+msgid "Users"
+msgstr ""
+
+#: pyxiv/templates/user/illusts.html:5
+#, python-format
+msgid "%(user)s's Illustrations"
+msgstr ""
+
+#: pyxiv/templates/user/index.html:30
+#, python-format
+msgid "<b>%(followingCount)s</b> following"
+msgstr ""
+
+#: pyxiv/templates/user/index.html:30
+#, python-format
+msgid "<b>%(myPixiv)s</b> mypixiv"
+msgstr ""
+
+#: pyxiv/templates/user/index.html:37
+msgid "Follow"
+msgstr ""
+
+#: pyxiv/templates/user/main.html:6
+msgid "Featured"
+msgstr ""
+
+#: pyxiv/templates/user/main.html:31
+msgid "Illustrations and Manga"
+msgstr ""
+
+#: pyxiv/templates/user/manga.html:5
+#, python-format
+msgid "%(user)s's Manga"
+msgstr ""
