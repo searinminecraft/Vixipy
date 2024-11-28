@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-28 21:39+0800\n"
-"PO-Revision-Date: 2024-11-19 23:07+0000\n"
+"PO-Revision-Date: 2024-11-28 13:56+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.8.1\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/routes/artworks.py:49
@@ -48,12 +49,13 @@ msgstr "Matagumpay mong nawakas ang session. Paalam!"
 
 #: pyxiv/routes/settings.py:170
 msgid "Please specify a URL scheme. Only http and https are accepted."
-msgstr ""
+msgstr "Paki-bigay ang URL scheme. Tinatanggap lamang ang http o https."
 
 #: pyxiv/routes/settings.py:174
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
+"Hindi wastong URL scheme: %(scheme)s. Tinatanggap lamang ang http o https."
 
 #: pyxiv/routes/settings.py:178
 #, python-format
@@ -65,6 +67,9 @@ msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
+"Tandaan: ang proxy server na iyong tinukoy ay nasa likod ng Cloudflare. "
+"Maaaring hindi mag-load ang mga larawan, at maaaring masira ang iyong "
+"privacy."
 
 #: pyxiv/routes/settings.py:210
 #, python-format
@@ -87,9 +92,8 @@ msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
 
 #: pyxiv/routes/settings.py:223
-#, fuzzy
 msgid "Successfully set proxy server"
-msgstr "Gamitin ang proxy server"
+msgstr "Matagumpay na natakda ang proxy server"
 
 #: pyxiv/routes/userAction.py:46
 msgid "Successfully bookmarked post"
@@ -190,7 +194,7 @@ msgstr "Orihinal"
 
 #: pyxiv/templates/artwork.html:103
 msgid "Disabled"
-msgstr ""
+msgstr "Naka-disable"
 
 #: pyxiv/templates/artwork.html:116
 msgid "View on pixiv"
@@ -779,4 +783,3 @@ msgstr "Mga Illustration at Manga"
 #, python-format
 msgid "%(user)s's Manga"
 msgstr "Mga Manga ni %(user)s"
-
