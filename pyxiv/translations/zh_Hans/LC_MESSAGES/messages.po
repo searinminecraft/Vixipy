@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-29 10:32+0800\n"
+"POT-Creation-Date: 2024-11-29 19:50+0800\n"
 "PO-Revision-Date: 2024-11-28 15:05+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -29,70 +29,70 @@ msgstr "作者关闭了评论。"
 msgid "Cannot use token: %(error)s"
 msgstr "无法使用 token：%(error)s"
 
-#: pyxiv/routes/settings.py:126
+#: pyxiv/routes/settings.py:127
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "无法使用 token。pixiv 返回代码 %(status)d"
 
-#: pyxiv/routes/settings.py:134
+#: pyxiv/routes/settings.py:140
 msgid "Unable to extract CSRF"
 msgstr "无法提取 CSRF"
 
-#: pyxiv/routes/settings.py:146
+#: pyxiv/routes/settings.py:152
 msgid "No token was supplied."
 msgstr "没有提供 token。"
 
-#: pyxiv/routes/settings.py:156
+#: pyxiv/routes/settings.py:162
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "会话已结束。再见！"
 
-#: pyxiv/routes/settings.py:166 pyxiv/routes/settings.py:232
+#: pyxiv/routes/settings.py:172 pyxiv/routes/settings.py:258
 #, fuzzy
 msgid "Successfully set proxy server"
 msgstr "使用代理服务器"
 
-#: pyxiv/routes/settings.py:179
+#: pyxiv/routes/settings.py:187
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:183
+#: pyxiv/routes/settings.py:193
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:187
+#: pyxiv/routes/settings.py:202
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "无法使用该地址：%(addr)s"
 
-#: pyxiv/routes/settings.py:213
+#: pyxiv/routes/settings.py:231
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
 
-#: pyxiv/routes/settings.py:219
+#: pyxiv/routes/settings.py:240
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr "检查图片代理完整性时出错。需要 %(integrity)s，但得到了 %(result)s"
 
-#: pyxiv/routes/settings.py:226
+#: pyxiv/routes/settings.py:249
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr "代理服务器检查超时，服务器可能无法连接。"
 
-#: pyxiv/routes/settings.py:229
+#: pyxiv/routes/settings.py:253
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:278
+#: pyxiv/routes/settings.py:305
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:287
+#: pyxiv/routes/settings.py:316
 #, fuzzy
 msgid "Successfully set language."
 msgstr "成功发送表情贴图"
@@ -109,47 +109,47 @@ msgstr "成功移除收藏"
 msgid "Successfully liked post"
 msgstr "成功点赞作品"
 
-#: pyxiv/routes/userAction.py:75
+#: pyxiv/routes/userAction.py:79
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "无法发送评论：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:77
+#: pyxiv/routes/userAction.py:84
 msgid "Successfully posted comment"
 msgstr "成功发送评论"
 
-#: pyxiv/routes/userAction.py:91
+#: pyxiv/routes/userAction.py:100
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "无法发送表情贴图：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:93
+#: pyxiv/routes/userAction.py:105
 msgid "Successfully sent stamp"
 msgstr "成功发送表情贴图"
 
-#: pyxiv/routes/userAction.py:116 pyxiv/routes/userAction.py:131
+#: pyxiv/routes/userAction.py:128 pyxiv/routes/userAction.py:143
 #: pyxiv/routes/users.py:73 pyxiv/routes/users.py:112 pyxiv/routes/users.py:151
-#: pyxiv/routes/users.py:183 pyxiv/routes/users.py:215
+#: pyxiv/routes/users.py:183 pyxiv/routes/users.py:213
 msgid "Invalid user"
 msgstr "无效用户"
 
-#: pyxiv/routes/userAction.py:121
+#: pyxiv/routes/userAction.py:133
 msgid "Could not follow user"
 msgstr "无法关注用户"
 
-#: pyxiv/routes/userAction.py:123
+#: pyxiv/routes/userAction.py:135
 msgid "Successfully followed user"
 msgstr "成功关注用户"
 
-#: pyxiv/routes/userAction.py:136
+#: pyxiv/routes/userAction.py:148
 msgid "Could not unfollow user"
 msgstr "无法取消关注用户"
 
-#: pyxiv/routes/userAction.py:138
+#: pyxiv/routes/userAction.py:150
 msgid "Successfully unfollowed user"
 msgstr "成功取消关注用户"
 
-#: pyxiv/routes/users.py:225
+#: pyxiv/routes/users.py:221
 msgid "Not authorized."
 msgstr "未验证。"
 
@@ -259,11 +259,12 @@ msgid "Stamps"
 msgstr "表情贴图"
 
 #: pyxiv/templates/comments.html:94
+#, fuzzy
 msgid ""
 "If you know a particular stamp ID, you can put it here. This allows you "
 "to send stamps that are usually only available for a limited time. <span "
 "style='color: #f38ba8;'><b>Warning:</b> This may result in termination of"
-" your pixiv account. Use at your own risk.)"
+" your pixiv account. Use at your own risk.</span>"
 msgstr ""
 "如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴图。（<span style='color: "
 "#f38ba8;'><b>警告：</b>这可能导致 pixiv 帐号被封，使用后果自负。</span>）"
@@ -416,6 +417,7 @@ msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
 
 #: pyxiv/templates/components/navbar.html:33
+#: pyxiv/templates/settings/account.html:10
 #: pyxiv/templates/settings/account.html:17 pyxiv/templates/unauthorized.html:6
 msgid "Log in"
 msgstr "登录"
@@ -438,29 +440,66 @@ msgid "Discover"
 msgstr "发现"
 
 #: pyxiv/templates/layouts/default.html:59
+#: pyxiv/templates/pixivision/index.html:23
 msgid "Rankings"
 msgstr "排行"
 
 #: pyxiv/templates/layouts/default.html:69
-#: pyxiv/templates/layouts/default.html:97
+msgid "pixivision"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:73
+#: pyxiv/templates/layouts/default.html:101
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr "设置"
 
-#: pyxiv/templates/layouts/default.html:89
+#: pyxiv/templates/layouts/default.html:93
 msgid "Profile"
 msgstr "资料"
 
-#: pyxiv/templates/layouts/default.html:93 pyxiv/templates/user/index.html:59
+#: pyxiv/templates/layouts/default.html:97 pyxiv/templates/user/index.html:59
 msgid "Bookmarks"
 msgstr "收藏"
 
-#: pyxiv/templates/layouts/default.html:101
+#: pyxiv/templates/layouts/default.html:105
 #: pyxiv/templates/settings/account.html:31
 #: pyxiv/templates/settings/account.html:35
 msgid "Log out"
 msgstr "退出"
+
+#: pyxiv/templates/pixivision/article.html:15
+#: pyxiv/templates/pixivision/index.html:58
+#, python-format
+msgid "Posted on %(date)s"
+msgstr ""
+
+#: pyxiv/templates/pixivision/article.html:15
+#: pyxiv/templates/pixivision/index.html:17
+msgid "Category:"
+msgstr ""
+
+#: pyxiv/templates/pixivision/index.html:5
+msgid "pixivision Articles"
+msgstr ""
+
+#: pyxiv/templates/pixivision/index.html:6
+msgid "Note: pixivision is experimental. Some articles may not load correctly."
+msgstr ""
+
+#: pyxiv/templates/pixivision/index.html:17
+#, fuzzy
+msgid "Featured Article"
+msgstr "精选"
+
+#: pyxiv/templates/pixivision/index.html:35 pyxiv/templates/user/main.html:6
+msgid "Featured"
+msgstr "精选"
+
+#: pyxiv/templates/pixivision/index.html:50
+msgid "Articles"
+msgstr ""
 
 #: pyxiv/templates/settings/about.html:8
 msgid ""
@@ -627,19 +666,19 @@ msgstr "目前首选代理服务器："
 msgid "Use built-in proxy server"
 msgstr "使用内置代理服务器"
 
-#: pyxiv/templates/settings/pyxivSettings.html:29
+#: pyxiv/templates/settings/pyxivSettings.html:27
 msgid "Use selected proxy"
 msgstr "使用选定代理"
 
-#: pyxiv/templates/settings/pyxivSettings.html:32
+#: pyxiv/templates/settings/pyxivSettings.html:30
 msgid "Custom proxy server"
 msgstr "自定义代理服务器"
 
-#: pyxiv/templates/settings/pyxivSettings.html:33
+#: pyxiv/templates/settings/pyxivSettings.html:31
 msgid "You can specify a custom proxy server below."
 msgstr "下方可指定自定义代理服务器。"
 
-#: pyxiv/templates/settings/pyxivSettings.html:37
+#: pyxiv/templates/settings/pyxivSettings.html:35
 msgid "Use proxy server"
 msgstr "使用代理服务器"
 
@@ -755,10 +794,6 @@ msgstr "<b>%(myPixiv)s</b> mypixiv"
 #: pyxiv/templates/user/index.html:37
 msgid "Follow"
 msgstr "关注"
-
-#: pyxiv/templates/user/main.html:6
-msgid "Featured"
-msgstr "精选"
 
 #: pyxiv/templates/user/main.html:31
 msgid "Illustrations and Manga"

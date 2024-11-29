@@ -1,4 +1,4 @@
-from flask import Flask, Response, g, make_response, render_template, request, flash
+from flask import Flask, Response, g, make_response, render_template, request, redirect, flash
 from flask_babel import Babel
 import traceback
 
@@ -162,6 +162,9 @@ def create_app():
 
         if route in ("static", "proxy", "robots.txt", "favicon.ico"):
             return
+
+        if request.path.split("/")[1] == "en":
+            return redirect(request.path.replace("/en", ""), code=308)
 
         g.version = "1.9"
         g.instanceName = cfg.PxInstanceName

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-29 10:32+0800\n"
+"POT-Creation-Date: 2024-11-29 19:50+0800\n"
 "PO-Revision-Date: 2024-11-28 13:56+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
 "Language: fil\n"
@@ -29,42 +29,42 @@ msgstr "Pinatay ng creator ang mga komento."
 msgid "Cannot use token: %(error)s"
 msgstr "Hindi magagamit ang token: %(error)s"
 
-#: pyxiv/routes/settings.py:126
+#: pyxiv/routes/settings.py:127
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "Hindi magagamit ang token. Nagbigay ng code %(status)d and pixiv"
 
-#: pyxiv/routes/settings.py:134
+#: pyxiv/routes/settings.py:140
 msgid "Unable to extract CSRF"
 msgstr "Hindi ma-extract ang CSRF"
 
-#: pyxiv/routes/settings.py:146
+#: pyxiv/routes/settings.py:152
 msgid "No token was supplied."
 msgstr "Walang ibinigay na token."
 
-#: pyxiv/routes/settings.py:156
+#: pyxiv/routes/settings.py:162
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "Matagumpay mong nawakas ang session. Paalam!"
 
-#: pyxiv/routes/settings.py:166 pyxiv/routes/settings.py:232
+#: pyxiv/routes/settings.py:172 pyxiv/routes/settings.py:258
 msgid "Successfully set proxy server"
 msgstr "Matagumpay na natakda ang proxy server"
 
-#: pyxiv/routes/settings.py:179
+#: pyxiv/routes/settings.py:187
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "Paki-bigay ang URL scheme. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:183
+#: pyxiv/routes/settings.py:193
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "Hindi wastong URL scheme: %(scheme)s. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:187
+#: pyxiv/routes/settings.py:202
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "Hindi pinapayagan ang address na ito: %(addr)s"
 
-#: pyxiv/routes/settings.py:213
+#: pyxiv/routes/settings.py:231
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
@@ -73,7 +73,7 @@ msgstr ""
 "Maaaring hindi mag-load ang mga larawan, at maaaring masira ang iyong "
 "privacy."
 
-#: pyxiv/routes/settings.py:219
+#: pyxiv/routes/settings.py:240
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
@@ -82,23 +82,23 @@ msgstr ""
 "Nabigo ang pagsuri ng integridad para sa pagsubok ng image proxy. "
 "Inaasahan ang %(integrity)s, nakuha ang %(result)s"
 
-#: pyxiv/routes/settings.py:226
+#: pyxiv/routes/settings.py:249
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr ""
 "Nag-time out habang sinusubukang suriin ang proxy server. Maaring hindi "
 "ito gumagana."
 
-#: pyxiv/routes/settings.py:229
+#: pyxiv/routes/settings.py:253
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
 
-#: pyxiv/routes/settings.py:278
+#: pyxiv/routes/settings.py:305
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:287
+#: pyxiv/routes/settings.py:316
 #, fuzzy
 msgid "Successfully set language."
 msgstr "Matagumpay na napadala ang stamp"
@@ -115,47 +115,47 @@ msgstr "Matagumpay na tinanggal ang bookmark"
 msgid "Successfully liked post"
 msgstr "Matagumpay na na-like ang post"
 
-#: pyxiv/routes/userAction.py:75
+#: pyxiv/routes/userAction.py:79
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "Hindi ma-post ang komento: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:77
+#: pyxiv/routes/userAction.py:84
 msgid "Successfully posted comment"
 msgstr "Matagumpay na na-post ang komento"
 
-#: pyxiv/routes/userAction.py:91
+#: pyxiv/routes/userAction.py:100
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "Hindi mapadala ang stamp: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:93
+#: pyxiv/routes/userAction.py:105
 msgid "Successfully sent stamp"
 msgstr "Matagumpay na napadala ang stamp"
 
-#: pyxiv/routes/userAction.py:116 pyxiv/routes/userAction.py:131
+#: pyxiv/routes/userAction.py:128 pyxiv/routes/userAction.py:143
 #: pyxiv/routes/users.py:73 pyxiv/routes/users.py:112 pyxiv/routes/users.py:151
-#: pyxiv/routes/users.py:183 pyxiv/routes/users.py:215
+#: pyxiv/routes/users.py:183 pyxiv/routes/users.py:213
 msgid "Invalid user"
 msgstr "Hindi wastong user"
 
-#: pyxiv/routes/userAction.py:121
+#: pyxiv/routes/userAction.py:133
 msgid "Could not follow user"
 msgstr "Hindi masundan ang user"
 
-#: pyxiv/routes/userAction.py:123
+#: pyxiv/routes/userAction.py:135
 msgid "Successfully followed user"
 msgstr "Matagumpay na nasundan ang user"
 
-#: pyxiv/routes/userAction.py:136
+#: pyxiv/routes/userAction.py:148
 msgid "Could not unfollow user"
 msgstr "Hindi ma-unfollow ang user"
 
-#: pyxiv/routes/userAction.py:138
+#: pyxiv/routes/userAction.py:150
 msgid "Successfully unfollowed user"
 msgstr "Matagumpay na na-unfollow ang user"
 
-#: pyxiv/routes/users.py:225
+#: pyxiv/routes/users.py:221
 msgid "Not authorized."
 msgstr "Hindi awtorisado."
 
@@ -268,11 +268,12 @@ msgid "Stamps"
 msgstr "Mga stamp"
 
 #: pyxiv/templates/comments.html:94
+#, fuzzy
 msgid ""
 "If you know a particular stamp ID, you can put it here. This allows you "
 "to send stamps that are usually only available for a limited time. <span "
 "style='color: #f38ba8;'><b>Warning:</b> This may result in termination of"
-" your pixiv account. Use at your own risk.)"
+" your pixiv account. Use at your own risk.</span>"
 msgstr ""
 "Kung may alam kang partikular na stamp ID, maaari mo itong ilagay dito. "
 "Nagbibigay-daan ito sa iyo na magpadala ng mga stamp na kadalasang "
@@ -437,6 +438,7 @@ msgstr ""
 "ito."
 
 #: pyxiv/templates/components/navbar.html:33
+#: pyxiv/templates/settings/account.html:10
 #: pyxiv/templates/settings/account.html:17 pyxiv/templates/unauthorized.html:6
 msgid "Log in"
 msgstr "Mag-log in"
@@ -459,29 +461,66 @@ msgid "Discover"
 msgstr "Tuklasin"
 
 #: pyxiv/templates/layouts/default.html:59
+#: pyxiv/templates/pixivision/index.html:23
 msgid "Rankings"
 msgstr "Mga Ranking"
 
 #: pyxiv/templates/layouts/default.html:69
-#: pyxiv/templates/layouts/default.html:97
+msgid "pixivision"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:73
+#: pyxiv/templates/layouts/default.html:101
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr "Mga Setting"
 
-#: pyxiv/templates/layouts/default.html:89
+#: pyxiv/templates/layouts/default.html:93
 msgid "Profile"
 msgstr "Iyong profile"
 
-#: pyxiv/templates/layouts/default.html:93 pyxiv/templates/user/index.html:59
+#: pyxiv/templates/layouts/default.html:97 pyxiv/templates/user/index.html:59
 msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
-#: pyxiv/templates/layouts/default.html:101
+#: pyxiv/templates/layouts/default.html:105
 #: pyxiv/templates/settings/account.html:31
 #: pyxiv/templates/settings/account.html:35
 msgid "Log out"
 msgstr "Mag-log out"
+
+#: pyxiv/templates/pixivision/article.html:15
+#: pyxiv/templates/pixivision/index.html:58
+#, python-format
+msgid "Posted on %(date)s"
+msgstr ""
+
+#: pyxiv/templates/pixivision/article.html:15
+#: pyxiv/templates/pixivision/index.html:17
+msgid "Category:"
+msgstr ""
+
+#: pyxiv/templates/pixivision/index.html:5
+msgid "pixivision Articles"
+msgstr ""
+
+#: pyxiv/templates/pixivision/index.html:6
+msgid "Note: pixivision is experimental. Some articles may not load correctly."
+msgstr ""
+
+#: pyxiv/templates/pixivision/index.html:17
+#, fuzzy
+msgid "Featured Article"
+msgstr "Itinatampok"
+
+#: pyxiv/templates/pixivision/index.html:35 pyxiv/templates/user/main.html:6
+msgid "Featured"
+msgstr "Itinatampok"
+
+#: pyxiv/templates/pixivision/index.html:50
+msgid "Articles"
+msgstr ""
 
 #: pyxiv/templates/settings/about.html:8
 msgid ""
@@ -681,19 +720,19 @@ msgstr "Ang iyong kasalukuyang gustong proxy server:"
 msgid "Use built-in proxy server"
 msgstr "Gamitin ang kasamang proxy server"
 
-#: pyxiv/templates/settings/pyxivSettings.html:29
+#: pyxiv/templates/settings/pyxivSettings.html:27
 msgid "Use selected proxy"
 msgstr "Gamitin ang piniling proxy"
 
-#: pyxiv/templates/settings/pyxivSettings.html:32
+#: pyxiv/templates/settings/pyxivSettings.html:30
 msgid "Custom proxy server"
 msgstr "Custom na proxy server"
 
-#: pyxiv/templates/settings/pyxivSettings.html:33
+#: pyxiv/templates/settings/pyxivSettings.html:31
 msgid "You can specify a custom proxy server below."
 msgstr "Maari kang magtukoy ng isang custom na proxy server sa ibaba."
 
-#: pyxiv/templates/settings/pyxivSettings.html:37
+#: pyxiv/templates/settings/pyxivSettings.html:35
 msgid "Use proxy server"
 msgstr "Gamitin ang proxy server"
 
@@ -813,10 +852,6 @@ msgstr "<b>%(myPixiv)s</b> mga mypixiv"
 #: pyxiv/templates/user/index.html:37
 msgid "Follow"
 msgstr "Sundan"
-
-#: pyxiv/templates/user/main.html:6
-msgid "Featured"
-msgstr "Itinatampok"
 
 #: pyxiv/templates/user/main.html:31
 msgid "Illustrations and Manga"

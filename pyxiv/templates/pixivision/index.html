@@ -1,0 +1,75 @@
+{% extends "layouts/default.html" %}
+{% block title %}pixivision{% endblock %}
+
+{% block content %}
+<h1>{{ _("pixivision Articles") }}</h1>
+<p>{{ _("Note: pixivision is experimental. Some articles may not load correctly.") }}
+
+{% if data.spotlight %}
+<div class="pv-article-spotlight">
+  <a href="a/{{ data.spotlight._id }}">
+    <img src="{{ data.spotlight.image }}" alt="{{ data.spotlight.title }}">
+  </a>
+  <div class="info">
+    <a href="a/{{ data.spotlight._id }}">
+      <h1>{{ data.spotlight.title }}</h1>
+    </a>
+    <small> {{ _("Featured Article") }} - {{ _("Category:") }} {{ data.spotlight.category }} - {{ data.spotlight.date | dateformat }} </small>
+  </div>
+</div>
+{% endif %}
+
+{% if request.args.get("p", 1) | int == 1 %}
+<h1>{{ _("Rankings") }}</h1>
+<div class="pv-articles-sm">
+{% for article in data.ranking %}
+<div class="pv-article">
+  <a href="a/{{ article._id }}">
+    <img src="{{ article.image }}" alt="{{ article.title }}">
+  </a>
+  <h4><a href="a/{{ article._id }}">{{ article.title }}</a></h4>
+  <small>{{ article.category }}</small>
+</div>
+{% endfor %}
+</div>
+<h1>{{ _("Featured") }}</h1>
+<div class="pv-articles-sm">
+{% for article in data.featured %}
+<div class="pv-article">
+  <a href="a/{{ article._id }}">
+    <img src="{{ article.image }}" alt="{{ article.title }}">
+  </a>
+  <h4><a href="a/{{ article._id }}">{{ article.title }}</a></h4>
+  <small>{{ article.category }}</small>
+</div>
+{% endfor %}
+</div>
+
+{% endif %}
+
+<h1>{{ _("Articles") }}</h1>
+<div class="pv-articles">
+{% for article in data.articles %}
+<div class="pv-article">
+  <a href="a/{{ article._id }}">
+    <img src="{{ article.image }}" alt="{{ article.title }}">
+  </a>
+  <h2><a href="a/{{ article._id }}">{{ article.title }}</a></h2>
+  <small>{{ article.category }} - {{ _("Posted on %(date)s", date=(article.date | dateformat)) }}</small>
+</div>
+{% endfor %}
+</div>
+
+<div class="paginator">
+
+  {% if request.args.get("p", 1) | int > 1 %}
+	<a href="?p={{ (request.args.get('p', 1) | int) - 1 }}">&lt;</a>
+  {% else %}
+	<a>&lt;</a>
+	{% endif %}
+	<span>Page {{ request.args.get('p', 1) }}</span>
+	<a href="?p={{ (request.args.get('p', 1) | int) + 1 }}">&gt;</a>
+</div>
+
+
+{% endblock %}
