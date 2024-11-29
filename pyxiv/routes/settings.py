@@ -9,7 +9,7 @@ from flask import (
     url_for,
     flash,
 )
-from flask_babel import _
+from flask_babel import _, refresh
 
 import hashlib
 import ipaddress
@@ -83,6 +83,8 @@ def mainSettings(ep):
                 nsItems=notificationSettingsItems,
                 msItems=mailSettingsItems,
             )
+        case "language":
+            return render_template("settings/language.html")
         case "about":
             return render_template("about")
         case "license":
@@ -259,4 +261,21 @@ def setPreferences():
             case _:
                 pass
 
+    return resp
+
+@settings.post("/set-language")
+def setLanguage():
+    language = request.form["lang"]
+
+    if language not in current_app.config["languages"] and not language == "":
+        flash(_("Invalid language: %(code)s", code=language), "error")
+        return redirect(url_for("settings.mainSettings", ep="language"), code=303)
+
+    resp = make_response(redirect(url_for("settings.mainSettings", ep="language"), code=303))
+
+    resp.delete_cookie("lang")
+    resp.set_cookie("lang", language, max_age=COOKIE_MAXAGE)
+    g.lang = language
+    refresh()
+    flash(_("Successfully set language."))
     return resp

@@ -34,6 +34,9 @@ def create_app():
     app.config["languages"] = ["en", "fil", "zh_Hans"]
 
     def getLocale():
+        if g.get("lang") and g.lang != "" :
+            return g.lang
+
         return request.accept_languages.best_match(app.config['languages']) 
 
     babel = Babel(app, locale_selector=getLocale)
@@ -151,6 +154,7 @@ def create_app():
 
         g.version = "1.9"
         g.instanceName = cfg.PxInstanceName
+        g.lang = request.cookies.get("lang", "en")
 
         g.userPxSession = request.cookies.get("PyXivSession")
         g.userPxCSRF = request.cookies.get("PyXivCSRF")

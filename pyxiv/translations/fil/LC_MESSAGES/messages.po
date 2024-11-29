@@ -7,62 +7,60 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-28 21:39+0800\n"
+"POT-Creation-Date: 2024-11-29 10:18+0800\n"
 "PO-Revision-Date: 2024-11-28 13:56+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.8.1\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/routes/artworks.py:49
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
-#: pyxiv/routes/settings.py:110
+#: pyxiv/routes/settings.py:112
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "Hindi magagamit ang token: %(error)s"
 
-#: pyxiv/routes/settings.py:124
+#: pyxiv/routes/settings.py:126
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "Hindi magagamit ang token. Nagbigay ng code %(status)d and pixiv"
 
-#: pyxiv/routes/settings.py:132
+#: pyxiv/routes/settings.py:134
 msgid "Unable to extract CSRF"
 msgstr "Hindi ma-extract ang CSRF"
 
-#: pyxiv/routes/settings.py:144
+#: pyxiv/routes/settings.py:146
 msgid "No token was supplied."
 msgstr "Walang ibinigay na token."
 
-#: pyxiv/routes/settings.py:154
+#: pyxiv/routes/settings.py:156
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "Matagumpay mong nawakas ang session. Paalam!"
 
-#: pyxiv/routes/settings.py:170
+#: pyxiv/routes/settings.py:172
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "Paki-bigay ang URL scheme. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:174
+#: pyxiv/routes/settings.py:176
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
-msgstr ""
-"Hindi wastong URL scheme: %(scheme)s. Tinatanggap lamang ang http o https."
+msgstr "Hindi wastong URL scheme: %(scheme)s. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:178
+#: pyxiv/routes/settings.py:180
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "Hindi pinapayagan ang address na ito: %(addr)s"
 
-#: pyxiv/routes/settings.py:204
+#: pyxiv/routes/settings.py:206
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
@@ -71,7 +69,7 @@ msgstr ""
 "Maaaring hindi mag-load ang mga larawan, at maaaring masira ang iyong "
 "privacy."
 
-#: pyxiv/routes/settings.py:210
+#: pyxiv/routes/settings.py:212
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
@@ -80,20 +78,30 @@ msgstr ""
 "Nabigo ang pagsuri ng integridad para sa pagsubok ng image proxy. "
 "Inaasahan ang %(integrity)s, nakuha ang %(result)s"
 
-#: pyxiv/routes/settings.py:217
+#: pyxiv/routes/settings.py:219
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr ""
 "Nag-time out habang sinusubukang suriin ang proxy server. Maaring hindi "
 "ito gumagana."
 
-#: pyxiv/routes/settings.py:220
+#: pyxiv/routes/settings.py:222
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
 
-#: pyxiv/routes/settings.py:223
+#: pyxiv/routes/settings.py:225
 msgid "Successfully set proxy server"
 msgstr "Matagumpay na natakda ang proxy server"
+
+#: pyxiv/routes/settings.py:271
+#, python-format
+msgid "Invalid language: %(code)s"
+msgstr ""
+
+#: pyxiv/routes/settings.py:280
+#, fuzzy
+msgid "Successfully set language."
+msgstr "Matagumpay na napadala ang stamp"
 
 #: pyxiv/routes/userAction.py:46
 msgid "Successfully bookmarked post"
@@ -589,8 +597,33 @@ msgstr "Mag-log in"
 msgid "Click on the button below to securely log out"
 msgstr "I-click ang button sa ibaba para mag-log out"
 
+#: pyxiv/templates/settings/language.html:6
+#: pyxiv/templates/settings/settingsMain.html:34
+#, fuzzy
+msgid "Language"
+msgstr "Mga Manga"
+
+#: pyxiv/templates/settings/language.html:8
+msgid "You can select your prefered language here."
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:14
+msgid "Use system language"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:24
+msgid "Set language"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:27
+msgid ""
+"Can't find the language you're looking for? Are the translations "
+"inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' "
+"target='_blank'>Help translate!</a>"
+msgstr ""
+
 #: pyxiv/templates/settings/license.html:6
-#: pyxiv/templates/settings/settingsMain.html:38
+#: pyxiv/templates/settings/settingsMain.html:42
 msgid "License"
 msgstr "Lisensya"
 
@@ -667,15 +700,15 @@ msgstr "Mga Setting ng Pag-display"
 msgid "Privacy"
 msgstr "Pagkapribado"
 
-#: pyxiv/templates/settings/settingsMain.html:34
+#: pyxiv/templates/settings/settingsMain.html:38
 msgid "About Vixipy"
 msgstr "Tungkol sa Vixipy"
 
-#: pyxiv/templates/settings/settingsMain.html:42
+#: pyxiv/templates/settings/settingsMain.html:46
 msgid "Source Code"
 msgstr "Source Code"
 
-#: pyxiv/templates/settings/settingsMain.html:46
+#: pyxiv/templates/settings/settingsMain.html:50
 msgid "pixiv Premium"
 msgstr "pixiv Premium"
 
@@ -783,3 +816,4 @@ msgstr "Mga Illustration at Manga"
 #, python-format
 msgid "%(user)s's Manga"
 msgstr "Mga Manga ni %(user)s"
+

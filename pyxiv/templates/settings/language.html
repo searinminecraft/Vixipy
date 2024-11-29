@@ -1,0 +1,30 @@
+{% extends "settings/settingsMain.html" %}
+{% set currentSection = 'language' %}
+
+{% block settingsPage %}
+
+<h2>{{ _("Language") }}</h2>
+
+<p>{{ _("You can select your prefered language here.") }}</p>
+
+<form action="/settings/set-language" method="POST">
+	{% set currentLang = request.cookies.get("lang", "") %}
+	<label>
+		<input type="radio" name="lang" required value {% if currentLang == '' %}checked{% endif %}>
+		{{ _("Use system language") }}
+	</label>
+
+	{% for lang in config["languages"] %}
+	<label>
+		<input type="radio" name="lang" value="{{ lang }}" {% if lang == currentLang %}checked{% endif %} required>
+		{{ lang }}
+	</label>
+	{% endfor %}
+	<br>
+	<button class="button" type="submit">{{ _("Set language") }}</button>
+</form>
+
+<p>{{ _("Can't find the language you're looking for? Are the translations inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' target='_blank'>Help translate!</a>") }}<p>
+
+{% endblock %}
+

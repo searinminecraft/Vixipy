@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-28 21:39+0800\n"
+"POT-Creation-Date: 2024-11-29 10:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,66 +21,75 @@ msgstr ""
 msgid "The creator turned off comments."
 msgstr ""
 
-#: pyxiv/routes/settings.py:110
+#: pyxiv/routes/settings.py:112
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:124
+#: pyxiv/routes/settings.py:126
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr ""
 
-#: pyxiv/routes/settings.py:132
+#: pyxiv/routes/settings.py:134
 msgid "Unable to extract CSRF"
 msgstr ""
 
-#: pyxiv/routes/settings.py:144
+#: pyxiv/routes/settings.py:146
 msgid "No token was supplied."
 msgstr ""
 
-#: pyxiv/routes/settings.py:154
+#: pyxiv/routes/settings.py:156
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr ""
 
-#: pyxiv/routes/settings.py:170
+#: pyxiv/routes/settings.py:172
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:174
+#: pyxiv/routes/settings.py:176
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:178
+#: pyxiv/routes/settings.py:180
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:204
+#: pyxiv/routes/settings.py:206
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
 
-#: pyxiv/routes/settings.py:210
+#: pyxiv/routes/settings.py:212
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:217
+#: pyxiv/routes/settings.py:219
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr ""
 
-#: pyxiv/routes/settings.py:220
+#: pyxiv/routes/settings.py:222
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:223
+#: pyxiv/routes/settings.py:225
 msgid "Successfully set proxy server"
+msgstr ""
+
+#: pyxiv/routes/settings.py:271
+#, python-format
+msgid "Invalid language: %(code)s"
+msgstr ""
+
+#: pyxiv/routes/settings.py:280
+msgid "Successfully set language."
 msgstr ""
 
 #: pyxiv/routes/userAction.py:46
@@ -517,8 +526,32 @@ msgstr ""
 msgid "Click on the button below to securely log out"
 msgstr ""
 
+#: pyxiv/templates/settings/language.html:6
+#: pyxiv/templates/settings/settingsMain.html:34
+msgid "Language"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:8
+msgid "You can select your prefered language here."
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:14
+msgid "Use system language"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:24
+msgid "Set language"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:27
+msgid ""
+"Can't find the language you're looking for? Are the translations "
+"inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' "
+"target='_blank'>Help translate!</a>"
+msgstr ""
+
 #: pyxiv/templates/settings/license.html:6
-#: pyxiv/templates/settings/settingsMain.html:38
+#: pyxiv/templates/settings/settingsMain.html:42
 msgid "License"
 msgstr ""
 
@@ -587,15 +620,15 @@ msgstr ""
 msgid "Privacy"
 msgstr ""
 
-#: pyxiv/templates/settings/settingsMain.html:34
+#: pyxiv/templates/settings/settingsMain.html:38
 msgid "About Vixipy"
 msgstr ""
 
-#: pyxiv/templates/settings/settingsMain.html:42
+#: pyxiv/templates/settings/settingsMain.html:46
 msgid "Source Code"
 msgstr ""
 
-#: pyxiv/templates/settings/settingsMain.html:46
+#: pyxiv/templates/settings/settingsMain.html:50
 msgid "pixiv Premium"
 msgstr ""
 
