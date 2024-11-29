@@ -4,7 +4,7 @@
 
 </div>
 
-Vixipy is yet another privacy respecting pixiv frontend, allowing you to enjoy content from pixiv without the tracking. Written in Python using the Flask web framework and other libraries. This is also one of the only frontends that can function mostly without a pixiv token.
+Vixipy *[vick-see-pie]* is yet another privacy respecting pixiv frontend, allowing you to enjoy content from pixiv without the tracking. Written in Python using the Flask web framework and other libraries. This is also one of the only frontends that can function mostly without a pixiv token.
 
 This is still in heavy development, so it may take a while before it reaches a stable state.
 
@@ -99,7 +99,12 @@ Vixipy comes with NO WARRANTY, and we will certainly not be responsible for anyt
 
 # Credits
 
-* @\_ot on Discord for coming up with the awesome name, Vixipy. (To get same result in python: `'pixiv'[::-1] + y`)
+* [Rico040](/ot) for coming up with the awesome name, Vixipy. (To get same result in python: `'pixiv'[::-1] + y`)
+* [VnPower](/VnPower) for the awesome PixivFE project
+* People who have translated Vixipy:
+    * [Myself](/kita) - Filipino `fil`
+    * [Peaksol](/Peaksol) - Chinese (Simplified Han Script) `zh_Hant`
+    * Maybe you could be in this list? :3
 
 <hr>
 
