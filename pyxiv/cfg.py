@@ -1,5 +1,5 @@
 import os
-import secrets
+import random
 
 AuthlessMode = False
 
@@ -8,7 +8,7 @@ def setAuthlessMode():
     global AuthlessMode
     AuthlessMode = True
 
-    return secrets.token_urlsafe(24).lower().replace("_", "")
+    return "".join([chr(random.randint(97, 122)) for _ in range(33)])
 
 
 PxSession = os.environ.get("PYXIV_TOKEN")
