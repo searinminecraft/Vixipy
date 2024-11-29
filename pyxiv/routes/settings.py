@@ -162,6 +162,13 @@ def setImgProxy():
 
     f = request.form
 
+    if f["image-proxy"] == "":
+        flash(_("Successfully set proxy server"))
+        resp = make_response(redirect(url_for("settings.settingsIndex"), code=303))
+        resp.set_cookie("PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True)
+        return resp
+
+
     integrity = "ba3a6764ecad4ab707a12884e4cc338589045d1e9f0dd12037b440fe81592981"
 
     p = urllib.parse.urlparse(f["image-proxy"])
