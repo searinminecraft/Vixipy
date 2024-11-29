@@ -2,6 +2,7 @@ from .utils.converters import makeProxy
 from datetime import datetime
 from bs4 import BeautifulSoup
 from urllib.parse import quote
+from markupsafe import escape
 
 #  tbh maybe i should make a Python library
 #  that interacts with the pixiv api...
@@ -119,7 +120,8 @@ class Comment:
         self.username = data["userName"]
         self.img = makeProxy(data["img"])
         self.isDeletedUser = data["isDeletedUser"]
-        self.comment = data["comment"]
+        comment = escape(data["comment"])
+        self.comment = str(comment)
         self.stampId = int(data["stampId"]) if data["stampId"] else None
         self.commentDate = data["commentDate"]
         self.commentParentId = (
