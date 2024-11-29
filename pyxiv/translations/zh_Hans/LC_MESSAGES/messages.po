@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-29 10:18+0800\n"
+"POT-Creation-Date: 2024-11-29 10:32+0800\n"
 "PO-Revision-Date: 2024-11-28 15:05+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -46,53 +46,53 @@ msgstr "没有提供 token。"
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "会话已结束。再见！"
 
-#: pyxiv/routes/settings.py:172
+#: pyxiv/routes/settings.py:166 pyxiv/routes/settings.py:232
+#, fuzzy
+msgid "Successfully set proxy server"
+msgstr "使用代理服务器"
+
+#: pyxiv/routes/settings.py:179
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:176
+#: pyxiv/routes/settings.py:183
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:180
+#: pyxiv/routes/settings.py:187
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "无法使用该地址：%(addr)s"
 
-#: pyxiv/routes/settings.py:206
+#: pyxiv/routes/settings.py:213
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
 
-#: pyxiv/routes/settings.py:212
+#: pyxiv/routes/settings.py:219
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr "检查图片代理完整性时出错。需要 %(integrity)s，但得到了 %(result)s"
 
-#: pyxiv/routes/settings.py:219
+#: pyxiv/routes/settings.py:226
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr "代理服务器检查超时，服务器可能无法连接。"
 
-#: pyxiv/routes/settings.py:222
+#: pyxiv/routes/settings.py:229
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:225
-#, fuzzy
-msgid "Successfully set proxy server"
-msgstr "使用代理服务器"
-
-#: pyxiv/routes/settings.py:271
+#: pyxiv/routes/settings.py:278
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:280
+#: pyxiv/routes/settings.py:287
 #, fuzzy
 msgid "Successfully set language."
 msgstr "成功发送表情贴图"
@@ -290,12 +290,21 @@ msgstr "重载"
 msgid "Error"
 msgstr "错误"
 
+#: pyxiv/templates/error.html:9
+msgid "pixiv Error!"
+msgstr ""
+
 #: pyxiv/templates/error.html:10
 #, python-format
 msgid ""
 "An error occurred trying to complete a request to pixiv. Please contact "
 "the instance administrator. (%(error)s)"
 msgstr "向 pixiv 发送请求时出错。请联系实例管理员。（%(error)s）"
+
+#: pyxiv/templates/error.html:12
+#, fuzzy
+msgid "Error!"
+msgstr "错误"
 
 #: pyxiv/templates/error.html:13
 msgid "Sorry, this isn't supposed to happen. Have Snek instead."
@@ -405,6 +414,11 @@ msgstr "未验证"
 #: pyxiv/templates/unauthorized.html:4
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
+
+#: pyxiv/templates/components/navbar.html:33
+#: pyxiv/templates/settings/account.html:17 pyxiv/templates/unauthorized.html:6
+msgid "Log in"
+msgstr "登录"
 
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
@@ -540,10 +554,6 @@ msgid ""
 "<strong>Notice:</strong> By logging in, you agree that the instance will "
 "be sending requests on behalf of <strong>your account</strong>."
 msgstr "<strong>注意：</strong>登录即同意本实例代表<strong>你的帐号</strong>发送请求。"
-
-#: pyxiv/templates/settings/account.html:17
-msgid "Log in"
-msgstr "登录"
 
 #: pyxiv/templates/settings/account.html:32
 msgid "Click on the button below to securely log out"

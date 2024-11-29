@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-29 10:18+0800\n"
+"POT-Creation-Date: 2024-11-29 10:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,52 +43,52 @@ msgstr ""
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr ""
 
-#: pyxiv/routes/settings.py:172
+#: pyxiv/routes/settings.py:166 pyxiv/routes/settings.py:232
+msgid "Successfully set proxy server"
+msgstr ""
+
+#: pyxiv/routes/settings.py:179
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:176
+#: pyxiv/routes/settings.py:183
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:180
+#: pyxiv/routes/settings.py:187
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:206
+#: pyxiv/routes/settings.py:213
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
 
-#: pyxiv/routes/settings.py:212
+#: pyxiv/routes/settings.py:219
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:219
+#: pyxiv/routes/settings.py:226
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr ""
 
-#: pyxiv/routes/settings.py:222
+#: pyxiv/routes/settings.py:229
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:225
-msgid "Successfully set proxy server"
-msgstr ""
-
-#: pyxiv/routes/settings.py:271
+#: pyxiv/routes/settings.py:278
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:280
+#: pyxiv/routes/settings.py:287
 msgid "Successfully set language."
 msgstr ""
 
@@ -279,11 +279,19 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
+#: pyxiv/templates/error.html:9
+msgid "pixiv Error!"
+msgstr ""
+
 #: pyxiv/templates/error.html:10
 #, python-format
 msgid ""
 "An error occurred trying to complete a request to pixiv. Please contact "
 "the instance administrator. (%(error)s)"
+msgstr ""
+
+#: pyxiv/templates/error.html:12
+msgid "Error!"
 msgstr ""
 
 #: pyxiv/templates/error.html:13
@@ -391,6 +399,11 @@ msgstr ""
 
 #: pyxiv/templates/unauthorized.html:4
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
+msgstr ""
+
+#: pyxiv/templates/components/navbar.html:33
+#: pyxiv/templates/settings/account.html:17 pyxiv/templates/unauthorized.html:6
+msgid "Log in"
 msgstr ""
 
 #: pyxiv/templates/components/navbar.html:10
@@ -516,10 +529,6 @@ msgstr ""
 msgid ""
 "<strong>Notice:</strong> By logging in, you agree that the instance will "
 "be sending requests on behalf of <strong>your account</strong>."
-msgstr ""
-
-#: pyxiv/templates/settings/account.html:17
-msgid "Log in"
 msgstr ""
 
 #: pyxiv/templates/settings/account.html:32
