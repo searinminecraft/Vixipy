@@ -238,6 +238,13 @@ def create_app():
 
     @app.route("/jump.php")
     def pixivRedir():
-        return render_template("leave.html", dest=list(request.args.keys())[0])
+        if request.args.get("url"):
+            # /jump.php?url=https://kita.codeberg.page
+            dest = request.args["url"]
+        else:
+            # /jump.php?https://kita.codeberg.page
+            dest = list(request.args.keys())[0] 
+
+        return render_template("leave.html", dest=dest)
 
     return app
