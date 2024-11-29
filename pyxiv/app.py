@@ -31,7 +31,7 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = cfg.PyXivSecret
     app.config["authless"] = cfg.AuthlessMode
-    app.config["languages"] = ["en", "fil"]
+    app.config["languages"] = ["en", "fil", "zh_Hans"]
 
     def getLocale():
         return request.accept_languages.best_match(app.config['languages']) 
