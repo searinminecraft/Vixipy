@@ -7,7 +7,7 @@
 
 {% if not g.isAuthorized %}
 
-<h3>Log in</h3>
+<h3>{{ _("Log in") }}</h3>
 <p>{{ _("Log in to your pixiv account to get a personalised feed and the ability to like and bookmark posts. To do this, you must get your pixiv PHPSESSID cookie. See the guide <a href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' rel='noopener noreferer'>from PixivFE</a> for details. Your token is stored locally and will not be stored on the server.") }}</p>
 
 <p>{{ _("<strong>Notice:</strong> By logging in, you agree that the instance will be sending requests on behalf of <strong>your account</strong>.") }}</p>
