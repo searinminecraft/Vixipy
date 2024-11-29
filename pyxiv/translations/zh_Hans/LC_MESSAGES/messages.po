@@ -45,23 +45,19 @@ msgstr "没有提供 token。"
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "会话已结束。再见！"
 
-#: pyxiv/routes/settings.py:172 pyxiv/routes/settings.py:258
 #: pyxiv/routes/settings.py:166 pyxiv/routes/settings.py:232
 #: pyxiv/routes/settings.py:225
-#, fuzzy
 msgid "Successfully set proxy server"
-msgstr "使用代理服务器"
+msgstr "成功设置代理服务器"
 
-#: pyxiv/routes/settings.py:187 pyxiv/routes/settings.py:179
-#: pyxiv/routes/settings.py:172
+#: pyxiv/routes/settings.py:179 pyxiv/routes/settings.py:172
 msgid "Please specify a URL scheme. Only http and https are accepted."
-msgstr ""
+msgstr "请在 URL 中指定协议，仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:193 pyxiv/routes/settings.py:183
-#: pyxiv/routes/settings.py:176
+#: pyxiv/routes/settings.py:183 pyxiv/routes/settings.py:176
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
-msgstr ""
+msgstr "URL 协议无效：%(scheme)s。仅支持 http 和 https。"
 
 #: pyxiv/routes/settings.py:202 pyxiv/routes/settings.py:187
 #: pyxiv/routes/settings.py:180
@@ -69,12 +65,13 @@ msgstr ""
 msgid "This address is not allowed: %(addr)s"
 msgstr "无法使用该地址：%(addr)s"
 
-#: pyxiv/routes/settings.py:231 pyxiv/routes/settings.py:213
-#: pyxiv/routes/settings.py:206
+#: pyxiv/routes/settings.py:213 pyxiv/routes/settings.py:206
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images may "
 "possibly not load, and may breach your privacy."
 msgstr ""
+"注意：你指定的代理服务器使用了 Cloudflare。图片可能无法加载，并且可能存在隐私"
+"问题。"
 
 #: pyxiv/routes/settings.py:240 pyxiv/routes/settings.py:219
 #: pyxiv/routes/settings.py:212
@@ -95,11 +92,10 @@ msgstr "代理服务器检查超时，服务器可能无法连接。"
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:305 pyxiv/routes/settings.py:278
-#: pyxiv/routes/settings.py:271
+#: pyxiv/routes/settings.py:278 pyxiv/routes/settings.py:271
 #, python-format
 msgid "Invalid language: %(code)s"
-msgstr ""
+msgstr "语言无效：%(code)s"
 
 #: pyxiv/routes/settings.py:280
 msgid "Successfully set language."
@@ -304,7 +300,7 @@ msgstr "错误"
 
 #: pyxiv/templates/error.html:9
 msgid "pixiv Error!"
-msgstr ""
+msgstr "pixiv 错误！"
 
 #: pyxiv/templates/error.html:10
 #, python-format
@@ -314,9 +310,8 @@ msgid ""
 msgstr "向 pixiv 发送请求时出错。请联系实例管理员。（%(error)s）"
 
 #: pyxiv/templates/error.html:12
-#, fuzzy
 msgid "Error!"
-msgstr "错误"
+msgstr "错误！"
 
 #: pyxiv/templates/error.html:13
 msgid "Sorry, this isn't supposed to happen. Have Snek instead."
@@ -626,21 +621,20 @@ msgstr "点击下方按钮安全退出"
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:34
-#, fuzzy
 msgid "Language"
-msgstr "漫画"
+msgstr "语言"
 
 #: pyxiv/templates/settings/language.html:8
 msgid "You can select your prefered language here."
-msgstr ""
+msgstr "在此选择偏好语言。"
 
 #: pyxiv/templates/settings/language.html:14
 msgid "Use system language"
-msgstr ""
+msgstr "使用系统语言"
 
 #: pyxiv/templates/settings/language.html:24
 msgid "Set language"
-msgstr ""
+msgstr "设置语言"
 
 #: pyxiv/templates/settings/language.html:27
 msgid ""
@@ -648,6 +642,8 @@ msgid ""
 "<a href='https://translate.codeberg.org/engage/vixipy' target='_blank'>Help "
 "translate!</a>"
 msgstr ""
+"没有你的语言，或者翻译有误？可以<a href='https://translate.codeberg.org/"
+"engage/vixipy' target='_blank'>帮助我们翻译！</a>"
 
 #: pyxiv/templates/settings/license.html:6
 #: pyxiv/templates/settings/settingsMain.html:42
