@@ -1,4 +1,13 @@
-from flask import Flask, Response, g, make_response, render_template, request, redirect, flash
+from flask import (
+    Flask,
+    Response,
+    g,
+    make_response,
+    render_template,
+    request,
+    redirect,
+    flash,
+)
 from flask_babel import Babel
 import traceback
 

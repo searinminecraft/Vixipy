@@ -14,7 +14,7 @@ def pixivisionRoot():
     langPref = request.cookies.get("PyXivPixivisionLang", "en")
     page = int(request.args.get("p", 1))
     data = pyxivision.landing.PixivisionLanding(lang=langPref, page=page)
-    
+
     if data.spotlight:
         data.spotlight.image = makeProxy(data.spotlight.image)
 
