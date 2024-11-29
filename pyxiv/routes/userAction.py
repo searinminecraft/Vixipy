@@ -72,7 +72,14 @@ def comment():
     try:
         postComment(args["id"], args["author"], form["comment"])
     except Exception as e:
-        flash(_("Unable to post comment: %(errorClass)s: %(error)s", errorClass=e.__class__.__name__, error=str(e)), "error")
+        flash(
+            _(
+                "Unable to post comment: %(errorClass)s: %(error)s",
+                errorClass=e.__class__.__name__,
+                error=str(e),
+            ),
+            "error",
+        )
     else:
         flash(_("Successfully posted comment"))
 
@@ -86,9 +93,14 @@ def stamp():
     try:
         postStamp(args["id"], args["author"], form["stampId"])
     except Exception as e:
-        flash(_("Unable to send stamp: %(errorClass)s: %(error)s",
+        flash(
+            _(
+                "Unable to send stamp: %(errorClass)s: %(error)s",
                 errorClass=e.__class__.__name__,
-                error=str(e)), "error")
+                error=str(e),
+            ),
+            "error",
+        )
     else:
         flash(_("Successfully sent stamp"))
 

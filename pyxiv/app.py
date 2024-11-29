@@ -33,26 +33,25 @@ def create_app():
     app.config["authless"] = cfg.AuthlessMode
     app.config["languages"] = ["en", "fil", "zh_Hans"]
     app.config["proxy-servers"] = (
-            "https://i.pixiv.re",
-            "https://pixiv.darkness.services",
-            "https://pximg.exozy.me",
-            "https://pximg.cocomi.eu.org/",
-            "https://i.suimoe.com/",
-            "https://i.yuki.sh/",
-            "https://pximg.obfs.dev/",
-            "https://pi.169889.xyz/",
-            "https://pixiv.tatakai.top/",
-            "https://pixiv.ducks.party/"
+        "https://i.pixiv.re",
+        "https://pixiv.darkness.services",
+        "https://pximg.exozy.me",
+        "https://pximg.cocomi.eu.org/",
+        "https://i.suimoe.com/",
+        "https://i.yuki.sh/",
+        "https://pximg.obfs.dev/",
+        "https://pi.169889.xyz/",
+        "https://pixiv.tatakai.top/",
+        "https://pixiv.ducks.party/",
     )
 
     def getLocale():
-        if g.get("lang") and g.lang != "" :
+        if g.get("lang") and g.lang != "":
             return g.lang
 
-        return request.accept_languages.best_match(app.config['languages']) 
+        return request.accept_languages.best_match(app.config["languages"])
 
     babel = Babel(app, locale_selector=getLocale)
-
 
     # https://www.pixiv.net/ajax/settings/self
     app.config["stamps"] = {
@@ -74,8 +73,8 @@ def create_app():
         },
         "None": {
             "name": "None",
-            "ids": (701, 702, 703, 704, 705, 706, 707, 708, 709, 710)
-        }
+            "ids": (701, 702, 703, 704, 705, 706, 707, 708, 709, 710),
+        },
     }
 
     app.config["emojis"] = {
@@ -243,7 +242,7 @@ def create_app():
             dest = request.args["url"]
         else:
             # /jump.php?https://kita.codeberg.page
-            dest = list(request.args.keys())[0] 
+            dest = list(request.args.keys())[0]
 
         return render_template("leave.html", dest=dest)
 

@@ -40,7 +40,7 @@ def userPage(_id: int):
                 "mypixivCount": 0,
                 "official": True,
                 "isFollowed": False,
-                "commentHtml": ""
+                "commentHtml": "",
             }
         )
         pickup = []
@@ -183,8 +183,6 @@ def following(_id: int):
         flash(_("Invalid user"), "error")
         return redirect("/users/0")
 
-
-
     currPage = int(request.args.get("p", 1))
 
     total, data = getUserFollowing(_id)
@@ -214,8 +212,6 @@ def followers(_id: int):
     if _id == 0:
         flash(_("Invalid user"), "error")
         return redirect("/users/0")
-
-
 
     currPage = int(request.args.get("p", 1))
 

@@ -11,8 +11,8 @@ def getArtworkComments(_id: int, **kwargs):
     for comment in data:
         for emoji in current_app.config["emojis"]:
             comment.comment = comment.comment.replace(
-                    f"({emoji})",
-                    f'<img alt="{emoji}" src="/proxy/s.pximg.net/common/images/emoji/{current_app.config["emojis"][emoji]}.png">'
+                f"({emoji})",
+                f'<img alt="{emoji}" src="/proxy/s.pximg.net/common/images/emoji/{current_app.config["emojis"][emoji]}.png">',
             )
 
     return data

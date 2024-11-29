@@ -367,7 +367,11 @@ class ArtworkEntry(PartialArtwork):
 
         super().__init__(data)
 
-        self.thumbUrl: str = makeProxy(data["url"]) if data["url"] != "https://s.pximg.net/common/images/limit_unknown_360.png" else "/static/img/deleted.png"
+        self.thumbUrl: str = (
+            makeProxy(data["url"])
+            if data["url"] != "https://s.pximg.net/common/images/limit_unknown_360.png"
+            else "/static/img/deleted.png"
+        )
         self.authorProfilePic: str = makeProxy(
             data.get(
                 "profileImageUrl", "https://s.pximg.net/common/images/no_profile_s.png"

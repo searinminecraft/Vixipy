@@ -116,14 +116,20 @@ def setSession():
         # And don't worry its definitely not NSFW
         req = requests.get(
             "https://www.pixiv.net/en/artworks/121633055",
-    headers={
+            headers={
                 "Cookie": f"PHPSESSID={f['token']}",
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
             },
         )
 
         if req.status_code != 200:
-            flash(_("Cannot use token. pixiv returned code %(status)d", status=req.status_code), "error")
+            flash(
+                _(
+                    "Cannot use token. pixiv returned code %(status)d",
+                    status=req.status_code,
+                ),
+                "error",
+            )
             return redirect(url_for("settings.mainSettings", ep="account"))
 
         r = re.search(csrfMatch, req.text)
@@ -165,22 +171,31 @@ def setImgProxy():
     if f["image-proxy"] == "":
         flash(_("Successfully set proxy server"))
         resp = make_response(redirect(url_for("settings.settingsIndex"), code=303))
-        resp.set_cookie("PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True)
+        resp.set_cookie(
+            "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True
+        )
         return resp
-
 
     integrity = "ba3a6764ecad4ab707a12884e4cc338589045d1e9f0dd12037b440fe81592981"
 
     p = urllib.parse.urlparse(f["image-proxy"])
     i = p.hostname
-    scheme = p.scheme if p.scheme != '' else None
+    scheme = p.scheme if p.scheme != "" else None
 
     if not scheme:
-        flash(_("Please specify a URL scheme. Only http and https are accepted."), "error")
+        flash(
+            _("Please specify a URL scheme. Only http and https are accepted."), "error"
+        )
         return redirect(url_for("settings.settingsIndex"), code=303)
 
     if scheme not in ("http", "https"):
-        flash(_("Invalid URL scheme: %(scheme)s. Only http and https are accepted.", scheme=scheme), "error")
+        flash(
+            _(
+                "Invalid URL scheme: %(scheme)s. Only http and https are accepted.",
+                scheme=scheme,
+            ),
+            "error",
+        )
         return redirect(url_for("settings.settingsIndex"), code=303)
 
     def denyIp():
@@ -196,7 +211,9 @@ def setImgProxy():
     if i in ("localhost", "i.pximg.net"):
         return denyIp()
 
-    finalUrl = f"{f['image-proxy']}/img-original/img/2020/02/04/22/43/08/79286093_p0.png"
+    finalUrl = (
+        f"{f['image-proxy']}/img-original/img/2020/02/04/22/43/08/79286093_p0.png"
+    )
 
     if i != "":
         try:
@@ -210,15 +227,21 @@ def setImgProxy():
             isCloudflare = req.headers.get("server") == "cloudflare"
 
             if isCloudflare:
-                flash( _("Note: the proxy server you have specified is behind Cloudflare. Images may possibly not load, and may breach your privacy.") )
+                flash(
+                    _(
+                        "Note: the proxy server you have specified is behind Cloudflare. Images may possibly not load, and may breach your privacy."
+                    )
+                )
 
             result = hashlib.sha256(req.content).hexdigest()
 
             if not result == integrity:
                 flash(
-                    _("Integrity check failed for image proxy test. Expected %(integrity)s, got %(result)s",
-                      integrity=integrity,
-                      result=result),
+                    _(
+                        "Integrity check failed for image proxy test. Expected %(integrity)s, got %(result)s",
+                        integrity=integrity,
+                        result=result,
+                    ),
                     "error",
                 )
                 return redirect(url_for("settings.settingsIndex"), code=303)
@@ -226,7 +249,10 @@ def setImgProxy():
             flash(_("Timed out trying to check proxy server. It may be down."), "error")
             return redirect(url_for("settings.settingsIndex"), code=303)
         except Exception as e:
-            flash(_("An error occured trying to check proxy server: %(error)s", error=e), "error")
+            flash(
+                _("An error occured trying to check proxy server: %(error)s", error=e),
+                "error",
+            )
             return redirect(url_for("settings.settingsIndex"), code=303)
 
     flash(_("Successfully set proxy server"))
@@ -270,6 +296,7 @@ def setPreferences():
 
     return resp
 
+
 @settings.post("/set-language")
 def setLanguage():
     language = request.form["lang"]
@@ -278,7 +305,9 @@ def setLanguage():
         flash(_("Invalid language: %(code)s", code=language), "error")
         return redirect(url_for("settings.mainSettings", ep="language"), code=303)
 
-    resp = make_response(redirect(url_for("settings.mainSettings", ep="language"), code=303))
+    resp = make_response(
+        redirect(url_for("settings.mainSettings", ep="language"), code=303)
+    )
 
     resp.delete_cookie("lang")
     resp.set_cookie("lang", language, max_age=COOKIE_MAXAGE)
