@@ -14,17 +14,15 @@
 
 <form action="/settings/imgproxy" method="POST">
 	<label>
-		<input type="radio" name="image-proxy" required="true" value>
+		<input type="radio" name="image-proxy" required="true" value {% if g.get("userProxyServer", "") == "" %}checked{% endif %}>
 		{{ _("Use built-in proxy server") }}
 	</label>
+	{% for proxy in config["proxy-servers"] %}
 	<label>
-		<input type="radio" name="image-proxy" required="true" value="https://pximg.exozy.me">
-		https://pximg.exozy.me
+		<input type="radio" name="image-proxy" required value="{{proxy}}" {% if proxy == g.get("userProxyServer", "") %}checked{% endif %}>
+		{{ proxy }}
 	</label>
-	<label>
-		<input type="radio" name="image-proxy" required="true" value="https://i.pixiv.re">
-		https://i.pixiv.re
-	</label>
+	{% endfor %}
 	<br>
 	<button type="submit" class="button">{{ _("Use selected proxy") }}</button>
 </form>

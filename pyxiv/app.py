@@ -32,6 +32,18 @@ def create_app():
     app.secret_key = cfg.PyXivSecret
     app.config["authless"] = cfg.AuthlessMode
     app.config["languages"] = ["en", "fil", "zh_Hans"]
+    app.config["proxy-servers"] = (
+            "https://i.pixiv.re",
+            "https://pixiv.darkness.services",
+            "https://pximg.exozy.me",
+            "https://pximg.cocomi.eu.org/",
+            "https://i.suimoe.com/",
+            "https://i.yuki.sh/",
+            "https://pximg.obfs.dev/",
+            "https://pi.169889.xyz/",
+            "https://pixiv.tatakai.top/",
+            "https://pixiv.ducks.party/"
+    )
 
     def getLocale():
         if g.get("lang") and g.lang != "" :
