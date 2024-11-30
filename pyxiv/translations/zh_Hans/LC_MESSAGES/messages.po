@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-29 19:50+0800\n"
-"PO-Revision-Date: 2024-11-28 15:05+0000\n"
-"Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
+"PO-Revision-Date: 2024-11-29 13:32+0000\n"
+"Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://translate.codeberg."
+"org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.8.1\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/routes/artworks.py:49
@@ -29,73 +29,78 @@ msgstr "作者关闭了评论。"
 msgid "Cannot use token: %(error)s"
 msgstr "无法使用 token：%(error)s"
 
-#: pyxiv/routes/settings.py:127
+#: pyxiv/routes/settings.py:127 pyxiv/routes/settings.py:126
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "无法使用 token。pixiv 返回代码 %(status)d"
 
-#: pyxiv/routes/settings.py:140
+#: pyxiv/routes/settings.py:140 pyxiv/routes/settings.py:134
 msgid "Unable to extract CSRF"
 msgstr "无法提取 CSRF"
 
-#: pyxiv/routes/settings.py:152
+#: pyxiv/routes/settings.py:152 pyxiv/routes/settings.py:146
 msgid "No token was supplied."
 msgstr "没有提供 token。"
 
-#: pyxiv/routes/settings.py:162
+#: pyxiv/routes/settings.py:162 pyxiv/routes/settings.py:156
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "会话已结束。再见！"
 
-#: pyxiv/routes/settings.py:172 pyxiv/routes/settings.py:258
-#, fuzzy
+#: pyxiv/routes/settings.py:166 pyxiv/routes/settings.py:232
+#: pyxiv/routes/settings.py:225
 msgid "Successfully set proxy server"
-msgstr "使用代理服务器"
+msgstr "成功设置代理服务器"
 
-#: pyxiv/routes/settings.py:187
+#: pyxiv/routes/settings.py:179 pyxiv/routes/settings.py:172
 msgid "Please specify a URL scheme. Only http and https are accepted."
-msgstr ""
+msgstr "请在 URL 中指定协议，仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:193
+#: pyxiv/routes/settings.py:183 pyxiv/routes/settings.py:176
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
-msgstr ""
+msgstr "URL 协议无效：%(scheme)s。仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:202
+#: pyxiv/routes/settings.py:202 pyxiv/routes/settings.py:187
+#: pyxiv/routes/settings.py:180
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "无法使用该地址：%(addr)s"
 
-#: pyxiv/routes/settings.py:231
+#: pyxiv/routes/settings.py:213 pyxiv/routes/settings.py:206
 msgid ""
-"Note: the proxy server you have specified is behind Cloudflare. Images "
-"may possibly not load, and may breach your privacy."
+"Note: the proxy server you have specified is behind Cloudflare. Images may "
+"possibly not load, and may breach your privacy."
 msgstr ""
+"注意：你指定的代理服务器使用了 Cloudflare。图片可能无法加载，并且可能存在隐私"
+"问题。"
 
-#: pyxiv/routes/settings.py:240
+#: pyxiv/routes/settings.py:240 pyxiv/routes/settings.py:219
+#: pyxiv/routes/settings.py:212
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr "检查图片代理完整性时出错。需要 %(integrity)s，但得到了 %(result)s"
 
-#: pyxiv/routes/settings.py:249
+#: pyxiv/routes/settings.py:249 pyxiv/routes/settings.py:226
+#: pyxiv/routes/settings.py:219
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr "代理服务器检查超时，服务器可能无法连接。"
 
-#: pyxiv/routes/settings.py:253
+#: pyxiv/routes/settings.py:253 pyxiv/routes/settings.py:229
+#: pyxiv/routes/settings.py:222
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:305
+#: pyxiv/routes/settings.py:278 pyxiv/routes/settings.py:271
 #, python-format
 msgid "Invalid language: %(code)s"
-msgstr ""
+msgstr "语言无效：%(code)s"
 
-#: pyxiv/routes/settings.py:316
-#, fuzzy
+#: pyxiv/routes/settings.py:280
 msgid "Successfully set language."
-msgstr "成功发送表情贴图"
+msgstr "成功设置语言。"
 
 #: pyxiv/routes/userAction.py:46
 msgid "Successfully bookmarked post"
@@ -109,47 +114,49 @@ msgstr "成功移除收藏"
 msgid "Successfully liked post"
 msgstr "成功点赞作品"
 
-#: pyxiv/routes/userAction.py:79
+#: pyxiv/routes/userAction.py:79 pyxiv/routes/userAction.py:75
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "无法发送评论：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:84
+#: pyxiv/routes/userAction.py:84 pyxiv/routes/userAction.py:77
 msgid "Successfully posted comment"
 msgstr "成功发送评论"
 
-#: pyxiv/routes/userAction.py:100
+#: pyxiv/routes/userAction.py:100 pyxiv/routes/userAction.py:91
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "无法发送表情贴图：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:105
+#: pyxiv/routes/userAction.py:105 pyxiv/routes/userAction.py:93
 msgid "Successfully sent stamp"
 msgstr "成功发送表情贴图"
 
 #: pyxiv/routes/userAction.py:128 pyxiv/routes/userAction.py:143
 #: pyxiv/routes/users.py:73 pyxiv/routes/users.py:112 pyxiv/routes/users.py:151
 #: pyxiv/routes/users.py:183 pyxiv/routes/users.py:213
+#: pyxiv/routes/userAction.py:116 pyxiv/routes/userAction.py:131
+#: pyxiv/routes/users.py:215
 msgid "Invalid user"
 msgstr "无效用户"
 
-#: pyxiv/routes/userAction.py:133
+#: pyxiv/routes/userAction.py:133 pyxiv/routes/userAction.py:121
 msgid "Could not follow user"
 msgstr "无法关注用户"
 
-#: pyxiv/routes/userAction.py:135
+#: pyxiv/routes/userAction.py:135 pyxiv/routes/userAction.py:123
 msgid "Successfully followed user"
 msgstr "成功关注用户"
 
-#: pyxiv/routes/userAction.py:148
+#: pyxiv/routes/userAction.py:148 pyxiv/routes/userAction.py:136
 msgid "Could not unfollow user"
 msgstr "无法取消关注用户"
 
-#: pyxiv/routes/userAction.py:150
+#: pyxiv/routes/userAction.py:150 pyxiv/routes/userAction.py:138
 msgid "Successfully unfollowed user"
 msgstr "成功取消关注用户"
 
-#: pyxiv/routes/users.py:221
+#: pyxiv/routes/users.py:221 pyxiv/routes/users.py:225
 msgid "Not authorized."
 msgstr "未验证。"
 
@@ -159,18 +166,18 @@ msgstr "内部服务器错误"
 
 #: pyxiv/templates/500.html:23
 msgid ""
-"If this issue happens again, <a "
-"href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
+"If this issue happens again, <a href=\"https://codeberg.org/vixipy/Vixipy/"
+"issues/new\">file an issue</a>."
 msgstr ""
-"如果仍然有此问题，<a "
-"href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">请报告这个问题</a>。"
+"如果仍然有此问题，<a href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">"
+"请报告这个问题</a>。"
 
 #: pyxiv/templates/artwork.html:21
 #, python-format
 msgid ""
-"Could not load ugoira. <a href='/proxy/ugoira/%(artworkId)d'>Download the"
-" video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
-"ugoira.com</a> for more options."
+"Could not load ugoira. <a href='/proxy/ugoira/%(artworkId)d'>Download the "
+"video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to ugoira.com</"
+"a> for more options."
 msgstr ""
 "无法加载动图。<a href='/proxy/ugoira/%(artworkId)d'>下载视频</a>，或<a "
 "href='/proxy/ugoira/%(artworkId)d'>前往 ugoira.com</a> 进行更多操作。"
@@ -259,15 +266,16 @@ msgid "Stamps"
 msgstr "表情贴图"
 
 #: pyxiv/templates/comments.html:94
-#, fuzzy
 msgid ""
-"If you know a particular stamp ID, you can put it here. This allows you "
-"to send stamps that are usually only available for a limited time. <span "
-"style='color: #f38ba8;'><b>Warning:</b> This may result in termination of"
-" your pixiv account. Use at your own risk.</span>"
+"If you know a particular stamp ID, you can put it here. This allows you to "
+"send stamps that are usually only available for a limited time. <span "
+"style='color: #f38ba8;'><b>Warning:</b> This may result in termination of "
+"your pixiv account. Use at your own risk.</span>"
 msgstr ""
-"如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴图。（<span style='color: "
-"#f38ba8;'><b>警告：</b>这可能导致 pixiv 帐号被封，使用后果自负。</span>）"
+"如果知道具体的贴图 "
+"ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴图。<span "
+"style='color: #f38ba8;'><b>警告：</b>这可能导致 pixiv "
+"帐号被封，使用后果自负。</span>"
 
 #: pyxiv/templates/comments.html:97
 msgid "Send"
@@ -279,8 +287,8 @@ msgstr "发现作品"
 
 #: pyxiv/templates/discover.html:11
 msgid ""
-"Note: the suggestions are based on the instance's pixiv account's "
-"algorithm and personalisation"
+"Note: the suggestions are based on the instance's pixiv account's algorithm "
+"and personalisation"
 msgstr "注意：推荐作品的算法和个性化，是基于实例的 pixiv 帐号的"
 
 #: pyxiv/templates/discover.html:21
@@ -293,19 +301,18 @@ msgstr "错误"
 
 #: pyxiv/templates/error.html:9
 msgid "pixiv Error!"
-msgstr ""
+msgstr "pixiv 错误！"
 
 #: pyxiv/templates/error.html:10
 #, python-format
 msgid ""
-"An error occurred trying to complete a request to pixiv. Please contact "
-"the instance administrator. (%(error)s)"
+"An error occurred trying to complete a request to pixiv. Please contact the "
+"instance administrator. (%(error)s)"
 msgstr "向 pixiv 发送请求时出错。请联系实例管理员。（%(error)s）"
 
 #: pyxiv/templates/error.html:12
-#, fuzzy
 msgid "Error!"
-msgstr "错误"
+msgstr "错误！"
 
 #: pyxiv/templates/error.html:13
 msgid "Sorry, this isn't supposed to happen. Have Snek instead."
@@ -346,7 +353,8 @@ msgstr "即将离开 Vixipy。"
 
 #: pyxiv/templates/leave.html:6
 #, python-format
-msgid "Click the link to go to the destination: <a href='%(dest)s'>%(dest)s</a>"
+msgid ""
+"Click the link to go to the destination: <a href='%(dest)s'>%(dest)s</a>"
 msgstr "点击链接继续：<a href='%(dest)s'>%(dest)s</a>"
 
 #: pyxiv/templates/leave.html:7
@@ -452,20 +460,25 @@ msgstr ""
 #: pyxiv/templates/layouts/default.html:101
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
+#: pyxiv/templates/layouts/default.html:69
+#: pyxiv/templates/layouts/default.html:97
 msgid "Settings"
 msgstr "设置"
 
 #: pyxiv/templates/layouts/default.html:93
+#: pyxiv/templates/layouts/default.html:89
 msgid "Profile"
 msgstr "资料"
 
 #: pyxiv/templates/layouts/default.html:97 pyxiv/templates/user/index.html:59
+#: pyxiv/templates/layouts/default.html:93
 msgid "Bookmarks"
 msgstr "收藏"
 
 #: pyxiv/templates/layouts/default.html:105
 #: pyxiv/templates/settings/account.html:31
 #: pyxiv/templates/settings/account.html:35
+#: pyxiv/templates/layouts/default.html:101
 msgid "Log out"
 msgstr "退出"
 
@@ -506,7 +519,9 @@ msgid ""
 "Vixipy is a free and open source, privacy respecting pixiv frontend, "
 "allowing you to enjoy pixiv content with a peace of mind in terms of "
 "privacy, speed, and reliability."
-msgstr "Vixipy 是一个自由开源的隐私 pixiv 前端，可以隐私、快速、可靠地浏览 pixiv 内容。"
+msgstr ""
+"Vixipy 是一个自由开源的隐私 pixiv 前端，可以隐私、快速、可靠地浏览 pixiv 内"
+"容。"
 
 #: pyxiv/templates/settings/about.html:10
 msgid "Why Vixipy?"
@@ -514,36 +529,39 @@ msgstr "为什么使用 Vixipy？"
 
 #: pyxiv/templates/settings/about.html:12
 msgid ""
-"The problem with using pixiv is that it uses so much unnecessary "
-"bandwidth, has trackers (Google Tag Manager), is proprietary (and "
-"contains proprietary components like ReCAPTCHA), possibly privacy "
-"invasive, and is also behind Cloudflare, which you already know has <a "
-"href='https://0xacab.org/dCF/deCloudflare'>many, many problems.</a>"
+"The problem with using pixiv is that it uses so much unnecessary bandwidth, "
+"has trackers (Google Tag Manager), is proprietary (and contains proprietary "
+"components like ReCAPTCHA), possibly privacy invasive, and is also behind "
+"Cloudflare, which you already know has <a href='https://0xacab.org/dCF/"
+"deCloudflare'>many, many problems.</a>"
 msgstr ""
-"使用 pixiv 的问题在于，pixiv 会不必要地使用大量宽带，有追踪器（Google Tag Manager），是专有软件（包含了 "
-"ReCAPTCHA 等专有部分），有潜在的隐私风险，并且还依赖 Cloudflare。其中 Cloudflare <a "
-"href='https://0xacab.org/dCF/deCloudflare'>有非常多的问题。</a>"
+"使用 pixiv 的问题在于，pixiv 会不必要地使用大量宽带，有追踪器（Google Tag "
+"Manager），是专有软件（包含了 ReCAPTCHA 等专有部分），有潜在的隐私风险，并且"
+"还依赖 Cloudflare。其中 Cloudflare <a href='https://0xacab.org/dCF/"
+"deCloudflare'>有非常多的问题。</a>"
 
 #: pyxiv/templates/settings/about.html:14
 msgid ""
-"With Vixipy, you can enjoy using most pixiv features with a frontend you "
-"can trust. Your browser will never connect to any external server except "
-"if you specify an external image proxy server. The only things that "
-"Vixipy will log are the pixiv API requests, your user agent, and image "
-"proxy requests (unless you are using an external image proxy server, "
-"which you will have to trust it's privacy practices)."
+"With Vixipy, you can enjoy using most pixiv features with a frontend you can "
+"trust. Your browser will never connect to any external server except if you "
+"specify an external image proxy server. The only things that Vixipy will log "
+"are the pixiv API requests, your user agent, and image proxy requests "
+"(unless you are using an external image proxy server, which you will have to "
+"trust it's privacy practices)."
 msgstr ""
-"Vixipy 是一个可以信赖的 pixiv 前端。除非指定了外部图片代理服务器，否则浏览器不会连接到任何外部服务器。Vixipy 只会记录 "
-"pixiv API 请求、你的用户代理（UA），以及及图片代理请求（除非你使用了外部图片代理服务器，这时你得确保它能妥善处理隐私）。"
+"Vixipy 是一个可以信赖的 pixiv 前端。除非指定了外部图片代理服务器，否则浏览器"
+"不会连接到任何外部服务器。Vixipy 只会记录 pixiv API 请求、你的用户代理"
+"（UA），以及及图片代理请求（除非你使用了外部图片代理服务器，这时你得确保它能"
+"妥善处理隐私）。"
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
-"Also on the plus side, you don't need an account for viewing full artwork"
-" resolution, <a target='_blank' "
-"href='/static/img/accountRequired_pixiv.png'>unlike pixiv</a>."
+"Also on the plus side, you don't need an account for viewing full artwork "
+"resolution, <a target='_blank' href='/static/img/accountRequired_pixiv."
+"png'>unlike pixiv</a>."
 msgstr ""
-"其次，不像 <a target='_blank' "
-"href='/static/img/accountRequired_pixiv.png'>pixiv</a>，使用本程序查看作品原图也不需要帐号。"
+"其次，不像 <a target='_blank' href='/static/img/accountRequired_pixiv."
+"png'>pixiv</a>，使用本程序查看作品原图也不需要帐号。"
 
 #: pyxiv/templates/settings/about.html:18
 msgid "How does it compare to other pixiv frontends (PixivFE, etc.)?"
@@ -551,10 +569,12 @@ msgstr "相比其他 pixiv 前端（PixivFE 等）有什么不同？"
 
 #: pyxiv/templates/settings/about.html:20
 msgid ""
-"Vixipy is, and is always, never a competitor of any pixiv frontend. Sure,"
-" Vixipy does take inspiration from other frontends, but only for the "
-"good, and with proper credit or attribution if needed."
-msgstr "Vixipy 现在、以后都不会是任何 pixiv 前端的竞品。当然，Vixipy 确实会从其他前端汲取灵感，但会在需要时署名及鸣谢。"
+"Vixipy is, and is always, never a competitor of any pixiv frontend. Sure, "
+"Vixipy does take inspiration from other frontends, but only for the good, "
+"and with proper credit or attribution if needed."
+msgstr ""
+"Vixipy 现在、以后都不会是任何 pixiv 前端的竞品。当然，Vixipy 确实会从其他前端"
+"汲取灵感，但会在需要时署名及鸣谢。"
 
 #: pyxiv/templates/settings/about.html:22
 msgid ""
@@ -568,8 +588,7 @@ msgstr "鸣谢"
 
 #: pyxiv/templates/settings/about.html:26
 msgid ""
-"Vixipy is made possible through the use of open source projects, which "
-"are:"
+"Vixipy is made possible through the use of open source projects, which are:"
 msgstr "Vixipy 的诞生离不开以下开源项目："
 
 #: pyxiv/templates/settings/account.html:6
@@ -578,21 +597,24 @@ msgstr "帐号设置"
 
 #: pyxiv/templates/settings/account.html:11
 msgid ""
-"Log in to your pixiv account to get a personalised feed and the ability "
-"to like and bookmark posts. To do this, you must get your pixiv PHPSESSID"
-" cookie. See the guide <a href='https://pixivfe-docs.pages.dev/obtaining-"
-"pixivfe-token/' rel='noopener noreferer'>from PixivFE</a> for details. "
-"Your token is stored locally and will not be stored on the server."
+"Log in to your pixiv account to get a personalised feed and the ability to "
+"like and bookmark posts. To do this, you must get your pixiv PHPSESSID "
+"cookie. See the guide <a href='https://pixivfe-docs.pages.dev/obtaining-"
+"pixivfe-token/' rel='noopener noreferer'>from PixivFE</a> for details. Your "
+"token is stored locally and will not be stored on the server."
 msgstr ""
-"登录 pixiv 帐号可享受个性化推送，点赞及收藏作品。此功能需要获取 pixiv PHHPSESSID cookie。详见 <a "
-"href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' "
-"rel='noopener noreferer'>PixivFE 文档</a>。你的 token 仅存储在本地，不会存储在服务器。"
+"登录 pixiv 帐号可享受个性化推送，点赞及收藏作品。此功能需要获取 pixiv "
+"PHHPSESSID cookie。详见 <a href='https://pixivfe-docs.pages.dev/obtaining-"
+"pixivfe-token/' rel='noopener noreferer'>PixivFE 文档</a>。你的 token 仅存储"
+"在本地，不会存储在服务器。"
 
 #: pyxiv/templates/settings/account.html:13
 msgid ""
-"<strong>Notice:</strong> By logging in, you agree that the instance will "
-"be sending requests on behalf of <strong>your account</strong>."
-msgstr "<strong>注意：</strong>登录即同意本实例代表<strong>你的帐号</strong>发送请求。"
+"<strong>Notice:</strong> By logging in, you agree that the instance will be "
+"sending requests on behalf of <strong>your account</strong>."
+msgstr ""
+"<strong>注意：</strong>登录即同意本实例代表<strong>你的帐号</strong>发送请"
+"求。"
 
 #: pyxiv/templates/settings/account.html:32
 msgid "Click on the button below to securely log out"
@@ -600,28 +622,29 @@ msgstr "点击下方按钮安全退出"
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:34
-#, fuzzy
 msgid "Language"
-msgstr "漫画"
+msgstr "语言"
 
 #: pyxiv/templates/settings/language.html:8
 msgid "You can select your prefered language here."
-msgstr ""
+msgstr "在此选择偏好语言。"
 
 #: pyxiv/templates/settings/language.html:14
 msgid "Use system language"
-msgstr ""
+msgstr "使用系统语言"
 
 #: pyxiv/templates/settings/language.html:24
 msgid "Set language"
-msgstr ""
+msgstr "设置语言"
 
 #: pyxiv/templates/settings/language.html:27
 msgid ""
-"Can't find the language you're looking for? Are the translations "
-"inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' "
-"target='_blank'>Help translate!</a>"
+"Can't find the language you're looking for? Are the translations inaccurate? "
+"<a href='https://translate.codeberg.org/engage/vixipy' target='_blank'>Help "
+"translate!</a>"
 msgstr ""
+"没有你的语言，或者翻译有误？可以<a href='https://translate.codeberg.org/"
+"engage/vixipy' target='_blank'>帮助我们翻译！</a>"
 
 #: pyxiv/templates/settings/license.html:6
 #: pyxiv/templates/settings/settingsMain.html:42
@@ -630,11 +653,11 @@ msgstr "许可证"
 
 #: pyxiv/templates/settings/license.html:8
 msgid ""
-"Vixipy is licensed under the GNU Affero General Public License, version "
-"3. The license text is as follows:"
+"Vixipy is licensed under the GNU Affero General Public License, version 3. "
+"The license text is as follows:"
 msgstr ""
-"Vixipy 以 GNU Affero 通用公共许可证第三版（GNU Affero General Public License, version"
-" 3）授权。许可证文本如下："
+"Vixipy 以 GNU Affero 通用公共许可证第三版（GNU Affero General Public "
+"License, version 3）授权。许可证文本如下："
 
 #: pyxiv/templates/settings/pyxivSettings.html:6
 #: pyxiv/templates/settings/settingsMain.html:11
@@ -647,16 +670,20 @@ msgstr "代理服务器"
 
 #: pyxiv/templates/settings/pyxivSettings.html:9
 msgid ""
-"A pixiv image proxy server allows you to access images from pixiv without"
-" your device making any connection to pixiv servers."
-msgstr "使用 pixiv 图片代理服务器，可以在访问 pixiv 图片时避免你的设备向 pixiv 发送任何请求。"
+"A pixiv image proxy server allows you to access images from pixiv without "
+"your device making any connection to pixiv servers."
+msgstr ""
+"使用 pixiv 图片代理服务器，可以在访问 pixiv 图片时避免你的设备向 pixiv 发送任"
+"何请求。"
 
 #: pyxiv/templates/settings/pyxivSettings.html:11
 msgid ""
 "Vixipy has a built-in proxy server, but you can specify one below. Only "
-"images from the domain <code>i.pximg.net</code> will use the specified "
-"proxy server."
-msgstr "Vixipy 有内置代理服务器，但也可在下方指定服务器。只有来自<code>i.pximg.net</code>的图片会使用代理服务器。"
+"images from the domain <code>i.pximg.net</code> will use the specified proxy "
+"server."
+msgstr ""
+"Vixipy 有内置代理服务器，但也可在下方指定服务器。只有来自<code>i.pximg.net</"
+"code>的图片会使用代理服务器。"
 
 #: pyxiv/templates/settings/pyxivSettings.html:13
 msgid "Your current preferred proxy server:"
@@ -667,18 +694,22 @@ msgid "Use built-in proxy server"
 msgstr "使用内置代理服务器"
 
 #: pyxiv/templates/settings/pyxivSettings.html:27
+#: pyxiv/templates/settings/pyxivSettings.html:29
 msgid "Use selected proxy"
 msgstr "使用选定代理"
 
 #: pyxiv/templates/settings/pyxivSettings.html:30
+#: pyxiv/templates/settings/pyxivSettings.html:32
 msgid "Custom proxy server"
 msgstr "自定义代理服务器"
 
 #: pyxiv/templates/settings/pyxivSettings.html:31
+#: pyxiv/templates/settings/pyxivSettings.html:33
 msgid "You can specify a custom proxy server below."
 msgstr "下方可指定自定义代理服务器。"
 
 #: pyxiv/templates/settings/pyxivSettings.html:35
+#: pyxiv/templates/settings/pyxivSettings.html:37
 msgid "Use proxy server"
 msgstr "使用代理服务器"
 
@@ -804,3 +835,13 @@ msgstr "插画和漫画"
 msgid "%(user)s's Manga"
 msgstr "%(user)s 的漫画"
 
+#: pyxiv/templates/comments.html:94
+msgid ""
+"If you know a particular stamp ID, you can put it here. This allows you to "
+"send stamps that are usually only available for a limited time. <span "
+"style='color: #f38ba8;'><b>Warning:</b> This may result in termination of "
+"your pixiv account. Use at your own risk.)"
+msgstr ""
+"如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴"
+"图。（<span style='color: #f38ba8;'><b>警告：</b>这可能导致 pixiv 帐号被封，"
+"使用后果自负。</span>）"
