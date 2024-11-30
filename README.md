@@ -103,7 +103,7 @@ Vixipy comes with NO WARRANTY, and we will certainly not be responsible for anyt
 * [VnPower](/VnPower) for the awesome PixivFE project
 * People who have translated Vixipy:
     * [Myself](/kita) - Filipino `fil`
-    * [Peaksol](/Peaksol) - Chinese (Simplified Han Script) `zh_Hant`
+    * [Peaksol](/Peaksol) - Chinese (Simplified Han Script) `zh_Hans`
     * Maybe you could be in this list? :3
 
 <hr>
