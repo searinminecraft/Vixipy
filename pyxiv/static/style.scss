@@ -340,6 +340,11 @@ main {
   }
 }
 
+.centered {
+	display: flex;
+	justify-content: center;
+}
+
 .artwork-container {
   display: flex;
   flex-wrap: wrap;
