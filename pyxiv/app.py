@@ -155,7 +155,7 @@ def create_app():
         traceback.print_exc()
         resp = make_response(
             render_template(
-                "500.html", error=e, info=traceback.format_exc(), isDebug=app.debug
+                "500.html", error=e, info=traceback.format_exc()
             )
         )
         return resp, 500
