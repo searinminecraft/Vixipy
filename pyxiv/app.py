@@ -9,6 +9,7 @@ from flask import (
     flash,
 )
 from flask_babel import Babel
+from urllib.parse import urlparse
 import traceback
 
 from requests import ConnectionError
@@ -214,6 +215,11 @@ def create_app():
 
     @app.after_request
     def afterReq(r):
+        p = urlparse(g.get("userProxyServer")).hostname or ""
+        # from https://codeberg.org/PixivFE/PixivFE/src/commit/665503fcc92034384e8b0346cd2fb8e4b419db7b/server/middleware/csp.go#L44
+        # vixipy is still not a pixivfe competitor as always
+        r.headers["Content-Security-Policy"] = "base-uri 'self'; default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none';" % (p, p)
+        r.headers["X-Frame-Options"] = "DENY"
         if g.get("invalidSession", False):
 
             r.delete_cookie("PyXivCSRF")
