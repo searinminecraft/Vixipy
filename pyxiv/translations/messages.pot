@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-29 19:50+0800\n"
+"POT-Creation-Date: 2024-12-04 13:44+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,12 +83,12 @@ msgstr ""
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:305
+#: pyxiv/routes/settings.py:305 pyxiv/routes/settings.py:323
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:316
+#: pyxiv/routes/settings.py:316 pyxiv/routes/settings.py:333
 msgid "Successfully set language."
 msgstr ""
 
@@ -586,6 +586,7 @@ msgid "Use system language"
 msgstr ""
 
 #: pyxiv/templates/settings/language.html:24
+#: pyxiv/templates/settings/language.html:43
 msgid "Set language"
 msgstr ""
 
@@ -594,6 +595,14 @@ msgid ""
 "Can't find the language you're looking for? Are the translations "
 "inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' "
 "target='_blank'>Help translate!</a>"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:29
+msgid "pixivision Language"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:31
+msgid "You can set the language for pixivision articles here."
 msgstr ""
 
 #: pyxiv/templates/settings/license.html:6

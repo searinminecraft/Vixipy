@@ -26,5 +26,22 @@
 
 <p>{{ _("Can't find the language you're looking for? Are the translations inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' target='_blank'>Help translate!</a>") }}<p>
 
+<h2>{{ _("pixivision Language") }}</h2>
+
+<p>{{ _("You can set the language for pixivision articles here.") }}</p>
+
+<form action="/settings/set-pixivision-language" method="POST">
+	{% set currentLang = request.cookies.get("PyXivPixivisionLang", "en") %}
+
+	{% for lang in pv_lang %}
+	<label>
+		<input type="radio" name="lang" value="{{ lang }}" {% if lang == currentLang %}checked{% endif %} required>
+		{{ lang }}
+	</label>
+	{% endfor %}
+	<br>
+	<button class="button" type="submit">{{ _("Set language") }}</button>
+</form>
+
 {% endblock %}
 

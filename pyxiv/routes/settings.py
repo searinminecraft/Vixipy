@@ -84,7 +84,7 @@ def mainSettings(ep):
                 msItems=mailSettingsItems,
             )
         case "language":
-            return render_template("settings/language.html")
+            return render_template("settings/language.html", pv_lang=("en", "ja", "ko", "zh", "zh-tw"))
         case "about":
             return render_template("about")
         case "license":
@@ -313,5 +313,22 @@ def setLanguage():
     resp.set_cookie("lang", language, max_age=COOKIE_MAXAGE)
     g.lang = language
     refresh()
+    flash(_("Successfully set language."))
+    return resp
+
+@settings.post("/set-pixivision-language")
+def setPixivisionLanguage():
+    language = request.form["lang"]
+    if language not in ("en", "ja", "ko", "zh", "zh-tw"):
+        flash(_("Invalid language: %(code)s", code=language), "error")
+        return redirect(url_for("settings.mainSettings", ep="language"), code=303)
+
+    resp = make_response(
+            redirect(url_for("settings.mainSettings", ep="language"), code=303)
+    )
+
+    resp.delete_cookie("PyXivPixivisionLang")
+    resp.set_cookie("PyXivPixivisionLang", language, max_age=COOKIE_MAXAGE)
+    
     flash(_("Successfully set language."))
     return resp
