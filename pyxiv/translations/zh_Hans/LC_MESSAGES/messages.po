@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-29 19:50+0800\n"
-"PO-Revision-Date: 2024-11-29 13:32+0000\n"
-"Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"PO-Revision-Date: 2024-12-02 13:07+0000\n"
+"Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://translate.codeberg."
 "org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -454,7 +454,7 @@ msgstr "排行"
 
 #: pyxiv/templates/layouts/default.html:69
 msgid "pixivision"
-msgstr ""
+msgstr "pixivision"
 
 #: pyxiv/templates/layouts/default.html:73
 #: pyxiv/templates/layouts/default.html:101
@@ -486,23 +486,22 @@ msgstr "退出"
 #: pyxiv/templates/pixivision/index.html:58
 #, python-format
 msgid "Posted on %(date)s"
-msgstr ""
+msgstr "发布于 %(date)s"
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
 msgid "Category:"
-msgstr ""
+msgstr "类别："
 
 #: pyxiv/templates/pixivision/index.html:5
 msgid "pixivision Articles"
-msgstr ""
+msgstr "pixivision 文章"
 
 #: pyxiv/templates/pixivision/index.html:6
 msgid "Note: pixivision is experimental. Some articles may not load correctly."
-msgstr ""
+msgstr "注意：pixivision 还在实验性地支持，部分文章可能不会正常加载。"
 
 #: pyxiv/templates/pixivision/index.html:17
-#, fuzzy
 msgid "Featured Article"
 msgstr "精选"
 
@@ -512,7 +511,7 @@ msgstr "精选"
 
 #: pyxiv/templates/pixivision/index.html:50
 msgid "Articles"
-msgstr ""
+msgstr "文章"
 
 #: pyxiv/templates/settings/about.html:8
 msgid ""
