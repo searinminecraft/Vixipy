@@ -664,6 +664,12 @@ class ArtworkDetailsPage:
         self.user: User = user
         self.related: list[ArtworkEntry] = related
 
+class PixivisionEntry:
+    def __init__(self, data):
+        self.id: int = int(data["id"])
+        self.thumbnailUrl: str = makeProxy(data["thumbnailUrl"])
+        self.title: str = data["title"]
+
 
 class RecommendByTag:
     def __init__(self, name: str, artworks: list[ArtworkEntry]):
@@ -678,8 +684,10 @@ class LandingPageLoggedIn:
         recommendByTag: list[RecommendByTag],
         newestFromFollowing: list[ArtworkEntry],
         recommendedUsers: list[RecommendedUser],
+        pixivisionArticles: list[PixivisionEntry]
     ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag
         self.newestFromFollowing: list[ArtworkEntry] = newestFromFollowing
         self.recommendedUsers: list[RecommendedUser] = recommendedUsers
+        self.pixivisionArticles: list[PixivisionEntry] = pixivisionArticles

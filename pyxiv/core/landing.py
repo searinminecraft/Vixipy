@@ -5,6 +5,7 @@ from ..classes import (
     LandingPageLoggedIn,
     RankingEntry,
     RecommendedUser,
+    PixivisionEntry
 )
 from ..core.user import getFollowingNew
 from ..utils.filtering import filterEntriesFromPreferences
@@ -67,11 +68,14 @@ def getLandingPage(mode: str) -> LandingPageLoggedIn:
         res.artworks = filterEntriesFromPreferences(res.artworks)
         recommendByTag.append(res)
 
+    pvArticles = [PixivisionEntry(x) for x in data["page"]["pixivision"]]
+
     return LandingPageLoggedIn(
         filterEntriesFromPreferences(recommended),
         recommendByTag,
         newFromFollowing,
         recommendedUsers,
+        pvArticles,
     )
 
 
