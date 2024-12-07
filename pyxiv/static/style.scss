@@ -219,7 +219,7 @@ header {
     input {
       border: none;
       padding: 4px 1em;
-      width: 384px;
+      width: 420px;
       font-size: 14px;
       background-color: var(--md-sys-color-surface-container-highest)
     }
@@ -327,7 +327,7 @@ main {
   margin: 12px 0;
 
   > .content {
-    max-width: 1600px;
+    max-width: 1150px;
     width: 100%;
     margin: auto;
     padding: 0 1.5em;
@@ -495,8 +495,8 @@ gap: 12px;
 
 .illust-area {
   .illust-main, .illust-info {
-    padding: 1em;
-    border-radius: 42px;
+    padding: 16px;
+    border-radius: 48px;
   }
 
   .illust-main {
@@ -508,13 +508,34 @@ gap: 12px;
       display: flex;
       justify-content: center;
       flex-direction: column;
+      row-gap: 12px;
 
-      img, video {
-        width: 100%;
-        border-radius: 36px;
+      a {
+          img, video {
+            width: 100%;
+            border-radius: 12px;
+          }
+
+          &:first-child {
+            img, video {
+              border-radius: 36px 36px 12px 12px;
+            }
+          }
+
+          &:last-child {
+            img, video {
+              border-radius: 12px 12px 36px 36px;
+            }
+          }
+
+          &:only-child {
+            img, video {
+              border-radius: 36px;
+            }
+          }
+        }
       }
     }
-  }
 
   .illust-info {
     width: 40%;
@@ -1171,12 +1192,18 @@ gap: 12px;
 }
 
 .article-container {
+
   padding: 1em 2em;
+
+  h1 {
+    font-size: 3.5em;
+    margin: 12px 0;
+  }
 
   .article-main-img {
     max-width: 100%;
     max-height: 100%;
-    border-radius: 24px;
+    border-radius: 32px;
     margin: 3em 0;
   }
 
