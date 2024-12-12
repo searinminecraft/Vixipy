@@ -9,6 +9,10 @@ class PixivError(Exception):
     pass
 
 
+class UnknownPixivError(Exception):
+    pass
+
+
 def getHeaders(useMobileAgent=False):
 
     headers = {
@@ -43,7 +47,11 @@ def pixivReq(endpoint, additionalHeaders: dict = {}, useMobileAgent=False):
     if req.status_code == 429:
         raise PixivError("Rate limited")
 
-    resp = req.json()
+    try:
+        resp = req.json()
+    except Exception:
+        raise UnknownPixivError(str(req.status_code) + ": " + req.text) from None
+
     # isSucceed is used on mobile ajax API, while error is used for regular ajax API
     if not resp.get("isSucceed", False) or resp.get("error", False):
 

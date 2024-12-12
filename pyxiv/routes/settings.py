@@ -84,7 +84,9 @@ def mainSettings(ep):
                 msItems=mailSettingsItems,
             )
         case "language":
-            return render_template("settings/language.html", pv_lang=("en", "ja", "ko", "zh", "zh-tw"))
+            return render_template(
+                "settings/language.html", pv_lang=("en", "ja", "ko", "zh", "zh-tw")
+            )
         case "about":
             return render_template("about")
         case "license":
@@ -203,8 +205,14 @@ def setImgProxy():
         return redirect(url_for("settings.settingsIndex"), code=303)
 
     try:
-        if ipaddress.ip_address(i).is_private:
-            return denyIp()
+        if ipaddress.ip_address(i):
+            flash(
+                _(
+                    "Due to limitations in Content-Securiy-Policy directives, IP Addresses are not supported as a proxy server."
+                ),
+                "error",
+            )
+            return redirect(url_for("settings.settingsIndex"), code=303)
     except ValueError:
         pass
 
@@ -219,7 +227,7 @@ def setImgProxy():
         try:
             req = requests.get(
                 finalUrl,
-                headers={"User-Agent": "PyXiv-ProxyServerCheck"},
+                headers={"User-Agent": "Vixipy-ProxyServerCheck"},
                 allow_redirects=True,
                 timeout=5,
             )
@@ -316,6 +324,7 @@ def setLanguage():
     flash(_("Successfully set language."))
     return resp
 
+
 @settings.post("/set-pixivision-language")
 def setPixivisionLanguage():
     language = request.form["lang"]
@@ -324,11 +333,11 @@ def setPixivisionLanguage():
         return redirect(url_for("settings.mainSettings", ep="language"), code=303)
 
     resp = make_response(
-            redirect(url_for("settings.mainSettings", ep="language"), code=303)
+        redirect(url_for("settings.mainSettings", ep="language"), code=303)
     )
 
     resp.delete_cookie("PyXivPixivisionLang")
     resp.set_cookie("PyXivPixivisionLang", language, max_age=COOKIE_MAXAGE)
-    
+
     flash(_("Successfully set language."))
     return resp

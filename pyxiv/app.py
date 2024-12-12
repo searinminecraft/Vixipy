@@ -155,9 +155,7 @@ def create_app():
     def handleInternalError(e):
         traceback.print_exc()
         resp = make_response(
-            render_template(
-                "500.html", error=e, info=traceback.format_exc()
-            )
+            render_template("500.html", error=e, info=traceback.format_exc())
         )
         return resp, 500
 
@@ -218,7 +216,10 @@ def create_app():
         p = urlparse(g.get("userProxyServer")).hostname or ""
         # from https://codeberg.org/PixivFE/PixivFE/src/commit/665503fcc92034384e8b0346cd2fb8e4b419db7b/server/middleware/csp.go#L44
         # vixipy is still not a pixivfe competitor as always
-        r.headers["Content-Security-Policy"] = "base-uri 'self'; default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none';" % (p, p)
+        r.headers["Content-Security-Policy"] = (
+            "base-uri 'self'; default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none';"
+            % (p, p)
+        )
         r.headers["X-Frame-Options"] = "DENY"
         if g.get("invalidSession", False):
 
