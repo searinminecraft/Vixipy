@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 13:44+0800\n"
+"POT-Creation-Date: 2024-12-12 20:15+0800\n"
 "PO-Revision-Date: 2024-12-02 13:07+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -24,74 +24,80 @@ msgstr ""
 msgid "The creator turned off comments."
 msgstr "作者关闭了评论。"
 
-#: pyxiv/routes/settings.py:112
+#: pyxiv/routes/settings.py:114
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "无法使用 token：%(error)s"
 
-#: pyxiv/routes/settings.py:127
+#: pyxiv/routes/settings.py:129
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "无法使用 token。pixiv 返回代码 %(status)d"
 
-#: pyxiv/routes/settings.py:140
+#: pyxiv/routes/settings.py:142
 msgid "Unable to extract CSRF"
 msgstr "无法提取 CSRF"
 
-#: pyxiv/routes/settings.py:152
+#: pyxiv/routes/settings.py:154
 msgid "No token was supplied."
 msgstr "没有提供 token。"
 
-#: pyxiv/routes/settings.py:162
+#: pyxiv/routes/settings.py:164
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "会话已结束。再见！"
 
-#: pyxiv/routes/settings.py:172 pyxiv/routes/settings.py:258
+#: pyxiv/routes/settings.py:174 pyxiv/routes/settings.py:266
 msgid "Successfully set proxy server"
 msgstr "成功设置代理服务器"
 
-#: pyxiv/routes/settings.py:187
+#: pyxiv/routes/settings.py:189
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "请在 URL 中指定协议，仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:193
+#: pyxiv/routes/settings.py:195
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "URL 协议无效：%(scheme)s。仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:202
+#: pyxiv/routes/settings.py:204
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "无法使用该地址：%(addr)s"
 
-#: pyxiv/routes/settings.py:231
+#: pyxiv/routes/settings.py:210
+msgid ""
+"Due to limitations in Content-Securiy-Policy directives, IP Addresses are"
+" not supported as a proxy server."
+msgstr ""
+
+#: pyxiv/routes/settings.py:239
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr "注意：你指定的代理服务器使用了 Cloudflare。图片可能无法加载，并且可能存在隐私问题。"
 
-#: pyxiv/routes/settings.py:240
+#: pyxiv/routes/settings.py:248
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr "检查图片代理完整性时出错。需要 %(integrity)s，但得到了 %(result)s"
 
-#: pyxiv/routes/settings.py:249
+#: pyxiv/routes/settings.py:257
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr "代理服务器检查超时，服务器可能无法连接。"
 
-#: pyxiv/routes/settings.py:253
+#: pyxiv/routes/settings.py:261
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:305 pyxiv/routes/settings.py:323
+#: pyxiv/routes/settings.py:313 pyxiv/routes/settings.py:332
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "语言无效：%(code)s"
 
-#: pyxiv/routes/settings.py:316 pyxiv/routes/settings.py:333
+#: pyxiv/routes/settings.py:324 pyxiv/routes/settings.py:342
 msgid "Successfully set language."
 msgstr "成功设置语言。"
 
@@ -404,17 +410,17 @@ msgstr "所有时间"
 msgid "Works"
 msgstr "作品"
 
-#: pyxiv/templates/unauthorized.html:3
+#: pyxiv/templates/unauthorized.html:4
 msgid "Unauthorized"
 msgstr "未验证"
 
-#: pyxiv/templates/unauthorized.html:4
+#: pyxiv/templates/unauthorized.html:5
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
 
 #: pyxiv/templates/components/navbar.html:33
 #: pyxiv/templates/settings/account.html:10
-#: pyxiv/templates/settings/account.html:17 pyxiv/templates/unauthorized.html:6
+#: pyxiv/templates/settings/account.html:30 pyxiv/templates/unauthorized.html:7
 msgid "Log in"
 msgstr "登录"
 
@@ -460,8 +466,7 @@ msgid "Bookmarks"
 msgstr "收藏"
 
 #: pyxiv/templates/layouts/default.html:105
-#: pyxiv/templates/settings/account.html:31
-#: pyxiv/templates/settings/account.html:35
+#: pyxiv/templates/settings/account.html:45
 msgid "Log out"
 msgstr "退出"
 
@@ -495,6 +500,11 @@ msgstr "精选"
 #: pyxiv/templates/pixivision/index.html:50
 msgid "Articles"
 msgstr "文章"
+
+#: pyxiv/templates/settings/about.html:6
+#: pyxiv/templates/settings/settingsMain.html:38
+msgid "About Vixipy"
+msgstr "关于 Vixipy"
 
 #: pyxiv/templates/settings/about.html:8
 msgid ""
@@ -573,25 +583,52 @@ msgstr "帐号设置"
 
 #: pyxiv/templates/settings/account.html:11
 msgid ""
-"Log in to your pixiv account to get a personalised feed and the ability "
-"to like and bookmark posts. To do this, you must get your pixiv PHPSESSID"
-" cookie. See the guide <a href='https://pixivfe-docs.pages.dev/obtaining-"
-"pixivfe-token/' rel='noopener noreferer'>from PixivFE</a> for details. "
-"Your token is stored locally and will not be stored on the server."
+"Log in to your pixiv account to access features that require an account, "
+"such as:"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:14
+msgid "Bookmarking/liking posts"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:15
+#, fuzzy
+msgid "Following users"
+msgstr "关注的用户"
+
+#: pyxiv/templates/settings/account.html:16
+msgid "Personalized recommendations and landing page"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:18
+msgid ""
+"Access information that requires an account such as artworks deemed "
+"\"sensitive\" by pixiv staff"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:22
+#, fuzzy
+msgid ""
+"To log in, you must get your pixiv PHPSESSID cookie. See the guide <a "
+"href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' "
+"rel='noopener noreferer'>from PixivFE</a> for details. Your token is "
+"stored locally and will not be stored on the server."
 msgstr ""
 "登录 pixiv 帐号可享受个性化推送，点赞及收藏作品。此功能需要获取 pixiv PHHPSESSID cookie。详见 <a "
 "href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' "
 "rel='noopener noreferer'>PixivFE 文档</a>。你的 token 仅存储在本地，不会存储在服务器。"
 
-#: pyxiv/templates/settings/account.html:13
+#: pyxiv/templates/settings/account.html:24
+msgid ""
+"For security purposes, cookies will expire 30 days after the time of "
+"logging in"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:26
 msgid ""
 "<strong>Notice:</strong> By logging in, you agree that the instance will "
 "be sending requests on behalf of <strong>your account</strong>."
 msgstr "<strong>注意：</strong>登录即同意本实例代表<strong>你的帐号</strong>发送请求。"
-
-#: pyxiv/templates/settings/account.html:32
-msgid "Click on the button below to securely log out"
-msgstr "点击下方按钮安全退出"
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:34
@@ -700,10 +737,6 @@ msgstr "显示设置"
 #: pyxiv/templates/settings/settingsMain.html:29
 msgid "Privacy"
 msgstr "隐私"
-
-#: pyxiv/templates/settings/settingsMain.html:38
-msgid "About Vixipy"
-msgstr "关于 Vixipy"
 
 #: pyxiv/templates/settings/settingsMain.html:46
 msgid "Source Code"
@@ -823,4 +856,7 @@ msgstr "%(user)s 的漫画"
 #~ "如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴图。（<span "
 #~ "style='color: #f38ba8;'><b>警告：</b>这可能导致 pixiv "
 #~ "帐号被封，使用后果自负。</span>）"
+
+#~ msgid "Click on the button below to log out"
+#~ msgstr "点击下方按钮安全退出"
 

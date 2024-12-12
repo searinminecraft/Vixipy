@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 13:44+0800\n"
+"POT-Creation-Date: 2024-12-12 20:15+0800\n"
 "PO-Revision-Date: 2024-11-30 06:15+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
 "Language: fil\n"
@@ -24,47 +24,53 @@ msgstr ""
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
-#: pyxiv/routes/settings.py:112
+#: pyxiv/routes/settings.py:114
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "Hindi magagamit ang token: %(error)s"
 
-#: pyxiv/routes/settings.py:127
+#: pyxiv/routes/settings.py:129
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "Hindi magagamit ang token. Nagbigay ng code %(status)d and pixiv"
 
-#: pyxiv/routes/settings.py:140
+#: pyxiv/routes/settings.py:142
 msgid "Unable to extract CSRF"
 msgstr "Hindi ma-extract ang CSRF"
 
-#: pyxiv/routes/settings.py:152
+#: pyxiv/routes/settings.py:154
 msgid "No token was supplied."
 msgstr "Walang ibinigay na token."
 
-#: pyxiv/routes/settings.py:162
+#: pyxiv/routes/settings.py:164
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "Matagumpay mong nawakas ang session. Paalam!"
 
-#: pyxiv/routes/settings.py:172 pyxiv/routes/settings.py:258
+#: pyxiv/routes/settings.py:174 pyxiv/routes/settings.py:266
 msgid "Successfully set proxy server"
 msgstr "Matagumpay na natakda ang proxy server"
 
-#: pyxiv/routes/settings.py:187
+#: pyxiv/routes/settings.py:189
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "Paki-bigay ang URL scheme. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:193
+#: pyxiv/routes/settings.py:195
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "Hindi wastong URL scheme: %(scheme)s. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:202
+#: pyxiv/routes/settings.py:204
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "Hindi pinapayagan ang address na ito: %(addr)s"
 
-#: pyxiv/routes/settings.py:231
+#: pyxiv/routes/settings.py:210
+msgid ""
+"Due to limitations in Content-Securiy-Policy directives, IP Addresses are"
+" not supported as a proxy server."
+msgstr ""
+
+#: pyxiv/routes/settings.py:239
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
@@ -73,7 +79,7 @@ msgstr ""
 "Maaaring hindi mag-load ang mga larawan, at maaaring masira ang iyong "
 "privacy."
 
-#: pyxiv/routes/settings.py:240
+#: pyxiv/routes/settings.py:248
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
@@ -82,23 +88,23 @@ msgstr ""
 "Nabigo ang pagsuri ng integridad para sa pagsubok ng image proxy. "
 "Inaasahan ang %(integrity)s, nakuha ang %(result)s"
 
-#: pyxiv/routes/settings.py:249
+#: pyxiv/routes/settings.py:257
 msgid "Timed out trying to check proxy server. It may be down."
 msgstr ""
 "Nag-time out habang sinusubukang suriin ang proxy server. Maaring hindi "
 "ito gumagana."
 
-#: pyxiv/routes/settings.py:253
+#: pyxiv/routes/settings.py:261
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
 
-#: pyxiv/routes/settings.py:305 pyxiv/routes/settings.py:323
+#: pyxiv/routes/settings.py:313 pyxiv/routes/settings.py:332
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "Hindi wastong wika: %(code)s"
 
-#: pyxiv/routes/settings.py:316 pyxiv/routes/settings.py:333
+#: pyxiv/routes/settings.py:324 pyxiv/routes/settings.py:342
 msgid "Successfully set language."
 msgstr "Matagumpay na natakda ang wika."
 
@@ -424,11 +430,11 @@ msgstr "Lahat ng oras"
 msgid "Works"
 msgstr "Mga gawa"
 
-#: pyxiv/templates/unauthorized.html:3
+#: pyxiv/templates/unauthorized.html:4
 msgid "Unauthorized"
 msgstr "Hindi awtorisado"
 
-#: pyxiv/templates/unauthorized.html:4
+#: pyxiv/templates/unauthorized.html:5
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 "Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na "
@@ -436,7 +442,7 @@ msgstr ""
 
 #: pyxiv/templates/components/navbar.html:33
 #: pyxiv/templates/settings/account.html:10
-#: pyxiv/templates/settings/account.html:17 pyxiv/templates/unauthorized.html:6
+#: pyxiv/templates/settings/account.html:30 pyxiv/templates/unauthorized.html:7
 msgid "Log in"
 msgstr "Mag-log in"
 
@@ -482,8 +488,7 @@ msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
 #: pyxiv/templates/layouts/default.html:105
-#: pyxiv/templates/settings/account.html:31
-#: pyxiv/templates/settings/account.html:35
+#: pyxiv/templates/settings/account.html:45
 msgid "Log out"
 msgstr "Mag-log out"
 
@@ -519,6 +524,11 @@ msgstr "Itinatampok"
 #: pyxiv/templates/pixivision/index.html:50
 msgid "Articles"
 msgstr "Mga Artikulo"
+
+#: pyxiv/templates/settings/about.html:6
+#: pyxiv/templates/settings/settingsMain.html:38
+msgid "About Vixipy"
+msgstr "Tungkol sa Vixipy"
 
 #: pyxiv/templates/settings/about.html:8
 msgid ""
@@ -618,11 +628,36 @@ msgstr "Mga Setting ng Account"
 
 #: pyxiv/templates/settings/account.html:11
 msgid ""
-"Log in to your pixiv account to get a personalised feed and the ability "
-"to like and bookmark posts. To do this, you must get your pixiv PHPSESSID"
-" cookie. See the guide <a href='https://pixivfe-docs.pages.dev/obtaining-"
-"pixivfe-token/' rel='noopener noreferer'>from PixivFE</a> for details. "
-"Your token is stored locally and will not be stored on the server."
+"Log in to your pixiv account to access features that require an account, "
+"such as:"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:14
+msgid "Bookmarking/liking posts"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:15
+#, fuzzy
+msgid "Following users"
+msgstr "mga sinusundan na user"
+
+#: pyxiv/templates/settings/account.html:16
+msgid "Personalized recommendations and landing page"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:18
+msgid ""
+"Access information that requires an account such as artworks deemed "
+"\"sensitive\" by pixiv staff"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:22
+#, fuzzy
+msgid ""
+"To log in, you must get your pixiv PHPSESSID cookie. See the guide <a "
+"href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' "
+"rel='noopener noreferer'>from PixivFE</a> for details. Your token is "
+"stored locally and will not be stored on the server."
 msgstr ""
 "Mag-log in sa iyong pixiv account para makakuha ng personalized na feed "
 "at ang kakayahang mag-like at mag-bookmark ng mga post. Upang gawin ito, "
@@ -631,7 +666,13 @@ msgstr ""
 "rel='noopener noreferer'>mula sa PixivFE</a> para sa mga detalye. Ang "
 "iyong token ay lokal na nakaimbak at hindi maiimbak sa server."
 
-#: pyxiv/templates/settings/account.html:13
+#: pyxiv/templates/settings/account.html:24
+msgid ""
+"For security purposes, cookies will expire 30 days after the time of "
+"logging in"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:26
 msgid ""
 "<strong>Notice:</strong> By logging in, you agree that the instance will "
 "be sending requests on behalf of <strong>your account</strong>."
@@ -639,10 +680,6 @@ msgstr ""
 "<strong>Paunawa:</strong> Sa pamamagitan ng pag-log in, sumasang-ayon ka "
 "na ang instansya ay magpapadala ng mga kahilingan sa ngalan ng "
 "<strong>iyong account</strong>."
-
-#: pyxiv/templates/settings/account.html:32
-msgid "Click on the button below to securely log out"
-msgstr "I-click ang button sa ibaba para mag-log out"
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:34
@@ -758,10 +795,6 @@ msgstr "Mga Setting ng Pag-display"
 #: pyxiv/templates/settings/settingsMain.html:29
 msgid "Privacy"
 msgstr "Pagkapribado"
-
-#: pyxiv/templates/settings/settingsMain.html:38
-msgid "About Vixipy"
-msgstr "Tungkol sa Vixipy"
 
 #: pyxiv/templates/settings/settingsMain.html:46
 msgid "Source Code"
@@ -892,4 +925,7 @@ msgstr "Mga Manga ni %(user)s"
 #~ "magresulta sa pagwawakas ng iyong pixiv"
 #~ " account. Gamitin sa iyong sariling "
 #~ "peligro.)"
+
+#~ msgid "Click on the button below to log out"
+#~ msgstr "I-click ang button sa ibaba para mag-log out"
 
