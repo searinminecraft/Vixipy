@@ -45,7 +45,6 @@ def create_app():
     app.config["proxy-servers"] = (
         "https://i.pixiv.re",
         "https://pixiv.darkness.services",
-        "https://pximg.exozy.me",
         "https://pximg.cocomi.eu.org/",
         "https://i.suimoe.com/",
         "https://i.yuki.sh/",
