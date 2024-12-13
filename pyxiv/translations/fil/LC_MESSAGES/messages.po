@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-12 20:15+0800\n"
+"POT-Creation-Date: 2024-12-13 08:45+0800\n"
 "PO-Revision-Date: 2024-11-30 06:15+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
 "Language: fil\n"
@@ -66,8 +66,8 @@ msgstr "Hindi pinapayagan ang address na ito: %(addr)s"
 
 #: pyxiv/routes/settings.py:210
 msgid ""
-"Due to limitations in Content-Securiy-Policy directives, IP Addresses are"
-" not supported as a proxy server."
+"Due to limitations in Content-Security-Policy directives, IP Addresses "
+"are not supported as a proxy server."
 msgstr ""
 
 #: pyxiv/routes/settings.py:239
@@ -488,7 +488,7 @@ msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
 #: pyxiv/templates/layouts/default.html:105
-#: pyxiv/templates/settings/account.html:45
+#: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "Mag-log out"
 
@@ -928,4 +928,10 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Click on the button below to log out"
 #~ msgstr "I-click ang button sa ibaba para mag-log out"
+
+#~ msgid ""
+#~ "Due to limitations in Content-"
+#~ "Securiy-Policy directives, IP Addresses are"
+#~ " not supported as a proxy server."
+#~ msgstr ""
 

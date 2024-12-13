@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-12 20:15+0800\n"
+"POT-Creation-Date: 2024-12-13 08:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,8 +63,8 @@ msgstr ""
 
 #: pyxiv/routes/settings.py:210
 msgid ""
-"Due to limitations in Content-Securiy-Policy directives, IP Addresses are"
-" not supported as a proxy server."
+"Due to limitations in Content-Security-Policy directives, IP Addresses "
+"are not supported as a proxy server."
 msgstr ""
 
 #: pyxiv/routes/settings.py:239
@@ -455,7 +455,7 @@ msgid "Bookmarks"
 msgstr ""
 
 #: pyxiv/templates/layouts/default.html:105
-#: pyxiv/templates/settings/account.html:45
+#: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr ""
 

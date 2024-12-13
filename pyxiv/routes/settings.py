@@ -208,7 +208,7 @@ def setImgProxy():
         if ipaddress.ip_address(i):
             flash(
                 _(
-                    "Due to limitations in Content-Securiy-Policy directives, IP Addresses are not supported as a proxy server."
+                    "Due to limitations in Content-Security-Policy directives, IP Addresses are not supported as a proxy server."
                 ),
                 "error",
             )

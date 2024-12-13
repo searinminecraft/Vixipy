@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-12 20:15+0800\n"
+"POT-Creation-Date: 2024-12-13 08:45+0800\n"
 "PO-Revision-Date: 2024-12-02 13:07+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -66,8 +66,8 @@ msgstr "无法使用该地址：%(addr)s"
 
 #: pyxiv/routes/settings.py:210
 msgid ""
-"Due to limitations in Content-Securiy-Policy directives, IP Addresses are"
-" not supported as a proxy server."
+"Due to limitations in Content-Security-Policy directives, IP Addresses "
+"are not supported as a proxy server."
 msgstr ""
 
 #: pyxiv/routes/settings.py:239
@@ -466,7 +466,7 @@ msgid "Bookmarks"
 msgstr "收藏"
 
 #: pyxiv/templates/layouts/default.html:105
-#: pyxiv/templates/settings/account.html:45
+#: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "退出"
 
@@ -859,4 +859,10 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "Click on the button below to log out"
 #~ msgstr "点击下方按钮安全退出"
+
+#~ msgid ""
+#~ "Due to limitations in Content-"
+#~ "Securiy-Policy directives, IP Addresses are"
+#~ " not supported as a proxy server."
+#~ msgstr ""
 
