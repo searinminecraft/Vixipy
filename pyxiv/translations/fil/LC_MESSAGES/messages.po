@@ -114,6 +114,8 @@ msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses are "
 "not supported as a proxy server."
 msgstr ""
+"Dahil sa mga limitasyon sa mga direktiba ng Content-Security-Policy, hindi "
+"sinusuportahan ang mga IP Address bilang proxy server."
 
 #: pyxiv/routes/settings.py:239 pyxiv/routes/settings.py:231
 msgid ""
@@ -694,46 +696,48 @@ msgid ""
 "Log in to your pixiv account to access features that require an account, "
 "such as:"
 msgstr ""
+"Mag-log in sa iyong pixiv account upang ma-access ang mga feature na "
+"nangangailangan ng account, tulad ng:"
 
 #: pyxiv/templates/settings/account.html:14
 msgid "Bookmarking/liking posts"
-msgstr ""
+msgstr "Pag-bookmark/pag-like ng mga post"
 
 #: pyxiv/templates/settings/account.html:15
-#, fuzzy
 msgid "Following users"
-msgstr "mga sinusundan na user"
+msgstr "Pagsundan sa mga user"
 
 #: pyxiv/templates/settings/account.html:16
 msgid "Personalized recommendations and landing page"
-msgstr ""
+msgstr "Mga personalized na rekomendasyon at landing page"
 
 #: pyxiv/templates/settings/account.html:18
 msgid ""
 "Access information that requires an account such as artworks deemed "
 "\"sensitive\" by pixiv staff"
 msgstr ""
+"I-access ang impormasyon na nangangailangan ng account tulad ng mga likhang "
+"sining na itinuring na \"sensitibo\" ng kawani ng pixiv"
 
 #: pyxiv/templates/settings/account.html:22
-#, fuzzy
 msgid ""
 "To log in, you must get your pixiv PHPSESSID cookie. See the guide <a "
 "href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' rel='noopener "
 "noreferer'>from PixivFE</a> for details. Your token is stored locally and "
 "will not be stored on the server."
 msgstr ""
-"Mag-log in sa iyong pixiv account para makakuha ng personalized na feed at "
-"ang kakayahang mag-like at mag-bookmark ng mga post. Upang gawin ito, dapat "
-"mong makuha ang iyong pixiv PHPSESSID cookie. Tingnan ang gabay <a "
-"href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' rel='noopener "
-"noreferer'>mula sa PixivFE</a> para sa mga detalye. Ang iyong token ay lokal "
-"na nakaimbak at hindi maiimbak sa server."
+"Para mag-log in, dapat mong makuha ang iyong pixiv PHPSESSID cookie. Tingnan "
+"ang gabay <a href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' "
+"rel='noopener noreferer'>mula sa PixivFE</a> para sa mga detalye. Ang iyong "
+"token ay lokal na nakaimbak at hindi maiimbak sa server."
 
 #: pyxiv/templates/settings/account.html:24
 msgid ""
 "For security purposes, cookies will expire 30 days after the time of logging "
 "in"
 msgstr ""
+"Para sa mga layuning pangseguridad, ang cookies ay mag-e-expire 30 araw "
+"pagkatapos ng oras ng pag-log in"
 
 #: pyxiv/templates/settings/account.html:26
 #: pyxiv/templates/settings/account.html:13
