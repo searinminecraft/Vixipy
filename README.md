@@ -66,6 +66,11 @@ pip install -r requirements.txt
 
 3. Open `run.sh` and optionally put in your pixiv account's token to the `PYXIV_TOKEN` variable (see guide from [PixivFE](https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/) for details). Using a pixiv account token allows for full access to most features without the user having to log in themselves. You can also configure other settings like port, workers, and Accept-Language header.
 
+> [!WARNING]
+> If you specify a pixiv token, you should be ready for situations like pixiv flagging your account and being terminated due to high activity in the server. It is recommended to set up rate limiting on your proxy solution if you can.
+>
+> There may also be a possibility of pixiv blocking your IP address, but there have been no reported cases of it happening according to other pixiv frontend maintainers and instance admins.
+
 4. Finally, execute `run.sh`
 
 Vixipy should now be running on http://localhost:8000
