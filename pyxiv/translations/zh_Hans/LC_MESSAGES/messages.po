@@ -112,6 +112,7 @@ msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses are "
 "not supported as a proxy server."
 msgstr ""
+"由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务器。"
 
 #: pyxiv/routes/settings.py:239 pyxiv/routes/settings.py:231
 msgid ""
@@ -663,45 +664,42 @@ msgstr "帐号设置"
 msgid ""
 "Log in to your pixiv account to access features that require an account, "
 "such as:"
-msgstr ""
+msgstr "登录 pixiv 帐号，即可使用以下需要帐号的功能："
 
 #: pyxiv/templates/settings/account.html:14
 msgid "Bookmarking/liking posts"
-msgstr ""
+msgstr "收藏、点赞作品"
 
 #: pyxiv/templates/settings/account.html:15
-#, fuzzy
 msgid "Following users"
-msgstr "关注的用户"
+msgstr "关注用户"
 
 #: pyxiv/templates/settings/account.html:16
 msgid "Personalized recommendations and landing page"
-msgstr ""
+msgstr "个性化推荐、主页"
 
 #: pyxiv/templates/settings/account.html:18
 msgid ""
 "Access information that requires an account such as artworks deemed "
 "\"sensitive\" by pixiv staff"
-msgstr ""
+msgstr "访问需要帐号才能查看的内容，如 pixiv 管理员标记为“敏感”的作品"
 
 #: pyxiv/templates/settings/account.html:22
-#, fuzzy
 msgid ""
 "To log in, you must get your pixiv PHPSESSID cookie. See the guide <a "
 "href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' rel='noopener "
 "noreferer'>from PixivFE</a> for details. Your token is stored locally and "
 "will not be stored on the server."
 msgstr ""
-"登录 pixiv 帐号可享受个性化推送，点赞及收藏作品。此功能需要获取 pixiv "
-"PHHPSESSID cookie。详见 <a href='https://pixivfe-docs.pages.dev/obtaining-"
-"pixivfe-token/' rel='noopener noreferer'>PixivFE 文档</a>。你的 token 仅存储"
-"在本地，不会存储在服务器。"
+"必须要获取 pixiv PHHPSESSID cookie 才能登录。详见 <a href='https://pixivfe-"
+"docs.pages.dev/obtaining-pixivfe-token/' rel='noopener noreferer'>PixivFE 文"
+"档</a>。你的 token 仅存储在本地，不会存储在服务器。"
 
 #: pyxiv/templates/settings/account.html:24
 msgid ""
 "For security purposes, cookies will expire 30 days after the time of logging "
 "in"
-msgstr ""
+msgstr "出于安全，cookie 将在登录 30 天后失效"
 
 #: pyxiv/templates/settings/account.html:26
 #: pyxiv/templates/settings/account.html:13
@@ -950,6 +948,7 @@ msgid ""
 "Due to limitations in Content-Securiy-Policy directives, IP Addresses are "
 "not supported as a proxy server."
 msgstr ""
+"由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务器。"
 
 #: pyxiv/templates/settings/account.html:11
 msgid ""
