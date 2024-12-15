@@ -321,9 +321,8 @@ msgid "Log in to post comments"
 msgstr "Mag-log in para mag-post ng komento"
 
 #: pyxiv/templates/comments.html:52
-#, fuzzy
 msgid "View replies"
-msgstr "Tignan lahat"
+msgstr "Tignan ang mga tugon"
 
 #: pyxiv/templates/comments.html:58 pyxiv/templates/comments.html:55
 msgid "No comments!"
@@ -467,7 +466,7 @@ msgstr "Bumalik"
 
 #: pyxiv/templates/replies.html:7
 msgid "Replies"
-msgstr ""
+msgstr "Mga tugon"
 
 #: pyxiv/templates/tag.html:19
 #, python-format
@@ -997,6 +996,8 @@ msgid ""
 "Due to limitations in Content-Securiy-Policy directives, IP Addresses are "
 "not supported as a proxy server."
 msgstr ""
+"Dahil sa mga limitasyon sa mga direktiba ng Content-Security-Policy, hindi "
+"sinusuportahan ang mga IP Address bilang proxy server."
 
 #: pyxiv/templates/settings/account.html:11
 msgid ""
