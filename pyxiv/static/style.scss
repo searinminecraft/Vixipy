@@ -159,6 +159,14 @@ pre {
   font-size: 14px;
 }
 
+code {
+  border-radius: 4px;
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 4px;
+}
+
 input[type=radio] {
   display: inline-block
 }
@@ -510,26 +518,30 @@ gap: 12px;
       flex-direction: column;
       row-gap: 12px;
 
+      video {
+        border-radius: 36px;
+      }
+
       a {
-          img, video {
+          img{
             width: 100%;
             border-radius: 12px;
           }
 
           &:first-child {
-            img, video {
+            img{
               border-radius: 36px 36px 12px 12px;
             }
           }
 
           &:last-child {
-            img, video {
+            img {
               border-radius: 12px 12px 36px 36px;
             }
           }
 
           &:only-child {
-            img, video {
+            img {
               border-radius: 36px;
             }
           }
@@ -539,6 +551,8 @@ gap: 12px;
 
   .illust-info {
     width: 40%;
+    position: sticky;
+    top: 0;
 
     h1 {
       margin: 24px 0;
@@ -742,7 +756,7 @@ gap: 12px;
 
 .settings {
   display: flex;
-  column-gap: 1em;
+  column-gap: 2em;
   
   .side {
     flex: 30%;
@@ -811,10 +825,9 @@ gap: 12px;
 
 .messages {
   width: 100%;
-  padding: 1em;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  row-gap: 8px;
   margin-bottom: 2em;
 
   .message {
