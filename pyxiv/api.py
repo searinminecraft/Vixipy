@@ -172,6 +172,16 @@ def getArtworkComments(_id: int, offset: int = 0, limit: int = 100):
     )
 
 
+def getArtworkReplies(comment_id: int, page: int = 1):
+    """
+    Get Artwork Replies
+    """
+
+    return pixivReq(
+        f"/ajax/illusts/comments/replies?comment_id={comment_id}&page={page}"
+    )
+
+
 def getDiscovery(mode: str = "all", limit: int = 30):
     """
     Get the artworks on discovery

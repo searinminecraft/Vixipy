@@ -13,7 +13,7 @@ from flask_babel import _
 from ..api import PixivError
 from ..core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
 from ..core.user import getUser
-from ..core.comments import getArtworkComments
+from ..core.comments import getArtworkComments, getArtworkReplies
 from ..classes import ArtworkDetailsPage
 
 
@@ -54,3 +54,10 @@ def artworkComments(_id: int):
     return render_template(
         "comments.html", comments=data, illustId=_id, authorId=artworkData.authorId
     )
+
+
+@artworks.route("/<int:_id>/comments/replies/<int:commentId>")
+def artworkReplies(_id: int, commentId: int):
+
+    data = getArtworkReplies(commentId)
+    return render_template("replies.html", comments=data, illustId=_id, commentId=commentId)

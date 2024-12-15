@@ -1,0 +1,24 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+
+<a href="/artworks/{{ illustId }}/comments#commentid-{{ commentId }}">&lt; {{ _("Back") }}</a>
+
+<h1>{{ _("Replies") }}</h1>
+<div class="comments">
+	{% for comment in comments %}
+	<div class="comment">
+		<a href="/users/{{ comment.authorId }}" alt="{{ comment.username }}"><img class="author-profile-pic" src="{{ comment.img }}" loading="lazy"></a>
+		<div class="comment-main">
+			<span class="author-name"><a href="/users/{{ comment.authorId }}">{{ comment.username }}</a></span>
+			<small>{{ comment.commentDate }}</small>
+			<p>{{ comment.comment | safe }}</p>
+			{% if comment.stampId %}
+			<img class="stamp" loading="lazy" src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{ comment.stampId }}_s.jpg">
+			{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
+

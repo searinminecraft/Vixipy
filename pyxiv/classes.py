@@ -106,7 +106,7 @@ class Tag:
         )
 
 
-class Comment:
+class PartialComment:
     """
     Represents a comment.
 
@@ -119,7 +119,6 @@ class Comment:
         self.authorId = int(data["userId"])
         self.username = data["userName"]
         self.img = makeProxy(data["img"])
-        self.isDeletedUser = data["isDeletedUser"]
         comment = escape(data["comment"])
         self.comment = str(comment)
         self.stampId = int(data["stampId"]) if data["stampId"] else None
@@ -129,7 +128,21 @@ class Comment:
         )
         self.commentUserId = int(data["commentUserId"])
         self.editable = data["editable"]
-        self.hasReplies = data["hasReplies"]
+
+
+class Comment(PartialComment):
+    def __init__(self, data):
+        super().__init__(data)
+
+        self.isDeletedUser: bool = data["isDeletedUser"]
+        self.hasReplies: bool = data["hasReplies"]
+
+
+class CommentReply(PartialComment):
+    def __init__(self, data):
+        super().__init__(data)
+
+        self.commentRootId: int = int(data["commentRootId"]) if data["commentRootId"] else None
 
 
 class TagInfo:

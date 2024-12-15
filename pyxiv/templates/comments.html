@@ -39,7 +39,7 @@
 <div class="comments">
 	{% if commentCount > 0 %}
 	{% for comment in comments %}
-	<div class="comment">
+  <div class="comment" id="commentid-{{ comment._id }}">
 		<a href="/users/{{ comment.authorId }}" alt="{{ comment.username }}"><img class="author-profile-pic" src="{{ comment.img }}" loading="lazy"></a>
 		<div class="comment-main">
 			<span class="author-name"><a href="/users/{{ comment.authorId }}">{{ comment.username }}</a></span>
@@ -48,6 +48,9 @@
 			{% if comment.stampId %}
 			<img class="stamp" loading="lazy" src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{ comment.stampId }}_s.jpg">
 			{% endif %}
+      {% if comment.hasReplies %}
+      <small><a href="/artworks/{{ illustId }}/comments/replies/{{ comment._id }}">{{ _("View replies") }}</a></small>
+      {% endif %}
 		</div>
 	</div>
 	{% endfor %}

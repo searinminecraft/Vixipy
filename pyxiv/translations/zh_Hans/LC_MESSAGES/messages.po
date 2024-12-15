@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-13 08:45+0800\n"
+"POT-Creation-Date: 2024-12-15 14:31+0800\n"
 "PO-Revision-Date: 2024-12-02 13:07+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -246,23 +246,28 @@ msgstr "以 %(user)s 评论..."
 msgid "Log in to post comments"
 msgstr "登录后评论"
 
-#: pyxiv/templates/comments.html:55
+#: pyxiv/templates/comments.html:52
+#, fuzzy
+msgid "View replies"
+msgstr "查看所有"
+
+#: pyxiv/templates/comments.html:58
 msgid "No comments!"
 msgstr "无评论！"
 
-#: pyxiv/templates/comments.html:66
+#: pyxiv/templates/comments.html:69
 msgid "Insert emoji/stamp"
 msgstr "插入绘文字或表情贴图"
 
-#: pyxiv/templates/comments.html:72
+#: pyxiv/templates/comments.html:75
 msgid "Emojis"
 msgstr "绘文字"
 
-#: pyxiv/templates/comments.html:80
+#: pyxiv/templates/comments.html:83
 msgid "Stamps"
 msgstr "表情贴图"
 
-#: pyxiv/templates/comments.html:94
+#: pyxiv/templates/comments.html:97
 msgid ""
 "If you know a particular stamp ID, you can put it here. This allows you "
 "to send stamps that are usually only available for a limited time. <span "
@@ -272,7 +277,7 @@ msgstr ""
 "如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴图。<span style='color: "
 "#f38ba8;'><b>警告：</b>这可能导致 pixiv 帐号被封，使用后果自负。</span>"
 
-#: pyxiv/templates/comments.html:97
+#: pyxiv/templates/comments.html:100
 msgid "Send"
 msgstr "发送"
 
@@ -384,6 +389,14 @@ msgstr "通知"
 #: pyxiv/templates/notifications.html:49
 msgid "No notifications"
 msgstr "无通知"
+
+#: pyxiv/templates/replies.html:5 pyxiv/templates/user/follows.html:12
+msgid "Back"
+msgstr "返回"
+
+#: pyxiv/templates/replies.html:7
+msgid "Replies"
+msgstr ""
 
 #: pyxiv/templates/tag.html:19
 #, python-format
@@ -799,10 +812,6 @@ msgstr "关注着"
 msgid "%(user)s's %(sect)s"
 msgstr "%(user)s 的 %(sect)s"
 
-#: pyxiv/templates/user/follows.html:12
-msgid "Back"
-msgstr "返回"
-
 #: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:35
 msgid "Following"
 msgstr "关注"
@@ -865,4 +874,7 @@ msgstr "%(user)s 的漫画"
 #~ "Securiy-Policy directives, IP Addresses are"
 #~ " not supported as a proxy server."
 #~ msgstr ""
+
+#~ msgid "&lt; Back"
+#~ msgstr "返回"
 
