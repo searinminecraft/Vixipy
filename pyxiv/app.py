@@ -7,6 +7,7 @@ from flask import (
     request,
     redirect,
     flash,
+    abort,
 )
 from flask_babel import Babel, _
 from urllib.parse import urlparse
@@ -157,7 +158,60 @@ def create_app():
 
     @app.errorhandler(404)
     def notFound(e):
-        return "404 not found", 404
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("Not found"),
+                errordesc=_("The requested resource could not be found."),
+            ),
+            404,
+        )
+
+    @app.errorhandler(400)
+    def badRequest(e):
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("Bad request"),
+                errordesc=_("The server could not satisfy the request."),
+            ),
+            400,
+        )
+
+    @app.errorhandler(403)
+    def handleForbidden(e):
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("Forbidden"),
+                errordesc=_("You do not have permission to access this page."),
+            ),
+            403,
+        )
+
+    @app.errorhandler(401)
+    def handleUnauthorized(e):
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("Unauthorized"),
+                errordesc=_(
+                    "You are not authorized to access this page. You may need to <a href='/settings/account'>log in</a> first."
+                ),
+            ),
+            401,
+        )
+
+    @app.errorhandler(405)
+    def handleMethodNotAllowed(e):
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("Method Not Allowed"),
+                errordesc=_("This method is not allowed for this endpoint"),
+            ),
+            405,
+        )
 
     @app.errorhandler(Exception)
     def handleInternalError(e):
@@ -194,7 +248,7 @@ def create_app():
             g.isAuthorized = False
 
             if route in ("self",):
-                return render_template("unauthorized.html"), 401
+                abort(401)
 
         else:
             g.isAuthorized = True

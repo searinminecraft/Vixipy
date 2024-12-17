@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-17 17:47+0800\n"
+"POT-Creation-Date: 2024-12-17 19:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,49 +17,91 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:149
+#: pyxiv/app.py:150
 msgid "pixiv Error!"
 msgstr ""
 
-#: pyxiv/app.py:152
+#: pyxiv/app.py:153
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
 
-#: pyxiv/app.py:152
+#: pyxiv/app.py:153
 msgid "Unspecified error"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:29 pyxiv/routes/artworks.py:32
-#: pyxiv/routes/artworks.py:35 pyxiv/routes/artworks.py:38
+#: pyxiv/app.py:164
+msgid "Not found"
+msgstr ""
+
+#: pyxiv/app.py:165
+msgid "The requested resource could not be found."
+msgstr ""
+
+#: pyxiv/app.py:175
+msgid "Bad request"
+msgstr ""
+
+#: pyxiv/app.py:176
+msgid "The server could not satisfy the request."
+msgstr ""
+
+#: pyxiv/app.py:186
+msgid "Forbidden"
+msgstr ""
+
+#: pyxiv/app.py:187
+msgid "You do not have permission to access this page."
+msgstr ""
+
+#: pyxiv/app.py:197 pyxiv/templates/unauthorized.html:4
+msgid "Unauthorized"
+msgstr ""
+
+#: pyxiv/app.py:198
+msgid ""
+"You are not authorized to access this page. You may need to <a "
+"href='/settings/account'>log in</a> first."
+msgstr ""
+
+#: pyxiv/app.py:210
+msgid "Method Not Allowed"
+msgstr ""
+
+#: pyxiv/app.py:211
+msgid "This method is not allowed for this endpoint"
+msgstr ""
+
+#: pyxiv/routes/artworks.py:32 pyxiv/routes/artworks.py:44
+#: pyxiv/routes/artworks.py:56 pyxiv/routes/artworks.py:68
 msgid "You cannot access this illustration"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:29
+#: pyxiv/routes/artworks.py:33
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:32
+#: pyxiv/routes/artworks.py:45
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:35
+#: pyxiv/routes/artworks.py:57
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:38
+#: pyxiv/routes/artworks.py:69
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:56
+#: pyxiv/routes/artworks.py:92
 msgid "The creator turned off comments."
 msgstr ""
 
@@ -454,10 +496,6 @@ msgstr ""
 
 #: pyxiv/templates/tag.html:74
 msgid "Works"
-msgstr ""
-
-#: pyxiv/templates/unauthorized.html:4
-msgid "Unauthorized"
 msgstr ""
 
 #: pyxiv/templates/unauthorized.html:5
