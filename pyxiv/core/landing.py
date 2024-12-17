@@ -5,7 +5,7 @@ from ..classes import (
     LandingPageLoggedIn,
     RankingEntry,
     RecommendedUser,
-    PixivisionEntry
+    PixivisionEntry,
 )
 from ..core.user import getFollowingNew
 from ..utils.filtering import filterEntriesFromPreferences

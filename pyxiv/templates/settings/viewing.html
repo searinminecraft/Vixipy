@@ -24,6 +24,7 @@
 	{% set hideAIPref = (request.cookies.get('PyXivHideAI') == '1') %}
 	{% set hideR18Pref = (request.cookies.get('PyXivHideR18') == '1') %}
 	{% set hideR18GPref = (request.cookies.get('PyXivHideR18G') == '1')%}
+  {% set hideSensitivePref = (request.cookies.get('VixipyHideSensitive') == '1') %}
 
 	{% if not config["authless"] or (g.isAuthorized and config["authless"]) %}
 	<div class="toggle-switch">
@@ -38,6 +39,11 @@
 		<label for="hideR18G">{{ _("Hide ero-guro (R-18G) content") }}</label>
 		<input type="checkbox" name="hideR18G" id="hideR18G" {% if not g.userState.r18GEnabled%}disabled checked{% else %}{% if hideR18GPref %}checked{% endif %}{% endif %}>
 	</div>
+  <div class="toggle-switch">
+		<label for="hideSensitive">{{ _("Hide potentially sensitive content") }}</label>
+    <input type="checkbox" name="hideSensitive" id="hideSensitive" {% if hideSensitivePref %}checked{% endif %}>
+	</div>
+
 	{% else %}
 	<div class="toggle-switch">
 		<label for="hideAI">{{ _("Hide AI-generated works") }}</label>

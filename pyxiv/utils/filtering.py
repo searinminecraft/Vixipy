@@ -13,6 +13,13 @@ def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
             new.remove(entry)
             continue
 
+        if request.cookies.get("VixipyHideSensitive") == "1" and entry.isSensitive:
+            print(
+                "FILTER   | Delete", entry, "because isSensitive =", entry.isSensitive
+            )
+            new.remove(entry)
+            continue
+
         if request.cookies.get("PyXivHideR18") == "1" and entry.xRestrict == 1:
             print(
                 "FILTER   | Delete",

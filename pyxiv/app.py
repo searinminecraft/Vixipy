@@ -8,7 +8,7 @@ from flask import (
     redirect,
     flash,
 )
-from flask_babel import Babel
+from flask_babel import Babel, _
 from urllib.parse import urlparse
 import traceback
 
@@ -143,7 +143,16 @@ def create_app():
 
     @app.errorhandler(api.PixivError)
     def handlePxError(e):
-        resp = make_response(render_template("error.html", error=e, pixivError=True))
+        resp = make_response(
+            render_template(
+                "error.html",
+                errortitle=_("pixiv Error!"),
+                errordesc=_(
+                    "pixiv returned an error trying to request data: <code>%(error)s</code>",
+                    error=e if str(e) != "" else _("Unspecified error"),
+                ),
+            ),
+        )
         return resp, 500
 
     @app.errorhandler(404)

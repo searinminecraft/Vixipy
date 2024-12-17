@@ -23,13 +23,56 @@ artworks = Blueprint("artworks", __name__, url_prefix="/artworks")
 @artworks.route("/<int:_id>")
 def artworkGet(_id: int):
 
-    try:
-        artworkData = getArtwork(_id)
-    except Exception:
-        if not g.isAuthorized and current_app.config["authless"]:
-            return render_template("unauthorized.html"), 403
-        else:
-            raise
+    artworkData = getArtwork(_id)
+
+    if request.cookies.get("VixipyHideSensitive") == "1" and artworkData.isSensitive:
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("You cannot access this illustration"),
+                errordesc=_(
+                    'This illustration is potentially sensitive. To view it, turn off the "Hide potentially sensitive content" setting.'
+                ),
+            ),
+            400,
+        )
+
+    if request.cookies.get("PyXivHideAI") == "1" and artworkData.isAI:
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("You cannot access this illustration"),
+                errordesc=_(
+                    'This illustration is AI generated. To view it, turn off the "Hide AI generated works" setting.'
+                ),
+            ),
+            400,
+        )
+
+    if request.cookies.get("PyXivHideR18") == "1" and artworkData.xRestrict >= 1:
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("You cannot access this illustration"),
+                errordesc=_(
+                    'This illustration is rated as R-18. To view it, turn off the "Hide explicit content (R-18)" setting.'
+                ),
+            ),
+            400,
+        )
+
+    if request.cookies.get("PyXivHideR18G") == "1" and artworkData.xRestrict == 2:
+        return (
+            render_template(
+                "error.html",
+                errortitle=_("You cannot access this illustration"),
+                errordesc=_(
+                    'This illustration is rated as R-18G. To view it, turn off the "Hide ero-guro (R-18G) content" setting.'
+                ),
+            ),
+            400,
+        )
+
     pageData = getArtworkPages(_id)
     userData = getUser(artworkData.authorId)
     relatedData = getRelatedArtworks(_id)
@@ -60,4 +103,6 @@ def artworkComments(_id: int):
 def artworkReplies(_id: int, commentId: int):
 
     data = getArtworkReplies(commentId)
-    return render_template("replies.html", comments=data, illustId=_id, commentId=commentId)
+    return render_template(
+        "replies.html", comments=data, illustId=_id, commentId=commentId
+    )

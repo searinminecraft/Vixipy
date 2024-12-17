@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-15 14:31+0800\n"
+"POT-Creation-Date: 2024-12-17 17:47+0800\n"
 "PO-Revision-Date: 2024-12-02 13:07+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -20,7 +20,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/routes/artworks.py:49
+#: pyxiv/app.py:149
+msgid "pixiv Error!"
+msgstr "pixiv 错误！"
+
+#: pyxiv/app.py:152
+#, python-format
+msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
+msgstr ""
+
+#: pyxiv/app.py:152
+#, fuzzy
+msgid "Unspecified error"
+msgstr "pixiv 错误！"
+
+#: pyxiv/routes/artworks.py:29 pyxiv/routes/artworks.py:32
+#: pyxiv/routes/artworks.py:35 pyxiv/routes/artworks.py:38
+msgid "You cannot access this illustration"
+msgstr ""
+
+#: pyxiv/routes/artworks.py:29
+msgid ""
+"This illustration is potentially sensitive. To view it, turn off the "
+"\"Hide potentially sensitive content\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:32
+msgid ""
+"This illustration is AI generated. To view it, turn off the \"Hide AI "
+"generated works\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:35
+msgid ""
+"This illustration is rated as R-18. To view it, turn off the \"Hide "
+"explicit content (R-18)\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:38
+msgid ""
+"This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
+"guro (R-18G) content\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:56
 msgid "The creator turned off comments."
 msgstr "作者关闭了评论。"
 
@@ -92,12 +135,12 @@ msgstr "代理服务器检查超时，服务器可能无法连接。"
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:313 pyxiv/routes/settings.py:332
+#: pyxiv/routes/settings.py:318 pyxiv/routes/settings.py:337
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "语言无效：%(code)s"
 
-#: pyxiv/routes/settings.py:324 pyxiv/routes/settings.py:342
+#: pyxiv/routes/settings.py:329 pyxiv/routes/settings.py:347
 msgid "Successfully set language."
 msgstr "成功设置语言。"
 
@@ -157,17 +200,31 @@ msgstr "成功取消关注用户"
 msgid "Not authorized."
 msgstr "未验证。"
 
-#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:22
+#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:26
 msgid "Internal Server Error"
 msgstr "内部服务器错误"
 
-#: pyxiv/templates/500.html:23
+#: pyxiv/templates/500.html:27
 msgid ""
 "If this issue happens again, <a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
 msgstr ""
 "如果仍然有此问题，<a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">请报告这个问题</a>。"
+
+#: pyxiv/templates/500.html:28 pyxiv/templates/error.html:19
+msgid "Back to home"
+msgstr ""
+
+#: pyxiv/templates/500.html:32
+msgid "Error details"
+msgstr ""
+
+#: pyxiv/templates/500.html:34
+msgid ""
+"If you are going to report a bug, include the traceback if possible. You "
+"may redact information such as your home folder."
+msgstr ""
 
 #: pyxiv/templates/artwork.html:21
 #, python-format
@@ -299,24 +356,13 @@ msgstr "重载"
 msgid "Error"
 msgstr "错误"
 
-#: pyxiv/templates/error.html:9
-msgid "pixiv Error!"
-msgstr "pixiv 错误！"
-
-#: pyxiv/templates/error.html:10
-#, python-format
-msgid ""
-"An error occurred trying to complete a request to pixiv. Please contact "
-"the instance administrator. (%(error)s)"
-msgstr "向 pixiv 发送请求时出错。请联系实例管理员。（%(error)s）"
-
 #: pyxiv/templates/error.html:12
 msgid "Error!"
 msgstr "错误！"
 
-#: pyxiv/templates/error.html:13
-msgid "Sorry, this isn't supposed to happen. Have Snek instead."
-msgstr "抱歉，这是意料之外的情况。Snek 应该能解决。"
+#: pyxiv/templates/error.html:17
+msgid "An unknown error has occurred. Please try again later."
+msgstr ""
 
 #: pyxiv/templates/index.html:12
 msgid "Latest from following"
@@ -773,24 +819,28 @@ msgid ""
 "account."
 msgstr "部分设置被实例的 pixiv 帐号设置所覆盖。"
 
-#: pyxiv/templates/settings/viewing.html:30
-#: pyxiv/templates/settings/viewing.html:43
+#: pyxiv/templates/settings/viewing.html:31
+#: pyxiv/templates/settings/viewing.html:49
 msgid "Hide AI-generated works"
 msgstr "隐藏 AI 生成作品"
 
-#: pyxiv/templates/settings/viewing.html:34
+#: pyxiv/templates/settings/viewing.html:35
 msgid "Hide explicit content (R-18)"
 msgstr "隐藏浏览限制作品（R-18）"
 
-#: pyxiv/templates/settings/viewing.html:38
+#: pyxiv/templates/settings/viewing.html:39
 msgid "Hide ero-guro (R-18G) content"
 msgstr "隐藏猎奇向作品（R-18G）"
 
-#: pyxiv/templates/settings/viewing.html:49
+#: pyxiv/templates/settings/viewing.html:43
+msgid "Hide potentially sensitive content"
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:55
 msgid "Hide ads (Vixipy has no ads)"
 msgstr "隐藏广告（Vixipy 没有广告）"
 
-#: pyxiv/templates/settings/viewing.html:53
+#: pyxiv/templates/settings/viewing.html:59
 msgid "Save preferences"
 msgstr "保存偏好"
 
@@ -877,4 +927,13 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "&lt; Back"
 #~ msgstr "返回"
+
+#~ msgid ""
+#~ "An error occurred trying to complete "
+#~ "a request to pixiv. Please contact "
+#~ "the instance administrator. (%(error)s)"
+#~ msgstr "向 pixiv 发送请求时出错。请联系实例管理员。（%(error)s）"
+
+#~ msgid "Sorry, this isn't supposed to happen. Have Snek instead."
+#~ msgstr "抱歉，这是意料之外的情况。Snek 应该能解决。"
 

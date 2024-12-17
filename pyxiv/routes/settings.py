@@ -284,6 +284,7 @@ def setPreferences():
     resp.delete_cookie("PyXivHideAI")
     resp.delete_cookie("PyXivHideR18")
     resp.delete_cookie("PyXivHideR18G")
+    resp.delete_cookie("VixipyHideSensitive")
 
     for pref in request.form:
         match pref:
@@ -298,6 +299,10 @@ def setPreferences():
             case "hideR18G":
                 resp.set_cookie(
                     "PyXivHideR18G", "1", max_age=COOKIE_MAXAGE, httponly=True
+                )
+            case "hideSensitive":
+                resp.set_cookie(
+                    "VixipyHideSensitive", "1", max_age=COOKIE_MAXAGE, httponly=True
                 )
             case _:
                 pass

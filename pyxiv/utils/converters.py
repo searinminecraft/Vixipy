@@ -3,6 +3,9 @@ from flask import g
 
 def makeProxy(url: str) -> str:
 
+    if not url:
+        return None
+
     if (g.userProxyServer or g.userProxyServer != "") and (
         url.split("/")[2] in "i.pximg.net"
     ):

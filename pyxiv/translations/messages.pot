@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-15 14:31+0800\n"
+"POT-Creation-Date: 2024-12-17 17:47+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/routes/artworks.py:49
+#: pyxiv/app.py:149
+msgid "pixiv Error!"
+msgstr ""
+
+#: pyxiv/app.py:152
+#, python-format
+msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
+msgstr ""
+
+#: pyxiv/app.py:152
+msgid "Unspecified error"
+msgstr ""
+
+#: pyxiv/routes/artworks.py:29 pyxiv/routes/artworks.py:32
+#: pyxiv/routes/artworks.py:35 pyxiv/routes/artworks.py:38
+msgid "You cannot access this illustration"
+msgstr ""
+
+#: pyxiv/routes/artworks.py:29
+msgid ""
+"This illustration is potentially sensitive. To view it, turn off the "
+"\"Hide potentially sensitive content\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:32
+msgid ""
+"This illustration is AI generated. To view it, turn off the \"Hide AI "
+"generated works\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:35
+msgid ""
+"This illustration is rated as R-18. To view it, turn off the \"Hide "
+"explicit content (R-18)\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:38
+msgid ""
+"This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
+"guro (R-18G) content\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:56
 msgid "The creator turned off comments."
 msgstr ""
 
@@ -89,12 +131,12 @@ msgstr ""
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:313 pyxiv/routes/settings.py:332
+#: pyxiv/routes/settings.py:318 pyxiv/routes/settings.py:337
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:324 pyxiv/routes/settings.py:342
+#: pyxiv/routes/settings.py:329 pyxiv/routes/settings.py:347
 msgid "Successfully set language."
 msgstr ""
 
@@ -154,14 +196,28 @@ msgstr ""
 msgid "Not authorized."
 msgstr ""
 
-#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:22
+#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:26
 msgid "Internal Server Error"
 msgstr ""
 
-#: pyxiv/templates/500.html:23
+#: pyxiv/templates/500.html:27
 msgid ""
 "If this issue happens again, <a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
+msgstr ""
+
+#: pyxiv/templates/500.html:28 pyxiv/templates/error.html:19
+msgid "Back to home"
+msgstr ""
+
+#: pyxiv/templates/500.html:32
+msgid "Error details"
+msgstr ""
+
+#: pyxiv/templates/500.html:34
+msgid ""
+"If you are going to report a bug, include the traceback if possible. You "
+"may redact information such as your home folder."
 msgstr ""
 
 #: pyxiv/templates/artwork.html:21
@@ -289,23 +345,12 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: pyxiv/templates/error.html:9
-msgid "pixiv Error!"
-msgstr ""
-
-#: pyxiv/templates/error.html:10
-#, python-format
-msgid ""
-"An error occurred trying to complete a request to pixiv. Please contact "
-"the instance administrator. (%(error)s)"
-msgstr ""
-
 #: pyxiv/templates/error.html:12
 msgid "Error!"
 msgstr ""
 
-#: pyxiv/templates/error.html:13
-msgid "Sorry, this isn't supposed to happen. Have Snek instead."
+#: pyxiv/templates/error.html:17
+msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
 #: pyxiv/templates/index.html:12
@@ -744,24 +789,28 @@ msgid ""
 "account."
 msgstr ""
 
-#: pyxiv/templates/settings/viewing.html:30
-#: pyxiv/templates/settings/viewing.html:43
+#: pyxiv/templates/settings/viewing.html:31
+#: pyxiv/templates/settings/viewing.html:49
 msgid "Hide AI-generated works"
 msgstr ""
 
-#: pyxiv/templates/settings/viewing.html:34
+#: pyxiv/templates/settings/viewing.html:35
 msgid "Hide explicit content (R-18)"
 msgstr ""
 
-#: pyxiv/templates/settings/viewing.html:38
+#: pyxiv/templates/settings/viewing.html:39
 msgid "Hide ero-guro (R-18G) content"
 msgstr ""
 
-#: pyxiv/templates/settings/viewing.html:49
+#: pyxiv/templates/settings/viewing.html:43
+msgid "Hide potentially sensitive content"
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:55
 msgid "Hide ads (Vixipy has no ads)"
 msgstr ""
 
-#: pyxiv/templates/settings/viewing.html:53
+#: pyxiv/templates/settings/viewing.html:59
 msgid "Save preferences"
 msgstr ""
 

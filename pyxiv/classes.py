@@ -142,7 +142,9 @@ class CommentReply(PartialComment):
     def __init__(self, data):
         super().__init__(data)
 
-        self.commentRootId: int = int(data["commentRootId"]) if data["commentRootId"] else None
+        self.commentRootId: int = (
+            int(data["commentRootId"]) if data["commentRootId"] else None
+        )
 
 
 class TagInfo:
@@ -251,6 +253,8 @@ class PartialArtwork:
         self.pageCount: int = data["pageCount"]
         self.authorName: str = data["userName"]
         self.authorId: int = data["userId"]
+        self.sl: int = int(data["sl"])
+        self.isSensitive: int = self.sl >= 4
         self.createDate: datetime.datetime = (
             datetime.fromisoformat(data["createDate"])
             if data.get("createDate")
@@ -296,7 +300,7 @@ class PartialArtwork:
                 return None
             case 1:
                 return "R-18"
-            case _:
+            case 2:
                 return "R-18G"
 
     @property
@@ -496,6 +500,7 @@ class RankingEntry(ArtworkEntry):
                 "pageCount": int(data["illust_page_count"]),
                 "profileImageUrl": data["profile_img"],
                 "description": "",
+                "sl": 0,
             }
         )
 
@@ -664,6 +669,7 @@ class ArtworkDetailsPage:
         self.user: User = user
         self.related: list[ArtworkEntry] = related
 
+
 class PixivisionEntry:
     def __init__(self, data):
         self.id: int = int(data["id"])
@@ -684,7 +690,7 @@ class LandingPageLoggedIn:
         recommendByTag: list[RecommendByTag],
         newestFromFollowing: list[ArtworkEntry],
         recommendedUsers: list[RecommendedUser],
-        pixivisionArticles: list[PixivisionEntry]
+        pixivisionArticles: list[PixivisionEntry],
     ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-15 14:31+0800\n"
+"POT-Creation-Date: 2024-12-17 17:47+0800\n"
 "PO-Revision-Date: 2024-11-30 06:15+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
 "Language: fil\n"
@@ -20,7 +20,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/routes/artworks.py:49
+#: pyxiv/app.py:149
+msgid "pixiv Error!"
+msgstr "Error sa pixiv!"
+
+#: pyxiv/app.py:152
+#, python-format
+msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
+msgstr ""
+
+#: pyxiv/app.py:152
+#, fuzzy
+msgid "Unspecified error"
+msgstr "Error sa pixiv!"
+
+#: pyxiv/routes/artworks.py:29 pyxiv/routes/artworks.py:32
+#: pyxiv/routes/artworks.py:35 pyxiv/routes/artworks.py:38
+msgid "You cannot access this illustration"
+msgstr ""
+
+#: pyxiv/routes/artworks.py:29
+msgid ""
+"This illustration is potentially sensitive. To view it, turn off the "
+"\"Hide potentially sensitive content\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:32
+msgid ""
+"This illustration is AI generated. To view it, turn off the \"Hide AI "
+"generated works\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:35
+msgid ""
+"This illustration is rated as R-18. To view it, turn off the \"Hide "
+"explicit content (R-18)\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:38
+msgid ""
+"This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
+"guro (R-18G) content\" setting."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:56
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
@@ -99,12 +142,12 @@ msgstr ""
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
 
-#: pyxiv/routes/settings.py:313 pyxiv/routes/settings.py:332
+#: pyxiv/routes/settings.py:318 pyxiv/routes/settings.py:337
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "Hindi wastong wika: %(code)s"
 
-#: pyxiv/routes/settings.py:324 pyxiv/routes/settings.py:342
+#: pyxiv/routes/settings.py:329 pyxiv/routes/settings.py:347
 msgid "Successfully set language."
 msgstr "Matagumpay na natakda ang wika."
 
@@ -164,11 +207,11 @@ msgstr "Matagumpay na na-unfollow ang user"
 msgid "Not authorized."
 msgstr "Hindi awtorisado."
 
-#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:22
+#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:26
 msgid "Internal Server Error"
 msgstr "Panloob na Error sa Server"
 
-#: pyxiv/templates/500.html:23
+#: pyxiv/templates/500.html:27
 msgid ""
 "If this issue happens again, <a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
@@ -176,6 +219,20 @@ msgstr ""
 "Kung mangyari ang isyu na ito ulit, <a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">maghain ng "
 "isyu</a>."
+
+#: pyxiv/templates/500.html:28 pyxiv/templates/error.html:19
+msgid "Back to home"
+msgstr ""
+
+#: pyxiv/templates/500.html:32
+msgid "Error details"
+msgstr ""
+
+#: pyxiv/templates/500.html:34
+msgid ""
+"If you are going to report a bug, include the traceback if possible. You "
+"may redact information such as your home folder."
+msgstr ""
 
 #: pyxiv/templates/artwork.html:21
 #, python-format
@@ -314,26 +371,13 @@ msgstr "I-reload"
 msgid "Error"
 msgstr "Error"
 
-#: pyxiv/templates/error.html:9
-msgid "pixiv Error!"
-msgstr "Error sa pixiv!"
-
-#: pyxiv/templates/error.html:10
-#, python-format
-msgid ""
-"An error occurred trying to complete a request to pixiv. Please contact "
-"the instance administrator. (%(error)s)"
-msgstr ""
-"May nangyaring error habang kumukumpleto ng hiling sa pixiv. Mangyaring "
-"makipag-ugnayan sa tagapangasiwa ng instansya. (%(error)s)"
-
 #: pyxiv/templates/error.html:12
 msgid "Error!"
 msgstr "Error!"
 
-#: pyxiv/templates/error.html:13
-msgid "Sorry, this isn't supposed to happen. Have Snek instead."
-msgstr "Paumanhin, hindi ito dapat mangyari. Ito nalang si Snek sa halip."
+#: pyxiv/templates/error.html:17
+msgid "An unknown error has occurred. Please try again later."
+msgstr ""
 
 #: pyxiv/templates/index.html:12
 msgid "Latest from following"
@@ -835,24 +879,28 @@ msgstr ""
 "Ang ilan sa mga setting na ito ay ipinapatupad ng nauugnay na pixiv "
 "account ng instansya."
 
-#: pyxiv/templates/settings/viewing.html:30
-#: pyxiv/templates/settings/viewing.html:43
+#: pyxiv/templates/settings/viewing.html:31
+#: pyxiv/templates/settings/viewing.html:49
 msgid "Hide AI-generated works"
 msgstr "Itago ang mga AI-generated na gawa"
 
-#: pyxiv/templates/settings/viewing.html:34
+#: pyxiv/templates/settings/viewing.html:35
 msgid "Hide explicit content (R-18)"
 msgstr "Itago ang tahasang nilalaman (R-18)"
 
-#: pyxiv/templates/settings/viewing.html:38
+#: pyxiv/templates/settings/viewing.html:39
 msgid "Hide ero-guro (R-18G) content"
 msgstr "Itago ang mga ero-guro (R-18G) na nilalaman"
 
-#: pyxiv/templates/settings/viewing.html:49
+#: pyxiv/templates/settings/viewing.html:43
+msgid "Hide potentially sensitive content"
+msgstr ""
+
+#: pyxiv/templates/settings/viewing.html:55
 msgid "Hide ads (Vixipy has no ads)"
 msgstr "Itago ang mga ad (Walang mga ad ang Vixipy)"
 
-#: pyxiv/templates/settings/viewing.html:53
+#: pyxiv/templates/settings/viewing.html:59
 msgid "Save preferences"
 msgstr "I-save ang mga kagustuhan"
 
@@ -946,4 +994,17 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "&lt; Back"
 #~ msgstr "Bumalik"
+
+#~ msgid ""
+#~ "An error occurred trying to complete "
+#~ "a request to pixiv. Please contact "
+#~ "the instance administrator. (%(error)s)"
+#~ msgstr ""
+#~ "May nangyaring error habang kumukumpleto "
+#~ "ng hiling sa pixiv. Mangyaring "
+#~ "makipag-ugnayan sa tagapangasiwa ng "
+#~ "instansya. (%(error)s)"
+
+#~ msgid "Sorry, this isn't supposed to happen. Have Snek instead."
+#~ msgstr "Paumanhin, hindi ito dapat mangyari. Ito nalang si Snek sa halip."
 
