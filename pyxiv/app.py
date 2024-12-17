@@ -234,7 +234,10 @@ def create_app():
             return
 
         if request.path.split("/")[1] == "en":
-            return redirect(request.path.replace("/en", ""), code=308)
+            p = request.path.replace("/en", "")
+            if p == "":
+                p = "/"
+            return redirect(p, code=308)
 
         g.version = "1.9"
         g.instanceName = cfg.PxInstanceName

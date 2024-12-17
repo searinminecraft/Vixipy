@@ -1,5 +1,6 @@
 from flask import (
     Blueprint,
+    abort,
     current_app,
     flash,
     g,
@@ -155,7 +156,7 @@ def userBookmarks(_id: int):
 
     if current_app.config["authless"]:
         if not g.isAuthorized:
-            return render_template("unauthorized.html"), 403
+            abort(401)
 
     user = getUser(_id)
     data = getUserBookmarks(_id, offset=(50 * page) - 50)
@@ -183,6 +184,11 @@ def following(_id: int):
         flash(_("Invalid user"), "error")
         return redirect("/users/0")
 
+    if current_app.config["authless"]:
+        if not g.isAuthorized:
+            abort(401)
+
+
     currPage = int(request.args.get("p", 1))
 
     total, data = getUserFollowing(_id)
@@ -208,6 +214,11 @@ def following(_id: int):
 
 @users.route("/<int:_id>/followers")
 def followers(_id: int):
+
+    if current_app.config["authless"]:
+        if not g.isAuthorized:
+            abort(401)
+
 
     if _id == 0:
         flash(_("Invalid user"), "error")
