@@ -1,4 +1,4 @@
-from flask import g, request
+from flask import g, request, abort
 import requests
 from . import cfg
 import time
@@ -46,6 +46,9 @@ def pixivReq(endpoint, additionalHeaders: dict = {}, useMobileAgent=False):
 
     if req.status_code == 429:
         raise PixivError("Rate limited")
+
+    if req.status_code == 404:
+        abort(404)
 
     try:
         resp = req.json()
