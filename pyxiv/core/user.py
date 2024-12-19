@@ -8,6 +8,7 @@ from ..classes import (
     Notification,
     UserFollowData,
 )
+from ..utils.filtering import filterEntriesFromPreferences
 
 
 def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
@@ -17,7 +18,7 @@ def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
 
     data = api.getLatestFromFollowing(mode, page)["body"]
 
-    return [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]
+    return filterEntriesFromPreferences([ArtworkEntry(x) for x in data["thumbnails"]["illust"]])
 
 
 def getUser(_id: int) -> User:
@@ -34,7 +35,9 @@ def getUserBookmarks(
     """Get a user's bookmarks"""
     data = api.getUserBookmarks(_id, tag, offset, limit)["body"]
 
-    return UserBookmarks(data)
+    bookmarks = UserBookmarks(data)
+    bookmarks.works = filterEntriesFromPreferences(bookmarks.works)
+    return bookmarks
 
 
 def getUserSettingsState():
@@ -53,14 +56,14 @@ def getUserTopIllusts(_id: int):
     illusts = [ArtworkEntry(data["illusts"][x]) for x in data["illusts"]]
     manga = [ArtworkEntry(data["manga"][x]) for x in data["manga"]]
 
-    return list(illusts + manga)
+    return filterEntriesFromPreferences(list(illusts + manga))
 
 
 def retrieveUserIllusts(_id: int, illustIds: list[int]) -> list[ArtworkEntry]:
 
     data = api.retrieveUserIllusts(_id, illustIds)["body"]["works"]
 
-    return [ArtworkEntry(data[x]) for x in data]
+    return filterEntriesFromPreferences([ArtworkEntry(data[x]) for x in data])
 
 
 def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):

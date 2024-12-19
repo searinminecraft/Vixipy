@@ -20,6 +20,10 @@ def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
             new.remove(entry)
             continue
 
+        if current_app.config["nor18"] and entry.xRestrict >= 1:
+            new.remove(entry)
+            continue
+
         if request.cookies.get("PyXivHideR18") == "1" and entry.xRestrict == 1:
             print(
                 "FILTER   | Delete",

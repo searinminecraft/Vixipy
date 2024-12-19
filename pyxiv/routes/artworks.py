@@ -1,5 +1,6 @@
 from flask import (
     Blueprint,
+    abort,
     current_app,
     g,
     render_template,
@@ -24,6 +25,11 @@ artworks = Blueprint("artworks", __name__, url_prefix="/artworks")
 def artworkGet(_id: int):
 
     artworkData = getArtwork(_id)
+
+    if current_app.config["nor18"] and artworkData.xRestrict >= 1:
+        # mimic pixiv's behavior, which is to vaguely return
+        # a 404 if the illust is R-18(G)
+        abort(404)
 
     if request.cookies.get("VixipyHideSensitive") == "1" and artworkData.isSensitive:
         return (
@@ -75,7 +81,7 @@ def artworkGet(_id: int):
 
     pageData = getArtworkPages(_id)
     userData = getUser(artworkData.authorId)
-    relatedData = getRelatedArtworks(_id)
+    relatedData = getRelatedArtworks(_id, 100)
 
     return render_template(
         "artwork.html",

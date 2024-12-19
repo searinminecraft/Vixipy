@@ -42,6 +42,7 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = cfg.PyXivSecret
     app.config["authless"] = cfg.AuthlessMode
+    app.config["nor18"] = cfg.NoR18
     app.config["languages"] = ["en", "fil", "zh_Hans"]
     app.config["proxy-servers"] = (
         "https://i.pixiv.re",

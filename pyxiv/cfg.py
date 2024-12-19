@@ -20,3 +20,4 @@ PyXivSecret = os.environ.get("PYXIV_SECRET", "ILoveVixipy")
 
 PxAcceptLang = os.environ.get("PYXIV_ACCEPTLANG", "en-US,en;q=0.5")
 PxInstanceName = os.environ.get("PYXIV_INSTANCENAME", "Vixipy")
+NoR18 = int(os.environ.get("PYXIV_NOR18", 0)) == 1

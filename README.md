@@ -24,6 +24,7 @@ A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 * View and post comments/stamps
 * View notifications
 * Follow and unfollow users
+* Instance administrator can force NSFW off regardless of account settings
 
 # Planned features
 * Tag search control
