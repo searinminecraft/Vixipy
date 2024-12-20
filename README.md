@@ -35,23 +35,56 @@ A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 <details>
 <summary>Show screenshots</summary>
 
+## Landing
 ![](/screenshots/landing.png)
 
+## Tag Search
+![](/screenshots/tag.png)
+
+## Illustration
 ![](/screenshots/illust.png)
 
+## Profile
 ![](/screenshots/user_profile.png)
 
+## Following Users
+![](/screenshots/following.png)
+
+## Notifications
 ![](/screenshots/notifications.png)
 
+## Discover
+![](/screenshots/discover.png)
+
+## Comments
 ![](/screenshots/comments.png)
 
+## Replies
+![](/screenshots/reply.png)
+
+## Emoji/Stamp Picker
 ![](/screenshots/emoji.png)
 
+## Bookmarks
 ![](/screenshots/bookmarks.png)
 
+## Settings
 ![](/screenshots/settings.png)
 
+## i18n Demo
+![](/screenshots/i18n.png)
+
+## pixivision
+![](/screenshots/pixivision.png)
+
+## pixivision Article
+![](/screenshots/pixivision_a.png)
+
+*All illustrations are owned by the respective authors. No copyright infringement is intended and is only for fair use and demonstration purposes only. If you want your illustrations here taken down, send mail to [communication@coolesding.unbox.at](mailto:communication@coolesding.unbox.at)*
+
 </details>
+
+<br>
 
 # Install instructions
 1. Create a virtual environment, then activate
