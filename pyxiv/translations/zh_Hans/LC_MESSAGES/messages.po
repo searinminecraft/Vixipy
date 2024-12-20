@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-17 19:37+0800\n"
-"PO-Revision-Date: 2024-12-19 05:36+0000\n"
+"PO-Revision-Date: 2024-12-20 03:24+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://translate.codeberg."
 "org/projects/vixipy/user-interface/zh_Hans/>\n"
@@ -27,7 +27,7 @@ msgstr "pixiv 错误！"
 #: pyxiv/app.py:153
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
-msgstr ""
+msgstr "请求数据时，pixiv 返回错误：<code>%(error)s</code>"
 
 #: pyxiv/app.py:153
 msgid "Unspecified error"
@@ -39,23 +39,23 @@ msgstr "找不到页面"
 
 #: pyxiv/app.py:165
 msgid "The requested resource could not be found."
-msgstr ""
+msgstr "无法找到请求的资源。"
 
 #: pyxiv/app.py:175
 msgid "Bad request"
-msgstr ""
+msgstr "请求无效"
 
 #: pyxiv/app.py:176
 msgid "The server could not satisfy the request."
-msgstr ""
+msgstr "服务器无法满足该请求。"
 
 #: pyxiv/app.py:186
 msgid "Forbidden"
-msgstr ""
+msgstr "无权访问"
 
 #: pyxiv/app.py:187
 msgid "You do not have permission to access this page."
-msgstr ""
+msgstr "你没有权限访问该页面。"
 
 #: pyxiv/app.py:197 pyxiv/templates/unauthorized.html:4
 msgid "Unauthorized"
@@ -65,7 +65,7 @@ msgstr "未验证"
 msgid ""
 "You are not authorized to access this page. You may need to <a "
 "href='/settings/account'>log in</a> first."
-msgstr ""
+msgstr "你没有权限访问该页面。请先<a href='/settings/account'>登录</a>。"
 
 #: pyxiv/app.py:210
 msgid "Method Not Allowed"
@@ -73,12 +73,12 @@ msgstr "不允许该方法"
 
 #: pyxiv/app.py:211
 msgid "This method is not allowed for this endpoint"
-msgstr ""
+msgstr "该端点不允许此请求方法"
 
 #: pyxiv/routes/artworks.py:32 pyxiv/routes/artworks.py:44
 #: pyxiv/routes/artworks.py:56 pyxiv/routes/artworks.py:68
 msgid "You cannot access this illustration"
-msgstr ""
+msgstr "无法访问该插画"
 
 #: pyxiv/routes/artworks.py:33
 msgid ""
@@ -266,7 +266,7 @@ msgstr "错误详情"
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
-msgstr ""
+msgstr "报告 bug 时，若有 traceback，则也请附上。你可以删去诸如 home 目录等信息。"
 
 #: pyxiv/templates/artwork.html:21
 #, python-format
