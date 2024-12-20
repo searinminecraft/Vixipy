@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-17 19:37+0800\n"
-"PO-Revision-Date: 2024-12-02 13:07+0000\n"
+"PO-Revision-Date: 2024-12-20 03:24+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://translate.codeberg."
+"org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.8.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:150
@@ -27,36 +27,35 @@ msgstr "pixiv 错误！"
 #: pyxiv/app.py:153
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
-msgstr ""
+msgstr "请求数据时，pixiv 返回错误：<code>%(error)s</code>"
 
 #: pyxiv/app.py:153
-#, fuzzy
 msgid "Unspecified error"
-msgstr "pixiv 错误！"
+msgstr "未指定的错误"
 
 #: pyxiv/app.py:164
 msgid "Not found"
-msgstr ""
+msgstr "找不到页面"
 
 #: pyxiv/app.py:165
 msgid "The requested resource could not be found."
-msgstr ""
+msgstr "无法找到请求的资源。"
 
 #: pyxiv/app.py:175
 msgid "Bad request"
-msgstr ""
+msgstr "请求无效"
 
 #: pyxiv/app.py:176
 msgid "The server could not satisfy the request."
-msgstr ""
+msgstr "服务器无法满足该请求。"
 
 #: pyxiv/app.py:186
 msgid "Forbidden"
-msgstr ""
+msgstr "无权访问"
 
 #: pyxiv/app.py:187
 msgid "You do not have permission to access this page."
-msgstr ""
+msgstr "你没有权限访问该页面。"
 
 #: pyxiv/app.py:197 pyxiv/templates/unauthorized.html:4
 msgid "Unauthorized"
@@ -66,45 +65,45 @@ msgstr "未验证"
 msgid ""
 "You are not authorized to access this page. You may need to <a "
 "href='/settings/account'>log in</a> first."
-msgstr ""
+msgstr "你没有权限访问该页面。请先<a href='/settings/account'>登录</a>。"
 
 #: pyxiv/app.py:210
-#, fuzzy
 msgid "Method Not Allowed"
-msgstr "无法关注用户"
+msgstr "不允许该方法"
 
 #: pyxiv/app.py:211
 msgid "This method is not allowed for this endpoint"
-msgstr ""
+msgstr "该端点不允许此请求方法"
 
 #: pyxiv/routes/artworks.py:32 pyxiv/routes/artworks.py:44
 #: pyxiv/routes/artworks.py:56 pyxiv/routes/artworks.py:68
 msgid "You cannot access this illustration"
-msgstr ""
+msgstr "无法访问该插画"
 
 #: pyxiv/routes/artworks.py:33
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
-msgstr ""
+msgstr "该插画可能包含敏感内容，必须在设置中关闭“隐藏可能包含敏感内容的作品”才可查看"
+"。"
 
 #: pyxiv/routes/artworks.py:45
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
-msgstr ""
+msgstr "该插画为 AI 生成，必须在设置中关闭“隐藏 AI 生成作品”才可查看。"
 
 #: pyxiv/routes/artworks.py:57
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
-msgstr ""
+msgstr "该插画评级为 R-18，必须在设置中关闭“隐藏浏览限制作品（R-18）”才可查看。"
 
 #: pyxiv/routes/artworks.py:69
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
-msgstr ""
+msgstr "该插画评级为 R-18G，必须在设置中关闭“隐藏猎奇向作品（R-18G）”才可查看。"
 
 #: pyxiv/routes/artworks.py:92
 msgid "The creator turned off comments."
@@ -257,17 +256,17 @@ msgstr ""
 
 #: pyxiv/templates/500.html:28 pyxiv/templates/error.html:19
 msgid "Back to home"
-msgstr ""
+msgstr "返回主页"
 
 #: pyxiv/templates/500.html:32
 msgid "Error details"
-msgstr ""
+msgstr "错误详情"
 
 #: pyxiv/templates/500.html:34
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
-msgstr ""
+msgstr "报告 bug 时，若有 traceback，则也请附上。你可以删去诸如 home 目录等信息。"
 
 #: pyxiv/templates/artwork.html:21
 #, python-format
@@ -347,9 +346,8 @@ msgid "Log in to post comments"
 msgstr "登录后评论"
 
 #: pyxiv/templates/comments.html:52
-#, fuzzy
 msgid "View replies"
-msgstr "查看所有"
+msgstr "查看回复"
 
 #: pyxiv/templates/comments.html:58
 msgid "No comments!"
@@ -405,7 +403,7 @@ msgstr "错误！"
 
 #: pyxiv/templates/error.html:17
 msgid "An unknown error has occurred. Please try again later."
-msgstr ""
+msgstr "发生未知错误。请稍后再试。"
 
 #: pyxiv/templates/index.html:12
 msgid "Latest from following"
@@ -485,7 +483,7 @@ msgstr "返回"
 
 #: pyxiv/templates/replies.html:7
 msgid "Replies"
-msgstr ""
+msgstr "回复"
 
 #: pyxiv/templates/tag.html:19
 #, python-format
@@ -870,7 +868,7 @@ msgstr "隐藏猎奇向作品（R-18G）"
 
 #: pyxiv/templates/settings/viewing.html:43
 msgid "Hide potentially sensitive content"
-msgstr ""
+msgstr "隐藏可能包含敏感内容的作品"
 
 #: pyxiv/templates/settings/viewing.html:55
 msgid "Hide ads (Vixipy has no ads)"
@@ -993,4 +991,3 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "Click on the button below to securely log out"
 #~ msgstr "点击下方按钮安全退出"
-
