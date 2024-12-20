@@ -106,6 +106,14 @@ class Tag:
         )
 
 
+class SimpleTag:
+    def __init__(self, data):
+        self.tag: str = data["tag"]
+        self.tag_translation: str = (
+            data["tag_translation"] if data["tag_translation"] != "" else None
+        )
+
+
 class PartialComment:
     """
     Represents a comment.
@@ -582,6 +590,9 @@ class SearchResults:
 
             self.relatedTags.append(Tag(newTagData))
 
+    def __len__(self):
+        return self.total
+
 
 class UserSettingsState:
     def __init__(self, data):
@@ -620,6 +631,9 @@ class UserBookmarks:
         self.works: list[ArtworkEntry] = [ArtworkEntry(x) for x in data["works"]]
 
         self.total: int = data["total"]
+
+    def __len__(self):
+        return self.total
 
 
 class Notification:

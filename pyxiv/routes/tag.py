@@ -1,4 +1,13 @@
-from flask import Blueprint, g, redirect, render_template, request, url_for, current_app, abort
+from flask import (
+    Blueprint,
+    g,
+    redirect,
+    render_template,
+    request,
+    url_for,
+    current_app,
+    abort,
+)
 from ..core.search import searchArtwork, getTagInfo
 
 tag = Blueprint("tag", __name__, url_prefix="/tag")
@@ -8,7 +17,7 @@ tag = Blueprint("tag", __name__, url_prefix="/tag")
 def tagMain(name):
 
     args = request.args.copy()
-    
+
     if args.get("mode", "safe") == "r18" and current_app.config["nor18"]:
         abort(400)
 

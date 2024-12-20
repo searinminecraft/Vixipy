@@ -1,6 +1,6 @@
 from .. import api
 
-from ..classes import Artwork, ArtworkPage, ArtworkEntry, Ranking
+from ..classes import Artwork, ArtworkPage, ArtworkEntry, Ranking, SimpleTag
 from ..utils.filtering import filterEntriesFromPreferences
 
 
@@ -30,3 +30,7 @@ def getRanking(mode: str = "daily", date: int = None, content: str = None, p: in
 
     data = api.getRanking(mode=mode, date=date, content=content, p=p)
     return Ranking(data)
+
+
+def getFrequentTags(ids: list[int]):
+    return [SimpleTag(x) for x in api.getFrequentTags(ids)["body"]]

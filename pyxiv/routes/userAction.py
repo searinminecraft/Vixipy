@@ -4,6 +4,8 @@ from flask_babel import _
 from .. import api
 from ..core.comments import postComment, postStamp
 from ..core.user import getUserBookmarks, getNotifications
+from ..core.artwork import getFrequentTags
+
 
 userAction = Blueprint("userAction", __name__, url_prefix="/self")
 
@@ -19,9 +21,10 @@ def yourBookmarks():
 
     page = int(request.args.get("p", 1))
 
-    data = getUserBookmarks(g.userdata._id, offset=(30 * page) - 30)
+    data = getUserBookmarks(g.userdata._id, offset=(48 * page) - 48, limit=48)
+    frequent = getFrequentTags([x._id for x in data.works])
 
-    pages, extra = divmod(data.total, 30)
+    pages, extra = divmod(data.total, 48)
 
     if extra > 0:
         pages += 1
@@ -30,6 +33,7 @@ def yourBookmarks():
         "bookmarksSelf.html",
         data=data,
         pages=pages,
+        frequent=frequent,
         canGoNext=(page < pages and not page == pages),
         canGoPrevious=(not page == 1),
     )

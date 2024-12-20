@@ -428,3 +428,17 @@ def unfollowUser(_id: int):
             "Referer": f"https://www.pixiv.net/en/users/{_id}",
         },
     )
+
+
+def getFrequentTags(ids: list[int]):
+    """Get frequent tags based on illust IDs"""
+
+    path = "/ajax/tags/frequent/illust"
+
+    for k, v in enumerate(ids):
+        if k == 0:
+            path += f"?ids[]={int(v)}"
+        else:
+            path += f"&ids[]={int(v)}"
+
+    return pixivReq(path)

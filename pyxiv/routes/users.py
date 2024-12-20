@@ -19,6 +19,7 @@ from ..core.user import (
     getUserFollowing,
     getUserFollowers,
 )
+from ..core.artwork import getFrequentTags
 from ..classes import User, ArtworkEntry
 
 users = Blueprint("users", __name__, url_prefix="/users")
@@ -47,6 +48,7 @@ def userPage(_id: int):
         pickup = []
         latestIllust = []
         top = []
+        frequent = []
         total = 0
     else:
         user = getUser(_id)
@@ -61,9 +63,15 @@ def userPage(_id: int):
             pickup.append(ArtworkEntry(x))
 
         top = getUserTopIllusts(_id)
+        frequent = getFrequentTags([x._id for x in top]) if len(top) > 0 else []
 
     return render_template(
-        "user/main.html", user=user, pickup=pickup, top=top, total=total
+        "user/main.html",
+        user=user,
+        pickup=pickup,
+        top=top,
+        total=total,
+        frequent=frequent,
     )
 
 
@@ -90,9 +98,12 @@ def userIllusts(_id: int):
         if currPage > pages:
             return render_template("error.html", error="Exceeded maximum pages"), 400
 
-        illusts = retrieveUserIllusts(_id, ids[(50 * currPage) - 50 : 50 * currPage])
+        offset = ids[(50 * currPage) - 50 : 50 * currPage]
+        illusts = retrieveUserIllusts(_id, offset)
+        frequent = getFrequentTags(offset)
     else:
         illusts = []
+        frequent = []
         pages = 1
 
     return render_template(
@@ -101,6 +112,7 @@ def userIllusts(_id: int):
         illusts=illusts,
         total=len(data),
         pages=pages,
+        frequent=frequent,
         canGoNext=(not currPage == pages),
         canGoPrevious=(not currPage == 1),
     )
@@ -129,9 +141,12 @@ def userManga(_id: int):
         if currPage > pages:
             return render_template("error.html", error="Exceeded maximum pages"), 400
 
-        illusts = retrieveUserIllusts(_id, ids[(50 * currPage) - 50 : 50 * currPage])
+        offset = ids[(50 * currPage) - 50 : 50 * currPage]
+        illusts = retrieveUserIllusts(_id, offset)
+        frequent = getFrequentTags(offset)
     else:
         illusts = []
+        frequent = []
         pages = 1
 
     return render_template(
@@ -160,6 +175,10 @@ def userBookmarks(_id: int):
 
     user = getUser(_id)
     data = getUserBookmarks(_id, offset=(50 * page) - 50)
+    if len(data) > 0:
+        frequent = getFrequentTags([x._id for x in data.works])
+    else:
+        frequent = []
 
     pages, extra = divmod(data.total, 50)
 
@@ -172,6 +191,7 @@ def userBookmarks(_id: int):
         illusts=data.works,
         total=data.total,
         pages=pages,
+        frequent=frequent,
         canGoNext=(page < pages and not page == pages),
         canGoPrevious=(not page == 1),
     )
@@ -187,7 +207,6 @@ def following(_id: int):
     if current_app.config["authless"]:
         if not g.isAuthorized:
             abort(401)
-
 
     currPage = int(request.args.get("p", 1))
 
@@ -218,7 +237,6 @@ def followers(_id: int):
     if current_app.config["authless"]:
         if not g.isAuthorized:
             abort(401)
-
 
     if _id == 0:
         flash(_("Invalid user"), "error")

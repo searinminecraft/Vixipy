@@ -28,6 +28,16 @@
 </div>
 {% endif %}
 
+{% if frequent | length > 0 %}
+<h2>{{ _("Frequent tags") }}</h2>
+
+<div class="taglist">
+  {% for t in frequent %}
+  <span><a href="/tag/{{ t.tag }}">#{{ t.tag }}</a> {{ t.tag_translation }}</span>
+  {% endfor %}
+</div>
+{% endif %}
+
 <h2>{{ _("Illustrations and Manga") }} ({{ total }})</h2>
 
 <div class="container">

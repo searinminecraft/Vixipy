@@ -18,7 +18,9 @@ def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
 
     data = api.getLatestFromFollowing(mode, page)["body"]
 
-    return filterEntriesFromPreferences([ArtworkEntry(x) for x in data["thumbnails"]["illust"]])
+    return filterEntriesFromPreferences(
+        [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]
+    )
 
 
 def getUser(_id: int) -> User:

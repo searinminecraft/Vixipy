@@ -3,6 +3,18 @@
 
 {% block content %}
 <h1>{{ _("Your bookmarks (%(total)d)", total=data.total) }}</h1>
+
+<h2>{{ _("Frequent tags") }}</h2>
+
+<div class="taglist">
+  {% for t in frequent %}
+  <span><a href="/tag/{{ t.tag }}">#{{ t.tag }}</a> {{ t.tag_translation }}</span>
+  {% endfor %}
+</div>
+
+<br>
+<br>
+
 <div class="container">
     <div class="artwork-container">
         {% for d in data.works %}
