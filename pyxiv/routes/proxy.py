@@ -38,8 +38,6 @@ def retrieveUgoira(_id: int):
         for ch in req.iter_content(10 * 1024):
             yield ch
 
-        print(f"PROXY    | Completed ugoira request for ID {_id}")
-
     return requestContent(), respHeaders
 
 
@@ -91,13 +89,6 @@ def proxyRequest(proxypath):
             yield ch
 
         end = time.perf_counter()
-
-        print(
-            "PROXY    | Completed proxy request to",
-            f"https://{proxypath}",
-            f"(Connection start: {round((connEnd - connStart) * 1000)}ms,",
-            f"complete stream: {round((end - start) * 1000)}ms)",
-        )
 
         r.close()
 

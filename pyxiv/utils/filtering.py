@@ -9,14 +9,10 @@ def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
 
     for entry in entries:
         if request.cookies.get("PyXivHideAI") == "1" and entry.isAI:
-            print("FILTER   | Delete", entry, "because isAI =", entry.isAI)
             new.remove(entry)
             continue
 
         if request.cookies.get("VixipyHideSensitive") == "1" and entry.isSensitive:
-            print(
-                "FILTER   | Delete", entry, "because isSensitive =", entry.isSensitive
-            )
             new.remove(entry)
             continue
 
@@ -25,22 +21,10 @@ def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
             continue
 
         if request.cookies.get("PyXivHideR18") == "1" and entry.xRestrict == 1:
-            print(
-                "FILTER   | Delete",
-                entry,
-                "due to rating",
-                entry.xRestrictClassification,
-            )
             new.remove(entry)
             continue
 
         if request.cookies.get("PyXivHideR18G") == "1" and entry.xRestrict == 2:
-            print(
-                "FILTER   | Delete",
-                entry,
-                "due to rating",
-                entry.xRestrictClassification,
-            )
             new.remove(entry)
             continue
 
