@@ -1,0 +1,17 @@
+services:
+  vixipy:
+    container_name: vixipy
+    restart: unless-stopped
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      #PYXIV_TOKEN: ""
+      PYXIV_PORT: 8000
+      PYXIV_NOR18: 0
+      #PYXIV_ACCEPTLANG: ""
+      #PYXIV_INSTANCENAME: ""

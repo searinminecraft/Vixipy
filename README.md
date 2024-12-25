@@ -87,6 +87,8 @@ A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 <br>
 
 # Install instructions
+
+## Regular method
 1. Create a virtual environment, then activate
 ```
 python -m venv venv
@@ -108,6 +110,24 @@ pip install -r requirements.txt
 4. Finally, execute `run.sh`
 
 Vixipy should now be running on http://localhost:8000
+
+## Docker container
+1. Make a copy of the example compose file:
+```sh
+cp compose.example.yaml compose.yaml
+```
+
+Edit it according to your needs. Read the rest of readme
+
+2. Run the container as daemon:
+```sh
+docker compose up -d
+```
+
+(use `docker-compose` instead of `docker compose` if that fails)
+
+3. Done
+vixipy is listening on 127.0.0.1:8000 by default
 
 # Instance List
 > If you're interested in hosting a Vixipy instance and want to be here, please [file an issue](https://codeberg.org/vixipy/Vixipy/issues/new).
