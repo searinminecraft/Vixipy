@@ -127,6 +127,7 @@ docker compose up -d
 (use `docker-compose` instead of `docker compose` if that fails)
 
 3. Done
+
 vixipy is listening on 127.0.0.1:8000 by default
 
 # Instance List
