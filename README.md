@@ -137,6 +137,7 @@ vixipy is listening on 127.0.0.1:8000 by default
 ## Planned and attempted instances
 * ~~adminforge.de~~ denied
 * At my house (maybe?)
+* [vx.maid.zone](https://vx.maid.zone)
 
 # Translate Vixipy
 
