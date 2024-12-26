@@ -117,7 +117,7 @@ Vixipy should now be running on http://localhost:8000
 cp compose.example.yaml compose.yaml
 ```
 
-Edit it according to your needs. Read the rest of readme
+Edit the file according to your needs. Read above for details.
 
 2. Run the container as daemon:
 ```sh
@@ -133,11 +133,6 @@ vixipy is listening on 127.0.0.1:8000 by default
 # Instance List
 > If you're interested in hosting a Vixipy instance and want to be here, please [file an issue](https://codeberg.org/vixipy/Vixipy/issues/new).
 
-(none for now. i appreciate if anyone is willing to host one)
-
-## Planned and attempted instances
-* ~~adminforge.de~~ denied
-* At my house (maybe?)
 * [vx.maid.zone](https://vx.maid.zone)
 
 # Translate Vixipy
