@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-27 14:11+0800\n"
-"PO-Revision-Date: 2024-12-17 13:45+0000\n"
+"PO-Revision-Date: 2024-12-28 02:22+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:151
@@ -354,9 +355,8 @@ msgstr "Iyong mga bookmark (%(total)d)"
 #: pyxiv/templates/bookmarksSelf.html:7 pyxiv/templates/user/bookmarks.html:8
 #: pyxiv/templates/user/illusts.html:8 pyxiv/templates/user/main.html:32
 #: pyxiv/templates/user/manga.html:8
-#, fuzzy
 msgid "Frequent tags"
-msgstr "Mga nauugnay na tag"
+msgstr "Mga madalas na tag"
 
 #: pyxiv/templates/comments.html:6
 msgid "Return to artwork"
@@ -535,7 +535,7 @@ msgstr "%(total)s mga gawa"
 
 #: pyxiv/templates/tag.html:34
 msgid "Advanced search options"
-msgstr ""
+msgstr "Mga advanced na opsyon sa paghahanap"
 
 #: pyxiv/templates/tag.html:37
 msgid "Related tags"
@@ -559,121 +559,116 @@ msgstr "Mga gawa"
 
 #: pyxiv/templates/tag.html:117
 msgid "Advanced search options (experimental)"
-msgstr ""
+msgstr "Mga advanced na opsyon sa paghahanap (pang-eksperimento)"
 
 #: pyxiv/templates/tag.html:127
 msgid "Mode"
-msgstr ""
+msgstr "Mode"
 
 #: pyxiv/templates/tag.html:129
 msgid "Safe"
-msgstr ""
+msgstr "Ligtas"
 
 #: pyxiv/templates/tag.html:131
 msgid "All"
-msgstr ""
+msgstr "Lahat"
 
 #: pyxiv/templates/tag.html:132
 msgid "R-18"
-msgstr ""
+msgstr "R-18"
 
 #: pyxiv/templates/tag.html:136
 msgid "Order by"
-msgstr ""
+msgstr "Isaayos ayon sa"
 
 #: pyxiv/templates/tag.html:138
 msgid "Date"
-msgstr ""
+msgstr "Petsa"
 
 #: pyxiv/templates/tag.html:143
 msgid "Popular among male users"
-msgstr ""
+msgstr "Sikat sa mga lalaking gumagamit"
 
 #: pyxiv/templates/tag.html:145
 msgid "Popular among female users"
-msgstr ""
+msgstr "Sikat sa mga babaeng gumagamit"
 
 #: pyxiv/templates/tag.html:150
-#, fuzzy
 msgid "Search mode"
-msgstr "Source Code"
+msgstr "Mode ng paghahanap"
 
 #: pyxiv/templates/tag.html:152
 msgid "Tag (Exact Match)"
-msgstr ""
+msgstr "Tag (Eksaktong Tugma)"
 
 #: pyxiv/templates/tag.html:153
 msgid "Tag (Partial Match)"
-msgstr ""
+msgstr "Tag (Bahagyang Tugma)"
 
 #: pyxiv/templates/tag.html:154
-#, fuzzy
 msgid "Title/Caption"
-msgstr "Mga Abiso"
+msgstr "Paksa/Caption"
 
 #: pyxiv/templates/tag.html:159
 msgid "More Options..."
-msgstr ""
+msgstr "Higit pang mga opsyon…"
 
 #: pyxiv/templates/tag.html:162
 msgid "Minimum Width"
-msgstr ""
+msgstr "Pinakamababang haba"
 
 #: pyxiv/templates/tag.html:166
 msgid "Maximum Width"
-msgstr ""
+msgstr "Pinakamalaking haba"
 
 #: pyxiv/templates/tag.html:170
 msgid "Minimum Height"
-msgstr ""
+msgstr "Pinakamababang taas"
 
 #: pyxiv/templates/tag.html:177
 msgid "Ratio"
-msgstr ""
+msgstr "Ratio"
 
 #: pyxiv/templates/tag.html:179
-#, fuzzy
 msgid "Unspecified"
-msgstr "Hindi natukoy na eror"
+msgstr "Hindi tinukoy"
 
 #: pyxiv/templates/tag.html:180
 msgid "Portrait"
-msgstr ""
+msgstr "Portrait"
 
 #: pyxiv/templates/tag.html:181
 msgid "Square"
-msgstr ""
+msgstr "Parisukat"
 
 #: pyxiv/templates/tag.html:182
 msgid "Landscape"
-msgstr ""
+msgstr "Landscape"
 
 #: pyxiv/templates/tag.html:186
 msgid "Tool:"
-msgstr ""
+msgstr "Gamit:"
 
 #: pyxiv/templates/tag.html:190
 msgid "Posted before"
-msgstr ""
+msgstr "Na-post bago"
 
 #: pyxiv/templates/tag.html:194
-#, fuzzy, python-format
+#, python-format
 msgid "Posted after"
-msgstr "Na-post noong %(date)s"
+msgstr "Na-post pagkatapos"
 
 #: pyxiv/templates/tag.html:199
-#, fuzzy
 msgid "Minimum Bookmarks"
-msgstr "Mga Bookmark"
+msgstr "Pinakamababang Mga Bookmark"
 
 #: pyxiv/templates/tag.html:203
-#, fuzzy
 msgid "Maximum Bookmarks"
-msgstr "Mga Bookmark"
+msgstr "Pinakamataas na Mga Bookmark"
 
 #: pyxiv/templates/tag.html:208
 msgid "Apply"
-msgstr ""
+msgstr "I-apply"
 
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
@@ -1225,4 +1220,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Click on the button below to securely log out"
 #~ msgstr "I-click ang button sa ibaba para mag-log out"
-
