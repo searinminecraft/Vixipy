@@ -133,8 +133,11 @@ vixipy is listening on 127.0.0.1:8000 by default
 # Instance List
 > If you're interested in hosting a Vixipy instance and want to be here, please [file an issue](https://codeberg.org/vixipy/Vixipy/issues/new).
 
-* [vx.maid.zone](https://vx.maid.zone)
-* [neonw.su](http://neonw.su:10353) (rolling instance and will always be on latest version. Warning: insecure)
+| Name | Address | Cloudflare? | Country | Notes |
+| --- | --- | --- | --- | --- |
+| maid.zone | https://vx.maid.zone  | no | DE | |
+| NeonW     | http://neonw.su:10353 | no | KZ | rolling instance and will always be on latest version. Warning: insecure |
+
 
 # Translate Vixipy
 
