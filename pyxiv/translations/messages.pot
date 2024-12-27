@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-17 19:37+0800\n"
+"POT-Creation-Date: 2024-12-27 14:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,91 +17,89 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:150
+#: pyxiv/app.py:151
 msgid "pixiv Error!"
 msgstr ""
 
-#: pyxiv/app.py:153
+#: pyxiv/app.py:154
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
 
-#: pyxiv/app.py:153
+#: pyxiv/app.py:154
 msgid "Unspecified error"
 msgstr ""
 
-#: pyxiv/app.py:164
+#: pyxiv/app.py:165
 msgid "Not found"
 msgstr ""
 
-#: pyxiv/app.py:165
+#: pyxiv/app.py:166
 msgid "The requested resource could not be found."
 msgstr ""
 
-#: pyxiv/app.py:175
+#: pyxiv/app.py:176
 msgid "Bad request"
 msgstr ""
 
-#: pyxiv/app.py:176
+#: pyxiv/app.py:177
 msgid "The server could not satisfy the request."
 msgstr ""
 
-#: pyxiv/app.py:186
+#: pyxiv/app.py:187
 msgid "Forbidden"
 msgstr ""
 
-#: pyxiv/app.py:187
+#: pyxiv/app.py:188
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: pyxiv/app.py:197 pyxiv/templates/unauthorized.html:4
+#: pyxiv/app.py:198
 msgid "Unauthorized"
 msgstr ""
 
-#: pyxiv/app.py:198
-msgid ""
-"You are not authorized to access this page. You may need to <a "
-"href='/settings/account'>log in</a> first."
+#: pyxiv/app.py:200
+msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 
-#: pyxiv/app.py:210
+#: pyxiv/app.py:213
 msgid "Method Not Allowed"
 msgstr ""
 
-#: pyxiv/app.py:211
+#: pyxiv/app.py:214
 msgid "This method is not allowed for this endpoint"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:32 pyxiv/routes/artworks.py:44
-#: pyxiv/routes/artworks.py:56 pyxiv/routes/artworks.py:68
+#: pyxiv/routes/artworks.py:38 pyxiv/routes/artworks.py:50
+#: pyxiv/routes/artworks.py:62 pyxiv/routes/artworks.py:74
 msgid "You cannot access this illustration"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:33
+#: pyxiv/routes/artworks.py:39
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:45
+#: pyxiv/routes/artworks.py:51
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:57
+#: pyxiv/routes/artworks.py:63
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:69
+#: pyxiv/routes/artworks.py:75
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:92
+#: pyxiv/routes/artworks.py:98
 msgid "The creator turned off comments."
 msgstr ""
 
@@ -182,59 +180,59 @@ msgstr ""
 msgid "Successfully set language."
 msgstr ""
 
-#: pyxiv/routes/userAction.py:46
+#: pyxiv/routes/userAction.py:50
 msgid "Successfully bookmarked post"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:55
+#: pyxiv/routes/userAction.py:59
 msgid "Successfully removed bookmark"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:64
+#: pyxiv/routes/userAction.py:68
 msgid "Successfully liked post"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:79
+#: pyxiv/routes/userAction.py:83
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:84
+#: pyxiv/routes/userAction.py:88
 msgid "Successfully posted comment"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:100
+#: pyxiv/routes/userAction.py:104
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:105
+#: pyxiv/routes/userAction.py:109
 msgid "Successfully sent stamp"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:128 pyxiv/routes/userAction.py:143
-#: pyxiv/routes/users.py:73 pyxiv/routes/users.py:112 pyxiv/routes/users.py:151
-#: pyxiv/routes/users.py:183 pyxiv/routes/users.py:213
+#: pyxiv/routes/userAction.py:132 pyxiv/routes/userAction.py:147
+#: pyxiv/routes/users.py:82 pyxiv/routes/users.py:125 pyxiv/routes/users.py:167
+#: pyxiv/routes/users.py:204 pyxiv/routes/users.py:242
 msgid "Invalid user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:133
+#: pyxiv/routes/userAction.py:137
 msgid "Could not follow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:135
+#: pyxiv/routes/userAction.py:139
 msgid "Successfully followed user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:148
+#: pyxiv/routes/userAction.py:152
 msgid "Could not unfollow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:150
+#: pyxiv/routes/userAction.py:154
 msgid "Successfully unfollowed user"
 msgstr ""
 
-#: pyxiv/routes/users.py:221
+#: pyxiv/routes/users.py:250
 msgid "Not authorized."
 msgstr ""
 
@@ -295,7 +293,7 @@ msgid "View on pixiv"
 msgstr ""
 
 #: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
-#: pyxiv/templates/user/main.html:46
+#: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr ""
 
@@ -309,15 +307,21 @@ msgstr ""
 msgid "Some entries have been hidden due to filters"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:11
-#: pyxiv/templates/user/illusts.html:11 pyxiv/templates/user/main.html:38
-#: pyxiv/templates/user/manga.html:11
+#: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:25
+#: pyxiv/templates/user/illusts.html:25 pyxiv/templates/user/main.html:48
+#: pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
 msgstr ""
 
 #: pyxiv/templates/bookmarksSelf.html:5
 #, python-format
 msgid "Your bookmarks (%(total)d)"
+msgstr ""
+
+#: pyxiv/templates/bookmarksSelf.html:7 pyxiv/templates/user/bookmarks.html:8
+#: pyxiv/templates/user/illusts.html:8 pyxiv/templates/user/main.html:32
+#: pyxiv/templates/user/manga.html:8
+msgid "Frequent tags"
 msgstr ""
 
 #: pyxiv/templates/comments.html:6
@@ -395,12 +399,17 @@ msgstr ""
 msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
+#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:49
+#: pyxiv/templates/user/index.html:56
+msgid "Home"
+msgstr ""
+
 #: pyxiv/templates/index.html:12
 msgid "Latest from following"
 msgstr ""
 
 #: pyxiv/templates/index.html:19 pyxiv/templates/index.html:32
-#: pyxiv/templates/tag.html:83
+#: pyxiv/templates/tag.html:87
 msgid "Nothing to show!"
 msgstr ""
 
@@ -478,34 +487,140 @@ msgstr ""
 msgid "%(total)s works"
 msgstr ""
 
-#: pyxiv/templates/tag.html:33
+#: pyxiv/templates/tag.html:34
+msgid "Advanced search options"
+msgstr ""
+
+#: pyxiv/templates/tag.html:37
 msgid "Related tags"
 msgstr ""
 
-#: pyxiv/templates/tag.html:49
+#: pyxiv/templates/tag.html:53
 msgid "Popular artworks"
 msgstr ""
 
-#: pyxiv/templates/tag.html:53
+#: pyxiv/templates/tag.html:57
 msgid "Recent"
 msgstr ""
 
-#: pyxiv/templates/tag.html:62
+#: pyxiv/templates/tag.html:66
 msgid "All time"
 msgstr ""
 
-#: pyxiv/templates/tag.html:74
+#: pyxiv/templates/tag.html:78
 msgid "Works"
 msgstr ""
 
-#: pyxiv/templates/unauthorized.html:5
-msgid "Provide your pixiv PHPSESSID in settings to perform this action."
+#: pyxiv/templates/tag.html:117
+msgid "Advanced search options (experimental)"
 msgstr ""
 
-#: pyxiv/templates/components/navbar.html:33
-#: pyxiv/templates/settings/account.html:10
-#: pyxiv/templates/settings/account.html:30 pyxiv/templates/unauthorized.html:7
-msgid "Log in"
+#: pyxiv/templates/tag.html:127
+msgid "Mode"
+msgstr ""
+
+#: pyxiv/templates/tag.html:129
+msgid "Safe"
+msgstr ""
+
+#: pyxiv/templates/tag.html:131
+msgid "All"
+msgstr ""
+
+#: pyxiv/templates/tag.html:132
+msgid "R-18"
+msgstr ""
+
+#: pyxiv/templates/tag.html:136
+msgid "Order by"
+msgstr ""
+
+#: pyxiv/templates/tag.html:138
+msgid "Date"
+msgstr ""
+
+#: pyxiv/templates/tag.html:143
+msgid "Popular among male users"
+msgstr ""
+
+#: pyxiv/templates/tag.html:145
+msgid "Popular among female users"
+msgstr ""
+
+#: pyxiv/templates/tag.html:150
+msgid "Search mode"
+msgstr ""
+
+#: pyxiv/templates/tag.html:152
+msgid "Tag (Exact Match)"
+msgstr ""
+
+#: pyxiv/templates/tag.html:153
+msgid "Tag (Partial Match)"
+msgstr ""
+
+#: pyxiv/templates/tag.html:154
+msgid "Title/Caption"
+msgstr ""
+
+#: pyxiv/templates/tag.html:159
+msgid "More Options..."
+msgstr ""
+
+#: pyxiv/templates/tag.html:162
+msgid "Minimum Width"
+msgstr ""
+
+#: pyxiv/templates/tag.html:166
+msgid "Maximum Width"
+msgstr ""
+
+#: pyxiv/templates/tag.html:170
+msgid "Minimum Height"
+msgstr ""
+
+#: pyxiv/templates/tag.html:177
+msgid "Ratio"
+msgstr ""
+
+#: pyxiv/templates/tag.html:179
+msgid "Unspecified"
+msgstr ""
+
+#: pyxiv/templates/tag.html:180
+msgid "Portrait"
+msgstr ""
+
+#: pyxiv/templates/tag.html:181
+msgid "Square"
+msgstr ""
+
+#: pyxiv/templates/tag.html:182
+msgid "Landscape"
+msgstr ""
+
+#: pyxiv/templates/tag.html:186
+msgid "Tool:"
+msgstr ""
+
+#: pyxiv/templates/tag.html:190
+msgid "Posted before"
+msgstr ""
+
+#: pyxiv/templates/tag.html:194
+msgid "Posted after"
+msgstr ""
+
+#: pyxiv/templates/tag.html:199
+msgid "Minimum Bookmarks"
+msgstr ""
+
+#: pyxiv/templates/tag.html:203
+msgid "Maximum Bookmarks"
+msgstr ""
+
+#: pyxiv/templates/tag.html:208
+msgid "Apply"
 msgstr ""
 
 #: pyxiv/templates/components/navbar.html:10
@@ -513,12 +628,14 @@ msgstr ""
 msgid "Search works..."
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:14
-msgid "This website requires JavaScript."
+#: pyxiv/templates/components/navbar.html:33
+#: pyxiv/templates/settings/account.html:10
+#: pyxiv/templates/settings/account.html:30
+msgid "Log in"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:49 pyxiv/templates/user/index.html:56
-msgid "Home"
+#: pyxiv/templates/layouts/default.html:14
+msgid "This website requires JavaScript."
 msgstr ""
 
 #: pyxiv/templates/layouts/default.html:54
@@ -901,7 +1018,7 @@ msgstr ""
 msgid "Follow"
 msgstr ""
 
-#: pyxiv/templates/user/main.html:31
+#: pyxiv/templates/user/main.html:41
 msgid "Illustrations and Manga"
 msgstr ""
 

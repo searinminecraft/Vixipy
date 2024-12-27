@@ -197,7 +197,9 @@ def create_app():
                 "error.html",
                 errortitle=_("Unauthorized"),
                 errordesc=_(
-                    "You are not authorized to access this page. You may need to <a href='/settings/account'>log in</a> first."
+                    _(
+                        "Provide your pixiv PHPSESSID in settings to perform this action."
+                    )
                 ),
             ),
             401,
@@ -240,7 +242,7 @@ def create_app():
                 p = "/"
             return redirect(p, code=308)
 
-        g.version = "1.9"
+        g.version = "2.0"
         g.instanceName = cfg.PxInstanceName
         g.lang = request.cookies.get("lang", "en")
 
@@ -259,6 +261,7 @@ def create_app():
 
             try:
                 g.userdata: User = getUser(g.userPxSession.split("_")[0])
+                g.isPremium = g.userdata.premium
             except api.PixivError:
                 flash(
                     "Token is not valid anymore (logged out?), so you were signed out.",

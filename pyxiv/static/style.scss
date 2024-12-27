@@ -19,6 +19,7 @@
 	border-radius: 8px;
 	height: 36px;
 	font-family: system-ui;
+  margin: 4px 0
 }
 
 
@@ -113,7 +114,7 @@ a.button {
 
 :root {
   scrollbar-width: thin;
-  scrollbar-height: thin;
+  scroll-behavior: smooth;
   scrollbar-color: var(--md-sys-color-tertiary) var(--md-sys-color-surface-container)
 }
 
@@ -122,7 +123,7 @@ body {
   background-color: var(--md-sys-color-surface);
   margin: 0;
   font-family: system-ui;
-  accent-color: var(--md-sys-color-primary)
+  accent-color: var(--md-sys-color-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -134,7 +135,7 @@ a {
   color: var(--md-sys-color-primary)
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number], input[type=date] {
   @include textbox;
 }
 
@@ -144,7 +145,7 @@ textarea {
   overflow: hidden;
 }
 
-label, select, textarea {
+label, textarea {
   display: block
 }
 
@@ -167,8 +168,17 @@ code {
   padding: 4px;
 }
 
-input[type=radio] {
+input[type=radio],
+select {
   display: inline-block
+}
+
+select {
+  background-color: var(--md-sys-color-surface-container-high);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 1em;
+  color: var(--md-sys-color-on-surface);
 }
 
 %icon-button-common {

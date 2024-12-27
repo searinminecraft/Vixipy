@@ -29,6 +29,10 @@
 <i>{{ _("Some entries have been hidden due to filters") }}</i>
 {% endif %}
 
+<br>
+<br>
+<button class="button" id="advanced-open">{{_("Advanced search options")}}</button>
+
 <div class="container">
 	<h2>{{ _("Related tags") }}</h2>
 	<div class="related-tags">
@@ -105,3 +109,107 @@
 
 {% endblock %}
 
+{% block additionalDialogs %}
+<div class="backdrop" id="advanced">
+	<div class="dialog-helper">
+		<div class="dialog">
+			<div class="title">
+				<span>{{ _("Advanced search options (experimental)") }}</span>
+				<button class="icon-button" aria-label="Close" id="advanced-close">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+				</button>
+			</div>
+			<div class="dialog-content">
+				{% set mode = request.args.get('mode', 'safe') %}
+				{% set order = request.args.get('order', 'date') %}
+				{% set s_mode = request.args.get('s_mode', 's_tag') %}
+				<form action="/tag/{{ tagInfo.tag }}">
+					<label for="mode">{{ _("Mode") }}</label>
+					<select name="mode" id="mode">
+						<option value="safe" {% if mode == 'safe'%}selected{% endif %}>{{ _("Safe") }}</option>
+						{% if not config["nor18"] %}
+						<option value="all" {% if mode == 'all'%}selected{% endif %}>{{ _("All") }}</option>
+						<option value="r18" {% if mode == 'r18'%}selected{% endif %}>{{ _("R-18") }}</option>
+						{% endif %}
+					</select>
+
+					<label for="order">{{ _("Order by") }}</label>
+					<select id="order" name="order">
+						<option value="date" {% if order == 'date'%}selected{%endif%}>{{ _("Date") }}</option>
+						<option value="date_d" {% if order == 'date_d'%}selected{%endif%}>date_d</option>
+						{% if g.get("isPremium", False) %}
+						<option value="popular" {% if order == 'popular'%}selected{%endif%}>popular</option>
+						<option value="popular_d" {% if order == 'popular_d'%}selected{%endif%}>popular_d</option>
+						<option value="popular_male" {% if order == 'popular_male'%}selected{%endif%}>{{ _("Popular among male users") }}</option>
+						<option value="popular_male_d" {% if order == 'popular_male_d'%}selected{%endif%}>popular_male_d</option>
+						<option value="popular_female" {% if order == 'popular_female'%}selected{%endif%}>{{ _("Popular among female users") }}</option>
+						<option value="popular_female_d" {% if order == 'popular_female_d'%}selected{%endif%}>popular_female_d</option>
+						{% endif %}
+					</select>
+
+					<label for="s_mode">{{ _("Search mode") }}</label>
+					<select name="s_mode" id="s_mode">
+						<option value="s_tag_full" {% if s_mode=="s_tag_full" %}selected{% endif %}>{{ _("Tag (Exact Match)") }}</option>
+						<option value="s_tag" {% if s_mode=="s_tag" %}selected{% endif %}>{{ _("Tag (Partial Match)") }}</option>
+						<option value="s_tc" {% if s_mode=="s_tc" %}selected{% endif %}>{{ _("Title/Caption") }}</option>
+					</select>
+
+					<br>
+					<details>
+					<summary>{{ _("More Options...") }}</summary>
+
+					<label>
+						{{_("Minimum Width")}}: <input type="number" name="wlt" value="{{ request.args.get('wlt', '') }}">
+					</label>
+
+					<label>
+						{{_("Maximum Width")}}: <input type="number" name="wgt" value="{{ request.args.get('wgt', '') }}">
+					</label>
+
+					<label>
+						{{_("Minimum Height")}}: <input type="number" name="hlt" value="{{ request.args.get('hlt', '') }}">
+					</label>
+
+					<label>
+						{{("Maximum Height")}}: <input type="number" name="hgt" value="{{ request.args.get('hgt', '') }}">
+					</label>
+
+					<label for="ratio">{{ _("Ratio") }}</label>
+					<select name="ratio" id="ratio">
+						<option value="">{{_("Unspecified")}}</option>
+						<option value="-0.5">{{_("Portrait")}}</option>
+						<option value="0">{{_("Square")}}</option>
+						<option value="0.5">{{_("Landscape")}}</option>
+					</select>
+
+					<label>
+						{{_("Tool:")}} <input type="text" name="tool" value="{{ request.args.get('tool', '') }}">
+					</label>
+
+					<label>
+						{{_("Posted before")}}: <input type="date" name="scd">
+					</label>
+
+					<label>
+						{{_("Posted after")}}: <input type="date" name="ecd">
+					</label>
+
+					{% if g.get("isPremium", False) %}
+					<label>
+						{{_("Minimum Bookmarks")}}: <input type="number" name="blt" value="{{ request.args.get('blt', '') }}">
+					</label>
+
+					<label>
+						{{_("Maximum Bookmarks")}}: <input type="number" name="bgt" value="{{ request.args.get('bgt', '') }}">
+					</label>
+					{% endif %}
+					</details>
+					<br>
+					<button type="submit" class="button">{{_("Apply")}}</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/static/advanced_dialog.js"></script>
+{% endblock %}
