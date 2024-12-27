@@ -7,105 +7,102 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-17 19:37+0800\n"
+"POT-Creation-Date: 2024-12-27 14:11+0800\n"
 "PO-Revision-Date: 2024-12-20 03:24+0000\n"
 "Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
-"Language-Team: Chinese (Simplified Han script) <https://translate.codeberg."
-"org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
+"Language-Team: Chinese (Simplified Han script) "
+"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
+"\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.4\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:150
+#: pyxiv/app.py:151
 msgid "pixiv Error!"
 msgstr "pixiv 错误！"
 
-#: pyxiv/app.py:153
+#: pyxiv/app.py:154
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr "请求数据时，pixiv 返回错误：<code>%(error)s</code>"
 
-#: pyxiv/app.py:153
+#: pyxiv/app.py:154
 msgid "Unspecified error"
 msgstr "未指定的错误"
 
-#: pyxiv/app.py:164
+#: pyxiv/app.py:165
 msgid "Not found"
 msgstr "找不到页面"
 
-#: pyxiv/app.py:165
+#: pyxiv/app.py:166
 msgid "The requested resource could not be found."
 msgstr "无法找到请求的资源。"
 
-#: pyxiv/app.py:175
+#: pyxiv/app.py:176
 msgid "Bad request"
 msgstr "请求无效"
 
-#: pyxiv/app.py:176
+#: pyxiv/app.py:177
 msgid "The server could not satisfy the request."
 msgstr "服务器无法满足该请求。"
 
-#: pyxiv/app.py:186
+#: pyxiv/app.py:187
 msgid "Forbidden"
 msgstr "无权访问"
 
-#: pyxiv/app.py:187
+#: pyxiv/app.py:188
 msgid "You do not have permission to access this page."
 msgstr "你没有权限访问该页面。"
 
-#: pyxiv/app.py:197 pyxiv/templates/unauthorized.html:4
+#: pyxiv/app.py:198
 msgid "Unauthorized"
 msgstr "未验证"
 
-#: pyxiv/app.py:198
-msgid ""
-"You are not authorized to access this page. You may need to <a "
-"href='/settings/account'>log in</a> first."
-msgstr "你没有权限访问该页面。请先<a href='/settings/account'>登录</a>。"
+#: pyxiv/app.py:200
+msgid "Provide your pixiv PHPSESSID in settings to perform this action."
+msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
 
-#: pyxiv/app.py:210
+#: pyxiv/app.py:213
 msgid "Method Not Allowed"
 msgstr "不允许该方法"
 
-#: pyxiv/app.py:211
+#: pyxiv/app.py:214
 msgid "This method is not allowed for this endpoint"
 msgstr "该端点不允许此请求方法"
 
-#: pyxiv/routes/artworks.py:32 pyxiv/routes/artworks.py:44
-#: pyxiv/routes/artworks.py:56 pyxiv/routes/artworks.py:68
+#: pyxiv/routes/artworks.py:38 pyxiv/routes/artworks.py:50
+#: pyxiv/routes/artworks.py:62 pyxiv/routes/artworks.py:74
 msgid "You cannot access this illustration"
 msgstr "无法访问该插画"
 
-#: pyxiv/routes/artworks.py:33
+#: pyxiv/routes/artworks.py:39
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
-msgstr "该插画可能包含敏感内容，必须在设置中关闭“隐藏可能包含敏感内容的作品”才可查看"
-"。"
+msgstr "该插画可能包含敏感内容，必须在设置中关闭“隐藏可能包含敏感内容的作品”才可查看。"
 
-#: pyxiv/routes/artworks.py:45
+#: pyxiv/routes/artworks.py:51
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr "该插画为 AI 生成，必须在设置中关闭“隐藏 AI 生成作品”才可查看。"
 
-#: pyxiv/routes/artworks.py:57
+#: pyxiv/routes/artworks.py:63
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr "该插画评级为 R-18，必须在设置中关闭“隐藏浏览限制作品（R-18）”才可查看。"
 
-#: pyxiv/routes/artworks.py:69
+#: pyxiv/routes/artworks.py:75
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr "该插画评级为 R-18G，必须在设置中关闭“隐藏猎奇向作品（R-18G）”才可查看。"
 
-#: pyxiv/routes/artworks.py:92
+#: pyxiv/routes/artworks.py:98
 msgid "The creator turned off comments."
 msgstr "作者关闭了评论。"
 
@@ -186,59 +183,59 @@ msgstr "语言无效：%(code)s"
 msgid "Successfully set language."
 msgstr "成功设置语言。"
 
-#: pyxiv/routes/userAction.py:46
+#: pyxiv/routes/userAction.py:50
 msgid "Successfully bookmarked post"
 msgstr "成功将作品加入收藏"
 
-#: pyxiv/routes/userAction.py:55
+#: pyxiv/routes/userAction.py:59
 msgid "Successfully removed bookmark"
 msgstr "成功移除收藏"
 
-#: pyxiv/routes/userAction.py:64
+#: pyxiv/routes/userAction.py:68
 msgid "Successfully liked post"
 msgstr "成功点赞作品"
 
-#: pyxiv/routes/userAction.py:79
+#: pyxiv/routes/userAction.py:83
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "无法发送评论：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:84
+#: pyxiv/routes/userAction.py:88
 msgid "Successfully posted comment"
 msgstr "成功发送评论"
 
-#: pyxiv/routes/userAction.py:100
+#: pyxiv/routes/userAction.py:104
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "无法发送表情贴图：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:105
+#: pyxiv/routes/userAction.py:109
 msgid "Successfully sent stamp"
 msgstr "成功发送表情贴图"
 
-#: pyxiv/routes/userAction.py:128 pyxiv/routes/userAction.py:143
-#: pyxiv/routes/users.py:73 pyxiv/routes/users.py:112 pyxiv/routes/users.py:151
-#: pyxiv/routes/users.py:183 pyxiv/routes/users.py:213
+#: pyxiv/routes/userAction.py:132 pyxiv/routes/userAction.py:147
+#: pyxiv/routes/users.py:82 pyxiv/routes/users.py:125 pyxiv/routes/users.py:167
+#: pyxiv/routes/users.py:204 pyxiv/routes/users.py:242
 msgid "Invalid user"
 msgstr "无效用户"
 
-#: pyxiv/routes/userAction.py:133
+#: pyxiv/routes/userAction.py:137
 msgid "Could not follow user"
 msgstr "无法关注用户"
 
-#: pyxiv/routes/userAction.py:135
+#: pyxiv/routes/userAction.py:139
 msgid "Successfully followed user"
 msgstr "成功关注用户"
 
-#: pyxiv/routes/userAction.py:148
+#: pyxiv/routes/userAction.py:152
 msgid "Could not unfollow user"
 msgstr "无法取消关注用户"
 
-#: pyxiv/routes/userAction.py:150
+#: pyxiv/routes/userAction.py:154
 msgid "Successfully unfollowed user"
 msgstr "成功取消关注用户"
 
-#: pyxiv/routes/users.py:221
+#: pyxiv/routes/users.py:250
 msgid "Not authorized."
 msgstr "未验证。"
 
@@ -303,7 +300,7 @@ msgid "View on pixiv"
 msgstr "在 pixiv 上查看"
 
 #: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
-#: pyxiv/templates/user/main.html:46
+#: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr "查看所有"
 
@@ -317,9 +314,9 @@ msgstr "相关作品"
 msgid "Some entries have been hidden due to filters"
 msgstr "部分作品因过滤器设置而隐藏"
 
-#: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:11
-#: pyxiv/templates/user/illusts.html:11 pyxiv/templates/user/main.html:38
-#: pyxiv/templates/user/manga.html:11
+#: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:25
+#: pyxiv/templates/user/illusts.html:25 pyxiv/templates/user/main.html:48
+#: pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
 msgstr "空空如也！"
 
@@ -327,6 +324,13 @@ msgstr "空空如也！"
 #, python-format
 msgid "Your bookmarks (%(total)d)"
 msgstr "你的收藏（%(total)d）"
+
+#: pyxiv/templates/bookmarksSelf.html:7 pyxiv/templates/user/bookmarks.html:8
+#: pyxiv/templates/user/illusts.html:8 pyxiv/templates/user/main.html:32
+#: pyxiv/templates/user/manga.html:8
+#, fuzzy
+msgid "Frequent tags"
+msgstr "相关标签"
 
 #: pyxiv/templates/comments.html:6
 msgid "Return to artwork"
@@ -405,12 +409,17 @@ msgstr "错误！"
 msgid "An unknown error has occurred. Please try again later."
 msgstr "发生未知错误。请稍后再试。"
 
+#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:49
+#: pyxiv/templates/user/index.html:56
+msgid "Home"
+msgstr "主页"
+
 #: pyxiv/templates/index.html:12
 msgid "Latest from following"
 msgstr "来自关注用户的最新作品"
 
 #: pyxiv/templates/index.html:19 pyxiv/templates/index.html:32
-#: pyxiv/templates/tag.html:83
+#: pyxiv/templates/tag.html:87
 msgid "Nothing to show!"
 msgstr "空空如也！"
 
@@ -490,48 +499,162 @@ msgstr "回复"
 msgid "%(total)s works"
 msgstr "%(total)s 份作品"
 
-#: pyxiv/templates/tag.html:33
+#: pyxiv/templates/tag.html:34
+msgid "Advanced search options"
+msgstr ""
+
+#: pyxiv/templates/tag.html:37
 msgid "Related tags"
 msgstr "相关标签"
 
-#: pyxiv/templates/tag.html:49
+#: pyxiv/templates/tag.html:53
 msgid "Popular artworks"
 msgstr "热门作品"
 
-#: pyxiv/templates/tag.html:53
+#: pyxiv/templates/tag.html:57
 msgid "Recent"
 msgstr "最近"
 
-#: pyxiv/templates/tag.html:62
+#: pyxiv/templates/tag.html:66
 msgid "All time"
 msgstr "所有时间"
 
-#: pyxiv/templates/tag.html:74
+#: pyxiv/templates/tag.html:78
 msgid "Works"
 msgstr "作品"
 
-#: pyxiv/templates/unauthorized.html:5
-msgid "Provide your pixiv PHPSESSID in settings to perform this action."
-msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
+#: pyxiv/templates/tag.html:117
+msgid "Advanced search options (experimental)"
+msgstr ""
 
-#: pyxiv/templates/components/navbar.html:33
-#: pyxiv/templates/settings/account.html:10
-#: pyxiv/templates/settings/account.html:30 pyxiv/templates/unauthorized.html:7
-msgid "Log in"
-msgstr "登录"
+#: pyxiv/templates/tag.html:127
+msgid "Mode"
+msgstr ""
+
+#: pyxiv/templates/tag.html:129
+msgid "Safe"
+msgstr ""
+
+#: pyxiv/templates/tag.html:131
+msgid "All"
+msgstr ""
+
+#: pyxiv/templates/tag.html:132
+msgid "R-18"
+msgstr ""
+
+#: pyxiv/templates/tag.html:136
+msgid "Order by"
+msgstr ""
+
+#: pyxiv/templates/tag.html:138
+msgid "Date"
+msgstr ""
+
+#: pyxiv/templates/tag.html:143
+msgid "Popular among male users"
+msgstr ""
+
+#: pyxiv/templates/tag.html:145
+msgid "Popular among female users"
+msgstr ""
+
+#: pyxiv/templates/tag.html:150
+#, fuzzy
+msgid "Search mode"
+msgstr "源代码"
+
+#: pyxiv/templates/tag.html:152
+msgid "Tag (Exact Match)"
+msgstr ""
+
+#: pyxiv/templates/tag.html:153
+msgid "Tag (Partial Match)"
+msgstr ""
+
+#: pyxiv/templates/tag.html:154
+#, fuzzy
+msgid "Title/Caption"
+msgstr "通知"
+
+#: pyxiv/templates/tag.html:159
+msgid "More Options..."
+msgstr ""
+
+#: pyxiv/templates/tag.html:162
+msgid "Minimum Width"
+msgstr ""
+
+#: pyxiv/templates/tag.html:166
+msgid "Maximum Width"
+msgstr ""
+
+#: pyxiv/templates/tag.html:170
+msgid "Minimum Height"
+msgstr ""
+
+#: pyxiv/templates/tag.html:177
+msgid "Ratio"
+msgstr ""
+
+#: pyxiv/templates/tag.html:179
+#, fuzzy
+msgid "Unspecified"
+msgstr "未指定的错误"
+
+#: pyxiv/templates/tag.html:180
+msgid "Portrait"
+msgstr ""
+
+#: pyxiv/templates/tag.html:181
+msgid "Square"
+msgstr ""
+
+#: pyxiv/templates/tag.html:182
+msgid "Landscape"
+msgstr ""
+
+#: pyxiv/templates/tag.html:186
+msgid "Tool:"
+msgstr ""
+
+#: pyxiv/templates/tag.html:190
+msgid "Posted before"
+msgstr ""
+
+#: pyxiv/templates/tag.html:194
+#, fuzzy, python-format
+msgid "Posted after"
+msgstr "发布于 %(date)s"
+
+#: pyxiv/templates/tag.html:199
+#, fuzzy
+msgid "Minimum Bookmarks"
+msgstr "收藏"
+
+#: pyxiv/templates/tag.html:203
+#, fuzzy
+msgid "Maximum Bookmarks"
+msgstr "收藏"
+
+#: pyxiv/templates/tag.html:208
+msgid "Apply"
+msgstr ""
 
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
 msgid "Search works..."
 msgstr "搜索作品..."
 
+#: pyxiv/templates/components/navbar.html:33
+#: pyxiv/templates/settings/account.html:10
+#: pyxiv/templates/settings/account.html:30
+msgid "Log in"
+msgstr "登录"
+
 #: pyxiv/templates/layouts/default.html:14
 msgid "This website requires JavaScript."
 msgstr "本网站需要 JavaScript。"
-
-#: pyxiv/templates/layouts/default.html:49 pyxiv/templates/user/index.html:56
-msgid "Home"
-msgstr "主页"
 
 #: pyxiv/templates/layouts/default.html:54
 msgid "Discover"
@@ -927,7 +1050,7 @@ msgstr "<b>%(myPixiv)s</b> mypixiv"
 msgid "Follow"
 msgstr "关注"
 
-#: pyxiv/templates/user/main.html:31
+#: pyxiv/templates/user/main.html:41
 msgid "Illustrations and Manga"
 msgstr "插画和漫画"
 
@@ -991,3 +1114,10 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "Click on the button below to securely log out"
 #~ msgstr "点击下方按钮安全退出"
+
+#~ msgid ""
+#~ "You are not authorized to access "
+#~ "this page. You may need to <a "
+#~ "href='/settings/account'>log in</a> first."
+#~ msgstr "你没有权限访问该页面。请先<a href='/settings/account'>登录</a>。"
+
