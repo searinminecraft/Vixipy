@@ -6,9 +6,14 @@ COPY . .
 
 RUN apt update
 
-RUN apt install -y git
+RUN apt install --no-install-recommends -y git
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
+# just cleanup for smaller image. we only need git to download the pyxivision module
+RUN apt remove -y git
+RUN apt autoremove -y
+RUN apt clean
+RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN export PYXIV_SECRET=$(base64 /dev/urandom | head -c 50)
 

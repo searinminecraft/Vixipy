@@ -8,6 +8,7 @@ from flask import (
     redirect,
     flash,
     abort,
+    send_from_directory,
 )
 from flask_babel import Babel, _
 from urllib.parse import urlparse
@@ -37,9 +38,10 @@ from .routes import (
     ranking,
 )
 
+import os.path
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder=None)
     app.secret_key = cfg.PyXivSecret
     app.config["authless"] = cfg.AuthlessMode
     app.config["nor18"] = cfg.NoR18
@@ -333,5 +335,13 @@ def create_app():
             dest = list(request.args.keys())[0]
 
         return render_template("leave.html", dest=dest)
+    
+    @app.route("/static/<path:filename>")
+    def static(filename):
+        if os.path.isfile(os.path.join("pyxiv/instance/", filename)):
+            return send_from_directory("instance", filename)
+        
+        return send_from_directory("static", filename)
+
 
     return app
