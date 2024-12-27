@@ -130,6 +130,14 @@ docker compose up -d
 
 vixipy is listening on 127.0.0.1:8000 by default
 
+## Tinkering with the frontend
+
+You can override static files by creating a `pyxiv/instance` folder, and putting your own files there.
+
+For example, you can theme your instance by making `pyxiv/instance/instance.css` file, and putting your rules there.
+
+[Example theme can be found here](https://git.maid.zone/laptop/vixipy-theme/src/branch/main/instance.css)
+
 # Instance List
 > If you're interested in hosting a Vixipy instance and want to be here, please [file an issue](https://codeberg.org/vixipy/Vixipy/issues/new).
 
