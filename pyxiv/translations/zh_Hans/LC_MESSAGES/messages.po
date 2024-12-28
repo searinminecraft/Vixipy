@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-27 14:11+0800\n"
-"PO-Revision-Date: 2024-12-20 03:24+0000\n"
-"Last-Translator: Peaksol <Peaksol@users.noreply.translate.codeberg.org>\n"
+"PO-Revision-Date: 2024-12-28 02:22+0000\n"
+"Last-Translator: Peaksol <peaksol@users.noreply.translate.codeberg.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:151
@@ -328,9 +328,8 @@ msgstr "你的收藏（%(total)d）"
 #: pyxiv/templates/bookmarksSelf.html:7 pyxiv/templates/user/bookmarks.html:8
 #: pyxiv/templates/user/illusts.html:8 pyxiv/templates/user/main.html:32
 #: pyxiv/templates/user/manga.html:8
-#, fuzzy
 msgid "Frequent tags"
-msgstr "相关标签"
+msgstr "常用标签"
 
 #: pyxiv/templates/comments.html:6
 msgid "Return to artwork"
@@ -501,7 +500,7 @@ msgstr "%(total)s 份作品"
 
 #: pyxiv/templates/tag.html:34
 msgid "Advanced search options"
-msgstr ""
+msgstr "高级搜索选项"
 
 #: pyxiv/templates/tag.html:37
 msgid "Related tags"
@@ -525,121 +524,116 @@ msgstr "作品"
 
 #: pyxiv/templates/tag.html:117
 msgid "Advanced search options (experimental)"
-msgstr ""
+msgstr "高级搜索选项（实验性功能）"
 
 #: pyxiv/templates/tag.html:127
 msgid "Mode"
-msgstr ""
+msgstr "模式"
 
 #: pyxiv/templates/tag.html:129
 msgid "Safe"
-msgstr ""
+msgstr "全年龄"
 
 #: pyxiv/templates/tag.html:131
 msgid "All"
-msgstr ""
+msgstr "所有"
 
 #: pyxiv/templates/tag.html:132
 msgid "R-18"
-msgstr ""
+msgstr "R-18"
 
 #: pyxiv/templates/tag.html:136
 msgid "Order by"
-msgstr ""
+msgstr "排序方式"
 
 #: pyxiv/templates/tag.html:138
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: pyxiv/templates/tag.html:143
 msgid "Popular among male users"
-msgstr ""
+msgstr "受男性欢迎"
 
 #: pyxiv/templates/tag.html:145
 msgid "Popular among female users"
-msgstr ""
+msgstr "受女性欢迎"
 
 #: pyxiv/templates/tag.html:150
-#, fuzzy
 msgid "Search mode"
-msgstr "源代码"
+msgstr "搜索模式"
 
 #: pyxiv/templates/tag.html:152
 msgid "Tag (Exact Match)"
-msgstr ""
+msgstr "标签（完全一致）"
 
 #: pyxiv/templates/tag.html:153
 msgid "Tag (Partial Match)"
-msgstr ""
+msgstr "标签（部分一致）"
 
 #: pyxiv/templates/tag.html:154
-#, fuzzy
 msgid "Title/Caption"
-msgstr "通知"
+msgstr "标题、说明文字"
 
 #: pyxiv/templates/tag.html:159
 msgid "More Options..."
-msgstr ""
+msgstr "更多选项..."
 
 #: pyxiv/templates/tag.html:162
 msgid "Minimum Width"
-msgstr ""
+msgstr "最低宽度"
 
 #: pyxiv/templates/tag.html:166
 msgid "Maximum Width"
-msgstr ""
+msgstr "最高宽度"
 
 #: pyxiv/templates/tag.html:170
 msgid "Minimum Height"
-msgstr ""
+msgstr "最低高度"
 
 #: pyxiv/templates/tag.html:177
 msgid "Ratio"
-msgstr ""
+msgstr "宽高比"
 
 #: pyxiv/templates/tag.html:179
-#, fuzzy
 msgid "Unspecified"
-msgstr "未指定的错误"
+msgstr "未指定"
 
 #: pyxiv/templates/tag.html:180
 msgid "Portrait"
-msgstr ""
+msgstr "纵图"
 
 #: pyxiv/templates/tag.html:181
 msgid "Square"
-msgstr ""
+msgstr "正方形图"
 
 #: pyxiv/templates/tag.html:182
 msgid "Landscape"
-msgstr ""
+msgstr "横图"
 
 #: pyxiv/templates/tag.html:186
 msgid "Tool:"
-msgstr ""
+msgstr "工具："
 
 #: pyxiv/templates/tag.html:190
 msgid "Posted before"
-msgstr ""
+msgstr "发布时间先于"
 
 #: pyxiv/templates/tag.html:194
-#, fuzzy, python-format
+#, python-format
 msgid "Posted after"
-msgstr "发布于 %(date)s"
+msgstr "发布时间后于"
 
 #: pyxiv/templates/tag.html:199
-#, fuzzy
 msgid "Minimum Bookmarks"
-msgstr "收藏"
+msgstr "最低收藏"
 
 #: pyxiv/templates/tag.html:203
-#, fuzzy
 msgid "Maximum Bookmarks"
-msgstr "收藏"
+msgstr "最高收藏"
 
 #: pyxiv/templates/tag.html:208
 msgid "Apply"
-msgstr ""
+msgstr "应用"
 
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
@@ -1120,4 +1114,3 @@ msgstr "%(user)s 的漫画"
 #~ "this page. You may need to <a "
 #~ "href='/settings/account'>log in</a> first."
 #~ msgstr "你没有权限访问该页面。请先<a href='/settings/account'>登录</a>。"
-
