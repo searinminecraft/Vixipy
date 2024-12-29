@@ -7,74 +7,73 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-27 14:11+0800\n"
+"POT-Creation-Date: 2024-12-29 12:09+0800\n"
 "PO-Revision-Date: 2024-12-28 02:22+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:151
+#: pyxiv/app.py:169
 msgid "pixiv Error!"
 msgstr "Error sa pixiv!"
 
-#: pyxiv/app.py:154
+#: pyxiv/app.py:172
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
 "Nagbigay ng error ang pixiv habang naghihiling ng data: "
 "<code>%(error)s</code>"
 
-#: pyxiv/app.py:154
+#: pyxiv/app.py:172
 msgid "Unspecified error"
 msgstr "Hindi natukoy na eror"
 
-#: pyxiv/app.py:165
+#: pyxiv/app.py:183
 msgid "Not found"
 msgstr "Hindi nahanap"
 
-#: pyxiv/app.py:166
+#: pyxiv/app.py:184
 msgid "The requested resource could not be found."
 msgstr "Hindi mahanap ang resource na hinihiling."
 
-#: pyxiv/app.py:176
+#: pyxiv/app.py:194
 msgid "Bad request"
 msgstr "Hindi wastong hiling"
 
-#: pyxiv/app.py:177
+#: pyxiv/app.py:195
 msgid "The server could not satisfy the request."
 msgstr "Hindi matugunan ng server ang kahilingan."
 
-#: pyxiv/app.py:187
+#: pyxiv/app.py:205
 msgid "Forbidden"
 msgstr "Pinagbawalan"
 
-#: pyxiv/app.py:188
+#: pyxiv/app.py:206
 msgid "You do not have permission to access this page."
 msgstr "Wala kang pahintulot para i-access ang pahina."
 
-#: pyxiv/app.py:198
+#: pyxiv/app.py:216
 msgid "Unauthorized"
 msgstr "Hindi awtorisado"
 
-#: pyxiv/app.py:200
+#: pyxiv/app.py:218
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 "Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na "
 "ito."
 
-#: pyxiv/app.py:213
+#: pyxiv/app.py:231
 msgid "Method Not Allowed"
 msgstr "Hindi Pinapayagan ang Paraan"
 
-#: pyxiv/app.py:214
+#: pyxiv/app.py:232
 msgid "This method is not allowed for this endpoint"
 msgstr "Hindi pinapayagan ang paraang ito para sa endpoint na ito"
 
@@ -261,11 +260,11 @@ msgstr "Matagumpay na na-unfollow ang user"
 msgid "Not authorized."
 msgstr "Hindi awtorisado."
 
-#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:26
+#: pyxiv/templates/500.html:7 pyxiv/templates/500.html:27
 msgid "Internal Server Error"
 msgstr "Panloob na Error sa Server"
 
-#: pyxiv/templates/500.html:27
+#: pyxiv/templates/500.html:28
 msgid ""
 "If this issue happens again, <a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
@@ -274,15 +273,15 @@ msgstr ""
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">maghain ng "
 "isyu</a>."
 
-#: pyxiv/templates/500.html:28 pyxiv/templates/error.html:19
+#: pyxiv/templates/500.html:29 pyxiv/templates/error.html:19
 msgid "Back to home"
 msgstr "Bumalik sa panimula"
 
-#: pyxiv/templates/500.html:32
+#: pyxiv/templates/500.html:33
 msgid "Error details"
 msgstr "Mga detalye sa error"
 
-#: pyxiv/templates/500.html:34
+#: pyxiv/templates/500.html:35
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
@@ -440,7 +439,7 @@ msgstr "Error!"
 msgid "An unknown error has occurred. Please try again later."
 msgstr "May naganap na hindi kilalang error. Pakisubukang muli mamaya."
 
-#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:49
+#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:50
 #: pyxiv/templates/user/index.html:56
 msgid "Home"
 msgstr "Panimula"
@@ -494,7 +493,7 @@ msgstr ""
 "href='https://www.vpngate.net'>VPN</a> o <a "
 "href='https://www.torproject.org/'>Tor</a>."
 
-#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:65 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr "Pinakabago"
 
@@ -585,88 +584,115 @@ msgstr "Isaayos ayon sa"
 msgid "Date"
 msgstr "Petsa"
 
+#: pyxiv/templates/tag.html:139
+msgid "Date (Descending)"
+msgstr ""
+
+#: pyxiv/templates/tag.html:141
+#, fuzzy
+msgid "Popular"
+msgstr "Mga popular na artwork"
+
+#: pyxiv/templates/tag.html:142
+msgid "Popular (Descending)"
+msgstr ""
+
 #: pyxiv/templates/tag.html:143
 msgid "Popular among male users"
+msgstr "Sikat sa mga lalaking gumagamit"
+
+#: pyxiv/templates/tag.html:144
+#, fuzzy
+msgid "Popular among male users (Descending)"
 msgstr "Sikat sa mga lalaking gumagamit"
 
 #: pyxiv/templates/tag.html:145
 msgid "Popular among female users"
 msgstr "Sikat sa mga babaeng gumagamit"
 
+#: pyxiv/templates/tag.html:146
+#, fuzzy
+msgid "Popular among female users (Descending)"
+msgstr "Sikat sa mga babaeng gumagamit"
+
 #: pyxiv/templates/tag.html:150
 msgid "Search mode"
 msgstr "Mode ng paghahanap"
 
-#: pyxiv/templates/tag.html:152
-msgid "Tag (Exact Match)"
-msgstr "Tag (Eksaktong Tugma)"
-
-#: pyxiv/templates/tag.html:153
-msgid "Tag (Partial Match)"
-msgstr "Tag (Bahagyang Tugma)"
-
-#: pyxiv/templates/tag.html:154
-msgid "Title/Caption"
-msgstr "Paksa/Caption"
-
-#: pyxiv/templates/tag.html:159
-msgid "More Options..."
-msgstr "Higit pang mga opsyon…"
-
-#: pyxiv/templates/tag.html:162
-msgid "Minimum Width"
-msgstr "Pinakamababang haba"
-
-#: pyxiv/templates/tag.html:166
-msgid "Maximum Width"
-msgstr "Pinakamalaking haba"
-
-#: pyxiv/templates/tag.html:170
-msgid "Minimum Height"
-msgstr "Pinakamababang taas"
-
-#: pyxiv/templates/tag.html:177
-msgid "Ratio"
-msgstr "Ratio"
-
-#: pyxiv/templates/tag.html:179
+#: pyxiv/templates/tag.html:152 pyxiv/templates/tag.html:180
 msgid "Unspecified"
 msgstr "Hindi tinukoy"
 
-#: pyxiv/templates/tag.html:180
+#: pyxiv/templates/tag.html:153
+msgid "Tag (Exact Match)"
+msgstr "Tag (Eksaktong Tugma)"
+
+#: pyxiv/templates/tag.html:154
+msgid "Tag (Partial Match)"
+msgstr "Tag (Bahagyang Tugma)"
+
+#: pyxiv/templates/tag.html:155
+msgid "Title/Caption"
+msgstr "Paksa/Caption"
+
+#: pyxiv/templates/tag.html:160
+msgid "More Options..."
+msgstr "Higit pang mga opsyon…"
+
+#: pyxiv/templates/tag.html:163
+msgid "Minimum Width"
+msgstr "Pinakamababang haba"
+
+#: pyxiv/templates/tag.html:167
+msgid "Maximum Width"
+msgstr "Pinakamalaking haba"
+
+#: pyxiv/templates/tag.html:171
+msgid "Minimum Height"
+msgstr "Pinakamababang taas"
+
+#: pyxiv/templates/tag.html:175
+#, fuzzy
+msgid "Maximum Height"
+msgstr "Pinakamababang taas"
+
+#: pyxiv/templates/tag.html:178
+msgid "Ratio"
+msgstr "Ratio"
+
+#: pyxiv/templates/tag.html:181
 msgid "Portrait"
 msgstr "Portrait"
 
-#: pyxiv/templates/tag.html:181
+#: pyxiv/templates/tag.html:182
 msgid "Square"
 msgstr "Parisukat"
 
-#: pyxiv/templates/tag.html:182
+#: pyxiv/templates/tag.html:183
 msgid "Landscape"
 msgstr "Landscape"
 
-#: pyxiv/templates/tag.html:186
+#: pyxiv/templates/tag.html:187
 msgid "Tool:"
 msgstr "Gamit:"
 
-#: pyxiv/templates/tag.html:190
+#: pyxiv/templates/tag.html:191
 msgid "Posted before"
 msgstr "Na-post bago"
 
-#: pyxiv/templates/tag.html:194
-#, python-format
+#: pyxiv/templates/tag.html:195
 msgid "Posted after"
 msgstr "Na-post pagkatapos"
 
-#: pyxiv/templates/tag.html:199
+#: pyxiv/templates/tag.html:200
 msgid "Minimum Bookmarks"
 msgstr "Pinakamababang Mga Bookmark"
 
-#: pyxiv/templates/tag.html:203
+#: pyxiv/templates/tag.html:204
 msgid "Maximum Bookmarks"
 msgstr "Pinakamataas na Mga Bookmark"
 
-#: pyxiv/templates/tag.html:208
+#: pyxiv/templates/tag.html:209
 msgid "Apply"
 msgstr "I-apply"
 
@@ -681,39 +707,39 @@ msgstr "Maghanap ng mga gawa…"
 msgid "Log in"
 msgstr "Mag-log in"
 
-#: pyxiv/templates/layouts/default.html:14
+#: pyxiv/templates/layouts/default.html:15
 msgid "This website requires JavaScript."
 msgstr "Nangangailangan ng JavaScript ang website na ito."
 
-#: pyxiv/templates/layouts/default.html:54
+#: pyxiv/templates/layouts/default.html:55
 msgid "Discover"
 msgstr "Tuklasin"
 
-#: pyxiv/templates/layouts/default.html:59
+#: pyxiv/templates/layouts/default.html:60
 #: pyxiv/templates/pixivision/index.html:23
 msgid "Rankings"
 msgstr "Mga Ranking"
 
-#: pyxiv/templates/layouts/default.html:69
+#: pyxiv/templates/layouts/default.html:70
 msgid "pixivision"
 msgstr "pixivision"
 
-#: pyxiv/templates/layouts/default.html:73
-#: pyxiv/templates/layouts/default.html:101
+#: pyxiv/templates/layouts/default.html:74
+#: pyxiv/templates/layouts/default.html:102
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr "Mga Setting"
 
-#: pyxiv/templates/layouts/default.html:93
+#: pyxiv/templates/layouts/default.html:94
 msgid "Profile"
 msgstr "Iyong profile"
 
-#: pyxiv/templates/layouts/default.html:97 pyxiv/templates/user/index.html:59
+#: pyxiv/templates/layouts/default.html:98 pyxiv/templates/user/index.html:59
 msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
-#: pyxiv/templates/layouts/default.html:105
+#: pyxiv/templates/layouts/default.html:106
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "Mag-log out"
@@ -1220,3 +1246,4 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Click on the button below to securely log out"
 #~ msgstr "I-click ang button sa ibaba para mag-log out"
+

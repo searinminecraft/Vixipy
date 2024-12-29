@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-27 14:11+0800\n"
+"POT-Creation-Date: 2024-12-29 12:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,56 +17,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:151
+#: pyxiv/app.py:169
 msgid "pixiv Error!"
 msgstr ""
 
-#: pyxiv/app.py:154
+#: pyxiv/app.py:172
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
 
-#: pyxiv/app.py:154
+#: pyxiv/app.py:172
 msgid "Unspecified error"
 msgstr ""
 
-#: pyxiv/app.py:165
+#: pyxiv/app.py:183
 msgid "Not found"
 msgstr ""
 
-#: pyxiv/app.py:166
+#: pyxiv/app.py:184
 msgid "The requested resource could not be found."
 msgstr ""
 
-#: pyxiv/app.py:176
+#: pyxiv/app.py:194
 msgid "Bad request"
 msgstr ""
 
-#: pyxiv/app.py:177
+#: pyxiv/app.py:195
 msgid "The server could not satisfy the request."
 msgstr ""
 
-#: pyxiv/app.py:187
+#: pyxiv/app.py:205
 msgid "Forbidden"
 msgstr ""
 
-#: pyxiv/app.py:188
+#: pyxiv/app.py:206
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: pyxiv/app.py:198
+#: pyxiv/app.py:216
 msgid "Unauthorized"
 msgstr ""
 
-#: pyxiv/app.py:200
+#: pyxiv/app.py:218
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 
-#: pyxiv/app.py:213
+#: pyxiv/app.py:231
 msgid "Method Not Allowed"
 msgstr ""
 
-#: pyxiv/app.py:214
+#: pyxiv/app.py:232
 msgid "This method is not allowed for this endpoint"
 msgstr ""
 
@@ -236,25 +236,25 @@ msgstr ""
 msgid "Not authorized."
 msgstr ""
 
-#: pyxiv/templates/500.html:6 pyxiv/templates/500.html:26
+#: pyxiv/templates/500.html:7 pyxiv/templates/500.html:27
 msgid "Internal Server Error"
 msgstr ""
 
-#: pyxiv/templates/500.html:27
+#: pyxiv/templates/500.html:28
 msgid ""
 "If this issue happens again, <a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
 msgstr ""
 
-#: pyxiv/templates/500.html:28 pyxiv/templates/error.html:19
+#: pyxiv/templates/500.html:29 pyxiv/templates/error.html:19
 msgid "Back to home"
 msgstr ""
 
-#: pyxiv/templates/500.html:32
+#: pyxiv/templates/500.html:33
 msgid "Error details"
 msgstr ""
 
-#: pyxiv/templates/500.html:34
+#: pyxiv/templates/500.html:35
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
@@ -399,7 +399,7 @@ msgstr ""
 msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
-#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:49
+#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:50
 #: pyxiv/templates/user/index.html:56
 msgid "Home"
 msgstr ""
@@ -448,7 +448,7 @@ msgid ""
 "href='https://www.torproject.org/'>Tor</a> is recommended."
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:65 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr ""
 
@@ -539,87 +539,111 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+#: pyxiv/templates/tag.html:139
+msgid "Date (Descending)"
+msgstr ""
+
+#: pyxiv/templates/tag.html:141
+msgid "Popular"
+msgstr ""
+
+#: pyxiv/templates/tag.html:142
+msgid "Popular (Descending)"
+msgstr ""
+
 #: pyxiv/templates/tag.html:143
 msgid "Popular among male users"
+msgstr ""
+
+#: pyxiv/templates/tag.html:144
+msgid "Popular among male users (Descending)"
 msgstr ""
 
 #: pyxiv/templates/tag.html:145
 msgid "Popular among female users"
 msgstr ""
 
+#: pyxiv/templates/tag.html:146
+msgid "Popular among female users (Descending)"
+msgstr ""
+
 #: pyxiv/templates/tag.html:150
 msgid "Search mode"
 msgstr ""
 
-#: pyxiv/templates/tag.html:152
-msgid "Tag (Exact Match)"
-msgstr ""
-
-#: pyxiv/templates/tag.html:153
-msgid "Tag (Partial Match)"
-msgstr ""
-
-#: pyxiv/templates/tag.html:154
-msgid "Title/Caption"
-msgstr ""
-
-#: pyxiv/templates/tag.html:159
-msgid "More Options..."
-msgstr ""
-
-#: pyxiv/templates/tag.html:162
-msgid "Minimum Width"
-msgstr ""
-
-#: pyxiv/templates/tag.html:166
-msgid "Maximum Width"
-msgstr ""
-
-#: pyxiv/templates/tag.html:170
-msgid "Minimum Height"
-msgstr ""
-
-#: pyxiv/templates/tag.html:177
-msgid "Ratio"
-msgstr ""
-
-#: pyxiv/templates/tag.html:179
+#: pyxiv/templates/tag.html:152 pyxiv/templates/tag.html:180
 msgid "Unspecified"
 msgstr ""
 
-#: pyxiv/templates/tag.html:180
-msgid "Portrait"
+#: pyxiv/templates/tag.html:153
+msgid "Tag (Exact Match)"
+msgstr ""
+
+#: pyxiv/templates/tag.html:154
+msgid "Tag (Partial Match)"
+msgstr ""
+
+#: pyxiv/templates/tag.html:155
+msgid "Title/Caption"
+msgstr ""
+
+#: pyxiv/templates/tag.html:160
+msgid "More Options..."
+msgstr ""
+
+#: pyxiv/templates/tag.html:163
+msgid "Minimum Width"
+msgstr ""
+
+#: pyxiv/templates/tag.html:167
+msgid "Maximum Width"
+msgstr ""
+
+#: pyxiv/templates/tag.html:171
+msgid "Minimum Height"
+msgstr ""
+
+#: pyxiv/templates/tag.html:175
+msgid "Maximum Height"
+msgstr ""
+
+#: pyxiv/templates/tag.html:178
+msgid "Ratio"
 msgstr ""
 
 #: pyxiv/templates/tag.html:181
-msgid "Square"
+msgid "Portrait"
 msgstr ""
 
 #: pyxiv/templates/tag.html:182
+msgid "Square"
+msgstr ""
+
+#: pyxiv/templates/tag.html:183
 msgid "Landscape"
 msgstr ""
 
-#: pyxiv/templates/tag.html:186
+#: pyxiv/templates/tag.html:187
 msgid "Tool:"
 msgstr ""
 
-#: pyxiv/templates/tag.html:190
+#: pyxiv/templates/tag.html:191
 msgid "Posted before"
 msgstr ""
 
-#: pyxiv/templates/tag.html:194
+#: pyxiv/templates/tag.html:195
 msgid "Posted after"
 msgstr ""
 
-#: pyxiv/templates/tag.html:199
+#: pyxiv/templates/tag.html:200
 msgid "Minimum Bookmarks"
 msgstr ""
 
-#: pyxiv/templates/tag.html:203
+#: pyxiv/templates/tag.html:204
 msgid "Maximum Bookmarks"
 msgstr ""
 
-#: pyxiv/templates/tag.html:208
+#: pyxiv/templates/tag.html:209
 msgid "Apply"
 msgstr ""
 
@@ -634,39 +658,39 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:14
+#: pyxiv/templates/layouts/default.html:15
 msgid "This website requires JavaScript."
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:54
+#: pyxiv/templates/layouts/default.html:55
 msgid "Discover"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:59
+#: pyxiv/templates/layouts/default.html:60
 #: pyxiv/templates/pixivision/index.html:23
 msgid "Rankings"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:69
+#: pyxiv/templates/layouts/default.html:70
 msgid "pixivision"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:73
-#: pyxiv/templates/layouts/default.html:101
+#: pyxiv/templates/layouts/default.html:74
+#: pyxiv/templates/layouts/default.html:102
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:93
+#: pyxiv/templates/layouts/default.html:94
 msgid "Profile"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:97 pyxiv/templates/user/index.html:59
+#: pyxiv/templates/layouts/default.html:98 pyxiv/templates/user/index.html:59
 msgid "Bookmarks"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:105
+#: pyxiv/templates/layouts/default.html:106
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr ""
