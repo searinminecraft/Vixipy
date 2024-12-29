@@ -17,9 +17,15 @@ tag = Blueprint("tag", __name__, url_prefix="/tag")
 def tagMain(name):
 
     args = request.args.copy()
+    actual = request.args.copy()
 
     if args.get("mode", "safe") == "r18" and current_app.config["nor18"]:
         abort(400)
+    
+    if args.get("overridepagecount"):
+        overridepagecount = args.pop("overridepagecount") == "on"
+    else:
+        overridepagecount = False
 
     try:
         data = searchArtwork(name, **args)
@@ -31,15 +37,15 @@ def tagMain(name):
     g.tag = name
 
     try:
-        currPage = args.pop("p")
+        currPage = actual.pop("p")
     except KeyError:
         currPage = 1
 
-    if int(currPage) > data.lastPage:
+    if int(currPage) > data.lastPage and not overridepagecount:
         return (
             render_template(
                 "error.html",
-                error=f"Exceeded maximum pages ({currPage} > {data.lastPage}). Did you really try?",
+                errordesc=f"Exceeded maximum pages ({currPage} > {data.lastPage}). If you want to override this, turn on 'Go beyond last page' on the advanced search options.",
             ),
             400,
         )
@@ -49,7 +55,7 @@ def tagMain(name):
     else:
         useSym = "?"
 
-    path = url_for("tag.tagMain", name=name, **args)
+    path = url_for("tag.tagMain", name=name, **actual)
 
     return render_template(
         "tag.html",
@@ -58,6 +64,7 @@ def tagMain(name):
         currPage=currPage,
         path=path,
         useSym=useSym,
+        gobeyond=overridepagecount
     )
 
 
