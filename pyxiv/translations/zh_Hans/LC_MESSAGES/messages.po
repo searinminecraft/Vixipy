@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-29 12:09+0800\n"
+"POT-Creation-Date: 2024-12-29 12:48+0800\n"
 "PO-Revision-Date: 2024-12-28 02:22+0000\n"
 "Last-Translator: Peaksol <peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -526,139 +526,150 @@ msgstr "作品"
 msgid "Advanced search options (experimental)"
 msgstr "高级搜索选项（实验性功能）"
 
-#: pyxiv/templates/tag.html:127
+#: pyxiv/templates/tag.html:129
 msgid "Mode"
 msgstr "模式"
 
-#: pyxiv/templates/tag.html:129
+#: pyxiv/templates/tag.html:131
 msgid "Safe"
 msgstr "全年龄"
 
-#: pyxiv/templates/tag.html:131
+#: pyxiv/templates/tag.html:133
 msgid "All"
 msgstr "所有"
 
-#: pyxiv/templates/tag.html:132
+#: pyxiv/templates/tag.html:134
 msgid "R-18"
 msgstr "R-18"
 
-#: pyxiv/templates/tag.html:136
+#: pyxiv/templates/tag.html:138
 msgid "Order by"
 msgstr "排序方式"
 
-#: pyxiv/templates/tag.html:138
+#: pyxiv/templates/tag.html:140
 msgid "Date"
 msgstr "日期"
 
-#: pyxiv/templates/tag.html:139
+#: pyxiv/templates/tag.html:141
 msgid "Date (Descending)"
 msgstr ""
 
-#: pyxiv/templates/tag.html:141
+#: pyxiv/templates/tag.html:143
 #, fuzzy
 msgid "Popular"
 msgstr "热门作品"
 
-#: pyxiv/templates/tag.html:142
+#: pyxiv/templates/tag.html:144
 msgid "Popular (Descending)"
 msgstr ""
 
-#: pyxiv/templates/tag.html:143
+#: pyxiv/templates/tag.html:145
 msgid "Popular among male users"
 msgstr "受男性欢迎"
 
-#: pyxiv/templates/tag.html:144
+#: pyxiv/templates/tag.html:146
 #, fuzzy
 msgid "Popular among male users (Descending)"
 msgstr "受男性欢迎"
 
-#: pyxiv/templates/tag.html:145
+#: pyxiv/templates/tag.html:147
 msgid "Popular among female users"
 msgstr "受女性欢迎"
 
-#: pyxiv/templates/tag.html:146
+#: pyxiv/templates/tag.html:148
 #, fuzzy
 msgid "Popular among female users (Descending)"
 msgstr "受女性欢迎"
 
-#: pyxiv/templates/tag.html:150
+#: pyxiv/templates/tag.html:152
 msgid "Search mode"
 msgstr "搜索模式"
 
-#: pyxiv/templates/tag.html:152 pyxiv/templates/tag.html:180
+#: pyxiv/templates/tag.html:154 pyxiv/templates/tag.html:189
 msgid "Unspecified"
 msgstr "未指定"
 
-#: pyxiv/templates/tag.html:153
+#: pyxiv/templates/tag.html:155
 msgid "Tag (Exact Match)"
 msgstr "标签（完全一致）"
 
-#: pyxiv/templates/tag.html:154
+#: pyxiv/templates/tag.html:156
 msgid "Tag (Partial Match)"
 msgstr "标签（部分一致）"
 
-#: pyxiv/templates/tag.html:155
+#: pyxiv/templates/tag.html:157
 msgid "Title/Caption"
 msgstr "标题、说明文字"
 
-#: pyxiv/templates/tag.html:160
+#: pyxiv/templates/tag.html:162
+msgid "Go beyond last page"
+msgstr ""
+
+#: pyxiv/templates/tag.html:164
+msgid ""
+"Use this if you are sure that there are more results beyond the last page"
+" (due to pixiv's quirky API). If nothing shows up, try to refresh the "
+"page repeatedly. If it does not work, it might really be the last page."
+msgstr ""
+
+#: pyxiv/templates/tag.html:169
 msgid "More Options..."
 msgstr "更多选项..."
 
-#: pyxiv/templates/tag.html:163
+#: pyxiv/templates/tag.html:172
 msgid "Minimum Width"
 msgstr "最低宽度"
 
-#: pyxiv/templates/tag.html:167
+#: pyxiv/templates/tag.html:176
 msgid "Maximum Width"
 msgstr "最高宽度"
 
-#: pyxiv/templates/tag.html:171
+#: pyxiv/templates/tag.html:180
 msgid "Minimum Height"
 msgstr "最低高度"
 
-#: pyxiv/templates/tag.html:175
+#: pyxiv/templates/tag.html:184
 #, fuzzy
 msgid "Maximum Height"
 msgstr "最低高度"
 
-#: pyxiv/templates/tag.html:178
+#: pyxiv/templates/tag.html:187
 msgid "Ratio"
 msgstr "宽高比"
 
-#: pyxiv/templates/tag.html:181
+#: pyxiv/templates/tag.html:190
 msgid "Portrait"
 msgstr "纵图"
 
-#: pyxiv/templates/tag.html:182
+#: pyxiv/templates/tag.html:191
 msgid "Square"
 msgstr "正方形图"
 
-#: pyxiv/templates/tag.html:183
+#: pyxiv/templates/tag.html:192
 msgid "Landscape"
 msgstr "横图"
 
-#: pyxiv/templates/tag.html:187
+#: pyxiv/templates/tag.html:196
 msgid "Tool:"
 msgstr "工具："
 
-#: pyxiv/templates/tag.html:191
+#: pyxiv/templates/tag.html:200
 msgid "Posted before"
 msgstr "发布时间先于"
 
-#: pyxiv/templates/tag.html:195
+#: pyxiv/templates/tag.html:204
 msgid "Posted after"
 msgstr "发布时间后于"
 
-#: pyxiv/templates/tag.html:200
+#: pyxiv/templates/tag.html:209
 msgid "Minimum Bookmarks"
 msgstr "最低收藏"
 
-#: pyxiv/templates/tag.html:204
+#: pyxiv/templates/tag.html:213
 msgid "Maximum Bookmarks"
 msgstr "最高收藏"
 
-#: pyxiv/templates/tag.html:209
+#: pyxiv/templates/tag.html:218
 msgid "Apply"
 msgstr "应用"
 

@@ -84,7 +84,7 @@
 		{% include "components/artwork-prev.html" %}
 		{% endfor %}
 		{% else %}
-		<p>{{ _("Nothing to show!") }}</p>
+		<p>{{ _("Nothing to show!") }} {% if gobeyond %}<a href="">Refresh</a>{% endif %}</p>
 		{% endif %}
 	</div>
 </div>
@@ -99,7 +99,7 @@
 
 <span>Page {{ currPage }} of {{ data.lastPage }}</span>
 
-{% if currPage | int != data.lastPage %}
+{% if currPage | int != data.lastPage or gobeyond %}
 <a href={{ path + useSym + "p=" + ((currPage | int + 1) | string)  }}>&gt;</a>
 {% else %}
 <a>&gt;</a>
@@ -120,15 +120,17 @@
 				</button>
 			</div>
 			<div class="dialog-content">
-				{% set mode = request.args.get('mode', 'safe') %}
+				{% set mode = request.args.get('mode', '') %}
 				{% set order = request.args.get('order', 'date') %}
 				{% set s_mode = request.args.get('s_mode', 's_tag') %}
+				{% set overridepagecount = request.args.get('overridepagecount', '0') %}
+
 				<form action="/tag/{{ tagInfo.tag }}">
 					<label for="mode">{{ _("Mode") }}</label>
 					<select name="mode" id="mode">
 						<option value="safe" {% if mode == 'safe'%}selected{% endif %}>{{ _("Safe") }}</option>
 						{% if not config["nor18"] %}
-						<option value="all" {% if mode == 'all'%}selected{% endif %}>{{ _("All") }}</option>
+						<option value="all" {% if mode == 'all' or mode == '' %}selected{% endif %}>{{ _("All") }}</option>
 						<option value="r18" {% if mode == 'r18'%}selected{% endif %}>{{ _("R-18") }}</option>
 						{% endif %}
 					</select>
@@ -154,6 +156,13 @@
 						<option value="s_tag" {% if s_mode=="s_tag" %}selected{% endif %}>{{ _("Tag (Partial Match)") }}</option>
 						<option value="s_tc" {% if s_mode=="s_tc" %}selected{% endif %}>{{ _("Title/Caption") }}</option>
 					</select>
+					<br>
+					<br>
+					<label>
+						<input type="checkbox" name="overridepagecount" {% if overridepagecount == '1' %}checked{% endif %}> {{_("Go beyond last page")}}
+						<br><br>
+						{{ _("Use this if you are sure that there are more results beyond the last page (due to pixiv's quirky API). If nothing shows up, try to refresh the page repeatedly. If it does not work, it might really be the last page.") }}
+					</label>
 
 					<br>
 					<details>
