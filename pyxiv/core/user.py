@@ -26,6 +26,11 @@ def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
 def getUser(_id: int) -> User:
     """Get a user"""
 
+    try:
+        int(_id)
+    except Exception:
+        raise ValueError from None
+
     data = api.getUserInfo(_id)["body"]
 
     return User(data)

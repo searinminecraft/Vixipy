@@ -268,7 +268,7 @@ def create_app():
         g.userPxCSRF = request.cookies.get("PyXivCSRF")
         g.userProxyServer = request.cookies.get("PyXivProxy", "")
 
-        if not g.userPxSession and not g.userPxCSRF:
+        if (not g.userPxSession and not g.userPxCSRF) or g.userPxSession == "":
             g.isAuthorized = False
 
             if route in ("self",):
@@ -276,6 +276,8 @@ def create_app():
 
         else:
             g.isAuthorized = True
+            print(g.userPxSession)
+            print(g.userPxCSRF)
 
             try:
                 g.userdata: User = getUser(g.userPxSession.split("_")[0])
@@ -291,6 +293,8 @@ def create_app():
                 del g.userPxCSRF
 
                 g.invalidSession = True
+
+                return
 
             g.notificationCount = api.pixivReq(
                 "/rpc/notify_count.php?op=count_unread",
