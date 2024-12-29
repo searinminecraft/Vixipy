@@ -37,10 +37,11 @@ def getHeaders(useMobileAgent=False):
         log.debug("Using authenticated request")
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
     else:
-        log.debug("Using configured session token ({cfg.PxSession})")
+        log.debug(f"Using configured session token ({cfg.PxSession})")
         headers["Cookie"] = f"PHPSESSID={cfg.PxSession}"
     
     if useMobileAgent:
+        log.debug("Using mobile user agent")
         headers["User-Agent"] = "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
     else:
         headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0"
@@ -59,7 +60,7 @@ def pixivReq(endpoint, additionalHeaders: dict = {}, useMobileAgent=False):
     )
     end = time.perf_counter()
 
-    log.debug(f"Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms [{request.user_agent}]")
+    log.debug(f"Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
 
     if req.status_code == 429:
         raise PixivError("Rate limited")
@@ -77,11 +78,14 @@ def pixivReq(endpoint, additionalHeaders: dict = {}, useMobileAgent=False):
 
         if resp.get("error"):
             try:
+                log.error("An error occurred trying to get %s: Status code %d: %s", req.url, req.status_code, resp["message"])
                 raise PixivError(resp["message"])
             except KeyError:
                 try:
+                    log.error("An error occurred trying to get %s: Status code %d: %s", req.url, req.status_code, resp["error"])
                     raise PixivError(resp["error"])
                 except KeyError:
+                    log.error("An unknown error occurred trying to get %s: Status code %d", req.url, req.status_code)
                     raise PixivError("Unknown error")
 
     return resp
@@ -113,7 +117,7 @@ def pixivPostReq(
             "https://www.pixiv.net" + endpoint, headers=getHeaders(), json=jsonPayload
         )
     elif rawPayload:
-        origHeaders = getHeaders()
+        origHeaders = getHeaders(useMobileAgent)
 
         req = requests.post(
             "https://www.pixiv.net" + endpoint,
@@ -128,7 +132,7 @@ def pixivPostReq(
         raise TypeError("Neither json payload nor raw payload were provided.")
     end = time.perf_counter()
 
-    log.debug(f"POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms [{request.user_agent}]")
+    log.debug(f"POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
 
     resp = req.json()
     # isSucceed is used on mobile ajax API, while error is used for regular ajax API
@@ -136,11 +140,14 @@ def pixivPostReq(
 
         if resp.get("error"):
             try:
+                log.error("An error occurred trying to POST %s: Status code %d: %s", req.url, req.status_code, resp["message"])
                 raise PixivError(resp["message"])
             except KeyError:
                 try:
+                    log.error("An error occurred trying to POST %s: Status code %d: %s", req.url, req.status_code, resp["error"])
                     raise PixivError(resp["error"])
                 except KeyError:
+                    log.error("An error occurred trying to POST %s: Status code %d", req.url, req.status_code)
                     raise PixivError("Unknown error")
 
     return resp
