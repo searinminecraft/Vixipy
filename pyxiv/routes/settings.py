@@ -109,18 +109,16 @@ def setSession():
         g.userPxSession = f["token"]
 
         try:
-            api.getLatestFromFollowing("all", 1)
+            api.pixivReq("/ajax/user/extra")
         except api.PixivError as e:
             flash(_("Cannot use token: %(error)s", error=e), "error")
             return redirect(url_for("settings.mainSettings", ep="account"))
 
-        # If you're curious, this test URL is an illustration of Anna Yanami.
-        # And don't worry its definitely not NSFW
         req = requests.get(
-            "https://www.pixiv.net/en/artworks/121633055",
+            "https://www.pixiv.net/en/artworks/99818936",
             headers={
                 "Cookie": f"PHPSESSID={f['token']}",
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
             },
         )
 

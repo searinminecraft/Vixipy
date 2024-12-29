@@ -276,8 +276,6 @@ def create_app():
 
         else:
             g.isAuthorized = True
-            print(g.userPxSession)
-            print(g.userPxCSRF)
 
             try:
                 g.userdata: User = getUser(g.userPxSession.split("_")[0])
