@@ -15,6 +15,8 @@ from urllib.parse import urlparse
 import traceback
 
 from requests import ConnectionError
+import logging
+import os.path
 
 from . import api
 from . import cfg
@@ -38,10 +40,24 @@ from .routes import (
     ranking,
 )
 
-import os.path
+log = logging.getLogger()
+
 
 def create_app():
     app = Flask(__name__, static_folder=None)
+
+    if app.debug:
+        logLevel = logging.DEBUG
+    else:
+        logLevel = logging.WARN
+
+    logging.basicConfig(level=logLevel, format=(
+        "[%(asctime)s]: %(name)s %(levelname)s: %(message)s"
+    ), style="%")
+
+    logging.getLogger("urllib3.connectionpool").setLevel(logging.ERROR)
+    logging.getLogger("werkzeug").setLevel(logging.ERROR)
+
     app.secret_key = cfg.PyXivSecret
     app.config["authless"] = cfg.AuthlessMode
     app.config["nor18"] = cfg.NoR18

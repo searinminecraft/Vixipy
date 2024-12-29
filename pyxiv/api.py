@@ -3,6 +3,9 @@ import requests
 from . import cfg
 import time
 from urllib.parse import quote
+import logging
+
+log = logging.getLogger("vixipy.api")
 
 
 class PixivError(Exception):
@@ -14,7 +17,7 @@ class UnknownPixivError(Exception):
 
 
 def getHeaders(useMobileAgent=False):
-
+    """
     headers = {
         "Cookie": f"PHPSESSID={g.get('userPxSession') if g.get('userPxSession') else cfg.PxSession}",
         "User-Agent": (
@@ -24,7 +27,23 @@ def getHeaders(useMobileAgent=False):
         ),  #  tbh maybe I should just use a Windows UA
         "Accept-Language": cfg.PxAcceptLang,
     }
+    """
 
+    headers = {
+        "Accept-Language": cfg.PxAcceptLang
+    }
+
+    if g.get('userPxSession'):
+        log.debug("Using authenticated request")
+        headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
+    else:
+        log.debug("Using configured session token ({cfg.PxSession})")
+        headers["Cookie"] = f"PHPSESSID={cfg.PxSession}"
+    
+    if useMobileAgent:
+        headers["User-Agent"] = "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
+    else:
+        headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0"
     if g.get("userPxCSRF"):
         headers["x-csrf-token"] = g.userPxCSRF
 
@@ -40,9 +59,7 @@ def pixivReq(endpoint, additionalHeaders: dict = {}, useMobileAgent=False):
     )
     end = time.perf_counter()
 
-    print(
-        f"PIXIVAPI | Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms [{request.user_agent}]"
-    )
+    log.debug(f"Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms [{request.user_agent}]")
 
     if req.status_code == 429:
         raise PixivError("Rate limited")
@@ -111,9 +128,7 @@ def pixivPostReq(
         raise TypeError("Neither json payload nor raw payload were provided.")
     end = time.perf_counter()
 
-    print(
-        f"PIXIVAPI | POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms -- [{request.user_agent}]"
-    )
+    log.debug(f"POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms [{request.user_agent}]")
 
     resp = req.json()
     # isSucceed is used on mobile ajax API, while error is used for regular ajax API
@@ -221,8 +236,8 @@ def searchArtwork(
     keyword: str,
     *,
     order: str = None,
-    mode: str = "safe",
-    s_mode: str = "s_tag",
+    mode: str = None,
+    s_mode: str = None,
     wlt: int = None,
     wgt: int = None,
     hlt: int = None,
@@ -239,10 +254,16 @@ def searchArtwork(
     params: just refer to https://daydreamer-json.github.io/pixiv-ajax-api-docs/#search-artworks
     """
 
-    path = f"/ajax/search/artworks/{keyword}?word={keyword}&mode={mode}&s_mode={s_mode}&p={p}"
+    path = f"/ajax/search/artworks/{keyword}?p={p}"
 
     if order:
-        path += f"&order=order"
+        path += f"&order={order}"
+    
+    if mode:
+        path += f"&mode={mode}"
+    
+    if s_mode:
+        path += f"&s_mode={s_mode}"
 
     if wlt:
         path += f"&wlt={wlt}"
