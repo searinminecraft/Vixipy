@@ -136,19 +136,20 @@
 					<label for="order">{{ _("Order by") }}</label>
 					<select id="order" name="order">
 						<option value="date" {% if order == 'date'%}selected{%endif%}>{{ _("Date") }}</option>
-						<option value="date_d" {% if order == 'date_d'%}selected{%endif%}>date_d</option>
+						<option value="date_d" {% if order == 'date_d'%}selected{%endif%}>{{ _("Date (Descending)") }}</option>
 						{% if g.get("isPremium", False) %}
-						<option value="popular" {% if order == 'popular'%}selected{%endif%}>popular</option>
-						<option value="popular_d" {% if order == 'popular_d'%}selected{%endif%}>popular_d</option>
+						<option value="popular" {% if order == 'popular'%}selected{%endif%}>{{ _("Popular") }}</option>
+						<option value="popular_d" {% if order == 'popular_d'%}selected{%endif%}>{{ _("Popular (Descending)") }}</option>
 						<option value="popular_male" {% if order == 'popular_male'%}selected{%endif%}>{{ _("Popular among male users") }}</option>
-						<option value="popular_male_d" {% if order == 'popular_male_d'%}selected{%endif%}>popular_male_d</option>
+						<option value="popular_male_d" {% if order == 'popular_male_d'%}selected{%endif%}>{{ _("Popular among male users (Descending)") }}</option>
 						<option value="popular_female" {% if order == 'popular_female'%}selected{%endif%}>{{ _("Popular among female users") }}</option>
-						<option value="popular_female_d" {% if order == 'popular_female_d'%}selected{%endif%}>popular_female_d</option>
+						<option value="popular_female_d" {% if order == 'popular_female_d'%}selected{%endif%}>{{ _("Popular among female users (Descending)") }}</option>
 						{% endif %}
 					</select>
 
 					<label for="s_mode">{{ _("Search mode") }}</label>
 					<select name="s_mode" id="s_mode">
+						<option value="">{{_("Unspecified")}}</option>
 						<option value="s_tag_full" {% if s_mode=="s_tag_full" %}selected{% endif %}>{{ _("Tag (Exact Match)") }}</option>
 						<option value="s_tag" {% if s_mode=="s_tag" %}selected{% endif %}>{{ _("Tag (Partial Match)") }}</option>
 						<option value="s_tc" {% if s_mode=="s_tc" %}selected{% endif %}>{{ _("Title/Caption") }}</option>
@@ -171,7 +172,7 @@
 					</label>
 
 					<label>
-						{{("Maximum Height")}}: <input type="number" name="hgt" value="{{ request.args.get('hgt', '') }}">
+						{{_("Maximum Height")}}: <input type="number" name="hgt" value="{{ request.args.get('hgt', '') }}">
 					</label>
 
 					<label for="ratio">{{ _("Ratio") }}</label>
