@@ -50,7 +50,7 @@ def tagMain(name):
             400,
         )
 
-    if len(args) > 0:
+    if len(actual) > 0:
         useSym = "&"
     else:
         useSym = "?"
