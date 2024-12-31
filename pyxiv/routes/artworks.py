@@ -9,7 +9,7 @@ from quart import (
     redirect,
     url_for,
 )
-from flask_babel import _
+from quart_babel import _
 
 from ..api import PixivError
 from ..core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
