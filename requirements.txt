@@ -1,5 +1,5 @@
 quart
 quart-babel
-requests
+aiohttp
 beautifulsoup4
 git+https://codeberg.org/pyxiv/pyxivision
