@@ -303,7 +303,7 @@ def create_app():
             g.isAuthorized = True
 
             try:
-                g.userdata: User = await getUser(g.userPxSession.split("_")[0])
+                g.userdata: User = await getUser(g.userPxSession.split("_")[0], False)
                 g.isPremium = g.userdata.premium
             except api.PixivError:
                 flash(

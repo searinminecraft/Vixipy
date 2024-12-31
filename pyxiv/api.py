@@ -107,11 +107,11 @@ async def getLatestFromFollowing(mode: str, page: int):
     return await pixivReq("get", f"/ajax/follow_latest/illust?mode={mode}&p={page}")
 
 
-async def getUserInfo(userId: int):
+async def getUserInfo(userId: int, full: bool = True):
     """
     Get information about a user
     """
-    return await pixivReq("get", f"/ajax/user/{userId}?full=1")
+    return await pixivReq("get", f"/ajax/user/{userId}?full={int(full)}")
 
 
 async def getArtworkInfo(_id: int):

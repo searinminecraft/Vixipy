@@ -7,6 +7,7 @@ from ..classes import (
     UserSettingsState,
     Notification,
     UserFollowData,
+    PartialUser,
 )
 from ..utils.filtering import filterEntriesFromPreferences
 
@@ -23,7 +24,7 @@ async def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
     )
 
 
-async def getUser(_id: int) -> User:
+async def getUser(_id: int, full: bool = True) -> User:
     """Get a user"""
 
     try:
@@ -31,9 +32,9 @@ async def getUser(_id: int) -> User:
     except Exception:
         raise ValueError from None
 
-    data = (await api.getUserInfo(_id))["body"]
+    data = (await api.getUserInfo(_id, full))["body"]
 
-    return User(data)
+    return User(data) if full else PartialUser(data)
 
 
 async def getUserBookmarks(

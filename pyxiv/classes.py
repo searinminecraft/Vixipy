@@ -28,7 +28,7 @@ class PartialUser:
 
         self._id: int = int(data["userId"])
         self.name: str = data["name"]
-        self.comment: str = data["comment"]
+        self.comment: str = data.get("comment")
         self.image: str = makeProxy(data["image"])
         self.imageBig: str = makeProxy(data["imageBig"])
         self.premium: bool = data["premium"]
