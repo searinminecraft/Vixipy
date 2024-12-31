@@ -25,7 +25,9 @@ async def pixivReq(
     rawPayload: str = None,
 ):
 
-    headers = {}
+    headers = {
+            "Accept-Language": cfg.PxAcceptLang
+    }
 
     if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
