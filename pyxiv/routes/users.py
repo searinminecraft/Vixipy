@@ -1,4 +1,4 @@
-from flask import (
+from quart import (
     Blueprint,
     abort,
     current_app,
@@ -26,7 +26,7 @@ users = Blueprint("users", __name__, url_prefix="/users")
 
 
 @users.route("/<int:_id>")
-def userPage(_id: int):
+async def userPage(_id: int):
 
     if _id == 0:
         user = User(
@@ -51,8 +51,8 @@ def userPage(_id: int):
         frequent = []
         total = 0
     else:
-        user = getUser(_id)
-        data = api.getUserIllustManga(_id)["body"]
+        user = await getUser(_id)
+        data = (await api.getUserIllustManga(_id))["body"]
         total = len(data["illusts"]) + len(data["manga"])
 
         pickup = []
@@ -62,10 +62,10 @@ def userPage(_id: int):
                 continue
             pickup.append(ArtworkEntry(x))
 
-        top = getUserTopIllusts(_id)
-        frequent = getFrequentTags([x._id for x in top]) if len(top) > 0 else []
+        top = await getUserTopIllusts(_id)
+        frequent = await getFrequentTags([x._id for x in top]) if len(top) > 0 else []
 
-    return render_template(
+    return await render_template(
         "user/main.html",
         user=user,
         pickup=pickup,
@@ -76,16 +76,16 @@ def userPage(_id: int):
 
 
 @users.route("/<int:_id>/illusts")
-def userIllusts(_id: int):
+async def userIllusts(_id: int):
 
     if _id == 0:
-        flash(_("Invalid user"), "error")
-        return redirect("/users/0")
+        await flash(_("Invalid user"), "error")
+        return await redirect("/users/0")
 
     currPage = int(request.args.get("p", 1))
 
-    user = getUser(_id)
-    data = api.getUserIllustManga(_id)["body"]["illusts"]
+    user = await getUser(_id)
+    data = (await api.getUserIllustManga(_id))["body"]["illusts"]
 
     if len(data) >= 1:
         ids = [int(x) for x in list(data.keys())]
@@ -106,7 +106,7 @@ def userIllusts(_id: int):
         frequent = []
         pages = 1
 
-    return render_template(
+    return await render_template(
         "user/illusts.html",
         user=user,
         illusts=illusts,
@@ -119,16 +119,16 @@ def userIllusts(_id: int):
 
 
 @users.route("/<int:_id>/manga")
-def userManga(_id: int):
+async def userManga(_id: int):
 
     if _id == 0:
-        flash(_("Invalid user"), "error")
-        return redirect("/users/0")
+        await flash(_("Invalid user"), "error")
+        return await redirect("/users/0")
 
     currPage = int(request.args.get("p", 1))
 
-    user = getUser(_id)
-    data = api.getUserIllustManga(_id)["body"]["manga"]
+    user = await getUser(_id)
+    data = (await api.getUserIllustManga(_id))["body"]["manga"]
 
     if len(data) >= 1:
         ids = [int(x) for x in list(data.keys())]
@@ -139,17 +139,20 @@ def userManga(_id: int):
             pages += 1
 
         if currPage > pages:
-            return render_template("error.html", error="Exceeded maximum pages"), 400
+            return (
+                await render_template("error.html", error="Exceeded maximum pages"),
+                400,
+            )
 
         offset = ids[(50 * currPage) - 50 : 50 * currPage]
-        illusts = retrieveUserIllusts(_id, offset)
-        frequent = getFrequentTags(offset)
+        illusts = await retrieveUserIllusts(_id, offset)
+        frequent = await getFrequentTags(offset)
     else:
         illusts = []
         frequent = []
         pages = 1
 
-    return render_template(
+    return await render_template(
         "user/manga.html",
         user=user,
         illusts=illusts,
@@ -161,11 +164,11 @@ def userManga(_id: int):
 
 
 @users.route("/<int:_id>/bookmarks")
-def userBookmarks(_id: int):
+async def userBookmarks(_id: int):
 
     if _id == 0:
-        flash(_("Invalid user"), "error")
-        return redirect("/users/0")
+        await flash(_("Invalid user"), "error")
+        return await redirect("/users/0")
 
     page = int(request.args.get("p", 1))
 
@@ -173,10 +176,10 @@ def userBookmarks(_id: int):
         if not g.isAuthorized:
             abort(401)
 
-    user = getUser(_id)
-    data = getUserBookmarks(_id, offset=(50 * page) - 50)
+    user = await getUser(_id)
+    data = await getUserBookmarks(_id, offset=(50 * page) - 50)
     if len(data) > 0:
-        frequent = getFrequentTags([x._id for x in data.works])
+        frequent = await getFrequentTags([x._id for x in data.works])
     else:
         frequent = []
 
@@ -185,7 +188,7 @@ def userBookmarks(_id: int):
     if extra > 0:
         pages += 1
 
-    return render_template(
+    return await render_template(
         "user/bookmarks.html",
         user=user,
         illusts=data.works,
@@ -198,11 +201,11 @@ def userBookmarks(_id: int):
 
 
 @users.route("/<int:_id>/following")
-def following(_id: int):
+async def following(_id: int):
 
     if _id == 0:
-        flash(_("Invalid user"), "error")
-        return redirect("/users/0")
+        await flash(_("Invalid user"), "error")
+        return await redirect("/users/0")
 
     if current_app.config["authless"]:
         if not g.isAuthorized:
@@ -210,16 +213,16 @@ def following(_id: int):
 
     currPage = int(request.args.get("p", 1))
 
-    total, data = getUserFollowing(_id)
-    user = getUser(_id)
+    total, data = await getUserFollowing(_id)
+    user = await getUser(_id)
 
     pages, extra = divmod(total, 30)
     if extra > 0:
         pages += 1
 
-    _, data = getUserFollowing(_id, offset=(30 * currPage) - 30)
+    _, data = await getUserFollowing(_id, offset=(30 * currPage) - 30)
 
-    return render_template(
+    return await render_template(
         "user/follows.html",
         total=total,
         pages=pages,
@@ -232,33 +235,33 @@ def following(_id: int):
 
 
 @users.route("/<int:_id>/followers")
-def followers(_id: int):
+async def followers(_id: int):
 
     if current_app.config["authless"]:
         if not g.isAuthorized:
             abort(401)
 
     if _id == 0:
-        flash(_("Invalid user"), "error")
-        return redirect("/users/0")
+        await flash(_("Invalid user"), "error")
+        return await redirect("/users/0")
 
     currPage = int(request.args.get("p", 1))
 
     try:
-        total, data = getUserFollowers(_id)
+        total, data = await getUserFollowers(_id)
     except api.PixivError:
-        flash(_("Not authorized."), "error")
-        return redirect(f"/users/{_id}/following")
+        await flash(_("Not authorized."), "error")
+        return await redirect(f"/users/{_id}/following")
 
-    user = getUser(_id)
+    user = await getUser(_id)
 
     pages, extra = divmod(total, 30)
     if extra > 0:
         pages += 1
 
-    _, data = getUserFollowers(_id, offset=(30 * currPage) - 30)
+    _, data = await getUserFollowers(_id, offset=(30 * currPage) - 30)
 
-    return render_template(
+    return await render_template(
         "user/follows.html",
         total=total,
         pages=pages,

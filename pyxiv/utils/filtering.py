@@ -1,9 +1,10 @@
-from flask import g, request, current_app
+from quart import g, request, current_app
 import logging
 
 from ..classes import ArtworkEntry
 
 log = logging.getLogger("vixipy.filters")
+
 
 def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
 
@@ -30,7 +31,9 @@ def filterEntriesFromPreferences(entries: list[ArtworkEntry]):
             new.remove(entry)
             continue
 
-    log.debug(f"Results: {len(entries)}, {len(entries) - len(new)} filtered, {len(new)} current")
+    log.debug(
+        f"Results: {len(entries)}, {len(entries) - len(new)} filtered, {len(new)} current"
+    )
 
     if new != entries:
         g.omittedByFilter = True

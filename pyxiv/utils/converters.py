@@ -1,4 +1,4 @@
-from flask import g
+from quart import g
 
 
 def makeProxy(url: str) -> str:

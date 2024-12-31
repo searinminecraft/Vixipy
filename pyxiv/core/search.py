@@ -4,9 +4,9 @@ from ..classes import SearchResults, TagInfo
 from ..utils.filtering import filterEntriesFromPreferences
 
 
-def searchArtwork(keyword: str, **kwargs) -> SearchResults:
+async def searchArtwork(keyword: str, **kwargs) -> SearchResults:
 
-    data = s(keyword, **kwargs)["body"]
+    data = (await s(keyword, **kwargs))["body"]
 
     results = SearchResults(data)
     results.popularRecent = filterEntriesFromPreferences(results.popularRecent)
@@ -16,8 +16,8 @@ def searchArtwork(keyword: str, **kwargs) -> SearchResults:
     return results
 
 
-def getTagInfo(tag: str) -> TagInfo:
+async def getTagInfo(tag: str) -> TagInfo:
 
-    data = gt(tag)["body"]
+    data = (await gt(tag))["body"]
 
     return TagInfo(data)

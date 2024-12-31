@@ -1,5 +1,4 @@
-from flask import g, request, abort
-import requests
+from quart import current_app, g, request, abort
 from . import cfg
 import time
 from urllib.parse import quote
@@ -16,60 +15,49 @@ class UnknownPixivError(Exception):
     pass
 
 
-def getHeaders(useMobileAgent=False):
-    """
-    headers = {
-        "Cookie": f"PHPSESSID={g.get('userPxSession') if g.get('userPxSession') else cfg.PxSession}",
-        "User-Agent": (
-            "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/132.0"
-            if not useMobileAgent
-            else "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
-        ),  #  tbh maybe I should just use a Windows UA
-        "Accept-Language": cfg.PxAcceptLang,
-    }
-    """
+async def pixivReq(
+    method,
+    endpoint,
+    additionalHeaders: dict = {},
+    useMobileAgent=False,
+    *,
+    jsonPayload: dict = None,
+    rawPayload: str = None,
+):
 
-    headers = {
-        "Accept-Language": cfg.PxAcceptLang
-    }
+    headers = {}
 
-    if g.get('userPxSession'):
-        log.debug("Using authenticated request")
+    if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
-    else:
-        log.debug(f"Using configured session token ({cfg.PxSession})")
-        headers["Cookie"] = f"PHPSESSID={cfg.PxSession}"
-    
-    if useMobileAgent:
-        log.debug("Using mobile user agent")
-        headers["User-Agent"] = "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
-    else:
-        headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0"
-    if g.get("userPxCSRF"):
+    if g.userPxCSRF:
         headers["x-csrf-token"] = g.userPxCSRF
-
-    return headers
-
-
-def pixivReq(endpoint, additionalHeaders: dict = {}, useMobileAgent=False):
+    if useMobileAgent:
+        headers["User-Agent"] = (
+            "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
+        )
+    if rawPayload:
+        headers["Content-Type"] = "application/x-www-form-urlencoded"
 
     start = time.perf_counter()
-    req = requests.get(
-        "https://www.pixiv.net" + endpoint,
-        headers={**getHeaders(useMobileAgent), **additionalHeaders},
+    req = await current_app.pixivApi.request(
+        method,
+        endpoint,
+        headers={**headers, **additionalHeaders},
+        json=jsonPayload,
+        data=rawPayload,
     )
     end = time.perf_counter()
 
-    log.debug(f"Request {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
+    log.debug(f"Request {req.url} - {req.status} - {round((end - start) * 1000)}ms")
 
-    if req.status_code == 429:
+    if req.status == 429:
         raise PixivError("Rate limited")
 
-    if req.status_code == 404:
+    if req.status == 404:
         abort(404)
 
     try:
-        resp = req.json()
+        resp = await req.json()
     except Exception:
         raise UnknownPixivError(str(req.status_code) + ": " + req.text) from None
 
@@ -78,150 +66,103 @@ def pixivReq(endpoint, additionalHeaders: dict = {}, useMobileAgent=False):
 
         if resp.get("error"):
             try:
-                log.error("An error occurred trying to get %s: Status code %d: %s", req.url, req.status_code, resp["message"])
+                log.error(
+                    "An error occurred trying to get %s: Status code %d: %s",
+                    req.url,
+                    req.status,
+                    resp["message"],
+                )
                 raise PixivError(resp["message"])
             except KeyError:
                 try:
-                    log.error("An error occurred trying to get %s: Status code %d: %s", req.url, req.status_code, resp["error"])
+                    log.error(
+                        "An error occurred trying to get %s: Status code %d: %s",
+                        req.url,
+                        req.status,
+                        resp["error"],
+                    )
                     raise PixivError(resp["error"])
                 except KeyError:
-                    log.error("An unknown error occurred trying to get %s: Status code %d", req.url, req.status_code)
+                    log.error(
+                        "An unknown error occurred trying to get %s: Status code %d",
+                        req.url,
+                        req.status,
+                    )
                     raise PixivError("Unknown error")
 
     return resp
 
 
-def pixivPostReq(
-    endpoint,
-    *,
-    jsonPayload: dict = None,
-    rawPayload: str = None,
-    additionalHeaders: dict = {},
-    useMobileAgent: bool = False,
-):
-    """
-    Send a POST request to pixiv.
-
-    Params:
-
-    endpoint: the endpoint path to send a request to
-    jsonPayload: the payload as a dict
-    rawPayload: the raw url-encoded payload
-    additionalHeaders: additional headers to pass
-    useMobileAgent: whether to use a mobile user agent
-    """
-
-    start = time.perf_counter()
-    if jsonPayload:
-        req = requests.post(
-            "https://www.pixiv.net" + endpoint, headers=getHeaders(), json=jsonPayload
-        )
-    elif rawPayload:
-        origHeaders = getHeaders(useMobileAgent)
-
-        req = requests.post(
-            "https://www.pixiv.net" + endpoint,
-            headers={
-                **origHeaders,
-                **additionalHeaders,
-                "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
-            },
-            data=rawPayload,
-        )
-    else:
-        raise TypeError("Neither json payload nor raw payload were provided.")
-    end = time.perf_counter()
-
-    log.debug(f"POST {req.url} - {req.status_code} - {round((end - start) * 1000)}ms")
-
-    resp = req.json()
-    # isSucceed is used on mobile ajax API, while error is used for regular ajax API
-    if not resp.get("isSucceed", False) or resp.get("error", False):
-
-        if resp.get("error"):
-            try:
-                log.error("An error occurred trying to POST %s: Status code %d: %s", req.url, req.status_code, resp["message"])
-                raise PixivError(resp["message"])
-            except KeyError:
-                try:
-                    log.error("An error occurred trying to POST %s: Status code %d: %s", req.url, req.status_code, resp["error"])
-                    raise PixivError(resp["error"])
-                except KeyError:
-                    log.error("An error occurred trying to POST %s: Status code %d", req.url, req.status_code)
-                    raise PixivError("Unknown error")
-
-    return resp
-
-
-def getLanding(mode: str = "all"):
+async def getLanding(mode: str = "all"):
     """
     Get the landing page. Usually the front page of pixiv
     """
-    return pixivReq(f"/ajax/top/illust?mode={mode}")
+    return await pixivReq("get", f"/ajax/top/illust?mode={mode}")
 
 
-def getLatestFromFollowing(mode: str, page: int):
+async def getLatestFromFollowing(mode: str, page: int):
     """
     Get the latest works from users the user is following
     """
-    return pixivReq(f"/ajax/follow_latest/illust?mode={mode}&p={page}")
+    return await pixivReq("get", f"/ajax/follow_latest/illust?mode={mode}&p={page}")
 
 
-def getUserInfo(userId: int):
+async def getUserInfo(userId: int):
     """
     Get information about a user
     """
-    return pixivReq(f"/ajax/user/{userId}?full=1")
+    return await pixivReq("get", f"/ajax/user/{userId}?full=1")
 
 
-def getArtworkInfo(_id: int):
+async def getArtworkInfo(_id: int):
     """
     Get information about an artwork
     """
-    return pixivReq(f"/ajax/illust/{_id}")
+    return await pixivReq("get", f"/ajax/illust/{_id}")
 
 
-def getArtworkPages(_id: int):
+async def getArtworkPages(_id: int):
     """
     Get the pages of an artwork
     """
-    return pixivReq(f"/ajax/illust/{_id}/pages")
+    return await pixivReq("get", f"/ajax/illust/{_id}/pages")
 
 
-def getArtworkComments(_id: int, offset: int = 0, limit: int = 100):
+async def getArtworkComments(_id: int, offset: int = 0, limit: int = 100):
     """
     Get artwork comments
     """
-    return pixivReq(
-        f"/ajax/illusts/comments/roots?illust_id={_id}&offset={offset}&limit={limit}"
+    return await pixivReq(
+        "get",
+        f"/ajax/illusts/comments/roots?illust_id={_id}&offset={offset}&limit={limit}",
     )
 
 
-def getArtworkReplies(comment_id: int, page: int = 1):
+async def getArtworkReplies(comment_id: int, page: int = 1):
     """
     Get Artwork Replies
     """
 
-    return pixivReq(
-        f"/ajax/illusts/comments/replies?comment_id={comment_id}&page={page}"
+    return await pixivReq(
+        "get", f"/ajax/illusts/comments/replies?comment_id={comment_id}&page={page}"
     )
 
 
-def getDiscovery(mode: str = "all", limit: int = 30):
+async def getDiscovery(mode: str = "all", limit: int = 30):
     """
     Get the artworks on discovery
     """
-    return pixivReq(f"/ajax/discovery/artworks?mode={mode}&limit={limit}")
+    return await pixivReq("get", f"/ajax/discovery/artworks?mode={mode}&limit={limit}")
 
 
-def getRelatedArtworks(_id: int, limit: int = 30):
+async def getRelatedArtworks(_id: int, limit: int = 30):
     """
     Get the related artworks for an artwork
     """
-    return pixivReq(f"/ajax/illust/{_id}/recommend/init?limit={limit}")
+    return await pixivReq("get", f"/ajax/illust/{_id}/recommend/init?limit={limit}")
 
 
-def getRanking(
+async def getRanking(
     *, mode: str = "daily", date: int = None, content: str = None, p: int = 1
 ):
     """
@@ -235,11 +176,11 @@ def getRanking(
     if content and content != "":
         path += f"&content={content}"
 
-    return pixivReq(path)
+    return await pixivReq("get", path)
 
 
 # holy shit.
-def searchArtwork(
+async def searchArtwork(
     keyword: str,
     *,
     order: str = None,
@@ -265,10 +206,10 @@ def searchArtwork(
 
     if order:
         path += f"&order={order}"
-    
+
     if mode:
         path += f"&mode={mode}"
-    
+
     if s_mode:
         path += f"&s_mode={s_mode}"
 
@@ -296,49 +237,51 @@ def searchArtwork(
     if ecd:
         path += f"&ecd={ecd}"
 
-    return pixivReq(path)
+    return await pixivReq("get", path)
 
 
-def getTagInfo(tag: str):
+async def getTagInfo(tag: str):
     """
     Get information about a tag
     """
 
-    return pixivReq(f"/ajax/search/tags/{tag}")
+    return await pixivReq("get", f"/ajax/search/tags/{tag}")
 
 
-def getUserBookmarks(_id: int, tag: str = "", offset: int = 0, limit: int = 30):
+async def getUserBookmarks(_id: int, tag: str = "", offset: int = 0, limit: int = 30):
     """
     Get a user's bookmarks
     """
 
-    return pixivReq(
-        f"/ajax/user/{_id}/illusts/bookmarks?tag={tag}&offset={offset}&limit={limit}&rest=show"
+    return await pixivReq(
+        "get",
+        f"/ajax/user/{_id}/illusts/bookmarks?tag={tag}&offset={offset}&limit={limit}&rest=show",
     )
 
 
-def getNewestArtworks(
+async def getNewestArtworks(
     lastId: int = 0, limit: int = 20, _type: str = "illust", r18: bool = False
 ):
     """Get newest artworks"""
 
-    return pixivReq(
-        f"/ajax/illust/new?lastId={lastId}&limit={limit}&type={_type}&r18={str(r18).lower()}"
+    return await pixivReq(
+        "get",
+        f"/ajax/illust/new?lastId={lastId}&limit={limit}&type={_type}&r18={str(r18).lower()}",
     )
 
 
-def getRecommendedUsers(limit: int = 10):
+async def getRecommendedUsers(limit: int = 10):
     """Get recommended users (shown in pixiv landing page)"""
 
-    return pixivReq(f"/ajax/discovery/users?limit={limit}")
+    return await pixivReq("get", f"/ajax/discovery/users?limit={limit}")
 
 
-def getUserArtworks(_id: int):
+async def getUserArtworks(_id: int):
 
-    return pixivReq(f"/ajax/user/{_id}/profile/all")
+    return await pixivReq("get", f"/ajax/user/{_id}/profile/all")
 
 
-def getUserIllustEntries(
+async def getUserIllustEntries(
     _id: int, *, work_category: str = "illustManga", lang: str = "en", ids: list
 ):
 
@@ -352,27 +295,28 @@ def getUserIllustEntries(
     for e in ids:
         path += f"&ids[]={e}"
 
-    return pixivReq(path)
+    return await pixivReq("get", path)
 
 
-def getUserSettings():
+async def getUserSettings():
 
-    return pixivReq("/ajax/settings")
-
-
-def getUserSettingsState():
-
-    return pixivReq("/ajax/settings/self")
+    return await pixivReq("get", "/ajax/settings")
 
 
-def getNotifications():
+async def getUserSettingsState():
 
-    return pixivReq("/ajax/notification")
+    return await pixivReq("get", "/ajax/settings/self")
 
 
-def postComment(illustId: int, authorId: int, comment: str):
+async def getNotifications():
 
-    return pixivPostReq(
+    return await pixivReq("get", "/ajax/notification")
+
+
+async def postComment(illustId: int, authorId: int, comment: str):
+
+    return await pixivReq(
+        "post",
         "/rpc/post_comment.php",
         rawPayload=f"type=comment&illust_id={illustId}&author_user_id={authorId}&comment={quote(comment)}",
         additionalHeaders={
@@ -383,8 +327,9 @@ def postComment(illustId: int, authorId: int, comment: str):
     )
 
 
-def postStamp(illustId: int, authorId: int, stampId: int):
-    return pixivPostReq(
+async def postStamp(illustId: int, authorId: int, stampId: int):
+    return await pixivReq(
+        "post",
         "/rpc/post_comment.php",
         rawPayload=f"type=stamp&illust_id={illustId}&author_user_id={authorId}&stamp_id={stampId}",
         additionalHeaders={
@@ -395,47 +340,50 @@ def postStamp(illustId: int, authorId: int, stampId: int):
     )
 
 
-def getUserIllustManga(_id: int):
+async def getUserIllustManga(_id: int):
 
-    return pixivReq(f"/ajax/user/{_id}/profile/all")
-
-
-def getUserLatestIllusts(_id: int):
-
-    return pixivReq(f"/ajax/user/{_id}/works/latest")
+    return await pixivReq("get", f"/ajax/user/{_id}/profile/all")
 
 
-def getUserTopIllusts(_id: int):
-    return pixivReq(f"/ajax/user/{_id}/profile/top")
+async def getUserLatestIllusts(_id: int):
+
+    return await pixivReq("get", f"/ajax/user/{_id}/works/latest")
 
 
-def retrieveUserIllusts(_id: int, illustIds: list[int]):
+async def getUserTopIllusts(_id: int):
+    return await pixivReq("get", f"/ajax/user/{_id}/profile/top")
+
+
+async def retrieveUserIllusts(_id: int, illustIds: list[int]):
     path = f"/ajax/user/{_id}/profile/illusts?work_category=illustManga&is_first_page=1"
 
     for x in range(len(illustIds)):
         path += f"&ids[]={illustIds[x]}"
 
-    return pixivReq(path)
+    return await pixivReq("get", path)
 
 
-def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
-    return pixivReq(
-        f"/ajax/user/{_id}/following?offset={offset}&limit={limit}&rest=show"
+async def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
+    return await pixivReq(
+        "get", f"/ajax/user/{_id}/following?offset={offset}&limit={limit}&rest=show"
     )
 
 
-def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
-    return pixivReq(
-        f"/ajax/user/{_id}/followers?offset={offset}&limit={limit}&rest=show"
+async def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
+    return await pixivReq(
+        "get", f"/ajax/user/{_id}/followers?offset={offset}&limit={limit}&rest=show"
     )
 
 
-def addTagToFavorites(tag: str):
-    return pixivPostReq(f"/ajax/favorite_tags/save", jsonPayload={"tags": [tag]})
+async def addTagToFavorites(tag: str):
+    return await pixivReq(
+        "post", f"/ajax/favorite_tags/save", jsonPayload={"tags": [tag]}
+    )
 
 
-def followUser(_id: int, restrict: bool = False):
-    return pixivPostReq(
+async def followUser(_id: int, restrict: bool = False):
+    return await pixivReq(
+        "post",
         "/touch/ajax_api/ajax_api.php",
         useMobileAgent=True,
         rawPayload=f"mode=add_bookmark_user&restrict={int(restrict)}&user_id={_id}",
@@ -446,8 +394,9 @@ def followUser(_id: int, restrict: bool = False):
     )
 
 
-def unfollowUser(_id: int):
-    return pixivPostReq(
+async def unfollowUser(_id: int):
+    return await pixivReq(
+        "post",
         "/touch/ajax_api/ajax_api.php",
         useMobileAgent=True,
         rawPayload=f"mode=delete_bookmark_user&user_id={_id}",
@@ -458,7 +407,7 @@ def unfollowUser(_id: int):
     )
 
 
-def getFrequentTags(ids: list[int]):
+async def getFrequentTags(ids: list[int]):
     """Get frequent tags based on illust IDs"""
 
     path = "/ajax/tags/frequent/illust"
@@ -469,4 +418,4 @@ def getFrequentTags(ids: list[int]):
         else:
             path += f"&ids[]={int(v)}"
 
-    return pixivReq(path)
+    return await pixivReq("get", path)

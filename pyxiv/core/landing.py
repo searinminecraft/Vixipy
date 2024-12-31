@@ -11,10 +11,10 @@ from ..core.user import getFollowingNew
 from ..utils.filtering import filterEntriesFromPreferences
 
 
-def _getRecommendedUsers(limit: int = 10):
+async def _getRecommendedUsers(limit: int = 10):
     """Get recommended users"""
 
-    data = getRecommendedUsers(limit)["body"]
+    data = (await getRecommendedUsers(limit))["body"]
 
     res = []
     artworks = {}
@@ -36,14 +36,14 @@ def _getRecommendedUsers(limit: int = 10):
     return res
 
 
-def getLandingPage(mode: str) -> LandingPageLoggedIn:
+async def getLandingPage(mode: str) -> LandingPageLoggedIn:
     """
     Gets the landing page.
     """
 
-    data = getLanding(mode)["body"]
-    newFromFollowing = getFollowingNew(mode)
-    recommendedUsers = _getRecommendedUsers()
+    data = (await getLanding(mode))["body"]
+    newFromFollowing = await getFollowingNew(mode)
+    recommendedUsers = await _getRecommendedUsers()
 
     artworks = {}
     recommended = []
@@ -79,8 +79,8 @@ def getLandingPage(mode: str) -> LandingPageLoggedIn:
     )
 
 
-def getLandingRanked() -> list[RankingEntry]:
+async def getLandingRanked() -> list[RankingEntry]:
 
-    data = getRanking()["contents"]
+    data = (await getRanking())["contents"]
 
     return [RankingEntry(x) for x in data]

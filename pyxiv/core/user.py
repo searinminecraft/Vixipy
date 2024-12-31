@@ -11,19 +11,19 @@ from ..classes import (
 from ..utils.filtering import filterEntriesFromPreferences
 
 
-def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
+async def getFollowingNew(mode: str, page: int = 1) -> list[ArtworkEntry]:
     """
     Gets new artworks from users you follow
     """
 
-    data = api.getLatestFromFollowing(mode, page)["body"]
+    data = (await api.getLatestFromFollowing(mode, page))["body"]
 
     return filterEntriesFromPreferences(
         [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]
     )
 
 
-def getUser(_id: int) -> User:
+async def getUser(_id: int) -> User:
     """Get a user"""
 
     try:
@@ -31,59 +31,59 @@ def getUser(_id: int) -> User:
     except Exception:
         raise ValueError from None
 
-    data = api.getUserInfo(_id)["body"]
+    data = (await api.getUserInfo(_id))["body"]
 
     return User(data)
 
 
-def getUserBookmarks(
+async def getUserBookmarks(
     _id: int, tag: str = "", offset: int = 0, limit: int = 30
 ) -> UserBookmarks:
     """Get a user's bookmarks"""
-    data = api.getUserBookmarks(_id, tag, offset, limit)["body"]
+    data = (await api.getUserBookmarks(_id, tag, offset, limit))["body"]
 
     bookmarks = UserBookmarks(data)
     bookmarks.works = filterEntriesFromPreferences(bookmarks.works)
     return bookmarks
 
 
-def getUserSettingsState():
+async def getUserSettingsState():
 
-    return UserSettingsState(api.getUserSettingsState()["body"])
-
-
-def getNotifications():
-
-    return [Notification(x) for x in api.getNotifications()["body"]["items"]]
+    return UserSettingsState((await api.getUserSettingsState())["body"])
 
 
-def getUserTopIllusts(_id: int):
+async def getNotifications():
 
-    data = api.getUserTopIllusts(_id)["body"]
+    return [Notification(x) for x in (await api.getNotifications())["body"]["items"]]
+
+
+async def getUserTopIllusts(_id: int):
+
+    data = (await api.getUserTopIllusts(_id))["body"]
     illusts = [ArtworkEntry(data["illusts"][x]) for x in data["illusts"]]
     manga = [ArtworkEntry(data["manga"][x]) for x in data["manga"]]
 
     return filterEntriesFromPreferences(list(illusts + manga))
 
 
-def retrieveUserIllusts(_id: int, illustIds: list[int]) -> list[ArtworkEntry]:
+async def retrieveUserIllusts(_id: int, illustIds: list[int]) -> list[ArtworkEntry]:
 
-    data = api.retrieveUserIllusts(_id, illustIds)["body"]["works"]
+    data = (await api.retrieveUserIllusts(_id, illustIds))["body"]["works"]
 
     return filterEntriesFromPreferences([ArtworkEntry(data[x]) for x in data])
 
 
-def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
+async def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
 
-    data = api.getUserFollowing(_id, offset, limit)["body"]
+    data = (await api.getUserFollowing(_id, offset, limit))["body"]
     total = data["total"]
 
     return total, [UserFollowData(x) for x in data["users"]]
 
 
-def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
+async def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
 
-    data = api.getUserFollowers(_id, offset, limit)["body"]
+    data = (await api.getUserFollowers(_id, offset, limit))["body"]
     total = data["total"]
 
     return total, [UserFollowData(x) for x in data["users"]]

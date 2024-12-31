@@ -1,5 +1,5 @@
-from flask import (
-    Flask,
+from quart import (
+    Quart,
     Response,
     g,
     make_response,
@@ -10,13 +10,15 @@ from flask import (
     abort,
     send_from_directory,
 )
-from flask_babel import Babel, _
+from aiohttp import ClientSession
+from quart_babel import Babel, _
 from urllib.parse import urlparse
 import traceback
+import random
 
 from requests import ConnectionError
 import logging
-import os.path
+import os
 
 from . import api
 from . import cfg
@@ -44,16 +46,18 @@ log = logging.getLogger()
 
 
 def create_app():
-    app = Flask(__name__, static_folder=None)
+    app = Quart(__name__)
 
-    if app.debug:
+    if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
         logLevel = logging.DEBUG
     else:
         logLevel = logging.WARN
 
-    logging.basicConfig(level=logLevel, format=(
-        "[%(asctime)s]: %(name)s %(levelname)s: %(message)s"
-    ), style="%")
+    logging.basicConfig(
+        level=logLevel,
+        format=("[%(asctime)s]: %(name)s %(levelname)s: %(message)s"),
+        style="%",
+    )
 
     logging.getLogger("urllib3.connectionpool").setLevel(logging.ERROR)
     logging.getLogger("werkzeug").setLevel(logging.ERROR)
@@ -161,8 +165,33 @@ def create_app():
     app.register_blueprint(pixivision.pixivision)
     app.register_blueprint(ranking.rankings)
 
+    @app.before_serving
+    async def startup():
+
+        mockSessionId = "".join([chr(random.randint(97, 122)) for _ in range(33)])
+
+        user_agent = (
+            "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0"
+        )
+
+        app.proxySession = ClientSession()
+        app.pixivApi = ClientSession(
+            "https://www.pixiv.net",
+            headers={
+                "User-Agent": user_agent,
+                "Cookie": f"PHPSESSID={mockSessionId}",
+            },
+        )
+
+    @app.after_serving
+    async def shutdown():
+
+        log.info("Shutting down. Goodbye!")
+        await app.pixivApi.close()
+        await app.proxySession.close()
+
     @app.errorhandler(api.PixivError)
-    def handlePxError(e):
+    async def handlePxError(e):
         resp = make_response(
             render_template(
                 "error.html",
@@ -176,9 +205,9 @@ def create_app():
         return resp, 500
 
     @app.errorhandler(404)
-    def notFound(e):
+    async def notFound(e):
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("Not found"),
                 errordesc=_("The requested resource could not be found."),
@@ -187,9 +216,9 @@ def create_app():
         )
 
     @app.errorhandler(400)
-    def badRequest(e):
+    async def badRequest(e):
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("Bad request"),
                 errordesc=_("The server could not satisfy the request."),
@@ -198,9 +227,9 @@ def create_app():
         )
 
     @app.errorhandler(403)
-    def handleForbidden(e):
+    async def handleForbidden(e):
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("Forbidden"),
                 errordesc=_("You do not have permission to access this page."),
@@ -209,9 +238,9 @@ def create_app():
         )
 
     @app.errorhandler(401)
-    def handleUnauthorized(e):
+    async def handleUnauthorized(e):
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("Unauthorized"),
                 errordesc=_(
@@ -224,9 +253,9 @@ def create_app():
         )
 
     @app.errorhandler(405)
-    def handleMethodNotAllowed(e):
+    async def handleMethodNotAllowed(e):
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("Method Not Allowed"),
                 errordesc=_("This method is not allowed for this endpoint"),
@@ -235,19 +264,15 @@ def create_app():
         )
 
     @app.errorhandler(Exception)
-    def handleInternalError(e):
-        traceback.print_exc()
-        resp = make_response(
-            render_template("500.html", error=e, info=traceback.format_exc())
+    async def handleInternalError(e):
+        log.exception("Error", exc_info=e)
+        resp = await make_response(
+            await render_template("500.html", error=e, info=traceback.format_exc())
         )
         return resp, 500
 
-    @app.errorhandler(ConnectionError)
-    def handleConnectionError(e):
-        return handleInternalError(e)
-
     @app.before_request
-    def beforeReq():
+    async def beforeReq():
 
         route = request.full_path.split("/")[1]
 
@@ -278,7 +303,7 @@ def create_app():
             g.isAuthorized = True
 
             try:
-                g.userdata: User = getUser(g.userPxSession.split("_")[0])
+                g.userdata: User = await getUser(g.userPxSession.split("_")[0])
                 g.isPremium = g.userdata.premium
             except api.PixivError:
                 flash(
@@ -294,9 +319,12 @@ def create_app():
 
                 return
 
-            g.notificationCount = api.pixivReq(
-                "/rpc/notify_count.php?op=count_unread",
-                {"Referer": "https://www.pixiv.net/en"},
+            g.notificationCount = (
+                await api.pixivReq(
+                    "get",
+                    "/rpc/notify_count.php?op=count_unread",
+                    {"Referer": "https://www.pixiv.net/en"},
+                )
             )["popboard"]
             g.hasNotifications = g.notificationCount > 0
 
@@ -318,33 +346,37 @@ def create_app():
         return r
 
     @app.route("/")
-    def home():
+    async def home():
 
         if g.isAuthorized:
             mode = request.args.get("mode", "all")
-            data = getLandingPage(mode)
-            return render_template(
-                "index.html", data=data, rankingData=getLandingRanked()
+            data = await getLandingPage(mode)
+            return await render_template(
+                "index.html", data=data, rankingData=await getLandingRanked()
             )
 
-        data = getLandingRanked()
-        return render_template("index.html", data=data)
+        data = await getLandingRanked()
+        return await render_template("index.html", data=data)
 
     @app.route("/robots.txt")
     def robotsTxt():
-        print("Possible crawler:", request.user_agent, "accessed the robots.txt")
+        log.warning(
+            "Possible crawler: %s (%s) accessed the robots.txt",
+            request.user_agent,
+            request.remote_addr,
+        )
         return (
             "\nCrawl-delay: 15\nUser-Agent: *\nDisallow: /\nDisallow: /proxy\nAllow: /artworks/*\nDisallow: /artworks/*/comments\nAllow: /users/*",
             {"Content-Type": "text/plain"},
         )
 
     @app.route("/about")
-    def about():
+    async def about():
 
-        return render_template("settings/about.html")
+        return await render_template("settings/about.html")
 
     @app.route("/jump.php")
-    def pixivRedir():
+    async def pixivRedir():
         if request.args.get("url"):
             # /jump.php?url=https://kita.codeberg.page
             dest = request.args["url"]
@@ -352,14 +384,6 @@ def create_app():
             # /jump.php?https://kita.codeberg.page
             dest = list(request.args.keys())[0]
 
-        return render_template("leave.html", dest=dest)
-    
-    @app.route("/static/<path:filename>")
-    def static(filename):
-        if os.path.isfile(os.path.join("pyxiv/instance/", filename)):
-            return send_from_directory("instance", filename)
-        
-        return send_from_directory("static", filename)
-
+        return await render_template("leave.html", dest=dest)
 
     return app

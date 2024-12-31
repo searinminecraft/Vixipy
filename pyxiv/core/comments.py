@@ -1,4 +1,4 @@
-from flask import current_app
+from quart import current_app
 
 from ..api import getArtworkComments as _getArtworkComments
 from ..api import getArtworkReplies as _getArtworkReplies
@@ -7,9 +7,10 @@ from ..api import postStamp as _postStamp
 from ..classes import Comment, CommentReply
 
 
-def getArtworkComments(_id: int, **kwargs):
+async def getArtworkComments(_id: int, **kwargs):
     data: list[Comment] = [
-        Comment(x) for x in _getArtworkComments(_id, **kwargs)["body"]["comments"]
+        Comment(x)
+        for x in (await _getArtworkComments(_id, **kwargs))["body"]["comments"]
     ]
     for comment in data:
         for emoji in current_app.config["emojis"]:
@@ -21,8 +22,8 @@ def getArtworkComments(_id: int, **kwargs):
     return data
 
 
-def getArtworkReplies(commentId: int):
-    res = _getArtworkReplies(commentId)["body"]
+async def getArtworkReplies(commentId: int):
+    res = (await _getArtworkReplies(commentId))["body"]
 
     data = [CommentReply(x) for x in res["comments"]]
     for comment in data:
@@ -35,9 +36,9 @@ def getArtworkReplies(commentId: int):
     return data
 
 
-def postComment(_id: int, authorId: int, comment: str):
-    return _postComment(_id, authorId, comment)
+async def postComment(_id: int, authorId: int, comment: str):
+    return await _postComment(_id, authorId, comment)
 
 
-def postStamp(_id: int, authorId: int, stampId: int):
-    return _postStamp(_id, authorId, stampId)
+async def postStamp(_id: int, authorId: int, stampId: int):
+    return await _postStamp(_id, authorId, stampId)

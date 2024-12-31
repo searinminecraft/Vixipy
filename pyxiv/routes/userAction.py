@@ -1,35 +1,39 @@
-from flask import Blueprint, g, redirect, render_template, request, flash, url_for
-from flask_babel import _
+from quart import Blueprint, g, redirect, render_template, request, flash, url_for
+from quart_babel import _
 
 from .. import api
 from ..core.comments import postComment, postStamp
 from ..core.user import getUserBookmarks, getNotifications
 from ..core.artwork import getFrequentTags
 
+import logging
+
+log = logging.getLogger("pyxiv.routes.userAction")
+
 
 userAction = Blueprint("userAction", __name__, url_prefix="/self")
 
 
 @userAction.route("/")
-def redirectToSelf():
+async def redirectToSelf():
 
-    return redirect(f"/users/{g.userdata._id}")
+    return await redirect(f"/users/{g.userdata._id}")
 
 
 @userAction.route("/bookmarks")
-def yourBookmarks():
+async def yourBookmarks():
 
     page = int(request.args.get("p", 1))
 
-    data = getUserBookmarks(g.userdata._id, offset=(48 * page) - 48, limit=48)
-    frequent = getFrequentTags([x._id for x in data.works])
+    data = await getUserBookmarks(g.userdata._id, offset=(48 * page) - 48, limit=48)
+    frequent = await getFrequentTags([x._id for x in data.works])
 
     pages, extra = divmod(data.total, 48)
 
     if extra > 0:
         pages += 1
 
-    return render_template(
+    return await render_template(
         "bookmarksSelf.html",
         data=data,
         pages=pages,
@@ -40,43 +44,49 @@ def yourBookmarks():
 
 
 @userAction.route("/addbookmark/<int:_id>")
-def addBookmark(_id: int):
+async def addBookmark(_id: int):
 
-    api.pixivPostReq(
+    await api.pixivReq(
+        "post",
         "/ajax/illusts/bookmarks/add",
         jsonPayload={"illust_id": str(_id), "restrict": 0, "comment": "", "tags": []},
     )
 
-    flash(_("Successfully bookmarked post"))
+    await flash(_("Successfully bookmarked post"))
     return redirect(request.args["r"])
 
 
 @userAction.route("/removebookmark/<int:_id>")
-def deleteBookmark(_id: int):
+async def deleteBookmark(_id: int):
 
-    api.pixivPostReq("/ajax/illusts/bookmarks/delete", rawPayload=f"bookmark_id={_id}")
+    await api.pixivReq(
+        "post", "/ajax/illusts/bookmarks/delete", rawPayload=f"bookmark_id={_id}"
+    )
 
-    flash(_("Successfully removed bookmark"))
+    await flash(_("Successfully removed bookmark"))
     return redirect(request.args["r"])
 
 
 @userAction.route("/like/<int:_id>")
-def likeIllust(_id: int):
+async def likeIllust(_id: int):
 
-    api.pixivPostReq("/ajax/illusts/like", jsonPayload={"illust_id": str(_id)})
+    await api.pixivReq(
+        "post", "/ajax/illusts/like", jsonPayload={"illust_id": str(_id)}
+    )
 
-    flash(_("Successfully liked post"))
+    await flash(_("Successfully liked post"))
     return redirect(request.args["r"])
 
 
 @userAction.post("/comment")
-def comment():
+async def comment():
     args = request.args
-    form = request.form
+    form = await request.form
     try:
-        postComment(args["id"], args["author"], form["comment"])
+        await postComment(args["id"], args["author"], form["comment"])
     except Exception as e:
-        flash(
+        log.exception("Unable to post comment")
+        await flash(
             _(
                 "Unable to post comment: %(errorClass)s: %(error)s",
                 errorClass=e.__class__.__name__,
@@ -85,19 +95,20 @@ def comment():
             "error",
         )
     else:
-        flash(_("Successfully posted comment"))
+        await flash(_("Successfully posted comment"))
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
 
 
 @userAction.post("/postStamp")
-def stamp():
+async def stamp():
     args = request.args
-    form = request.form
+    form = await request.form
     try:
-        postStamp(args["id"], args["author"], form["stampId"])
+        await postStamp(args["id"], args["author"], form["stampId"])
     except Exception as e:
-        flash(
+        log.exception("Unable to post stamp")
+        await flash(
             _(
                 "Unable to send stamp: %(errorClass)s: %(error)s",
                 errorClass=e.__class__.__name__,
@@ -106,50 +117,50 @@ def stamp():
             "error",
         )
     else:
-        flash(_("Successfully sent stamp"))
+        await flash(_("Successfully sent stamp"))
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
 
 
 @userAction.route("/notifications")
-def notifications():
+async def notifications():
 
-    return render_template("notifications.html", data=getNotifications())
+    return await render_template("notifications.html", data=await getNotifications())
 
 
 @userAction.post("/favorite_tags/save")
-def addTagToFavorites():
-    api.addTagToFavorites(request.form["tag"])
-    return redirect(request.args.get("r", "/"))
+async def addTagToFavorites():
+    await api.addTagToFavorites(request.form["tag"])
+    return await redirect(request.args.get("r", "/"))
 
 
 @userAction.route("/followUser/<int:_id>")
-def followUser(_id: int):
+async def followUser(_id: int):
     restrict = bool(int(request.args.get("restrict", 0)))
     r = request.args.get("r", "/")
 
     if _id == 0:
-        flash(_("Invalid user"), "error")
-        return redirect(r, code=303)
+        await flash(_("Invalid user"), "error")
+        return await redirect(r, code=303)
     try:
-        api.followUser(_id, restrict)
+        await api.followUser(_id, restrict)
     except api.PixivError:
-        flash(_("Could not follow user"), "error")
+        await flash(_("Could not follow user"), "error")
     else:
-        flash(_("Successfully followed user"))
+        await flash(_("Successfully followed user"))
     return redirect(r, code=303)
 
 
 @userAction.route("/unfollowUser/<int:_id>")
-def unfollowUser(_id: int):
+async def unfollowUser(_id: int):
     r = request.args.get("r", "/")
     if _id == 0:
-        flash(_("Invalid user"), "error")
-        return redirect(r, code=303)
+        await flash(_("Invalid user"), "error")
+        return await redirect(r, code=303)
     try:
-        api.unfollowUser(_id)
+        await api.unfollowUser(_id)
     except api.PixivError:
-        flash(_("Could not unfollow user"), "error")
+        await flash(_("Could not unfollow user"), "error")
     else:
-        flash(_("Successfully unfollowed user"))
+        await flash(_("Successfully unfollowed user"))
     return redirect(r, code=303)

@@ -1,4 +1,5 @@
-from flask import Blueprint, abort, redirect, request
+from quart import Blueprint, abort, redirect, request, current_app
+import aiohttp
 
 from .. import cfg
 import requests
@@ -7,18 +8,13 @@ import time
 proxy = Blueprint("proxy", __name__, url_prefix="/proxy")
 
 
-@proxy.errorhandler(requests.ConnectionError)
-def handleConnectionError(e):
-    return f"Unable to complete request due to error: {e}", 500
-
-
-@proxy.errorhandler(requests.HTTPError)
-def handleHttpError(e):
+@proxy.errorhandler(aiohttp.ClientError)
+async def handleHttpError(e):
     return f"Unable to complete request due to error: {e}", 500
 
 
 @proxy.route("/ugoira/<int:_id>")
-def retrieveUgoira(_id: int):
+async def retrieveUgoira(_id: int):
 
     headers = {
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
@@ -26,16 +22,17 @@ def retrieveUgoira(_id: int):
     }
     respHeaders = {"Cache-Control": "max-age=31536000"}
 
-    req = requests.get(
-        f"https://t-hk.ugoira.com/ugoira/{_id}.mp4", headers=headers, stream=True
+    req = await current_app.proxySession.get(
+        f"https://t-hk.ugoira.com/ugoira/{_id}.mp4", headers=headers
     )
+
     respHeaders["Content-Type"] = req.headers["Content-Type"]
     respHeaders["Content-Length"] = req.headers["Content-Length"]
     req.raise_for_status()
 
-    def requestContent():
+    async def requestContent():
 
-        for ch in req.iter_content(10 * 1024):
+        async for ch in req.content.iter_chunked(10 * 1024):
             yield ch
 
     return requestContent(), respHeaders
@@ -45,7 +42,7 @@ def retrieveUgoira(_id: int):
 
 
 @proxy.route("/<path:proxypath>", methods=["GET"])
-def proxyRequest(proxypath):
+async def proxyRequest(proxypath):
 
     proxypath = proxypath.replace("https://", "")
 
@@ -67,29 +64,15 @@ def proxyRequest(proxypath):
     if proxypath.split("/")[0] == "embed.pixiv.net":
         proxypath += "?" + request.full_path.split("?")[1]
 
-    # try to get first
-
-    connStart = time.perf_counter()
-    r = requests.get(f"https://{proxypath}", stream=True, headers=headers)
+    r = await current_app.proxySession.get("https://" + proxypath, headers=headers)
     r.raise_for_status()
-    connEnd = time.perf_counter()
 
-    respHeaders["Content-Type"] = r.headers["Content-Type"]
-    #  sometimes pixiv does not return content-length for whatever reason
-    try:
-        respHeaders["Content-Length"] = r.headers["Content-Length"]
-    except KeyError:
-        pass
+    respHeaders["content-type"] = r.headers["content-type"]
+    if "content-length" in r.headers:
+        respHeaders["content-length"] = r.headers["content-length"]
 
-    def requestContent():
+    async def gen():
+        async for chunk in r.content.iter_chunked(10 * 1024):
+            yield chunk
 
-        start = time.perf_counter()
-
-        for ch in r.iter_content(10 * 1024):
-            yield ch
-
-        end = time.perf_counter()
-
-        r.close()
-
-    return requestContent(), respHeaders
+    return gen(), respHeaders

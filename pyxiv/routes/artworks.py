@@ -1,4 +1,4 @@
-from flask import (
+from quart import (
     Blueprint,
     abort,
     current_app,
@@ -22,9 +22,11 @@ artworks = Blueprint("artworks", __name__, url_prefix="/artworks")
 
 
 @artworks.route("/<int:_id>")
-def artworkGet(_id: int):
+async def artworkGet(_id: int):
 
-    artworkData = getArtwork(_id)
+    c = request.cookies
+
+    artworkData = await getArtwork(_id)
 
     if current_app.config["nor18"] and artworkData.xRestrict >= 1:
         # mimic pixiv's behavior, which is to vaguely return
@@ -33,7 +35,7 @@ def artworkGet(_id: int):
 
     if request.cookies.get("VixipyHideSensitive") == "1" and artworkData.isSensitive:
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("You cannot access this illustration"),
                 errordesc=_(
@@ -45,7 +47,7 @@ def artworkGet(_id: int):
 
     if request.cookies.get("PyXivHideAI") == "1" and artworkData.isAI:
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("You cannot access this illustration"),
                 errordesc=_(
@@ -57,7 +59,7 @@ def artworkGet(_id: int):
 
     if request.cookies.get("PyXivHideR18") == "1" and artworkData.xRestrict >= 1:
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("You cannot access this illustration"),
                 errordesc=_(
@@ -69,7 +71,7 @@ def artworkGet(_id: int):
 
     if request.cookies.get("PyXivHideR18G") == "1" and artworkData.xRestrict == 2:
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("You cannot access this illustration"),
                 errordesc=_(
@@ -79,36 +81,36 @@ def artworkGet(_id: int):
             400,
         )
 
-    pageData = getArtworkPages(_id)
-    userData = getUser(artworkData.authorId)
-    relatedData = getRelatedArtworks(_id, 100)
+    pageData = await getArtworkPages(_id)
+    userData = await getUser(artworkData.authorId)
+    relatedData = await getRelatedArtworks(_id, 100)
 
-    return render_template(
+    return await render_template(
         "artwork.html",
         data=ArtworkDetailsPage(artworkData, pageData, userData, relatedData),
     )
 
 
 @artworks.route("/<int:_id>/comments")
-def artworkComments(_id: int):
+async def artworkComments(_id: int):
 
-    artworkData = getArtwork(_id)
+    artworkData = await getArtwork(_id)
 
     if artworkData.commentOff:
-        flash(_("The creator turned off comments."), "error")
-        return redirect(url_for("artworks.artworkGet", _id=_id))
+        await flash(_("The creator turned off comments."), "error")
+        return await redirect(url_for("artworks.artworkGet", _id=_id))
 
-    data = getArtworkComments(_id, **request.args)
+    data = await getArtworkComments(_id, **request.args)
 
-    return render_template(
+    return await render_template(
         "comments.html", comments=data, illustId=_id, authorId=artworkData.authorId
     )
 
 
 @artworks.route("/<int:_id>/comments/replies/<int:commentId>")
-def artworkReplies(_id: int, commentId: int):
+async def artworkReplies(_id: int, commentId: int):
 
-    data = getArtworkReplies(commentId)
-    return render_template(
+    data = await getArtworkReplies(commentId)
+    return await render_template(
         "replies.html", comments=data, illustId=_id, commentId=commentId
     )

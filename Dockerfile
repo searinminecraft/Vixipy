@@ -19,4 +19,4 @@ RUN export PYXIV_SECRET=$(base64 /dev/urandom | head -c 50)
 
 EXPOSE ${PYXIV_PORT}
 
-CMD gunicorn --bind 0.0.0.0:${PYXIV_PORT} --timeout 120 --workers 5 --bind unix:pyxiv.sock pyxiv:app
+CMD hypercorn --bind 0.0.0.0:${PYXIV_PORT} --workers 5 --bind unix:pyxiv.sock pyxiv:app

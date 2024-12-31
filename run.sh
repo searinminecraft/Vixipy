@@ -7,4 +7,4 @@ export PYXIV_NOR18=0
 #export PYXIV_ACCEPTLANG=""
 #export PYXIV_INSTANCENAME=""
 
-gunicorn --bind 0.0.0.0:${PYXIV_PORT} --timeout 120 --workers 5 --bind unix:pyxiv.sock pyxiv:app
+hypercorn --bind 0.0.0.0:${PYXIV_PORT} --workers 5 --bind unix:pyxiv.sock pyxiv:app

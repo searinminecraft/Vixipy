@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from quart import Blueprint, render_template, request
 from ..utils.converters import makeProxy
 
 import pyxivision
@@ -9,7 +9,7 @@ pixivision = Blueprint("pixivision", __name__, url_prefix="/pixivision")
 
 
 @pixivision.route("/")
-def pixivisionRoot():
+async def pixivisionRoot():
 
     langPref = request.cookies.get("PyXivPixivisionLang", "en")
     page = int(request.args.get("p", 1))
@@ -27,11 +27,11 @@ def pixivisionRoot():
     for rank in data.ranking:
         rank.image = makeProxy(rank.image)
 
-    return render_template("pixivision/index.html", data=data)
+    return await render_template("pixivision/index.html", data=data)
 
 
 @pixivision.route("/a/<int:_id>")
-def getPixivisionArticle(_id: int):
+async def getPixivisionArticle(_id: int):
 
     langPref = request.cookies.get("PyXivPixivisionLang", "en")
     article = pyxivision.PixivisionArticle(_id, langPref)
@@ -45,4 +45,4 @@ def getPixivisionArticle(_id: int):
     if article.image:
         article.image = makeProxy(article.image)
 
-    return render_template("pixivision/article.html", article=article)
+    return await render_template("pixivision/article.html", article=article)

@@ -1,4 +1,4 @@
-from flask import (
+from quart import (
     Blueprint,
     current_app,
     make_response,
@@ -16,6 +16,7 @@ import ipaddress
 import re
 import requests
 import urllib.parse
+from aiohttp import ClientSession
 
 from .. import api
 from .. import cfg
@@ -28,32 +29,32 @@ COOKIE_MAXAGE = 2592000
 
 
 @settings.before_request
-def getUserState():
+async def getUserState():
     if cfg.AuthlessMode:
         if g.isAuthorized:
-            g.userState = getUserSettingsState()
+            g.userState = await getUserSettingsState()
         pass
     else:
-        g.userState = getUserSettingsState()
+        g.userState = await getUserSettingsState()
 
 
 @settings.route("/")
-def settingsIndex():
-    return render_template("settings/pyxivSettings.html")
+async def settingsIndex():
+    return await render_template("settings/pyxivSettings.html")
 
 
 @settings.route("/<ep>")
-def mainSettings(ep):
+async def mainSettings(ep):
     match ep:
         case "account":
-            return render_template("settings/account.html")
+            return await render_template("settings/account.html")
         case "viewing":
-            return render_template("settings/viewing.html")
+            return await render_template("settings/viewing.html")
         case "notifications":
             if not g.isAuthorized:
-                return render_template("unauthorized.html")
+                return await render_template("unauthorized.html")
 
-            c = api.getUserSettings()["body"]
+            c = (await api.getUserSettings())["body"]
 
             notificationSettingsItems = {}
             mailSettingsItems = {}
@@ -78,29 +79,36 @@ def mainSettings(ep):
                     "value": ms["value"],
                 }
 
-            return render_template(
+            return await render_template(
                 "settings/notifications.html",
                 nsItems=notificationSettingsItems,
                 msItems=mailSettingsItems,
             )
         case "language":
-            return render_template(
+            return await render_template(
                 "settings/language.html", pv_lang=("en", "ja", "ko", "zh", "zh-tw")
             )
         case "about":
-            return render_template("about")
+            return await render_template("about")
         case "license":
-            return render_template("settings/license.html")
+            return await render_template("settings/license.html")
         case "premium":
             #  :trolley:
-            return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=303)
+            return await redirect(
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=303
+            )
         case _:
-            return render_template("error.html", error="Invalid endpoint: " + ep), 404
+            return (
+                await render_template(
+                    "error.html", errordesc="Invalid endpoint: " + ep
+                ),
+                404,
+            )
 
 
 @settings.post("/token")
-def setSession():
-    f = request.form
+async def setSession():
+    f = await request.form
 
     csrfMatch = '"token":"([0-9a-f]+)"'
 
@@ -109,38 +117,38 @@ def setSession():
         g.userPxSession = f["token"]
 
         try:
-            api.pixivReq("/ajax/user/extra")
+            await api.pixivReq("get", "/ajax/user/extra")
         except api.PixivError as e:
-            flash(_("Cannot use token: %(error)s", error=e), "error")
-            return redirect(url_for("settings.mainSettings", ep="account"))
+            await flash(_("Cannot use token: %(error)s", error=e), "error")
+            return await redirect(url_for("settings.mainSettings", ep="account"))
 
-        req = requests.get(
-            "https://www.pixiv.net/en/artworks/99818936",
+        req = await current_app.pixivApi.get(
+            "/en/artworks/99818936",
             headers={
                 "Cookie": f"PHPSESSID={f['token']}",
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
             },
         )
 
-        if req.status_code != 200:
-            flash(
+        if req.status != 200:
+            await flash(
                 _(
                     "Cannot use token. pixiv returned code %(status)d",
                     status=req.status_code,
                 ),
                 "error",
             )
-            return redirect(url_for("settings.mainSettings", ep="account"))
+            return await redirect(url_for("settings.mainSettings", ep="account"))
 
-        r = re.search(csrfMatch, req.text)
+        r = re.search(csrfMatch, await req.text())
 
         try:
             csrf = r.group(1)
         except IndexError:
-            flash(_("Unable to extract CSRF"), "error")
-            return redirect(url_for("settings.settingsMain", ep="account"))
+            await flash(_("Unable to extract CSRF"), "error")
+            return await redirect(url_for("settings.settingsMain", ep="account"))
 
-        resp = make_response(
+        resp = await make_response(
             redirect(url_for("settings.mainSettings", ep="account"), code=303)
         )
         resp.set_cookie(
@@ -154,9 +162,9 @@ def setSession():
 
 
 @settings.route("/logout")
-def logout():
+async def logout():
 
-    resp = make_response(redirect("/", code=303))
+    resp = await make_response(redirect("/", code=303))
     resp.delete_cookie("PyXivSession")
     resp.delete_cookie("PyXivCSRF")
     flash(_("You have successfully terminated the session. Goodbye!"))
@@ -164,13 +172,15 @@ def logout():
 
 
 @settings.post("/imgproxy")
-def setImgProxy():
+async def setImgProxy():
 
-    f = request.form
+    f = await request.form()
 
     if f["image-proxy"] == "":
         flash(_("Successfully set proxy server"))
-        resp = make_response(redirect(url_for("settings.settingsIndex"), code=303))
+        resp = await make_response(
+            redirect(url_for("settings.settingsIndex"), code=303)
+        )
         resp.set_cookie(
             "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True
         )
@@ -186,7 +196,7 @@ def setImgProxy():
         flash(
             _("Please specify a URL scheme. Only http and https are accepted."), "error"
         )
-        return redirect(url_for("settings.settingsIndex"), code=303)
+        return await redirect(url_for("settings.settingsIndex"), code=303)
 
     if scheme not in ("http", "https"):
         flash(
@@ -196,11 +206,11 @@ def setImgProxy():
             ),
             "error",
         )
-        return redirect(url_for("settings.settingsIndex"), code=303)
+        return await redirect(url_for("settings.settingsIndex"), code=303)
 
-    def denyIp():
+    async def denyIp():
         flash(_("This address is not allowed: %(addr)s", addr=i), "error")
-        return redirect(url_for("settings.settingsIndex"), code=303)
+        return await redirect(url_for("settings.settingsIndex"), code=303)
 
     try:
         if ipaddress.ip_address(i):
@@ -210,12 +220,12 @@ def setImgProxy():
                 ),
                 "error",
             )
-            return redirect(url_for("settings.settingsIndex"), code=303)
+            return await redirect(url_for("settings.settingsIndex"), code=303)
     except ValueError:
         pass
 
     if i in ("localhost", "i.pximg.net"):
-        return denyIp()
+        return await denyIp()
 
     finalUrl = (
         f"{f['image-proxy']}/img-original/img/2020/02/04/22/43/08/79286093_p0.png"
@@ -223,13 +233,16 @@ def setImgProxy():
 
     if i != "":
         try:
-            req = requests.get(
+            s = ClientSession()
+            req = await s.get(
                 finalUrl,
                 headers={"User-Agent": "Vixipy-ProxyServerCheck"},
                 allow_redirects=True,
                 timeout=5,
             )
             req.raise_for_status()
+            await s.close()
+
             isCloudflare = req.headers.get("server") == "cloudflare"
 
             if isCloudflare:
@@ -250,20 +263,22 @@ def setImgProxy():
                     ),
                     "error",
                 )
-                return redirect(url_for("settings.settingsIndex"), code=303)
-        except requests.ConnectTimeout:
+                return await redirect(url_for("settings.settingsIndex"), code=303)
+        except Exception:
             flash(_("Timed out trying to check proxy server. It may be down."), "error")
-            return redirect(url_for("settings.settingsIndex"), code=303)
+            return await redirect(url_for("settings.settingsIndex"), code=303)
         except Exception as e:
             flash(
                 _("An error occured trying to check proxy server: %(error)s", error=e),
                 "error",
             )
-            return redirect(url_for("settings.settingsIndex"), code=303)
+            return await redirect(url_for("settings.settingsIndex"), code=303)
 
     flash(_("Successfully set proxy server"))
 
-    resp = make_response(redirect(url_for("settings.settingsIndex"), code=303))
+    resp = await make_response(
+        await redirect(url_for("settings.settingsIndex"), code=303)
+    )
     resp.set_cookie(
         "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True
     )
@@ -271,11 +286,12 @@ def setImgProxy():
 
 
 @settings.post("/setDisplayPrefs")
-def setPreferences():
-    hideAIPref = request.form.get("hideAI")
-    hideR18Pref = request.form.get("hideR18")
+async def setPreferences():
+    form = await request.form
+    hideAIPref = form.get("hideAI")
+    hideR18Pref = form.get("hideR18")
 
-    resp = make_response(
+    resp = await make_response(
         redirect(url_for("settings.mainSettings", ep="viewing"), code=303)
     )
 
@@ -284,7 +300,7 @@ def setPreferences():
     resp.delete_cookie("PyXivHideR18G")
     resp.delete_cookie("VixipyHideSensitive")
 
-    for pref in request.form:
+    for pref in form:
         match pref:
             case "hideAI":
                 resp.set_cookie(
@@ -305,18 +321,21 @@ def setPreferences():
             case _:
                 pass
 
+    await flash(_("Successfully set preferences"))
+
     return resp
 
 
 @settings.post("/set-language")
-def setLanguage():
-    language = request.form["lang"]
+async def setLanguage():
+    form = await request.form
+    language = form["lang"]
 
     if language not in current_app.config["languages"] and not language == "":
         flash(_("Invalid language: %(code)s", code=language), "error")
         return redirect(url_for("settings.mainSettings", ep="language"), code=303)
 
-    resp = make_response(
+    resp = await make_response(
         redirect(url_for("settings.mainSettings", ep="language"), code=303)
     )
 
@@ -324,19 +343,20 @@ def setLanguage():
     resp.set_cookie("lang", language, max_age=COOKIE_MAXAGE)
     g.lang = language
     refresh()
-    flash(_("Successfully set language."))
+    await flash(_("Successfully set language."))
     return resp
 
 
 @settings.post("/set-pixivision-language")
-def setPixivisionLanguage():
-    language = request.form["lang"]
+async def setPixivisionLanguage():
+    form = await request.form
+    language = form["lang"]
     if language not in ("en", "ja", "ko", "zh", "zh-tw"):
         flash(_("Invalid language: %(code)s", code=language), "error")
-        return redirect(url_for("settings.mainSettings", ep="language"), code=303)
+        return await redirect(url_for("settings.mainSettings", ep="language"), code=303)
 
-    resp = make_response(
-        redirect(url_for("settings.mainSettings", ep="language"), code=303)
+    resp = await make_response(
+        await redirect(url_for("settings.mainSettings", ep="language"), code=303)
     )
 
     resp.delete_cookie("PyXivPixivisionLang")

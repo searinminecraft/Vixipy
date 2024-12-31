@@ -1,4 +1,4 @@
-from flask import (
+from quart import (
     Blueprint,
     g,
     redirect,
@@ -14,25 +14,25 @@ tag = Blueprint("tag", __name__, url_prefix="/tag")
 
 
 @tag.route("/<name>")
-def tagMain(name):
+async def tagMain(name):
 
     args = request.args.copy()
     actual = request.args.copy()
 
     if args.get("mode", "safe") == "r18" and current_app.config["nor18"]:
         abort(400)
-    
+
     if args.get("overridepagecount"):
         overridepagecount = args.pop("overridepagecount") == "on"
     else:
         overridepagecount = False
 
     try:
-        data = searchArtwork(name, **args)
+        data = await searchArtwork(name, **args)
     except TypeError:
         abort(400)
 
-    tagInfo = getTagInfo(name)
+    tagInfo = await getTagInfo(name)
 
     g.tag = name
 
@@ -43,7 +43,7 @@ def tagMain(name):
 
     if int(currPage) > data.lastPage and not overridepagecount:
         return (
-            render_template(
+            await render_template(
                 "error.html",
                 errordesc=f"Exceeded maximum pages ({currPage} > {data.lastPage}). If you want to override this, turn on 'Go beyond last page' on the advanced search options.",
             ),
@@ -57,17 +57,18 @@ def tagMain(name):
 
     path = url_for("tag.tagMain", name=name, **actual)
 
-    return render_template(
+    return await render_template(
         "tag.html",
         data=data,
         tagInfo=tagInfo,
         currPage=currPage,
         path=path,
         useSym=useSym,
-        gobeyond=overridepagecount
+        gobeyond=overridepagecount,
     )
 
 
 @tag.post("/")
-def handleSearchBox():
-    return redirect(url_for("tag.tagMain", name=request.form["tag"]))
+async def handleSearchBox():
+    f = await request.form
+    return redirect(url_for("tag.tagMain", name=f["tag"]))
