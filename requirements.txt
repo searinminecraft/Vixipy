@@ -3,4 +3,5 @@ quart-babel
 aiohttp
 beautifulsoup4
 hypercorn
+gitpython
 git+https://codeberg.org/pyxiv/pyxivision

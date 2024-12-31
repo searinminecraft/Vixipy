@@ -48,6 +48,16 @@ log = logging.getLogger()
 def create_app():
     app = Quart(__name__, static_folder=None)
 
+    try:
+        import git
+
+        repo = git.Repo(search_parent_directories=True)
+        sha = repo.head.object.hexsha
+        rev = sha[0:7]
+    except Exception:
+        sha = None
+        rev = "unknown"
+
     if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
         logLevel = logging.DEBUG
     else:
@@ -172,13 +182,11 @@ def create_app():
             "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0"
         )
 
-        app.proxySession = ClientSession()
+        app.proxySession = ClientSession(connector_owner=False)
         app.pixivApi = ClientSession(
             "https://www.pixiv.net",
-            headers={
-                "User-Agent": user_agent,
-                "Referer": "https://www.pixiv.net"
-            },
+            headers={"User-Agent": user_agent, "Referer": "https://www.pixiv.net"},
+            connector_owner=False,
         )
 
     @app.after_serving
@@ -283,7 +291,7 @@ def create_app():
                 p = "/"
             return redirect(p, code=308)
 
-        g.version = "2.0"
+        g.version = "2.0+" + rev
         g.instanceName = cfg.PxInstanceName
         g.lang = request.cookies.get("lang", "en")
 
@@ -383,12 +391,12 @@ def create_app():
             dest = list(request.args.keys())[0]
 
         return await render_template("leave.html", dest=dest)
-    
+
     @app.route("/static/<path:filename>")
     async def static(filename):
         if os.path.isfile(os.path.join("pyxiv/instance/", filename)):
             return await send_from_directory("pyxiv/instance", filename)
-        
+
         return await send_from_directory("pyxiv/static", filename)
 
     return app

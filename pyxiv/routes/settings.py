@@ -119,12 +119,6 @@ async def setSession():
 
         g.userPxSession = f["token"]
 
-        try:
-            await api.pixivReq("get", "/ajax/user/extra")
-        except api.PixivError as e:
-            await flash(_("Cannot use token: %(error)s", error=e), "error")
-            return redirect(url_for("settings.mainSettings", ep="account"))
-
         req = await current_app.pixivApi.get(
             "/en/artworks/99818936",
             headers={
@@ -150,6 +144,14 @@ async def setSession():
         except IndexError:
             await flash(_("Unable to extract CSRF"), "error")
             return redirect(url_for("settings.settingsMain", ep="account"))
+
+
+
+        try:
+            await api.pixivReq("get", "/ajax/user/extra")
+        except api.PixivError as e:
+            await flash(_("Cannot use token: %(error)s", error=e), "error")
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
         resp = await make_response(
             redirect(url_for("settings.mainSettings", ep="account"), code=303)
