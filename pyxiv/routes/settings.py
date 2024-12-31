@@ -9,7 +9,7 @@ from quart import (
     url_for,
     flash,
 )
-from flask_babel import _, refresh
+from quart_babel import _, refresh
 
 import hashlib
 import ipaddress
