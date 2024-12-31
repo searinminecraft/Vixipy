@@ -46,16 +46,6 @@ log = logging.getLogger()
 def create_app():
     app = Quart(__name__, static_folder=None)
 
-    try:
-        import git
-
-        repo = git.Repo(search_parent_directories=True)
-        sha = repo.head.object.hexsha
-        rev = sha[0:7]
-    except Exception:
-        sha = None
-        rev = "unknown"
-
     if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
         logLevel = logging.DEBUG
     else:
@@ -290,7 +280,7 @@ def create_app():
                 p = "/"
             return redirect(p, code=308)
 
-        g.version = "2.0+" + rev
+        g.version = "2.0+" + os.environ.get("GIT_REVISION", "unknown")
         g.instanceName = cfg.PxInstanceName
         g.lang = request.cookies.get("lang", "en")
 
