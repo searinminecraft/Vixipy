@@ -46,7 +46,7 @@ log = logging.getLogger()
 
 
 def create_app():
-    app = Quart(__name__)
+    app = Quart(__name__, static_folder=None)
 
     if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
         logLevel = logging.DEBUG
@@ -385,5 +385,12 @@ def create_app():
             dest = list(request.args.keys())[0]
 
         return await render_template("leave.html", dest=dest)
+    
+    @app.route("/static/<path:filename>")
+    async def static(filename):
+        if os.path.isfile(os.path.join("pyxiv/instance/", filename)):
+            return await send_from_directory("pyxiv/instance", filename)
+        
+        return await send_from_directory("pyxiv/static", filename)
 
     return app
