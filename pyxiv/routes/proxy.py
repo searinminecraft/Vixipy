@@ -5,6 +5,10 @@ from .. import cfg
 import requests
 import time
 
+import logging
+
+log = logging.getLogger("pyxiv.routes.proxy")
+
 proxy = Blueprint("proxy", __name__, url_prefix="/proxy")
 
 
@@ -64,15 +68,21 @@ async def proxyRequest(proxypath):
     if proxypath.split("/")[0] == "embed.pixiv.net":
         proxypath += "?" + request.full_path.split("?")[1]
 
+    cstart = time.perf_counter()
     r = await current_app.proxySession.get("https://" + proxypath, headers=headers)
     r.raise_for_status()
+    cend = time.perf_counter()
 
     respHeaders["content-type"] = r.headers["content-type"]
     if "content-length" in r.headers:
         respHeaders["content-length"] = r.headers["content-length"]
 
     async def gen():
+        sstart = time.perf_counter()
         async for chunk in r.content.iter_chunked(10 * 1024):
             yield chunk
+        s_end = time.perf_counter()
+
+        log.debug("Completed proxy request for %s - C: %dms S: %dms", proxypath, (cend - cstart) * 1000, (s_end - sstart) * 1000)
 
     return gen(), respHeaders

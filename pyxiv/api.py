@@ -59,7 +59,7 @@ async def pixivReq(
     try:
         resp = await req.json()
     except Exception:
-        raise UnknownPixivError(str(req.status_code) + ": " + req.text) from None
+        raise UnknownPixivError(str(req.status) + ": " + req.text) from None
 
     # isSucceed is used on mobile ajax API, while error is used for regular ajax API
     if not resp.get("isSucceed", False) or resp.get("error", False):
