@@ -1,8 +1,9 @@
-from quart import current_app, g, request, abort
+from quart import current_app, g, abort
 from . import cfg
 import time
 from urllib.parse import quote
 import logging
+import random
 
 log = logging.getLogger("vixipy.api")
 
@@ -31,6 +32,10 @@ async def pixivReq(
 
     if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
+    else:
+        mockSessionId = "".join([chr(random.randint(97, 122)) for _ in range(33)])
+
+        headers["Cookie"] = f"PHPSESSID={mockSessionId}"
     if g.userPxCSRF:
         headers["x-csrf-token"] = g.userPxCSRF
     if useMobileAgent:
@@ -41,6 +46,7 @@ async def pixivReq(
         headers["Content-Type"] = "application/x-www-form-urlencoded"
 
     start = time.perf_counter()
+    log.debug({**current_app.pixivApi.headers, **headers})
     req = await current_app.pixivApi.request(
         method,
         endpoint,
@@ -60,8 +66,10 @@ async def pixivReq(
 
     try:
         resp = await req.json()
+        log.debug(resp)
     except Exception:
-        raise UnknownPixivError(str(req.status) + ": " + req.text) from None
+        text = await req.text()
+        raise UnknownPixivError(str(req.status) + ": " + text) from None
 
     # isSucceed is used on mobile ajax API, while error is used for regular ajax API
     if not resp.get("isSucceed", False) or resp.get("error", False):

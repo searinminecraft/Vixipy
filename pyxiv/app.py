@@ -168,8 +168,6 @@ def create_app():
     @app.before_serving
     async def startup():
 
-        mockSessionId = "".join([chr(random.randint(97, 122)) for _ in range(33)])
-
         user_agent = (
             "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0"
         )
@@ -179,7 +177,7 @@ def create_app():
             "https://www.pixiv.net",
             headers={
                 "User-Agent": user_agent,
-                "Cookie": f"PHPSESSID={mockSessionId}",
+                "Referer": "https://www.pixiv.net"
             },
         )
 
