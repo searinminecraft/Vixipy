@@ -14,14 +14,17 @@ from flask_babel import _, refresh
 import hashlib
 import ipaddress
 import re
-import requests
 import urllib.parse
+import logging
 from aiohttp import ClientSession
+import logging
 
 from .. import api
 from .. import cfg
 
 from ..core.user import getUserSettingsState
+
+log = logging.getLogger("pyxiv.routes.settings")
 
 settings = Blueprint("settings", __name__, url_prefix="/settings")
 
@@ -120,7 +123,7 @@ async def setSession():
             await api.pixivReq("get", "/ajax/user/extra")
         except api.PixivError as e:
             await flash(_("Cannot use token: %(error)s", error=e), "error")
-            return await redirect(url_for("settings.mainSettings", ep="account"))
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
         req = await current_app.pixivApi.get(
             "/en/artworks/99818936",
@@ -138,7 +141,7 @@ async def setSession():
                 ),
                 "error",
             )
-            return await redirect(url_for("settings.mainSettings", ep="account"))
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
         r = re.search(csrfMatch, await req.text())
 
@@ -146,7 +149,7 @@ async def setSession():
             csrf = r.group(1)
         except IndexError:
             await flash(_("Unable to extract CSRF"), "error")
-            return await redirect(url_for("settings.settingsMain", ep="account"))
+            return redirect(url_for("settings.settingsMain", ep="account"))
 
         resp = await make_response(
             redirect(url_for("settings.mainSettings", ep="account"), code=303)
@@ -167,17 +170,17 @@ async def logout():
     resp = await make_response(redirect("/", code=303))
     resp.delete_cookie("PyXivSession")
     resp.delete_cookie("PyXivCSRF")
-    flash(_("You have successfully terminated the session. Goodbye!"))
+    await flash(_("You have successfully terminated the session. Goodbye!"))
     return resp
 
 
 @settings.post("/imgproxy")
 async def setImgProxy():
 
-    f = await request.form()
+    f = await request.form
 
     if f["image-proxy"] == "":
-        flash(_("Successfully set proxy server"))
+        await flash(_("Successfully set proxy server"))
         resp = await make_response(
             redirect(url_for("settings.settingsIndex"), code=303)
         )
@@ -193,13 +196,13 @@ async def setImgProxy():
     scheme = p.scheme if p.scheme != "" else None
 
     if not scheme:
-        flash(
+        await flash(
             _("Please specify a URL scheme. Only http and https are accepted."), "error"
         )
-        return await redirect(url_for("settings.settingsIndex"), code=303)
+        return redirect(url_for("settings.settingsIndex"), code=303)
 
     if scheme not in ("http", "https"):
-        flash(
+        await flash(
             _(
                 "Invalid URL scheme: %(scheme)s. Only http and https are accepted.",
                 scheme=scheme,
@@ -209,18 +212,18 @@ async def setImgProxy():
         return await redirect(url_for("settings.settingsIndex"), code=303)
 
     async def denyIp():
-        flash(_("This address is not allowed: %(addr)s", addr=i), "error")
-        return await redirect(url_for("settings.settingsIndex"), code=303)
+        await flash(_("This address is not allowed: %(addr)s", addr=i), "error")
+        return redirect(url_for("settings.settingsIndex"), code=303)
 
     try:
         if ipaddress.ip_address(i):
-            flash(
+            await flash(
                 _(
                     "Due to limitations in Content-Security-Policy directives, IP Addresses are not supported as a proxy server."
                 ),
                 "error",
             )
-            return await redirect(url_for("settings.settingsIndex"), code=303)
+            return redirect(url_for("settings.settingsIndex"), code=303)
     except ValueError:
         pass
 
@@ -241,21 +244,23 @@ async def setImgProxy():
                 timeout=5,
             )
             req.raise_for_status()
+
+            data = await req.content.read()
             await s.close()
 
             isCloudflare = req.headers.get("server") == "cloudflare"
 
             if isCloudflare:
-                flash(
+                await flash(
                     _(
                         "Note: the proxy server you have specified is behind Cloudflare. Images may possibly not load, and may breach your privacy."
                     )
                 )
 
-            result = hashlib.sha256(req.content).hexdigest()
+            result = hashlib.sha256(data).hexdigest()
 
             if not result == integrity:
-                flash(
+                await flash(
                     _(
                         "Integrity check failed for image proxy test. Expected %(integrity)s, got %(result)s",
                         integrity=integrity,
@@ -263,21 +268,19 @@ async def setImgProxy():
                     ),
                     "error",
                 )
-                return await redirect(url_for("settings.settingsIndex"), code=303)
-        except Exception:
-            flash(_("Timed out trying to check proxy server. It may be down."), "error")
-            return await redirect(url_for("settings.settingsIndex"), code=303)
+                return redirect(url_for("settings.settingsIndex"), code=303)
         except Exception as e:
-            flash(
+            log.exception("Failed to check proxy %s:", finalUrl)
+            await flash(
                 _("An error occured trying to check proxy server: %(error)s", error=e),
                 "error",
             )
-            return await redirect(url_for("settings.settingsIndex"), code=303)
+            return redirect(url_for("settings.settingsIndex"), code=303)
 
-    flash(_("Successfully set proxy server"))
+    await flash(_("Successfully set proxy server"))
 
     resp = await make_response(
-        await redirect(url_for("settings.settingsIndex"), code=303)
+        redirect(url_for("settings.settingsIndex"), code=303)
     )
     resp.set_cookie(
         "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True
