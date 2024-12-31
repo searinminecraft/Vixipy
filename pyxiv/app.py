@@ -10,13 +10,11 @@ from quart import (
     abort,
     send_from_directory,
 )
-from aiohttp import ClientSession
+from aiohttp import ClientSession, DummyCookieJar
 from quart_babel import Babel, _
 from urllib.parse import urlparse
 import traceback
-import random
 
-from requests import ConnectionError
 import logging
 import os
 
@@ -187,6 +185,7 @@ def create_app():
             "https://www.pixiv.net",
             headers={"User-Agent": user_agent, "Referer": "https://www.pixiv.net"},
             connector_owner=False,
+            cookie_jar=DummyCookieJar(),
         )
 
     @app.after_serving
