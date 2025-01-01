@@ -2,7 +2,6 @@ from quart import Blueprint, abort, redirect, request, current_app
 import aiohttp
 
 from .. import cfg
-import requests
 import time
 
 import logging
