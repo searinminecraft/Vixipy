@@ -174,10 +174,11 @@ Vixipy comes with NO WARRANTY, and we will certainly not be responsible for anyt
 
 * [Rico040](https://codeberg.org/ot) for coming up with the awesome name, Vixipy. (To get same result in python: `'pixiv'[::-1] + y`)
 * [VnPower](https://codeberg.org/VnPower) for the awesome PixivFE project
+* [laptopcat](https://codeberg.org/laptop) for code contributions and ideas
 * People who have translated Vixipy:
     * [Myself](https://codeberg.org/kita) - Filipino `fil`
     * [Peaksol](https://codeberg.org/Peaksol) - Chinese (Simplified Han Script) `zh_Hans`
-    * Maybe you could be in this list? :3
+* Maybe you could be in this list? :3
 
 <hr>
 
