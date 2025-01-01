@@ -10,7 +10,8 @@ COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN export GIT_REVISION="$(git rev-parse --short HEAD)"
+# this is workaround of the fact that you can't set persistent env variables using result of a command
+RUN git rev-parse --short HEAD > rev.txt
 
 # just cleanup for smaller image. we only need git to download the pyxivision module
 RUN apt remove -y git
@@ -18,8 +19,6 @@ RUN apt autoremove -y
 RUN apt clean
 RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 
-RUN export PYXIV_SECRET=$(base64 /dev/urandom | head -c 50)
-
 EXPOSE ${PYXIV_PORT}
 
-CMD hypercorn --bind 0.0.0.0:${PYXIV_PORT} --workers 5 --bind unix:pyxiv.sock pyxiv:app
+CMD GIT_REVISION=$(cat rev.txt) PYXIV_SECRET=$(base64 /dev/urandom | head -c 50) hypercorn --bind 0.0.0.0:${PYXIV_PORT} --workers 5 --bind unix:pyxiv.sock pyxiv:app
