@@ -12,7 +12,7 @@ rankings = Blueprint("rankings", __name__, url_prefix="/rankings")
 async def newestMain():
 
     mode = request.args.get("mode", "daily")
-    date = request.args.get("date")
+    date = request.args.get("date", None)
     content = request.args.get("content", None)
     page = int(request.args.get("p", 1))
 
@@ -31,16 +31,6 @@ async def newestMain():
     if content and content not in ("illust", "manga", "ugoira"):
         return await render_template("error.html", error="Invalid content type"), 400
 
-    if not date:
-        try:
-            data = await getRanking(
-                mode, int(datetime.now().strftime("%Y%m%d")) - 1, content, page
-            )
-        except PixivError:
-            data = await getRanking(
-                mode, int(datetime.now().strftime("%Y%m%d")) - 2, content, page
-            )
-    else:
-        data = await getRanking(mode, date, content, page)
+    data = await getRanking(mode, date, content, page)
 
     return await render_template("rankings.html", data=data)

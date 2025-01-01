@@ -1,6 +1,5 @@
 from quart import (
     Quart,
-    Response,
     g,
     make_response,
     render_template,
@@ -13,6 +12,7 @@ from quart import (
 from aiohttp import ClientSession, DummyCookieJar
 from quart_babel import Babel, _
 from urllib.parse import urlparse
+from asyncio import gather
 import traceback
 
 import logging
@@ -187,7 +187,7 @@ def create_app():
 
     @app.errorhandler(api.PixivError)
     async def handlePxError(e):
-        resp = make_response(
+        resp = await make_response(
             render_template(
                 "error.html",
                 errortitle=_("pixiv Error!"),
@@ -280,7 +280,7 @@ def create_app():
                 p = "/"
             return redirect(p, code=308)
 
-        g.version = "2.0+" + os.environ.get("GIT_REVISION", "unknown")
+        g.version = "2.1+" + os.environ.get("GIT_REVISION", "unknown")
         g.instanceName = cfg.PxInstanceName
         g.lang = request.cookies.get("lang", "en")
 
@@ -298,7 +298,18 @@ def create_app():
             g.isAuthorized = True
 
             try:
-                g.userdata: User = await getUser(g.userPxSession.split("_")[0], False)
+                notifications, userdata = await gather(
+                    api.pixivReq(
+                        "get",
+                        "/rpc/notify_count.php?op=count_unread",
+                        {"Referer": "https://www.pixiv.net/en"},
+                    ),
+                    getUser(g.userPxSession.split("_")[0], False),
+                )
+
+                g.notificationCount = notifications["popboard"]
+                g.userdata = userdata
+                g.hasNotifications = g.notificationCount > 0
                 g.isPremium = g.userdata.premium
             except api.PixivError:
                 flash(
@@ -311,17 +322,6 @@ def create_app():
                 del g.userPxCSRF
 
                 g.invalidSession = True
-
-                return
-
-            g.notificationCount = (
-                await api.pixivReq(
-                    "get",
-                    "/rpc/notify_count.php?op=count_unread",
-                    {"Referer": "https://www.pixiv.net/en"},
-                )
-            )["popboard"]
-            g.hasNotifications = g.notificationCount > 0
 
     @app.after_request
     def afterReq(r):

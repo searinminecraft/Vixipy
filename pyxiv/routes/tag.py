@@ -9,6 +9,7 @@ from quart import (
     abort,
 )
 from ..core.search import searchArtwork, getTagInfo
+from asyncio import gather
 
 tag = Blueprint("tag", __name__, url_prefix="/tag")
 
@@ -28,11 +29,9 @@ async def tagMain(name):
         overridepagecount = False
 
     try:
-        data = await searchArtwork(name, **args)
-    except TypeError:
+        data, tagInfo = await gather(searchArtwork(name, **args), getTagInfo(name))
+    except Exception:
         abort(400)
-
-    tagInfo = await getTagInfo(name)
 
     g.tag = name
 

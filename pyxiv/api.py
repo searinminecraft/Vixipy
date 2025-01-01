@@ -26,9 +26,7 @@ async def pixivReq(
     rawPayload: str = None,
 ):
 
-    headers = {
-            "Accept-Language": cfg.PxAcceptLang
-    }
+    headers = {"Accept-Language": cfg.PxAcceptLang}
 
     if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
@@ -45,8 +43,9 @@ async def pixivReq(
     if rawPayload:
         headers["Content-Type"] = "application/x-www-form-urlencoded"
 
+    log.debug(f"Requesting {endpoint} with method {method}...")
+
     start = time.perf_counter()
-    log.debug({**current_app.pixivApi.headers, **headers})
     req = await current_app.pixivApi.request(
         method,
         endpoint,
@@ -56,7 +55,7 @@ async def pixivReq(
     )
     end = time.perf_counter()
 
-    log.debug(f"Request {req.url} - {req.status} - {round((end - start) * 1000)}ms")
+    log.debug(f"Result status {req.status} - {round((end - start) * 1000)}ms")
 
     if req.status == 429:
         raise PixivError("Rate limited")
@@ -66,7 +65,6 @@ async def pixivReq(
 
     try:
         resp = await req.json()
-        log.debug(resp)
     except Exception:
         text = await req.text()
         raise UnknownPixivError(str(req.status) + ": " + text) from None

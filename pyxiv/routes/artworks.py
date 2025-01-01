@@ -97,13 +97,13 @@ async def artworkGet(_id: int):
 @artworks.route("/<int:_id>/comments")
 async def artworkComments(_id: int):
 
-    artworkData = await getArtwork(_id)
+    artworkData, data = await gather(
+        getArtwork(_id), getArtworkComments(_id, **request.args)
+    )
 
     if artworkData.commentOff:
         await flash(_("The creator turned off comments."), "error")
         return await redirect(url_for("artworks.artworkGet", _id=_id))
-
-    data = await getArtworkComments(_id, **request.args)
 
     return await render_template(
         "comments.html", comments=data, illustId=_id, authorId=artworkData.authorId

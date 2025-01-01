@@ -11,6 +11,10 @@ from asyncio import gather
 from ..core.user import getFollowingNew
 from ..utils.filtering import filterEntriesFromPreferences
 
+import logging
+
+log = logging.getLogger("pyxiv.core.landing")
+
 
 async def _getRecommendedUsers(limit: int = 10):
     """Get recommended users"""
@@ -60,7 +64,7 @@ async def getLandingPage(mode: str) -> LandingPageLoggedIn:
         if _id in artworks:
             recommended.append(artworks[_id])
         else:
-            print("Not appending ", _id, "- not returned by pixiv")
+            log.debug("Not appending ", _id, "- not returned by pixiv")
 
     for idx in data["page"]["recommendByTag"]:
         ids = []
