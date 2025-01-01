@@ -4,9 +4,7 @@
 
 </div>
 
-Vixipy *[vick-see-pie]* is yet another privacy respecting pixiv frontend, allowing you to enjoy content from pixiv without the tracking. Written in Python using the Flask web framework and other libraries. This is also one of the only frontends that can function mostly without a pixiv token.
-
-This is still in heavy development, so it may take a while before it reaches a stable state.
+Vixipy *[vick-see-pie]* is yet another privacy respecting pixiv frontend, allowing you to enjoy content from pixiv without the tracking. Written in Python using the Quart (based on Flask) web framework and other libraries. This is also one of the only frontends that can function mostly without a pixiv token.https://codeberg.org
 
 A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 
@@ -18,17 +16,13 @@ A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 * Discovery
 * View artworks
 * Related artworks
-* Search tags
+* Search tags (with search options)
 * View users (including illustrations, manga, bookmarks, and following users)
 * Hide/filter out R-18, R-18G and AI generated artworks
 * View and post comments/stamps
 * View notifications
 * Follow and unfollow users
 * Instance administrator can force NSFW off regardless of account settings
-
-# Planned features
-* Tag search control
-* Image proxy caching
 
 # Screenshots
 
@@ -100,7 +94,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Open `run.sh` and optionally put in your pixiv account's token to the `PYXIV_TOKEN` variable (see guide from [PixivFE](https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/) for details). Using a pixiv account token allows for full access to most features without the user having to log in themselves. You can also configure other settings like port, workers, and Accept-Language header.
+3. Open `run.sh` and configure it to your needs. See below for details
 
 > [!WARNING]
 > If you specify a pixiv token, you should be ready for situations like pixiv flagging/terminating your account due to high activity in the server. It is recommended to set up rate limiting on your proxy solution if you can.
@@ -117,7 +111,7 @@ Vixipy should now be running on http://localhost:8000
 cp compose.example.yaml compose.yaml
 ```
 
-Edit the file according to your needs. Read above for details.
+Edit the file according to your needs. See below for details.
 
 2. Run the container as daemon:
 ```sh
@@ -128,13 +122,20 @@ docker compose up -d
 
 3. Done
 
-Vixipy listens on 127.0.0.1:8000 by default
+    Vixipy listens on 127.0.0.1:8000 by default
+
+## Configuration
+
+* `PYXIV_PORT`: The port Vixipy will listen to.
+* `PYXIV_TOKEN` (optional): pixiv `PHPSESSID` (session token). If not specified, a random one will be used, but
+endpoints and features that require authentication will not be accessible unless the user logs in.
+
+    To obtain the `PHPSESSID` cookie, see the instructions [from the PixivFE documentation](https://pixivfe-docs.pages.dev/hosting/obtaining-pixivfe-token/).
+* `PYXIV_INSTANCENAME` (default: Vixipy): The name of the instance.
+* `PYXIV_NOR18` (default: 0): Disables and hides R-18(G) artworks from being shown and accessed.
+* `PYXIV_ACCEPTLANG` (default: en-US,en;q=0.5): The Accept-Language header that will be used for pixiv requests.
 
 ## Tinkering with the frontend
-
-> [!WARNING]
-> This feature is currently broken on the quart migration code.
-> This should hopefully be figured out and fixed.
 
 You can override static files by creating a `pyxiv/instance` folder, and putting your own files there.
 
@@ -171,11 +172,11 @@ Vixipy comes with NO WARRANTY, and we will certainly not be responsible for anyt
 
 # Credits
 
-* [Rico040](/ot) for coming up with the awesome name, Vixipy. (To get same result in python: `'pixiv'[::-1] + y`)
-* [VnPower](/VnPower) for the awesome PixivFE project
+* [Rico040](https://codeberg.org/ot) for coming up with the awesome name, Vixipy. (To get same result in python: `'pixiv'[::-1] + y`)
+* [VnPower](https://codeberg.org/VnPower) for the awesome PixivFE project
 * People who have translated Vixipy:
-    * [Myself](/kita) - Filipino `fil`
-    * [Peaksol](/Peaksol) - Chinese (Simplified Han Script) `zh_Hans`
+    * [Myself](https://codeberg.org/kita) - Filipino `fil`
+    * [Peaksol](https://codeberg.org/Peaksol) - Chinese (Simplified Han Script) `zh_Hans`
     * Maybe you could be in this list? :3
 
 <hr>
