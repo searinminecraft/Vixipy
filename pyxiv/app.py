@@ -49,7 +49,7 @@ def create_app():
     if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
         logLevel = logging.DEBUG
     else:
-        logLevel = logging.WARN
+        logLevel = logging.INFO
 
     logging.basicConfig(
         level=logLevel,
@@ -345,10 +345,8 @@ def create_app():
 
         if g.isAuthorized:
             mode = request.args.get("mode", "all")
-            data = await getLandingPage(mode)
-            return await render_template(
-                "index.html", data=data, rankingData=await getLandingRanked()
-            )
+            data, rdata = await gather(getLandingPage(mode), getLandingRanked())
+            return await render_template("index.html", data=data, rankingData=rdata)
 
         data = await getLandingRanked()
         return await render_template("index.html", data=data)

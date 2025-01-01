@@ -4,6 +4,7 @@ import time
 from urllib.parse import quote
 import logging
 import random
+from http import HTTPStatus
 
 log = logging.getLogger("vixipy.api")
 
@@ -43,7 +44,7 @@ async def pixivReq(
     if rawPayload:
         headers["Content-Type"] = "application/x-www-form-urlencoded"
 
-    log.debug(f"Requesting {endpoint} with method {method}...")
+    log.info(f"Requesting {endpoint} with method {method}...")
 
     start = time.perf_counter()
     req = await current_app.pixivApi.request(
@@ -55,7 +56,9 @@ async def pixivReq(
     )
     end = time.perf_counter()
 
-    log.debug(f"Result status {req.status} - {round((end - start) * 1000)}ms")
+    log.info(
+        f"Result status {req.status} {HTTPStatus(req.status).name} - {round((end - start) * 1000)}ms"
+    )
 
     if req.status == 429:
         raise PixivError("Rate limited")
