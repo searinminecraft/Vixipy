@@ -1,6 +1,6 @@
 quart
 quart-babel
-aiohttp
+aiohttp[speedups]
 beautifulsoup4
 hypercorn
 git+https://codeberg.org/pyxiv/pyxivision
