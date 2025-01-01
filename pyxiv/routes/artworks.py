@@ -9,6 +9,7 @@ from quart import (
     redirect,
     url_for,
 )
+from asyncio import gather
 from quart_babel import _
 
 from ..api import PixivError
@@ -81,9 +82,11 @@ async def artworkGet(_id: int):
             400,
         )
 
-    pageData = await getArtworkPages(_id)
-    userData = await getUser(artworkData.authorId)
-    relatedData = await getRelatedArtworks(_id, 100)
+    pageData, userData, relatedData = await gather(
+        getArtworkPages(_id),
+        getUser(artworkData.authorId),
+        getRelatedArtworks(_id, 100),
+    )
 
     return await render_template(
         "artwork.html",
