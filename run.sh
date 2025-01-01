@@ -4,7 +4,8 @@ source venv/bin/activate
 export PYXIV_PORT=8000
 export PYXIV_SECRET=$(base64 /dev/urandom | head -c 50)
 export PYXIV_NOR18=0
-export GIT_REVISION="$(git rev-parse --short HEAD)"
+export GIT_REVISION=$(git rev-parse --short HEAD)
+export GIT_REPO=$(git remote get-url origin)
 #export PYXIV_ACCEPTLANG=""
 #export PYXIV_INSTANCENAME=""
 

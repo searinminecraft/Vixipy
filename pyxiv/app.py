@@ -283,8 +283,10 @@ def create_app():
             if p == "":
                 p = "/"
             return redirect(p, code=308)
-
-        g.version = "2.1+" + os.environ.get("GIT_REVISION", "unknown")
+        
+        g.rev = os.environ.get("GIT_REVISION", "unknown")
+        g.repo = os.environ.get("GIT_REPO", "unknown")
+        g.version = "2.1+" + g.rev
         g.instanceName = cfg.PxInstanceName
         g.lang = request.cookies.get("lang", "en")
 
