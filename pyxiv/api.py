@@ -31,6 +31,8 @@ async def pixivReq(
 
     if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
+    elif not cfg.AuthlessMode:
+        headers["Cookie"] = f"PHPSESSID={cfg.PxSession}"
     else:
         mockSessionId = "".join([chr(random.randint(97, 122)) for _ in range(33)])
 
