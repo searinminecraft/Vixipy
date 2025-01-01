@@ -1,7 +1,6 @@
-from quart import Blueprint, render_template, request
+from quart import Blueprint, render_template, request, current_app
 from ..utils.converters import makeProxy
 
-import pyxivision
 from urllib.parse import urlparse
 
 
@@ -13,7 +12,7 @@ async def pixivisionRoot():
 
     langPref = request.cookies.get("PyXivPixivisionLang", "en")
     page = int(request.args.get("p", 1))
-    data = pyxivision.landing.PixivisionLanding(lang=langPref, page=page)
+    data = await current_app.pyxivision.getLanding(lang=langPref, page=page)
 
     if data.spotlight:
         data.spotlight.image = makeProxy(data.spotlight.image)
@@ -34,7 +33,7 @@ async def pixivisionRoot():
 async def getPixivisionArticle(_id: int):
 
     langPref = request.cookies.get("PyXivPixivisionLang", "en")
-    article = pyxivision.PixivisionArticle(_id, langPref)
+    article = await current_app.pyxivision.getArticle(_id, langPref)
 
     for work in article.works:
         work.authorImage = makeProxy(work.authorImage)
