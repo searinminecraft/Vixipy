@@ -244,7 +244,7 @@ async def following(_id: int):
         "user/follows.html",
         total=total,
         pages=pages,
-        data=data[0],
+        data=data[1],
         mode="following",
         user=user,
         canGoNext=(currPage < pages and not currPage == pages),
