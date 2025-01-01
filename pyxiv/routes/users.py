@@ -9,6 +9,7 @@ from quart import (
     request,
     url_for,
 )
+from asyncio import gather
 
 from .. import api
 from ..core.user import (
@@ -51,8 +52,12 @@ async def userPage(_id: int):
         frequent = []
         total = 0
     else:
-        user = await getUser(_id)
-        data = (await api.getUserIllustManga(_id))["body"]
+        user, data, top = await gather(
+            getUser(_id),
+            api.getUserIllustManga(_id),
+            getUserTopIllusts(_id),
+        )
+        data = data["body"]
         total = len(data["illusts"]) + len(data["manga"])
 
         pickup = []
@@ -62,7 +67,6 @@ async def userPage(_id: int):
                 continue
             pickup.append(ArtworkEntry(x))
 
-        top = await getUserTopIllusts(_id)
         frequent = await getFrequentTags([x._id for x in top]) if len(top) > 0 else []
 
     return await render_template(
@@ -84,8 +88,11 @@ async def userIllusts(_id: int):
 
     currPage = int(request.args.get("p", 1))
 
-    user = await getUser(_id)
-    data = (await api.getUserIllustManga(_id))["body"]["illusts"]
+    user, data = await gather(
+        getUser(_id),
+        api.getUserIllustManga(_id),
+    )
+    data = data["body"]["illusts"]
 
     if len(data) >= 1:
         ids = [int(x) for x in list(data.keys())]
@@ -99,8 +106,10 @@ async def userIllusts(_id: int):
             return render_template("error.html", error="Exceeded maximum pages"), 400
 
         offset = ids[(50 * currPage) - 50 : 50 * currPage]
-        illusts = await retrieveUserIllusts(_id, offset)
-        frequent = await getFrequentTags(offset)
+        illusts, frequent = await gather(
+            retrieveUserIllusts(_id, offset),
+            getFrequentTags(offset),
+        )
     else:
         illusts = []
         frequent = []
@@ -127,8 +136,11 @@ async def userManga(_id: int):
 
     currPage = int(request.args.get("p", 1))
 
-    user = await getUser(_id)
-    data = (await api.getUserIllustManga(_id))["body"]["manga"]
+    user, data = await gather(
+        getUser(_id),
+        api.getUserIllustManga(_id),
+    )
+    data = data["body"]["manga"]
 
     if len(data) >= 1:
         ids = [int(x) for x in list(data.keys())]
@@ -145,8 +157,10 @@ async def userManga(_id: int):
             )
 
         offset = ids[(50 * currPage) - 50 : 50 * currPage]
-        illusts = await retrieveUserIllusts(_id, offset)
-        frequent = await getFrequentTags(offset)
+        illusts, frequent = await gather(
+            retrieveUserIllusts(_id, offset),
+            getFrequentTags(offset),
+        )
     else:
         illusts = []
         frequent = []
@@ -176,8 +190,10 @@ async def userBookmarks(_id: int):
         if not g.isAuthorized:
             abort(401)
 
-    user = await getUser(_id)
-    data = await getUserBookmarks(_id, offset=(50 * page) - 50)
+    user, data = await gather(
+        getUser(_id),
+        getUserBookmarks(_id, offset=(50 * page) - 50),
+    )
     if len(data) > 0:
         frequent = await getFrequentTags([x._id for x in data.works])
     else:
@@ -213,20 +229,22 @@ async def following(_id: int):
 
     currPage = int(request.args.get("p", 1))
 
-    total, data = await getUserFollowing(_id)
-    user = await getUser(_id)
+    _data, user, data = await gather(
+        getUserFollowing(_id),
+        getUser(_id),
+        getUserFollowing(_id, offset=(30 * currPage) - 30)
+    )
 
+    total = _data[0]
     pages, extra = divmod(total, 30)
     if extra > 0:
         pages += 1
-
-    _, data = await getUserFollowing(_id, offset=(30 * currPage) - 30)
-
+    
     return await render_template(
         "user/follows.html",
         total=total,
         pages=pages,
-        data=data,
+        data=data[1],
         mode="following",
         user=user,
         canGoNext=(currPage < pages and not currPage == pages),
@@ -247,25 +265,22 @@ async def followers(_id: int):
 
     currPage = int(request.args.get("p", 1))
 
-    try:
-        total, data = await getUserFollowers(_id)
-    except api.PixivError:
-        await flash(_("Not authorized."), "error")
-        return await redirect(f"/users/{_id}/following")
+    _data, user, data = await gather(
+        getUserFollowers(_id),
+        getUser(_id),
+        getUserFollowers(_id, offset=(30 * currPage) - 30)
+    )
 
-    user = await getUser(_id)
-
+    total = _data[0]
     pages, extra = divmod(total, 30)
     if extra > 0:
         pages += 1
-
-    _, data = await getUserFollowers(_id, offset=(30 * currPage) - 30)
 
     return await render_template(
         "user/follows.html",
         total=total,
         pages=pages,
-        data=data,
+        data=data[1],
         mode="follows",
         user=user,
         canGoNext=(currPage < pages and not currPage == pages),

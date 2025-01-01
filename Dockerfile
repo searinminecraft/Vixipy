@@ -2,12 +2,15 @@ FROM python:3.13-slim-bookworm
 
 WORKDIR /vixipy
 
+# put it before copy so it can be properly cached
+RUN apt update
+RUN apt install --no-install-recommends -y git
+
 COPY . .
 
-RUN apt update
-
-RUN apt install --no-install-recommends -y git
 RUN pip install --no-cache-dir -r requirements.txt
+
+RUN export GIT_REVISION="$(git rev-parse --short HEAD)"
 
 # just cleanup for smaller image. we only need git to download the pyxivision module
 RUN apt remove -y git

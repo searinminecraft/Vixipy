@@ -7,6 +7,7 @@ from ..classes import (
     RecommendedUser,
     PixivisionEntry,
 )
+from asyncio import gather
 from ..core.user import getFollowingNew
 from ..utils.filtering import filterEntriesFromPreferences
 
@@ -41,9 +42,12 @@ async def getLandingPage(mode: str) -> LandingPageLoggedIn:
     Gets the landing page.
     """
 
-    data = (await getLanding(mode))["body"]
-    newFromFollowing = await getFollowingNew(mode)
-    recommendedUsers = await _getRecommendedUsers()
+    data, newFromFollowing, recommendedUsers = await gather(
+        getLanding(mode),
+        getFollowingNew(mode),
+        _getRecommendedUsers(),
+    )
+    data = data["body"]
 
     artworks = {}
     recommended = []
