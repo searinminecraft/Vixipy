@@ -97,7 +97,7 @@ async def mainSettings(ep):
             return await render_template("settings/license.html")
         case "premium":
             #  :trolley:
-            return await redirect(
+            return redirect(
                 "https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=303
             )
         case _:
