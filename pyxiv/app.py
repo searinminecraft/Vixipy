@@ -14,6 +14,7 @@ from quart_babel import Babel, _
 from urllib.parse import urlparse
 from asyncio import gather
 import traceback
+import pyxivision
 
 import logging
 import os
@@ -178,12 +179,15 @@ def create_app():
             cookie_jar=DummyCookieJar(),
         )
 
+        app.pyxivision = pyxivision.Client()
+
     @app.after_serving
     async def shutdown():
 
         log.info("Shutting down. Goodbye!")
         await app.pixivApi.close()
         await app.proxySession.close()
+        await app.pyxivision.close()
 
     @app.errorhandler(api.PixivError)
     async def handlePxError(e):
