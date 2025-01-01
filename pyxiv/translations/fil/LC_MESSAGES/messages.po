@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-29 12:48+0800\n"
-"PO-Revision-Date: 2024-12-28 02:22+0000\n"
+"PO-Revision-Date: 2024-12-30 05:08+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:169
@@ -586,34 +587,31 @@ msgstr "Petsa"
 
 #: pyxiv/templates/tag.html:141
 msgid "Date (Descending)"
-msgstr ""
+msgstr "Petsa (Pababa)"
 
 #: pyxiv/templates/tag.html:143
-#, fuzzy
 msgid "Popular"
-msgstr "Mga popular na artwork"
+msgstr "Sikat"
 
 #: pyxiv/templates/tag.html:144
 msgid "Popular (Descending)"
-msgstr ""
+msgstr "Sikat (Pababa)"
 
 #: pyxiv/templates/tag.html:145
 msgid "Popular among male users"
 msgstr "Sikat sa mga lalaking gumagamit"
 
 #: pyxiv/templates/tag.html:146
-#, fuzzy
 msgid "Popular among male users (Descending)"
-msgstr "Sikat sa mga lalaking gumagamit"
+msgstr "Sikat sa mga lalaking gumagamit (Pababa)"
 
 #: pyxiv/templates/tag.html:147
 msgid "Popular among female users"
 msgstr "Sikat sa mga babaeng gumagamit"
 
 #: pyxiv/templates/tag.html:148
-#, fuzzy
 msgid "Popular among female users (Descending)"
-msgstr "Sikat sa mga babaeng gumagamit"
+msgstr "Sikat sa mga babaeng gumagamit (Pababa)"
 
 #: pyxiv/templates/tag.html:152
 msgid "Search mode"
@@ -637,7 +635,7 @@ msgstr "Paksa/Caption"
 
 #: pyxiv/templates/tag.html:162
 msgid "Go beyond last page"
-msgstr ""
+msgstr "Lumampas sa huling pahina"
 
 #: pyxiv/templates/tag.html:164
 msgid ""
@@ -645,6 +643,10 @@ msgid ""
 " (due to pixiv's quirky API). If nothing shows up, try to refresh the "
 "page repeatedly. If it does not work, it might really be the last page."
 msgstr ""
+"Gamitin ito kung sigurado kang may higit pang mga resulta sa kabila ng "
+"huling pahina (dahil sa kakaibang API ng pixiv). Kung walang lumalabas, "
+"subukang i-refresh ang page nang paulit-ulit. Kung hindi ito gumana, "
+"maaaring ito na talaga ang huling pahina."
 
 #: pyxiv/templates/tag.html:169
 msgid "More Options..."
@@ -663,9 +665,8 @@ msgid "Minimum Height"
 msgstr "Pinakamababang taas"
 
 #: pyxiv/templates/tag.html:184
-#, fuzzy
 msgid "Maximum Height"
-msgstr "Pinakamababang taas"
+msgstr "Pinakamataas na Taas"
 
 #: pyxiv/templates/tag.html:187
 msgid "Ratio"
@@ -1257,4 +1258,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Click on the button below to securely log out"
 #~ msgstr "I-click ang button sa ibaba para mag-log out"
-
