@@ -99,8 +99,8 @@ async def userIllusts(_id: int):
             return render_template("error.html", error="Exceeded maximum pages"), 400
 
         offset = ids[(50 * currPage) - 50 : 50 * currPage]
-        illusts = retrieveUserIllusts(_id, offset)
-        frequent = getFrequentTags(offset)
+        illusts = await retrieveUserIllusts(_id, offset)
+        frequent = await getFrequentTags(offset)
     else:
         illusts = []
         frequent = []
