@@ -1,0 +1,63 @@
+name: New Instance
+about: Get your instance added to the instance list!
+title: "New Instance: "
+labels:
+  - 'new-instance'
+body:
+- type: markdown
+  attributes:
+        value: |
+            Thank you for your volunteering on maintaining a Vixipy instance. Before you get your instance added to the
+            instance list shown in the README, you must first fill this out.            
+- type: input
+  attributes:
+        label: Instance Domain
+        description: The URL of your Vixipy instance. Must include the protocol.
+        placeholder: https://pixiv.vyxiepie.dev (not real domain, dont bother)
+  validations:
+        required: true
+- type: input
+  attributes:
+        label: Instance Name
+        description: The name of your instance. This is entirely optional if your instance has no branding.
+        placeholder: Vyxiepie
+- type: input
+  attributes:
+        label: Country
+        description: 'Provide the [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) for the country where the instance is hosted.'
+        placeholder: PH
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+        label: Is your instance behind a Cloudflare proxy?
+        description: This question is mandatory, since there are some people that do not like Cloudflare due to various reasons.
+        options:
+            - Yes
+            - No
+  validations:
+        required: true
+- type: dropdown
+  attributes:
+        label: Analytics
+        description: Does your instance have any sort of analytics?
+        options:
+            - Yes
+            - No
+  validations:
+        required: true
+- type: textarea
+  attributes:
+        label: Additional Details
+        description: Any additional details to add (like alternative access methods like Tor and i2p)
+- type: checkboxes
+  attributes:
+        label: 'Agreement'
+        description: 'By pressing Create Issue below, I agree that:'
+        options:
+            - label: All the options above are carefully assessed and are valid
+              required: true
+            - label: I will be responsible at keeping the instance secure and stable
+              required: true
+            - label: The instance will not violate a user's privacy
+              required: true
