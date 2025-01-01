@@ -280,7 +280,7 @@ async def followers(_id: int):
         "user/follows.html",
         total=total,
         pages=pages,
-        data=data,
+        data=data[1],
         mode="follows",
         user=user,
         canGoNext=(currPage < pages and not currPage == pages),
