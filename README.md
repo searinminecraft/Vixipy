@@ -4,7 +4,7 @@
 
 </div>
 
-Vixipy *[vick-see-pie]* is yet another privacy respecting pixiv frontend, allowing you to enjoy content from pixiv without the tracking. Written in Python using the Quart (based on Flask) web framework and other libraries. This is also one of the only frontends that can function mostly without a pixiv token.https://codeberg.org
+Vixipy *[vick-see-pie]* is yet another privacy respecting pixiv frontend, allowing you to enjoy content from pixiv without the tracking. Written in Python using the Quart (based on Flask) web framework and other libraries. This is also one of the only frontends that can function mostly without a pixiv token.
 
 A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 
@@ -176,7 +176,7 @@ Vixipy comes with NO WARRANTY, and we will certainly not be responsible for anyt
 * [VnPower](https://codeberg.org/VnPower) for the awesome PixivFE project
 * [laptopcat](https://codeberg.org/laptop) for code contributions and ideas
 * People who have translated Vixipy:
-    * [Myself](https://codeberg.org/kita) - Filipino `fil`
+    * [Myself](https://codeberg.org/kita) (Kita) - Filipino `fil`
     * [Peaksol](https://codeberg.org/Peaksol) - Chinese (Simplified Han Script) `zh_Hans`
 * Maybe you could be in this list? :3
 
