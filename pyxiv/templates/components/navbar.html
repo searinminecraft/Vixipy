@@ -6,7 +6,7 @@
 		</button>
 		<a class="branding" href="/">{{ g.instanceName }}</a>
 	</div>
-	<form action="/tag" method="POST" id="searchbox">
+	<form action="/tag/" method="POST" id="searchbox">
 		<input type="text" placeholder='{{ _("Search works...") }}' {% if g.get('tag') %}value="{{g.tag}}"{% endif %} required autocomplete="off" name="tag">
 	</form>
 	<div class="actions">
@@ -34,7 +34,7 @@
 		{% endif %}
 	</div>
 	</div>
-	<form action="/tag" method="POST" id="mobile-searchbox">
+	<form action="/tag/" method="POST" id="mobile-searchbox">
 		<input type="text" placeholder='{{ _("Search works...") }}' {% if g.get('tag') %}value="{{g.tag}}"{% endif %} required autocomplete="off" name="tag">
 	</form>
 
