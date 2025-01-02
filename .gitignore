@@ -1,5 +1,6 @@
 venv
 __pycache__
 pyxiv.sock
+pyxiv.running
 compose.yaml
 pyxiv/instance/*
