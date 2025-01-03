@@ -29,9 +29,8 @@ GitRepo = os.environ.get("GIT_REPO", "unknown")
 if GitRepo.startswith("http"): # https://codeberg.org/vixipy/vixipy.git/ for example, this strips the leading slash and .git
     GitRepo = GitRepo.removesuffix("/").removesuffix(".git")
 else: # git@codeberg.org:vixipy/vixipy for example, this turns it into a https url
-    GitRepo = GitRepo.split("@")[1]
-    s = GitRepo.split(":")
-    GitRepo = "https://" + s[0] + "/" + s[1]
+    GitRepo = GitRepo.split("@")[1].split(":")
+    GitRepo = "https://" + GitRepo[0] + "/" + GitRepo[1]
 
 # we need this file to ensure this function only runs once, since vixipy runs multiple workers
 # it is removed if you shutdown gracefully
