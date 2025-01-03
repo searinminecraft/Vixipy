@@ -1,4 +1,4 @@
-from quart import Blueprint, render_template, request
+from quart import Blueprint, abort, current_app, render_template, request
 
 from ..api import PixivError
 from ..core.artwork import getRanking
@@ -26,7 +26,13 @@ async def newestMain():
         "daily_r18",
         "weekly_r18",
     ):
-        return await render_template("error.html", error="Invalid mode"), 400
+        return await render_template("error.html", errordesc="Invalid mode"), 400
+
+    if current_app.config["nor18"] and mode in (
+        "daily_r18",
+        "weekly_r18",
+    ):
+        abort(403)
 
     if content and content not in ("illust", "manga", "ugoira"):
         return await render_template("error.html", error="Invalid content type"), 400
