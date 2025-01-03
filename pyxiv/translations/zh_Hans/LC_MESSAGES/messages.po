@@ -7,237 +7,234 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-29 12:48+0800\n"
+"POT-Creation-Date: 2025-01-03 22:09+0800\n"
 "PO-Revision-Date: 2025-01-01 06:13+0000\n"
 "Last-Translator: Peaksol <peaksol@users.noreply.translate.codeberg.org>\n"
-"Language-Team: Chinese (Simplified Han script) <https://"
-"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
+"Language-Team: Chinese (Simplified Han script) "
+"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
+"\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:169
+#: pyxiv/app.py:200
 msgid "pixiv Error!"
 msgstr "pixiv 错误！"
 
-#: pyxiv/app.py:172
+#: pyxiv/app.py:203
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr "请求数据时，pixiv 返回错误：<code>%(error)s</code>"
 
-#: pyxiv/app.py:172
+#: pyxiv/app.py:203
 msgid "Unspecified error"
 msgstr "未指定的错误"
 
-#: pyxiv/app.py:183
+#: pyxiv/app.py:214
 msgid "Not found"
 msgstr "找不到页面"
 
-#: pyxiv/app.py:184
+#: pyxiv/app.py:215
 msgid "The requested resource could not be found."
 msgstr "无法找到请求的资源。"
 
-#: pyxiv/app.py:194
+#: pyxiv/app.py:225
 msgid "Bad request"
 msgstr "请求无效"
 
-#: pyxiv/app.py:195
+#: pyxiv/app.py:226
 msgid "The server could not satisfy the request."
 msgstr "服务器无法满足该请求。"
 
-#: pyxiv/app.py:205
+#: pyxiv/app.py:236
 msgid "Forbidden"
 msgstr "无权访问"
 
-#: pyxiv/app.py:206
+#: pyxiv/app.py:237
 msgid "You do not have permission to access this page."
 msgstr "你没有权限访问该页面。"
 
-#: pyxiv/app.py:216
+#: pyxiv/app.py:247
 msgid "Unauthorized"
 msgstr "未验证"
 
-#: pyxiv/app.py:218
+#: pyxiv/app.py:249
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
 
-#: pyxiv/app.py:231
+#: pyxiv/app.py:262
 msgid "Method Not Allowed"
 msgstr "不允许该方法"
 
-#: pyxiv/app.py:232
+#: pyxiv/app.py:263
 msgid "This method is not allowed for this endpoint"
 msgstr "该端点不允许此请求方法"
 
-#: pyxiv/routes/artworks.py:38 pyxiv/routes/artworks.py:50
-#: pyxiv/routes/artworks.py:62 pyxiv/routes/artworks.py:74
+#: pyxiv/routes/artworks.py:41 pyxiv/routes/artworks.py:53
+#: pyxiv/routes/artworks.py:65 pyxiv/routes/artworks.py:77
 msgid "You cannot access this illustration"
 msgstr "无法访问该插画"
 
-#: pyxiv/routes/artworks.py:39
+#: pyxiv/routes/artworks.py:42
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
 msgstr "该插画可能包含敏感内容，必须在设置中关闭“隐藏可能包含敏感内容的作品”才可查看。"
 
-#: pyxiv/routes/artworks.py:51
+#: pyxiv/routes/artworks.py:54
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr "该插画为 AI 生成，必须在设置中关闭“隐藏 AI 生成作品”才可查看。"
 
-#: pyxiv/routes/artworks.py:63
+#: pyxiv/routes/artworks.py:66
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr "该插画评级为 R-18，必须在设置中关闭“隐藏浏览限制作品（R-18）”才可查看。"
 
-#: pyxiv/routes/artworks.py:75
+#: pyxiv/routes/artworks.py:78
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr "该插画评级为 R-18G，必须在设置中关闭“隐藏猎奇向作品（R-18G）”才可查看。"
 
-#: pyxiv/routes/artworks.py:98
+#: pyxiv/routes/artworks.py:105
 msgid "The creator turned off comments."
 msgstr "作者关闭了评论。"
 
-#: pyxiv/routes/settings.py:114
-#, python-format
-msgid "Cannot use token: %(error)s"
-msgstr "无法使用 token：%(error)s"
-
-#: pyxiv/routes/settings.py:129
+#: pyxiv/routes/settings.py:132
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "无法使用 token。pixiv 返回代码 %(status)d"
 
-#: pyxiv/routes/settings.py:142
+#: pyxiv/routes/settings.py:145
 msgid "Unable to extract CSRF"
 msgstr "无法提取 CSRF"
 
-#: pyxiv/routes/settings.py:154
+#: pyxiv/routes/settings.py:153
+#, python-format
+msgid "Cannot use token: %(error)s"
+msgstr "无法使用 token：%(error)s"
+
+#: pyxiv/routes/settings.py:165
 msgid "No token was supplied."
 msgstr "没有提供 token。"
 
-#: pyxiv/routes/settings.py:164
+#: pyxiv/routes/settings.py:175
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "会话已结束。再见！"
 
-#: pyxiv/routes/settings.py:174 pyxiv/routes/settings.py:266
+#: pyxiv/routes/settings.py:185 pyxiv/routes/settings.py:282
 msgid "Successfully set proxy server"
 msgstr "成功设置代理服务器"
 
-#: pyxiv/routes/settings.py:189
+#: pyxiv/routes/settings.py:202
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "请在 URL 中指定协议，仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:195
+#: pyxiv/routes/settings.py:208
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "URL 协议无效：%(scheme)s。仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:204
+#: pyxiv/routes/settings.py:217
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "无法使用该地址：%(addr)s"
 
-#: pyxiv/routes/settings.py:210
+#: pyxiv/routes/settings.py:223
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
 msgstr "由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务器。"
 
-#: pyxiv/routes/settings.py:239
+#: pyxiv/routes/settings.py:257
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr "注意：你指定的代理服务器使用了 Cloudflare。图片可能无法加载，并且可能存在隐私问题。"
 
-#: pyxiv/routes/settings.py:248
+#: pyxiv/routes/settings.py:266
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr "检查图片代理完整性时出错。需要 %(integrity)s，但得到了 %(result)s"
 
-#: pyxiv/routes/settings.py:257
-msgid "Timed out trying to check proxy server. It may be down."
-msgstr "代理服务器检查超时，服务器可能无法连接。"
-
-#: pyxiv/routes/settings.py:261
+#: pyxiv/routes/settings.py:277
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:318 pyxiv/routes/settings.py:337
+#: pyxiv/routes/settings.py:329
+#, fuzzy
+msgid "Successfully set preferences"
+msgstr "成功设置代理服务器"
+
+#: pyxiv/routes/settings.py:340 pyxiv/routes/settings.py:360
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "语言无效：%(code)s"
 
-#: pyxiv/routes/settings.py:329 pyxiv/routes/settings.py:347
+#: pyxiv/routes/settings.py:351 pyxiv/routes/settings.py:370
 msgid "Successfully set language."
 msgstr "成功设置语言。"
 
-#: pyxiv/routes/userAction.py:50
+#: pyxiv/routes/userAction.py:55
 msgid "Successfully bookmarked post"
 msgstr "成功将作品加入收藏"
 
-#: pyxiv/routes/userAction.py:59
+#: pyxiv/routes/userAction.py:66
 msgid "Successfully removed bookmark"
 msgstr "成功移除收藏"
 
-#: pyxiv/routes/userAction.py:68
+#: pyxiv/routes/userAction.py:77
 msgid "Successfully liked post"
 msgstr "成功点赞作品"
 
-#: pyxiv/routes/userAction.py:83
+#: pyxiv/routes/userAction.py:93
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "无法发送评论：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:88
+#: pyxiv/routes/userAction.py:98
 msgid "Successfully posted comment"
 msgstr "成功发送评论"
 
-#: pyxiv/routes/userAction.py:104
+#: pyxiv/routes/userAction.py:115
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "无法发送表情贴图：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:109
+#: pyxiv/routes/userAction.py:120
 msgid "Successfully sent stamp"
 msgstr "成功发送表情贴图"
 
-#: pyxiv/routes/userAction.py:132 pyxiv/routes/userAction.py:147
-#: pyxiv/routes/users.py:82 pyxiv/routes/users.py:125 pyxiv/routes/users.py:167
-#: pyxiv/routes/users.py:204 pyxiv/routes/users.py:242
+#: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
+#: pyxiv/routes/users.py:86 pyxiv/routes/users.py:134 pyxiv/routes/users.py:184
+#: pyxiv/routes/users.py:223 pyxiv/routes/users.py:263
 msgid "Invalid user"
 msgstr "无效用户"
 
-#: pyxiv/routes/userAction.py:137
+#: pyxiv/routes/userAction.py:148
 msgid "Could not follow user"
 msgstr "无法关注用户"
 
-#: pyxiv/routes/userAction.py:139
+#: pyxiv/routes/userAction.py:150
 msgid "Successfully followed user"
 msgstr "成功关注用户"
 
-#: pyxiv/routes/userAction.py:152
+#: pyxiv/routes/userAction.py:163
 msgid "Could not unfollow user"
 msgstr "无法取消关注用户"
 
-#: pyxiv/routes/userAction.py:154
+#: pyxiv/routes/userAction.py:165
 msgid "Successfully unfollowed user"
 msgstr "成功取消关注用户"
-
-#: pyxiv/routes/users.py:250
-msgid "Not authorized."
-msgstr "未验证。"
 
 #: pyxiv/templates/500.html:7 pyxiv/templates/500.html:27
 msgid "Internal Server Error"
@@ -408,7 +405,7 @@ msgstr "错误！"
 msgid "An unknown error has occurred. Please try again later."
 msgstr "发生未知错误。请稍后再试。"
 
-#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:50
+#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:57
 #: pyxiv/templates/user/index.html:56
 msgid "Home"
 msgstr "主页"
@@ -459,7 +456,7 @@ msgstr ""
 "注意安全，建议使用 <a href='https://www.vpngate.net'>VPN</a> 或 <a "
 "href='https://www.torproject.org/'>Tor</a>。"
 
-#: pyxiv/templates/layouts/default.html:65 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:72 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr "最新"
 
@@ -484,6 +481,24 @@ msgstr "通知"
 #: pyxiv/templates/notifications.html:49
 msgid "No notifications"
 msgstr "无通知"
+
+#: pyxiv/templates/rankings.html:6
+#, python-format
+msgid "Ranking for %(date)s"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:9 pyxiv/templates/rankings.html:11
+msgid "Previous Date"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:15 pyxiv/templates/rankings.html:17
+#, fuzzy
+msgid "Next Date"
+msgstr "日期"
+
+#: pyxiv/templates/rankings.html:19
+msgid "Calendar"
+msgstr ""
 
 #: pyxiv/templates/replies.html:5 pyxiv/templates/user/follows.html:12
 msgid "Back"
@@ -607,8 +622,7 @@ msgid ""
 "Use this if you are sure that there are more results beyond the last page"
 " (due to pixiv's quirky API). If nothing shows up, try to refresh the "
 "page repeatedly. If it does not work, it might really be the last page."
-msgstr "这可以查看存在于最后一页之后的结果（pixiv 奇怪的 API "
-"所致）。没有出现结果可反复刷新页面，仍不起效则可能确实是最后一页。"
+msgstr "这可以查看存在于最后一页之后的结果（pixiv 奇怪的 API 所致）。没有出现结果可反复刷新页面，仍不起效则可能确实是最后一页。"
 
 #: pyxiv/templates/tag.html:169
 msgid "More Options..."
@@ -681,39 +695,39 @@ msgstr "搜索作品..."
 msgid "Log in"
 msgstr "登录"
 
-#: pyxiv/templates/layouts/default.html:15
+#: pyxiv/templates/layouts/default.html:16
 msgid "This website requires JavaScript."
 msgstr "本网站需要 JavaScript。"
 
-#: pyxiv/templates/layouts/default.html:55
+#: pyxiv/templates/layouts/default.html:62
 msgid "Discover"
 msgstr "发现"
 
-#: pyxiv/templates/layouts/default.html:60
+#: pyxiv/templates/layouts/default.html:67
 #: pyxiv/templates/pixivision/index.html:23
 msgid "Rankings"
 msgstr "排行"
 
-#: pyxiv/templates/layouts/default.html:70
+#: pyxiv/templates/layouts/default.html:77
 msgid "pixivision"
 msgstr "pixivision"
 
-#: pyxiv/templates/layouts/default.html:74
-#: pyxiv/templates/layouts/default.html:102
+#: pyxiv/templates/layouts/default.html:81
+#: pyxiv/templates/layouts/default.html:109
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr "设置"
 
-#: pyxiv/templates/layouts/default.html:94
+#: pyxiv/templates/layouts/default.html:101
 msgid "Profile"
 msgstr "资料"
 
-#: pyxiv/templates/layouts/default.html:98 pyxiv/templates/user/index.html:59
+#: pyxiv/templates/layouts/default.html:105 pyxiv/templates/user/index.html:59
 msgid "Bookmarks"
 msgstr "收藏"
 
-#: pyxiv/templates/layouts/default.html:106
+#: pyxiv/templates/layouts/default.html:113
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "退出"
@@ -1149,3 +1163,10 @@ msgstr "%(user)s 的漫画"
 #~ "this page. You may need to <a "
 #~ "href='/settings/account'>log in</a> first."
 #~ msgstr "你没有权限访问该页面。请先<a href='/settings/account'>登录</a>。"
+
+#~ msgid "Timed out trying to check proxy server. It may be down."
+#~ msgstr "代理服务器检查超时，服务器可能无法连接。"
+
+#~ msgid "Not authorized."
+#~ msgstr "未验证。"
+

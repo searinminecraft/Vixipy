@@ -2,7 +2,23 @@
 {% block title %}Rankings{% endblock %}
 
 {% block content %}
-<h2>{{data.date.strftime("%Y/%m/%d")}} Ranking</h2>
+<div class="component-header">
+  <h2>{{ _("Ranking for %(date)s", date=data.date | dateformat) }}</h2>
+  <div>
+    {% if data.prevDate %}
+    <a href="?date={{data._prevDate}}">&lt; {{_("Previous Date")}}</a>
+    {% else %}
+    <span>&lt; {{_("Previous Date")}}</span>
+    {% endif %}
+     — 
+    {% if data.nextDate %}
+    <a href="?date={{data._nextDate}}">{{_("Next Date")}} &gt;</a>
+    {% else %}
+    <span>{{_("Next Date")}} &gt;</span>
+    {% endif %} |
+    <a href="calendar">{{_("Calendar")}}</a>
+  </div>
+</div>
 <div class="container artwork-container">
 	{% for d in data.contents %}
 	{% include "components/artwork-prev.html" %}

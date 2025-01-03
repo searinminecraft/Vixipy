@@ -1,14 +1,14 @@
 # Translations template for PROJECT.
-# Copyright (C) 2024 ORGANIZATION
+# Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-29 12:48+0800\n"
+"POT-Creation-Date: 2025-01-03 22:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,223 +17,219 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:169
+#: pyxiv/app.py:200
 msgid "pixiv Error!"
 msgstr ""
 
-#: pyxiv/app.py:172
+#: pyxiv/app.py:203
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
 
-#: pyxiv/app.py:172
+#: pyxiv/app.py:203
 msgid "Unspecified error"
 msgstr ""
 
-#: pyxiv/app.py:183
+#: pyxiv/app.py:214
 msgid "Not found"
 msgstr ""
 
-#: pyxiv/app.py:184
+#: pyxiv/app.py:215
 msgid "The requested resource could not be found."
 msgstr ""
 
-#: pyxiv/app.py:194
+#: pyxiv/app.py:225
 msgid "Bad request"
 msgstr ""
 
-#: pyxiv/app.py:195
+#: pyxiv/app.py:226
 msgid "The server could not satisfy the request."
 msgstr ""
 
-#: pyxiv/app.py:205
+#: pyxiv/app.py:236
 msgid "Forbidden"
 msgstr ""
 
-#: pyxiv/app.py:206
+#: pyxiv/app.py:237
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: pyxiv/app.py:216
+#: pyxiv/app.py:247
 msgid "Unauthorized"
 msgstr ""
 
-#: pyxiv/app.py:218
+#: pyxiv/app.py:249
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 
-#: pyxiv/app.py:231
+#: pyxiv/app.py:262
 msgid "Method Not Allowed"
 msgstr ""
 
-#: pyxiv/app.py:232
+#: pyxiv/app.py:263
 msgid "This method is not allowed for this endpoint"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:38 pyxiv/routes/artworks.py:50
-#: pyxiv/routes/artworks.py:62 pyxiv/routes/artworks.py:74
+#: pyxiv/routes/artworks.py:41 pyxiv/routes/artworks.py:53
+#: pyxiv/routes/artworks.py:65 pyxiv/routes/artworks.py:77
 msgid "You cannot access this illustration"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:39
+#: pyxiv/routes/artworks.py:42
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:51
+#: pyxiv/routes/artworks.py:54
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:63
+#: pyxiv/routes/artworks.py:66
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:75
+#: pyxiv/routes/artworks.py:78
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:98
+#: pyxiv/routes/artworks.py:105
 msgid "The creator turned off comments."
 msgstr ""
 
-#: pyxiv/routes/settings.py:114
-#, python-format
-msgid "Cannot use token: %(error)s"
-msgstr ""
-
-#: pyxiv/routes/settings.py:129
+#: pyxiv/routes/settings.py:132
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr ""
 
-#: pyxiv/routes/settings.py:142
+#: pyxiv/routes/settings.py:145
 msgid "Unable to extract CSRF"
 msgstr ""
 
-#: pyxiv/routes/settings.py:154
+#: pyxiv/routes/settings.py:153
+#, python-format
+msgid "Cannot use token: %(error)s"
+msgstr ""
+
+#: pyxiv/routes/settings.py:165
 msgid "No token was supplied."
 msgstr ""
 
-#: pyxiv/routes/settings.py:164
+#: pyxiv/routes/settings.py:175
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr ""
 
-#: pyxiv/routes/settings.py:174 pyxiv/routes/settings.py:266
+#: pyxiv/routes/settings.py:185 pyxiv/routes/settings.py:282
 msgid "Successfully set proxy server"
 msgstr ""
 
-#: pyxiv/routes/settings.py:189
+#: pyxiv/routes/settings.py:202
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:195
+#: pyxiv/routes/settings.py:208
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:204
+#: pyxiv/routes/settings.py:217
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:210
+#: pyxiv/routes/settings.py:223
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
 msgstr ""
 
-#: pyxiv/routes/settings.py:239
+#: pyxiv/routes/settings.py:257
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
 
-#: pyxiv/routes/settings.py:248
+#: pyxiv/routes/settings.py:266
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:257
-msgid "Timed out trying to check proxy server. It may be down."
-msgstr ""
-
-#: pyxiv/routes/settings.py:261
+#: pyxiv/routes/settings.py:277
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:318 pyxiv/routes/settings.py:337
+#: pyxiv/routes/settings.py:329
+msgid "Successfully set preferences"
+msgstr ""
+
+#: pyxiv/routes/settings.py:340 pyxiv/routes/settings.py:360
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:329 pyxiv/routes/settings.py:347
+#: pyxiv/routes/settings.py:351 pyxiv/routes/settings.py:370
 msgid "Successfully set language."
 msgstr ""
 
-#: pyxiv/routes/userAction.py:50
+#: pyxiv/routes/userAction.py:55
 msgid "Successfully bookmarked post"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:59
+#: pyxiv/routes/userAction.py:66
 msgid "Successfully removed bookmark"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:68
+#: pyxiv/routes/userAction.py:77
 msgid "Successfully liked post"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:83
+#: pyxiv/routes/userAction.py:93
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:88
+#: pyxiv/routes/userAction.py:98
 msgid "Successfully posted comment"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:104
+#: pyxiv/routes/userAction.py:115
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:109
+#: pyxiv/routes/userAction.py:120
 msgid "Successfully sent stamp"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:132 pyxiv/routes/userAction.py:147
-#: pyxiv/routes/users.py:82 pyxiv/routes/users.py:125 pyxiv/routes/users.py:167
-#: pyxiv/routes/users.py:204 pyxiv/routes/users.py:242
+#: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
+#: pyxiv/routes/users.py:86 pyxiv/routes/users.py:134 pyxiv/routes/users.py:184
+#: pyxiv/routes/users.py:223 pyxiv/routes/users.py:263
 msgid "Invalid user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:137
+#: pyxiv/routes/userAction.py:148
 msgid "Could not follow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:139
+#: pyxiv/routes/userAction.py:150
 msgid "Successfully followed user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:152
+#: pyxiv/routes/userAction.py:163
 msgid "Could not unfollow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:154
+#: pyxiv/routes/userAction.py:165
 msgid "Successfully unfollowed user"
-msgstr ""
-
-#: pyxiv/routes/users.py:250
-msgid "Not authorized."
 msgstr ""
 
 #: pyxiv/templates/500.html:7 pyxiv/templates/500.html:27
@@ -399,7 +395,7 @@ msgstr ""
 msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
-#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:50
+#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:57
 #: pyxiv/templates/user/index.html:56
 msgid "Home"
 msgstr ""
@@ -448,7 +444,7 @@ msgid ""
 "href='https://www.torproject.org/'>Tor</a> is recommended."
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:65 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:72 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr ""
 
@@ -472,6 +468,23 @@ msgstr ""
 
 #: pyxiv/templates/notifications.html:49
 msgid "No notifications"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:6
+#, python-format
+msgid "Ranking for %(date)s"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:9 pyxiv/templates/rankings.html:11
+msgid "Previous Date"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:15 pyxiv/templates/rankings.html:17
+msgid "Next Date"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:19
+msgid "Calendar"
 msgstr ""
 
 #: pyxiv/templates/replies.html:5 pyxiv/templates/user/follows.html:12
@@ -669,39 +682,39 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:15
+#: pyxiv/templates/layouts/default.html:16
 msgid "This website requires JavaScript."
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:55
+#: pyxiv/templates/layouts/default.html:62
 msgid "Discover"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:60
+#: pyxiv/templates/layouts/default.html:67
 #: pyxiv/templates/pixivision/index.html:23
 msgid "Rankings"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:70
+#: pyxiv/templates/layouts/default.html:77
 msgid "pixivision"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:74
-#: pyxiv/templates/layouts/default.html:102
+#: pyxiv/templates/layouts/default.html:81
+#: pyxiv/templates/layouts/default.html:109
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:94
+#: pyxiv/templates/layouts/default.html:101
 msgid "Profile"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:98 pyxiv/templates/user/index.html:59
+#: pyxiv/templates/layouts/default.html:105 pyxiv/templates/user/index.html:59
 msgid "Bookmarks"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:106
+#: pyxiv/templates/layouts/default.html:113
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr ""

@@ -535,11 +535,11 @@ class Ranking:
         self.mode: str = data["mode"]
         self.next: int = data["next"] if type(data["next"]) == int else None
         self._nextDate: str = (
-            data["next_date"] if type(data["next_date"]) == int else None
+            data["next_date"] if type(data["next_date"]) == str else None
         )
         self.page: int = data["page"]
         self.prev: int = data["prev"] if type(data["prev"]) == int else None
-        self._prevDate: str = data["prev_date"] if type("prev_date") == int else None
+        self._prevDate: str = data["prev_date"] if type("prev_date") == str else None
 
         self.date: datetime = datetime.strptime(str(self._date), "%Y%m%d")
         self.nextDate: datetime = (
