@@ -59,7 +59,7 @@ def create_app():
     )
 
     logging.getLogger("urllib3.connectionpool").setLevel(logging.ERROR)
-    logging.getLogger("werkzeug").setLevel(logging.ERROR)
+    #logging.getLogger("werkzeug").setLevel(logging.ERROR)
 
     app.secret_key = cfg.PyXivSecret
     app.config["authless"] = cfg.AuthlessMode
@@ -183,11 +183,14 @@ def create_app():
 
     @app.after_serving
     async def shutdown():
-
-        log.info("Shutting down. Goodbye!")
         await app.pixivApi.close()
         await app.proxySession.close()
         await app.pyxivision.close()
+        try: # just so it doesn't scream if it fails
+            os.remove("pyxiv.running")
+        except:
+            return
+        log.info("Shutting down. Goodbye!") # only log once
 
     @app.errorhandler(api.PixivError)
     async def handlePxError(e):
@@ -284,9 +287,9 @@ def create_app():
                 p = "/"
             return redirect(p, code=308)
         
-        g.rev = os.environ.get("GIT_REVISION", "unknown")
-        g.repo = os.environ.get("GIT_REPO", "unknown")
-        g.version = "2.1+" + g.rev
+        g.rev = cfg.GitRev
+        g.repo = cfg.GitRepo
+        g.version = cfg.Version + "+" + g.rev
         g.instanceName = cfg.PxInstanceName
         g.lang = request.cookies.get("lang", "en")
 

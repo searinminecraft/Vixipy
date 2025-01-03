@@ -9,4 +9,4 @@ export GIT_REPO=$(git remote get-url origin)
 #export PYXIV_ACCEPTLANG=""
 #export PYXIV_INSTANCENAME=""
 
-hypercorn --bind 0.0.0.0:${PYXIV_PORT} --workers 5 --bind unix:pyxiv.sock pyxiv:app
+hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers 5 --bind unix:pyxiv.sock pyxiv:app
