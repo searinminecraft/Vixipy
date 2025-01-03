@@ -181,7 +181,7 @@ async def getRanking(
     """
     Get artwork ranking data
     """
-    path = f"/ranking.php?format=json&p={p}"
+    path = f"/ranking.php?format=json&mode={mode}&p={p}"
 
     if date:
         path += f"&date={date}&mode={mode}"
