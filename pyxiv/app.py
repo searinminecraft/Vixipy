@@ -195,7 +195,7 @@ def create_app():
     @app.errorhandler(api.PixivError)
     async def handlePxError(e):
         resp = await make_response(
-            render_template(
+            await render_template(
                 "error.html",
                 errortitle=_("pixiv Error!"),
                 errordesc=_(
