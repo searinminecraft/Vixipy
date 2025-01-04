@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-03 22:09+0800\n"
-"PO-Revision-Date: 2024-12-30 05:08+0000\n"
+"PO-Revision-Date: 2025-01-04 01:54+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:200
@@ -190,9 +191,8 @@ msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
 
 #: pyxiv/routes/settings.py:329
-#, fuzzy
 msgid "Successfully set preferences"
-msgstr "Matagumpay na natakda ang proxy server"
+msgstr "Matagumpay na natakda ang mga kagustuhan"
 
 #: pyxiv/routes/settings.py:340 pyxiv/routes/settings.py:360
 #, python-format
@@ -517,20 +517,19 @@ msgstr "Walang mga abiso"
 #: pyxiv/templates/rankings.html:6
 #, python-format
 msgid "Ranking for %(date)s"
-msgstr ""
+msgstr "Ranking para sa %(date)s"
 
 #: pyxiv/templates/rankings.html:9 pyxiv/templates/rankings.html:11
 msgid "Previous Date"
-msgstr ""
+msgstr "Nakaraang Petsa"
 
 #: pyxiv/templates/rankings.html:15 pyxiv/templates/rankings.html:17
-#, fuzzy
 msgid "Next Date"
-msgstr "Petsa"
+msgstr "Susunod na Petsa"
 
 #: pyxiv/templates/rankings.html:19
 msgid "Calendar"
-msgstr ""
+msgstr "Kalendaryo"
 
 #: pyxiv/templates/replies.html:5 pyxiv/templates/user/follows.html:12
 msgid "Back"
@@ -1279,4 +1278,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Not authorized."
 #~ msgstr "Hindi awtorisado."
-
