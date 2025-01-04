@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-03 22:09+0800\n"
+"POT-Creation-Date: 2025-01-04 15:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,25 +232,29 @@ msgstr ""
 msgid "Successfully unfollowed user"
 msgstr ""
 
-#: pyxiv/templates/500.html:7 pyxiv/templates/500.html:27
+#: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
 msgid "Internal Server Error"
 msgstr ""
 
-#: pyxiv/templates/500.html:28
+#: pyxiv/templates/500.html:38
 msgid ""
 "If this issue happens again, <a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
 msgstr ""
 
-#: pyxiv/templates/500.html:29 pyxiv/templates/error.html:19
+#: pyxiv/templates/500.html:43
+msgid "(Exception message too long)"
+msgstr ""
+
+#: pyxiv/templates/500.html:47 pyxiv/templates/error.html:19
 msgid "Back to home"
 msgstr ""
 
-#: pyxiv/templates/500.html:33
+#: pyxiv/templates/500.html:51
 msgid "Error details"
 msgstr ""
 
-#: pyxiv/templates/500.html:35
+#: pyxiv/templates/500.html:53
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
@@ -276,7 +280,7 @@ msgstr ""
 msgid "AI generated"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:72
+#: pyxiv/templates/artwork.html:72 pyxiv/templates/rankings.html:33
 msgid "Original"
 msgstr ""
 
@@ -303,9 +307,9 @@ msgstr ""
 msgid "Some entries have been hidden due to filters"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:25
-#: pyxiv/templates/user/illusts.html:25 pyxiv/templates/user/main.html:48
-#: pyxiv/templates/user/manga.html:25
+#: pyxiv/templates/artwork.html:148 pyxiv/templates/bookmarksSelf.html:25
+#: pyxiv/templates/user/bookmarks.html:25 pyxiv/templates/user/illusts.html:25
+#: pyxiv/templates/user/main.html:48 pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
 msgstr ""
 
@@ -314,7 +318,7 @@ msgstr ""
 msgid "Your bookmarks (%(total)d)"
 msgstr ""
 
-#: pyxiv/templates/bookmarksSelf.html:7 pyxiv/templates/user/bookmarks.html:8
+#: pyxiv/templates/bookmarksSelf.html:8 pyxiv/templates/user/bookmarks.html:8
 #: pyxiv/templates/user/illusts.html:8 pyxiv/templates/user/main.html:32
 #: pyxiv/templates/user/manga.html:8
 msgid "Frequent tags"
@@ -395,8 +399,8 @@ msgstr ""
 msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
-#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:57
-#: pyxiv/templates/user/index.html:56
+#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:59
+#: pyxiv/templates/user/index.html:63
 msgid "Home"
 msgstr ""
 
@@ -444,7 +448,7 @@ msgid ""
 "href='https://www.torproject.org/'>Tor</a> is recommended."
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:72 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:74 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr ""
 
@@ -452,11 +456,13 @@ msgstr ""
 msgid "Newest from all users"
 msgstr ""
 
-#: pyxiv/templates/newest.html:17 pyxiv/templates/user/index.html:57
+#: pyxiv/templates/newest.html:17 pyxiv/templates/rankings.html:14
+#: pyxiv/templates/user/index.html:64
 msgid "Illustrations"
 msgstr ""
 
-#: pyxiv/templates/newest.html:18 pyxiv/templates/user/index.html:58
+#: pyxiv/templates/newest.html:18 pyxiv/templates/rankings.html:15
+#: pyxiv/templates/user/index.html:65
 msgid "Manga"
 msgstr ""
 
@@ -470,20 +476,81 @@ msgstr ""
 msgid "No notifications"
 msgstr ""
 
+#: pyxiv/templates/layouts/default.html:69
+#: pyxiv/templates/pixivision/index.html:23 pyxiv/templates/rankings.html:2
+msgid "Rankings"
+msgstr ""
+
 #: pyxiv/templates/rankings.html:6
+msgid "Options"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:12
+msgid "Note: Some options may not be compatible with each other."
+msgstr ""
+
+#: pyxiv/templates/rankings.html:13
+msgid "Content:"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:16
+msgid "Ugoira"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:19
+msgid "Mode:"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:20
+msgid "Daily"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:22
+msgid "Daily (AI)"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:24
+msgid "Weekly"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:25
+msgid "Monthly"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:28
+msgid "Daily (R-18)"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:29
+msgid "Weekly (R-18)"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:32
+msgid "Rookie"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:36
+msgid "Date:"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:38 pyxiv/templates/tag.html:218
+msgid "Apply"
+msgstr ""
+
+#: pyxiv/templates/rankings.html:43
 #, python-format
 msgid "Ranking for %(date)s"
 msgstr ""
 
-#: pyxiv/templates/rankings.html:9 pyxiv/templates/rankings.html:11
+#: pyxiv/templates/rankings.html:46 pyxiv/templates/rankings.html:48
 msgid "Previous Date"
 msgstr ""
 
-#: pyxiv/templates/rankings.html:15 pyxiv/templates/rankings.html:17
+#: pyxiv/templates/rankings.html:52 pyxiv/templates/rankings.html:54
 msgid "Next Date"
 msgstr ""
 
-#: pyxiv/templates/rankings.html:19
+#: pyxiv/templates/rankings.html:56
 msgid "Calendar"
 msgstr ""
 
@@ -667,10 +734,6 @@ msgstr ""
 msgid "Maximum Bookmarks"
 msgstr ""
 
-#: pyxiv/templates/tag.html:218
-msgid "Apply"
-msgstr ""
-
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
 msgid "Search works..."
@@ -682,39 +745,34 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:16
+#: pyxiv/templates/layouts/default.html:17
 msgid "This website requires JavaScript."
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:62
+#: pyxiv/templates/layouts/default.html:64
 msgid "Discover"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:67
-#: pyxiv/templates/pixivision/index.html:23
-msgid "Rankings"
-msgstr ""
-
-#: pyxiv/templates/layouts/default.html:77
+#: pyxiv/templates/layouts/default.html:79
 msgid "pixivision"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:81
-#: pyxiv/templates/layouts/default.html:109
+#: pyxiv/templates/layouts/default.html:83
+#: pyxiv/templates/layouts/default.html:111
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:101
+#: pyxiv/templates/layouts/default.html:103
 msgid "Profile"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:105 pyxiv/templates/user/index.html:59
+#: pyxiv/templates/layouts/default.html:107 pyxiv/templates/user/index.html:66
 msgid "Bookmarks"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:113
+#: pyxiv/templates/layouts/default.html:115
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr ""
@@ -1035,7 +1093,7 @@ msgstr ""
 msgid "%(user)s's %(sect)s"
 msgstr ""
 
-#: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:35
+#: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:42
 msgid "Following"
 msgstr ""
 
@@ -1052,17 +1110,17 @@ msgstr ""
 msgid "%(user)s's Illustrations"
 msgstr ""
 
-#: pyxiv/templates/user/index.html:30
+#: pyxiv/templates/user/index.html:37
 #, python-format
 msgid "<b>%(followingCount)s</b> following"
 msgstr ""
 
-#: pyxiv/templates/user/index.html:30
+#: pyxiv/templates/user/index.html:37
 #, python-format
 msgid "<b>%(myPixiv)s</b> mypixiv"
 msgstr ""
 
-#: pyxiv/templates/user/index.html:37
+#: pyxiv/templates/user/index.html:44
 msgid "Follow"
 msgstr ""
 
