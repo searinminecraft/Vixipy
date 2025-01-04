@@ -59,12 +59,12 @@ def create_app():
     )
 
     logging.getLogger("urllib3.connectionpool").setLevel(logging.ERROR)
-    #logging.getLogger("werkzeug").setLevel(logging.ERROR)
+    # logging.getLogger("werkzeug").setLevel(logging.ERROR)
 
     app.secret_key = cfg.PyXivSecret
     app.config["authless"] = cfg.AuthlessMode
     app.config["nor18"] = cfg.NoR18
-    app.config["languages"] = ["en", "fil", "zh_Hans"]
+    app.config["languages"] = ["en", "fil", "zh_Hans", "ru"]
     app.config["proxy-servers"] = (
         "https://i.pixiv.re",
         "https://pixiv.darkness.services",
@@ -186,11 +186,11 @@ def create_app():
         await app.pixivApi.close()
         await app.proxySession.close()
         await app.pyxivision.close()
-        try: # just so it doesn't scream if it fails
+        try:  # just so it doesn't scream if it fails
             os.remove("pyxiv.running")
         except:
             return
-        log.info("Shutting down. Goodbye!") # only log once
+        log.info("Shutting down. Goodbye!")  # only log once
 
     @app.errorhandler(api.PixivError)
     async def handlePxError(e):
@@ -286,7 +286,7 @@ def create_app():
             if p == "":
                 p = "/"
             return redirect(p, code=308)
-        
+
         g.rev = cfg.GitRev
         g.repo = cfg.GitRepo
         g.version = cfg.Version + "+" + g.rev

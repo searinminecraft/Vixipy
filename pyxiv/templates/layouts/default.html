@@ -13,7 +13,9 @@
 		<script src="/static/site.js"></script>
 	</head>
 	<body>
-		<noscript>{{ _("This website requires JavaScript.") }}</noscript>
+		<noscript>
+      <div class="noscript-alert">{{ _("This website requires JavaScript.") }}</div>
+    </noscript>
 		{% include "components/navbar.html" %}
 		<main>
 			<div class="content">

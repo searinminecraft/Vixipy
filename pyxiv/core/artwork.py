@@ -35,4 +35,6 @@ async def getRanking(
 
 
 async def getFrequentTags(ids: list[int]):
+    if len(ids) == 0:
+        return []
     return [SimpleTag(x) for x in (await api.getFrequentTags(ids))["body"]]

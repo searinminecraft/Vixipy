@@ -1,45 +1,53 @@
 @mixin profile-picture($size) {
-	aspect-ratio: 1/1;
-	object-fit: cover;
-	object-position: center center;
-	border-radius: 50%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 50%;
   width: $size;
   height: $size;
-	background-color: var(--md-sys-color-surface-dim)
+  background-color: var(--md-sys-color-surface-dim)
 }
 
 @mixin textbox {
-	border-width: 1px;
-	border-color: var(--md-sys-color-outline);
-	background-color: var(--md-sys-color-surface-container);
-	font-size: 16px;
-	padding: 4px 12px;
-	color: var(--md-sys-color-secondary);
-	border-style: solid;
-	border-radius: 8px;
-	height: 36px;
-	font-family: system-ui;
+  border-width: 1px;
+  border-color: var(--md-sys-color-outline);
+  background-color: var(--md-sys-color-surface-container);
+  font-size: 16px;
+  padding: 4px 12px;
+  color: var(--md-sys-color-secondary);
+  border-style: solid;
+  border-radius: 8px;
+  height: 36px;
+  font-family: system-ui;
   margin: 4px 0
 }
 
 
 %button {
   color: var(--md-sys-color-on-primary);
-	background-color: var(--md-sys-color-primary);
-	font-size: 16px;
-	border-radius: 16px;
-	border: none;
-	padding: 4px 18px;
-	height: 32px;
-	font-family: system-ui;
+  background-color: var(--md-sys-color-primary);
+  font-size: 16px;
+  border-radius: 16px;
+  border: none;
+  padding: 4px 18px;
+  height: 32px;
+  font-family: system-ui;
+}
+
+.noscript-alert {
+  width: 100%;
+  padding: 8px 1em;
+  background-color: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+  display: block;
 }
 
 button.button {
   @extend %button;
 
   &.danger {
-	  color: var(--md-sys-color-on-error);
-  	background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+    background-color: var(--md-sys-color-error);
   }
 
   &.neutral {
@@ -55,13 +63,13 @@ a.button {
   display: inline-block;
 
   &.danger {
-	  color: var(--md-sys-color-on-error);
-  	background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+    background-color: var(--md-sys-color-error);
   }
 
   &.neutral {
-  	color: var(--md-sys-color-on-surface);
-	  background-color: var(--md-sys-color-outline)
+    color: var(--md-sys-color-on-surface);
+    background-color: var(--md-sys-color-outline)
   }
 }
 
@@ -126,7 +134,12 @@ body {
   accent-color: var(--md-sys-color-primary);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: normal
 }
 
@@ -135,7 +148,10 @@ a {
   color: var(--md-sys-color-primary)
 }
 
-input[type=text], input[type=password], input[type=number], input[type=date] {
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date] {
   @include textbox;
 }
 
@@ -145,7 +161,8 @@ textarea {
   overflow: hidden;
 }
 
-label, textarea {
+label,
+textarea {
   display: block
 }
 
@@ -182,13 +199,13 @@ select {
 }
 
 %icon-button-common {
-    padding: 8px;
-    color: var(--md-sys-color-inverse-surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 100ms
+  padding: 8px;
+  color: var(--md-sys-color-inverse-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 100ms
 }
 
 a.icon-button {
@@ -201,7 +218,8 @@ button.icon-button {
   border: none
 }
 
-a.icon-button, button.icon-button {
+a.icon-button,
+button.icon-button {
   &:hover {
     background-color: var(--md-sys-color-surface-dim)
   }
@@ -233,7 +251,8 @@ header {
     align-items: center;
   }
 
-  #searchbox, #mobile-searchbox {
+  #searchbox,
+  #mobile-searchbox {
     input {
       border: none;
       padding: 4px 1em;
@@ -257,10 +276,11 @@ header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-max-width: 1600px;
+    max-width: 1600px;
   }
 
-  .main, .actions {
+  .main,
+  .actions {
     display: flex;
     align-items: center;
   }
@@ -269,6 +289,7 @@ max-width: 1600px;
     .icon-button {
       margin-right: 1em;
     }
+
     .branding {
       font-weight: bold;
       font-size: 22px;
@@ -335,16 +356,16 @@ form.inline-form {
 }
 
 .component-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between
+  display: flex;
+  align-items: center;
+  justify-content: space-between
 }
 
 main {
   padding: 1em;
   margin: 12px 0;
 
-  > .content {
+  >.content {
     max-width: 1150px;
     width: 100%;
     margin: auto;
@@ -353,20 +374,22 @@ main {
 }
 
 .paginator {
-  a, span {
+
+  a,
+  span {
     font-size: 24px
   }
 }
 
 .centered {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .artwork-container {
   display: flex;
   flex-wrap: wrap;
-gap: 12px;
+  gap: 12px;
   justify-content: space-evenly;
 }
 
@@ -444,7 +467,7 @@ gap: 12px;
       justify-content: center;
       align-items: center;
       padding: 4px 8px;
-      background-color: rgba(0,0,0,0.45);
+      background-color: rgba(0, 0, 0, 0.45);
       color: #fff;
       height: 24px;
       min-width: 24px;
@@ -487,8 +510,8 @@ gap: 12px;
 
   .details {
     width: 100%;
-    
-    > a.name {
+
+    >a.name {
       color: unset;
 
       h2 {
@@ -496,7 +519,7 @@ gap: 12px;
       }
     }
 
-    > p {
+    >p {
       color: var(--md-sys-color-outline);
       font-size: 12px;
     }
@@ -511,8 +534,8 @@ gap: 12px;
   align-items: flex-start
 }
 
-div.taglist {    
-  span { 
+div.taglist {
+  span {
     display: inline-block;
     margin-right: 8px;
     font-size: 12px;
@@ -525,7 +548,9 @@ div.taglist {
 }
 
 .illust-area {
-  .illust-main, .illust-info {
+
+  .illust-main,
+  .illust-info {
     padding: 16px;
     border-radius: 48px;
   }
@@ -546,31 +571,31 @@ div.taglist {
       }
 
       a {
-          img{
-            width: 100%;
-            border-radius: 12px;
-          }
+        img {
+          width: 100%;
+          border-radius: 12px;
+        }
 
-          &:first-child {
-            img{
-              border-radius: 36px 36px 12px 12px;
-            }
+        &:first-child {
+          img {
+            border-radius: 36px 36px 12px 12px;
           }
+        }
 
-          &:last-child {
-            img {
-              border-radius: 12px 12px 36px 36px;
-            }
+        &:last-child {
+          img {
+            border-radius: 12px 12px 36px 36px;
           }
+        }
 
-          &:only-child {
-            img {
-              border-radius: 36px;
-            }
+        &:only-child {
+          img {
+            border-radius: 36px;
           }
         }
       }
     }
+  }
 
   .illust-info {
     width: 40%;
@@ -669,7 +694,7 @@ div.taglist {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        
+
         .user-name {
           font-size: 36px;
           display: flex;
@@ -720,6 +745,7 @@ div.taglist {
 
       .tag-info div {
         padding-right: 2em;
+
         p {
           word-wrap: anywhere;
           word-break: break-word
@@ -776,7 +802,7 @@ div.taglist {
 .settings {
   display: flex;
   column-gap: 2em;
-  
+
   .side {
     flex: 30%;
     display: flex;
@@ -785,14 +811,14 @@ div.taglist {
 
     a {
       display: flex;
-  	  width: 100%;
-	    padding: 12px 1em;
-	    font-weight: bold;
-	    align-items: center;
-	    color: var(--md-sys-color-on-surface);
-	    border-radius: 32px;
-	    font-size: 14px;
-	    transition: 125ms ease;
+      width: 100%;
+      padding: 12px 1em;
+      font-weight: bold;
+      align-items: center;
+      color: var(--md-sys-color-on-surface);
+      border-radius: 32px;
+      font-size: 14px;
+      transition: 125ms ease;
 
       &:hover {
         background-color: var(--md-sys-color-surface-dim)
@@ -801,12 +827,13 @@ div.taglist {
       &.selected {
         background-color: var(--md-sys-color-primary);
         color: var(--md-sys-color-on-primary) !important;
-        > svg {
+
+        >svg {
           fill: currentColor !important;
         }
       }
 
-      > svg {
+      >svg {
         margin-right: 12px;
         transform: translateY(-1px);
         fill: var(--md-sys-color-secondary);
@@ -851,18 +878,18 @@ div.taglist {
 
   .message {
     border-radius: 16px;
-	  padding: 0.5em 1.5em;
-	  display: flex;
-	  align-items: center;
-	  color: var(--md-sys-color-on-secondary);
-	  background-color: var(--md-sys-color-secondary);
+    padding: 0.5em 1.5em;
+    display: flex;
+    align-items: center;
+    color: var(--md-sys-color-on-secondary);
+    background-color: var(--md-sys-color-secondary);
 
     &.error {
       background-color: var(--md-sys-color-error);
       color: var(--md-sys-color-on-error);
     }
 
-    > svg {
+    >svg {
       fill: currentColor;
       margin-right: 6px;
       transform: translateY(-1px);
@@ -960,12 +987,12 @@ div.taglist {
     }
 
     .unread-indicator {
-  	  background-color: var(--md-sys-color-primary);
-	    flex-shrink: 0;
-	    width: 8px;
-	    height: 8px;
-	    border-radius: 50%;
-	    margin-right: 1em;
+      background-color: var(--md-sys-color-primary);
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 1em;
     }
 
     .notification-content {
@@ -994,7 +1021,7 @@ div.taglist {
   height: 100%;
   width: 300px;
   background-color: var(--md-sys-color-surface-container);
-  transition: 250ms cubic-bezier(0,.96,.42,.97);
+  transition: 250ms cubic-bezier(0, .96, .42, .97);
   padding: 1em;
 
   &[data-visible] {
@@ -1012,13 +1039,13 @@ div.taglist {
     flex-direction: column;
     row-gap: 1em;
 
-    > a {
+    >a {
       display: flex;
       align-items: center;
       font-size: 16px;
       color: unset;
 
-      > svg {
+      >svg {
         margin-right: 1em;
         fill: var(--md-sys-color-secondary);
         transform: translateY(-1px)
@@ -1067,13 +1094,13 @@ div.taglist {
 }
 
 .backdrop {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	display: none;
-	background-color: rgba(0, 0, 0, 0.6);
-	z-index: 2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
 
   &[data-visible] {
     display: block
@@ -1092,11 +1119,11 @@ div.taglist {
       display: flex;
       flex-direction: column;
       background-color: var(--md-sys-color-surface-container);
-	    min-width: 500px;
-	    min-height: 250px;
-	    max-height: 90%;
-	    max-width: 50%;
-	    overflow: hidden;
+      min-width: 500px;
+      min-height: 250px;
+      max-height: 90%;
+      max-width: 50%;
+      overflow: hidden;
       position: relative;
 
       .title {
@@ -1108,12 +1135,14 @@ div.taglist {
           font-size: 20px;
         }
       }
+
       .dialog-content {
         overflow: unset;
         overflow-y: auto;
         padding: 4px;
 
-        .emojis, .stamps .stamp-series {
+        .emojis,
+        .stamps .stamp-series {
           display: flex;
           gap: 4px;
           flex-wrap: wrap;
@@ -1125,7 +1154,7 @@ div.taglist {
             border: unset;
             padding: 6px;
             cursor: pointer;
-            
+
             img {
               width: 24px;
               height: 24px;
@@ -1194,8 +1223,10 @@ div.taglist {
       object-fit: cover;
       border-radius: 24px;
     }
+
     h2 {
       margin: 4px 0;
+
       a {
         color: unset;
       }
@@ -1214,8 +1245,10 @@ div.taglist {
       object-fit: cover;
       border-radius: 16px;
     }
+
     h4 {
       margin: 4px 0;
+
       a {
         color: unset;
       }
@@ -1248,6 +1281,7 @@ div.taglist {
     .work {
       .author {
         display: flex;
+
         img {
           @include profile-picture(48px);
           flex-shrink: 0;
@@ -1259,13 +1293,14 @@ div.taglist {
             color: unset;
             font-weight: bold;
           }
+
           h4 {
             margin: 2px 0
           }
         }
       }
 
-      > a > img {
+      >a>img {
         width: 100%;
         object-fit: cover;
         border-radius: 32px;
@@ -1282,6 +1317,7 @@ ul.tab-navigation {
 
   li {
     list-style: none;
+
     a {
       color: var(--md-sys-color-inverse-surface);
       font-weight: bold;
@@ -1361,115 +1397,115 @@ ul.tab-navigation {
 }
 
 @media (prefers-color-scheme: dark) {
-:root {
-  --container-backdrop: rgb(35, 30, 35, 80%);
-  --color-accept-commissions: #b1d18a;
-  --md-sys-color-primary: rgb(229 182 242);
-  --md-sys-color-surface-tint: rgb(229 182 242);
-  --md-sys-color-on-primary: rgb(69 33 83);
-  --md-sys-color-primary-container: rgb(93 56 107);
-  --md-sys-color-on-primary-container: rgb(248 216 255);
-  --md-sys-color-secondary: rgb(213 192 215);
-  --md-sys-color-on-secondary: rgb(57 44 61);
-  --md-sys-color-secondary-container: rgb(81 66 84);
-  --md-sys-color-on-secondary-container: rgb(241 220 243);
-  --md-sys-color-tertiary: rgb(245 183 180);
-  --md-sys-color-on-tertiary: rgb(76 37 36);
-  --md-sys-color-tertiary-container: rgb(102 59 57);
-  --md-sys-color-on-tertiary-container: rgb(255 218 216);
-  --md-sys-color-error: rgb(255 180 171);
-  --md-sys-color-on-error: rgb(105 0 5);
-  --md-sys-color-error-container: rgb(147 0 10);
-  --md-sys-color-on-error-container: rgb(255 218 214);
-  --md-sys-color-background: rgb(22 18 23);
-  --md-sys-color-on-background: rgb(233 224 231);
-  --md-sys-color-surface: rgb(22 18 23);
-  --md-sys-color-on-surface: rgb(233 224 231);
-  --md-sys-color-surface-variant: rgb(76 68 77);
-  --md-sys-color-on-surface-variant: rgb(206 195 205);
-  --md-sys-color-outline: rgb(152 142 151);
-  --md-sys-color-outline-variant: rgb(76 68 77);
-  --md-sys-color-shadow: rgb(0 0 0);
-  --md-sys-color-scrim: rgb(0 0 0);
-  --md-sys-color-inverse-surface: rgb(233 224 231);
-  --md-sys-color-inverse-on-surface: rgb(52 47 52);
-  --md-sys-color-inverse-primary: rgb(118 80 132);
-  --md-sys-color-primary-fixed: rgb(248 216 255);
-  --md-sys-color-on-primary-fixed: rgb(46 10 60);
-  --md-sys-color-primary-fixed-dim: rgb(229 182 242);
-  --md-sys-color-on-primary-fixed-variant: rgb(93 56 107);
-  --md-sys-color-secondary-fixed: rgb(241 220 243);
-  --md-sys-color-on-secondary-fixed: rgb(35 23 40);
-  --md-sys-color-secondary-fixed-dim: rgb(213 192 215);
-  --md-sys-color-on-secondary-fixed-variant: rgb(81 66 84);
-  --md-sys-color-tertiary-fixed: rgb(255 218 216);
-  --md-sys-color-on-tertiary-fixed: rgb(51 17 16);
-  --md-sys-color-tertiary-fixed-dim: rgb(245 183 180);
-  --md-sys-color-on-tertiary-fixed-variant: rgb(102 59 57);
-  --md-sys-color-surface-dim: rgb(22 18 23);
-  --md-sys-color-surface-bright: rgb(61 55 61);
-  --md-sys-color-surface-container-lowest: rgb(17 13 18);
-  --md-sys-color-surface-container-low: rgb(31 26 31);
-  --md-sys-color-surface-container: rgb(35 30 35);
-  --md-sys-color-surface-container-high: rgb(45 40 46);
-  --md-sys-color-surface-container-highest: rgb(56 51 57);
-}
+  :root {
+    --container-backdrop: rgb(35, 30, 35, 80%);
+    --color-accept-commissions: #b1d18a;
+    --md-sys-color-primary: rgb(229 182 242);
+    --md-sys-color-surface-tint: rgb(229 182 242);
+    --md-sys-color-on-primary: rgb(69 33 83);
+    --md-sys-color-primary-container: rgb(93 56 107);
+    --md-sys-color-on-primary-container: rgb(248 216 255);
+    --md-sys-color-secondary: rgb(213 192 215);
+    --md-sys-color-on-secondary: rgb(57 44 61);
+    --md-sys-color-secondary-container: rgb(81 66 84);
+    --md-sys-color-on-secondary-container: rgb(241 220 243);
+    --md-sys-color-tertiary: rgb(245 183 180);
+    --md-sys-color-on-tertiary: rgb(76 37 36);
+    --md-sys-color-tertiary-container: rgb(102 59 57);
+    --md-sys-color-on-tertiary-container: rgb(255 218 216);
+    --md-sys-color-error: rgb(255 180 171);
+    --md-sys-color-on-error: rgb(105 0 5);
+    --md-sys-color-error-container: rgb(147 0 10);
+    --md-sys-color-on-error-container: rgb(255 218 214);
+    --md-sys-color-background: rgb(22 18 23);
+    --md-sys-color-on-background: rgb(233 224 231);
+    --md-sys-color-surface: rgb(22 18 23);
+    --md-sys-color-on-surface: rgb(233 224 231);
+    --md-sys-color-surface-variant: rgb(76 68 77);
+    --md-sys-color-on-surface-variant: rgb(206 195 205);
+    --md-sys-color-outline: rgb(152 142 151);
+    --md-sys-color-outline-variant: rgb(76 68 77);
+    --md-sys-color-shadow: rgb(0 0 0);
+    --md-sys-color-scrim: rgb(0 0 0);
+    --md-sys-color-inverse-surface: rgb(233 224 231);
+    --md-sys-color-inverse-on-surface: rgb(52 47 52);
+    --md-sys-color-inverse-primary: rgb(118 80 132);
+    --md-sys-color-primary-fixed: rgb(248 216 255);
+    --md-sys-color-on-primary-fixed: rgb(46 10 60);
+    --md-sys-color-primary-fixed-dim: rgb(229 182 242);
+    --md-sys-color-on-primary-fixed-variant: rgb(93 56 107);
+    --md-sys-color-secondary-fixed: rgb(241 220 243);
+    --md-sys-color-on-secondary-fixed: rgb(35 23 40);
+    --md-sys-color-secondary-fixed-dim: rgb(213 192 215);
+    --md-sys-color-on-secondary-fixed-variant: rgb(81 66 84);
+    --md-sys-color-tertiary-fixed: rgb(255 218 216);
+    --md-sys-color-on-tertiary-fixed: rgb(51 17 16);
+    --md-sys-color-tertiary-fixed-dim: rgb(245 183 180);
+    --md-sys-color-on-tertiary-fixed-variant: rgb(102 59 57);
+    --md-sys-color-surface-dim: rgb(22 18 23);
+    --md-sys-color-surface-bright: rgb(61 55 61);
+    --md-sys-color-surface-container-lowest: rgb(17 13 18);
+    --md-sys-color-surface-container-low: rgb(31 26 31);
+    --md-sys-color-surface-container: rgb(35 30 35);
+    --md-sys-color-surface-container-high: rgb(45 40 46);
+    --md-sys-color-surface-container-highest: rgb(56 51 57);
+  }
 }
 
 @media (prefers-color-scheme: light) {
-:root {
-  --container-backdrop: rgb(245, 235, 242, 80%);
-  --color-accept-commissions: #4c662b;
-  --md-sys-color-primary: rgb(118 80 132);
-  --md-sys-color-surface-tint: rgb(118 80 132);
-  --md-sys-color-on-primary: rgb(255 255 255);
-  --md-sys-color-primary-container: rgb(248 216 255);
-  --md-sys-color-on-primary-container: rgb(46 10 60);
-  --md-sys-color-secondary: rgb(105 89 109);
-  --md-sys-color-on-secondary: rgb(255 255 255);
-  --md-sys-color-secondary-container: rgb(241 220 243);
-  --md-sys-color-on-secondary-container: rgb(35 23 40);
-  --md-sys-color-tertiary: rgb(129 82 79);
-  --md-sys-color-on-tertiary: rgb(255 255 255);
-  --md-sys-color-tertiary-container: rgb(255 218 216);
-  --md-sys-color-on-tertiary-container: rgb(51 17 16);
-  --md-sys-color-error: rgb(186 26 26);
-  --md-sys-color-on-error: rgb(255 255 255);
-  --md-sys-color-error-container: rgb(255 218 214);
-  --md-sys-color-on-error-container: rgb(65 0 2);
-  --md-sys-color-background: rgb(255 247 251);
-  --md-sys-color-on-background: rgb(31 26 31);
-  --md-sys-color-surface: rgb(255 247 251);
-  --md-sys-color-on-surface: rgb(31 26 31);
-  --md-sys-color-surface-variant: rgb(235 223 233);
-  --md-sys-color-on-surface-variant: rgb(76 68 77);
-  --md-sys-color-outline: rgb(125 116 125);
-  --md-sys-color-outline-variant: rgb(206 195 205);
-  --md-sys-color-shadow: rgb(0 0 0);
-  --md-sys-color-scrim: rgb(0 0 0);
-  --md-sys-color-inverse-surface: rgb(52 47 52);
-  --md-sys-color-inverse-on-surface: rgb(248 238 245);
-  --md-sys-color-inverse-primary: rgb(229 182 242);
-  --md-sys-color-primary-fixed: rgb(248 216 255);
-  --md-sys-color-on-primary-fixed: rgb(46 10 60);
-  --md-sys-color-primary-fixed-dim: rgb(229 182 242);
-  --md-sys-color-on-primary-fixed-variant: rgb(93 56 107);
-  --md-sys-color-secondary-fixed: rgb(241 220 243);
-  --md-sys-color-on-secondary-fixed: rgb(35 23 40);
-  --md-sys-color-secondary-fixed-dim: rgb(213 192 215);
-  --md-sys-color-on-secondary-fixed-variant: rgb(81 66 84);
-  --md-sys-color-tertiary-fixed: rgb(255 218 216);
-  --md-sys-color-on-tertiary-fixed: rgb(51 17 16);
-  --md-sys-color-tertiary-fixed-dim: rgb(245 183 180);
-  --md-sys-color-on-tertiary-fixed-variant: rgb(102 59 57);
-  --md-sys-color-surface-dim: rgb(225 215 223);
-  --md-sys-color-surface-bright: rgb(255 247 251);
-  --md-sys-color-surface-container-lowest: rgb(255 255 255);
-  --md-sys-color-surface-container-low: rgb(251 241 248);
-  --md-sys-color-surface-container: rgb(245 235 242);
-  --md-sys-color-surface-container-high: rgb(239 229 237);
-  --md-sys-color-surface-container-highest: rgb(233 224 231);
-}
+  :root {
+    --container-backdrop: rgb(245, 235, 242, 80%);
+    --color-accept-commissions: #4c662b;
+    --md-sys-color-primary: rgb(118 80 132);
+    --md-sys-color-surface-tint: rgb(118 80 132);
+    --md-sys-color-on-primary: rgb(255 255 255);
+    --md-sys-color-primary-container: rgb(248 216 255);
+    --md-sys-color-on-primary-container: rgb(46 10 60);
+    --md-sys-color-secondary: rgb(105 89 109);
+    --md-sys-color-on-secondary: rgb(255 255 255);
+    --md-sys-color-secondary-container: rgb(241 220 243);
+    --md-sys-color-on-secondary-container: rgb(35 23 40);
+    --md-sys-color-tertiary: rgb(129 82 79);
+    --md-sys-color-on-tertiary: rgb(255 255 255);
+    --md-sys-color-tertiary-container: rgb(255 218 216);
+    --md-sys-color-on-tertiary-container: rgb(51 17 16);
+    --md-sys-color-error: rgb(186 26 26);
+    --md-sys-color-on-error: rgb(255 255 255);
+    --md-sys-color-error-container: rgb(255 218 214);
+    --md-sys-color-on-error-container: rgb(65 0 2);
+    --md-sys-color-background: rgb(255 247 251);
+    --md-sys-color-on-background: rgb(31 26 31);
+    --md-sys-color-surface: rgb(255 247 251);
+    --md-sys-color-on-surface: rgb(31 26 31);
+    --md-sys-color-surface-variant: rgb(235 223 233);
+    --md-sys-color-on-surface-variant: rgb(76 68 77);
+    --md-sys-color-outline: rgb(125 116 125);
+    --md-sys-color-outline-variant: rgb(206 195 205);
+    --md-sys-color-shadow: rgb(0 0 0);
+    --md-sys-color-scrim: rgb(0 0 0);
+    --md-sys-color-inverse-surface: rgb(52 47 52);
+    --md-sys-color-inverse-on-surface: rgb(248 238 245);
+    --md-sys-color-inverse-primary: rgb(229 182 242);
+    --md-sys-color-primary-fixed: rgb(248 216 255);
+    --md-sys-color-on-primary-fixed: rgb(46 10 60);
+    --md-sys-color-primary-fixed-dim: rgb(229 182 242);
+    --md-sys-color-on-primary-fixed-variant: rgb(93 56 107);
+    --md-sys-color-secondary-fixed: rgb(241 220 243);
+    --md-sys-color-on-secondary-fixed: rgb(35 23 40);
+    --md-sys-color-secondary-fixed-dim: rgb(213 192 215);
+    --md-sys-color-on-secondary-fixed-variant: rgb(81 66 84);
+    --md-sys-color-tertiary-fixed: rgb(255 218 216);
+    --md-sys-color-on-tertiary-fixed: rgb(51 17 16);
+    --md-sys-color-tertiary-fixed-dim: rgb(245 183 180);
+    --md-sys-color-on-tertiary-fixed-variant: rgb(102 59 57);
+    --md-sys-color-surface-dim: rgb(225 215 223);
+    --md-sys-color-surface-bright: rgb(255 247 251);
+    --md-sys-color-surface-container-lowest: rgb(255 255 255);
+    --md-sys-color-surface-container-low: rgb(251 241 248);
+    --md-sys-color-surface-container: rgb(245 235 242);
+    --md-sys-color-surface-container-high: rgb(239 229 237);
+    --md-sys-color-surface-container-highest: rgb(233 224 231);
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -1490,14 +1526,20 @@ ul.tab-navigation {
   .settings {
     flex-direction: column;
 
-    .side, .content {
+    .side,
+    .content {
       flex: unset !important;
     }
 
     .content {
       form.inline-form {
-        input { margin-right: unset !important };
-        > * {
+        input {
+          margin-right: unset !important
+        }
+
+        ;
+
+        >* {
           width: 100%;
           flex: unset !important
         }
@@ -1522,6 +1564,7 @@ ul.tab-navigation {
 
   .user-sc {
     flex-direction: column;
+
     .user-data {
       width: 100% !important
     }
@@ -1540,7 +1583,8 @@ ul.tab-navigation {
 
     .tag-info {
       padding: 1em;
-      > div {
+
+      >div {
         padding-right: unset !important;
       }
     }
@@ -1548,12 +1592,13 @@ ul.tab-navigation {
 
   .illust-area {
     flex-direction: column;
-    > div {
+
+    >div {
       width: 100% !important;
     }
   }
 
-  main > .content {
+  main>.content {
     padding: unset !important;
   }
 
