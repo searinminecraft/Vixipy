@@ -11,6 +11,7 @@ from quart import (
 )
 from asyncio import gather
 from quart_babel import _
+from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
 
 from ..api import PixivError
 from ..core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
@@ -20,6 +21,7 @@ from ..classes import ArtworkDetailsPage
 
 
 artworks = Blueprint("artworks", __name__, url_prefix="/artworks")
+limit_blueprint(artworks, limits=[RateLimit(1, timedelta(seconds=3)), RateLimit(10, timedelta(minutes=1))])
 
 
 @artworks.route("/<int:_id>")

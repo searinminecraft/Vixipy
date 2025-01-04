@@ -3,9 +3,42 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from urllib.parse import quote
 from markupsafe import escape
+from quart_rate_limiter import RateLimiterStoreABC
+import pymemcache
+
 
 #  tbh maybe i should make a Python library
 #  that interacts with the pixiv api...
+
+
+class MemcacheStore(RateLimiterStoreABC):
+    """
+    A rate limiter store that uses memcached
+
+    address: The address to connect to a memcached instance
+    kwargs: Any arguments to pass to the pymemcache.Client
+    """
+    def __init__(self, address="localhost", **kwargs):
+        self._client: pymemcache.Client = None
+        self._args = (address, kwargs)
+
+    async def before_serving(self):
+        self._client = pymemcache.Client(self._args[0], **self._args[1])
+
+    async def get(self, key: str, default: datetime) -> datetime:
+        result = self._client.get(key)
+        if result is None:
+            return default
+        else:
+            return datetime.fromtimestamp(float(result.decode()))
+
+    async def set(self, key: str, tat: datetime) -> None:
+        ts = tat.timestamp()
+        self._client.set(key, ts)
+
+    async def after_serving(self) -> None:
+        self._client.close()
+        self._client = None
 
 
 class PartialUser:

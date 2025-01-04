@@ -1,6 +1,8 @@
 quart
 quart-babel
+quart-rate-limiter
 aiohttp[speedups]
 beautifulsoup4
 hypercorn
+pymemcache
 git+https://codeberg.org/vixipy/pyxivision@v2

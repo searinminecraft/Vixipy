@@ -134,6 +134,9 @@ endpoints and features that require authentication will not be accessible unless
 * `PYXIV_INSTANCENAME` (default: Vixipy): The name of the instance.
 * `PYXIV_NOR18` (default: 0): Disables and hides R-18(G) artworks from being shown and accessed.
 * `PYXIV_ACCEPTLANG` (default: en-US,en;q=0.5): The Accept-Language header that will be used for pixiv requests.
+* `PYXIV_RATELIMITS` (default: 0): EXPERIMENTAL: Whether to enable rate limiting on the instance (requires [memcached](https://memcached.org/) to be installed)
+
+TODO: find asyncio alternative for pymemcache/memcached wrapper if possible
 
 ## Tinkering with the frontend
 

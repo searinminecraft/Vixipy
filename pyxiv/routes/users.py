@@ -9,6 +9,7 @@ from quart import (
     request,
     url_for,
 )
+from quart_rate_limiter import RateLimit, limit_blueprint, timedelta
 from asyncio import gather
 
 from .. import api
@@ -24,6 +25,10 @@ from ..core.artwork import getFrequentTags
 from ..classes import User, ArtworkEntry
 
 users = Blueprint("users", __name__, url_prefix="/users")
+limit_blueprint(
+    users,
+    limits=[RateLimit(1, timedelta(seconds=2)), RateLimit(10, timedelta(minutes=1))],
+)
 
 
 @users.route("/<int:_id>")
@@ -232,14 +237,14 @@ async def following(_id: int):
     _data, user, data = await gather(
         getUserFollowing(_id),
         getUser(_id),
-        getUserFollowing(_id, offset=(30 * currPage) - 30)
+        getUserFollowing(_id, offset=(30 * currPage) - 30),
     )
 
     total = _data[0]
     pages, extra = divmod(total, 30)
     if extra > 0:
         pages += 1
-    
+
     return await render_template(
         "user/follows.html",
         total=total,
@@ -268,7 +273,7 @@ async def followers(_id: int):
     _data, user, data = await gather(
         getUserFollowers(_id),
         getUser(_id),
-        getUserFollowers(_id, offset=(30 * currPage) - 30)
+        getUserFollowers(_id, offset=(30 * currPage) - 30),
     )
 
     total = _data[0]

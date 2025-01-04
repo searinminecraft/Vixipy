@@ -82,6 +82,11 @@ async def proxyRequest(proxypath):
             yield chunk
         s_end = time.perf_counter()
 
-        log.debug("Completed proxy request for %s - C: %dms S: %dms", proxypath, (cend - cstart) * 1000, (s_end - sstart) * 1000)
+        log.debug(
+            "Completed proxy request for %s - C: %dms S: %dms",
+            proxypath,
+            (cend - cstart) * 1000,
+            (s_end - sstart) * 1000,
+        )
 
     return gen(), respHeaders

@@ -22,13 +22,16 @@ PyXivSecret = os.environ.get("PYXIV_SECRET", "ILoveVixipy")
 PxAcceptLang = os.environ.get("PYXIV_ACCEPTLANG", "en-US,en;q=0.5")
 PxInstanceName = os.environ.get("PYXIV_INSTANCENAME", "Vixipy")
 NoR18 = int(os.environ.get("PYXIV_NOR18", 0)) == 1
+RateLimitsEnabled = int(os.environ.get("PYXIV_RATELIMITS", 0)) == 1
 GitRev = os.environ.get("GIT_REVISION", "unknown")
 GitRepo = os.environ.get("GIT_REPO", "unknown")
 
 # normalize
-if GitRepo.startswith("http"): # https://codeberg.org/vixipy/vixipy.git/ for example, this strips the leading slash and .git
+if GitRepo.startswith(
+    "http"
+):  # https://codeberg.org/vixipy/vixipy.git/ for example, this strips the leading slash and .git
     GitRepo = GitRepo.removesuffix("/").removesuffix(".git")
-else: # git@codeberg.org:vixipy/vixipy for example, this turns it into a https url
+else:  # git@codeberg.org:vixipy/vixipy for example, this turns it into a https url
     GitRepo = GitRepo.split("@")[1].split(":")
     GitRepo = "https://" + GitRepo[0] + "/" + GitRepo[1]
 
@@ -37,7 +40,8 @@ else: # git@codeberg.org:vixipy/vixipy for example, this turns it into a https u
 if not os.path.isfile("pyxiv.running"):
     with open("pyxiv.running", "w") as file:
         file.write("yes it is!")
-    print(f"""
+    print(
+        f"""
         
                 ⠀⠀⠀⠀⢀⡴⣆⠀⠀⠀⠀⠀⣠⡀⠀⠀⠀⠀⠀⠀⣼⣿⡗⠀⠀⠀⠀
                 ⠀⠀⠀⣠⠟⠀⠘⠷⠶⠶⠶⠾⠉⢳⡄⠀⠀⠀⠀⠀⣧⣿⠀⠀⠀⠀⠀
@@ -46,7 +50,8 @@ if not os.path.isfile("pyxiv.running"):
  \ \ / /\ \/ /  ⠀⠀⢱⡀⠀⠉⠉⠀⠀⠀⠀⠛⠃⠀⢠⡟⠂⠀⠀⢀⣀⣠⣤⠿⠞⠛⠋
   \ V /  >  <   ⣠⠾⠋⠙⣶⣤⣤⣤⣤⣤⣀⣠⣤⣾⣿⠴⠶⠚⠋⠉⠁⠀⠀⠀⠀⠀⠀
    \_/  /_/\_\  ⠛⠒⠛⠉⠉⠀⠀⠀⣴⠟⣣⡴⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀v{Version}
-~~~~~~~~~~~~~~~~~~~~~~~~⠛⠛~~~~~~~~~~~~~~~~~~~~~~~~~""") # cute
+~~~~~~~~~~~~~~~~~~~~~~~~⠛⠛~~~~~~~~~~~~~~~~~~~~~~~~~"""
+    )  # cute
     print(f"Vixipy is listening on 127.0.0.1:{os.environ.get('PYXIV_PORT')}")
     boolean = lambda a: "Yes" if a else "No"
     the_config = {
@@ -54,7 +59,8 @@ if not os.path.isfile("pyxiv.running"):
         "Using account": boolean(not AuthlessMode),
         "Accept-Language": PxAcceptLang,
         "Instance name": PxInstanceName,
-        "NoR18": boolean(NoR18),
+        "No R18": boolean(NoR18),
+        "Rate limiting": boolean(RateLimitsEnabled),
     }
 
     longest = ""
@@ -67,8 +73,8 @@ if not os.path.isfile("pyxiv.running"):
 
     for k in the_config:
         print(k, end="")
-        print(" " * (len(longest)-len(k)-len(sep)), end="")
+        print(" " * (len(longest) - len(k) - len(sep)), end="")
         print(sep, end="")
         print(the_config[k])
-    
+
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")

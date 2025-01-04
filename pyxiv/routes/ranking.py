@@ -1,4 +1,5 @@
 from quart import Blueprint, abort, current_app, g, render_template, request, url_for
+from quart_rate_limiter import RateLimit, limit_blueprint, timedelta
 
 from ..core.artwork import getRanking
 from ..core.user import getUserSettingsState
@@ -7,6 +8,10 @@ import logging
 
 rankings = Blueprint("rankings", __name__, url_prefix="/rankings")
 log = logging.getLogger("vixipy.routes.ranking")
+limit_blueprint(
+    rankings,
+    limits=[RateLimit(1, timedelta(seconds=5)), RateLimit(30, timedelta(minutes=2))],
+)
 
 
 @rankings.route("/")

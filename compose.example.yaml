@@ -13,5 +13,6 @@ services:
       #PYXIV_TOKEN: ""
       PYXIV_PORT: 8000
       PYXIV_NOR18: 0
+      PYXIV_LIMITING: 0
       #PYXIV_ACCEPTLANG: ""
       #PYXIV_INSTANCENAME: ""

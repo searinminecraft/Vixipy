@@ -97,9 +97,7 @@ async def mainSettings(ep):
             return await render_template("settings/license.html")
         case "premium":
             #  :trolley:
-            return redirect(
-                "https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=303
-            )
+            return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=303)
         case _:
             return (
                 await render_template(
@@ -144,8 +142,6 @@ async def setSession():
         except IndexError:
             await flash(_("Unable to extract CSRF"), "error")
             return redirect(url_for("settings.settingsMain", ep="account"))
-
-
 
         try:
             await api.pixivReq("get", "/ajax/user/extra")
@@ -281,9 +277,7 @@ async def setImgProxy():
 
     await flash(_("Successfully set proxy server"))
 
-    resp = await make_response(
-        redirect(url_for("settings.settingsIndex"), code=303)
-    )
+    resp = await make_response(redirect(url_for("settings.settingsIndex"), code=303))
     resp.set_cookie(
         "PyXivProxy", f["image-proxy"], max_age=COOKIE_MAXAGE, httponly=True
     )

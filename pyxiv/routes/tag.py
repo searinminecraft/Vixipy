@@ -8,10 +8,15 @@ from quart import (
     current_app,
     abort,
 )
+from quart_rate_limiter import RateLimit, limit_blueprint, timedelta
 from ..core.search import searchArtwork, getTagInfo
 from asyncio import gather
 
 tag = Blueprint("tag", __name__, url_prefix="/tag")
+limit_blueprint(
+    tag,
+    limits=[RateLimit(1, timedelta(seconds=3)), RateLimit(15, timedelta(minutes=1))],
+)
 
 
 @tag.route("/<name>")

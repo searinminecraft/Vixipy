@@ -10,14 +10,16 @@ from quart import (
     send_from_directory,
 )
 from aiohttp import ClientSession, DummyCookieJar
-from quart_babel import Babel, _
 from urllib.parse import urlparse
 from asyncio import gather
 import traceback
-import pyxivision
-
 import logging
 import os
+
+from quart_babel import Babel, _
+from quart_rate_limiter import RateLimiter
+
+import pyxivision
 
 from . import api
 from . import cfg
@@ -25,7 +27,7 @@ from . import cfg
 from .core.landing import getLandingPage, getLandingRanked
 from .core.user import getUser
 
-from .classes import User
+from .classes import User, MemcacheStore
 
 from .routes import (
     settings,
@@ -46,6 +48,8 @@ log = logging.getLogger()
 
 def create_app():
     app = Quart(__name__, static_folder=None)
+    store = MemcacheStore()
+    limiter = RateLimiter(app, store=store)
 
     if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
         logLevel = logging.DEBUG
@@ -62,6 +66,7 @@ def create_app():
     # logging.getLogger("werkzeug").setLevel(logging.ERROR)
 
     app.secret_key = cfg.PyXivSecret
+    app.config["QUART_RATE_LIMITER_ENABLED"] = cfg.RateLimitsEnabled
     app.config["authless"] = cfg.AuthlessMode
     app.config["nor18"] = cfg.NoR18
     app.config["languages"] = ["en", "fil", "zh_Hans", "ru"]
@@ -191,6 +196,15 @@ def create_app():
         except:
             return
         log.info("Shutting down. Goodbye!")  # only log once
+
+    @app.errorhandler(429)
+    async def tooManyRequests(e):
+        log.warn(
+            "Remote %s (%s) has been rate limited.",
+            request.user_agent,
+            request.remote_addr,
+        )
+        return "Too many requests\n", 429
 
     @app.errorhandler(api.PixivError)
     async def handlePxError(e):

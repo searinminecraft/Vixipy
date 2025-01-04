@@ -1,8 +1,10 @@
 from quart import Blueprint, request, render_template
+from quart_rate_limiter import limit_blueprint, timedelta
 
 from ..core.discovery import getNewestArtworks
 
 newest = Blueprint("newest", __name__, url_prefix="/newest")
+limit_blueprint(newest, 5, timedelta(minutes=1))
 
 
 @newest.route("/")
