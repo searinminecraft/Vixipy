@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-04 15:45+0800\n"
-"PO-Revision-Date: 2025-01-04 01:54+0000\n"
+"PO-Revision-Date: 2025-01-04 18:39+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:200
@@ -269,7 +270,7 @@ msgstr ""
 
 #: pyxiv/templates/500.html:43
 msgid "(Exception message too long)"
-msgstr ""
+msgstr "(Masyadong mahaba ang mensahe ng exception)"
 
 #: pyxiv/templates/500.html:47 pyxiv/templates/error.html:19
 msgid "Back to home"
@@ -525,18 +526,16 @@ msgid "Rankings"
 msgstr "Mga Ranking"
 
 #: pyxiv/templates/rankings.html:6
-#, fuzzy
 msgid "Options"
-msgstr "Higit pang mga opsyon…"
+msgstr "Mga opsyon"
 
 #: pyxiv/templates/rankings.html:12
 msgid "Note: Some options may not be compatible with each other."
-msgstr ""
+msgstr "Tandaan: Maaring hindi compatible sa isa't isa ang mga ilang opsyon."
 
 #: pyxiv/templates/rankings.html:13
-#, fuzzy
 msgid "Content:"
-msgstr "Mga Komento"
+msgstr "Nilalaman:"
 
 #: pyxiv/templates/rankings.html:16
 msgid "Ugoira"
@@ -1341,4 +1340,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Not authorized."
 #~ msgstr "Hindi awtorisado."
-
