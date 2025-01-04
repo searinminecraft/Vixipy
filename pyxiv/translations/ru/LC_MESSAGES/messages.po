@@ -1,180 +1,159 @@
-# Filipino translations for PROJECT.
-# Copyright (C) 2024 ORGANIZATION
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-03 22:09+0800\n"
-"PO-Revision-Date: 2025-01-04 01:54+0000\n"
-"Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
-"Language: fil\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:200
 msgid "pixiv Error!"
-msgstr "Error sa pixiv!"
+msgstr ""
 
 #: pyxiv/app.py:203
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
-"Nagbigay ng error ang pixiv habang naghihiling ng data: "
-"<code>%(error)s</code>"
 
 #: pyxiv/app.py:203
 msgid "Unspecified error"
-msgstr "Hindi natukoy na eror"
+msgstr ""
 
 #: pyxiv/app.py:214
 msgid "Not found"
-msgstr "Hindi nahanap"
+msgstr ""
 
 #: pyxiv/app.py:215
 msgid "The requested resource could not be found."
-msgstr "Hindi mahanap ang resource na hinihiling."
+msgstr ""
 
 #: pyxiv/app.py:225
 msgid "Bad request"
-msgstr "Hindi wastong hiling"
+msgstr ""
 
 #: pyxiv/app.py:226
 msgid "The server could not satisfy the request."
-msgstr "Hindi matugunan ng server ang kahilingan."
+msgstr ""
 
 #: pyxiv/app.py:236
 msgid "Forbidden"
-msgstr "Pinagbawalan"
+msgstr ""
 
 #: pyxiv/app.py:237
 msgid "You do not have permission to access this page."
-msgstr "Wala kang pahintulot para i-access ang pahina."
+msgstr ""
 
 #: pyxiv/app.py:247
 msgid "Unauthorized"
-msgstr "Hindi awtorisado"
+msgstr ""
 
 #: pyxiv/app.py:249
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
-"Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na "
-"ito."
 
 #: pyxiv/app.py:262
 msgid "Method Not Allowed"
-msgstr "Hindi Pinapayagan ang Paraan"
+msgstr ""
 
 #: pyxiv/app.py:263
 msgid "This method is not allowed for this endpoint"
-msgstr "Hindi pinapayagan ang paraang ito para sa endpoint na ito"
+msgstr ""
 
 #: pyxiv/routes/artworks.py:41 pyxiv/routes/artworks.py:53
 #: pyxiv/routes/artworks.py:65 pyxiv/routes/artworks.py:77
 msgid "You cannot access this illustration"
-msgstr "Hindi mo ma-access ang illustration na ito"
+msgstr ""
 
 #: pyxiv/routes/artworks.py:42
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
 msgstr ""
-"Ang illustration na ito ay potensyal na sensitibo. Upang tingnan ito, "
-"i-off ang setting na \"Itago ang potensyal na sensitibong nilalaman\"."
 
 #: pyxiv/routes/artworks.py:54
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr ""
-"Ang larawang ito ay binuo ng AI. Para tingnan ito, i-off ang setting na "
-"\"Itago ang mga gawang nabuo ng AI\"."
 
 #: pyxiv/routes/artworks.py:66
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr ""
-"Ang paglalarawang ito ay na-rate bilang R-18. Upang tingnan ito, i-off "
-"ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
 #: pyxiv/routes/artworks.py:78
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr ""
-"Ang paglalarawang ito ay na-rate bilang R-18G. Upang tingnan ito, i-off "
-"ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
 #: pyxiv/routes/artworks.py:105
 msgid "The creator turned off comments."
-msgstr "Pinatay ng creator ang mga komento."
+msgstr ""
 
 #: pyxiv/routes/settings.py:132
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
-msgstr "Hindi magagamit ang token. Nagbigay ng code %(status)d and pixiv"
+msgstr ""
 
 #: pyxiv/routes/settings.py:145
 msgid "Unable to extract CSRF"
-msgstr "Hindi ma-extract ang CSRF"
+msgstr ""
 
 #: pyxiv/routes/settings.py:153
 #, python-format
 msgid "Cannot use token: %(error)s"
-msgstr "Hindi magagamit ang token: %(error)s"
+msgstr ""
 
 #: pyxiv/routes/settings.py:165
 msgid "No token was supplied."
-msgstr "Walang ibinigay na token."
+msgstr ""
 
 #: pyxiv/routes/settings.py:175
 msgid "You have successfully terminated the session. Goodbye!"
-msgstr "Matagumpay mong nawakas ang session. Paalam!"
+msgstr ""
 
 #: pyxiv/routes/settings.py:185 pyxiv/routes/settings.py:282
 msgid "Successfully set proxy server"
-msgstr "Matagumpay na natakda ang proxy server"
+msgstr ""
 
 #: pyxiv/routes/settings.py:202
 msgid "Please specify a URL scheme. Only http and https are accepted."
-msgstr "Paki-bigay ang URL scheme. Tinatanggap lamang ang http o https."
+msgstr ""
 
 #: pyxiv/routes/settings.py:208
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
-msgstr "Hindi wastong URL scheme: %(scheme)s. Tinatanggap lamang ang http o https."
+msgstr ""
 
 #: pyxiv/routes/settings.py:217
 #, python-format
 msgid "This address is not allowed: %(addr)s"
-msgstr "Hindi pinapayagan ang address na ito: %(addr)s"
+msgstr ""
 
 #: pyxiv/routes/settings.py:223
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
 msgstr ""
-"Dahil sa mga limitasyon sa mga direktiba ng Content-Security-Policy, "
-"hindi sinusuportahan ang mga IP Address bilang proxy server."
 
 #: pyxiv/routes/settings.py:257
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
-"Tandaan: ang proxy server na iyong tinukoy ay nasa likod ng Cloudflare. "
-"Maaaring hindi mag-load ang mga larawan, at maaaring masira ang iyong "
-"privacy."
 
 #: pyxiv/routes/settings.py:266
 #, python-format
@@ -182,107 +161,100 @@ msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr ""
-"Nabigo ang pagsuri ng integridad para sa pagsubok ng image proxy. "
-"Inaasahan ang %(integrity)s, nakuha ang %(result)s"
 
 #: pyxiv/routes/settings.py:277
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
-msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
+msgstr ""
 
 #: pyxiv/routes/settings.py:329
 msgid "Successfully set preferences"
-msgstr "Matagumpay na natakda ang mga kagustuhan"
+msgstr ""
 
 #: pyxiv/routes/settings.py:340 pyxiv/routes/settings.py:360
 #, python-format
 msgid "Invalid language: %(code)s"
-msgstr "Hindi wastong wika: %(code)s"
+msgstr ""
 
 #: pyxiv/routes/settings.py:351 pyxiv/routes/settings.py:370
 msgid "Successfully set language."
-msgstr "Matagumpay na natakda ang wika."
+msgstr ""
 
 #: pyxiv/routes/userAction.py:55
 msgid "Successfully bookmarked post"
-msgstr "Matagumpay na na-bookmark ang post"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:66
 msgid "Successfully removed bookmark"
-msgstr "Matagumpay na tinanggal ang bookmark"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:77
 msgid "Successfully liked post"
-msgstr "Matagumpay na na-like ang post"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:93
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
-msgstr "Hindi ma-post ang komento: %(errorClass)s: %(error)s"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:98
 msgid "Successfully posted comment"
-msgstr "Matagumpay na na-post ang komento"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:115
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
-msgstr "Hindi mapadala ang stamp: %(errorClass)s: %(error)s"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:120
 msgid "Successfully sent stamp"
-msgstr "Matagumpay na napadala ang stamp"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
 #: pyxiv/routes/users.py:86 pyxiv/routes/users.py:134 pyxiv/routes/users.py:184
 #: pyxiv/routes/users.py:223 pyxiv/routes/users.py:263
 msgid "Invalid user"
-msgstr "Hindi wastong user"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:148
 msgid "Could not follow user"
-msgstr "Hindi masundan ang user"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:150
 msgid "Successfully followed user"
-msgstr "Matagumpay na nasundan ang user"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:163
 msgid "Could not unfollow user"
-msgstr "Hindi ma-unfollow ang user"
+msgstr ""
 
 #: pyxiv/routes/userAction.py:165
 msgid "Successfully unfollowed user"
-msgstr "Matagumpay na na-unfollow ang user"
+msgstr ""
 
 #: pyxiv/templates/500.html:7 pyxiv/templates/500.html:27
 msgid "Internal Server Error"
-msgstr "Panloob na Error sa Server"
+msgstr ""
 
 #: pyxiv/templates/500.html:28
 msgid ""
 "If this issue happens again, <a "
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
 msgstr ""
-"Kung mangyari ang isyu na ito ulit, <a "
-"href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">maghain ng "
-"isyu</a>."
 
 #: pyxiv/templates/500.html:29 pyxiv/templates/error.html:19
 msgid "Back to home"
-msgstr "Bumalik sa panimula"
+msgstr ""
 
 #: pyxiv/templates/500.html:33
 msgid "Error details"
-msgstr "Mga detalye sa error"
+msgstr ""
 
 #: pyxiv/templates/500.html:35
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
 msgstr ""
-"Kung mag-uulat ka ng bug, isama rin ang traceback kung posible. Maari "
-"mong tanggalin ang mga impormasyon tulad ng iyong home folder."
 
 #: pyxiv/templates/artwork.html:21
 #, python-format
@@ -291,103 +263,99 @@ msgid ""
 " video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
 "ugoira.com</a> for more options."
 msgstr ""
-"Hindi ma-load ang ugoira. <a "
-"href='/proxy/ugoira/%(artworkId)d'>I-download ang video</a>, o <a "
-"href='https://ugoira.com/i/%(artworkId)d'>pumunta sa ugoira.com</a> para "
-"sa higit pang mga opsyon."
 
 #: pyxiv/templates/artwork.html:27
 msgid "Download"
-msgstr "I-download"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:31
 msgid "Go to ugoira.com for more options"
-msgstr "Pumunta sa ugoira.com para sa higit pang mga opsyon"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:66
 msgid "AI generated"
-msgstr "Binuo ng AI"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:72
 msgid "Original"
-msgstr "Orihinal"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:103
 msgid "Disabled"
-msgstr "Naka-disable"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:116
 msgid "View on pixiv"
-msgstr "Tignan sa pixiv"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
-msgstr "Tignan lahat"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:135
 msgid "Related"
-msgstr "Kaugnay"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:138 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
 #: pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
-msgstr "Ang ilang mga entry ay naitago dahil sa mga filter"
+msgstr ""
 
 #: pyxiv/templates/artwork.html:148 pyxiv/templates/user/bookmarks.html:25
 #: pyxiv/templates/user/illusts.html:25 pyxiv/templates/user/main.html:48
 #: pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
-msgstr "Walang laman rito!"
+msgstr ""
 
 #: pyxiv/templates/bookmarksSelf.html:5
 #, python-format
 msgid "Your bookmarks (%(total)d)"
-msgstr "Iyong mga bookmark (%(total)d)"
+msgstr ""
 
 #: pyxiv/templates/bookmarksSelf.html:7 pyxiv/templates/user/bookmarks.html:8
 #: pyxiv/templates/user/illusts.html:8 pyxiv/templates/user/main.html:32
 #: pyxiv/templates/user/manga.html:8
 msgid "Frequent tags"
-msgstr "Mga madalas na tag"
+msgstr ""
 
 #: pyxiv/templates/comments.html:6
 msgid "Return to artwork"
-msgstr "Bumalik sa artwork"
+msgstr ""
 
 #: pyxiv/templates/comments.html:10
 msgid "Comments"
-msgstr "Mga Komento"
+msgstr ""
 
 #: pyxiv/templates/comments.html:16
 #, python-format
 msgid "Comment as %(user)s..."
-msgstr "Magkomento bilang %(user)s…"
+msgstr ""
 
 #: pyxiv/templates/comments.html:29
 msgid "Log in to post comments"
-msgstr "Mag-log in para mag-post ng komento"
+msgstr ""
 
 #: pyxiv/templates/comments.html:52
 msgid "View replies"
-msgstr "Tignan ang mga tugon"
+msgstr ""
 
 #: pyxiv/templates/comments.html:58
 msgid "No comments!"
-msgstr "Walang mga komento!"
+msgstr ""
 
 #: pyxiv/templates/comments.html:69
 msgid "Insert emoji/stamp"
-msgstr "Magpasok ng emoji/stamp"
+msgstr ""
 
 #: pyxiv/templates/comments.html:75
 msgid "Emojis"
-msgstr "Mga emoji"
+msgstr ""
 
 #: pyxiv/templates/comments.html:83
 msgid "Stamps"
-msgstr "Mga stamp"
+msgstr ""
 
 #: pyxiv/templates/comments.html:97
 msgid ""
@@ -396,257 +364,245 @@ msgid ""
 "style='color: #f38ba8;'><b>Warning:</b> This may result in termination of"
 " your pixiv account. Use at your own risk.</span>"
 msgstr ""
-"Kung may alam kang partikular na stamp ID, maaari mo itong ilagay dito. "
-"Nagbibigay-daan ito sa iyo na magpadala ng mga stamp na kadalasang "
-"magagamit lamang sa limitadong panahon. <span style='color: "
-"#f38ba8;'><b>Babala:</b> Ito ay maaaring magresulta sa pagwawakas ng "
-"iyong pixiv account. Gamitin sa iyong sariling peligro.</span>"
 
 #: pyxiv/templates/comments.html:100
 msgid "Send"
-msgstr "Ipadala"
+msgstr ""
 
 #: pyxiv/templates/discover.html:5
 msgid "Discover Artworks"
-msgstr "Tuklasin ang Mga Artwork"
+msgstr ""
 
 #: pyxiv/templates/discover.html:11
 msgid ""
 "Note: the suggestions are based on the instance's pixiv account's "
 "algorithm and personalisation"
 msgstr ""
-"Note: ang mga suhestyon ay nakabase sa algorithm at personalisasyon ng "
-"pixiv account ng instansya"
 
 #: pyxiv/templates/discover.html:21
 msgid "Reload"
-msgstr "I-reload"
+msgstr ""
 
 #: pyxiv/templates/error.html:2
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: pyxiv/templates/error.html:12
 msgid "Error!"
-msgstr "Error!"
+msgstr ""
 
 #: pyxiv/templates/error.html:17
 msgid "An unknown error has occurred. Please try again later."
-msgstr "May naganap na hindi kilalang error. Pakisubukang muli mamaya."
+msgstr ""
 
 #: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:57
 #: pyxiv/templates/user/index.html:56
 msgid "Home"
-msgstr "Panimula"
+msgstr ""
 
 #: pyxiv/templates/index.html:12
 msgid "Latest from following"
-msgstr "Pinakabago mula sa mga sinusundan"
+msgstr ""
 
 #: pyxiv/templates/index.html:19 pyxiv/templates/index.html:32
 #: pyxiv/templates/tag.html:87
 msgid "Nothing to show!"
-msgstr "Walang maipapakita!"
+msgstr ""
 
 #: pyxiv/templates/index.html:25
 msgid "Recommended works"
-msgstr "Mga inirerekomendang gawa"
+msgstr ""
 
 #: pyxiv/templates/index.html:38 pyxiv/templates/index.html:69
 msgid "Today's Rankings"
-msgstr "Mga Ranking Ngayon"
+msgstr ""
 
 #: pyxiv/templates/index.html:47
 msgid "Recommended users"
-msgstr "Mga inirerekomendang user"
+msgstr ""
 
 #: pyxiv/templates/index.html:57
 msgid "Recommended artworks with tag"
-msgstr "Mga inirerekomendang artwork na may tag na"
+msgstr ""
 
 #: pyxiv/templates/leave.html:2
 msgid "Jump to page"
-msgstr "Tumalon sa pahina"
+msgstr ""
 
 #: pyxiv/templates/leave.html:5
 msgid "You are about to leave Vixipy."
-msgstr "Malapit ka nang umalis sa Vixipy."
+msgstr ""
 
 #: pyxiv/templates/leave.html:6
 #, python-format
 msgid "Click the link to go to the destination: <a href='%(dest)s'>%(dest)s</a>"
 msgstr ""
-"I-click ang link para pumunta sa patutunguhan: <a "
-"href='%(dest)s'>%(dest)s</a>"
 
 #: pyxiv/templates/leave.html:7
 msgid ""
 "Stay safe, using a <a href='https://www.vpngate.net'>VPN</a> or <a "
 "href='https://www.torproject.org/'>Tor</a> is recommended."
 msgstr ""
-"Manatiling ligtas, inirerekonenda ang paggamit ng <a "
-"href='https://www.vpngate.net'>VPN</a> o <a "
-"href='https://www.torproject.org/'>Tor</a>."
 
 #: pyxiv/templates/layouts/default.html:72 pyxiv/templates/newest.html:2
 msgid "Newest"
-msgstr "Pinakabago"
+msgstr ""
 
 #: pyxiv/templates/newest.html:5
 msgid "Newest from all users"
-msgstr "Pinakabago mula sa lahat ng mga user"
+msgstr ""
 
 #: pyxiv/templates/newest.html:17 pyxiv/templates/user/index.html:57
 msgid "Illustrations"
-msgstr "Mga Illustration"
+msgstr ""
 
 #: pyxiv/templates/newest.html:18 pyxiv/templates/user/index.html:58
 msgid "Manga"
-msgstr "Mga Manga"
+msgstr ""
 
 #: pyxiv/templates/components/navbar.html:20
 #: pyxiv/templates/notifications.html:2 pyxiv/templates/notifications.html:5
 #: pyxiv/templates/settings/settingsMain.html:25
 msgid "Notifications"
-msgstr "Mga Abiso"
+msgstr ""
 
 #: pyxiv/templates/notifications.html:49
 msgid "No notifications"
-msgstr "Walang mga abiso"
+msgstr ""
 
 #: pyxiv/templates/rankings.html:6
 #, python-format
 msgid "Ranking for %(date)s"
-msgstr "Ranking para sa %(date)s"
+msgstr ""
 
 #: pyxiv/templates/rankings.html:9 pyxiv/templates/rankings.html:11
 msgid "Previous Date"
-msgstr "Nakaraang Petsa"
+msgstr ""
 
 #: pyxiv/templates/rankings.html:15 pyxiv/templates/rankings.html:17
 msgid "Next Date"
-msgstr "Susunod na Petsa"
+msgstr ""
 
 #: pyxiv/templates/rankings.html:19
 msgid "Calendar"
-msgstr "Kalendaryo"
+msgstr ""
 
 #: pyxiv/templates/replies.html:5 pyxiv/templates/user/follows.html:12
 msgid "Back"
-msgstr "Bumalik"
+msgstr ""
 
 #: pyxiv/templates/replies.html:7
 msgid "Replies"
-msgstr "Mga tugon"
+msgstr ""
 
 #: pyxiv/templates/tag.html:19
 #, python-format
 msgid "%(total)s works"
-msgstr "%(total)s mga gawa"
+msgstr ""
 
 #: pyxiv/templates/tag.html:34
 msgid "Advanced search options"
-msgstr "Mga advanced na opsyon sa paghahanap"
+msgstr ""
 
 #: pyxiv/templates/tag.html:37
 msgid "Related tags"
-msgstr "Mga nauugnay na tag"
+msgstr ""
 
 #: pyxiv/templates/tag.html:53
 msgid "Popular artworks"
-msgstr "Mga popular na artwork"
+msgstr ""
 
 #: pyxiv/templates/tag.html:57
 msgid "Recent"
-msgstr "Kamakailan"
+msgstr ""
 
 #: pyxiv/templates/tag.html:66
 msgid "All time"
-msgstr "Lahat ng oras"
+msgstr ""
 
 #: pyxiv/templates/tag.html:78
 msgid "Works"
-msgstr "Mga gawa"
+msgstr ""
 
 #: pyxiv/templates/tag.html:117
 msgid "Advanced search options (experimental)"
-msgstr "Mga advanced na opsyon sa paghahanap (pang-eksperimento)"
+msgstr ""
 
 #: pyxiv/templates/tag.html:129
 msgid "Mode"
-msgstr "Mode"
+msgstr ""
 
 #: pyxiv/templates/tag.html:131
 msgid "Safe"
-msgstr "Ligtas"
+msgstr ""
 
 #: pyxiv/templates/tag.html:133
 msgid "All"
-msgstr "Lahat"
+msgstr ""
 
 #: pyxiv/templates/tag.html:134
 msgid "R-18"
-msgstr "R-18"
+msgstr ""
 
 #: pyxiv/templates/tag.html:138
 msgid "Order by"
-msgstr "Isaayos ayon sa"
+msgstr ""
 
 #: pyxiv/templates/tag.html:140
 msgid "Date"
-msgstr "Petsa"
+msgstr ""
 
 #: pyxiv/templates/tag.html:141
 msgid "Date (Descending)"
-msgstr "Petsa (Pababa)"
+msgstr ""
 
 #: pyxiv/templates/tag.html:143
 msgid "Popular"
-msgstr "Sikat"
+msgstr ""
 
 #: pyxiv/templates/tag.html:144
 msgid "Popular (Descending)"
-msgstr "Sikat (Pababa)"
+msgstr ""
 
 #: pyxiv/templates/tag.html:145
 msgid "Popular among male users"
-msgstr "Sikat sa mga lalaking gumagamit"
+msgstr ""
 
 #: pyxiv/templates/tag.html:146
 msgid "Popular among male users (Descending)"
-msgstr "Sikat sa mga lalaking gumagamit (Pababa)"
+msgstr ""
 
 #: pyxiv/templates/tag.html:147
 msgid "Popular among female users"
-msgstr "Sikat sa mga babaeng gumagamit"
+msgstr ""
 
 #: pyxiv/templates/tag.html:148
 msgid "Popular among female users (Descending)"
-msgstr "Sikat sa mga babaeng gumagamit (Pababa)"
+msgstr ""
 
 #: pyxiv/templates/tag.html:152
 msgid "Search mode"
-msgstr "Mode ng paghahanap"
+msgstr ""
 
 #: pyxiv/templates/tag.html:154 pyxiv/templates/tag.html:189
 msgid "Unspecified"
-msgstr "Hindi tinukoy"
+msgstr ""
 
 #: pyxiv/templates/tag.html:155
 msgid "Tag (Exact Match)"
-msgstr "Tag (Eksaktong Tugma)"
+msgstr ""
 
 #: pyxiv/templates/tag.html:156
 msgid "Tag (Partial Match)"
-msgstr "Tag (Bahagyang Tugma)"
+msgstr ""
 
 #: pyxiv/templates/tag.html:157
 msgid "Title/Caption"
-msgstr "Paksa/Caption"
+msgstr ""
 
 #: pyxiv/templates/tag.html:162
 msgid "Go beyond last page"
-msgstr "Lumampas sa huling pahina"
+msgstr ""
 
 #: pyxiv/templates/tag.html:164
 msgid ""
@@ -654,156 +610,150 @@ msgid ""
 " (due to pixiv's quirky API). If nothing shows up, try to refresh the "
 "page repeatedly. If it does not work, it might really be the last page."
 msgstr ""
-"Gamitin ito kung sigurado kang may higit pang mga resulta sa kabila ng "
-"huling pahina (dahil sa kakaibang API ng pixiv). Kung walang lumalabas, "
-"subukang i-refresh ang page nang paulit-ulit. Kung hindi ito gumana, "
-"maaaring ito na talaga ang huling pahina."
 
 #: pyxiv/templates/tag.html:169
 msgid "More Options..."
-msgstr "Higit pang mga opsyon…"
+msgstr ""
 
 #: pyxiv/templates/tag.html:172
 msgid "Minimum Width"
-msgstr "Pinakamababang haba"
+msgstr ""
 
 #: pyxiv/templates/tag.html:176
 msgid "Maximum Width"
-msgstr "Pinakamalaking haba"
+msgstr ""
 
 #: pyxiv/templates/tag.html:180
 msgid "Minimum Height"
-msgstr "Pinakamababang taas"
+msgstr ""
 
 #: pyxiv/templates/tag.html:184
 msgid "Maximum Height"
-msgstr "Pinakamataas na Taas"
+msgstr ""
 
 #: pyxiv/templates/tag.html:187
 msgid "Ratio"
-msgstr "Ratio"
+msgstr ""
 
 #: pyxiv/templates/tag.html:190
 msgid "Portrait"
-msgstr "Portrait"
+msgstr ""
 
 #: pyxiv/templates/tag.html:191
 msgid "Square"
-msgstr "Parisukat"
+msgstr ""
 
 #: pyxiv/templates/tag.html:192
 msgid "Landscape"
-msgstr "Landscape"
+msgstr ""
 
 #: pyxiv/templates/tag.html:196
 msgid "Tool:"
-msgstr "Gamit:"
+msgstr ""
 
 #: pyxiv/templates/tag.html:200
 msgid "Posted before"
-msgstr "Na-post bago"
+msgstr ""
 
 #: pyxiv/templates/tag.html:204
 msgid "Posted after"
-msgstr "Na-post pagkatapos"
+msgstr ""
 
 #: pyxiv/templates/tag.html:209
 msgid "Minimum Bookmarks"
-msgstr "Pinakamababang Mga Bookmark"
+msgstr ""
 
 #: pyxiv/templates/tag.html:213
 msgid "Maximum Bookmarks"
-msgstr "Pinakamataas na Mga Bookmark"
+msgstr ""
 
 #: pyxiv/templates/tag.html:218
 msgid "Apply"
-msgstr "I-apply"
+msgstr ""
 
 #: pyxiv/templates/components/navbar.html:10
 #: pyxiv/templates/components/navbar.html:38
 msgid "Search works..."
-msgstr "Maghanap ng mga gawa…"
+msgstr ""
 
 #: pyxiv/templates/components/navbar.html:33
 #: pyxiv/templates/settings/account.html:10
 #: pyxiv/templates/settings/account.html:30
 msgid "Log in"
-msgstr "Mag-log in"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:16
 msgid "This website requires JavaScript."
-msgstr "Nangangailangan ng JavaScript ang website na ito."
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:62
 msgid "Discover"
-msgstr "Tuklasin"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:67
 #: pyxiv/templates/pixivision/index.html:23
 msgid "Rankings"
-msgstr "Mga Ranking"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:77
 msgid "pixivision"
-msgstr "pixivision"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:81
 #: pyxiv/templates/layouts/default.html:109
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
-msgstr "Mga Setting"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:101
 msgid "Profile"
-msgstr "Iyong profile"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:105 pyxiv/templates/user/index.html:59
 msgid "Bookmarks"
-msgstr "Mga Bookmark"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:113
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
-msgstr "Mag-log out"
+msgstr ""
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:58
 #, python-format
 msgid "Posted on %(date)s"
-msgstr "Na-post noong %(date)s"
+msgstr ""
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
 msgid "Category:"
-msgstr "Kategorya:"
+msgstr ""
 
 #: pyxiv/templates/pixivision/index.html:5
 msgid "pixivision Articles"
-msgstr "Mga artikulo sa pixivision"
+msgstr ""
 
 #: pyxiv/templates/pixivision/index.html:6
 msgid "Note: pixivision is experimental. Some articles may not load correctly."
 msgstr ""
-"Tandaan: Pang-eksperimento ang pixivision. Maaring hindi mag-load nang "
-"maayos ang ilang mga artikulo."
 
 #: pyxiv/templates/pixivision/index.html:17
 msgid "Featured Article"
-msgstr "Itinatampok na Artikulo"
+msgstr ""
 
 #: pyxiv/templates/pixivision/index.html:35 pyxiv/templates/user/main.html:6
 msgid "Featured"
-msgstr "Itinatampok"
+msgstr ""
 
 #: pyxiv/templates/pixivision/index.html:50
 msgid "Articles"
-msgstr "Mga Artikulo"
+msgstr ""
 
 #: pyxiv/templates/settings/about.html:6
 #: pyxiv/templates/settings/settingsMain.html:38
 msgid "About Vixipy"
-msgstr "Tungkol sa Vixipy"
+msgstr ""
 
 #: pyxiv/templates/settings/about.html:8
 msgid ""
@@ -811,14 +761,10 @@ msgid ""
 "allowing you to enjoy pixiv content with a peace of mind in terms of "
 "privacy, speed, and reliability."
 msgstr ""
-"Ang Vixipy ay isang libre at open source at gumagalang sa pagkapribado na"
-" pixiv frontend, na nagbibigay-daan sa iyo na ma-enjoy ang pixiv content "
-"na may kapayapaan ng isip sa mga tuntunin ng privacy, bilis, at pagiging "
-"maaasahan."
 
 #: pyxiv/templates/settings/about.html:10
 msgid "Why Vixipy?"
-msgstr "Bakit Vixipy?"
+msgstr ""
 
 #: pyxiv/templates/settings/about.html:12
 msgid ""
@@ -828,12 +774,6 @@ msgid ""
 "invasive, and is also behind Cloudflare, which you already know has <a "
 "href='https://0xacab.org/dCF/deCloudflare'>many, many problems.</a>"
 msgstr ""
-"Ang problema sa paggamit ng pixiv ay gumagamit ito ng maraming hindi "
-"kailangan na bandwidth, may mga tracker (Google Tag Manager), ay "
-"proprietary (at naglalaman ng mga proprietary na component tulad ng "
-"ReCAPTCHA), maaring invasive sa pagkapribado, at nasa-likod ng "
-"Cloudflare, na alam mo na ay may <a "
-"href='https://0xacab.org/dCF/deCloudflare'>napakaraming problema.</a>"
 
 #: pyxiv/templates/settings/about.html:14
 msgid ""
@@ -844,13 +784,6 @@ msgid ""
 "proxy requests (unless you are using an external image proxy server, "
 "which you will have to trust it's privacy practices)."
 msgstr ""
-"Sa Vixipy, mae-enjoy mo ang karamihan sa mga tampok ng pixiv gamit ang "
-"frontend na mapagkakatiwalaan mo. Hindi kokonekta ang iyong browser sa "
-"anumang panlabas na server maliban kung magtukoy ka ng panlabas na image "
-"proxy server. Ang matatala lamang ng Vixipy ay ang mga hiling sa pixiv "
-"API, iyong user agent, at mga hiling sa image proxy (maliban kung "
-"gumagamit ka ng panlabas na image proxy server, na kailangan mong "
-"pagkatiwalaan ang mga kasanayan sa pagkapribado nito)."
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
@@ -858,13 +791,10 @@ msgid ""
 " resolution, <a target='_blank' "
 "href='/static/img/accountRequired_pixiv.png'>unlike pixiv</a>."
 msgstr ""
-"Bukod pa rito, hindi mo kailangan ng account para sa pagtingin sa buong "
-"resolution ng artwork, <a target='_blank' "
-"href='/static/img/accountRequired_pixiv.png'>hindi tulad ng pixiv</a>."
 
 #: pyxiv/templates/settings/about.html:18
 msgid "How does it compare to other pixiv frontends (PixivFE, etc.)?"
-msgstr "Paano ito kumpara sa iba pang mga pixiv frontend (PixivFE, atbp.)?"
+msgstr ""
 
 #: pyxiv/templates/settings/about.html:20
 msgid ""
@@ -872,62 +802,50 @@ msgid ""
 " Vixipy does take inspiration from other frontends, but only for the "
 "good, and with proper credit or attribution if needed."
 msgstr ""
-"Ang Vixipy ay, at palaging, hindi isang kalaban ng anumang mga pixiv "
-"frontend. Oo, kumukuha ng inspirasyon ang Vixipy mula sa iba pang mga "
-"pixiv frontend, pero para sa mabuti lamamg, at may kredito at "
-"pagpapatungkol kung kailangan."
 
 #: pyxiv/templates/settings/about.html:22
 msgid ""
 "Performance-wise, Vixipy somewhat lags behind others, but is sometimes "
 "faster or on par with other pixiv frontends."
 msgstr ""
-"Sa pagganap, medyo nahuhuli ang Vixipy sa iba, ngunit minsan ay mas "
-"mabilis o kapantay ng iba pang mga pixiv frontend."
 
 #: pyxiv/templates/settings/about.html:24
 msgid "Acknowledgements"
-msgstr "Mga Pasasalamat"
+msgstr ""
 
 #: pyxiv/templates/settings/about.html:26
 msgid ""
 "Vixipy is made possible through the use of open source projects, which "
 "are:"
 msgstr ""
-"Naging posible ang Vixipy sa pamamagitan ng paggamit ng mga open source "
-"na proyekto, na:"
 
 #: pyxiv/templates/settings/account.html:6
 msgid "Account Settings"
-msgstr "Mga Setting ng Account"
+msgstr ""
 
 #: pyxiv/templates/settings/account.html:11
 msgid ""
 "Log in to your pixiv account to access features that require an account, "
 "such as:"
 msgstr ""
-"Mag-log in sa iyong pixiv account upang ma-access ang mga feature na "
-"nangangailangan ng account, tulad ng:"
 
 #: pyxiv/templates/settings/account.html:14
 msgid "Bookmarking/liking posts"
-msgstr "Pag-bookmark/pag-like ng mga post"
+msgstr ""
 
 #: pyxiv/templates/settings/account.html:15
 msgid "Following users"
-msgstr "Pagsundan sa mga user"
+msgstr ""
 
 #: pyxiv/templates/settings/account.html:16
 msgid "Personalized recommendations and landing page"
-msgstr "Mga personalized na rekomendasyon at landing page"
+msgstr ""
 
 #: pyxiv/templates/settings/account.html:18
 msgid ""
 "Access information that requires an account such as artworks deemed "
 "\"sensitive\" by pixiv staff"
 msgstr ""
-"I-access ang impormasyon na nangangailangan ng account tulad ng mga "
-"likhang sining na itinuring na \"sensitibo\" ng kawani ng pixiv"
 
 #: pyxiv/templates/settings/account.html:22
 msgid ""
@@ -936,46 +854,36 @@ msgid ""
 "rel='noopener noreferer'>from PixivFE</a> for details. Your token is "
 "stored locally and will not be stored on the server."
 msgstr ""
-"Para mag-log in, dapat mong makuha ang iyong pixiv PHPSESSID cookie. "
-"Tingnan ang gabay <a href='https://pixivfe-docs.pages.dev/obtaining-"
-"pixivfe-token/' rel='noopener noreferer'>mula sa PixivFE</a> para sa mga "
-"detalye. Ang iyong token ay lokal na nakaimbak at hindi maiimbak sa "
-"server."
 
 #: pyxiv/templates/settings/account.html:24
 msgid ""
 "For security purposes, cookies will expire 30 days after the time of "
 "logging in"
 msgstr ""
-"Para sa mga layuning pangseguridad, ang cookies ay mag-e-expire 30 araw "
-"pagkatapos ng oras ng pag-log in"
 
 #: pyxiv/templates/settings/account.html:26
 msgid ""
 "<strong>Notice:</strong> By logging in, you agree that the instance will "
 "be sending requests on behalf of <strong>your account</strong>."
 msgstr ""
-"<strong>Paunawa:</strong> Sa pamamagitan ng pag-log in, sumasang-ayon ka "
-"na ang instansya ay magpapadala ng mga kahilingan sa ngalan ng "
-"<strong>iyong account</strong>."
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:34
 msgid "Language"
-msgstr "Wika"
+msgstr ""
 
 #: pyxiv/templates/settings/language.html:8
 msgid "You can select your prefered language here."
-msgstr "Maari mong pillin ang gusto mong wika dito."
+msgstr ""
 
 #: pyxiv/templates/settings/language.html:14
 msgid "Use system language"
-msgstr "Gamitin ang wika ng sistema"
+msgstr ""
 
 #: pyxiv/templates/settings/language.html:24
 #: pyxiv/templates/settings/language.html:43
 msgid "Set language"
-msgstr "Itakda ang wika"
+msgstr ""
 
 #: pyxiv/templates/settings/language.html:27
 msgid ""
@@ -983,48 +891,40 @@ msgid ""
 "inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' "
 "target='_blank'>Help translate!</a>"
 msgstr ""
-"Hindi mahanap ang wikang hinahanap mo? Mali ba ang mga pagsasalin? <a "
-"href='https://translate.codeberg.org/engage/vixipy' "
-"target='_blank'>Tumulong sa pagsasalin!</a>"
 
 #: pyxiv/templates/settings/language.html:29
 msgid "pixivision Language"
-msgstr "Wika sa pixivision"
+msgstr ""
 
 #: pyxiv/templates/settings/language.html:31
 msgid "You can set the language for pixivision articles here."
-msgstr "Maaari mong itakda ang wika para sa mga artikulo sa pixivision dito."
+msgstr ""
 
 #: pyxiv/templates/settings/license.html:6
 #: pyxiv/templates/settings/settingsMain.html:42
 msgid "License"
-msgstr "Lisensya"
+msgstr ""
 
 #: pyxiv/templates/settings/license.html:8
 msgid ""
 "Vixipy is licensed under the GNU Affero General Public License, version "
 "3. The license text is as follows:"
 msgstr ""
-"Nakalisensya ang Vixipy sa ilalim ng GNU Affero General Public License, "
-"bersyon 3. Ang text ng lisensya ay ang sumusunod:"
 
 #: pyxiv/templates/settings/pyxivSettings.html:6
 #: pyxiv/templates/settings/settingsMain.html:11
 msgid "Vixipy Settings"
-msgstr "Mga Setting sa Vixipy"
+msgstr ""
 
 #: pyxiv/templates/settings/pyxivSettings.html:8
 msgid "Proxy server"
-msgstr "Proxy server"
+msgstr ""
 
 #: pyxiv/templates/settings/pyxivSettings.html:9
 msgid ""
 "A pixiv image proxy server allows you to access images from pixiv without"
 " your device making any connection to pixiv servers."
 msgstr ""
-"Ang isang pixiv image proxy server ay nagbibigay-daan sa iyo na ma-access"
-" ang mga larawan mula sa pixiv nang hindi gumagawa ng anumang koneksyon "
-"ang iyong device sa mga pixiv server."
 
 #: pyxiv/templates/settings/pyxivSettings.html:11
 msgid ""
@@ -1032,249 +932,145 @@ msgid ""
 "images from the domain <code>i.pximg.net</code> will use the specified "
 "proxy server."
 msgstr ""
-"May kasamang proxy server ang Vixipy, ngunit maari kang magtukoy ng isa "
-"sa ibaba. Ang mga larawan mula sa domain na <code>i.pximg.net</code> ay "
-"gagamitin ang tinukoy na proxy server."
 
 #: pyxiv/templates/settings/pyxivSettings.html:13
 msgid "Your current preferred proxy server:"
-msgstr "Ang iyong kasalukuyang gustong proxy server:"
+msgstr ""
 
 #: pyxiv/templates/settings/pyxivSettings.html:18
 msgid "Use built-in proxy server"
-msgstr "Gamitin ang kasamang proxy server"
+msgstr ""
 
 #: pyxiv/templates/settings/pyxivSettings.html:27
 msgid "Use selected proxy"
-msgstr "Gamitin ang piniling proxy"
+msgstr ""
 
 #: pyxiv/templates/settings/pyxivSettings.html:30
 msgid "Custom proxy server"
-msgstr "Custom na proxy server"
+msgstr ""
 
 #: pyxiv/templates/settings/pyxivSettings.html:31
 msgid "You can specify a custom proxy server below."
-msgstr "Maari kang magtukoy ng isang custom na proxy server sa ibaba."
+msgstr ""
 
 #: pyxiv/templates/settings/pyxivSettings.html:35
 msgid "Use proxy server"
-msgstr "Gamitin ang proxy server"
+msgstr ""
 
 #: pyxiv/templates/settings/settingsMain.html:16
 msgid "Account"
-msgstr "Account"
+msgstr ""
 
 #: pyxiv/templates/settings/settingsMain.html:20
 #: pyxiv/templates/settings/viewing.html:7
 msgid "Display Settings"
-msgstr "Mga Setting ng Pag-display"
+msgstr ""
 
 #: pyxiv/templates/settings/settingsMain.html:29
 msgid "Privacy"
-msgstr "Pagkapribado"
+msgstr ""
 
 #: pyxiv/templates/settings/settingsMain.html:46
 msgid "Source Code"
-msgstr "Source Code"
+msgstr ""
 
 #: pyxiv/templates/settings/settingsMain.html:50
 msgid "pixiv Premium"
-msgstr "pixiv Premium"
+msgstr ""
 
 #: pyxiv/templates/settings/viewing.html:9
 msgid "<b>NOTE:</b> These settings will not apply to your pixiv account."
-msgstr "<b>NOTE:</b> Hindi maiimbak ang mga setting na ito sa iyong pixiv account."
+msgstr ""
 
 #: pyxiv/templates/settings/viewing.html:15
 msgid "Some of these settings are enforced by your pixiv account's settings."
 msgstr ""
-"Ang ilan sa mga setting na ito ay ipinapatupad ng mga setting ng iyong "
-"pixiv account."
 
 #: pyxiv/templates/settings/viewing.html:17
 msgid ""
 "Some of these settings are enforced by the instance's associated pixiv "
 "account."
 msgstr ""
-"Ang ilan sa mga setting na ito ay ipinapatupad ng nauugnay na pixiv "
-"account ng instansya."
 
 #: pyxiv/templates/settings/viewing.html:31
 #: pyxiv/templates/settings/viewing.html:49
 msgid "Hide AI-generated works"
-msgstr "Itago ang mga gawang nabuo ng AI"
+msgstr ""
 
 #: pyxiv/templates/settings/viewing.html:35
 msgid "Hide explicit content (R-18)"
-msgstr "Itago ang tahasang nilalaman (R-18)"
+msgstr ""
 
 #: pyxiv/templates/settings/viewing.html:39
 msgid "Hide ero-guro (R-18G) content"
-msgstr "Itago ang mga ero-guro (R-18G) na nilalaman"
+msgstr ""
 
 #: pyxiv/templates/settings/viewing.html:43
 msgid "Hide potentially sensitive content"
-msgstr "Itago ang potensyal na sensitibong nilalaman"
+msgstr ""
 
 #: pyxiv/templates/settings/viewing.html:55
 msgid "Hide ads (Vixipy has no ads)"
-msgstr "Itago ang mga ad (Walang mga ad ang Vixipy)"
+msgstr ""
 
 #: pyxiv/templates/settings/viewing.html:59
 msgid "Save preferences"
-msgstr "I-save ang mga kagustuhan"
+msgstr ""
 
 #: pyxiv/templates/user/bookmarks.html:5
 #, python-format
 msgid "%(user)s's bookmarks (%(total)s)"
-msgstr "Mga bookmark ni %(user)s (%(total)s)"
+msgstr ""
 
 #: pyxiv/templates/user/follows.html:4
 msgid "followed users"
-msgstr "mga sinusundan na user"
+msgstr ""
 
 #: pyxiv/templates/user/follows.html:6
 msgid "followers"
-msgstr "mga tagasunod"
+msgstr ""
 
 #: pyxiv/templates/user/follows.html:9
 #, python-format
 msgid "%(user)s's %(sect)s"
-msgstr "%(sect)s ni %(user)s"
+msgstr ""
 
 #: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:35
 msgid "Following"
-msgstr "Sinusundan"
+msgstr ""
 
 #: pyxiv/templates/user/follows.html:20
 msgid "Followers"
-msgstr "Mga Tagasunod"
+msgstr ""
 
 #: pyxiv/templates/user/follows.html:26
 msgid "Users"
-msgstr "Mga User"
+msgstr ""
 
 #: pyxiv/templates/user/illusts.html:5
 #, python-format
 msgid "%(user)s's Illustrations"
-msgstr "Mga illustration ni %(user)s"
+msgstr ""
 
 #: pyxiv/templates/user/index.html:30
 #, python-format
 msgid "<b>%(followingCount)s</b> following"
-msgstr "<b>%(followingCount)s</b> sinusundan"
+msgstr ""
 
 #: pyxiv/templates/user/index.html:30
 #, python-format
 msgid "<b>%(myPixiv)s</b> mypixiv"
-msgstr "<b>%(myPixiv)s</b> mga mypixiv"
+msgstr ""
 
 #: pyxiv/templates/user/index.html:37
 msgid "Follow"
-msgstr "Sundan"
+msgstr ""
 
 #: pyxiv/templates/user/main.html:41
 msgid "Illustrations and Manga"
-msgstr "Mga Illustration at Manga"
+msgstr ""
 
 #: pyxiv/templates/user/manga.html:5
 #, python-format
 msgid "%(user)s's Manga"
-msgstr "Mga Manga ni %(user)s"
-
-#~ msgid ""
-#~ "If you know a particular stamp ID,"
-#~ " you can put it here. This "
-#~ "allows you to send stamps that are"
-#~ " usually only available for a limited"
-#~ " time. <span style='color: "
-#~ "#f38ba8;'><b>Warning:</b> This may result in"
-#~ " termination of your pixiv account. "
-#~ "Use at your own risk.)"
-#~ msgstr ""
-#~ "Kung may alam kang partikular na "
-#~ "stamp ID, maaari mo itong ilagay "
-#~ "dito. Nagbibigay-daan ito sa iyo "
-#~ "na magpadala ng mga stamp na "
-#~ "kadalasang magagamit lamang sa limitadong "
-#~ "panahon. <span style='color: "
-#~ "#f38ba8;'><b>Babala:</b> Ito ay maaaring "
-#~ "magresulta sa pagwawakas ng iyong pixiv"
-#~ " account. Gamitin sa iyong sariling "
-#~ "peligro.)"
-
-#~ msgid "Click on the button below to log out"
-#~ msgstr "I-click ang button sa ibaba para mag-log out"
-
-#~ msgid "&lt; Back"
-#~ msgstr "Bumalik"
-
-#~ msgid ""
-#~ "You are not authorized to access "
-#~ "this page. You may need to <a "
-#~ "href='/settings/account'>log in</a> first."
-#~ msgstr ""
-#~ "Wala kang pahintulot na i-access ang "
-#~ "pahinang ito. Maaaring kailanganin mong "
-#~ "<a href='/settings/account'>mag-log in</a> "
-#~ "muna."
-
-#~ msgid ""
-#~ "An error occurred trying to complete "
-#~ "a request to pixiv. Please contact "
-#~ "the instance administrator. (%(error)s)"
-#~ msgstr ""
-#~ "May nangyaring error habang kumukumpleto "
-#~ "ng hiling sa pixiv. Mangyaring "
-#~ "makipag-ugnayan sa tagapangasiwa ng "
-#~ "instansya. (%(error)s)"
-
-#~ msgid "Sorry, this isn't supposed to happen. Have Snek instead."
-#~ msgstr "Paumanhin, hindi ito dapat mangyari. Ito nalang si Snek sa halip."
-
-#~ msgid ""
-#~ "Due to limitations in Content-"
-#~ "Securiy-Policy directives, IP Addresses are"
-#~ " not supported as a proxy server."
-#~ msgstr ""
-#~ "Dahil sa mga limitasyon sa mga "
-#~ "direktiba ng Content-Security-Policy, "
-#~ "hindi sinusuportahan ang mga IP Address"
-#~ " bilang proxy server."
-
-#~ msgid ""
-#~ "Log in to your pixiv account to"
-#~ " get a personalised feed and the "
-#~ "ability to like and bookmark posts. "
-#~ "To do this, you must get your "
-#~ "pixiv PHPSESSID cookie. See the guide"
-#~ " <a href='https://pixivfe-docs.pages.dev/obtaining-"
-#~ "pixivfe-token/' rel='noopener noreferer'>from "
-#~ "PixivFE</a> for details. Your token is"
-#~ " stored locally and will not be "
-#~ "stored on the server."
-#~ msgstr ""
-#~ "Mag-log in sa iyong pixiv account"
-#~ " para makakuha ng personalized na "
-#~ "feed at ang kakayahang mag-like at"
-#~ " mag-bookmark ng mga post. Upang "
-#~ "gawin ito, dapat mong makuha ang "
-#~ "iyong pixiv PHPSESSID cookie. Tingnan "
-#~ "ang gabay <a href='https://pixivfe-"
-#~ "docs.pages.dev/obtaining-pixivfe-token/' "
-#~ "rel='noopener noreferer'>mula sa PixivFE</a> "
-#~ "para sa mga detalye. Ang iyong "
-#~ "token ay lokal na nakaimbak at "
-#~ "hindi maiimbak sa server."
-
-#~ msgid "Click on the button below to securely log out"
-#~ msgstr "I-click ang button sa ibaba para mag-log out"
-
-#~ msgid "Timed out trying to check proxy server. It may be down."
-#~ msgstr ""
-#~ "Nag-time out habang sinusubukang suriin"
-#~ " ang proxy server. Maaring hindi ito"
-#~ " gumagana."
-
-#~ msgid "Not authorized."
-#~ msgstr "Hindi awtorisado."
+msgstr ""
