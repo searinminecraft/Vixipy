@@ -1,7 +1,44 @@
 {% extends "layouts/default.html" %}
-{% block title %}Rankings{% endblock %}
+{% block title %}{{_("Rankings")}}{% endblock %}
 
 {% block content %}
+<details>
+  <summary>{{_("Options")}}</summary>
+
+  {% set content = request.args.get("content") %}
+  {% set mode = request.args.get("mode") %}
+
+  <form action="/rankings" id="ranking-options">
+    <p>{{_("Note: Some options may not be compatible with each other.")}}</p>
+    <label>{{_("Content:")}} <select name="content" {% if mode=='daily_ai' or mode=='original'%}disabled{% endif %}>
+      <option value="illust" {% if content=='illust' %}selected{% endif %}>{{_("Illustrations")}}</option>
+      <option value="manga" {% if content=='manga' %}selected{% endif %}>{{_("Manga")}}</option>
+      <option value="ugoira" {% if content=='ugoira' %}selected{% endif %}>{{_("Ugoira")}}</option>
+    </select></label>
+    <br>
+    <label>{{_("Mode:")}} <select name="mode">
+      <option value="daily" {% if mode=='daily' %}selected{% endif %}>{{_("Daily")}}</option>
+      {% if request.cookies.get("PyXivHideAI", 0) | int == 0 %}
+      <option value="daily_ai" {% if mode=='daily_ai' %}selected{% endif %}>{{_("Daily (AI)")}}</option>
+      {% endif %}
+      <option value="weekly" {% if mode=='weekly' %}selected{% endif %}>{{_("Weekly")}}</option>
+      <option value="monthly" {% if mode=='monthly' %}selected{% endif %}>{{_("Monthly")}}</option>
+      {% if g.isAuthorized and not config['nor18'] %}
+      {% if xRestrictEnabled %}
+      <option value="daily_r18" {% if mode=='daily_r18' %}selected{% endif %}>{{_("Daily (R-18)")}}</option>
+      <option value="weekly_r18" {% if mode=='weekly_r18' %}selected{% endif %}>{{_("Weekly (R-18)")}}</option>
+      {% endif %}
+      {% endif %}
+      <option value="rookie" {% if mode=='rookie' %}selected{% endif %}>{{_("Rookie")}}</option>
+      <option value="original" {% if mode=='original' %}selected{% endif %}>{{_("Original")}}</option>
+    </select></label>
+    <br>
+    <label>{{_("Date:")}} <input type="date" name="date" value="{{data.date.strftime('%Y-%m-%d')}}"></label>
+    <br>
+    <button class="button" type="submit">{{_("Apply")}}</button>
+  </form>
+</details>
+
 <div class="component-header">
   <h2>{{ _("Ranking for %(date)s", date=data.date | dateformat) }}</h2>
   <div>
@@ -23,5 +60,19 @@
 	{% for d in data.contents %}
 	{% include "components/artwork-prev.html" %}
 	{% endfor %}
+</div>
+
+<div class="paginator">
+  {% if data.prev %}
+  <a href="{{prevPage}}">&lt;</a>
+  {% else %}
+  <a>&lt;</a>
+  {% endif %}
+  <span>Page {{ data.page }}</span>
+  {% if data.next %}
+  <a href="{{nextPage}}">&gt;</a>
+  {% else %}
+  <a>&gt;</a>
+  {% endif %}
 </div>
 {% endblock %}

@@ -374,10 +374,17 @@ main {
 }
 
 .paginator {
+  width: 100%;
+  text-align: center;
+  margin-top: 2.5em;
 
   a,
   span {
     font-size: 24px
+  }
+
+  span {
+    margin: 0 2em;
   }
 }
 

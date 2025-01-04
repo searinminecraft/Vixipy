@@ -1,7 +1,7 @@
 import os
 import random
 
-Version = "2.1"
+Version = "2.2"
 AuthlessMode = False
 
 
