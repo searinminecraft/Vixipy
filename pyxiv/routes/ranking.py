@@ -47,6 +47,8 @@ async def rankingsMain():
 
     if g.isAuthorized:
         xRestrictEnabled = (await getUserSettingsState()).xRestrictEnabled
+    else:
+        xRestrictEnabled = False
 
     newargs = request.args.copy()
     # content is incompatible with these modes
