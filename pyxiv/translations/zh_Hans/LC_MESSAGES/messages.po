@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-04 15:45+0800\n"
-"PO-Revision-Date: 2025-01-01 06:13+0000\n"
+"PO-Revision-Date: 2025-01-04 18:39+0000\n"
 "Last-Translator: Peaksol <peaksol@users.noreply.translate.codeberg.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:200
@@ -171,9 +171,8 @@ msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
 #: pyxiv/routes/settings.py:329
-#, fuzzy
 msgid "Successfully set preferences"
-msgstr "成功设置代理服务器"
+msgstr "成功设置首选项"
 
 #: pyxiv/routes/settings.py:340 pyxiv/routes/settings.py:360
 #, python-format
@@ -250,7 +249,7 @@ msgstr ""
 
 #: pyxiv/templates/500.html:43
 msgid "(Exception message too long)"
-msgstr ""
+msgstr "（异常消息过长）"
 
 #: pyxiv/templates/500.html:47 pyxiv/templates/error.html:19
 msgid "Back to home"
@@ -494,62 +493,56 @@ msgid "Rankings"
 msgstr "排行"
 
 #: pyxiv/templates/rankings.html:6
-#, fuzzy
 msgid "Options"
-msgstr "更多选项..."
+msgstr "选项"
 
 #: pyxiv/templates/rankings.html:12
 msgid "Note: Some options may not be compatible with each other."
-msgstr ""
+msgstr "注意：部分选项可能相互不兼容。"
 
 #: pyxiv/templates/rankings.html:13
-#, fuzzy
 msgid "Content:"
-msgstr "评论"
+msgstr "内容："
 
 #: pyxiv/templates/rankings.html:16
 msgid "Ugoira"
-msgstr ""
+msgstr "动图"
 
 #: pyxiv/templates/rankings.html:19
-#, fuzzy
 msgid "Mode:"
-msgstr "模式"
+msgstr "模式："
 
 #: pyxiv/templates/rankings.html:20
-#, fuzzy
 msgid "Daily"
-msgstr "应用"
+msgstr "今日"
 
 #: pyxiv/templates/rankings.html:22
 msgid "Daily (AI)"
-msgstr ""
+msgstr "今日（AI）"
 
 #: pyxiv/templates/rankings.html:24
 msgid "Weekly"
-msgstr ""
+msgstr "本周"
 
 #: pyxiv/templates/rankings.html:25
 msgid "Monthly"
-msgstr ""
+msgstr "本月"
 
 #: pyxiv/templates/rankings.html:28
 msgid "Daily (R-18)"
-msgstr ""
+msgstr "今日（R-18）"
 
 #: pyxiv/templates/rankings.html:29
 msgid "Weekly (R-18)"
-msgstr ""
+msgstr "本周（R-18）"
 
 #: pyxiv/templates/rankings.html:32
-#, fuzzy
 msgid "Rookie"
-msgstr "资料"
+msgstr "新人"
 
 #: pyxiv/templates/rankings.html:36
-#, fuzzy
 msgid "Date:"
-msgstr "日期"
+msgstr "日期："
 
 #: pyxiv/templates/rankings.html:38 pyxiv/templates/tag.html:218
 msgid "Apply"
@@ -558,20 +551,19 @@ msgstr "应用"
 #: pyxiv/templates/rankings.html:43
 #, python-format
 msgid "Ranking for %(date)s"
-msgstr ""
+msgstr "%(date)s 排行"
 
 #: pyxiv/templates/rankings.html:46 pyxiv/templates/rankings.html:48
 msgid "Previous Date"
-msgstr ""
+msgstr "之前日期"
 
 #: pyxiv/templates/rankings.html:52 pyxiv/templates/rankings.html:54
-#, fuzzy
 msgid "Next Date"
-msgstr "日期"
+msgstr "之后日期"
 
 #: pyxiv/templates/rankings.html:56
 msgid "Calendar"
-msgstr ""
+msgstr "日历"
 
 #: pyxiv/templates/replies.html:5 pyxiv/templates/user/follows.html:12
 msgid "Back"
@@ -1233,4 +1225,3 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "Not authorized."
 #~ msgstr "未验证。"
-
