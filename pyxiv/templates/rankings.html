@@ -8,7 +8,7 @@
   {% set content = request.args.get("content") %}
   {% set mode = request.args.get("mode") %}
 
-  <form action="/rankings" id="ranking-options">
+  <form action="/rankings/" id="ranking-options">
     <p>{{_("Note: Some options may not be compatible with each other.")}}</p>
     <label>{{_("Content:")}} <select name="content" {% if mode=='daily_ai' or mode=='original'%}disabled{% endif %}>
       <option value="illust" {% if content=='illust' %}selected{% endif %}>{{_("Illustrations")}}</option>

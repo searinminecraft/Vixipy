@@ -1,0 +1,34 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{_("Ranking calendar")}}{% endblock %}
+
+{% block content %}
+<h1>{{ date | dateformat('MMMM yyyy') }}</h1>
+<div id="ranking-calendar">
+    <nav>
+        <a href="{{ prev }}">&lt; {{_("Previous")}}</a>
+        <a href="/rankings/calendar">{{_("Current")}}</a>
+        <a href="{{ next }}">{{_("Next")}} &gt;</a>
+    </nav>
+    <div class="calendar">
+        {% for day in data %}
+        <div {% if day['active'] %}class="active"{% endif %}>
+            {% if day["link"] %}
+            <div class="main">
+                <a href="{{ day['link'] }}">
+                    <img src="{{ day['image'] }}" alt="{{_('Day %(day)s', day=day['date'])}}">
+                </a>
+            </div>
+            {% endif %}
+            <div class="props">
+                {% if day['day']%}
+                <span class="day">{{ day['day'] }}</span>
+                {% endif %}
+                {% if day['date'] and day['active'] %}
+                <span class="date">{{ day['date'] }}</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

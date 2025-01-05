@@ -7,83 +7,82 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-04 15:45+0800\n"
+"POT-Creation-Date: 2025-01-05 15:14+0800\n"
 "PO-Revision-Date: 2025-01-05 02:02+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:200
+#: pyxiv/app.py:214
 msgid "pixiv Error!"
 msgstr "Error sa pixiv!"
 
-#: pyxiv/app.py:203
+#: pyxiv/app.py:217
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
 "Nagbigay ng error ang pixiv habang naghihiling ng data: "
 "<code>%(error)s</code>"
 
-#: pyxiv/app.py:203
+#: pyxiv/app.py:217
 msgid "Unspecified error"
 msgstr "Hindi natukoy na eror"
 
-#: pyxiv/app.py:214
+#: pyxiv/app.py:228
 msgid "Not found"
 msgstr "Hindi nahanap"
 
-#: pyxiv/app.py:215
+#: pyxiv/app.py:229
 msgid "The requested resource could not be found."
 msgstr "Hindi mahanap ang resource na hinihiling."
 
-#: pyxiv/app.py:225
+#: pyxiv/app.py:239
 msgid "Bad request"
 msgstr "Hindi wastong hiling"
 
-#: pyxiv/app.py:226
+#: pyxiv/app.py:240
 msgid "The server could not satisfy the request."
 msgstr "Hindi matugunan ng server ang kahilingan."
 
-#: pyxiv/app.py:236
+#: pyxiv/app.py:250
 msgid "Forbidden"
 msgstr "Pinagbawalan"
 
-#: pyxiv/app.py:237
+#: pyxiv/app.py:251
 msgid "You do not have permission to access this page."
 msgstr "Wala kang pahintulot para i-access ang pahina."
 
-#: pyxiv/app.py:247
+#: pyxiv/app.py:261
 msgid "Unauthorized"
 msgstr "Hindi awtorisado"
 
-#: pyxiv/app.py:249
+#: pyxiv/app.py:263
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 "Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na "
 "ito."
 
-#: pyxiv/app.py:262
+#: pyxiv/app.py:276
 msgid "Method Not Allowed"
 msgstr "Hindi Pinapayagan ang Paraan"
 
-#: pyxiv/app.py:263
+#: pyxiv/app.py:277
 msgid "This method is not allowed for this endpoint"
 msgstr "Hindi pinapayagan ang paraang ito para sa endpoint na ito"
 
-#: pyxiv/routes/artworks.py:41 pyxiv/routes/artworks.py:53
-#: pyxiv/routes/artworks.py:65 pyxiv/routes/artworks.py:77
+#: pyxiv/routes/artworks.py:43 pyxiv/routes/artworks.py:55
+#: pyxiv/routes/artworks.py:67 pyxiv/routes/artworks.py:79
 msgid "You cannot access this illustration"
 msgstr "Hindi mo ma-access ang illustration na ito"
 
-#: pyxiv/routes/artworks.py:42
+#: pyxiv/routes/artworks.py:44
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
@@ -91,7 +90,7 @@ msgstr ""
 "Ang illustration na ito ay potensyal na sensitibo. Upang tingnan ito, "
 "i-off ang setting na \"Itago ang potensyal na sensitibong nilalaman\"."
 
-#: pyxiv/routes/artworks.py:54
+#: pyxiv/routes/artworks.py:56
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
@@ -99,7 +98,7 @@ msgstr ""
 "Ang larawang ito ay binuo ng AI. Para tingnan ito, i-off ang setting na "
 "\"Itago ang mga gawang nabuo ng AI\"."
 
-#: pyxiv/routes/artworks.py:66
+#: pyxiv/routes/artworks.py:68
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
@@ -107,7 +106,7 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18. Upang tingnan ito, i-off "
 "ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:78
+#: pyxiv/routes/artworks.py:80
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
@@ -115,51 +114,80 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18G. Upang tingnan ito, i-off "
 "ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:105
+#: pyxiv/routes/artworks.py:107
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
-#: pyxiv/routes/settings.py:132
+#: pyxiv/routes/ranking.py:66
+#, fuzzy
+msgid "Mon"
+msgstr "Buwanan"
+
+#: pyxiv/routes/ranking.py:68
+msgid "Tue"
+msgstr ""
+
+#: pyxiv/routes/ranking.py:70
+msgid "Wed"
+msgstr ""
+
+#: pyxiv/routes/ranking.py:72
+msgid "Thu"
+msgstr ""
+
+#: pyxiv/routes/ranking.py:74
+msgid "Fri"
+msgstr ""
+
+#: pyxiv/routes/ranking.py:76
+msgid "Sat"
+msgstr ""
+
+#: pyxiv/routes/ranking.py:78
+msgid "Sun"
+msgstr ""
+
+#: pyxiv/routes/settings.py:130
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "Hindi magagamit ang token. Nagbigay ng code %(status)d and pixiv"
 
-#: pyxiv/routes/settings.py:145
+#: pyxiv/routes/settings.py:143
 msgid "Unable to extract CSRF"
 msgstr "Hindi ma-extract ang CSRF"
 
-#: pyxiv/routes/settings.py:153
+#: pyxiv/routes/settings.py:149
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "Hindi magagamit ang token: %(error)s"
 
-#: pyxiv/routes/settings.py:165
+#: pyxiv/routes/settings.py:161
 msgid "No token was supplied."
 msgstr "Walang ibinigay na token."
 
-#: pyxiv/routes/settings.py:175
+#: pyxiv/routes/settings.py:171
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "Matagumpay mong nawakas ang session. Paalam!"
 
-#: pyxiv/routes/settings.py:185 pyxiv/routes/settings.py:282
+#: pyxiv/routes/settings.py:181 pyxiv/routes/settings.py:278
 msgid "Successfully set proxy server"
 msgstr "Matagumpay na natakda ang proxy server"
 
-#: pyxiv/routes/settings.py:202
+#: pyxiv/routes/settings.py:198
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "Paki-bigay ang URL scheme. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:208
+#: pyxiv/routes/settings.py:204
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "Hindi wastong URL scheme: %(scheme)s. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:217
+#: pyxiv/routes/settings.py:213
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "Hindi pinapayagan ang address na ito: %(addr)s"
 
-#: pyxiv/routes/settings.py:223
+#: pyxiv/routes/settings.py:219
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
@@ -167,7 +195,7 @@ msgstr ""
 "Dahil sa mga limitasyon sa mga direktiba ng Content-Security-Policy, "
 "hindi sinusuportahan ang mga IP Address bilang proxy server."
 
-#: pyxiv/routes/settings.py:257
+#: pyxiv/routes/settings.py:253
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
@@ -176,7 +204,7 @@ msgstr ""
 "Maaaring hindi mag-load ang mga larawan, at maaaring masira ang iyong "
 "privacy."
 
-#: pyxiv/routes/settings.py:266
+#: pyxiv/routes/settings.py:262
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
@@ -185,21 +213,21 @@ msgstr ""
 "Nabigo ang pagsuri ng integridad para sa pagsubok ng image proxy. "
 "Inaasahan ang %(integrity)s, nakuha ang %(result)s"
 
-#: pyxiv/routes/settings.py:277
+#: pyxiv/routes/settings.py:273
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
 
-#: pyxiv/routes/settings.py:329
+#: pyxiv/routes/settings.py:323
 msgid "Successfully set preferences"
 msgstr "Matagumpay na natakda ang mga kagustuhan"
 
-#: pyxiv/routes/settings.py:340 pyxiv/routes/settings.py:360
+#: pyxiv/routes/settings.py:334 pyxiv/routes/settings.py:354
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "Hindi wastong wika: %(code)s"
 
-#: pyxiv/routes/settings.py:351 pyxiv/routes/settings.py:370
+#: pyxiv/routes/settings.py:345 pyxiv/routes/settings.py:364
 msgid "Successfully set language."
 msgstr "Matagumpay na natakda ang wika."
 
@@ -234,8 +262,8 @@ msgid "Successfully sent stamp"
 msgstr "Matagumpay na napadala ang stamp"
 
 #: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
-#: pyxiv/routes/users.py:86 pyxiv/routes/users.py:134 pyxiv/routes/users.py:184
-#: pyxiv/routes/users.py:223 pyxiv/routes/users.py:263
+#: pyxiv/routes/users.py:91 pyxiv/routes/users.py:139 pyxiv/routes/users.py:189
+#: pyxiv/routes/users.py:228 pyxiv/routes/users.py:268
 msgid "Invalid user"
 msgstr "Hindi wastong user"
 
@@ -492,7 +520,7 @@ msgstr ""
 "href='https://www.vpngate.net'>VPN</a> o <a "
 "href='https://www.torproject.org/'>Tor</a>."
 
-#: pyxiv/templates/layouts/default.html:74 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:78 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr "Pinakabago"
 
@@ -519,6 +547,32 @@ msgstr "Mga Abiso"
 #: pyxiv/templates/notifications.html:49
 msgid "No notifications"
 msgstr "Walang mga abiso"
+
+#: pyxiv/templates/layouts/default.html:73
+#: pyxiv/templates/rankingCalendar.html:2
+#, fuzzy
+msgid "Ranking calendar"
+msgstr "Kalendaryo"
+
+#: pyxiv/templates/rankingCalendar.html:8
+#, fuzzy
+msgid "Previous"
+msgstr "Nakaraang Petsa"
+
+#: pyxiv/templates/rankingCalendar.html:9
+#, fuzzy
+msgid "Current"
+msgstr "Kamakailan"
+
+#: pyxiv/templates/rankingCalendar.html:10
+#, fuzzy
+msgid "Next"
+msgstr "Susunod na Petsa"
+
+#: pyxiv/templates/rankingCalendar.html:18
+#, fuzzy, python-format
+msgid "Day %(day)s"
+msgstr "Araw-araw (AI)"
 
 #: pyxiv/templates/layouts/default.html:69
 #: pyxiv/templates/pixivision/index.html:23 pyxiv/templates/rankings.html:2
@@ -801,26 +855,26 @@ msgstr "Nangangailangan ng JavaScript ang website na ito."
 msgid "Discover"
 msgstr "Tuklasin"
 
-#: pyxiv/templates/layouts/default.html:79
+#: pyxiv/templates/layouts/default.html:83
 msgid "pixivision"
 msgstr "pixivision"
 
-#: pyxiv/templates/layouts/default.html:83
-#: pyxiv/templates/layouts/default.html:111
+#: pyxiv/templates/layouts/default.html:87
+#: pyxiv/templates/layouts/default.html:115
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr "Mga Setting"
 
-#: pyxiv/templates/layouts/default.html:103
+#: pyxiv/templates/layouts/default.html:107
 msgid "Profile"
 msgstr "Iyong profile"
 
-#: pyxiv/templates/layouts/default.html:107 pyxiv/templates/user/index.html:66
+#: pyxiv/templates/layouts/default.html:111 pyxiv/templates/user/index.html:66
 msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
-#: pyxiv/templates/layouts/default.html:115
+#: pyxiv/templates/layouts/default.html:119
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "Mag-log out"
@@ -1336,3 +1390,4 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Not authorized."
 #~ msgstr "Hindi awtorisado."
+
