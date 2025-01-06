@@ -8,17 +8,18 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-05 15:14+0800\n"
-"PO-Revision-Date: 2025-01-05 02:02+0000\n"
-"Last-Translator: divergency <divergency@users.noreply.translate.codeberg."
-"org>\n"
+"PO-Revision-Date: 2025-01-06 06:40+0000\n"
+"Last-Translator: divergency <divergency@users.noreply.translate.codeberg.org>"
+"\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ru/>\n"
 "Language: ru\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/user-"
-"interface/ru/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:214 pyxiv/app.py:200
@@ -119,33 +120,32 @@ msgid "The creator turned off comments."
 msgstr "Создатель отключил комментарии."
 
 #: pyxiv/routes/ranking.py:66
-#, fuzzy
 msgid "Mon"
-msgstr "Ежемесячные"
+msgstr "Пн"
 
 #: pyxiv/routes/ranking.py:68
 msgid "Tue"
-msgstr ""
+msgstr "Вт"
 
 #: pyxiv/routes/ranking.py:70
 msgid "Wed"
-msgstr ""
+msgstr "Ср"
 
 #: pyxiv/routes/ranking.py:72
 msgid "Thu"
-msgstr ""
+msgstr "Чт"
 
 #: pyxiv/routes/ranking.py:74
 msgid "Fri"
-msgstr ""
+msgstr "Пт"
 
 #: pyxiv/routes/ranking.py:76
 msgid "Sat"
-msgstr ""
+msgstr "Сб"
 
 #: pyxiv/routes/ranking.py:78
 msgid "Sun"
-msgstr ""
+msgstr "Вс"
 
 #: pyxiv/routes/settings.py:130 pyxiv/routes/settings.py:132
 #, python-format
@@ -202,7 +202,7 @@ msgid ""
 "possibly not load, and may breach your privacy."
 msgstr ""
 "На заметку: прокси сервер который вы выбрали находится за Cloudflare. "
-"Картинки могут не загружаться, и могут повредить вашей конфендециальности."
+"Картинки могут не загружаться, и могут повредить вашей конфиденциальности."
 
 #: pyxiv/routes/settings.py:262 pyxiv/routes/settings.py:266
 #, python-format
@@ -554,29 +554,25 @@ msgstr "Нет уведомлений"
 
 #: pyxiv/templates/layouts/default.html:73
 #: pyxiv/templates/rankingCalendar.html:2
-#, fuzzy
 msgid "Ranking calendar"
-msgstr "Календарь"
+msgstr "Календарь Рейтингов"
 
 #: pyxiv/templates/rankingCalendar.html:8
-#, fuzzy
 msgid "Previous"
-msgstr "Предыдущая Дата"
+msgstr "Предыдущий"
 
 #: pyxiv/templates/rankingCalendar.html:9
-#, fuzzy
 msgid "Current"
-msgstr "Недавние"
+msgstr "Текущий"
 
 #: pyxiv/templates/rankingCalendar.html:10
-#, fuzzy
 msgid "Next"
-msgstr "Следующая Дата"
+msgstr "Следующий"
 
 #: pyxiv/templates/rankingCalendar.html:18
-#, fuzzy, python-format
+#, python-format
 msgid "Day %(day)s"
-msgstr "Ежедневные (ИИ)"
+msgstr "День %(day)s"
 
 #: pyxiv/templates/layouts/default.html:69
 #: pyxiv/templates/pixivision/index.html:23 pyxiv/templates/rankings.html:2
@@ -935,7 +931,7 @@ msgid ""
 msgstr ""
 "Vixipy это свободный фронт-энд с открытым источником для pixiv, который "
 "уважает вашу конфендециальность и позволяет вам наслаждаться pixiv контентом "
-"с душевным покоем в терминах конфендециальности, скорости и надежности."
+"с душевным покоем в терминах конфиденциальности, скорости и надежности."
 
 #: pyxiv/templates/settings/about.html:10
 msgid "Why Vixipy?"
@@ -951,8 +947,8 @@ msgid ""
 msgstr ""
 "Проблема с использованием pixiv в том, что он использует так много траффика "
 "без необходимости, содержит трекеры (Google Tag Manager), является "
-"проприетарным (и имеет проприетарные компоненты как ReCAPTHCA), скорее всего "
-"инвазивный в терминах конфендециальности, и в том числе за Cloudflare, "
+"проприетарным (и имеет проприетарные компоненты как ReCAPTCHA), скорее всего "
+"инвазивный в терминах конфиденциальности, и в том числе за Cloudflare, "
 "который как вы уже знаете имеет <a href='https://0xacab.org/dCF/"
 "deCloudflare'>кучу, кучу проблем.</a>"
 
@@ -972,7 +968,7 @@ msgstr ""
 "записывать, это запросы к pixiv API, ваш user agent, и запросы к прокси "
 "изображений (кроме тех случаев, когда вы используете внешний сервер прокси "
 "изображений, которому вам придется доверять в терминах их практик "
-"конфендециальности)."
+"конфиденциальности)."
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
@@ -1186,7 +1182,7 @@ msgstr "Настройки Отображения"
 
 #: pyxiv/templates/settings/settingsMain.html:29
 msgid "Privacy"
-msgstr "Конфендециальность"
+msgstr "Конфиденциальность"
 
 #: pyxiv/templates/settings/settingsMain.html:46
 msgid "Source Code"
