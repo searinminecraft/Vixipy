@@ -182,6 +182,7 @@ Vixipy comes with NO WARRANTY, and we will certainly not be responsible for anyt
 * People who have translated Vixipy:
     * [Myself](https://codeberg.org/kita) (Kita) - Filipino `fil`
     * [Peaksol](https://codeberg.org/Peaksol) - Chinese (Simplified Han Script) `zh_Hans`
+    * [divergency](https://codeberg.org/divergency) - Russian `ru`
 * Maybe you could be in this list? :3
 
 <hr>
