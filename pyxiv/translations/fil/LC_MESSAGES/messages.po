@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-05 15:14+0800\n"
-"PO-Revision-Date: 2025-01-05 02:02+0000\n"
+"PO-Revision-Date: 2025-01-05 21:57+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:214
@@ -119,33 +120,32 @@ msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
 #: pyxiv/routes/ranking.py:66
-#, fuzzy
 msgid "Mon"
-msgstr "Buwanan"
+msgstr "Lun"
 
 #: pyxiv/routes/ranking.py:68
 msgid "Tue"
-msgstr ""
+msgstr "Mar"
 
 #: pyxiv/routes/ranking.py:70
 msgid "Wed"
-msgstr ""
+msgstr "Miy"
 
 #: pyxiv/routes/ranking.py:72
 msgid "Thu"
-msgstr ""
+msgstr "Huw"
 
 #: pyxiv/routes/ranking.py:74
 msgid "Fri"
-msgstr ""
+msgstr "Biy"
 
 #: pyxiv/routes/ranking.py:76
 msgid "Sat"
-msgstr ""
+msgstr "Sab"
 
 #: pyxiv/routes/ranking.py:78
 msgid "Sun"
-msgstr ""
+msgstr "Lin"
 
 #: pyxiv/routes/settings.py:130
 #, python-format
@@ -550,29 +550,25 @@ msgstr "Walang mga abiso"
 
 #: pyxiv/templates/layouts/default.html:73
 #: pyxiv/templates/rankingCalendar.html:2
-#, fuzzy
 msgid "Ranking calendar"
-msgstr "Kalendaryo"
+msgstr "Kalendaryo ng ranking"
 
 #: pyxiv/templates/rankingCalendar.html:8
-#, fuzzy
 msgid "Previous"
-msgstr "Nakaraang Petsa"
+msgstr "Nakaraan"
 
 #: pyxiv/templates/rankingCalendar.html:9
-#, fuzzy
 msgid "Current"
-msgstr "Kamakailan"
+msgstr "Kasalukuyan"
 
 #: pyxiv/templates/rankingCalendar.html:10
-#, fuzzy
 msgid "Next"
-msgstr "Susunod na Petsa"
+msgstr "Susunod"
 
 #: pyxiv/templates/rankingCalendar.html:18
-#, fuzzy, python-format
+#, python-format
 msgid "Day %(day)s"
-msgstr "Araw-araw (AI)"
+msgstr "Araw %(day)s"
 
 #: pyxiv/templates/layouts/default.html:69
 #: pyxiv/templates/pixivision/index.html:23 pyxiv/templates/rankings.html:2
@@ -1390,4 +1386,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Not authorized."
 #~ msgstr "Hindi awtorisado."
-
