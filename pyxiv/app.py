@@ -84,9 +84,12 @@ def create_app():
 
     def getLocale():
         if g.get("lang") and g.lang != "":
+            log.debug("current g.lang %s", g.lang)
             return g.lang
 
-        return request.accept_languages.best_match(app.config["languages"])
+        l = request.accept_languages.best_match(app.config["languages"])
+        log.debug("matched lang %s", l)
+        return l
 
     babel = Babel(app, locale_selector=getLocale)
 
@@ -305,7 +308,7 @@ def create_app():
         g.repo = cfg.GitRepo
         g.version = cfg.Version + "+" + g.rev
         g.instanceName = cfg.PxInstanceName
-        g.lang = request.cookies.get("lang", "en")
+        g.lang = request.cookies.get("lang")
 
         g.userPxSession = request.cookies.get("PyXivSession")
         g.userPxCSRF = request.cookies.get("PyXivCSRF")
