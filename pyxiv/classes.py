@@ -18,6 +18,7 @@ class MemcacheStore(RateLimiterStoreABC):
     address: The address to connect to a memcached instance
     kwargs: Any arguments to pass to the pymemcache.Client
     """
+
     def __init__(self, address="localhost", **kwargs):
         self._client: pymemcache.Client = None
         self._args = (address, kwargs)

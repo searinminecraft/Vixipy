@@ -191,9 +191,19 @@ async def rankingCalendar():
     next_ = sel + timedelta(weeks=5)
     print(prev, next_)
 
-    prevUrl = url_for("rankings.rankingCalendar", **ar, date=f"{prev.year}{prev.month if prev.month >= 10 else f'0{prev.month}'}")
-    nextUrl = url_for("rankings.rankingCalendar", **ar, date=f"{next_.year}{next_.month if next_.month >= 10 else f'0{next_.month}'}")
-    return await render_template("rankingCalendar.html", data=data, date=sel, prev=prevUrl, next=nextUrl)
+    prevUrl = url_for(
+        "rankings.rankingCalendar",
+        **ar,
+        date=f"{prev.year}{prev.month if prev.month >= 10 else f'0{prev.month}'}",
+    )
+    nextUrl = url_for(
+        "rankings.rankingCalendar",
+        **ar,
+        date=f"{next_.year}{next_.month if next_.month >= 10 else f'0{next_.month}'}",
+    )
+    return await render_template(
+        "rankingCalendar.html", data=data, date=sel, prev=prevUrl, next=nextUrl
+    )
 
 
 @rankings.route("/ranking.php")

@@ -21,7 +21,10 @@ from ..classes import ArtworkDetailsPage
 
 
 artworks = Blueprint("artworks", __name__, url_prefix="/artworks")
-limit_blueprint(artworks, limits=[RateLimit(1, timedelta(seconds=3)), RateLimit(10, timedelta(minutes=1))])
+limit_blueprint(
+    artworks,
+    limits=[RateLimit(1, timedelta(seconds=3)), RateLimit(10, timedelta(minutes=1))],
+)
 
 
 @artworks.route("/<int:_id>")

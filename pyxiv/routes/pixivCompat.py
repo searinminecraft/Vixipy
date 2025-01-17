@@ -3,13 +3,16 @@ from urllib.parse import urlparse
 
 bp = Blueprint("pixivCompat", __name__)
 
+
 @bp.route("/ranking.php")
 async def rankingRedirect():
     return redirect(url_for("rankings.rankingsMain", **request.args), code=308)
 
+
 @bp.route("/ranking_log.php")
 async def rankingCalendarRedirect():
     return redirect(url_for("rankings.rankingCalendar", **request.args), code=308)
+
 
 @bp.get("/jump.php")
 async def pixivRedir():
@@ -25,12 +28,16 @@ async def pixivRedir():
 
     domain = urlparse(dest).netloc
 
-    showSensitiveNotice = any([domain.__contains__(x) for x in (
-        "fanbox.cc",
-        "patreon.com",
-        )])
+    showSensitiveNotice = any(
+        [
+            domain.__contains__(x)
+            for x in (
+                "fanbox.cc",
+                "patreon.com",
+            )
+        ]
+    )
 
-
-    return await render_template("leave.html", dest=dest, showSensitiveNotice=showSensitiveNotice)
-
-
+    return await render_template(
+        "leave.html", dest=dest, showSensitiveNotice=showSensitiveNotice
+    )
