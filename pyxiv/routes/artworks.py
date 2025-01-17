@@ -39,6 +39,12 @@ async def artworkGet(_id: int):
         # a 404 if the illust is R-18(G)
         abort(404)
 
+    if artworkData.xRestrict:
+        if not bool(int(request.cookies.get("VixipyConsentSensitiveContent", 0))):
+            return await render_template(
+                "sensitivityWarning.html", dest=request.full_path
+            )
+
     if request.cookies.get("VixipyHideSensitive") == "1" and artworkData.isSensitive:
         return (
             await render_template(

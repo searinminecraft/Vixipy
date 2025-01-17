@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-17 17:27+0800\n"
+"POT-Creation-Date: 2025-01-17 18:13+0800\n"
 "PO-Revision-Date: 2025-01-05 21:57+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
 "Language: fil\n"
@@ -77,12 +77,12 @@ msgstr "Hindi Pinapayagan ang Paraan"
 msgid "This method is not allowed for this endpoint"
 msgstr "Hindi pinapayagan ang paraang ito para sa endpoint na ito"
 
-#: pyxiv/routes/artworks.py:46 pyxiv/routes/artworks.py:58
-#: pyxiv/routes/artworks.py:70 pyxiv/routes/artworks.py:82
+#: pyxiv/routes/artworks.py:52 pyxiv/routes/artworks.py:64
+#: pyxiv/routes/artworks.py:76 pyxiv/routes/artworks.py:88
 msgid "You cannot access this illustration"
 msgstr "Hindi mo ma-access ang illustration na ito"
 
-#: pyxiv/routes/artworks.py:47
+#: pyxiv/routes/artworks.py:53
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
@@ -90,7 +90,7 @@ msgstr ""
 "Ang illustration na ito ay potensyal na sensitibo. Upang tingnan ito, "
 "i-off ang setting na \"Itago ang potensyal na sensitibong nilalaman\"."
 
-#: pyxiv/routes/artworks.py:59
+#: pyxiv/routes/artworks.py:65
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
@@ -98,7 +98,7 @@ msgstr ""
 "Ang larawang ito ay binuo ng AI. Para tingnan ito, i-off ang setting na "
 "\"Itago ang mga gawang nabuo ng AI\"."
 
-#: pyxiv/routes/artworks.py:71
+#: pyxiv/routes/artworks.py:77
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
@@ -106,7 +106,7 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18. Upang tingnan ito, i-off "
 "ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:83
+#: pyxiv/routes/artworks.py:89
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
@@ -114,7 +114,7 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18G. Upang tingnan ito, i-off "
 "ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:110
+#: pyxiv/routes/artworks.py:116
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
@@ -261,8 +261,8 @@ msgid "Successfully sent stamp"
 msgstr "Matagumpay na napadala ang stamp"
 
 #: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
-#: pyxiv/routes/users.py:91 pyxiv/routes/users.py:139 pyxiv/routes/users.py:189
-#: pyxiv/routes/users.py:228 pyxiv/routes/users.py:268
+#: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
+#: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr "Hindi wastong user"
 
@@ -669,6 +669,35 @@ msgstr "Bumalik"
 #: pyxiv/templates/replies.html:7
 msgid "Replies"
 msgstr "Mga tugon"
+
+#: pyxiv/templates/sensitivityWarning.html:2
+msgid "Sensitivity Warning"
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:7
+#, fuzzy
+msgid "Sensitive content ahead!"
+msgstr "Itago ang potensyal na sensitibong nilalaman"
+
+#: pyxiv/templates/sensitivityWarning.html:8
+msgid "This page contains sensitive or explicit content. Do you want to continue?"
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:10
+msgid ""
+"This warning will only show up once until you clear cookies for this "
+"website."
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:14
+#, fuzzy
+msgid "Go back"
+msgstr "Bumalik"
+
+#: pyxiv/templates/sensitivityWarning.html:15
+#, fuzzy
+msgid "Continue"
+msgstr "Nilalaman:"
 
 #: pyxiv/templates/tag.html:19
 #, python-format

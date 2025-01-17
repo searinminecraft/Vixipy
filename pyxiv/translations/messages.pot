@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-17 17:27+0800\n"
+"POT-Creation-Date: 2025-01-17 18:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,36 +70,36 @@ msgstr ""
 msgid "This method is not allowed for this endpoint"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:46 pyxiv/routes/artworks.py:58
-#: pyxiv/routes/artworks.py:70 pyxiv/routes/artworks.py:82
+#: pyxiv/routes/artworks.py:52 pyxiv/routes/artworks.py:64
+#: pyxiv/routes/artworks.py:76 pyxiv/routes/artworks.py:88
 msgid "You cannot access this illustration"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:47
+#: pyxiv/routes/artworks.py:53
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:59
+#: pyxiv/routes/artworks.py:65
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:71
+#: pyxiv/routes/artworks.py:77
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:83
+#: pyxiv/routes/artworks.py:89
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:110
+#: pyxiv/routes/artworks.py:116
 msgid "The creator turned off comments."
 msgstr ""
 
@@ -239,8 +239,8 @@ msgid "Successfully sent stamp"
 msgstr ""
 
 #: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
-#: pyxiv/routes/users.py:91 pyxiv/routes/users.py:139 pyxiv/routes/users.py:189
-#: pyxiv/routes/users.py:228 pyxiv/routes/users.py:268
+#: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
+#: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr ""
 
@@ -625,6 +625,32 @@ msgstr ""
 
 #: pyxiv/templates/replies.html:7
 msgid "Replies"
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:2
+msgid "Sensitivity Warning"
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:7
+msgid "Sensitive content ahead!"
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:8
+msgid "This page contains sensitive or explicit content. Do you want to continue?"
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:10
+msgid ""
+"This warning will only show up once until you clear cookies for this "
+"website."
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:14
+msgid "Go back"
+msgstr ""
+
+#: pyxiv/templates/sensitivityWarning.html:15
+msgid "Continue"
 msgstr ""
 
 #: pyxiv/templates/tag.html:19

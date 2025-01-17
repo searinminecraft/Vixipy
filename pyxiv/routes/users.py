@@ -63,6 +63,13 @@ async def userPage(_id: int):
             getUserTopIllusts(_id),
         )
         data = data["body"]
+
+        if any([x.xRestrict for x in top]):
+            if not bool(int(request.cookies.get("VixipyConsentSensitiveContent", 0))):
+                return await render_template(
+                    "sensitivityWarning.html", dest=request.full_path
+                )
+
         total = len(data["illusts"]) + len(data["manga"])
 
         pickup = []
@@ -115,6 +122,12 @@ async def userIllusts(_id: int):
             retrieveUserIllusts(_id, offset),
             getFrequentTags(offset),
         )
+        if any([x.xRestrict for x in illusts]):
+            if not bool(int(request.cookies.get("VixipyConsentSensitiveContent", 0))):
+                return await render_template(
+                    "sensitivityWarning.html", dest=request.full_path
+                )
+
     else:
         illusts = []
         frequent = []
@@ -166,6 +179,12 @@ async def userManga(_id: int):
             retrieveUserIllusts(_id, offset),
             getFrequentTags(offset),
         )
+        if any([x.xRestrict for x in illusts]):
+            if not bool(int(request.cookies.get("VixipyConsentSensitiveContent", 0))):
+                return await render_template(
+                    "sensitivityWarning.html", dest=request.full_path
+                )
+
     else:
         illusts = []
         frequent = []
@@ -199,6 +218,12 @@ async def userBookmarks(_id: int):
         getUser(_id),
         getUserBookmarks(_id, offset=(50 * page) - 50),
     )
+    if any([x.xRestrict for x in data.works]):
+        if not bool(int(request.cookies.get("VixipyConsentSensitiveContent", 0))):
+            return await render_template(
+                "sensitivityWarning.html", dest=request.full_path
+            )
+
     if len(data) > 0:
         frequent = await getFrequentTags([x._id for x in data.works])
     else:

@@ -396,6 +396,15 @@ def create_app():
 
         return await render_template("settings/about.html")
 
+    @app.route("/consent")
+    async def consentSensitiveWarning():
+        r = request.args.get("r", "/")
+        re = await make_response(redirect(r, code=303))
+        re.set_cookie(
+            "VixipyConsentSensitiveContent", "1", max_age=60 * 60 * 24 * 30 * 12
+        )
+        return re
+
     @app.route("/static/<path:filename>")
     async def static(filename):
         if os.path.isfile(os.path.join("pyxiv/instance/", filename)):
