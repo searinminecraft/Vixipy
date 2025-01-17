@@ -41,6 +41,7 @@ from .routes import (
     newest,
     pixivision,
     ranking,
+    pixivCompat,
 )
 
 log = logging.getLogger()
@@ -171,6 +172,7 @@ def create_app():
     app.register_blueprint(newest.newest)
     app.register_blueprint(pixivision.pixivision)
     app.register_blueprint(ranking.rankings)
+    app.register_blueprint(pixivCompat.bp)
 
     @app.before_serving
     async def startup():
@@ -393,17 +395,6 @@ def create_app():
     async def about():
 
         return await render_template("settings/about.html")
-
-    @app.route("/jump.php")
-    async def pixivRedir():
-        if request.args.get("url"):
-            # /jump.php?url=https://kita.codeberg.page
-            dest = request.args["url"]
-        else:
-            # /jump.php?https://kita.codeberg.page
-            dest = list(request.args.keys())[0]
-
-        return await render_template("leave.html", dest=dest)
 
     @app.route("/static/<path:filename>")
     async def static(filename):

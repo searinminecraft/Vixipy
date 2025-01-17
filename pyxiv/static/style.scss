@@ -126,6 +126,13 @@ a.button {
   scrollbar-color: var(--md-sys-color-tertiary) var(--md-sys-color-surface-container)
 }
 
+.notice-icon {
+  width: 96px;
+  height: 96px;
+  fill: currentColor;
+  color: var(--md-sys-color-on-surface)
+}
+
 body {
   color: var(--md-sys-color-on-surface);
   background-color: var(--md-sys-color-surface);

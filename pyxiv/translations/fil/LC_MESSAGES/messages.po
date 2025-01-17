@@ -7,83 +7,82 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-05 15:14+0800\n"
+"POT-Creation-Date: 2025-01-17 17:27+0800\n"
 "PO-Revision-Date: 2025-01-05 21:57+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:214
+#: pyxiv/app.py:219
 msgid "pixiv Error!"
 msgstr "Error sa pixiv!"
 
-#: pyxiv/app.py:217
+#: pyxiv/app.py:222
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
 "Nagbigay ng error ang pixiv habang naghihiling ng data: "
 "<code>%(error)s</code>"
 
-#: pyxiv/app.py:217
+#: pyxiv/app.py:222
 msgid "Unspecified error"
 msgstr "Hindi natukoy na eror"
 
-#: pyxiv/app.py:228
+#: pyxiv/app.py:233
 msgid "Not found"
 msgstr "Hindi nahanap"
 
-#: pyxiv/app.py:229
+#: pyxiv/app.py:234
 msgid "The requested resource could not be found."
 msgstr "Hindi mahanap ang resource na hinihiling."
 
-#: pyxiv/app.py:239
+#: pyxiv/app.py:244
 msgid "Bad request"
 msgstr "Hindi wastong hiling"
 
-#: pyxiv/app.py:240
+#: pyxiv/app.py:245
 msgid "The server could not satisfy the request."
 msgstr "Hindi matugunan ng server ang kahilingan."
 
-#: pyxiv/app.py:250
+#: pyxiv/app.py:255
 msgid "Forbidden"
 msgstr "Pinagbawalan"
 
-#: pyxiv/app.py:251
+#: pyxiv/app.py:256
 msgid "You do not have permission to access this page."
 msgstr "Wala kang pahintulot para i-access ang pahina."
 
-#: pyxiv/app.py:261
+#: pyxiv/app.py:266
 msgid "Unauthorized"
 msgstr "Hindi awtorisado"
 
-#: pyxiv/app.py:263
+#: pyxiv/app.py:268
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 "Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na "
 "ito."
 
-#: pyxiv/app.py:276
+#: pyxiv/app.py:281
 msgid "Method Not Allowed"
 msgstr "Hindi Pinapayagan ang Paraan"
 
-#: pyxiv/app.py:277
+#: pyxiv/app.py:282
 msgid "This method is not allowed for this endpoint"
 msgstr "Hindi pinapayagan ang paraang ito para sa endpoint na ito"
 
-#: pyxiv/routes/artworks.py:43 pyxiv/routes/artworks.py:55
-#: pyxiv/routes/artworks.py:67 pyxiv/routes/artworks.py:79
+#: pyxiv/routes/artworks.py:46 pyxiv/routes/artworks.py:58
+#: pyxiv/routes/artworks.py:70 pyxiv/routes/artworks.py:82
 msgid "You cannot access this illustration"
 msgstr "Hindi mo ma-access ang illustration na ito"
 
-#: pyxiv/routes/artworks.py:44
+#: pyxiv/routes/artworks.py:47
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
@@ -91,7 +90,7 @@ msgstr ""
 "Ang illustration na ito ay potensyal na sensitibo. Upang tingnan ito, "
 "i-off ang setting na \"Itago ang potensyal na sensitibong nilalaman\"."
 
-#: pyxiv/routes/artworks.py:56
+#: pyxiv/routes/artworks.py:59
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
@@ -99,7 +98,7 @@ msgstr ""
 "Ang larawang ito ay binuo ng AI. Para tingnan ito, i-off ang setting na "
 "\"Itago ang mga gawang nabuo ng AI\"."
 
-#: pyxiv/routes/artworks.py:68
+#: pyxiv/routes/artworks.py:71
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
@@ -107,7 +106,7 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18. Upang tingnan ito, i-off "
 "ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:80
+#: pyxiv/routes/artworks.py:83
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
@@ -115,7 +114,7 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18G. Upang tingnan ito, i-off "
 "ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:107
+#: pyxiv/routes/artworks.py:110
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
@@ -500,18 +499,17 @@ msgstr "Mga inirerekomendang artwork na may tag na"
 msgid "Jump to page"
 msgstr "Tumalon sa pahina"
 
-#: pyxiv/templates/leave.html:5
-msgid "You are about to leave Vixipy."
+#: pyxiv/templates/leave.html:7
+#, fuzzy
+msgid "You are about to leave Vixipy"
 msgstr "Malapit ka nang umalis sa Vixipy."
 
-#: pyxiv/templates/leave.html:6
+#: pyxiv/templates/leave.html:8
 #, python-format
-msgid "Click the link to go to the destination: <a href='%(dest)s'>%(dest)s</a>"
+msgid "Continuing will direct you to %(dest)s."
 msgstr ""
-"I-click ang link para pumunta sa patutunguhan: <a "
-"href='%(dest)s'>%(dest)s</a>"
 
-#: pyxiv/templates/leave.html:7
+#: pyxiv/templates/leave.html:10
 msgid ""
 "Stay safe, using a <a href='https://www.vpngate.net'>VPN</a> or <a "
 "href='https://www.torproject.org/'>Tor</a> is recommended."
@@ -519,6 +517,22 @@ msgstr ""
 "Manatiling ligtas, inirerekonenda ang paggamit ng <a "
 "href='https://www.vpngate.net'>VPN</a> o <a "
 "href='https://www.torproject.org/'>Tor</a>."
+
+#: pyxiv/templates/leave.html:16
+#, fuzzy
+msgid "Possibly sensitive content ahead!"
+msgstr "Itago ang potensyal na sensitibong nilalaman"
+
+#: pyxiv/templates/leave.html:17
+msgid ""
+"This domain is commonly used for sharing sensitive or otherwise R-18 "
+"contents, mostly behind a one-time fee or monthly subscription. Watch out"
+" for these kinds of content!"
+msgstr ""
+
+#: pyxiv/templates/leave.html:22
+msgid "Continue to site"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:78 pyxiv/templates/newest.html:2
 msgid "Newest"
@@ -1386,3 +1400,11 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Not authorized."
 #~ msgstr "Hindi awtorisado."
+
+#~ msgid ""
+#~ "Click the link to go to the "
+#~ "destination: <a href='%(dest)s'>%(dest)s</a>"
+#~ msgstr ""
+#~ "I-click ang link para pumunta sa "
+#~ "patutunguhan: <a href='%(dest)s'>%(dest)s</a>"
+
