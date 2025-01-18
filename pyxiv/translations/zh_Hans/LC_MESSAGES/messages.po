@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-17 18:13+0800\n"
+"POT-Creation-Date: 2025-01-18 22:03+0800\n"
 "PO-Revision-Date: 2025-01-06 06:40+0000\n"
 "Last-Translator: Peaksol <peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -102,7 +102,7 @@ msgid ""
 "guro (R-18G) content\" setting."
 msgstr "该插画评级为 R-18G，必须在设置中关闭“隐藏猎奇向作品（R-18G）”才可查看。"
 
-#: pyxiv/routes/artworks.py:116
+#: pyxiv/routes/artworks.py:121
 msgid "The creator turned off comments."
 msgstr "作者关闭了评论。"
 
@@ -324,25 +324,30 @@ msgid "Disabled"
 msgstr "关闭"
 
 #: pyxiv/templates/artwork.html:116
+#, python-format
+msgid "Sensitivity level: %(sl)d"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:120
 msgid "View on pixiv"
 msgstr "在 pixiv 上查看"
 
-#: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
+#: pyxiv/templates/artwork.html:129 pyxiv/templates/index.html:70
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr "查看所有"
 
-#: pyxiv/templates/artwork.html:135
+#: pyxiv/templates/artwork.html:139
 msgid "Related"
 msgstr "相关作品"
 
-#: pyxiv/templates/artwork.html:138 pyxiv/templates/discover.html:7
+#: pyxiv/templates/artwork.html:142 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
 #: pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
 msgstr "部分作品因过滤器设置而隐藏"
 
-#: pyxiv/templates/artwork.html:148 pyxiv/templates/bookmarksSelf.html:25
+#: pyxiv/templates/artwork.html:152 pyxiv/templates/bookmarksSelf.html:25
 #: pyxiv/templates/user/bookmarks.html:25 pyxiv/templates/user/illusts.html:25
 #: pyxiv/templates/user/main.html:48 pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
@@ -654,9 +659,7 @@ msgid "This page contains sensitive or explicit content. Do you want to continue
 msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:10
-msgid ""
-"This warning will only show up once until you clear cookies for this "
-"website."
+msgid "This warning will only show up once until you restart your browser."
 msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:14
@@ -1326,4 +1329,10 @@ msgstr "%(user)s 的漫画"
 #~ "Click the link to go to the "
 #~ "destination: <a href='%(dest)s'>%(dest)s</a>"
 #~ msgstr "点击链接继续：<a href='%(dest)s'>%(dest)s</a>"
+
+#~ msgid ""
+#~ "This warning will only show up "
+#~ "once until you clear cookies for "
+#~ "this website."
+#~ msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-17 18:13+0800\n"
+"POT-Creation-Date: 2025-01-18 22:03+0800\n"
 "PO-Revision-Date: 2025-01-05 21:57+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
 "Language: fil\n"
@@ -114,7 +114,7 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18G. Upang tingnan ito, i-off "
 "ang setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:116
+#: pyxiv/routes/artworks.py:121
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
@@ -348,25 +348,30 @@ msgid "Disabled"
 msgstr "Naka-disable"
 
 #: pyxiv/templates/artwork.html:116
+#, python-format
+msgid "Sensitivity level: %(sl)d"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:120
 msgid "View on pixiv"
 msgstr "Tignan sa pixiv"
 
-#: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
+#: pyxiv/templates/artwork.html:129 pyxiv/templates/index.html:70
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr "Tignan lahat"
 
-#: pyxiv/templates/artwork.html:135
+#: pyxiv/templates/artwork.html:139
 msgid "Related"
 msgstr "Kaugnay"
 
-#: pyxiv/templates/artwork.html:138 pyxiv/templates/discover.html:7
+#: pyxiv/templates/artwork.html:142 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
 #: pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
 msgstr "Ang ilang mga entry ay naitago dahil sa mga filter"
 
-#: pyxiv/templates/artwork.html:148 pyxiv/templates/bookmarksSelf.html:25
+#: pyxiv/templates/artwork.html:152 pyxiv/templates/bookmarksSelf.html:25
 #: pyxiv/templates/user/bookmarks.html:25 pyxiv/templates/user/illusts.html:25
 #: pyxiv/templates/user/main.html:48 pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
@@ -684,9 +689,7 @@ msgid "This page contains sensitive or explicit content. Do you want to continue
 msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:10
-msgid ""
-"This warning will only show up once until you clear cookies for this "
-"website."
+msgid "This warning will only show up once until you restart your browser."
 msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:14
@@ -1436,4 +1439,10 @@ msgstr "Mga Manga ni %(user)s"
 #~ msgstr ""
 #~ "I-click ang link para pumunta sa "
 #~ "patutunguhan: <a href='%(dest)s'>%(dest)s</a>"
+
+#~ msgid ""
+#~ "This warning will only show up "
+#~ "once until you clear cookies for "
+#~ "this website."
+#~ msgstr ""
 

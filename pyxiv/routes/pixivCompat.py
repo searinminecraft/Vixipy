@@ -4,6 +4,11 @@ from urllib.parse import urlparse
 bp = Blueprint("pixivCompat", __name__)
 
 
+@bp.route("/new_illust.php")
+async def newIllustRedirect():
+    return redirect(url_for("newest.newestMain", **request.args), code=308)
+
+
 @bp.route("/ranking.php")
 async def rankingRedirect():
     return redirect(url_for("rankings.rankingsMain", **request.args), code=308)

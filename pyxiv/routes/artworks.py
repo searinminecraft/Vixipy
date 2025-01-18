@@ -13,10 +13,10 @@ from asyncio import gather
 from quart_babel import _
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
 
-from ..api import PixivError
 from ..core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
-from ..core.user import getUser
+from ..core.user import getUser, retrieveUserIllusts
 from ..core.comments import getArtworkComments, getArtworkReplies
+from ..utils.filtering import filterEntriesFromPreferences
 from ..classes import ArtworkDetailsPage
 
 
@@ -93,15 +93,20 @@ async def artworkGet(_id: int):
             400,
         )
 
-    pageData, userData, relatedData = await gather(
+    pageData, userData, relatedData, userIllusts = await gather(
         getArtworkPages(_id),
         getUser(artworkData.authorId),
-        getRelatedArtworks(_id, 100),
+        getRelatedArtworks(_id, 180),
+        retrieveUserIllusts(artworkData.authorId, artworkData.userIllustIds[:50]),
     )
+
+    userIllusts = filterEntriesFromPreferences(userIllusts)
 
     return await render_template(
         "artwork.html",
-        data=ArtworkDetailsPage(artworkData, pageData, userData, relatedData),
+        data=ArtworkDetailsPage(
+            artworkData, pageData, userData, relatedData, userIllusts
+        ),
     )
 
 

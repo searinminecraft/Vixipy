@@ -75,6 +75,8 @@ async def proxyRequest(proxypath):
     respHeaders["content-type"] = r.headers["content-type"]
     if "content-length" in r.headers:
         respHeaders["content-length"] = r.headers["content-length"]
+    else:
+        log.warn("%s has no content length", proxypath)
 
     async def gen():
         sstart = time.perf_counter()

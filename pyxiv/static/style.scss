@@ -930,12 +930,20 @@ div.taglist {
 
       p {
         word-break: break-word;
-        color: var(--md-sys-color-on-surface)
+        color: var(--md-sys-color-on-surface);
+
+        img {
+          margin: 0 2px;
+          transform: translateY(5px);
+          width: 24px;
+          height: 24px;
+        }
       }
     }
 
     .stamp {
-      border-radius: 16px
+      border-radius: 16px;
+      display: block;
     }
 
     .author-name {
@@ -1428,7 +1436,7 @@ div#ranking-calendar {
     grid-auto-rows: 128px;
     gap: 8px;
 
-    > div {
+    >div {
       border-radius: 8px;
       background-color: var(--md-sys-color-surface-container-low);
       overflow: hidden;
@@ -1458,7 +1466,7 @@ div#ranking-calendar {
           color: white;
           text-shadow: rgba(0, 0, 0, 0.85) 0 0 2px;
         }
-        
+
         .day {
           float: left;
         }

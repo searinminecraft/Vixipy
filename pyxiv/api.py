@@ -59,7 +59,7 @@ async def pixivReq(
     end = time.perf_counter()
 
     log.info(
-        f"Result status {req.status} {HTTPStatus(req.status).name} - {round((end - start) * 1000)}ms"
+        f"{endpoint} Result status {req.status} {HTTPStatus(req.status).name} - {round((end - start) * 1000)}ms"
     )
 
     if req.status == 429:

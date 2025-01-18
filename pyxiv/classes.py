@@ -403,6 +403,7 @@ class Artwork(PartialArtwork):
         for tag in data["tags"]["tags"]:
             self.tags.append(Tag(tag))
 
+        self.userIllustIds = list(data["userIllusts"].keys())
         self.userIllusts = []
 
         for i in data["userIllusts"]:
@@ -710,12 +711,14 @@ class ArtworkDetailsPage:
         pages: list[ArtworkPage],
         user: User,
         related: list[ArtworkEntry],
+        userIllusts: list[ArtworkEntry],
     ):
 
         self.artwork: Artwork = artwork
         self.pages: list[Artwork] = pages
         self.user: User = user
         self.related: list[ArtworkEntry] = related
+        self.userIllusts: list[ArtworkEntry] = userIllusts
 
 
 class PixivisionEntry:

@@ -401,7 +401,7 @@ def create_app():
         r = request.args.get("r", "/")
         re = await make_response(redirect(r, code=303))
         re.set_cookie(
-            "VixipyConsentSensitiveContent", "1", max_age=60 * 60 * 24 * 30 * 12
+            "VixipyConsentSensitiveContent", "1"
         )
         return re
 

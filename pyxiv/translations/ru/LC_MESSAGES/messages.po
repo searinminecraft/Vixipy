@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-17 18:13+0800\n"
+"POT-Creation-Date: 2025-01-18 22:03+0800\n"
 "PO-Revision-Date: 2025-01-06 06:40+0000\n"
 "Last-Translator: divergency "
 "<divergency@users.noreply.translate.codeberg.org>\n"
@@ -114,7 +114,7 @@ msgstr ""
 "Эта иллюстрация R-18G. Чтобы просмотреть ее, выключите настройку "
 "\"Скрывать откровенный контент (R-18G)\"."
 
-#: pyxiv/routes/artworks.py:116
+#: pyxiv/routes/artworks.py:121
 msgid "The creator turned off comments."
 msgstr "Создатель отключил комментарии."
 
@@ -349,25 +349,30 @@ msgid "Disabled"
 msgstr "Отключен"
 
 #: pyxiv/templates/artwork.html:116
+#, python-format
+msgid "Sensitivity level: %(sl)d"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:120
 msgid "View on pixiv"
 msgstr "Посмотреть на pixiv"
 
-#: pyxiv/templates/artwork.html:125 pyxiv/templates/index.html:70
+#: pyxiv/templates/artwork.html:129 pyxiv/templates/index.html:70
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr "Просмотреть все"
 
-#: pyxiv/templates/artwork.html:135
+#: pyxiv/templates/artwork.html:139
 msgid "Related"
 msgstr "Похожие"
 
-#: pyxiv/templates/artwork.html:138 pyxiv/templates/discover.html:7
+#: pyxiv/templates/artwork.html:142 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
 #: pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
 msgstr "Некоторые вставки были скрыты из-за фильтров"
 
-#: pyxiv/templates/artwork.html:148 pyxiv/templates/bookmarksSelf.html:25
+#: pyxiv/templates/artwork.html:152 pyxiv/templates/bookmarksSelf.html:25
 #: pyxiv/templates/user/bookmarks.html:25 pyxiv/templates/user/illusts.html:25
 #: pyxiv/templates/user/main.html:48 pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
@@ -686,9 +691,7 @@ msgid "This page contains sensitive or explicit content. Do you want to continue
 msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:10
-msgid ""
-"This warning will only show up once until you clear cookies for this "
-"website."
+msgid "This warning will only show up once until you restart your browser."
 msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:14
@@ -1337,4 +1340,10 @@ msgstr "Манга %(user)s'а"
 #~ msgstr ""
 #~ "Нажмите на ссылку, чтобы перейти к "
 #~ "месту назначения: <a href='%(dest)s'>%(dest)s</a>"
+
+#~ msgid ""
+#~ "This warning will only show up "
+#~ "once until you clear cookies for "
+#~ "this website."
+#~ msgstr ""
 
