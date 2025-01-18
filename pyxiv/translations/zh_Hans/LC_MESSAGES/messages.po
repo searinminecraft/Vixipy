@@ -11,65 +11,64 @@ msgstr ""
 "PO-Revision-Date: 2025-01-06 06:40+0000\n"
 "Last-Translator: Peaksol <peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
+"Language-Team: Chinese (Simplified Han script) <https://translate.codeberg."
+"org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:223
+#: pyxiv/app.py:223 pyxiv/app.py:219
 msgid "pixiv Error!"
 msgstr "pixiv 错误！"
 
-#: pyxiv/app.py:226
+#: pyxiv/app.py:226 pyxiv/app.py:222
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr "请求数据时，pixiv 返回错误：<code>%(error)s</code>"
 
-#: pyxiv/app.py:226
+#: pyxiv/app.py:226 pyxiv/app.py:222
 msgid "Unspecified error"
 msgstr "未指定的错误"
 
-#: pyxiv/app.py:237
+#: pyxiv/app.py:237 pyxiv/app.py:233
 msgid "Not found"
 msgstr "找不到页面"
 
-#: pyxiv/app.py:238
+#: pyxiv/app.py:238 pyxiv/app.py:234
 msgid "The requested resource could not be found."
 msgstr "无法找到请求的资源。"
 
-#: pyxiv/app.py:248
+#: pyxiv/app.py:248 pyxiv/app.py:244
 msgid "Bad request"
 msgstr "请求无效"
 
-#: pyxiv/app.py:249
+#: pyxiv/app.py:249 pyxiv/app.py:245
 msgid "The server could not satisfy the request."
 msgstr "服务器无法满足该请求。"
 
-#: pyxiv/app.py:259
+#: pyxiv/app.py:259 pyxiv/app.py:255
 msgid "Forbidden"
 msgstr "无权访问"
 
-#: pyxiv/app.py:260
+#: pyxiv/app.py:260 pyxiv/app.py:256
 msgid "You do not have permission to access this page."
 msgstr "你没有权限访问该页面。"
 
-#: pyxiv/app.py:270
+#: pyxiv/app.py:270 pyxiv/app.py:266
 msgid "Unauthorized"
 msgstr "未验证"
 
-#: pyxiv/app.py:272
+#: pyxiv/app.py:272 pyxiv/app.py:268
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
 
-#: pyxiv/app.py:285
+#: pyxiv/app.py:285 pyxiv/app.py:281
 msgid "Method Not Allowed"
 msgstr "不允许该方法"
 
-#: pyxiv/app.py:286
+#: pyxiv/app.py:286 pyxiv/app.py:282
 msgid "This method is not allowed for this endpoint"
 msgstr "该端点不允许此请求方法"
 
@@ -80,9 +79,11 @@ msgstr "无法访问该插画"
 
 #: pyxiv/routes/artworks.py:53
 msgid ""
-"This illustration is potentially sensitive. To view it, turn off the "
-"\"Hide potentially sensitive content\" setting."
-msgstr "该插画可能包含敏感内容，必须在设置中关闭“隐藏可能包含敏感内容的作品”才可查看。"
+"This illustration is potentially sensitive. To view it, turn off the \"Hide "
+"potentially sensitive content\" setting."
+msgstr ""
+"该插画可能包含敏感内容，必须在设置中关闭“隐藏可能包含敏感内容的作品”才可查"
+"看。"
 
 #: pyxiv/routes/artworks.py:65
 msgid ""
@@ -92,17 +93,19 @@ msgstr "该插画为 AI 生成，必须在设置中关闭“隐藏 AI 生成作�
 
 #: pyxiv/routes/artworks.py:77
 msgid ""
-"This illustration is rated as R-18. To view it, turn off the \"Hide "
-"explicit content (R-18)\" setting."
-msgstr "该插画评级为 R-18，必须在设置中关闭“隐藏浏览限制作品（R-18）”才可查看。"
+"This illustration is rated as R-18. To view it, turn off the \"Hide explicit "
+"content (R-18)\" setting."
+msgstr ""
+"该插画评级为 R-18，必须在设置中关闭“隐藏浏览限制作品（R-18）”才可查看。"
 
 #: pyxiv/routes/artworks.py:89
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
-msgstr "该插画评级为 R-18G，必须在设置中关闭“隐藏猎奇向作品（R-18G）”才可查看。"
+msgstr ""
+"该插画评级为 R-18G，必须在设置中关闭“隐藏猎奇向作品（R-18G）”才可查看。"
 
-#: pyxiv/routes/artworks.py:121
+#: pyxiv/routes/artworks.py:121 pyxiv/routes/artworks.py:116
 msgid "The creator turned off comments."
 msgstr "作者关闭了评论。"
 
@@ -176,15 +179,18 @@ msgstr "无法使用该地址：%(addr)s"
 
 #: pyxiv/routes/settings.py:219
 msgid ""
-"Due to limitations in Content-Security-Policy directives, IP Addresses "
-"are not supported as a proxy server."
-msgstr "由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务器。"
+"Due to limitations in Content-Security-Policy directives, IP Addresses are "
+"not supported as a proxy server."
+msgstr ""
+"由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务器。"
 
 #: pyxiv/routes/settings.py:253
 msgid ""
-"Note: the proxy server you have specified is behind Cloudflare. Images "
-"may possibly not load, and may breach your privacy."
-msgstr "注意：你指定的代理服务器使用了 Cloudflare。图片可能无法加载，并且可能存在隐私问题。"
+"Note: the proxy server you have specified is behind Cloudflare. Images may "
+"possibly not load, and may breach your privacy."
+msgstr ""
+"注意：你指定的代理服务器使用了 Cloudflare。图片可能无法加载，并且可能存在隐私"
+"问题。"
 
 #: pyxiv/routes/settings.py:262
 #, python-format
@@ -269,11 +275,11 @@ msgstr "内部服务器错误"
 
 #: pyxiv/templates/500.html:38
 msgid ""
-"If this issue happens again, <a "
-"href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
+"If this issue happens again, <a href=\"https://codeberg.org/vixipy/Vixipy/"
+"issues/new\">file an issue</a>."
 msgstr ""
-"如果仍然有此问题，<a "
-"href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">请报告这个问题</a>。"
+"如果仍然有此问题，<a href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">"
+"请报告这个问题</a>。"
 
 #: pyxiv/templates/500.html:43
 msgid "(Exception message too long)"
@@ -289,16 +295,17 @@ msgstr "错误详情"
 
 #: pyxiv/templates/500.html:53
 msgid ""
-"If you are going to report a bug, include the traceback if possible. You "
-"may redact information such as your home folder."
-msgstr "报告 bug 时，若有 traceback，则也请附上。你可以删去诸如 home 目录等信息。"
+"If you are going to report a bug, include the traceback if possible. You may "
+"redact information such as your home folder."
+msgstr ""
+"报告 bug 时，若有 traceback，则也请附上。你可以删去诸如 home 目录等信息。"
 
 #: pyxiv/templates/artwork.html:21
 #, python-format
 msgid ""
-"Could not load ugoira. <a href='/proxy/ugoira/%(artworkId)d'>Download the"
-" video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
-"ugoira.com</a> for more options."
+"Could not load ugoira. <a href='/proxy/ugoira/%(artworkId)d'>Download the "
+"video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to ugoira.com</"
+"a> for more options."
 msgstr ""
 "无法加载动图。<a href='/proxy/ugoira/%(artworkId)d'>下载视频</a>，或<a "
 "href='/proxy/ugoira/%(artworkId)d'>前往 ugoira.com</a> 进行更多操作。"
@@ -329,28 +336,29 @@ msgstr "关闭"
 msgid "Sensitivity level: %(sl)d"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:120
+#: pyxiv/templates/artwork.html:120 pyxiv/templates/artwork.html:116
 msgid "View on pixiv"
 msgstr "在 pixiv 上查看"
 
 #: pyxiv/templates/artwork.html:129 pyxiv/templates/index.html:70
-#: pyxiv/templates/user/main.html:56
+#: pyxiv/templates/user/main.html:56 pyxiv/templates/artwork.html:125
 msgid "View all"
 msgstr "查看所有"
 
-#: pyxiv/templates/artwork.html:139
+#: pyxiv/templates/artwork.html:139 pyxiv/templates/artwork.html:135
 msgid "Related"
 msgstr "相关作品"
 
 #: pyxiv/templates/artwork.html:142 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
-#: pyxiv/templates/tag.html:29
+#: pyxiv/templates/tag.html:29 pyxiv/templates/artwork.html:138
 msgid "Some entries have been hidden due to filters"
 msgstr "部分作品因过滤器设置而隐藏"
 
 #: pyxiv/templates/artwork.html:152 pyxiv/templates/bookmarksSelf.html:25
 #: pyxiv/templates/user/bookmarks.html:25 pyxiv/templates/user/illusts.html:25
 #: pyxiv/templates/user/main.html:48 pyxiv/templates/user/manga.html:25
+#: pyxiv/templates/artwork.html:148
 msgid "Nothing in here!"
 msgstr "空空如也！"
 
@@ -404,13 +412,14 @@ msgstr "表情贴图"
 
 #: pyxiv/templates/comments.html:97
 msgid ""
-"If you know a particular stamp ID, you can put it here. This allows you "
-"to send stamps that are usually only available for a limited time. <span "
-"style='color: #f38ba8;'><b>Warning:</b> This may result in termination of"
-" your pixiv account. Use at your own risk.</span>"
+"If you know a particular stamp ID, you can put it here. This allows you to "
+"send stamps that are usually only available for a limited time. <span "
+"style='color: #f38ba8;'><b>Warning:</b> This may result in termination of "
+"your pixiv account. Use at your own risk.</span>"
 msgstr ""
-"如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴图。<span style='color: "
-"#f38ba8;'><b>警告：</b>这可能导致 pixiv 帐号被封，使用后果自负。</span>"
+"如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴"
+"图。<span style='color: #f38ba8;'><b>警告：</b>这可能导致 pixiv 帐号被封，使"
+"用后果自负。</span>"
 
 #: pyxiv/templates/comments.html:100
 msgid "Send"
@@ -422,8 +431,8 @@ msgstr "发现作品"
 
 #: pyxiv/templates/discover.html:11
 msgid ""
-"Note: the suggestions are based on the instance's pixiv account's "
-"algorithm and personalisation"
+"Note: the suggestions are based on the instance's pixiv account's algorithm "
+"and personalisation"
 msgstr "注意：推荐作品的算法和个性化，是基于实例的 pixiv 帐号的"
 
 #: pyxiv/templates/discover.html:21
@@ -477,14 +486,13 @@ msgid "Jump to page"
 msgstr "跳到页面"
 
 #: pyxiv/templates/leave.html:7
-#, fuzzy
 msgid "You are about to leave Vixipy"
-msgstr "即将离开 Vixipy。"
+msgstr "即将离开 Vixipy"
 
 #: pyxiv/templates/leave.html:8
 #, python-format
 msgid "Continuing will direct you to %(dest)s."
-msgstr ""
+msgstr "接下来将前往 %(dest)s。"
 
 #: pyxiv/templates/leave.html:10
 msgid ""
@@ -495,20 +503,21 @@ msgstr ""
 "href='https://www.torproject.org/'>Tor</a>。"
 
 #: pyxiv/templates/leave.html:16
-#, fuzzy
 msgid "Possibly sensitive content ahead!"
-msgstr "隐藏可能包含敏感内容的作品"
+msgstr "可能包含敏感内容！"
 
 #: pyxiv/templates/leave.html:17
 msgid ""
 "This domain is commonly used for sharing sensitive or otherwise R-18 "
-"contents, mostly behind a one-time fee or monthly subscription. Watch out"
-" for these kinds of content!"
+"contents, mostly behind a one-time fee or monthly subscription. Watch out "
+"for these kinds of content!"
 msgstr ""
+"该域名常常用来分享敏感内容或 R-18 内容，大多数需要单次付费或月付。请三思而后"
+"行！"
 
 #: pyxiv/templates/leave.html:22
 msgid "Continue to site"
-msgstr ""
+msgstr "继续访问"
 
 #: pyxiv/templates/layouts/default.html:78 pyxiv/templates/newest.html:2
 msgid "Newest"
@@ -649,30 +658,28 @@ msgstr "回复"
 
 #: pyxiv/templates/sensitivityWarning.html:2
 msgid "Sensitivity Warning"
-msgstr ""
+msgstr "敏感警告"
 
 #: pyxiv/templates/sensitivityWarning.html:7
-#, fuzzy
 msgid "Sensitive content ahead!"
-msgstr "隐藏可能包含敏感内容的作品"
+msgstr "可能包含敏感内容！"
 
 #: pyxiv/templates/sensitivityWarning.html:8
-msgid "This page contains sensitive or explicit content. Do you want to continue?"
-msgstr ""
+msgid ""
+"This page contains sensitive or explicit content. Do you want to continue?"
+msgstr "该页面包含敏感或露骨内容。是否继续？"
 
 #: pyxiv/templates/sensitivityWarning.html:10
 msgid "This warning will only show up once until you restart your browser."
 msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:14
-#, fuzzy
 msgid "Go back"
 msgstr "返回"
 
 #: pyxiv/templates/sensitivityWarning.html:15
-#, fuzzy
 msgid "Continue"
-msgstr "内容："
+msgstr "继续"
 
 #: pyxiv/templates/tag.html:19
 #, python-format
@@ -785,10 +792,12 @@ msgstr "越过尾页"
 
 #: pyxiv/templates/tag.html:164
 msgid ""
-"Use this if you are sure that there are more results beyond the last page"
-" (due to pixiv's quirky API). If nothing shows up, try to refresh the "
-"page repeatedly. If it does not work, it might really be the last page."
-msgstr "这可以查看存在于最后一页之后的结果（pixiv 奇怪的 API 所致）。没有出现结果可反复刷新页面，仍不起效则可能确实是最后一页。"
+"Use this if you are sure that there are more results beyond the last page "
+"(due to pixiv's quirky API). If nothing shows up, try to refresh the page "
+"repeatedly. If it does not work, it might really be the last page."
+msgstr ""
+"这可以查看存在于最后一页之后的结果（pixiv 奇怪的 API 所致）。没有出现结果可反"
+"复刷新页面，仍不起效则可能确实是最后一页。"
 
 #: pyxiv/templates/tag.html:169
 msgid "More Options..."
@@ -930,7 +939,9 @@ msgid ""
 "Vixipy is a free and open source, privacy respecting pixiv frontend, "
 "allowing you to enjoy pixiv content with a peace of mind in terms of "
 "privacy, speed, and reliability."
-msgstr "Vixipy 是一个自由开源的隐私 pixiv 前端，可以隐私、快速、可靠地浏览 pixiv 内容。"
+msgstr ""
+"Vixipy 是一个自由开源的隐私 pixiv 前端，可以隐私、快速、可靠地浏览 pixiv 内"
+"容。"
 
 #: pyxiv/templates/settings/about.html:10
 msgid "Why Vixipy?"
@@ -938,36 +949,39 @@ msgstr "为什么使用 Vixipy？"
 
 #: pyxiv/templates/settings/about.html:12
 msgid ""
-"The problem with using pixiv is that it uses so much unnecessary "
-"bandwidth, has trackers (Google Tag Manager), is proprietary (and "
-"contains proprietary components like ReCAPTCHA), possibly privacy "
-"invasive, and is also behind Cloudflare, which you already know has <a "
-"href='https://0xacab.org/dCF/deCloudflare'>many, many problems.</a>"
+"The problem with using pixiv is that it uses so much unnecessary bandwidth, "
+"has trackers (Google Tag Manager), is proprietary (and contains proprietary "
+"components like ReCAPTCHA), possibly privacy invasive, and is also behind "
+"Cloudflare, which you already know has <a href='https://0xacab.org/dCF/"
+"deCloudflare'>many, many problems.</a>"
 msgstr ""
-"使用 pixiv 的问题在于，pixiv 会不必要地使用大量宽带，有追踪器（Google Tag Manager），是专有软件（包含了 "
-"ReCAPTCHA 等专有部分），有潜在的隐私风险，并且还依赖 Cloudflare。其中 Cloudflare <a "
-"href='https://0xacab.org/dCF/deCloudflare'>有非常多的问题。</a>"
+"使用 pixiv 的问题在于，pixiv 会不必要地使用大量宽带，有追踪器（Google Tag "
+"Manager），是专有软件（包含了 ReCAPTCHA 等专有部分），有潜在的隐私风险，并且"
+"还依赖 Cloudflare。其中 Cloudflare <a href='https://0xacab.org/dCF/"
+"deCloudflare'>有非常多的问题。</a>"
 
 #: pyxiv/templates/settings/about.html:14
 msgid ""
-"With Vixipy, you can enjoy using most pixiv features with a frontend you "
-"can trust. Your browser will never connect to any external server except "
-"if you specify an external image proxy server. The only things that "
-"Vixipy will log are the pixiv API requests, your user agent, and image "
-"proxy requests (unless you are using an external image proxy server, "
-"which you will have to trust it's privacy practices)."
+"With Vixipy, you can enjoy using most pixiv features with a frontend you can "
+"trust. Your browser will never connect to any external server except if you "
+"specify an external image proxy server. The only things that Vixipy will log "
+"are the pixiv API requests, your user agent, and image proxy requests "
+"(unless you are using an external image proxy server, which you will have to "
+"trust it's privacy practices)."
 msgstr ""
-"Vixipy 是一个可以信赖的 pixiv 前端。除非指定了外部图片代理服务器，否则浏览器不会连接到任何外部服务器。Vixipy 只会记录 "
-"pixiv API 请求、你的用户代理（UA），以及及图片代理请求（除非你使用了外部图片代理服务器，这时你得确保它能妥善处理隐私）。"
+"Vixipy 是一个可以信赖的 pixiv 前端。除非指定了外部图片代理服务器，否则浏览器"
+"不会连接到任何外部服务器。Vixipy 只会记录 pixiv API 请求、你的用户代理"
+"（UA），以及及图片代理请求（除非你使用了外部图片代理服务器，这时你得确保它能"
+"妥善处理隐私）。"
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
-"Also on the plus side, you don't need an account for viewing full artwork"
-" resolution, <a target='_blank' "
-"href='/static/img/accountRequired_pixiv.png'>unlike pixiv</a>."
+"Also on the plus side, you don't need an account for viewing full artwork "
+"resolution, <a target='_blank' href='/static/img/accountRequired_pixiv."
+"png'>unlike pixiv</a>."
 msgstr ""
-"其次，不像 <a target='_blank' "
-"href='/static/img/accountRequired_pixiv.png'>pixiv</a>，使用本程序查看作品原图也不需要帐号。"
+"其次，不像 <a target='_blank' href='/static/img/accountRequired_pixiv."
+"png'>pixiv</a>，使用本程序查看作品原图也不需要帐号。"
 
 #: pyxiv/templates/settings/about.html:18
 msgid "How does it compare to other pixiv frontends (PixivFE, etc.)?"
@@ -975,10 +989,12 @@ msgstr "相比其他 pixiv 前端（PixivFE 等）有什么不同？"
 
 #: pyxiv/templates/settings/about.html:20
 msgid ""
-"Vixipy is, and is always, never a competitor of any pixiv frontend. Sure,"
-" Vixipy does take inspiration from other frontends, but only for the "
-"good, and with proper credit or attribution if needed."
-msgstr "Vixipy 现在、以后都不会是任何 pixiv 前端的竞品。当然，Vixipy 确实会从其他前端汲取灵感，但会在需要时署名及鸣谢。"
+"Vixipy is, and is always, never a competitor of any pixiv frontend. Sure, "
+"Vixipy does take inspiration from other frontends, but only for the good, "
+"and with proper credit or attribution if needed."
+msgstr ""
+"Vixipy 现在、以后都不会是任何 pixiv 前端的竞品。当然，Vixipy 确实会从其他前端"
+"汲取灵感，但会在需要时署名及鸣谢。"
 
 #: pyxiv/templates/settings/about.html:22
 msgid ""
@@ -992,8 +1008,7 @@ msgstr "鸣谢"
 
 #: pyxiv/templates/settings/about.html:26
 msgid ""
-"Vixipy is made possible through the use of open source projects, which "
-"are:"
+"Vixipy is made possible through the use of open source projects, which are:"
 msgstr "Vixipy 的诞生离不开以下开源项目："
 
 #: pyxiv/templates/settings/account.html:6
@@ -1027,25 +1042,27 @@ msgstr "访问需要帐号才能查看的内容，如 pixiv 管理员标记为�
 #: pyxiv/templates/settings/account.html:22
 msgid ""
 "To log in, you must get your pixiv PHPSESSID cookie. See the guide <a "
-"href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' "
-"rel='noopener noreferer'>from PixivFE</a> for details. Your token is "
-"stored locally and will not be stored on the server."
+"href='https://pixivfe-docs.pages.dev/obtaining-pixivfe-token/' rel='noopener "
+"noreferer'>from PixivFE</a> for details. Your token is stored locally and "
+"will not be stored on the server."
 msgstr ""
 "必须要获取 pixiv PHHPSESSID cookie 才能登录。详见 <a href='https://pixivfe-"
-"docs.pages.dev/obtaining-pixivfe-token/' rel='noopener noreferer'>PixivFE"
-" 文档</a>。你的 token 仅存储在本地，不会存储在服务器。"
+"docs.pages.dev/obtaining-pixivfe-token/' rel='noopener noreferer'>PixivFE 文"
+"档</a>。你的 token 仅存储在本地，不会存储在服务器。"
 
 #: pyxiv/templates/settings/account.html:24
 msgid ""
-"For security purposes, cookies will expire 30 days after the time of "
-"logging in"
+"For security purposes, cookies will expire 30 days after the time of logging "
+"in"
 msgstr "出于安全，cookie 将在登录 30 天后失效"
 
 #: pyxiv/templates/settings/account.html:26
 msgid ""
-"<strong>Notice:</strong> By logging in, you agree that the instance will "
-"be sending requests on behalf of <strong>your account</strong>."
-msgstr "<strong>注意：</strong>登录即同意本实例代表<strong>你的帐号</strong>发送请求。"
+"<strong>Notice:</strong> By logging in, you agree that the instance will be "
+"sending requests on behalf of <strong>your account</strong>."
+msgstr ""
+"<strong>注意：</strong>登录即同意本实例代表<strong>你的帐号</strong>发送请"
+"求。"
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:34
@@ -1067,12 +1084,12 @@ msgstr "设置语言"
 
 #: pyxiv/templates/settings/language.html:27
 msgid ""
-"Can't find the language you're looking for? Are the translations "
-"inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' "
-"target='_blank'>Help translate!</a>"
+"Can't find the language you're looking for? Are the translations inaccurate? "
+"<a href='https://translate.codeberg.org/engage/vixipy' target='_blank'>Help "
+"translate!</a>"
 msgstr ""
-"没有你的语言，或者翻译有误？可以<a href='https://translate.codeberg.org/engage/vixipy' "
-"target='_blank'>帮助我们翻译！</a>"
+"没有你的语言，或者翻译有误？可以<a href='https://translate.codeberg.org/"
+"engage/vixipy' target='_blank'>帮助我们翻译！</a>"
 
 #: pyxiv/templates/settings/language.html:29
 msgid "pixivision Language"
@@ -1089,11 +1106,11 @@ msgstr "许可证"
 
 #: pyxiv/templates/settings/license.html:8
 msgid ""
-"Vixipy is licensed under the GNU Affero General Public License, version "
-"3. The license text is as follows:"
+"Vixipy is licensed under the GNU Affero General Public License, version 3. "
+"The license text is as follows:"
 msgstr ""
-"Vixipy 以 GNU Affero 通用公共许可证第三版（GNU Affero General Public License, version"
-" 3）授权。许可证文本如下："
+"Vixipy 以 GNU Affero 通用公共许可证第三版（GNU Affero General Public "
+"License, version 3）授权。许可证文本如下："
 
 #: pyxiv/templates/settings/pyxivSettings.html:6
 #: pyxiv/templates/settings/settingsMain.html:11
@@ -1106,16 +1123,20 @@ msgstr "代理服务器"
 
 #: pyxiv/templates/settings/pyxivSettings.html:9
 msgid ""
-"A pixiv image proxy server allows you to access images from pixiv without"
-" your device making any connection to pixiv servers."
-msgstr "使用 pixiv 图片代理服务器，可以在访问 pixiv 图片时避免你的设备向 pixiv 发送任何请求。"
+"A pixiv image proxy server allows you to access images from pixiv without "
+"your device making any connection to pixiv servers."
+msgstr ""
+"使用 pixiv 图片代理服务器，可以在访问 pixiv 图片时避免你的设备向 pixiv 发送任"
+"何请求。"
 
 #: pyxiv/templates/settings/pyxivSettings.html:11
 msgid ""
 "Vixipy has a built-in proxy server, but you can specify one below. Only "
-"images from the domain <code>i.pximg.net</code> will use the specified "
-"proxy server."
-msgstr "Vixipy 有内置代理服务器，但也可在下方指定服务器。只有来自<code>i.pximg.net</code>的图片会使用代理服务器。"
+"images from the domain <code>i.pximg.net</code> will use the specified proxy "
+"server."
+msgstr ""
+"Vixipy 有内置代理服务器，但也可在下方指定服务器。只有来自<code>i.pximg.net</"
+"code>的图片会使用代理服务器。"
 
 #: pyxiv/templates/settings/pyxivSettings.html:13
 msgid "Your current preferred proxy server:"
@@ -1210,8 +1231,8 @@ msgstr ""
 
 #: pyxiv/templates/ugoiraConverter/converter.html:23
 msgid ""
-"Your browser does not seem to have WebAssembly supported or enabled. "
-"Please enable WebAssembly to use the converter."
+"Your browser does not seem to have WebAssembly supported or enabled. Please "
+"enable WebAssembly to use the converter."
 msgstr ""
 
 #: pyxiv/templates/ugoiraConverter/converter.html:35
@@ -1230,8 +1251,8 @@ msgstr "发现"
 
 #: pyxiv/templates/ugoiraConverter/index.html:7
 msgid ""
-"Based on the code of <a "
-"href=\"https://ugoira.vercel.app/\">https://ugoira.vercel.app/</a>"
+"Based on the code of <a href=\"https://ugoira.vercel.app/\">https://ugoira."
+"vercel.app/</a>"
 msgstr ""
 
 #: pyxiv/templates/ugoiraConverter/index.html:11
@@ -1300,19 +1321,24 @@ msgstr "插画和漫画"
 msgid "%(user)s's Manga"
 msgstr "%(user)s 的漫画"
 
+#: pyxiv/templates/artwork.html:31
+msgid "Go to ugoira.com for more options"
+msgstr "前往 ugoira.com 进行更多操作"
+
+#: pyxiv/templates/sensitivityWarning.html:10
+msgid ""
+"This warning will only show up once until you clear cookies for this website."
+msgstr "本警告只会显示一次，除非清除了本站 cookies。"
+
 #~ msgid ""
-#~ "If you know a particular stamp ID,"
-#~ " you can put it here. This "
-#~ "allows you to send stamps that are"
-#~ " usually only available for a limited"
-#~ " time. <span style='color: "
-#~ "#f38ba8;'><b>Warning:</b> This may result in"
-#~ " termination of your pixiv account. "
-#~ "Use at your own risk.)"
+#~ "If you know a particular stamp ID, you can put it here. This allows you "
+#~ "to send stamps that are usually only available for a limited time. <span "
+#~ "style='color: #f38ba8;'><b>Warning:</b> This may result in termination of "
+#~ "your pixiv account. Use at your own risk.)"
 #~ msgstr ""
-#~ "如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用的贴图。（<span "
-#~ "style='color: #f38ba8;'><b>警告：</b>这可能导致 pixiv "
-#~ "帐号被封，使用后果自负。</span>）"
+#~ "如果知道具体的贴图 ID，可以在此插入。借此可以发送一般在限定时间内才能使用"
+#~ "的贴图。（<span style='color: #f38ba8;'><b>警告：</b>这可能导致 pixiv 帐号"
+#~ "被封，使用后果自负。</span>）"
 
 #~ msgid "Click on the button below to log out"
 #~ msgstr "点击下方按钮安全退出"
@@ -1321,8 +1347,7 @@ msgstr "%(user)s 的漫画"
 #~ msgstr "返回"
 
 #~ msgid ""
-#~ "An error occurred trying to complete "
-#~ "a request to pixiv. Please contact "
+#~ "An error occurred trying to complete a request to pixiv. Please contact "
 #~ "the instance administrator. (%(error)s)"
 #~ msgstr "向 pixiv 发送请求时出错。请联系实例管理员。（%(error)s）"
 
@@ -1330,36 +1355,30 @@ msgstr "%(user)s 的漫画"
 #~ msgstr "抱歉，这是意料之外的情况。Snek 应该能解决。"
 
 #~ msgid ""
-#~ "Due to limitations in Content-"
-#~ "Securiy-Policy directives, IP Addresses are"
-#~ " not supported as a proxy server."
-#~ msgstr "由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务器。"
+#~ "Due to limitations in Content-Securiy-Policy directives, IP Addresses are "
+#~ "not supported as a proxy server."
+#~ msgstr ""
+#~ "由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务"
+#~ "器。"
 
 #~ msgid ""
-#~ "Log in to your pixiv account to"
-#~ " get a personalised feed and the "
-#~ "ability to like and bookmark posts. "
-#~ "To do this, you must get your "
-#~ "pixiv PHPSESSID cookie. See the guide"
-#~ " <a href='https://pixivfe-docs.pages.dev/obtaining-"
-#~ "pixivfe-token/' rel='noopener noreferer'>from "
-#~ "PixivFE</a> for details. Your token is"
-#~ " stored locally and will not be "
-#~ "stored on the server."
+#~ "Log in to your pixiv account to get a personalised feed and the ability "
+#~ "to like and bookmark posts. To do this, you must get your pixiv PHPSESSID "
+#~ "cookie. See the guide <a href='https://pixivfe-docs.pages.dev/obtaining-"
+#~ "pixivfe-token/' rel='noopener noreferer'>from PixivFE</a> for details. "
+#~ "Your token is stored locally and will not be stored on the server."
 #~ msgstr ""
 #~ "登录 pixiv 帐号可享受个性化推送，点赞及收藏作品。此功能需要获取 pixiv "
-#~ "PHHPSESSID cookie。详见 <a href='https://pixivfe-"
-#~ "docs.pages.dev/obtaining-pixivfe-token/' "
-#~ "rel='noopener noreferer'>PixivFE 文档</a>。你的 token "
-#~ "仅存储在本地，不会存储在服务器。"
+#~ "PHHPSESSID cookie。详见 <a href='https://pixivfe-docs.pages.dev/obtaining-"
+#~ "pixivfe-token/' rel='noopener noreferer'>PixivFE 文档</a>。你的 token 仅存"
+#~ "储在本地，不会存储在服务器。"
 
 #~ msgid "Click on the button below to securely log out"
 #~ msgstr "点击下方按钮安全退出"
 
 #~ msgid ""
-#~ "You are not authorized to access "
-#~ "this page. You may need to <a "
-#~ "href='/settings/account'>log in</a> first."
+#~ "You are not authorized to access this page. You may need to <a href='/"
+#~ "settings/account'>log in</a> first."
 #~ msgstr "你没有权限访问该页面。请先<a href='/settings/account'>登录</a>。"
 
 #~ msgid "Timed out trying to check proxy server. It may be down."
@@ -1369,16 +1388,5 @@ msgstr "%(user)s 的漫画"
 #~ msgstr "未验证。"
 
 #~ msgid ""
-#~ "Click the link to go to the "
-#~ "destination: <a href='%(dest)s'>%(dest)s</a>"
+#~ "Click the link to go to the destination: <a href='%(dest)s'>%(dest)s</a>"
 #~ msgstr "点击链接继续：<a href='%(dest)s'>%(dest)s</a>"
-
-#~ msgid ""
-#~ "This warning will only show up "
-#~ "once until you clear cookies for "
-#~ "this website."
-#~ msgstr ""
-
-#~ msgid "Go to ugoira.com for more options"
-#~ msgstr "前往 ugoira.com 进行更多操作"
-
