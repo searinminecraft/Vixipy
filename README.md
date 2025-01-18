@@ -147,7 +147,7 @@ For example, you can theme your instance by making `pyxiv/instance/instance.css`
 [Example theme can be found here](https://git.maid.zone/laptop/vixipy-theme/src/branch/main/instance.css)
 
 # Instance List
-> If you're interested in hosting a Vixipy instance and want to be here, please [file an issue](https://codeberg.org/vixipy/Vixipy/issues/new).
+> If you're interested in hosting a Vixipy instance and want to be here, please [file an issue](https://codeberg.org/vixipy/Vixipy/issues/new?template=.forgejo%2fissue_template%2fnew_instance.yml).
 
 | Name | Address | Onion | Cloudflare? | Country | Notes |
 | --- | --- | --- | --- | --- | --- |
