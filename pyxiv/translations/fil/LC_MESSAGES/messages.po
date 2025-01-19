@@ -349,7 +349,7 @@ msgstr "Naka-disable"
 #: pyxiv/templates/artwork.html:116
 #, python-format
 msgid "Sensitivity level: %(sl)d"
-msgstr ""
+msgstr "Antas ng sensitivity: %(sl)d"
 
 #: pyxiv/templates/artwork.html:120 pyxiv/templates/artwork.html:116
 msgid "View on pixiv"
@@ -694,6 +694,8 @@ msgstr ""
 #: pyxiv/templates/sensitivityWarning.html:10
 msgid "This warning will only show up once until you restart your browser."
 msgstr ""
+"Ipapakita lamang ang babala na ito nang isang beses hanggang sa i-restart mo "
+"ang iyong browser."
 
 #: pyxiv/templates/sensitivityWarning.html:14
 msgid "Go back"
