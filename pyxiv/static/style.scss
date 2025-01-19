@@ -1483,6 +1483,20 @@ div#ranking-calendar {
   }
 }
 
+#ugoira-converter {
+  .console {
+    min-height: 12em;
+    max-height: 12em;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
+  video {
+    width: 100%;
+    max-height: 450px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --container-backdrop: rgb(35, 30, 35, 80%);

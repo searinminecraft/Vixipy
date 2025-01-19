@@ -27,7 +27,7 @@ from . import cfg
 from .core.landing import getLandingPage, getLandingRanked
 from .core.user import getUser
 
-from .classes import User, MemcacheStore
+from .classes import MemcacheStore
 
 from .routes import (
     settings,
@@ -42,6 +42,8 @@ from .routes import (
     pixivision,
     ranking,
     pixivCompat,
+    api as _api,
+    ugoiraconverter,
 )
 
 log = logging.getLogger()
@@ -173,6 +175,8 @@ def create_app():
     app.register_blueprint(pixivision.pixivision)
     app.register_blueprint(ranking.rankings)
     app.register_blueprint(pixivCompat.bp)
+    app.register_blueprint(_api.bp)
+    app.register_blueprint(ugoiraconverter.bp)
 
     @app.before_serving
     async def startup():
@@ -325,6 +329,13 @@ def create_app():
         else:
             g.isAuthorized = True
 
+            if route in ("api",):
+                g.userdata = None
+                g.notificationCount = None
+                g.hasNotifications = False
+                g.isPremium = False
+                return
+
             try:
                 notifications, userdata = await gather(
                     api.pixivReq(
@@ -357,7 +368,7 @@ def create_app():
         # from https://codeberg.org/PixivFE/PixivFE/src/commit/665503fcc92034384e8b0346cd2fb8e4b419db7b/server/middleware/csp.go#L44
         # vixipy is still not a pixivfe competitor as always
         r.headers["Content-Security-Policy"] = (
-            "base-uri 'self'; default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none';"
+            "base-uri 'self'; default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-ILoveVixipy'; style-src 'self'; img-src 'self' data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none';"
             % (p, p)
         )
         r.headers["X-Frame-Options"] = "DENY"
@@ -400,10 +411,8 @@ def create_app():
     async def consentSensitiveWarning():
         r = request.args.get("r", "/")
         re = await make_response(redirect(r, code=303))
-        re.set_cookie(
-            "VixipyConsentSensitiveContent", "1"
-        )
-        return re
+        re.set_cookie("VixipyConsentSensitiveContent", "1")
+        return
 
     @app.route("/static/<path:filename>")
     async def static(filename):

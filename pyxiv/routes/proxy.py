@@ -1,7 +1,6 @@
-from quart import Blueprint, abort, redirect, request, current_app
+from quart import Blueprint, Response, redirect, request, current_app
 import aiohttp
 
-from .. import cfg
 import time
 
 import logging
@@ -9,6 +8,12 @@ import logging
 log = logging.getLogger("pyxiv.routes.proxy")
 
 proxy = Blueprint("proxy", __name__, url_prefix="/proxy")
+
+
+@proxy.after_request
+async def after_request(r: Response):
+    r.headers["Access-Control-Allow-Origin"] = "*"
+    return r
 
 
 @proxy.errorhandler(aiohttp.ClientError)

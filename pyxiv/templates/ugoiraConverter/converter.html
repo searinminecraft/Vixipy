@@ -1,0 +1,60 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{_("Ugoira Converter")}}{% endblock %}
+
+{% block additionalHeadData %}
+<script src="/static/ugoira-converter/ffmpeg.js"></script>
+<script src="/static/ugoira-converter/util.js"></script>
+<script src="/static/ugoira-converter/jszip.min.js"></script>
+<script nonce="ILoveVixipy">
+  const supportsWasm = (() => {
+    try {
+        if (typeof WebAssembly === "object"
+            && typeof WebAssembly.instantiate === "function") {
+            const module = new WebAssembly.Module(Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00));
+            if (module instanceof WebAssembly.Module)
+                return new WebAssembly.Instance(module) instanceof WebAssembly.Instance;
+        }
+    } catch (e) {
+    }
+    return false;
+})();
+
+if (!supportsWasm) {
+  alert('{{ _("Your browser does not seem to have WebAssembly supported or enabled. Please enable WebAssembly to use the converter.") }}')
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ _("Ugoira Converter") }}</h1>
+
+<div id="ugoira-converter">
+  <video loop playsinline controls src="/proxy/ugoira/{{ data._id }}"></video>
+
+  <h3>{{ _("Status") }}</h3>
+  <pre id="status">Status will be shown here.</pre>
+  <h3>{{ _("Console") }}</h3>
+  <pre class="console"></pre>
+  <h3>{{ _("Options") }}</h3>
+  <label>
+    <input type="checkbox" id="vfr"> VFR
+  </label>
+  <br>
+  <label>
+    Format:
+    <select id="format">
+      <option value="gif">GIF</option>
+      <option value="apng">APNG</option>
+      <option value="webm">WebM</option>
+      <option value="webp">WebP</option>
+      <option value="mp4">MP4</option>
+    </select>
+  </label>
+  <br>
+  <button type="button" class="button" id="start">{{ _("Convert") }}</button>
+</div>
+<input id="id" type="hidden" value="{{ data._id }}">
+<script src="/static/ugoira-converter/ugoira-converter.js"></script>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{_("Ugoira Converter")}}{% endblock %}
+
+{% block content %}
+
+<h1>{{ _("Ugoira Converter") }}</h1>
+<p>{{ _('Based on the code of <a href="https://ugoira.vercel.app/">https://ugoira.vercel.app/</a>') }}</p>
+
+<br>
+<form action="/ugoira-convert" method="post" class="inline-form">
+  <input type="text" placeholder="{{ _('Enter ID') }}" name="id" required>
+  <button type="submit" class="button">{{ _("Go") }}</button>
+</form>
+
+{% endblock %}
