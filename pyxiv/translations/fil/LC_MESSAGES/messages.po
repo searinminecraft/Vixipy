@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-19 14:34+0800\n"
-"PO-Revision-Date: 2025-01-05 21:57+0000\n"
+"PO-Revision-Date: 2025-01-19 13:00+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/user-"
-"interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:223 pyxiv/app.py:219
@@ -330,9 +331,8 @@ msgid "Download"
 msgstr "I-download"
 
 #: pyxiv/templates/artwork.html:31
-#, fuzzy
 msgid "More download options..."
-msgstr "Higit pang mga opsyon…"
+msgstr "Higit pang mga opsyon sa pag-download…"
 
 #: pyxiv/templates/artwork.html:66
 msgid "AI generated"
@@ -1284,41 +1284,43 @@ msgstr "I-save ang mga kagustuhan"
 #: pyxiv/templates/ugoiraConverter/index.html:2
 #: pyxiv/templates/ugoiraConverter/index.html:6
 msgid "Ugoira Converter"
-msgstr ""
+msgstr "Converter ng Ugoira"
 
 #: pyxiv/templates/ugoiraConverter/converter.html:23
 msgid ""
 "Your browser does not seem to have WebAssembly supported or enabled. Please "
 "enable WebAssembly to use the converter."
 msgstr ""
+"Mukhang hindi sinusuportahan o naka-enable ang WebAssembly sa iyong browser. "
+"Paki-enable ang WebAssembly para gamitin ang converter."
 
 #: pyxiv/templates/ugoiraConverter/converter.html:35
-#, fuzzy
 msgid "Status"
-msgstr "Mga stamp"
+msgstr "Status"
 
 #: pyxiv/templates/ugoiraConverter/converter.html:37
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 #: pyxiv/templates/ugoiraConverter/converter.html:55
-#, fuzzy
 msgid "Convert"
-msgstr "Tuklasin"
+msgstr "I-convert"
 
 #: pyxiv/templates/ugoiraConverter/index.html:7
 msgid ""
 "Based on the code of <a href=\"https://ugoira.vercel.app/\">https://ugoira."
 "vercel.app/</a>"
 msgstr ""
+"Naka-base sa code ng <a href=\"https://ugoira.vercel.app/\">https://"
+"ugoira.vercel.app/</a>"
 
 #: pyxiv/templates/ugoiraConverter/index.html:11
 msgid "Enter ID"
-msgstr ""
+msgstr "Ilagay ang ID"
 
 #: pyxiv/templates/ugoiraConverter/index.html:12
 msgid "Go"
-msgstr ""
+msgstr "Go"
 
 #: pyxiv/templates/user/bookmarks.html:5
 #, python-format
