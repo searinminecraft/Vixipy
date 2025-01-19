@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-18 22:03+0800\n"
+"POT-Creation-Date: 2025-01-19 14:34+0800\n"
 "PO-Revision-Date: 2025-01-06 06:40+0000\n"
 "Last-Translator: Peaksol <peaksol@users.noreply.translate.codeberg.org>\n"
 "Language: zh_Hans\n"
@@ -20,56 +20,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:219
+#: pyxiv/app.py:223
 msgid "pixiv Error!"
 msgstr "pixiv 错误！"
 
-#: pyxiv/app.py:222
+#: pyxiv/app.py:226
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr "请求数据时，pixiv 返回错误：<code>%(error)s</code>"
 
-#: pyxiv/app.py:222
+#: pyxiv/app.py:226
 msgid "Unspecified error"
 msgstr "未指定的错误"
 
-#: pyxiv/app.py:233
+#: pyxiv/app.py:237
 msgid "Not found"
 msgstr "找不到页面"
 
-#: pyxiv/app.py:234
+#: pyxiv/app.py:238
 msgid "The requested resource could not be found."
 msgstr "无法找到请求的资源。"
 
-#: pyxiv/app.py:244
+#: pyxiv/app.py:248
 msgid "Bad request"
 msgstr "请求无效"
 
-#: pyxiv/app.py:245
+#: pyxiv/app.py:249
 msgid "The server could not satisfy the request."
 msgstr "服务器无法满足该请求。"
 
-#: pyxiv/app.py:255
+#: pyxiv/app.py:259
 msgid "Forbidden"
 msgstr "无权访问"
 
-#: pyxiv/app.py:256
+#: pyxiv/app.py:260
 msgid "You do not have permission to access this page."
 msgstr "你没有权限访问该页面。"
 
-#: pyxiv/app.py:266
+#: pyxiv/app.py:270
 msgid "Unauthorized"
 msgstr "未验证"
 
-#: pyxiv/app.py:268
+#: pyxiv/app.py:272
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
 
-#: pyxiv/app.py:281
+#: pyxiv/app.py:285
 msgid "Method Not Allowed"
 msgstr "不允许该方法"
 
-#: pyxiv/app.py:282
+#: pyxiv/app.py:286
 msgid "This method is not allowed for this endpoint"
 msgstr "该端点不允许此请求方法"
 
@@ -308,8 +308,9 @@ msgid "Download"
 msgstr "下载"
 
 #: pyxiv/templates/artwork.html:31
-msgid "Go to ugoira.com for more options"
-msgstr "前往 ugoira.com 进行更多操作"
+#, fuzzy
+msgid "More download options..."
+msgstr "更多选项..."
 
 #: pyxiv/templates/artwork.html:66
 msgid "AI generated"
@@ -565,6 +566,7 @@ msgid "Rankings"
 msgstr "排行"
 
 #: pyxiv/templates/rankings.html:6
+#: pyxiv/templates/ugoiraConverter/converter.html:39
 msgid "Options"
 msgstr "选项"
 
@@ -1199,6 +1201,47 @@ msgstr "隐藏广告（Vixipy 没有广告）"
 msgid "Save preferences"
 msgstr "保存偏好"
 
+#: pyxiv/templates/ugoiraConverter/converter.html:2
+#: pyxiv/templates/ugoiraConverter/converter.html:30
+#: pyxiv/templates/ugoiraConverter/index.html:2
+#: pyxiv/templates/ugoiraConverter/index.html:6
+msgid "Ugoira Converter"
+msgstr ""
+
+#: pyxiv/templates/ugoiraConverter/converter.html:23
+msgid ""
+"Your browser does not seem to have WebAssembly supported or enabled. "
+"Please enable WebAssembly to use the converter."
+msgstr ""
+
+#: pyxiv/templates/ugoiraConverter/converter.html:35
+#, fuzzy
+msgid "Status"
+msgstr "表情贴图"
+
+#: pyxiv/templates/ugoiraConverter/converter.html:37
+msgid "Console"
+msgstr ""
+
+#: pyxiv/templates/ugoiraConverter/converter.html:55
+#, fuzzy
+msgid "Convert"
+msgstr "发现"
+
+#: pyxiv/templates/ugoiraConverter/index.html:7
+msgid ""
+"Based on the code of <a "
+"href=\"https://ugoira.vercel.app/\">https://ugoira.vercel.app/</a>"
+msgstr ""
+
+#: pyxiv/templates/ugoiraConverter/index.html:11
+msgid "Enter ID"
+msgstr ""
+
+#: pyxiv/templates/ugoiraConverter/index.html:12
+msgid "Go"
+msgstr ""
+
 #: pyxiv/templates/user/bookmarks.html:5
 #, python-format
 msgid "%(user)s's bookmarks (%(total)s)"
@@ -1335,4 +1378,7 @@ msgstr "%(user)s 的漫画"
 #~ "once until you clear cookies for "
 #~ "this website."
 #~ msgstr ""
+
+#~ msgid "Go to ugoira.com for more options"
+#~ msgstr "前往 ugoira.com 进行更多操作"
 
