@@ -1,22 +1,27 @@
 
 const pr = document.querySelector('.console')
 const startbutton = document.querySelector("#start")
-    const pxid = document.querySelector("#id")
-    const format = document.querySelector("#format")
-    const stat = document.querySelector("#status")
+const pxid = document.querySelector("#id")
+const format = document.querySelector("#format")
+const stat = document.querySelector("#status")
+const progress = document.querySelector(".bar .progress")
 
-    const {FFmpeg} = FFmpegWASM
-    const {fetchFile} = FFmpegUtil
-    const ffmpeg = new FFmpeg()
+const {FFmpeg} = FFmpegWASM
+const {fetchFile} = FFmpegUtil
+const ffmpeg = new FFmpeg()
 
-    let isLoaded = false
-    let inProgress = false
+let isLoaded = false
+let inProgress = false
 
-    function setstatus(m) {
-      stat.innerHTML = m
-    }
+function setstatus(m) {
+  stat.innerHTML = m
+}
 
-    async function getMeta(id) {
+function setprogress(p) {
+  progress.style.width = `${p}%`
+}
+
+async function getMeta(id) {
       try {
         const resp = await fetch(`/api/internal/ugoira_meta/${id}`)
         const json = await resp.json()
@@ -31,9 +36,9 @@ const startbutton = document.querySelector("#start")
           frames: ''
         }
       }
-    }
+}
 
-    async function getFrameBlobs(id) {
+async function getFrameBlobs(id) {
       setstatus("Step 2: Getting metadata...")
       const {zipUri, frames} = await getMeta(id)
       setstatus("Step 3: Retrieving zip file")
@@ -49,6 +54,7 @@ const startbutton = document.querySelector("#start")
         ch.push(value)
         recv += value.length
         setstatus(`Step 3: Retrieving zip file: Progress: ${recv} / ${length} bytes`)
+        setprogress(Math.floor((recv / length) * 100))
       }
 
       const zb = new Blob(ch)
@@ -61,15 +67,17 @@ const startbutton = document.querySelector("#start")
       }))
 
       return {frames, blobs}
-    }
+}
 
-    async function convert(id, vfr, ext) {
+async function convert(id, vfr, ext) {
       inProgress = true
       const {frames, blobs} = await getFrameBlobs(id)
       const totalMs = frames.reduce((a, b) => (a += +b.delay, a), 0)
       const rate = frames.length / totalMs * 1000
 
       let ffconcat = 'ffconcat version 1.0\n'
+    
+      setprogress(30)
 
       await Promise.all(frames.map(async e => {
         if (vfr) {
@@ -78,6 +86,8 @@ const startbutton = document.querySelector("#start")
         }
         await ffmpeg.writeFile(e.file, await fetchFile(blobs[e.file]))
       }))
+
+      setprogress(40)
 
       if (vfr) {
         // Fix ffmpeg concat demuxer issue. This will increase the frame count, but will fix the last frame timestamp issue.
@@ -95,6 +105,7 @@ const startbutton = document.querySelector("#start")
         webm: `${inputArg} -c:v libvpx-vp9 -lossless 0 -crf 0 ${id}.webm`,
       }
       setstatus("Step 4: Convert frames to specifed format...")
+      setprogress(70)
       const code = await ffmpeg.exec(cmds[ext].split(/\s+/))
 
       if (code != 0) {
@@ -106,7 +117,7 @@ const startbutton = document.querySelector("#start")
 
       const fileData = await ffmpeg.readFile(`${id}.${ext}`)
       setstatus("Step 5: Finalizing")
-
+      setprogress(70)
       if (['mp4', 'webm'].includes(ext)) {
         const videoBlob = new Blob([new Uint8Array(fileData).buffer], {type: `video/${ext}`})
 
@@ -133,30 +144,33 @@ const startbutton = document.querySelector("#start")
       await Promise.all(frames.map(async e => {
         await ffmpeg.deleteFile(e.file)
       }))
-
+      
+      setprogress(100)
       setstatus("Done")
       inProgress = false
-    }
+}
 
-    async function start() {
+async function start() {
 
       if (inProgress) return
       startbutton.setAttribute("disabled", "")
       setstatus("Step 1: Load ffmpeg.wasm")
       try {
+        setprogress(10)
         if (!isLoaded) {
           await load()
         }
+        setprogress(20)
         await convert(pxid.value, true, format.value)
       } catch (e) {
         setstatus(`ERROR: ${e}`)
       }
       startbutton.removeAttribute("disabled")
-    }
+}
 
-    const load = async () => {
+const load = async () => {
       ffmpeg.on('log', ({message}) => {
-        pr.scrollTo(0, pr.scrollHeight);
+        pr.scrollTo(0, 999999999999);
         pr.innerHTML += message + "\n"
         console.log(message)
       })
@@ -164,8 +178,7 @@ const startbutton = document.querySelector("#start")
         {coreURL: '/static/ugoira-converter/ffmpeg-core.js'}
       )
       isLoaded = true
-    }
+}
 
-    startbutton.addEventListener('click', () => {start()})
+startbutton.addEventListener('click', () => {start()})  
 
-  

@@ -1070,7 +1070,6 @@ div.taglist {
       >svg {
         margin-right: 1em;
         fill: var(--md-sys-color-secondary);
-        transform: translateY(-1px)
       }
     }
   }
@@ -1483,17 +1482,64 @@ div#ranking-calendar {
   }
 }
 
+.bar {
+  height: 6px;
+  width: 100%;
+  border-radius: 999999px;
+  overflow: hidden;
+  background-color: var(--md-sys-color-surface-container-low);
+
+
+  .progress {
+    overflow: hidden;
+    background-color: var(--md-sys-color-tertiary);
+    height: 100%;
+    border-radius: 999999px;
+    transition: 150ms ease;
+    width: 0px;
+
+
+    .anim {
+      background: linear-gradient(90deg, transparent, #dddddd, transparent);
+      width: 80%;
+      height: 100%;
+      animation: .97s ease infinite load
+    }
+  }
+}
+
+@keyframes load {
+  from {
+    transform: translateX(-100%)
+  }
+
+  to {
+    transform: translateX(125%)
+  }
+}
+
 #ugoira-converter {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 2em;
+
   .console {
     min-height: 12em;
     max-height: 12em;
     overflow-y: auto;
-    scroll-behavior: smooth;
   }
 
   video {
-    width: 100%;
+    width: 50%;
     max-height: 450px;
+    border-radius: 24px;
+    background-color: var(--md-sys-color-surface-container);
+    border: 2px solid var(--md-sys-color-outline-variant)
+  }
+
+  .options {
+    flex-shrink: 0;
+    width: 50%;
   }
 }
 
@@ -1621,6 +1667,16 @@ div#ranking-calendar {
 
     .actions #search {
       display: flex;
+    }
+  }
+
+  #ugoira-converter {
+    flex-direction: column;
+    row-gap: 2em;
+
+    video,
+    .options {
+      width: 100% !important;
     }
   }
 

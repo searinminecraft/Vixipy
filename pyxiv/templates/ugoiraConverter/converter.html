@@ -32,27 +32,30 @@ if (!supportsWasm) {
 <div id="ugoira-converter">
   <video loop playsinline controls src="/proxy/ugoira/{{ data._id }}"></video>
 
-  <h3>{{ _("Status") }}</h3>
-  <pre id="status">Status will be shown here.</pre>
-  <h3>{{ _("Console") }}</h3>
-  <pre class="console"></pre>
-  <h3>{{ _("Options") }}</h3>
-  <label>
-    <input type="checkbox" id="vfr"> VFR
-  </label>
-  <br>
-  <label>
+  <div class="options">
+    <h3>{{ _("Status") }}</h3>
+    <pre id="status">Status will be shown here.</pre>
+    <div class="bar"><div class="progress"><div class="anim"></div></div></div>
+    <h3>{{ _("Console") }}</h3>
+    <pre class="console"></pre>
+    <h3>{{ _("Options") }}</h3>
+    <label>
+      <input type="checkbox" id="vfr"> {{ _("Variable Frame Rate") }}
+    </label>
+    <br>
+    <label>
     Format:
-    <select id="format">
-      <option value="gif">GIF</option>
-      <option value="apng">APNG</option>
-      <option value="webm">WebM</option>
-      <option value="webp">WebP</option>
-      <option value="mp4">MP4</option>
-    </select>
-  </label>
-  <br>
-  <button type="button" class="button" id="start">{{ _("Convert") }}</button>
+      <select id="format">
+        <option value="gif">GIF</option>
+        <option value="apng">APNG</option>
+        <option value="webm">WebM</option>
+        <option value="webp">WebP</option>
+        <option value="mp4">MP4</option>
+      </select>
+    </label>
+    <br>
+    <button type="button" class="button" id="start">{{ _("Convert") }}</button>
+  </div>
 </div>
 <input id="id" type="hidden" value="{{ data._id }}">
 <script src="/static/ugoira-converter/ugoira-converter.js"></script>
