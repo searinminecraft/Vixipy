@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-19 14:34+0800\n"
+"POT-Creation-Date: 2025-01-20 18:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -552,7 +552,7 @@ msgid "Rankings"
 msgstr ""
 
 #: pyxiv/templates/rankings.html:6
-#: pyxiv/templates/ugoiraConverter/converter.html:39
+#: pyxiv/templates/ugoiraConverter/converter.html:41
 msgid "Options"
 msgstr ""
 
@@ -849,25 +849,33 @@ msgid "Discover"
 msgstr ""
 
 #: pyxiv/templates/layouts/default.html:83
-msgid "pixivision"
+#: pyxiv/templates/ugoiraConverter/converter.html:2
+#: pyxiv/templates/ugoiraConverter/converter.html:30
+#: pyxiv/templates/ugoiraConverter/index.html:2
+#: pyxiv/templates/ugoiraConverter/index.html:6
+msgid "Ugoira Converter"
 msgstr ""
 
 #: pyxiv/templates/layouts/default.html:87
-#: pyxiv/templates/layouts/default.html:115
+msgid "pixivision"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:91
+#: pyxiv/templates/layouts/default.html:119
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:107
+#: pyxiv/templates/layouts/default.html:111
 msgid "Profile"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:111 pyxiv/templates/user/index.html:66
+#: pyxiv/templates/layouts/default.html:115 pyxiv/templates/user/index.html:66
 msgid "Bookmarks"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:119
+#: pyxiv/templates/layouts/default.html:123
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr ""
@@ -1170,28 +1178,25 @@ msgstr ""
 msgid "Save preferences"
 msgstr ""
 
-#: pyxiv/templates/ugoiraConverter/converter.html:2
-#: pyxiv/templates/ugoiraConverter/converter.html:30
-#: pyxiv/templates/ugoiraConverter/index.html:2
-#: pyxiv/templates/ugoiraConverter/index.html:6
-msgid "Ugoira Converter"
-msgstr ""
-
 #: pyxiv/templates/ugoiraConverter/converter.html:23
 msgid ""
 "Your browser does not seem to have WebAssembly supported or enabled. "
 "Please enable WebAssembly to use the converter."
 msgstr ""
 
-#: pyxiv/templates/ugoiraConverter/converter.html:35
+#: pyxiv/templates/ugoiraConverter/converter.html:36
 msgid "Status"
 msgstr ""
 
-#: pyxiv/templates/ugoiraConverter/converter.html:37
+#: pyxiv/templates/ugoiraConverter/converter.html:39
 msgid "Console"
 msgstr ""
 
-#: pyxiv/templates/ugoiraConverter/converter.html:55
+#: pyxiv/templates/ugoiraConverter/converter.html:43
+msgid "Variable Frame Rate"
+msgstr ""
+
+#: pyxiv/templates/ugoiraConverter/converter.html:57
 msgid "Convert"
 msgstr ""
 
