@@ -17,6 +17,32 @@ class UnknownPixivError(Exception):
     pass
 
 
+def mockSession():
+    return "".join([chr(random.randint(97, 122)) for _ in range(33)])
+
+phpsessid = ""
+sess_acquired = None
+
+async def acquireSession():
+    global phpsessid, sess_acquired
+    if phpsessid != "" and time.time() - sess_acquired <= 60 * 60: # the cookies expires after an hour
+        log.debug("reusing cached token") #spammy
+        return phpsessid
+        
+    log.info("Acquiring new token")
+
+    req = await current_app.pixivApi.get("/")
+
+    for cookie in req.headers.getall("Set-Cookie"):
+        if cookie.startswith("PHPSESSID="):
+            phpsessid = cookie.split(";")[0]
+            sess_acquired = time.time()
+            return phpsessid
+    
+    log.warning(f"Failed to get token! Falling back to mockSession. (Status code: {req.status})")
+    log.warning(await req.text())
+    return "PHPSESSID=" + mockSession()
+
 async def pixivReq(
     method,
     endpoint,
@@ -26,13 +52,14 @@ async def pixivReq(
     jsonPayload: dict = None,
     rawPayload: str = None,
 ):
-
     headers = {"Accept-Language": cfg.PxAcceptLang}
 
     if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
     elif not cfg.AuthlessMode:
         headers["Cookie"] = f"PHPSESSID={cfg.PxSession}"
+    elif cfg.TryAcquireSession:
+        headers["Cookie"] = await acquireSession()
     else:
         mockSessionId = "".join([chr(random.randint(97, 122)) for _ in range(33)])
 

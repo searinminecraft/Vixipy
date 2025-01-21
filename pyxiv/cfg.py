@@ -25,6 +25,7 @@ NoR18 = int(os.environ.get("PYXIV_NOR18", 0)) == 1
 RateLimitsEnabled = int(os.environ.get("PYXIV_RATELIMITS", 0)) == 1
 GitRev = os.environ.get("GIT_REVISION", "unknown")
 GitRepo = os.environ.get("GIT_REPO", "unknown")
+TryAcquireSession = int(os.environ.get("PYXIV_ACQUIRE_SESSION", 0)) == 1
 
 # normalize
 if GitRepo.startswith(
@@ -61,6 +62,7 @@ if not os.path.isfile("pyxiv.running"):
         "Instance name": PxInstanceName,
         "No R18": boolean(NoR18),
         "Rate limiting": boolean(RateLimitsEnabled),
+        "Acquire session": boolean(TryAcquireSession),
     }
 
     longest = ""
