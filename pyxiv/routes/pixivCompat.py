@@ -9,6 +9,11 @@ async def newIllustRedirect():
     return redirect(url_for("newest.newestMain", **request.args), code=308)
 
 
+@bp.route("/new_illust_r18.php")
+async def newIllustR18Redirect():
+    return redirect(url_for("newest.newestMain", **request.args, r18="true"), code=308)
+
+
 @bp.route("/ranking.php")
 async def rankingRedirect():
     return redirect(url_for("rankings.rankingsMain", **request.args), code=308)

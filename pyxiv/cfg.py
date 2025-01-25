@@ -1,7 +1,7 @@
 import os
 import random
 
-Version = "2.3"
+Version = "2.4"
 AuthlessMode = False
 
 
@@ -33,8 +33,12 @@ if GitRepo.startswith(
 ):  # https://codeberg.org/vixipy/vixipy.git/ for example, this strips the leading slash and .git
     GitRepo = GitRepo.removesuffix("/").removesuffix(".git")
 else:  # git@codeberg.org:vixipy/vixipy for example, this turns it into a https url
-    GitRepo = GitRepo.split("@")[1].split(":")
-    GitRepo = "https://" + GitRepo[0] + "/" + GitRepo[1]
+    # in case GitRepo isn't set
+    try:
+        GitRepo = GitRepo.split("@")[1].split(":")
+        GitRepo = "https://" + GitRepo[0] + "/" + GitRepo[1]
+    except Exception:
+        GitRepo = "https://codeberg.org/vixipy/Vixipy"
 
 # we need this file to ensure this function only runs once, since vixipy runs multiple workers
 # it is removed if you shutdown gracefully
@@ -42,8 +46,8 @@ if not os.path.isfile("pyxiv.running"):
     with open("pyxiv.running", "w") as file:
         file.write("yes it is!")
     print(
-        f"""
-        
+        rf"""
+
                 ⠀⠀⠀⠀⢀⡴⣆⠀⠀⠀⠀⠀⣠⡀⠀⠀⠀⠀⠀⠀⣼⣿⡗⠀⠀⠀⠀
                 ⠀⠀⠀⣠⠟⠀⠘⠷⠶⠶⠶⠾⠉⢳⡄⠀⠀⠀⠀⠀⣧⣿⠀⠀⠀⠀⠀
                 ⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣤⣤⣤⣤⣤⣿⢿⣄⠀⠀⠀⠀

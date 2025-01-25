@@ -174,11 +174,11 @@ async def pixivReq(
     return resp
 
 
-async def getLanding(mode: str = "all"):
+async def getLanding(mode: str = "all", content: str = "illust"):
     """
     Get the landing page. Usually the front page of pixiv
     """
-    return await pixivReq("get", f"/ajax/top/illust?mode={mode}")
+    return await pixivReq("get", f"/ajax/top/{content}?mode={mode}")
 
 
 async def getLatestFromFollowing(mode: str, page: int):

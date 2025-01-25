@@ -565,6 +565,35 @@ div.taglist {
       font-weight: bold;
     }
   }
+
+  &.scroll {
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    padding: 1em;
+
+    >* {
+      flex-shrink: 0
+    }
+  }
+}
+
+
+.choice-toggle {
+  a {
+    padding: 12px 18px;
+    color: unset;
+    display: inline-block;
+    border-radius: 999999px;
+    width: 96px;
+    text-align: center;
+    font-weight: bold;
+
+    &.active {
+      background-color: var(--md-sys-color-surface-container)
+    }
+  }
 }
 
 .illust-area {

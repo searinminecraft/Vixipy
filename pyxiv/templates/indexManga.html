@@ -1,0 +1,44 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{ _("Home") }}{% endblock %}
+{% set mode = request.args.get("mode", "all") %}
+{% block content %}
+
+{% if g.get('omittedByFilter') %}
+<i>{{ _("Some entries have been hidden due to filters") }}</i>
+{% endif %}
+
+<div class="container">
+  <div class="taglist scroll">
+    {% for tag in data.tags %}
+    <span>
+      <a href="/tag/{{tag.tag}}">#{{ tag.tag }}</a>
+      {{ tag.tag_translation }}
+    </span>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="component-header">
+  <ul class="tab-navigation">
+    <li><a href="/">{{ _("Illustrations") }}</a></li>
+    <li class="active"><a href="">{{ _("Manga") }}</a></li>
+  </ul>
+  <div class="choice-toggle">
+    <a {% if mode=="all" %}class="active"{% endif %} href="?mode=all">{{ _("All") }}</a>
+    <a {% if mode=="r18" %}class="active"{% endif %} href="?mode=r18">R-18</a>
+  </div>
+</div>
+
+<div class="container">
+	<h2>{{ _("Recommended works") }}</h2>
+	<div class="artwork-container">
+		{% if data.recommended | length > 0 %}
+		{% for d in data.recommended %}
+		{% include "components/artwork-prev.html" %}
+		{% endfor %}
+		{% else %}
+		<p>{{ _("Nothing to show!") }}</p>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

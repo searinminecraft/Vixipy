@@ -24,7 +24,7 @@ import pyxivision
 from . import api
 from . import cfg
 
-from .core.landing import getLandingPage, getLandingRanked
+from .core.landing import getLandingPage, getLandingRanked, getLandingManga
 from .core.user import getUser
 
 from .classes import MemcacheStore
@@ -402,6 +402,15 @@ def create_app():
 
         data = await getLandingRanked()
         return await render_template("index.html", data=data)
+
+    @app.route("/manga")
+    async def manga():
+        if not g.isAuthorized:
+            abort(401)
+
+        mode = request.args.get("mode", "all")
+        data = await getLandingManga(mode)
+        return await render_template("indexManga.html", data=data)
 
     @app.route("/robots.txt")
     def robotsTxt():

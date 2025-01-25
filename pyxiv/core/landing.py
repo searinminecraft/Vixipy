@@ -3,9 +3,11 @@ from ..classes import (
     ArtworkEntry,
     RecommendByTag,
     LandingPageLoggedIn,
+    LandingPageManga,
     RankingEntry,
     RecommendedUser,
     PixivisionEntry,
+    SimpleTag,
 )
 from asyncio import gather
 from ..core.user import getFollowingNew
@@ -56,6 +58,7 @@ async def getLandingPage(mode: str) -> LandingPageLoggedIn:
     artworks = {}
     recommended = []
     recommendByTag = []
+    tags = []
 
     for x in data["thumbnails"]["illust"]:
         artworks[x["id"]] = ArtworkEntry(x)
@@ -76,6 +79,13 @@ async def getLandingPage(mode: str) -> LandingPageLoggedIn:
         res.artworks = filterEntriesFromPreferences(res.artworks)
         recommendByTag.append(res)
 
+    for tag in data["page"]["tags"]:
+        if tag["tag"] in data["tagTranslation"]:
+            translation = data["tagTranslation"][tag["tag"]].get("en")
+        else:
+            translation = None
+        tags.append(SimpleTag({"tag": tag["tag"], "tag_translation": translation}))
+
     pvArticles = [PixivisionEntry(x) for x in data["page"]["pixivision"]]
 
     return LandingPageLoggedIn(
@@ -84,6 +94,36 @@ async def getLandingPage(mode: str) -> LandingPageLoggedIn:
         newFromFollowing,
         recommendedUsers,
         pvArticles,
+        tags,
+    )
+
+
+async def getLandingManga(mode):
+    data = (await getLanding(mode, "manga"))["body"]
+
+    artworks = {}
+    recommended = []
+    tags = []
+
+    for x in data["thumbnails"]["illust"]:
+        artworks[x["id"]] = ArtworkEntry(x)
+
+    for _id in data["page"]["recommend"]["ids"]:
+        if _id in artworks:
+            recommended.append(artworks[_id])
+        else:
+            log.debug("Not appending ", _id, "- not returned by pixiv")
+
+    for tag in data["page"]["tags"]:
+        if tag["tag"] in data["tagTranslation"]:
+            translation = data["tagTranslation"][tag["tag"]].get("en")
+        else:
+            translation = None
+        tags.append(SimpleTag({"tag": tag["tag"], "tag_translation": translation}))
+
+    return LandingPageManga(
+        filterEntriesFromPreferences(recommended),
+        tags,
     )
 
 

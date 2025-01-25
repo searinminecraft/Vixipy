@@ -742,9 +742,21 @@ class LandingPageLoggedIn:
         newestFromFollowing: list[ArtworkEntry],
         recommendedUsers: list[RecommendedUser],
         pixivisionArticles: list[PixivisionEntry],
+        tags: list[SimpleTag],
     ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag
         self.newestFromFollowing: list[ArtworkEntry] = newestFromFollowing
         self.recommendedUsers: list[RecommendedUser] = recommendedUsers
         self.pixivisionArticles: list[PixivisionEntry] = pixivisionArticles
+        self.tags: list[SimpleTag] = tags
+
+
+class LandingPageManga:
+    def __init__(
+        self,
+        recommended: list[ArtworkEntry],
+        tags: list[SimpleTag],
+    ):
+        self.recommended: list[ArtworkEntry] = recommended
+        self.tags: list[SimpleTag] = tags
