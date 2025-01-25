@@ -188,7 +188,20 @@ def create_app():
         app.proxySession = ClientSession(connector_owner=False)
         app.pixivApi = ClientSession(
             "https://www.pixiv.net",
-            headers={"User-Agent": user_agent, "Referer": "https://www.pixiv.net"},
+            headers={
+                "User-Agent": user_agent,
+                "Referer": "https://www.pixiv.net/en/",
+                "Host": "www.pixiv.net",
+                "Pragma": "no-cache",
+                "Priority": "u=4",
+                "Sec-Fetch-Dest": "empty",
+                "Sec-Fetch-Mode": "cors",
+                "Sec-Fetch-Site": "same-origin",
+                "TE": "Trailers",
+                "DNT": "1",
+                "Connection": "keep-alive",
+                "Cache-Control": "no-cache",
+            },
             connector_owner=False,
             cookie_jar=DummyCookieJar(),
         )
@@ -202,7 +215,7 @@ def create_app():
         await app.pyxivision.close()
         try:  # just so it doesn't scream if it fails
             os.remove("pyxiv.running")
-        except:
+        except Exception:
             return
         log.info("Shutting down. Goodbye!")  # only log once
 
@@ -216,7 +229,7 @@ def create_app():
         return "Too many requests\n", 429
 
     @app.errorhandler(api.PixivError)
-    async def handlePxError(e):
+    async def handlePxError(e: api.PixivError):
         resp = await make_response(
             await render_template(
                 "error.html",
@@ -227,7 +240,7 @@ def create_app():
                 ),
             ),
         )
-        return resp, 500
+        return resp, e.code
 
     @app.errorhandler(404)
     async def notFound(e):

@@ -1,7 +1,7 @@
 from quart import current_app, g, abort
 from . import cfg
 import time
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 import logging
 import random
 from http import HTTPStatus
@@ -10,7 +10,11 @@ log = logging.getLogger("vixipy.api")
 
 
 class PixivError(Exception):
-    pass
+    def __init__(self, message: str, code: int = None):
+        self.message: str = message
+        self.code: int = code
+    def __str__(self):
+        return self.message
 
 
 class UnknownPixivError(Exception):
@@ -18,6 +22,10 @@ class UnknownPixivError(Exception):
 
 
 def mockSession():
+    """
+    Generates a 33 character long random string, mimicking pixiv's
+    behavior of giving a random PHPSESSID.
+    """
     return "".join([chr(random.randint(97, 122)) for _ in range(33)])
 
 
@@ -51,27 +59,42 @@ async def acquireSession():
 
 
 async def pixivReq(
-    method,
-    endpoint,
+    method: str,
+    endpoint: str,
     additionalHeaders: dict = {},
     useMobileAgent=False,
     *,
     jsonPayload: dict = None,
     rawPayload: str = None,
 ):
+    """
+    Send a request to pixiv servers.
+
+    Parameters:
+    ===========
+
+    `str` method: The method to use
+    `str` endpoint: Endpoint to get
+    `dict` additionalHeaders: Additional headers to pass
+    `dict` jsonPayload: JSON payload to send for POST requests
+    `str` rawPayload: The raw payload to send for POST requests
+    """
     headers = {"Accept-Language": cfg.PxAcceptLang}
 
     if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
+        try:
+            headers["X-User-Id"] = str(int(g.userPxSession.split("_")[0]))
+        except KeyError:
+            pass
     elif not cfg.AuthlessMode:
         headers["Cookie"] = f"PHPSESSID={cfg.PxSession}"
     elif cfg.TryAcquireSession:
         headers["Cookie"] = await acquireSession()
     else:
-        mockSessionId = "".join([chr(random.randint(97, 122)) for _ in range(33)])
-
+        mockSessionId = mockSession()
         headers["Cookie"] = f"PHPSESSID={mockSessionId}"
-    if g.userPxCSRF:
+    if g.userPxCSRF and method.lower() == "post":
         headers["x-csrf-token"] = g.userPxCSRF
     if useMobileAgent:
         headers["User-Agent"] = (
@@ -80,7 +103,17 @@ async def pixivReq(
     if rawPayload:
         headers["Content-Type"] = "application/x-www-form-urlencoded"
 
+    if endpoint.startswith("/ajax"):
+        params = urlparse(endpoint).query.split("&")
+        if params[0] != "" or len(params) >= 2:
+            endpoint += "&lang=en"
+        else:
+            endpoint += "?lang=en"
+
     log.info(f"Requesting {endpoint} with method {method}...")
+    log.debug(
+        "Headers: %s", {**current_app.pixivApi.headers, **headers, **additionalHeaders}
+    )
 
     start = time.perf_counter()
     req = await current_app.pixivApi.request(
@@ -95,6 +128,7 @@ async def pixivReq(
     log.info(
         f"{endpoint} Result status {req.status} {HTTPStatus(req.status).name} - {round((end - start) * 1000)}ms"
     )
+    log.debug(req.request_info)
 
     if req.status == 429:
         raise PixivError("Rate limited")
@@ -119,7 +153,7 @@ async def pixivReq(
                     req.status,
                     resp["message"],
                 )
-                raise PixivError(resp["message"])
+                raise PixivError(resp["message"], req.status)
             except KeyError:
                 try:
                     log.error(
@@ -128,14 +162,14 @@ async def pixivReq(
                         req.status,
                         resp["error"],
                     )
-                    raise PixivError(resp["error"])
+                    raise PixivError(resp["error"], req.status)
                 except KeyError:
                     log.error(
                         "An unknown error occurred trying to get %s: Status code %d",
                         req.url,
                         req.status,
                     )
-                    raise PixivError("Unknown error")
+                    raise PixivError("Unknown error", req.status)
 
     return resp
 

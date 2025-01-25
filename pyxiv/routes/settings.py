@@ -17,7 +17,6 @@ import re
 import urllib.parse
 import logging
 from aiohttp import ClientSession
-import logging
 
 from .. import api
 from .. import cfg
@@ -115,17 +114,34 @@ async def setSession():
 
     if f.get("token") and f.get("token") != "":
 
-        g.userPxSession = f["token"]
+        try:
+            tokenparts = f["token"].split("_")
+            if len(tokenparts) < 2 or len(tokenparts) > 2:
+                await flash(_("Invalid token"), "error")
+                return redirect(url_for("settings.mainSettings", ep="account"))
+            id_ = int(f["token"].split("_")[0])
+        except Exception:
+            await flash(_("Invalid token"), "error")
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
-        req = await current_app.pixivApi.get(
-            "/en/artworks/99818936",
-            headers={
-                "Cookie": f"PHPSESSID={f['token']}",
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
-            },
-        )
+        log.debug("Logging in user %d", id_)
+        try:
+            req = await current_app.pixivApi.get(
+                "/en/artworks/99818936",
+                headers={
+                    "Cookie": f"PHPSESSID={f['token']}",
+                    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+                },
+            )
+        except Exception as e:
+            log.exception("Login error: exception occurred")
+            await flash(
+                _("An exception occurred trying to log in: %s", str(e)), "error"
+            )
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
         if req.status != 200:
+            log.debug("Login error: pixiv returned %d", req.status)
             await flash(
                 _(
                     "Cannot use token. pixiv returned code %(status)d",
@@ -140,14 +156,19 @@ async def setSession():
         try:
             csrf = r.group(1)
         except IndexError:
+            log.debug("Could not extract CSRF token")
             await flash(_("Unable to extract CSRF"), "error")
             return redirect(url_for("settings.settingsMain", ep="account"))
 
         try:
-            await api.pixivReq("get", "/ajax/user/extra")
+            log.debug("Verifying session token...")
+            await api.pixivReq(
+                "get", "/ajax/user/extra", additionalHeaders={"Cookie": f"PHPSESSID={f['token']}"}
+            )
         except api.PixivError as e:
             await flash(_("Cannot use token: %(error)s", error=e), "error")
             return redirect(url_for("settings.mainSettings", ep="account"))
+        log.debug("Login for user %d successful", id_)
 
         resp = await make_response(
             redirect(url_for("settings.mainSettings", ep="account"), code=303)
