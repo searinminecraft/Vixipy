@@ -8,17 +8,18 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-20 18:01+0800\n"
-"PO-Revision-Date: 2025-01-06 06:40+0000\n"
-"Last-Translator: divergency "
-"<divergency@users.noreply.translate.codeberg.org>\n"
+"PO-Revision-Date: 2025-01-26 04:46+0000\n"
+"Last-Translator: divergency <divergency@users.noreply.translate.codeberg.org>"
+"\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ru/>\n"
 "Language: ru\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ru/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:223
@@ -333,9 +334,8 @@ msgid "Download"
 msgstr "Загрузить"
 
 #: pyxiv/templates/artwork.html:31
-#, fuzzy
 msgid "More download options..."
-msgstr "Больше Опций..."
+msgstr "Больше опций загрузки..."
 
 #: pyxiv/templates/artwork.html:66
 msgid "AI generated"
@@ -352,7 +352,7 @@ msgstr "Отключен"
 #: pyxiv/templates/artwork.html:116
 #, python-format
 msgid "Sensitivity level: %(sl)d"
-msgstr ""
+msgstr "Уровень чувствительности: %(sl)d"
 
 #: pyxiv/templates/artwork.html:120
 msgid "View on pixiv"
@@ -515,7 +515,7 @@ msgstr "Вы покидаете Vixipy."
 #: pyxiv/templates/leave.html:8
 #, python-format
 msgid "Continuing will direct you to %(dest)s."
-msgstr ""
+msgstr "Если вы продолжите, вы будете перенаправлены на %(dest)s."
 
 #: pyxiv/templates/leave.html:10
 msgid ""
@@ -527,9 +527,8 @@ msgstr ""
 "href='https://www.torproject.org/'>Tor</a> рекомендовано."
 
 #: pyxiv/templates/leave.html:16
-#, fuzzy
 msgid "Possibly sensitive content ahead!"
-msgstr "Скрыть контент потенциально деликатного характера"
+msgstr "Потенциально чувствительный контент!"
 
 #: pyxiv/templates/leave.html:17
 msgid ""
@@ -537,10 +536,13 @@ msgid ""
 "contents, mostly behind a one-time fee or monthly subscription. Watch out"
 " for these kinds of content!"
 msgstr ""
+"Этот домен в основном используются для того, чтобы делиться чувствительным "
+"или по-другому R-18 контентом, в большинстве своем за одноразовой коммиссией "
+"или ежемесячной подпиской. Будьте внимательны с такими типами контента!"
 
 #: pyxiv/templates/leave.html:22
 msgid "Continue to site"
-msgstr ""
+msgstr "Продолжить к сайту"
 
 #: pyxiv/templates/layouts/default.html:78 pyxiv/templates/newest.html:2
 msgid "Newest"
@@ -681,30 +683,31 @@ msgstr "Ответы"
 
 #: pyxiv/templates/sensitivityWarning.html:2
 msgid "Sensitivity Warning"
-msgstr ""
+msgstr "Предупреждение о Чувствительности"
 
 #: pyxiv/templates/sensitivityWarning.html:7
-#, fuzzy
 msgid "Sensitive content ahead!"
-msgstr "Скрыть контент потенциально деликатного характера"
+msgstr "Чувствительный контент!"
 
 #: pyxiv/templates/sensitivityWarning.html:8
 msgid "This page contains sensitive or explicit content. Do you want to continue?"
 msgstr ""
+"Эта страница содержит чувствительный или откровенный контент. Вы хотите "
+"продолжить?"
 
 #: pyxiv/templates/sensitivityWarning.html:10
 msgid "This warning will only show up once until you restart your browser."
 msgstr ""
+"Это предупреждение появится только один раз до момента пока вы не "
+"перезапустите свой браузер."
 
 #: pyxiv/templates/sensitivityWarning.html:14
-#, fuzzy
 msgid "Go back"
-msgstr "Назад"
+msgstr "Вернуться назад"
 
 #: pyxiv/templates/sensitivityWarning.html:15
-#, fuzzy
 msgid "Continue"
-msgstr "Контент:"
+msgstr "Продолжить"
 
 #: pyxiv/templates/tag.html:19
 #, python-format
@@ -908,7 +911,7 @@ msgstr "Исследовать"
 #: pyxiv/templates/ugoiraConverter/index.html:2
 #: pyxiv/templates/ugoiraConverter/index.html:6
 msgid "Ugoira Converter"
-msgstr ""
+msgstr "Конвертер Угойры"
 
 #: pyxiv/templates/layouts/default.html:87
 msgid "pixivision"
@@ -1291,38 +1294,40 @@ msgid ""
 "Your browser does not seem to have WebAssembly supported or enabled. "
 "Please enable WebAssembly to use the converter."
 msgstr ""
+"По всей видимости, ваш браузер не поддерживает WebAssembly, или он не "
+"включен. Пожалуйста, включите WebAssembly, чтобы использовать конвертер."
 
 #: pyxiv/templates/ugoiraConverter/converter.html:36
-#, fuzzy
 msgid "Status"
-msgstr "Штампы"
+msgstr "Статус"
 
 #: pyxiv/templates/ugoiraConverter/converter.html:39
 msgid "Console"
-msgstr ""
+msgstr "Консоль"
 
 #: pyxiv/templates/ugoiraConverter/converter.html:43
 msgid "Variable Frame Rate"
-msgstr ""
+msgstr "Переменная Частота Кадров"
 
 #: pyxiv/templates/ugoiraConverter/converter.html:57
-#, fuzzy
 msgid "Convert"
-msgstr "Исследовать"
+msgstr "Конвертировать"
 
 #: pyxiv/templates/ugoiraConverter/index.html:7
 msgid ""
 "Based on the code of <a "
 "href=\"https://ugoira.vercel.app/\">https://ugoira.vercel.app/</a>"
 msgstr ""
+"Основано на коде <a href=\"https://ugoira.vercel.app/\""
+">https://ugoira.vercel.app</a>"
 
 #: pyxiv/templates/ugoiraConverter/index.html:11
 msgid "Enter ID"
-msgstr ""
+msgstr "Впишите ID"
 
 #: pyxiv/templates/ugoiraConverter/index.html:12
 msgid "Go"
-msgstr ""
+msgstr "Перейти"
 
 #: pyxiv/templates/user/bookmarks.html:5
 #, python-format
@@ -1397,4 +1402,3 @@ msgstr "Манга %(user)s'а"
 
 #~ msgid "Go to ugoira.com for more options"
 #~ msgstr "Перейти на ugoira.com для других опций"
-
