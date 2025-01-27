@@ -153,11 +153,12 @@ For example, you can theme your instance by making `pyxiv/instance/instance.css`
 
 # Instance List
 > If you're interested in hosting a Vixipy instance and want to be here, please [file an issue](https://codeberg.org/vixipy/Vixipy/issues/new?template=.forgejo%2fissue_template%2fnew_instance.yml).
+> See https://maid.zone/vixipy/instances.html for an updating status and config information.
 
 | Name | Address | Onion | I2P | Cloudflare? | Country | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | maid.zone | https://vx.maid.zone  | [yes](http://vx.maidzonekwrk4xbbmynqnprq2lu7picruncfscfwmyzbmec6naurhyqd.onion/) | no |no | DE | |
-| NeonW     | http://neonw.su:10353 | no                                                                               | no | no | KZ | rolling instance and will always be on latest version. Warning: insecure |
+| NeonW     | http://neonw.su:10353 | no                                                                               | no | [yes](http://pgk3uwr2sui7qob6aso2b5i7ubmdyf6btk2kjmyr754nh2yggdaq.b32.i2p) | KZ | rolling instance and will always be on latest version. Warning: insecure |
 | TorVixipy | none                    | [yes](http://mvrlopacpgnjh2rsykqwtwvxkeozzumo7rfy5uawjv4fnm2top5kdqqd.onion/)  | [yes](http://kw7udvyvztn4ypdsidahzf4kd3fag6loouucnzwgqflgv7y7ek3a.b32.i2p) | no | UA | | 
 
 
