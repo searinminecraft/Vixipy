@@ -724,7 +724,7 @@ class NewsArticle:
 
         for iframe in s.find_all("iframe"):
             src = iframe.get("src")
-            iframe.attrs["src"] = "about:blank"
+            iframe.attrs["src"] = "/static/blocked.html"
 
         self.msg = s        
 

@@ -147,15 +147,6 @@ body {
   accent-color: var(--md-sys-color-primary);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal
-}
-
 a {
   text-decoration: none;
   color: var(--md-sys-color-primary)
@@ -1605,16 +1596,12 @@ div#ranking-calendar {
 
   iframe {
     border-radius: 24px;
-    width: 100%
+    width: 100%;
+    background-color: var(--md-sys-color-surface-container-high);
   }
 
   > div {
-    margin-top: 2em;
-
-    span {
-      display: block;
-      margin-bottom: 4px
-    }
+    margin-bottom: 1em;
   }
 }
 
