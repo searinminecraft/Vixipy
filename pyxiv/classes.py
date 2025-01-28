@@ -1,4 +1,4 @@
-from .utils.converters import makeProxy
+from .utils.converters import makeProxy, makeJumpPhp
 from datetime import datetime
 from bs4 import BeautifulSoup
 from urllib.parse import quote
@@ -704,6 +704,34 @@ class Notification:
         self.type: str = data["type"]
 
 
+class NewsArticle:
+    def __init__(self, data):
+        e = data["entry"]
+        self.categoryId: int = int(e["categoryId"])
+        self.date: datetime = datetime.strptime(e["date"], "%Y-%m-%d %H:%M:%S")
+        self.id: int = int(e["id"])
+        msg: str = e["msg"]
+
+        s = BeautifulSoup(msg, "html.parser")
+
+        for link in s.find_all("a"):
+            l = link.get('href')
+            link.attrs["href"] = makeJumpPhp(l)
+
+        for img in s.find_all("img"):
+            src = img.get("src")
+            img.attrs["src"] = makeProxy(src)
+
+        for iframe in s.find_all("iframe"):
+            src = iframe.get("src")
+            iframe.attrs["src"] = "about:blank"
+
+        self.msg = s        
+
+        self.originId: int = int(e["originId"])
+        self.title: str = e["title"]
+
+
 class ArtworkDetailsPage:
     def __init__(
         self,
@@ -715,7 +743,7 @@ class ArtworkDetailsPage:
     ):
 
         self.artwork: Artwork = artwork
-        self.pages: list[Artwork] = pages
+        self.pages: list[ArtworkPage] = pages
         self.user: User = user
         self.related: list[ArtworkEntry] = related
         self.userIllusts: list[ArtworkEntry] = userIllusts

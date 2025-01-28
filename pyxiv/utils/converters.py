@@ -1,4 +1,8 @@
 from quart import g
+from urllib.parse import quote
+
+def makeJumpPhp(url: str) -> str:
+    return f"/jump.php?url={quote(url)}"
 
 
 def makeProxy(url: str) -> str:

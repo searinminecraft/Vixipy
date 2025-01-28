@@ -515,3 +515,21 @@ async def getFrequentTags(ids: list[int]):
             path += f"&ids[]={int(v)}"
 
     return await pixivReq("get", path)
+
+
+async def getNews():
+    """Get news from pixiv"""
+    return await pixivReq("get", "/ajax/info/page/top?device=desktop")
+
+
+async def getNewsEntries(category: int):
+    """Get news entries by category ID"""
+    if category not in range(0,7):
+        raise ValueError(f"Invalid category ID: {category}")
+
+    return await pixivReq("get", f"/ajax/info/page/entries?device=desktop&cid={category}")
+
+
+async def getNewsEntry(newsId: int):
+    """Get news entry"""
+    return await pixivReq("get", f"/ajax/info/page/entries/{newsId}?device=desktop")

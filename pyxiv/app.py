@@ -44,6 +44,7 @@ from .routes import (
     pixivCompat,
     api as _api,
     ugoiraconverter,
+    news,
 )
 
 log = logging.getLogger()
@@ -177,6 +178,7 @@ def create_app():
     app.register_blueprint(pixivCompat.bp)
     app.register_blueprint(_api.bp)
     app.register_blueprint(ugoiraconverter.bp)
+    app.register_blueprint(news.bp)
 
     @app.before_serving
     async def startup():
