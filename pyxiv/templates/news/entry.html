@@ -2,5 +2,11 @@
 {% block title %}{{ data.title }}{% endblock %}
 
 {% block content %}
-{{ data.msg | safe }}
+
+<div id="news">
+	<h1>{{ data.title }}</h1>
+	<small>{{ _("Posted on %(date)s", date=data.date | dateformat) }}</small>
+
+	{{ data.msg | safe }}
+</div>
 {% endblock %}

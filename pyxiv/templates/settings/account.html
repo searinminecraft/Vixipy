@@ -46,6 +46,11 @@
 	<button type="submit" class="button danger">{{ _("Log out") }}</button>
 </form>
 
+<h2>{{ _("Your pixiv session token") }}</h2>
+<p>{{ _("This is your pixiv <code>PHPSESSID</code> cookie, used to authenticate you on pixiv. You can copy this in case you want to switch instances or if you forget it. Hover to reveal.") }}</p>
+
+<pre class="user-account-token"><span>{{request.cookies.get("PyXivSession")}}</span></pre>
+
 
 {% endif %}
 {% endblock %}

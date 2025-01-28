@@ -915,6 +915,14 @@ div.taglist {
         }
       }
     }
+
+    pre.user-account-token > span {
+      filter: blur(12px);
+
+      &:hover {
+        filter: unset !important
+      }
+    }
   }
 }
 
@@ -1578,6 +1586,38 @@ div#ranking-calendar {
   }
 }
 
+#news {
+  padding: 1em;
+
+  h1 {
+    font-size: 3.5em;
+    margin: 6px 0;
+  }
+
+  small {
+    color: var(--md-sys-color-outline)
+  }
+  
+  img {
+    border-radius: 24px;
+    margin: 1em 0;
+  }
+
+  iframe {
+    border-radius: 24px;
+    width: 100%
+  }
+
+  > div {
+    margin-top: 2em;
+
+    span {
+      display: block;
+      margin-bottom: 4px
+    }
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --container-backdrop: rgb(35, 30, 35, 80%);
@@ -1691,6 +1731,11 @@ div#ranking-calendar {
 }
 
 @media screen and (max-width: 750px) {
+
+  #news h1 {
+    font-size: revert
+  }
+
   header {
     #searchbox {
       display: none
