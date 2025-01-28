@@ -20,6 +20,7 @@ from aiohttp import ClientSession
 
 from .. import api
 from .. import cfg
+from ..utils.extractors import extract_p_ab_d_id
 
 from ..core.user import getUserSettingsState
 
@@ -151,13 +152,18 @@ async def setSession():
             )
             return redirect(url_for("settings.mainSettings", ep="account"))
 
-        r = re.search(csrfMatch, await req.text())
-
+        data = await req.text()
+        r = re.search(csrfMatch, data)
         try:
             csrf = r.group(1)
         except IndexError:
             log.debug("Could not extract CSRF token")
             await flash(_("Unable to extract CSRF"), "error")
+            return redirect(url_for("settings.settingsMain", ep="account"))
+
+        p_ab_d_id = await extract_p_ab_d_id(f['token'])
+        if p_ab_d_id == "":
+            await flash(_("Unable to extract p_ab_d_id"), "error")
             return redirect(url_for("settings.settingsMain", ep="account"))
 
         try:
@@ -177,6 +183,7 @@ async def setSession():
             "PyXivSession", f["token"], max_age=COOKIE_MAXAGE, httponly=True
         )
         resp.set_cookie("PyXivCSRF", csrf, max_age=COOKIE_MAXAGE, httponly=True)
+        resp.set_cookie("Vixipy-p_ab_d_id", p_ab_d_id, max_age=COOKIE_MAXAGE, httponly=True)
         return resp
     else:
         flash(_("No token was supplied."), "error")

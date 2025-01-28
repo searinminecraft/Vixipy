@@ -332,6 +332,7 @@ def create_app():
         g.userPxSession = request.cookies.get("PyXivSession")
         g.userPxCSRF = request.cookies.get("PyXivCSRF")
         g.userProxyServer = request.cookies.get("PyXivProxy", "")
+        g.user_p_ab_d_id = request.cookies.get("Vixipy-p_ab_d_id", "")
 
         if (not g.userPxSession and not g.userPxCSRF) or g.userPxSession == "":
             g.isAuthorized = False

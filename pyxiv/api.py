@@ -1,5 +1,7 @@
 from quart import current_app, g, abort
 from . import cfg
+from .utils.extractors import extract_p_ab_d_id
+
 import time
 from urllib.parse import quote, urlparse
 import logging
@@ -13,6 +15,7 @@ class PixivError(Exception):
     def __init__(self, message: str, code: int = None):
         self.message: str = message
         self.code: int = code
+
     def __str__(self):
         return self.message
 
@@ -30,8 +33,18 @@ def mockSession():
 
 
 phpsessid = ""
+p_ab_d_id = ""
 sess_acquired = None
 
+async def acquire_p_ab(phpsessid: str = None):
+    global p_ab_d_id
+    if p_ab_d_id != "":
+        log.debug("Reuse p_ab_d_id: %s", p_ab_d_id)
+        return p_ab_d_id
+
+    res = await extract_p_ab_d_id(phpsessid)
+    p_ab_d_id = res
+    return res
 
 async def acquireSession():
     global phpsessid, sess_acquired
@@ -83,17 +96,19 @@ async def pixivReq(
 
     if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
+        if g.user_p_ab_d_id:
+            headers["Cookie"] += f"; p_ab_d_id={g.user_p_ab_d_id}; p_ab_id=8; p_ab_id_2=4"
         try:
             headers["X-User-Id"] = str(int(g.userPxSession.split("_")[0]))
         except KeyError:
             pass
-    elif not cfg.AuthlessMode:
-        headers["Cookie"] = f"PHPSESSID={cfg.PxSession}"
+    elif not cfg.AuthlessMode and not g.userPxSession:
+        headers["Cookie"] = f"PHPSESSID={cfg.PxSession}; p_ab_d_id={await acquire_p_ab(cfg.PxSession)}; p_ab_id=8; p_ab_id_2=4"
     elif cfg.TryAcquireSession:
         headers["Cookie"] = await acquireSession()
     else:
         mockSessionId = mockSession()
-        headers["Cookie"] = f"PHPSESSID={mockSessionId}"
+        headers["Cookie"] = f"PHPSESSID={mockSessionId}; p_ab_d_id={await acquire_p_ab()}"
     if g.userPxCSRF and method.lower() == "post":
         headers["x-csrf-token"] = g.userPxCSRF
     if useMobileAgent:
