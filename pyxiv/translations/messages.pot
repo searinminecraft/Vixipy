@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-20 18:01+0800\n"
+"POT-Creation-Date: 2025-01-28 18:53+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,56 +17,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:223
+#: pyxiv/app.py:238
 msgid "pixiv Error!"
 msgstr ""
 
-#: pyxiv/app.py:226
+#: pyxiv/app.py:241
 #, python-format
 msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
 msgstr ""
 
-#: pyxiv/app.py:226
+#: pyxiv/app.py:241
 msgid "Unspecified error"
 msgstr ""
 
-#: pyxiv/app.py:237
+#: pyxiv/app.py:252
 msgid "Not found"
 msgstr ""
 
-#: pyxiv/app.py:238
+#: pyxiv/app.py:253
 msgid "The requested resource could not be found."
 msgstr ""
 
-#: pyxiv/app.py:248
+#: pyxiv/app.py:263
 msgid "Bad request"
 msgstr ""
 
-#: pyxiv/app.py:249
+#: pyxiv/app.py:264
 msgid "The server could not satisfy the request."
 msgstr ""
 
-#: pyxiv/app.py:259
+#: pyxiv/app.py:274
 msgid "Forbidden"
 msgstr ""
 
-#: pyxiv/app.py:260
+#: pyxiv/app.py:275
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: pyxiv/app.py:270
+#: pyxiv/app.py:285
 msgid "Unauthorized"
 msgstr ""
 
-#: pyxiv/app.py:272
+#: pyxiv/app.py:287
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 
-#: pyxiv/app.py:285
+#: pyxiv/app.py:300
 msgid "Method Not Allowed"
 msgstr ""
 
-#: pyxiv/app.py:286
+#: pyxiv/app.py:301
 msgid "This method is not allowed for this endpoint"
 msgstr ""
 
@@ -131,80 +131,93 @@ msgstr ""
 msgid "Sun"
 msgstr ""
 
-#: pyxiv/routes/settings.py:130
+#: pyxiv/routes/settings.py:121 pyxiv/routes/settings.py:125
+msgid "Invalid token"
+msgstr ""
+
+#: pyxiv/routes/settings.py:140
+#, python-format
+msgid "An exception occurred trying to log in: %s"
+msgstr ""
+
+#: pyxiv/routes/settings.py:147
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr ""
 
-#: pyxiv/routes/settings.py:143
+#: pyxiv/routes/settings.py:161
 msgid "Unable to extract CSRF"
 msgstr ""
 
-#: pyxiv/routes/settings.py:149
+#: pyxiv/routes/settings.py:166
+msgid "Unable to extract p_ab_d_id"
+msgstr ""
+
+#: pyxiv/routes/settings.py:175
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:161
+#: pyxiv/routes/settings.py:189
 msgid "No token was supplied."
 msgstr ""
 
-#: pyxiv/routes/settings.py:171
+#: pyxiv/routes/settings.py:199
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr ""
 
-#: pyxiv/routes/settings.py:181 pyxiv/routes/settings.py:278
+#: pyxiv/routes/settings.py:209 pyxiv/routes/settings.py:306
 msgid "Successfully set proxy server"
 msgstr ""
 
-#: pyxiv/routes/settings.py:198
+#: pyxiv/routes/settings.py:226
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:204
+#: pyxiv/routes/settings.py:232
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:213
+#: pyxiv/routes/settings.py:241
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:219
+#: pyxiv/routes/settings.py:247
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
 msgstr ""
 
-#: pyxiv/routes/settings.py:253
+#: pyxiv/routes/settings.py:281
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
 
-#: pyxiv/routes/settings.py:262
+#: pyxiv/routes/settings.py:290
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:273
+#: pyxiv/routes/settings.py:301
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:323
+#: pyxiv/routes/settings.py:351
 msgid "Successfully set preferences"
 msgstr ""
 
-#: pyxiv/routes/settings.py:334 pyxiv/routes/settings.py:354
+#: pyxiv/routes/settings.py:362 pyxiv/routes/settings.py:382
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:345 pyxiv/routes/settings.py:364
+#: pyxiv/routes/settings.py:373 pyxiv/routes/settings.py:392
 msgid "Successfully set language."
 msgstr ""
 
@@ -325,7 +338,7 @@ msgstr ""
 msgid "View on pixiv"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:129 pyxiv/templates/index.html:70
+#: pyxiv/templates/artwork.html:129 pyxiv/templates/index.html:93
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr ""
@@ -335,8 +348,8 @@ msgid "Related"
 msgstr ""
 
 #: pyxiv/templates/artwork.html:142 pyxiv/templates/discover.html:7
-#: pyxiv/templates/index.html:8 pyxiv/templates/newest.html:7
-#: pyxiv/templates/tag.html:29
+#: pyxiv/templates/index.html:9 pyxiv/templates/indexManga.html:7
+#: pyxiv/templates/newest.html:7 pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
 msgstr ""
 
@@ -432,33 +445,50 @@ msgstr ""
 msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
-#: pyxiv/templates/index.html:2 pyxiv/templates/layouts/default.html:59
-#: pyxiv/templates/user/index.html:63
+#: pyxiv/templates/index.html:2 pyxiv/templates/indexManga.html:2
+#: pyxiv/templates/layouts/default.html:59 pyxiv/templates/user/index.html:63
 msgid "Home"
 msgstr ""
 
-#: pyxiv/templates/index.html:12
+#: pyxiv/templates/index.html:25 pyxiv/templates/indexManga.html:23
+#: pyxiv/templates/newest.html:17 pyxiv/templates/rankings.html:14
+#: pyxiv/templates/user/index.html:64
+msgid "Illustrations"
+msgstr ""
+
+#: pyxiv/templates/index.html:26 pyxiv/templates/indexManga.html:24
+#: pyxiv/templates/newest.html:18 pyxiv/templates/rankings.html:15
+#: pyxiv/templates/user/index.html:65
+msgid "Manga"
+msgstr ""
+
+#: pyxiv/templates/index.html:29 pyxiv/templates/indexManga.html:27
+#: pyxiv/templates/tag.html:133
+msgid "All"
+msgstr ""
+
+#: pyxiv/templates/index.html:35
 msgid "Latest from following"
 msgstr ""
 
-#: pyxiv/templates/index.html:19 pyxiv/templates/index.html:32
-#: pyxiv/templates/tag.html:87
+#: pyxiv/templates/index.html:42 pyxiv/templates/index.html:55
+#: pyxiv/templates/indexManga.html:40 pyxiv/templates/tag.html:87
 msgid "Nothing to show!"
 msgstr ""
 
-#: pyxiv/templates/index.html:25
+#: pyxiv/templates/index.html:48 pyxiv/templates/indexManga.html:33
 msgid "Recommended works"
 msgstr ""
 
-#: pyxiv/templates/index.html:38 pyxiv/templates/index.html:69
+#: pyxiv/templates/index.html:61 pyxiv/templates/index.html:92
 msgid "Today's Rankings"
 msgstr ""
 
-#: pyxiv/templates/index.html:47
+#: pyxiv/templates/index.html:70
 msgid "Recommended users"
 msgstr ""
 
-#: pyxiv/templates/index.html:57
+#: pyxiv/templates/index.html:80
 msgid "Recommended artworks with tag"
 msgstr ""
 
@@ -504,14 +534,8 @@ msgstr ""
 msgid "Newest from all users"
 msgstr ""
 
-#: pyxiv/templates/newest.html:17 pyxiv/templates/rankings.html:14
-#: pyxiv/templates/user/index.html:64
-msgid "Illustrations"
-msgstr ""
-
-#: pyxiv/templates/newest.html:18 pyxiv/templates/rankings.html:15
-#: pyxiv/templates/user/index.html:65
-msgid "Manga"
+#: pyxiv/templates/newest.html:21
+msgid "General"
 msgstr ""
 
 #: pyxiv/templates/components/navbar.html:20
@@ -698,10 +722,6 @@ msgstr ""
 msgid "Safe"
 msgstr ""
 
-#: pyxiv/templates/tag.html:133
-msgid "All"
-msgstr ""
-
 #: pyxiv/templates/tag.html:134
 msgid "R-18"
 msgstr ""
@@ -880,7 +900,7 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: pyxiv/templates/pixivision/article.html:15
+#: pyxiv/templates/news/entry.html:8 pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:58
 #, python-format
 msgid "Posted on %(date)s"
@@ -1026,6 +1046,17 @@ msgstr ""
 msgid ""
 "<strong>Notice:</strong> By logging in, you agree that the instance will "
 "be sending requests on behalf of <strong>your account</strong>."
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:49
+msgid "Your pixiv session token"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:50
+msgid ""
+"This is your pixiv <code>PHPSESSID</code> cookie, used to authenticate "
+"you on pixiv. You can copy this in case you want to switch instances or "
+"if you forget it. Hover to reveal."
 msgstr ""
 
 #: pyxiv/templates/settings/language.html:6
