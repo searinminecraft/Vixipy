@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-28 18:53+0800\n"
+"POT-Creation-Date: 2025-01-29 12:56+0800\n"
 "PO-Revision-Date: 2025-01-23 19:37+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
 "Language: zh_Hans\n"
@@ -483,7 +483,8 @@ msgid "Latest from following"
 msgstr "来自关注用户的最新作品"
 
 #: pyxiv/templates/index.html:42 pyxiv/templates/index.html:55
-#: pyxiv/templates/indexManga.html:40 pyxiv/templates/tag.html:87
+#: pyxiv/templates/indexManga.html:40 pyxiv/templates/news/category.html:37
+#: pyxiv/templates/news/index.html:34 pyxiv/templates/tag.html:87
 msgid "Nothing to show!"
 msgstr "空空如也！"
 
@@ -894,31 +895,86 @@ msgstr "动图转换器"
 msgid "pixivision"
 msgstr "pixivision"
 
-#: pyxiv/templates/layouts/default.html:91
-#: pyxiv/templates/layouts/default.html:119
+#: pyxiv/templates/layouts/default.html:91 pyxiv/templates/news/category.html:2
+#: pyxiv/templates/news/category.html:24 pyxiv/templates/news/index.html:2
+#, fuzzy
+msgid "pixiv News"
+msgstr "pixiv 错误！"
+
+#: pyxiv/templates/layouts/default.html:95
+#: pyxiv/templates/layouts/default.html:123
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr "设置"
 
-#: pyxiv/templates/layouts/default.html:111
+#: pyxiv/templates/layouts/default.html:115
 msgid "Profile"
 msgstr "资料"
 
-#: pyxiv/templates/layouts/default.html:115 pyxiv/templates/user/index.html:66
+#: pyxiv/templates/layouts/default.html:119 pyxiv/templates/user/index.html:66
 msgid "Bookmarks"
 msgstr "收藏"
 
-#: pyxiv/templates/layouts/default.html:123
+#: pyxiv/templates/layouts/default.html:127
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "退出"
 
-#: pyxiv/templates/news/entry.html:8 pyxiv/templates/pixivision/article.html:15
+#: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:7
+#: pyxiv/templates/news/index.html:8
+msgid "Older News"
+msgstr ""
+
+#: pyxiv/templates/news/category.html:9 pyxiv/templates/news/entry.html:9
+#: pyxiv/templates/news/index.html:10
+#, fuzzy
+msgid "News"
+msgstr "最新"
+
+#: pyxiv/templates/news/category.html:11 pyxiv/templates/news/entry.html:11
+#: pyxiv/templates/news/index.html:12
+msgid "Official Events"
+msgstr ""
+
+#: pyxiv/templates/news/category.html:13 pyxiv/templates/news/entry.html:13
+#: pyxiv/templates/news/index.html:14
+#, fuzzy
+msgid "New Features"
+msgstr "精选"
+
+#: pyxiv/templates/news/category.html:15 pyxiv/templates/news/entry.html:15
+#: pyxiv/templates/news/index.html:16
+msgid "System Maintenance"
+msgstr ""
+
+#: pyxiv/templates/news/category.html:17 pyxiv/templates/news/entry.html:17
+#: pyxiv/templates/news/index.html:18
+#, fuzzy
+msgid "Unused Category"
+msgstr "类别："
+
+#: pyxiv/templates/news/category.html:19 pyxiv/templates/news/entry.html:19
+#: pyxiv/templates/news/index.html:20
+msgid "Features to be updated (deprecated)"
+msgstr ""
+
+#: pyxiv/templates/news/category.html:21 pyxiv/templates/news/entry.html:21
+#: pyxiv/templates/news/index.html:22
+msgid "Deprecated Category"
+msgstr ""
+
+#: pyxiv/templates/news/entry.html:29
+#: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:58
 #, python-format
 msgid "Posted on %(date)s"
 msgstr "发布于 %(date)s"
+
+#: pyxiv/templates/news/index.html:5
+#, fuzzy
+msgid "News from pixiv"
+msgstr "在 pixiv 上查看"
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
