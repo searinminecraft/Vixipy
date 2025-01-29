@@ -1,5 +1,15 @@
 {% extends "layouts/default.html" %}
 {% block title %}{{ data.title }}{% endblock %}
+{% block additionalHeadData %}
+<meta property="og:title" content="{{data.ogp_metadata.title}}">
+<meta property="og:site_name" content="Vixipy">
+<meta property="og:type" content="article">
+<meta property="og:description" content="{{data.ogp_metadata.description}}">
+{% if data.ogp_metadata.image %}
+<meta property="og:image" content="{{data.ogp_metadata.image}}">
+<meta property="twitter:card" content="summary_large_image">
+{% endif %}
+{% endblock %}
 
 {% block content %}
 {% set cat = data.categoryId %}

@@ -716,6 +716,13 @@ class NewsEntry:
         return f"<NewsEntry categoryId={self.categoryId} date={repr(self.date)} id={self.id} originId={self.originId} title={self.title}>"
 
 
+class NewsArticleMetadata:
+    def __init__(self, data):
+        self.title = data["title"]
+        self.image = makeProxy(data["image"])
+        self.description = data["description"]
+
+
 class NewsArticle(NewsEntry):
     def __init__(self, data):
         super().__init__(data["entry"])
@@ -724,7 +731,7 @@ class NewsArticle(NewsEntry):
         s = BeautifulSoup(msg, "html.parser")
 
         for link in s.find_all("a"):
-            l = link.get('href')
+            l = link.get("href")
             link.attrs["href"] = makeJumpPhp(l)
 
         for img in s.find_all("img"):
@@ -735,9 +742,10 @@ class NewsArticle(NewsEntry):
             src = iframe.get("src")
             iframe.attrs["src"] = "/static/blocked.html"
 
-        self.msg = s        
-
-
+        self.msg = s
+        self.ogp_metadata: NewsArticleMetadata = NewsArticleMetadata(
+            data["meta"]["ogp"]
+        )
 
 
 class ArtworkDetailsPage:

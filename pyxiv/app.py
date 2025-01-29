@@ -423,7 +423,17 @@ def create_app():
             request.remote_addr,
         )
         return (
-            "\nCrawl-delay: 15\nUser-Agent: *\nDisallow: /\nDisallow: /proxy\nAllow: /artworks/*\nDisallow: /artworks/*/comments\nAllow: /users/*",
+            """
+Crawl-delay: 15
+User-Agent: *
+Disallow: /
+Disallow: /proxy
+Allow: /artworks/*
+Disallow: /artworks/*/comments
+Allow: /users/*
+Allow: /news/*
+Allow: /pixivision/a/*
+""",
             {"Content-Type": "text/plain"},
         )
 
