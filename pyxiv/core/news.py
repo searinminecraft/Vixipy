@@ -18,6 +18,7 @@ async def getNews():
 
     return res
 
+
 async def getNewsByCategory(cid: int):
     data = await api.getNewsEntries(cid)
     return [NewsEntry(x) for x in data["body"]["entries"]]

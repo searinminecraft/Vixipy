@@ -3,7 +3,8 @@ import re
 import logging
 
 log = logging.getLogger("vixipy.utils.extractors")
-p_ab_regex = '\'p_ab_d_id\': "(\\d+)"'
+p_ab_regex = "'p_ab_d_id': \"(\\d+)\""
+
 
 async def extract_p_ab_d_id(phpsessid: str = None):
     headers = {}
@@ -26,5 +27,3 @@ async def extract_p_ab_d_id(phpsessid: str = None):
 
     log.debug("Successfully obtained p_ab_d_id: %s", res)
     return res
-
-

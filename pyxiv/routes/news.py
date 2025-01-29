@@ -6,6 +6,7 @@ log = logging.getLogger("vixipy.routes.news")
 
 bp = Blueprint("news", __name__, url_prefix="/news")
 
+
 @bp.route("/<int:id>")
 async def getEntry(id: int):
     data = await getNewsEntry(id)

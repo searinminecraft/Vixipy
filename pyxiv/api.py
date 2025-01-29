@@ -36,6 +36,7 @@ phpsessid = ""
 p_ab_d_id = ""
 sess_acquired = None
 
+
 async def acquire_p_ab(phpsessid: str = None):
     global p_ab_d_id
     if p_ab_d_id != "":
@@ -45,6 +46,7 @@ async def acquire_p_ab(phpsessid: str = None):
     res = await extract_p_ab_d_id(phpsessid)
     p_ab_d_id = res
     return res
+
 
 async def acquireSession():
     global phpsessid, sess_acquired
@@ -97,18 +99,24 @@ async def pixivReq(
     if g.userPxSession:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
         if g.user_p_ab_d_id:
-            headers["Cookie"] += f"; p_ab_d_id={g.user_p_ab_d_id}; p_ab_id=8; p_ab_id_2=4"
+            headers[
+                "Cookie"
+            ] += f"; p_ab_d_id={g.user_p_ab_d_id}; p_ab_id=8; p_ab_id_2=4"
         try:
             headers["X-User-Id"] = str(int(g.userPxSession.split("_")[0]))
         except KeyError:
             pass
     elif not cfg.AuthlessMode and not g.userPxSession:
-        headers["Cookie"] = f"PHPSESSID={cfg.PxSession}; p_ab_d_id={await acquire_p_ab(cfg.PxSession)}; p_ab_id=8; p_ab_id_2=4"
+        headers["Cookie"] = (
+            f"PHPSESSID={cfg.PxSession}; p_ab_d_id={await acquire_p_ab(cfg.PxSession)}; p_ab_id=8; p_ab_id_2=4"
+        )
     elif cfg.TryAcquireSession:
         headers["Cookie"] = await acquireSession()
     else:
         mockSessionId = mockSession()
-        headers["Cookie"] = f"PHPSESSID={mockSessionId}; p_ab_d_id={await acquire_p_ab()}"
+        headers["Cookie"] = (
+            f"PHPSESSID={mockSessionId}; p_ab_d_id={await acquire_p_ab()}"
+        )
     if g.userPxCSRF and method.lower() == "post":
         headers["x-csrf-token"] = g.userPxCSRF
     if useMobileAgent:
@@ -524,10 +532,12 @@ async def getNews():
 
 async def getNewsEntries(category: int):
     """Get news entries by category ID"""
-    if category not in list(range(0,8)):
+    if category not in list(range(0, 8)):
         raise ValueError(f"Invalid category ID: {category}")
 
-    return await pixivReq("get", f"/ajax/info/page/entries?device=desktop&cid={category}")
+    return await pixivReq(
+        "get", f"/ajax/info/page/entries?device=desktop&cid={category}"
+    )
 
 
 async def getNewsEntry(newsId: int):

@@ -161,7 +161,7 @@ async def setSession():
             await flash(_("Unable to extract CSRF"), "error")
             return redirect(url_for("settings.settingsMain", ep="account"))
 
-        p_ab_d_id = await extract_p_ab_d_id(f['token'])
+        p_ab_d_id = await extract_p_ab_d_id(f["token"])
         if p_ab_d_id == "":
             await flash(_("Unable to extract p_ab_d_id"), "error")
             return redirect(url_for("settings.settingsMain", ep="account"))
@@ -169,7 +169,9 @@ async def setSession():
         try:
             log.debug("Verifying session token...")
             await api.pixivReq(
-                "get", "/ajax/user/extra", additionalHeaders={"Cookie": f"PHPSESSID={f['token']}"}
+                "get",
+                "/ajax/user/extra",
+                additionalHeaders={"Cookie": f"PHPSESSID={f['token']}"},
             )
         except api.PixivError as e:
             await flash(_("Cannot use token: %(error)s", error=e), "error")
@@ -183,7 +185,9 @@ async def setSession():
             "PyXivSession", f["token"], max_age=COOKIE_MAXAGE, httponly=True
         )
         resp.set_cookie("PyXivCSRF", csrf, max_age=COOKIE_MAXAGE, httponly=True)
-        resp.set_cookie("Vixipy-p_ab_d_id", p_ab_d_id, max_age=COOKIE_MAXAGE, httponly=True)
+        resp.set_cookie(
+            "Vixipy-p_ab_d_id", p_ab_d_id, max_age=COOKIE_MAXAGE, httponly=True
+        )
         return resp
     else:
         flash(_("No token was supplied."), "error")
