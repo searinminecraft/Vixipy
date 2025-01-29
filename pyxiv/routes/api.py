@@ -2,8 +2,13 @@ from quart import Blueprint, Response, current_app, g
 from ..api import pixivReq
 from .. import cfg
 from werkzeug.exceptions import NotFound
+import logging
+
+log = logging.getLogger("vixipy.routes.api")
 
 bp = Blueprint("api", __name__)
+
+r18Enabled = None
 
 
 @bp.after_request
@@ -15,6 +20,22 @@ async def after_request(r: Response):
 @bp.get("/api/configuration")
 async def getConfig():
     try:
+        global r18Enabled
+        if not cfg.AuthlessMode and not current_app.config["nor18"]:
+            if r18Enabled is None:
+                # Checks if R18 is enabled by trying to access one. It will be cached to prevent pixiv suspicion.
+                # WARNING: THIS ILLUSTRATION IS R18!
+
+                req = await current_app.pixivApi.get("/ajax/illust/126452721")
+                req.close()
+
+                if req.status != 200:
+                    r18Enabled = False
+                else:
+                    r18Enabled = True
+        else:
+            r18Enabled = False
+
         return {
             "error": False,
             "message": "",
@@ -24,13 +45,14 @@ async def getConfig():
                 "repo": g.repo,
                 "instanceName": g.instanceName,
                 "ratelimiting": current_app.config["QUART_RATE_LIMITER_ENABLED"],
-                "r18": not current_app.config["nor18"] and not cfg.AuthlessMode,
+                "r18": r18Enabled,
                 "usesAccount": not cfg.AuthlessMode,
                 "acceptLanguage": cfg.PxAcceptLang,
             },
         }
-    except Exception:
-        return {"error": True, "message": "Unable to get configuration"}, 500
+    except Exception as e:
+        log.exception("Unable to get configuration")
+        return {"error": True, "message": f"Unable to get configuration: {e}"}, 500
 
 
 @bp.get("/api/internal/ugoira_meta/<int:_id>")
