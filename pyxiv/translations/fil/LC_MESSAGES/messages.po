@@ -78,10 +78,12 @@ msgstr "Hindi pinapayagan ang paraang ito para sa endpoint na ito"
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
 #: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
+#: pyxiv/routes/artworks.py:52 pyxiv/routes/artworks.py:64
+#: pyxiv/routes/artworks.py:76 pyxiv/routes/artworks.py:88
 msgid "You cannot access this illustration"
 msgstr "Hindi mo ma-access ang illustration na ito"
 
-#: pyxiv/routes/artworks.py:62
+#: pyxiv/routes/artworks.py:62 pyxiv/routes/artworks.py:53
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the \"Hide "
 "potentially sensitive content\" setting."
@@ -89,7 +91,7 @@ msgstr ""
 "Ang illustration na ito ay potensyal na sensitibo. Upang tingnan ito, i-off "
 "ang setting na \"Itago ang potensyal na sensitibong nilalaman\"."
 
-#: pyxiv/routes/artworks.py:74
+#: pyxiv/routes/artworks.py:74 pyxiv/routes/artworks.py:65
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
@@ -97,7 +99,7 @@ msgstr ""
 "Ang larawang ito ay binuo ng AI. Para tingnan ito, i-off ang setting na "
 "\"Itago ang mga gawang nabuo ng AI\"."
 
-#: pyxiv/routes/artworks.py:86
+#: pyxiv/routes/artworks.py:86 pyxiv/routes/artworks.py:77
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide explicit "
 "content (R-18)\" setting."
@@ -105,7 +107,7 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18. Upang tingnan ito, i-off ang "
 "setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:98
+#: pyxiv/routes/artworks.py:98 pyxiv/routes/artworks.py:89
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
@@ -113,7 +115,7 @@ msgstr ""
 "Ang paglalarawang ito ay na-rate bilang R-18G. Upang tingnan ito, i-off ang "
 "setting na \"Itago ang tahasang nilalaman (R-18)\"."
 
-#: pyxiv/routes/artworks.py:130
+#: pyxiv/routes/artworks.py:130 pyxiv/routes/artworks.py:121
 msgid "The creator turned off comments."
 msgstr "Pinatay ng creator ang mga komento."
 
@@ -167,39 +169,40 @@ msgstr "Hindi ma-extract ang CSRF"
 msgid "Unable to extract p_ab_d_id"
 msgstr "Hindi ma-extract ang p_ab_d_id"
 
-#: pyxiv/routes/settings.py:177
+#: pyxiv/routes/settings.py:177 pyxiv/routes/settings.py:175
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "Hindi magagamit ang token: %(error)s"
 
-#: pyxiv/routes/settings.py:193
+#: pyxiv/routes/settings.py:193 pyxiv/routes/settings.py:189
 msgid "No token was supplied."
 msgstr "Walang ibinigay na token."
 
-#: pyxiv/routes/settings.py:203
+#: pyxiv/routes/settings.py:203 pyxiv/routes/settings.py:199
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "Matagumpay mong nawakas ang session. Paalam!"
 
 #: pyxiv/routes/settings.py:213 pyxiv/routes/settings.py:310
+#: pyxiv/routes/settings.py:209 pyxiv/routes/settings.py:306
 msgid "Successfully set proxy server"
 msgstr "Matagumpay na natakda ang proxy server"
 
-#: pyxiv/routes/settings.py:230
+#: pyxiv/routes/settings.py:230 pyxiv/routes/settings.py:226
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "Paki-bigay ang URL scheme. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:236
+#: pyxiv/routes/settings.py:236 pyxiv/routes/settings.py:232
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 "Hindi wastong URL scheme: %(scheme)s. Tinatanggap lamang ang http o https."
 
-#: pyxiv/routes/settings.py:245
+#: pyxiv/routes/settings.py:245 pyxiv/routes/settings.py:241
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "Hindi pinapayagan ang address na ito: %(addr)s"
 
-#: pyxiv/routes/settings.py:251
+#: pyxiv/routes/settings.py:251 pyxiv/routes/settings.py:247
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses are "
 "not supported as a proxy server."
@@ -207,7 +210,7 @@ msgstr ""
 "Dahil sa mga limitasyon sa mga direktiba ng Content-Security-Policy, hindi "
 "sinusuportahan ang mga IP Address bilang proxy server."
 
-#: pyxiv/routes/settings.py:285
+#: pyxiv/routes/settings.py:285 pyxiv/routes/settings.py:281
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images may "
 "possibly not load, and may breach your privacy."
@@ -216,7 +219,7 @@ msgstr ""
 "Maaaring hindi mag-load ang mga larawan, at maaaring masira ang iyong "
 "privacy."
 
-#: pyxiv/routes/settings.py:294
+#: pyxiv/routes/settings.py:294 pyxiv/routes/settings.py:290
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
@@ -225,73 +228,76 @@ msgstr ""
 "Nabigo ang pagsuri ng integridad para sa pagsubok ng image proxy. Inaasahan "
 "ang %(integrity)s, nakuha ang %(result)s"
 
-#: pyxiv/routes/settings.py:305
+#: pyxiv/routes/settings.py:305 pyxiv/routes/settings.py:301
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "May nangyaring error habang sinusuri ang proxy server: %(error)s"
 
-#: pyxiv/routes/settings.py:355
+#: pyxiv/routes/settings.py:355 pyxiv/routes/settings.py:351
 msgid "Successfully set preferences"
 msgstr "Matagumpay na natakda ang mga kagustuhan"
 
 #: pyxiv/routes/settings.py:366 pyxiv/routes/settings.py:386
+#: pyxiv/routes/settings.py:362 pyxiv/routes/settings.py:382
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "Hindi wastong wika: %(code)s"
 
 #: pyxiv/routes/settings.py:377 pyxiv/routes/settings.py:396
+#: pyxiv/routes/settings.py:373 pyxiv/routes/settings.py:392
 msgid "Successfully set language."
 msgstr "Matagumpay na natakda ang wika."
 
-#: pyxiv/routes/userAction.py:65
+#: pyxiv/routes/userAction.py:65 pyxiv/routes/userAction.py:55
 msgid "Successfully bookmarked post"
 msgstr "Matagumpay na na-bookmark ang post"
 
-#: pyxiv/routes/userAction.py:76
+#: pyxiv/routes/userAction.py:76 pyxiv/routes/userAction.py:66
 msgid "Successfully removed bookmark"
 msgstr "Matagumpay na tinanggal ang bookmark"
 
-#: pyxiv/routes/userAction.py:87
+#: pyxiv/routes/userAction.py:87 pyxiv/routes/userAction.py:77
 msgid "Successfully liked post"
 msgstr "Matagumpay na na-like ang post"
 
-#: pyxiv/routes/userAction.py:103
+#: pyxiv/routes/userAction.py:103 pyxiv/routes/userAction.py:93
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "Hindi ma-post ang komento: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:108
+#: pyxiv/routes/userAction.py:108 pyxiv/routes/userAction.py:98
 msgid "Successfully posted comment"
 msgstr "Matagumpay na na-post ang komento"
 
-#: pyxiv/routes/userAction.py:125
+#: pyxiv/routes/userAction.py:125 pyxiv/routes/userAction.py:115
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "Hindi mapadala ang stamp: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:130
+#: pyxiv/routes/userAction.py:130 pyxiv/routes/userAction.py:120
 msgid "Successfully sent stamp"
 msgstr "Matagumpay na napadala ang stamp"
 
 #: pyxiv/routes/userAction.py:153 pyxiv/routes/userAction.py:168
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
 #: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
+#: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
 msgid "Invalid user"
 msgstr "Hindi wastong user"
 
-#: pyxiv/routes/userAction.py:158
+#: pyxiv/routes/userAction.py:158 pyxiv/routes/userAction.py:148
 msgid "Could not follow user"
 msgstr "Hindi masundan ang user"
 
-#: pyxiv/routes/userAction.py:160
+#: pyxiv/routes/userAction.py:160 pyxiv/routes/userAction.py:150
 msgid "Successfully followed user"
 msgstr "Matagumpay na nasundan ang user"
 
-#: pyxiv/routes/userAction.py:173
+#: pyxiv/routes/userAction.py:173 pyxiv/routes/userAction.py:163
 msgid "Could not unfollow user"
 msgstr "Hindi ma-unfollow ang user"
 
-#: pyxiv/routes/userAction.py:175
+#: pyxiv/routes/userAction.py:175 pyxiv/routes/userAction.py:165
 msgid "Successfully unfollowed user"
 msgstr "Matagumpay na na-unfollow ang user"
 
@@ -937,9 +943,8 @@ msgstr "pixivision"
 
 #: pyxiv/templates/layouts/default.html:91 pyxiv/templates/news/category.html:2
 #: pyxiv/templates/news/category.html:24 pyxiv/templates/news/index.html:2
-#, fuzzy
 msgid "pixiv News"
-msgstr "Error sa pixiv!"
+msgstr "Balita sa pixiv"
 
 #: pyxiv/templates/layouts/default.html:95
 #: pyxiv/templates/layouts/default.html:123
@@ -966,60 +971,57 @@ msgstr "Mga Bookmark"
 msgid "Log out"
 msgstr "Mag-log out"
 
-#: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:17
+#: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:7
 #: pyxiv/templates/news/index.html:8
 msgid "Older News"
-msgstr ""
+msgstr "Mga Lumang Balita"
 
-#: pyxiv/templates/news/category.html:9 pyxiv/templates/news/entry.html:19
+#: pyxiv/templates/news/category.html:9 pyxiv/templates/news/entry.html:9
 #: pyxiv/templates/news/index.html:10
-#, fuzzy
 msgid "News"
-msgstr "Pinakabago"
+msgstr "Balita"
 
-#: pyxiv/templates/news/category.html:11 pyxiv/templates/news/entry.html:21
+#: pyxiv/templates/news/category.html:11 pyxiv/templates/news/entry.html:11
 #: pyxiv/templates/news/index.html:12
 msgid "Official Events"
-msgstr ""
+msgstr "Mga Opisyal na Kaganapan"
 
-#: pyxiv/templates/news/category.html:13 pyxiv/templates/news/entry.html:23
+#: pyxiv/templates/news/category.html:13 pyxiv/templates/news/entry.html:13
 #: pyxiv/templates/news/index.html:14
-#, fuzzy
 msgid "New Features"
-msgstr "Itinatampok"
+msgstr "Mga Bagong Feature"
 
-#: pyxiv/templates/news/category.html:15 pyxiv/templates/news/entry.html:25
+#: pyxiv/templates/news/category.html:15 pyxiv/templates/news/entry.html:15
 #: pyxiv/templates/news/index.html:16
 msgid "System Maintenance"
-msgstr ""
+msgstr "Pagpapanatili ng Sistema"
 
-#: pyxiv/templates/news/category.html:17 pyxiv/templates/news/entry.html:27
+#: pyxiv/templates/news/category.html:17 pyxiv/templates/news/entry.html:17
 #: pyxiv/templates/news/index.html:18
-#, fuzzy
 msgid "Unused Category"
-msgstr "Kategorya:"
+msgstr "Hindi Ginamit na Kategorya"
 
-#: pyxiv/templates/news/category.html:19 pyxiv/templates/news/entry.html:29
+#: pyxiv/templates/news/category.html:19 pyxiv/templates/news/entry.html:19
 #: pyxiv/templates/news/index.html:20
 msgid "Features to be updated (deprecated)"
-msgstr ""
+msgstr "Mga feature na ia-update (hindi na ginagamit)"
 
-#: pyxiv/templates/news/category.html:21 pyxiv/templates/news/entry.html:31
+#: pyxiv/templates/news/category.html:21 pyxiv/templates/news/entry.html:21
 #: pyxiv/templates/news/index.html:22
 msgid "Deprecated Category"
-msgstr ""
+msgstr "Hindi Na Ginagamit na Kategorya"
 
 #: pyxiv/templates/news/entry.html:39
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:58 pyxiv/templates/news/entry.html:8
+#: pyxiv/templates/news/entry.html:29
 #, python-format
 msgid "Posted on %(date)s"
 msgstr "Na-post noong %(date)s"
 
 #: pyxiv/templates/news/index.html:5
-#, fuzzy
 msgid "News from pixiv"
-msgstr "Tignan sa pixiv"
+msgstr "Mga balita mula sa pixiv"
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
