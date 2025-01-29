@@ -524,7 +524,7 @@ async def getNews():
 
 async def getNewsEntries(category: int):
     """Get news entries by category ID"""
-    if category not in range(0,7):
+    if category not in list(range(0,8)):
         raise ValueError(f"Invalid category ID: {category}")
 
     return await pixivReq("get", f"/ajax/info/page/entries?device=desktop&cid={category}")

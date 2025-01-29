@@ -704,13 +704,22 @@ class Notification:
         self.type: str = data["type"]
 
 
-class NewsArticle:
+class NewsEntry:
     def __init__(self, data):
-        e = data["entry"]
-        self.categoryId: int = int(e["categoryId"])
-        self.date: datetime = datetime.strptime(e["date"], "%Y-%m-%d %H:%M:%S")
-        self.id: int = int(e["id"])
-        msg: str = e["msg"]
+        self.categoryId: int = int(data["categoryId"])
+        self.date: datetime = datetime.strptime(data["date"], "%Y-%m-%d %H:%M:%S")
+        self.id: int = int(data["id"])
+        self.originId: int = int(data["originId"])
+        self.title: str = data["title"]
+
+    def __repr__(self):
+        return f"<NewsEntry categoryId={self.categoryId} date={repr(self.date)} id={self.id} originId={self.originId} title={self.title}>"
+
+
+class NewsArticle(NewsEntry):
+    def __init__(self, data):
+        super().__init__(data["entry"])
+        msg: str = data["entry"]["msg"]
 
         s = BeautifulSoup(msg, "html.parser")
 
@@ -728,8 +737,7 @@ class NewsArticle:
 
         self.msg = s        
 
-        self.originId: int = int(e["originId"])
-        self.title: str = e["title"]
+
 
 
 class ArtworkDetailsPage:

@@ -2,11 +2,33 @@
 {% block title %}{{ data.title }}{% endblock %}
 
 {% block content %}
+{% set cat = data.categoryId %}
+{% if cat | int == 0 %}
+{% set categoryName = _("Older News") %}
+{% elif cat | int == 1 %}
+{% set categoryName = _("News") %}
+{% elif cat | int == 2 %}
+{% set categoryName = _("Official Events") %}
+{% elif cat | int == 3 %}
+{% set categoryName = _("New Features") %}
+{% elif cat | int == 4 %}
+{% set categoryName = _("System Maintenance") %}
+{% elif cat | int == 5 %}
+{% set categoryName = _("Unused Category") %}
+{% elif cat | int == 6 %}
+{% set categoryName = _("Features to be updated (deprecated)") %}
+{% elif cat | int == 7 %}
+{% set categoryName = _("Deprecated Category") %}
+{% endif %}
 
 <div id="news">
+  <small class="navigation"><a href="/news/">pixiv News</a> &gt; <a href="/news/?cid={{cat}}">{{ categoryName }}</a> &gt; {{ data.title }}</small>
+  <br>
+  <br>
 	<h1>{{ data.title }}</h1>
 	<small>{{ _("Posted on %(date)s", date=data.date | dateformat) }}</small>
-
+  <br>
+  <br>
 	{{ data.msg | safe }}
 </div>
 {% endblock %}

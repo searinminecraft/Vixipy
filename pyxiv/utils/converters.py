@@ -1,7 +1,12 @@
 from quart import g
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 
 def makeJumpPhp(url: str) -> str:
+    if url.__contains__("info.php"):
+        return f"/news/{urlparse(url).query.split('=')[1]}"
+    if url.__contains__("/artworks"):
+        return f"/artworks/{urlparse(url).path.split('/').pop()}"
+
     return f"/jump.php?url={quote(url)}"
 
 
