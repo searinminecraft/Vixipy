@@ -3,6 +3,7 @@ from urllib.parse import quote, urlparse
 
 
 def makeJumpPhp(url: str) -> str:
+    # NOTE: doesn't seem like this checks if url is from pixiv, so this may catch other urls (https://example.com/artworks/1234 for example), might be good to fix?
     if url.__contains__("info.php"):
         return f"/news/{urlparse(url).query.split('=')[1]}"
     if url.__contains__("/artworks"):

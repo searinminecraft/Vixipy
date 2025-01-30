@@ -1,7 +1,7 @@
 from .utils.converters import makeProxy, makeJumpPhp
 from datetime import datetime
 from bs4 import BeautifulSoup
-from urllib.parse import quote
+from urllib.parse import quote, urlparse, urlunparse
 from markupsafe import escape
 from quart_rate_limiter import RateLimiterStoreABC
 import pymemcache
@@ -739,6 +739,22 @@ class NewsArticle(NewsEntry):
 
         for iframe in s.find_all("iframe"):
             src = iframe.get("src")
+
+            # fixing URL's (to turn them into regular URLs instead of embeds)
+            # maybe move this logic to a separate function in the future if needed
+            parsed = list(urlparse(src)) # ['https', 'www.youtube.com', '/embed/z_qOw0GUJKM', '', 'si=GZk4QJ1H2WKr9h3E', '']
+            if parsed[1] == "youtube.com" or parsed[1] == "www.youtube.com":
+                parsed[4] = ""
+                if parsed[2].startswith("/embed"):
+                    parsed[2] = "/watch?v=" + parsed[2][7:]
+            
+            src = urlunparse(parsed)
+            originalUrl = s.new_tag("i")
+            anchor = s.new_tag("a", attrs={"href": makeJumpPhp(src)})
+            anchor.string = "Go to iframe page"
+            originalUrl.append(anchor)
+
+            iframe.insert_after(originalUrl)
             iframe.attrs["src"] = "/static/blocked.html"
 
         self.msg = s
