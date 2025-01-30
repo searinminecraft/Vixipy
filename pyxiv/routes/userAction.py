@@ -1,4 +1,13 @@
-from quart import Blueprint, g, redirect, render_template, request, flash, url_for, abort
+from quart import (
+    Blueprint,
+    g,
+    redirect,
+    render_template,
+    request,
+    flash,
+    url_for,
+    abort,
+)
 from quart_babel import _
 
 from .. import api
@@ -166,13 +175,13 @@ async def unfollowUser(_id: int):
         await flash(_("Successfully unfollowed user"))
     return redirect(r, code=303)
 
+
 @userAction.route("/reply_and_root")
 async def replyAndRoot():
     if not request.args.get("illust_id") or not request.args.get("comment_id"):
         abort(400)
 
     child, root = await getReplyAndRoot(
-            request.args.get("illust_id"),
-            request.args.get("comment_id")
-            )
+        request.args.get("illust_id"), request.args.get("comment_id")
+    )
     return await render_template("reply_and_root.html", child=child, root=root)
