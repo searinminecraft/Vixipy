@@ -164,7 +164,10 @@ class PartialComment:
         comment = escape(data["comment"])
         self.comment = str(comment)
         self.stampId = int(data["stampId"]) if data["stampId"] else None
-        self.commentDate = datetime.strptime(data["commentDate"], "%Y-%m-%d %H:%M")
+        try:
+            self.commentDate = datetime.strptime(data["commentDate"], "%Y-%m-%d %H:%M")
+        except ValueError:
+            self.commentDate = datetime.strptime(data["commentDate"], "%Y-%m-%d %H:%M:%S")
         self.commentParentId = (
             int(data["commentParentId"]) if data["commentParentId"] else None
         )
