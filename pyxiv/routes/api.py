@@ -1,5 +1,5 @@
 from quart import Blueprint, Response, current_app, g
-from ..api import pixivReq
+from ..api import pixivReq, PixivError
 from .. import cfg
 from werkzeug.exceptions import NotFound
 import logging
@@ -26,13 +26,11 @@ async def getConfig():
                 # Checks if R18 is enabled by trying to access one. It will be cached to prevent pixiv suspicion.
                 # WARNING: THIS ILLUSTRATION IS R18!
 
-                req = await current_app.pixivApi.get("/ajax/illust/126452721")
-                req.close()
-
-                if req.status != 200:
-                    r18Enabled = False
-                else:
+                try:
+                    await pixivReq("get", "/ajax/illust/126452721/pages")
                     r18Enabled = True
+                except (NotFound, PixivError):
+                    r18Enabled = False
         else:
             r18Enabled = False
 
