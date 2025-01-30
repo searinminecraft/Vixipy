@@ -164,7 +164,7 @@ class PartialComment:
         comment = escape(data["comment"])
         self.comment = str(comment)
         self.stampId = int(data["stampId"]) if data["stampId"] else None
-        self.commentDate = data["commentDate"]
+        self.commentDate = datetime.strptime(data["commentDate"], "%Y-%m-%d %H:%M")
         self.commentParentId = (
             int(data["commentParentId"]) if data["commentParentId"] else None
         )
@@ -695,8 +695,7 @@ class Notification:
         self.iconUrl: str = makeProxy(data["iconUrl"])
         self.isProfileIcon: bool = data["isProfileIcon"]
         self._id: int = data["id"]
-        # needs more testing, it may be possible that some urls may not contain the language specifier ("/en", etc.)
-        self.linkUrl: str = data["linkUrl"][3:]
+        self.linkUrl: str = data["linkUrl"].replace("/en", "")
         self.notifiedAt: datetime.datetime = datetime.fromisoformat(data["notifiedAt"])
         self.targetBlank: bool = data["targetBlank"]
         self.notificationType: str = data["type"]

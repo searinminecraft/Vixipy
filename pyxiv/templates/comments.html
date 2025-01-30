@@ -43,7 +43,7 @@
 		<a href="/users/{{ comment.authorId }}" alt="{{ comment.username }}"><img class="author-profile-pic" src="{{ comment.img }}" loading="lazy"></a>
 		<div class="comment-main">
 			<span class="author-name"><a href="/users/{{ comment.authorId }}">{{ comment.username }}</a></span>
-			<small>{{ comment.commentDate }}</small>
+			<small>{{ comment.commentDate | datetimeformat }}</small>
 			<p>{{ comment.comment | safe }}</p>
 			{% if comment.stampId %}
 			<img class="stamp" loading="lazy" src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{ comment.stampId }}_s.jpg">

@@ -4,6 +4,7 @@ from ..api import getArtworkComments as _getArtworkComments
 from ..api import getArtworkReplies as _getArtworkReplies
 from ..api import postComment as _postComment
 from ..api import postStamp as _postStamp
+from ..api import getReplyAndRoot as _getReplyAndRoot
 from ..classes import Comment, CommentReply
 
 
@@ -42,3 +43,10 @@ async def postComment(_id: int, authorId: int, comment: str):
 
 async def postStamp(_id: int, authorId: int, stampId: int):
     return await _postStamp(_id, authorId, stampId)
+
+
+async def getReplyAndRoot(illust_id: int, comment_id: int):
+    data = (await _getReplyAndRoot(illust_id, comment_id))["body"]
+    child = [CommentReply(x) for x in data["child"]["comments"]]
+    root = CommentReply(data["root"]["comments"][0])
+    return child, root

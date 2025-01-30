@@ -9,9 +9,9 @@
 	<div class="notification">
 		<img class="icon" src="{{ notification.iconUrl }}">
 		<div class="notification-content">
-			<div>
+      <a href={{ notification.linkUrl }}>
 			{{ notification.content | safe }}
-			</div>
+			</a>
 			<small>{{ notification.notifiedAt.strftime("%b %d") }}</small>
 		</div>
 

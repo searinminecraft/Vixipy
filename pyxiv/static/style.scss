@@ -1038,6 +1038,11 @@ div.taglist {
     align-items: center;
     width: 100%;
 
+    a {
+      display: block;
+      color: unset;
+    }
+
     span {
       font-weight: bold;
     }
@@ -1061,7 +1066,7 @@ div.taglist {
     }
 
     svg {
-      fill: var(--md-sys-color-surface-dim);
+      fill: var(--md-sys-color-surface-container-highest);
       margin-right: 1em;
     }
 

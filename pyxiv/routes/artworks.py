@@ -30,6 +30,9 @@ limit_blueprint(
 @artworks.route("/<int:_id>")
 async def artworkGet(_id: int):
 
+    if request.args.get("comment_id"):
+        return redirect(url_for("userAction.replyAndRoot", illust_id=_id, comment_id=request.args["comment_id"]))
+
     c = request.cookies
 
     artworkData = await getArtwork(_id)

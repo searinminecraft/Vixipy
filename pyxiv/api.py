@@ -543,3 +543,6 @@ async def getNewsEntries(category: int):
 async def getNewsEntry(newsId: int):
     """Get news entry"""
     return await pixivReq("get", f"/ajax/info/page/entries/{newsId}?device=desktop")
+
+async def getReplyAndRoot(illust_id: int, comment_id: int):
+    return await pixivReq("get", f"/ajax/illusts/comments/reply_and_root?illust_id={illust_id}&comment_id={comment_id}")
