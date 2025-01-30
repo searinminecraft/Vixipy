@@ -8,17 +8,18 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-30 18:19+0800\n"
-"PO-Revision-Date: 2025-01-26 04:46+0000\n"
-"Last-Translator: divergency "
-"<divergency@users.noreply.translate.codeberg.org>\n"
+"PO-Revision-Date: 2025-01-30 23:42+0000\n"
+"Last-Translator: divergency <divergency@users.noreply.translate.codeberg.org>"
+"\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ru/>\n"
 "Language: ru\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ru/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:238
@@ -147,14 +148,13 @@ msgid "Sun"
 msgstr "Вс"
 
 #: pyxiv/routes/settings.py:121 pyxiv/routes/settings.py:125
-#, fuzzy
 msgid "Invalid token"
-msgstr "Неверный пользователь"
+msgstr "Недействительный токен"
 
 #: pyxiv/routes/settings.py:140
 #, python-format
 msgid "An exception occurred trying to log in: %s"
-msgstr ""
+msgstr "Произошло исключение при попытке войти: %s"
 
 #: pyxiv/routes/settings.py:147
 #, python-format
@@ -166,9 +166,8 @@ msgid "Unable to extract CSRF"
 msgstr "Не можем извлечь CSRF"
 
 #: pyxiv/routes/settings.py:166
-#, fuzzy
 msgid "Unable to extract p_ab_d_id"
-msgstr "Не можем извлечь CSRF"
+msgstr "Не можем извлечь p_ab_d_id"
 
 #: pyxiv/routes/settings.py:177
 #, python-format
@@ -463,13 +462,12 @@ msgid "Discover Artworks"
 msgstr "Исследовать Работы"
 
 #: pyxiv/templates/discover.html:11
-#, fuzzy
 msgid ""
 "Note: the suggestions are based on the instance's pixiv account's "
 "algorithm and personalisation"
 msgstr ""
-"На заметку: предложения основаны на pixiv аккаунт алгоритме и "
-"персонализации текущего сервера"
+"На заметку: предложения основаны на pixiv аккаунт алгоритме и персонализации "
+"текущего сервера"
 
 #: pyxiv/templates/discover.html:21
 msgid "Reload"
@@ -540,9 +538,8 @@ msgid "Jump to page"
 msgstr "Перейти на страницу"
 
 #: pyxiv/templates/leave.html:7
-#, fuzzy
 msgid "You are about to leave Vixipy"
-msgstr "Вы покидаете Vixipy."
+msgstr "Вы покидаете Vixipy"
 
 #: pyxiv/templates/leave.html:8
 #, python-format
@@ -586,9 +583,8 @@ msgid "Newest from all users"
 msgstr "Новейшие от всех пользователей"
 
 #: pyxiv/templates/newest.html:21
-#, fuzzy
 msgid "General"
-msgstr "Сгенерировано ИИ"
+msgstr "Общие"
 
 #: pyxiv/templates/components/navbar.html:20
 #: pyxiv/templates/notifications.html:2 pyxiv/templates/notifications.html:5
@@ -711,7 +707,7 @@ msgstr "Ответы"
 
 #: pyxiv/templates/reply_and_root.html:5
 msgid "In reply to"
-msgstr ""
+msgstr "В ответ к"
 
 #: pyxiv/templates/sensitivityWarning.html:2
 msgid "Sensitivity Warning"
@@ -947,9 +943,8 @@ msgstr "pixivision"
 
 #: pyxiv/templates/layouts/default.html:91 pyxiv/templates/news/category.html:2
 #: pyxiv/templates/news/category.html:24 pyxiv/templates/news/index.html:2
-#, fuzzy
 msgid "pixiv News"
-msgstr "pixiv Ошибка!"
+msgstr "pixiv Новости"
 
 #: pyxiv/templates/layouts/default.html:95
 #: pyxiv/templates/layouts/default.html:123
@@ -974,45 +969,42 @@ msgstr "Выйти"
 #: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:17
 #: pyxiv/templates/news/index.html:8
 msgid "Older News"
-msgstr ""
+msgstr "Новости Постарее"
 
 #: pyxiv/templates/news/category.html:9 pyxiv/templates/news/entry.html:19
 #: pyxiv/templates/news/index.html:10
-#, fuzzy
 msgid "News"
-msgstr "Новейшие"
+msgstr "Новости"
 
 #: pyxiv/templates/news/category.html:11 pyxiv/templates/news/entry.html:21
 #: pyxiv/templates/news/index.html:12
 msgid "Official Events"
-msgstr ""
+msgstr "Официальные События"
 
 #: pyxiv/templates/news/category.html:13 pyxiv/templates/news/entry.html:23
 #: pyxiv/templates/news/index.html:14
-#, fuzzy
 msgid "New Features"
-msgstr "Избранное"
+msgstr "Новые Возможности"
 
 #: pyxiv/templates/news/category.html:15 pyxiv/templates/news/entry.html:25
 #: pyxiv/templates/news/index.html:16
 msgid "System Maintenance"
-msgstr ""
+msgstr "Системные Работы"
 
 #: pyxiv/templates/news/category.html:17 pyxiv/templates/news/entry.html:27
 #: pyxiv/templates/news/index.html:18
-#, fuzzy
 msgid "Unused Category"
-msgstr "Категория:"
+msgstr "Неиспользованная Категория"
 
 #: pyxiv/templates/news/category.html:19 pyxiv/templates/news/entry.html:29
 #: pyxiv/templates/news/index.html:20
 msgid "Features to be updated (deprecated)"
-msgstr ""
+msgstr "Функции доя обновления (устаревшая)"
 
 #: pyxiv/templates/news/category.html:21 pyxiv/templates/news/entry.html:31
 #: pyxiv/templates/news/index.html:22
 msgid "Deprecated Category"
-msgstr ""
+msgstr "Устаревшая Категория"
 
 #: pyxiv/templates/news/entry.html:39
 #: pyxiv/templates/pixivision/article.html:15
@@ -1022,9 +1014,8 @@ msgid "Posted on %(date)s"
 msgstr "Загружено %(date)s"
 
 #: pyxiv/templates/news/index.html:5
-#, fuzzy
 msgid "News from pixiv"
-msgstr "Посмотреть на pixiv"
+msgstr "Новости от pixiv"
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
@@ -1210,7 +1201,7 @@ msgstr ""
 
 #: pyxiv/templates/settings/account.html:49
 msgid "Your pixiv session token"
-msgstr ""
+msgstr "Ваш pixiv токен сессии"
 
 #: pyxiv/templates/settings/account.html:50
 msgid ""
@@ -1218,6 +1209,9 @@ msgid ""
 "you on pixiv. You can copy this in case you want to switch instances or "
 "if you forget it. Hover to reveal."
 msgstr ""
+"Это ваш pixiv <code>PHPSESSID</code> cookie, используемый для аунтефикации "
+"вас на pixiv. Вы можете скопировать это в случае, если вы хотите сменить "
+"сервер или если вы забыли его. Наведите пойнтером, чтобы раскрыть."
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:34
@@ -1496,4 +1490,3 @@ msgstr "Манга %(user)s'а"
 
 #~ msgid "Go to ugoira.com for more options"
 #~ msgstr "Перейти на ugoira.com для других опций"
-
