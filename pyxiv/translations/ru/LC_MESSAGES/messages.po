@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-29 12:56+0800\n"
+"POT-Creation-Date: 2025-01-30 18:19+0800\n"
 "PO-Revision-Date: 2025-01-26 04:46+0000\n"
 "Last-Translator: divergency "
 "<divergency@users.noreply.translate.codeberg.org>\n"
@@ -76,12 +76,12 @@ msgstr "Метод Не Разрешен"
 msgid "This method is not allowed for this endpoint"
 msgstr "Этот метод не разрешен для этой конечной точки"
 
-#: pyxiv/routes/artworks.py:52 pyxiv/routes/artworks.py:64
-#: pyxiv/routes/artworks.py:76 pyxiv/routes/artworks.py:88
+#: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
+#: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
 msgid "You cannot access this illustration"
 msgstr "Вы не можете получить доступ к этой иллюстрации"
 
-#: pyxiv/routes/artworks.py:53
+#: pyxiv/routes/artworks.py:62
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
@@ -90,7 +90,7 @@ msgstr ""
 " выключите настройку \"Скрывать контент потенциально деликатного "
 "характера\"."
 
-#: pyxiv/routes/artworks.py:65
+#: pyxiv/routes/artworks.py:74
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
@@ -98,7 +98,7 @@ msgstr ""
 "Эта иллюстрация сгенерирована ИИ. Чтобы просмотреть ее, выключите "
 "настройку \"Скрывать работы сгенерированные ИИ\"."
 
-#: pyxiv/routes/artworks.py:77
+#: pyxiv/routes/artworks.py:86
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
@@ -106,7 +106,7 @@ msgstr ""
 "Эта иллюстрация R-18. Чтобы просмотреть ее, выключите настройку "
 "\"Скрывать откровенный контент (R-18)\"."
 
-#: pyxiv/routes/artworks.py:89
+#: pyxiv/routes/artworks.py:98
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
@@ -114,7 +114,7 @@ msgstr ""
 "Эта иллюстрация R-18G. Чтобы просмотреть ее, выключите настройку "
 "\"Скрывать откровенный контент (R-18G)\"."
 
-#: pyxiv/routes/artworks.py:121
+#: pyxiv/routes/artworks.py:130
 msgid "The creator turned off comments."
 msgstr "Создатель отключил комментарии."
 
@@ -170,38 +170,38 @@ msgstr "Не можем извлечь CSRF"
 msgid "Unable to extract p_ab_d_id"
 msgstr "Не можем извлечь CSRF"
 
-#: pyxiv/routes/settings.py:175
+#: pyxiv/routes/settings.py:177
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "Не можем воспользоваться токеном: %(error)s"
 
-#: pyxiv/routes/settings.py:189
+#: pyxiv/routes/settings.py:193
 msgid "No token was supplied."
 msgstr "Токен не был поставлен."
 
-#: pyxiv/routes/settings.py:199
+#: pyxiv/routes/settings.py:203
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "Вы успешно завершили сессию. До свидания!"
 
-#: pyxiv/routes/settings.py:209 pyxiv/routes/settings.py:306
+#: pyxiv/routes/settings.py:213 pyxiv/routes/settings.py:310
 msgid "Successfully set proxy server"
 msgstr "Успешно установили прокси сервер"
 
-#: pyxiv/routes/settings.py:226
+#: pyxiv/routes/settings.py:230
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "Пожалуйста укажите URL схему. Только http и https принимаются."
 
-#: pyxiv/routes/settings.py:232
+#: pyxiv/routes/settings.py:236
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "Неверная URL схема: %(scheme)s. Только http и https принимаются."
 
-#: pyxiv/routes/settings.py:241
+#: pyxiv/routes/settings.py:245
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "Этот адрес не разрешен: %(addr)s"
 
-#: pyxiv/routes/settings.py:247
+#: pyxiv/routes/settings.py:251
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
@@ -209,7 +209,7 @@ msgstr ""
 "Из-за ограничений в директивах Политики Безопасности Контента, IP Адреса "
 "не поддерживаются как прокси сервер."
 
-#: pyxiv/routes/settings.py:281
+#: pyxiv/routes/settings.py:285
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
@@ -218,7 +218,7 @@ msgstr ""
 "Картинки могут не загружаться, и могут повредить вашей "
 "конфиденциальности."
 
-#: pyxiv/routes/settings.py:290
+#: pyxiv/routes/settings.py:294
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
@@ -227,73 +227,73 @@ msgstr ""
 "Проверка целостности провалилась для теста прокси изображений. Ожидалось "
 "%(integrity)s, получили %(result)s"
 
-#: pyxiv/routes/settings.py:301
+#: pyxiv/routes/settings.py:305
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "Возникла ошибка при проверке прокси сервера: %(error)s"
 
-#: pyxiv/routes/settings.py:351
+#: pyxiv/routes/settings.py:355
 msgid "Successfully set preferences"
 msgstr "Успешно установили предпочтения"
 
-#: pyxiv/routes/settings.py:362 pyxiv/routes/settings.py:382
+#: pyxiv/routes/settings.py:366 pyxiv/routes/settings.py:386
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "Неверный язык: %(code)s"
 
-#: pyxiv/routes/settings.py:373 pyxiv/routes/settings.py:392
+#: pyxiv/routes/settings.py:377 pyxiv/routes/settings.py:396
 msgid "Successfully set language."
 msgstr "Успешно установили язык."
 
-#: pyxiv/routes/userAction.py:55
+#: pyxiv/routes/userAction.py:65
 msgid "Successfully bookmarked post"
 msgstr "Успешно добавили пост в закладки"
 
-#: pyxiv/routes/userAction.py:66
+#: pyxiv/routes/userAction.py:76
 msgid "Successfully removed bookmark"
 msgstr "Успешно убрали закладку"
 
-#: pyxiv/routes/userAction.py:77
+#: pyxiv/routes/userAction.py:87
 msgid "Successfully liked post"
 msgstr "Успешно лайкнули пост"
 
-#: pyxiv/routes/userAction.py:93
+#: pyxiv/routes/userAction.py:103
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "Не можем отправить комментарий: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:98
+#: pyxiv/routes/userAction.py:108
 msgid "Successfully posted comment"
 msgstr "Успешно отправили комментарий"
 
-#: pyxiv/routes/userAction.py:115
+#: pyxiv/routes/userAction.py:125
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "Не можем отправить штамп: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:120
+#: pyxiv/routes/userAction.py:130
 msgid "Successfully sent stamp"
 msgstr "Успешно отправили штамп"
 
-#: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
+#: pyxiv/routes/userAction.py:153 pyxiv/routes/userAction.py:168
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
 #: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr "Неверный пользователь"
 
-#: pyxiv/routes/userAction.py:148
+#: pyxiv/routes/userAction.py:158
 msgid "Could not follow user"
 msgstr "Не смогли подписаться на пользователя"
 
-#: pyxiv/routes/userAction.py:150
+#: pyxiv/routes/userAction.py:160
 msgid "Successfully followed user"
 msgstr "Успешно подписались на пользователя"
 
-#: pyxiv/routes/userAction.py:163
+#: pyxiv/routes/userAction.py:173
 msgid "Could not unfollow user"
 msgstr "Не смогли отписаться от пользователя"
 
-#: pyxiv/routes/userAction.py:165
+#: pyxiv/routes/userAction.py:175
 msgid "Successfully unfollowed user"
 msgstr "Успешно отписались от пользователя"
 
@@ -705,9 +705,13 @@ msgstr "Календарь"
 msgid "Back"
 msgstr "Назад"
 
-#: pyxiv/templates/replies.html:7
+#: pyxiv/templates/replies.html:7 pyxiv/templates/reply_and_root.html:19
 msgid "Replies"
 msgstr "Ответы"
+
+#: pyxiv/templates/reply_and_root.html:5
+msgid "In reply to"
+msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:2
 msgid "Sensitivity Warning"
@@ -967,50 +971,50 @@ msgstr "Закладки"
 msgid "Log out"
 msgstr "Выйти"
 
-#: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:7
+#: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:17
 #: pyxiv/templates/news/index.html:8
 msgid "Older News"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:9 pyxiv/templates/news/entry.html:9
+#: pyxiv/templates/news/category.html:9 pyxiv/templates/news/entry.html:19
 #: pyxiv/templates/news/index.html:10
 #, fuzzy
 msgid "News"
 msgstr "Новейшие"
 
-#: pyxiv/templates/news/category.html:11 pyxiv/templates/news/entry.html:11
+#: pyxiv/templates/news/category.html:11 pyxiv/templates/news/entry.html:21
 #: pyxiv/templates/news/index.html:12
 msgid "Official Events"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:13 pyxiv/templates/news/entry.html:13
+#: pyxiv/templates/news/category.html:13 pyxiv/templates/news/entry.html:23
 #: pyxiv/templates/news/index.html:14
 #, fuzzy
 msgid "New Features"
 msgstr "Избранное"
 
-#: pyxiv/templates/news/category.html:15 pyxiv/templates/news/entry.html:15
+#: pyxiv/templates/news/category.html:15 pyxiv/templates/news/entry.html:25
 #: pyxiv/templates/news/index.html:16
 msgid "System Maintenance"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:17 pyxiv/templates/news/entry.html:17
+#: pyxiv/templates/news/category.html:17 pyxiv/templates/news/entry.html:27
 #: pyxiv/templates/news/index.html:18
 #, fuzzy
 msgid "Unused Category"
 msgstr "Категория:"
 
-#: pyxiv/templates/news/category.html:19 pyxiv/templates/news/entry.html:19
+#: pyxiv/templates/news/category.html:19 pyxiv/templates/news/entry.html:29
 #: pyxiv/templates/news/index.html:20
 msgid "Features to be updated (deprecated)"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:21 pyxiv/templates/news/entry.html:21
+#: pyxiv/templates/news/category.html:21 pyxiv/templates/news/entry.html:31
 #: pyxiv/templates/news/index.html:22
 msgid "Deprecated Category"
 msgstr ""
 
-#: pyxiv/templates/news/entry.html:29
+#: pyxiv/templates/news/entry.html:39
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:58
 #, python-format

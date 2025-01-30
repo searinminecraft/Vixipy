@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-29 12:56+0800\n"
+"POT-Creation-Date: 2025-01-30 18:19+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,36 +70,36 @@ msgstr ""
 msgid "This method is not allowed for this endpoint"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:52 pyxiv/routes/artworks.py:64
-#: pyxiv/routes/artworks.py:76 pyxiv/routes/artworks.py:88
+#: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
+#: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
 msgid "You cannot access this illustration"
 msgstr ""
 
-#: pyxiv/routes/artworks.py:53
+#: pyxiv/routes/artworks.py:62
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:65
+#: pyxiv/routes/artworks.py:74
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:77
+#: pyxiv/routes/artworks.py:86
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:89
+#: pyxiv/routes/artworks.py:98
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr ""
 
-#: pyxiv/routes/artworks.py:121
+#: pyxiv/routes/artworks.py:130
 msgid "The creator turned off comments."
 msgstr ""
 
@@ -153,123 +153,123 @@ msgstr ""
 msgid "Unable to extract p_ab_d_id"
 msgstr ""
 
-#: pyxiv/routes/settings.py:175
+#: pyxiv/routes/settings.py:177
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:189
+#: pyxiv/routes/settings.py:193
 msgid "No token was supplied."
 msgstr ""
 
-#: pyxiv/routes/settings.py:199
+#: pyxiv/routes/settings.py:203
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr ""
 
-#: pyxiv/routes/settings.py:209 pyxiv/routes/settings.py:306
+#: pyxiv/routes/settings.py:213 pyxiv/routes/settings.py:310
 msgid "Successfully set proxy server"
 msgstr ""
 
-#: pyxiv/routes/settings.py:226
+#: pyxiv/routes/settings.py:230
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:232
+#: pyxiv/routes/settings.py:236
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:241
+#: pyxiv/routes/settings.py:245
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:247
+#: pyxiv/routes/settings.py:251
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
 msgstr ""
 
-#: pyxiv/routes/settings.py:281
+#: pyxiv/routes/settings.py:285
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
 
-#: pyxiv/routes/settings.py:290
+#: pyxiv/routes/settings.py:294
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:301
+#: pyxiv/routes/settings.py:305
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:351
+#: pyxiv/routes/settings.py:355
 msgid "Successfully set preferences"
 msgstr ""
 
-#: pyxiv/routes/settings.py:362 pyxiv/routes/settings.py:382
+#: pyxiv/routes/settings.py:366 pyxiv/routes/settings.py:386
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:373 pyxiv/routes/settings.py:392
+#: pyxiv/routes/settings.py:377 pyxiv/routes/settings.py:396
 msgid "Successfully set language."
 msgstr ""
 
-#: pyxiv/routes/userAction.py:55
+#: pyxiv/routes/userAction.py:65
 msgid "Successfully bookmarked post"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:66
+#: pyxiv/routes/userAction.py:76
 msgid "Successfully removed bookmark"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:77
+#: pyxiv/routes/userAction.py:87
 msgid "Successfully liked post"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:93
+#: pyxiv/routes/userAction.py:103
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:98
+#: pyxiv/routes/userAction.py:108
 msgid "Successfully posted comment"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:115
+#: pyxiv/routes/userAction.py:125
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:120
+#: pyxiv/routes/userAction.py:130
 msgid "Successfully sent stamp"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:143 pyxiv/routes/userAction.py:158
+#: pyxiv/routes/userAction.py:153 pyxiv/routes/userAction.py:168
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
 #: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:148
+#: pyxiv/routes/userAction.py:158
 msgid "Could not follow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:150
+#: pyxiv/routes/userAction.py:160
 msgid "Successfully followed user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:163
+#: pyxiv/routes/userAction.py:173
 msgid "Could not unfollow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:165
+#: pyxiv/routes/userAction.py:175
 msgid "Successfully unfollowed user"
 msgstr ""
 
@@ -654,8 +654,12 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: pyxiv/templates/replies.html:7
+#: pyxiv/templates/replies.html:7 pyxiv/templates/reply_and_root.html:19
 msgid "Replies"
+msgstr ""
+
+#: pyxiv/templates/reply_and_root.html:5
+msgid "In reply to"
 msgstr ""
 
 #: pyxiv/templates/sensitivityWarning.html:2
@@ -906,47 +910,47 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:7
+#: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:17
 #: pyxiv/templates/news/index.html:8
 msgid "Older News"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:9 pyxiv/templates/news/entry.html:9
+#: pyxiv/templates/news/category.html:9 pyxiv/templates/news/entry.html:19
 #: pyxiv/templates/news/index.html:10
 msgid "News"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:11 pyxiv/templates/news/entry.html:11
+#: pyxiv/templates/news/category.html:11 pyxiv/templates/news/entry.html:21
 #: pyxiv/templates/news/index.html:12
 msgid "Official Events"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:13 pyxiv/templates/news/entry.html:13
+#: pyxiv/templates/news/category.html:13 pyxiv/templates/news/entry.html:23
 #: pyxiv/templates/news/index.html:14
 msgid "New Features"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:15 pyxiv/templates/news/entry.html:15
+#: pyxiv/templates/news/category.html:15 pyxiv/templates/news/entry.html:25
 #: pyxiv/templates/news/index.html:16
 msgid "System Maintenance"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:17 pyxiv/templates/news/entry.html:17
+#: pyxiv/templates/news/category.html:17 pyxiv/templates/news/entry.html:27
 #: pyxiv/templates/news/index.html:18
 msgid "Unused Category"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:19 pyxiv/templates/news/entry.html:19
+#: pyxiv/templates/news/category.html:19 pyxiv/templates/news/entry.html:29
 #: pyxiv/templates/news/index.html:20
 msgid "Features to be updated (deprecated)"
 msgstr ""
 
-#: pyxiv/templates/news/category.html:21 pyxiv/templates/news/entry.html:21
+#: pyxiv/templates/news/category.html:21 pyxiv/templates/news/entry.html:31
 #: pyxiv/templates/news/index.html:22
 msgid "Deprecated Category"
 msgstr ""
 
-#: pyxiv/templates/news/entry.html:29
+#: pyxiv/templates/news/entry.html:39
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:58
 #, python-format
