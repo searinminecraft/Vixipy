@@ -171,7 +171,7 @@ For example, you can theme your instance by making `pyxiv/instance/instance.css`
 If you have the time, [help translate](https://translate.codeberg.org/engage/vixipy/) Vixipy to make it more accessible. No pressure of course.
 
 # See also
-* [PixivFE](https://codeberg.org/VnPower/PixivFE) - The project I took inspiration from
+* [PixivFE](https://codeberg.org/VnPower/PixivFE) - The project that Vixipy initially took inspiration from. Note that Vixipy is **no longer** a clone of PixivFE
 * [LiteXiv](https://codeberg.org/Peaksol/LiteXiv) - Yet another pixiv frontend, written in PHP
 
 # License

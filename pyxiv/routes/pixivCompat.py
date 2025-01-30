@@ -44,6 +44,7 @@ async def pixivRedir():
             for x in (
                 "fanbox.cc",
                 "patreon.com",
+                "subscribestar.adult",
             )
         ]
     )
