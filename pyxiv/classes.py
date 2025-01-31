@@ -71,6 +71,22 @@ class PartialUser:
         )
 
 
+class UserSocials:
+    def __init__(self, data):
+        self.twitter = (
+            makeJumpPhp(data["twitter"]["url"]) if "twitter" in data else None
+        )
+        self.x = self.twitter
+        self.mastodon = makeJumpPhp(data["pawoo"]["url"]) if "pawoo" in data else None
+        self.pawoo = self.mastodon
+        self.instagram = (
+            makeJumpPhp(data["instagram"]["url"]) if "instagram" in data else None
+        )
+        self.facebook = (
+            makeJumpPhp(data["facebook"]["url"]) if "facebook" in data else None
+        )
+
+
 class User(PartialUser):
     """
     Represents a user
@@ -83,6 +99,8 @@ class User(PartialUser):
     `int` mypixiv: The user's mypixiv count
     `bool` official: Whether the user is an official account from pixiv
     `str` commentHtml: The HTML-formatted description
+    `UserSocials` socials: The user's socials
+    `str` webpage: The user's homepage
     """
 
     def __init__(self, data):
@@ -93,6 +111,8 @@ class User(PartialUser):
         self.following: int = data["following"]
         self.mypixiv: int = data["mypixivCount"]
         self.official: bool = data["official"]
+        self.socials: UserSocials = UserSocials(data["social"])
+        self.webpage: str = makeJumpPhp(data["webpage"]) if data["webpage"] else None
         soupDesc = BeautifulSoup(data["commentHtml"], "html.parser")
 
         for link in soupDesc.find_all("a"):

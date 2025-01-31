@@ -746,6 +746,19 @@ div.taglist {
           }
         }
 
+        .socials {
+          margin: 1em 0;
+          display: flex;
+          column-gap: 8px;
+          align-items: center;
+
+          svg {
+            fill: var(--md-sys-color-secondary);
+            width: 24px;
+            height: 24px;
+          }
+        }
+
         .user-stats a {
           color: unset;
         }
@@ -1906,6 +1919,20 @@ div#ranking-calendar {
 
     button {
       width: 100%;
+    }
+  }
+
+  .user-container .user-main .user-info {
+    flex-direction: column;
+    align-items: center;
+
+    .user-pfp {
+      margin-right: unset !important;
+      margin-bottom: 1em;
+    }
+
+    .user-details {
+      align-items: center;
     }
   }
 }
