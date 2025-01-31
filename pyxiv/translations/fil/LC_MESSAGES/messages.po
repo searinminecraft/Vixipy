@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-01-30 18:19+0800\n"
-"PO-Revision-Date: 2025-01-23 19:37+0000\n"
-"Last-Translator: Ikuyo Mita <searinminecraft@outlook.ph>\n"
+"PO-Revision-Date: 2025-01-31 02:05+0000\n"
+"Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/user-"
-"interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:238
@@ -707,7 +708,7 @@ msgstr "Mga tugon"
 
 #: pyxiv/templates/reply_and_root.html:5
 msgid "In reply to"
-msgstr ""
+msgstr "Bilang tugon sa"
 
 #: pyxiv/templates/sensitivityWarning.html:2
 msgid "Sensitivity Warning"
