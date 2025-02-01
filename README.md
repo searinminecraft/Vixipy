@@ -133,12 +133,14 @@ docker compose up -d
 
 * `PYXIV_PORT`: The port Vixipy will listen to.
 * `PYXIV_TOKEN` (optional): pixiv `PHPSESSID` (session token). If not specified, a random one will be used, but
-endpoints and features that require authentication will not be accessible unless the user logs in.
+endpoints and features that require authentication will not be accessible unless the user logs in. You can specify multiple tokens separated with commas to balance out requests between them. (`PYXIV_TOKEN="token1,token2,token3,..."`)
 
     To obtain the `PHPSESSID` cookie, see the instructions [from the PixivFE documentation](https://pixivfe-docs.pages.dev/hosting/obtaining-pixivfe-token/).
+* `PYXIV_TOKEN_BALANCER` (default: random): Method used to select a token for each request. Can be `random` (random) or `next` (go through every token in order, to spread out evenly)
 * `PYXIV_INSTANCENAME` (default: Vixipy): The name of the instance.
 * `PYXIV_NOR18` (default: 0): Disables and hides R-18(G) artworks from being shown and accessed.
 * `PYXIV_ACCEPTLANG` (default: en-US,en;q=0.5): The Accept-Language header that will be used for pixiv requests.
+* `PYXIV_ACQUIRE_SESSION` (default: 0): Try acquire a real session instead of using a randomly-generated one for requests
 * `PYXIV_RATELIMITS` (default: 0): EXPERIMENTAL: Whether to enable rate limiting on the instance (requires [memcached](https://memcached.org/) to be installed)
 
 TODO: find asyncio alternative for pymemcache/memcached wrapper if possible

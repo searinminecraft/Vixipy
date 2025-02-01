@@ -1,8 +1,10 @@
 import os
 import random
+import logging
 
 Version = "2.4"
 AuthlessMode = False
+log = logging.getLogger("vixipy.cfg")
 
 
 def setAuthlessMode():
@@ -16,6 +18,16 @@ PxSession = os.environ.get("PYXIV_TOKEN")
 
 if not PxSession:
     PxSession = setAuthlessMode()
+
+MultipleSessions = False
+if len(PxSession.split(",")) != 1:
+    MultipleSessions = True
+    PxSession = PxSession.split(",")
+
+TokenBalancer = os.environ.get("PYXIV_TOKEN_BALANCER", "random").lower().strip()
+if TokenBalancer not in ["random", "next"]:
+    log.error("Invalid TokenBalancer, please set it to random or next")
+    TokenBalancer = "random"
 
 PyXivSecret = os.environ.get("PYXIV_SECRET", "ILoveVixipy")
 
@@ -61,7 +73,7 @@ if not os.path.isfile("pyxiv.running"):
     boolean = lambda a: "Yes" if a else "No"
     the_config = {
         "Commit": f"{GitRev} ({GitRepo})",
-        "Using account": boolean(not AuthlessMode),
+        "Using account": boolean(not AuthlessMode) + f" ({len(PxSession)} accounts)" if MultipleSessions else "",
         "Accept-Language": PxAcceptLang,
         "Instance name": PxInstanceName,
         "No R18": boolean(NoR18),
