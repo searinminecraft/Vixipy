@@ -31,20 +31,19 @@ def mockSession():
     """
     return "".join([chr(random.randint(97, 122)) for _ in range(33)])
 
-
 phpsessid = ""
-p_ab_d_id = ""
+p_ab_d_id = dict()
 sess_acquired = None
 
 
 async def acquire_p_ab(phpsessid: str = None):
     global p_ab_d_id
-    if p_ab_d_id != "":
-        log.debug("Reuse p_ab_d_id: %s", p_ab_d_id)
-        return p_ab_d_id
+    if phpsessid in p_ab_d_id and p_ab_d_id[phpsessid] != "":
+        log.debug("Reuse p_ab_d_id: %s", p_ab_d_id[phpsessid])
+        return p_ab_d_id[phpsessid]
 
     res = await extract_p_ab_d_id(phpsessid)
-    p_ab_d_id = res
+    p_ab_d_id[phpsessid] = res
     return res
 
 
@@ -72,6 +71,7 @@ async def acquireSession():
     log.warning(await req.text())
     return "PHPSESSID=" + mockSession()
 
+nextIndex = -1
 
 async def pixivReq(
     method: str,
@@ -110,8 +110,20 @@ async def pixivReq(
         except KeyError:
             pass
     elif not cfg.AuthlessMode and not g.userPxSession:
+        sess = cfg.PxSession
+        if cfg.MultipleSessions:
+            match cfg.TokenBalancer:
+                case "random":
+                    sess = random.choice(sess)
+                case "next":
+                    global nextIndex
+                    nextIndex = nextIndex+1
+                    if nextIndex == len(sess):
+                        nextIndex = 0
+                    sess = sess[nextIndex]
+        
         headers["Cookie"] = (
-            f"PHPSESSID={cfg.PxSession}; p_ab_d_id={await acquire_p_ab(cfg.PxSession)}; p_ab_id=8; p_ab_id_2=4"
+            f"PHPSESSID={sess}; p_ab_d_id={await acquire_p_ab(sess)}; p_ab_id=8; p_ab_id_2=4"
         )
     elif cfg.TryAcquireSession:
         headers["Cookie"] = await acquireSession()
