@@ -247,7 +247,7 @@ header {
   background-color: var(--md-sys-color-surface-container);
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 3;
   padding: 12px 1em;
 
   form {
@@ -464,7 +464,22 @@ main {
     position: relative
   }
 
+  .blur-handler {
+    background-color: var(--md-sys-color-surface-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 175px;
+    height: 175px;
+    border-radius: 16px;
+
+    svg {
+      fill: var(--md-sys-color-on-surface)
+    }
+  }
+
   .artwork-additional {
+    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
@@ -920,7 +935,7 @@ div.taglist {
       }
     }
 
-    pre.user-account-token > span {
+    pre.user-account-token>span {
       filter: blur(12px);
 
       &:hover {
@@ -1173,7 +1188,7 @@ div.taglist {
   height: 100%;
   display: none;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  z-index: 15;
 
   &[data-visible] {
     display: block
@@ -1605,11 +1620,12 @@ div#ranking-calendar {
 
   small {
     color: var(--md-sys-color-outline);
+
     &.navigation {
       color: revert
     }
   }
-  
+
   img {
     border-radius: 24px;
     margin: 1em 0;
@@ -1622,7 +1638,7 @@ div#ranking-calendar {
     background-color: var(--md-sys-color-surface-container-high);
   }
 
-  > div {
+  >div {
     margin-bottom: 1em;
   }
 }
@@ -1651,6 +1667,7 @@ div#ranking-calendar {
         font-size: 18px;
         font-weight: bold;
       }
+
       small {
         color: var(--md-sys-color-outline)
       }

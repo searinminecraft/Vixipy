@@ -566,7 +566,7 @@ class RankingEntry(ArtworkEntry):
                 "pageCount": int(data["illust_page_count"]),
                 "profileImageUrl": data["profile_img"],
                 "description": "",
-                "sl": 0,
+                "sl": 4 if data["is_masked"] else 0,
             }
         )
 

@@ -81,6 +81,7 @@ async def pixivReq(
     *,
     jsonPayload: dict = None,
     rawPayload: str = None,
+    authenticated: bool = True
 ):
     """
     Send a request to pixiv servers.
@@ -91,12 +92,14 @@ async def pixivReq(
     `str` method: The method to use
     `str` endpoint: Endpoint to get
     `dict` additionalHeaders: Additional headers to pass
+    `bool` useMobileAgent: Whether to use a mobile user agent
     `dict` jsonPayload: JSON payload to send for POST requests
     `str` rawPayload: The raw payload to send for POST requests
+    `bool` authenticated: Whether to send this request authenticated
     """
     headers = {"Accept-Language": cfg.PxAcceptLang}
 
-    if g.userPxSession:
+    if g.userPxSession and authenticated:
         headers["Cookie"] = f"PHPSESSID={g.userPxSession}"
         if g.user_p_ab_d_id:
             headers[
@@ -280,7 +283,10 @@ async def getRanking(
     if content and content != "":
         path += f"&content={content}"
 
-    return await pixivReq("get", path)
+    if mode in ("daily_r18", "weekly_r18", "daily_r18_ai"):
+        return await pixivReq("get", path, authenticated=True)
+    else:
+        return await pixivReq("get", path, authenticated=False)
 
 
 # holy shit.
