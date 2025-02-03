@@ -18,3 +18,4 @@ services:
       #PYXIV_ACCEPTLANG: ""
       #PYXIV_INSTANCENAME: ""
       #PYXIV_ACQUIRE_SESSION: 0
+      #PYXIV_DEFAULT_PROXY: ""

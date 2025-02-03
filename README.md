@@ -141,6 +141,7 @@ endpoints and features that require authentication will not be accessible unless
 * `PYXIV_NOR18` (default: 0): Disables and hides R-18(G) artworks from being shown and accessed.
 * `PYXIV_ACCEPTLANG` (default: en-US,en;q=0.5): The Accept-Language header that will be used for pixiv requests.
 * `PYXIV_ACQUIRE_SESSION` (default: 0): Try acquire a real session instead of using a randomly-generated one for requests
+* `PYXIV_DEFAULT_PROXY` (optional): Default image proxy to use. If not specified - internal proxy of Vixipy is used
 * `PYXIV_RATELIMITS` (default: 0): EXPERIMENTAL: Whether to enable rate limiting on the instance (requires [memcached](https://memcached.org/) to be installed)
 
 TODO: find asyncio alternative for pymemcache/memcached wrapper if possible
