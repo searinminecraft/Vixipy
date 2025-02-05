@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-05 08:04+0800\n"
-"PO-Revision-Date: 2025-01-31 02:05+0000\n"
+"PO-Revision-Date: 2025-02-06 00:21+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:238
@@ -245,19 +246,16 @@ msgstr "Matagumpay na natakda ang wika."
 
 #: pyxiv/routes/ugoiraconverter.py:16
 msgid "The ID you specified is not an ugoira."
-msgstr ""
+msgstr "Hindi ugoira ang ibinigay mong ID."
 
 #: pyxiv/routes/ugoiraconverter.py:19
-#, fuzzy
 msgid "Illustration not found"
-msgstr "Mga Illustration"
+msgstr "Hindi nahanap ang illustration"
 
 #: pyxiv/routes/ugoiraconverter.py:22
-#, fuzzy, python-format
+#, python-format
 msgid "pixiv returned an error: %(error)s"
-msgstr ""
-"Nagbigay ng error ang pixiv habang naghihiling ng data: "
-"<code>%(error)s</code>"
+msgstr "Nagbigay ng error ang pixiv: %(error)s"
 
 #: pyxiv/routes/userAction.py:65
 msgid "Successfully bookmarked post"
@@ -290,9 +288,8 @@ msgid "Successfully sent stamp"
 msgstr "Matagumpay na napadala ang stamp"
 
 #: pyxiv/routes/userAction.py:153
-#, fuzzy
 msgid "You cannot follow yourself."
-msgstr "Hindi masundan ang user"
+msgstr "Hindi mo maaaring sundan ang sarili mo."
 
 #: pyxiv/routes/userAction.py:158 pyxiv/routes/userAction.py:173
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
@@ -1477,14 +1474,14 @@ msgid "%(user)s's Illustrations"
 msgstr "Mga illustration ni %(user)s"
 
 #: pyxiv/templates/user/index.html:16
-#, fuzzy, python-format
+#, python-format
 msgid "%(user)s's background"
-msgstr "Mga Manga ni %(user)s"
+msgstr "Background ni %(user)s"
 
 #: pyxiv/templates/user/index.html:21
-#, fuzzy, python-format
+#, python-format
 msgid "%(user)s's profile picture"
-msgstr "%(sect)s ni %(user)s"
+msgstr "Larawan ng profile ni %(user)s"
 
 #: pyxiv/templates/user/index.html:37
 #, python-format
@@ -1624,4 +1621,3 @@ msgstr "Mga Manga ni %(user)s"
 #~ "Isang beses lang lalabas ang babalang"
 #~ " ito hanggang sa i-clear mo ang "
 #~ "cookies para sa website na ito."
-
