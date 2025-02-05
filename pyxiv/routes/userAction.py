@@ -149,9 +149,14 @@ async def followUser(_id: int):
     restrict = bool(int(request.args.get("restrict", 0)))
     r = request.args.get("r", "/")
 
+    if _id == g.userdata._id:
+        await flash(_("You cannot follow yourself."), "error")
+        return redirect(r, code=303)
+
+
     if _id == 0:
         await flash(_("Invalid user"), "error")
-        return await redirect(r, code=303)
+        return redirect(r, code=303)
     try:
         await api.followUser(_id, restrict)
     except api.PixivError:

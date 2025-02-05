@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-30 18:19+0800\n"
+"POT-Creation-Date: 2025-02-05 08:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,6 +221,19 @@ msgstr ""
 msgid "Successfully set language."
 msgstr ""
 
+#: pyxiv/routes/ugoiraconverter.py:16
+msgid "The ID you specified is not an ugoira."
+msgstr ""
+
+#: pyxiv/routes/ugoiraconverter.py:19
+msgid "Illustration not found"
+msgstr ""
+
+#: pyxiv/routes/ugoiraconverter.py:22
+#, python-format
+msgid "pixiv returned an error: %(error)s"
+msgstr ""
+
 #: pyxiv/routes/userAction.py:65
 msgid "Successfully bookmarked post"
 msgstr ""
@@ -251,25 +264,29 @@ msgstr ""
 msgid "Successfully sent stamp"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:153 pyxiv/routes/userAction.py:168
+#: pyxiv/routes/userAction.py:153
+msgid "You cannot follow yourself."
+msgstr ""
+
+#: pyxiv/routes/userAction.py:158 pyxiv/routes/userAction.py:173
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
 #: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:158
+#: pyxiv/routes/userAction.py:163
 msgid "Could not follow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:160
+#: pyxiv/routes/userAction.py:165
 msgid "Successfully followed user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:173
+#: pyxiv/routes/userAction.py:178
 msgid "Could not unfollow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:175
+#: pyxiv/routes/userAction.py:180
 msgid "Successfully unfollowed user"
 msgstr ""
 
@@ -446,19 +463,19 @@ msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
 #: pyxiv/templates/index.html:2 pyxiv/templates/indexManga.html:2
-#: pyxiv/templates/layouts/default.html:59 pyxiv/templates/user/index.html:63
+#: pyxiv/templates/layouts/default.html:59 pyxiv/templates/user/index.html:81
 msgid "Home"
 msgstr ""
 
 #: pyxiv/templates/index.html:25 pyxiv/templates/indexManga.html:23
 #: pyxiv/templates/newest.html:17 pyxiv/templates/rankings.html:14
-#: pyxiv/templates/user/index.html:64
+#: pyxiv/templates/user/index.html:82
 msgid "Illustrations"
 msgstr ""
 
 #: pyxiv/templates/index.html:26 pyxiv/templates/indexManga.html:24
 #: pyxiv/templates/newest.html:18 pyxiv/templates/rankings.html:15
-#: pyxiv/templates/user/index.html:65
+#: pyxiv/templates/user/index.html:83
 msgid "Manga"
 msgstr ""
 
@@ -901,7 +918,7 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:119 pyxiv/templates/user/index.html:66
+#: pyxiv/templates/layouts/default.html:119 pyxiv/templates/user/index.html:84
 msgid "Bookmarks"
 msgstr ""
 
@@ -1318,7 +1335,7 @@ msgstr ""
 msgid "%(user)s's %(sect)s"
 msgstr ""
 
-#: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:42
+#: pyxiv/templates/user/follows.html:19 pyxiv/templates/user/index.html:60
 msgid "Following"
 msgstr ""
 
@@ -1335,6 +1352,16 @@ msgstr ""
 msgid "%(user)s's Illustrations"
 msgstr ""
 
+#: pyxiv/templates/user/index.html:16
+#, python-format
+msgid "%(user)s's background"
+msgstr ""
+
+#: pyxiv/templates/user/index.html:21
+#, python-format
+msgid "%(user)s's profile picture"
+msgstr ""
+
 #: pyxiv/templates/user/index.html:37
 #, python-format
 msgid "<b>%(followingCount)s</b> following"
@@ -1345,7 +1372,7 @@ msgstr ""
 msgid "<b>%(myPixiv)s</b> mypixiv"
 msgstr ""
 
-#: pyxiv/templates/user/index.html:44
+#: pyxiv/templates/user/index.html:62
 msgid "Follow"
 msgstr ""
 
