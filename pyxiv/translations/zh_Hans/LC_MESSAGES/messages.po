@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-05 08:04+0800\n"
-"PO-Revision-Date: 2025-01-30 23:42+0000\n"
+"PO-Revision-Date: 2025-02-06 23:03+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:238
@@ -226,17 +226,16 @@ msgstr "成功设置语言。"
 
 #: pyxiv/routes/ugoiraconverter.py:16
 msgid "The ID you specified is not an ugoira."
-msgstr ""
+msgstr "指定的 ID 不是动图。"
 
 #: pyxiv/routes/ugoiraconverter.py:19
-#, fuzzy
 msgid "Illustration not found"
-msgstr "插画"
+msgstr "找不到插画"
 
 #: pyxiv/routes/ugoiraconverter.py:22
-#, fuzzy, python-format
+#, python-format
 msgid "pixiv returned an error: %(error)s"
-msgstr "请求数据时，pixiv 返回错误：<code>%(error)s</code>"
+msgstr "pixiv 返回错误：%(error)s"
 
 #: pyxiv/routes/userAction.py:65
 msgid "Successfully bookmarked post"
@@ -269,9 +268,8 @@ msgid "Successfully sent stamp"
 msgstr "成功发送表情贴图"
 
 #: pyxiv/routes/userAction.py:153
-#, fuzzy
 msgid "You cannot follow yourself."
-msgstr "无法关注用户"
+msgstr "无法关注自己。"
 
 #: pyxiv/routes/userAction.py:158 pyxiv/routes/userAction.py:173
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
@@ -1382,14 +1380,14 @@ msgid "%(user)s's Illustrations"
 msgstr "%(user)s 的插画"
 
 #: pyxiv/templates/user/index.html:16
-#, fuzzy, python-format
+#, python-format
 msgid "%(user)s's background"
-msgstr "%(user)s 的漫画"
+msgstr "%(user)s 的背景"
 
 #: pyxiv/templates/user/index.html:21
-#, fuzzy, python-format
+#, python-format
 msgid "%(user)s's profile picture"
-msgstr "%(user)s 的 %(sect)s"
+msgstr "%(user)s 的头像"
 
 #: pyxiv/templates/user/index.html:37
 #, python-format
@@ -1495,4 +1493,3 @@ msgstr "%(user)s 的漫画"
 #~ "once until you clear cookies for "
 #~ "this website."
 #~ msgstr "本警告只会显示一次，除非清除了本站 cookies。"
-
