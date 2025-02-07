@@ -45,6 +45,7 @@ async def pixivRedir():
                 "fanbox.cc",
                 "patreon.com",
                 "subscribestar.adult",
+                "gumroad.com",
             )
         ]
     )
