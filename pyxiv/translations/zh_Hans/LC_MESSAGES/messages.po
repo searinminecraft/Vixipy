@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-05 08:04+0800\n"
+"POT-Creation-Date: 2025-02-07 17:38+0800\n"
 "PO-Revision-Date: 2025-02-06 23:03+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
-"Language-Team: Chinese (Simplified Han script) <https://"
-"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
+"Language-Team: Chinese (Simplified Han script) "
+"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
+"\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:238
@@ -72,6 +72,10 @@ msgstr "不允许该方法"
 #: pyxiv/app.py:301
 msgid "This method is not allowed for this endpoint"
 msgstr "该端点不允许此请求方法"
+
+#: pyxiv/app.py:344
+msgid "Your current theme is invalid. Please set the correct theme in settings."
+msgstr ""
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
 #: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
@@ -134,95 +138,100 @@ msgstr "六"
 msgid "Sun"
 msgstr "日"
 
-#: pyxiv/routes/settings.py:121 pyxiv/routes/settings.py:125
+#: pyxiv/routes/settings.py:125 pyxiv/routes/settings.py:129
 msgid "Invalid token"
 msgstr "无效 token"
 
-#: pyxiv/routes/settings.py:140
+#: pyxiv/routes/settings.py:144
 #, python-format
 msgid "An exception occurred trying to log in: %s"
 msgstr "登录时出现异常：%s"
 
-#: pyxiv/routes/settings.py:147
+#: pyxiv/routes/settings.py:151
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "无法使用 token。pixiv 返回代码 %(status)d"
 
-#: pyxiv/routes/settings.py:161
+#: pyxiv/routes/settings.py:165
 msgid "Unable to extract CSRF"
 msgstr "无法提取 CSRF"
 
-#: pyxiv/routes/settings.py:166
+#: pyxiv/routes/settings.py:170
 msgid "Unable to extract p_ab_d_id"
 msgstr "无法提取 p_ab_d_id"
 
-#: pyxiv/routes/settings.py:177
+#: pyxiv/routes/settings.py:181
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "无法使用 token：%(error)s"
 
-#: pyxiv/routes/settings.py:193
+#: pyxiv/routes/settings.py:197
 msgid "No token was supplied."
 msgstr "没有提供 token。"
 
-#: pyxiv/routes/settings.py:203
+#: pyxiv/routes/settings.py:207
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "会话已结束。再见！"
 
-#: pyxiv/routes/settings.py:213 pyxiv/routes/settings.py:310
+#: pyxiv/routes/settings.py:217 pyxiv/routes/settings.py:314
 msgid "Successfully set proxy server"
 msgstr "成功设置代理服务器"
 
-#: pyxiv/routes/settings.py:230
+#: pyxiv/routes/settings.py:234
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "请在 URL 中指定协议，仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:236
+#: pyxiv/routes/settings.py:240
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "URL 协议无效：%(scheme)s。仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:245
+#: pyxiv/routes/settings.py:249
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "无法使用该地址：%(addr)s"
 
-#: pyxiv/routes/settings.py:251
+#: pyxiv/routes/settings.py:255
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
 msgstr "由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务器。"
 
-#: pyxiv/routes/settings.py:285
+#: pyxiv/routes/settings.py:289
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr "注意：你指定的代理服务器使用了 Cloudflare。图片可能无法加载，并且可能存在隐私问题。"
 
-#: pyxiv/routes/settings.py:294
+#: pyxiv/routes/settings.py:298
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr "检查图片代理完整性时出错。需要 %(integrity)s，但得到了 %(result)s"
 
-#: pyxiv/routes/settings.py:305
+#: pyxiv/routes/settings.py:309
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:355
+#: pyxiv/routes/settings.py:359
 msgid "Successfully set preferences"
 msgstr "成功设置首选项"
 
-#: pyxiv/routes/settings.py:366 pyxiv/routes/settings.py:386
+#: pyxiv/routes/settings.py:370 pyxiv/routes/settings.py:390
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "语言无效：%(code)s"
 
-#: pyxiv/routes/settings.py:377 pyxiv/routes/settings.py:396
+#: pyxiv/routes/settings.py:381 pyxiv/routes/settings.py:400
 msgid "Successfully set language."
 msgstr "成功设置语言。"
+
+#: pyxiv/routes/settings.py:414
+#, fuzzy
+msgid "Successfully set theme"
+msgstr "成功发送表情贴图"
 
 #: pyxiv/routes/ugoiraconverter.py:16
 msgid "The ID you specified is not an ugoira."
@@ -1248,6 +1257,24 @@ msgstr "下方可指定自定义代理服务器。"
 msgid "Use proxy server"
 msgstr "使用代理服务器"
 
+#: pyxiv/templates/settings/pyxivSettings.html:38
+#, fuzzy
+msgid "Theme"
+msgstr "主页"
+
+#: pyxiv/templates/settings/pyxivSettings.html:41
+#, fuzzy
+msgid "You can set your theme below."
+msgstr "在此选择偏好语言。"
+
+#: pyxiv/templates/settings/pyxivSettings.html:44
+msgid "Use default theme"
+msgstr ""
+
+#: pyxiv/templates/settings/pyxivSettings.html:51
+msgid "Set Theme"
+msgstr ""
+
 #: pyxiv/templates/settings/settingsMain.html:16
 msgid "Account"
 msgstr "帐号"
@@ -1493,3 +1520,4 @@ msgstr "%(user)s 的漫画"
 #~ "once until you clear cookies for "
 #~ "this website."
 #~ msgstr "本警告只会显示一次，除非清除了本站 cookies。"
+

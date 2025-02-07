@@ -411,5 +411,5 @@ async def setTheme():
     )
 
     resp.set_cookie("Vixipy-Theme", theme, max_age=COOKIE_MAXAGE)
-    flash(_("Successfully set theme"))
+    await flash(_("Successfully set theme"))
     return resp
