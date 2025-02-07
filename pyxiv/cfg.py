@@ -2,7 +2,7 @@ import os
 import random
 import logging
 
-Version = "2.4"
+Version = "2.5"
 AuthlessMode = False
 log = logging.getLogger("vixipy.cfg")
 
