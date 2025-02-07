@@ -40,6 +40,20 @@ GitRepo = os.environ.get("GIT_REPO", "unknown")
 TryAcquireSession = int(os.environ.get("PYXIV_ACQUIRE_SESSION", 0)) == 1
 DefaultProxy = os.environ.get("PYXIV_DEFAULT_PROXY", "")
 
+Themes = os.environ.get("PYXIV_ADDITIONAL_THEMES", "").split(",")
+DefaultTheme = os.environ.get("PYXIV_DEFAULT_THEME", "aqua")
+DefaultThemes = (
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "aqua",
+    "pink",
+    "purple",
+    "grayscale",
+)
+
 # normalize
 if GitRepo.startswith(
     "http"
@@ -74,7 +88,8 @@ if not os.path.isfile("pyxiv.running"):
     boolean = lambda a: "Yes" if a else "No"
     the_config = {
         "Commit": f"{GitRev} ({GitRepo})",
-        "Using account": boolean(not AuthlessMode) + (f" ({len(PxSession)} accounts)" if MultipleSessions else ""),
+        "Using account": boolean(not AuthlessMode)
+        + (f" ({len(PxSession)} accounts)" if MultipleSessions else ""),
         "Accept-Language": PxAcceptLang,
         "Instance name": PxInstanceName,
         "No R18": boolean(NoR18),

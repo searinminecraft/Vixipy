@@ -336,6 +336,16 @@ def create_app():
         g.userProxyServer = request.cookies.get("PyXivProxy", cfg.DefaultProxy)
         g.user_p_ab_d_id = request.cookies.get("Vixipy-p_ab_d_id", "")
 
+        currentTheme = request.cookies.get("Vixipy-Theme", cfg.DefaultTheme)
+
+        if currentTheme == "":
+            g.theme = cfg.DefaultTheme
+        elif currentTheme not in list(cfg.DefaultThemes) + cfg.Themes:
+            await flash(_("Your current theme is invalid. Please set the correct theme in settings."), "error")
+            g.theme = cfg.DefaultTheme
+        else:
+            g.theme = currentTheme
+
         if (not g.userPxSession and not g.userPxCSRF) or g.userPxSession == "":
             g.isAuthorized = False
 

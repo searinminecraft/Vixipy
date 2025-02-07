@@ -142,6 +142,8 @@ endpoints and features that require authentication will not be accessible unless
 * `PYXIV_ACCEPTLANG` (default: en-US,en;q=0.5): The Accept-Language header that will be used for pixiv requests.
 * `PYXIV_ACQUIRE_SESSION` (default: 0): Try acquire a real session instead of using a randomly-generated one for requests
 * `PYXIV_DEFAULT_PROXY` (optional): Default image proxy to use. If not specified - internal proxy of Vixipy is used
+* `PYXIV_ADDITIONAL_THEMES` (optional): Additional themes for Vixipy, separated with a `,`. For example, to add a theme named `modern`, add the file "theme-modern.css" in `pyxiv/instance/themes` and specify `modern` in this variable. The name and file must not contain spaces or a `,` character.
+* `PYXIV_DEFAULT_THEME` (default: aqua): Default Vixipy theme. To use a custom theme, make sure it is specified in the `PYXIV_ADDITIONAL_THEMES` variable.
 * `PYXIV_RATELIMITS` (default: 0): EXPERIMENTAL: Whether to enable rate limiting on the instance (requires [memcached](https://memcached.org/) to be installed)
 
 TODO: find asyncio alternative for pymemcache/memcached wrapper if possible
@@ -150,7 +152,7 @@ TODO: find asyncio alternative for pymemcache/memcached wrapper if possible
 
 You can override static files by creating a `pyxiv/instance` folder, and putting your own files there.
 
-For example, you can theme your instance by making `pyxiv/instance/instance.css` file, and putting your rules there.
+For example, you can theme your instance by making `pyxiv/instance/themes/theme-<NAME>.css` file, adding it on the `PYXIV_ADDITIONAL_THEMES` variable, and putting your rules there.
 
 [Example theme can be found here](https://git.maid.zone/laptop/vixipy-theme/src/branch/main/instance.css)
 

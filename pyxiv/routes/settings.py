@@ -43,7 +43,11 @@ async def getUserState():
 
 @settings.route("/")
 async def settingsIndex():
-    return await render_template("settings/pyxivSettings.html")
+    if cfg.Themes[0] == "":
+        themes = cfg.DefaultThemes
+    else:
+        themes = cfg.Themes + list(cfg.DefaultThemes)
+    return await render_template("settings/pyxivSettings.html", themes=themes, default_theme=cfg.DefaultTheme)
 
 
 @settings.route("/<ep>")
@@ -394,4 +398,18 @@ async def setPixivisionLanguage():
     resp.set_cookie("PyXivPixivisionLang", language, max_age=COOKIE_MAXAGE)
 
     flash(_("Successfully set language."))
+    return resp
+
+
+@settings.post("/setTheme")
+async def setTheme():
+    form = await request.form
+    theme = form["theme"]
+
+    resp = await make_response(
+        redirect(url_for("settings.settingsIndex"), code=303)
+    )
+
+    resp.set_cookie("Vixipy-Theme", theme, max_age=COOKIE_MAXAGE)
+    flash(_("Successfully set theme"))
     return resp

@@ -34,5 +34,21 @@
 	<input type="text" name="image-proxy" autocomplete="off" placeholder="https://proxy.neonw.su/pixiv" required="true"></input>
 	<button type="submit" class="button">{{ _("Use proxy server") }}</button>
 </form>
+
+<h3>{{ _("Theme") }}</h3>
+
+<form action="/settings/setTheme" method="POST">
+  <label for="theme">{{_("You can set your theme below.")}}</label>
+  <br>
+  <select id="theme" name="theme">
+    <option value="" {%if request.cookies.get("Vixipy-Theme", default_theme) == default_theme or request.cookies.get("Vixipy-Theme") == ""%}selected{%endif%}>{{_("Use default theme")}}</option>
+    {% for theme in themes %}
+    <option value="{{theme}}" {% if request.cookies.get("Vixipy-Theme") == theme %}selected{%endif%}>{{theme}}</option>
+    {% endfor %}
+  </select>
+  <br>
+  <br>
+  <button class="button" type="submit">{{_("Set Theme")}}</button>
+</form>
 {% endblock %}
 
