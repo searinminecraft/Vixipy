@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-07 17:38+0800\n"
+"POT-Creation-Date: 2025-02-07 21:39+0800\n"
 "PO-Revision-Date: 2025-02-06 23:03+0000\n"
 "Last-Translator: divergency "
 "<divergency@users.noreply.translate.codeberg.org>\n"
@@ -375,43 +375,52 @@ msgstr "Загрузить"
 msgid "More download options..."
 msgstr "Больше опций загрузки..."
 
+#: pyxiv/templates/artwork.html:60
+#, fuzzy
+msgid "Your Illustration"
+msgstr "Иллюстрации"
+
 #: pyxiv/templates/artwork.html:66
+msgid "Limited Visibility"
+msgstr ""
+
+#: pyxiv/templates/artwork.html:78
 msgid "AI generated"
 msgstr "Сгенерировано ИИ"
 
-#: pyxiv/templates/artwork.html:72 pyxiv/templates/rankings.html:33
+#: pyxiv/templates/artwork.html:84 pyxiv/templates/rankings.html:33
 msgid "Original"
 msgstr "Оригинал"
 
-#: pyxiv/templates/artwork.html:103
+#: pyxiv/templates/artwork.html:126
 msgid "Disabled"
 msgstr "Отключен"
 
-#: pyxiv/templates/artwork.html:116
+#: pyxiv/templates/artwork.html:139
 #, python-format
 msgid "Sensitivity level: %(sl)d"
 msgstr "Уровень чувствительности: %(sl)d"
 
-#: pyxiv/templates/artwork.html:120
+#: pyxiv/templates/artwork.html:143
 msgid "View on pixiv"
 msgstr "Посмотреть на pixiv"
 
-#: pyxiv/templates/artwork.html:129 pyxiv/templates/index.html:93
+#: pyxiv/templates/artwork.html:152 pyxiv/templates/index.html:93
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr "Просмотреть все"
 
-#: pyxiv/templates/artwork.html:139
+#: pyxiv/templates/artwork.html:162
 msgid "Related"
 msgstr "Похожие"
 
-#: pyxiv/templates/artwork.html:142 pyxiv/templates/discover.html:7
+#: pyxiv/templates/artwork.html:165 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:9 pyxiv/templates/indexManga.html:7
 #: pyxiv/templates/newest.html:7 pyxiv/templates/tag.html:29
 msgid "Some entries have been hidden due to filters"
 msgstr "Некоторые вставки были скрыты из-за фильтров"
 
-#: pyxiv/templates/artwork.html:152 pyxiv/templates/bookmarksSelf.html:25
+#: pyxiv/templates/artwork.html:175 pyxiv/templates/bookmarksSelf.html:25
 #: pyxiv/templates/user/bookmarks.html:25 pyxiv/templates/user/illusts.html:25
 #: pyxiv/templates/user/main.html:48 pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
