@@ -18,7 +18,12 @@ async def after_request(r: Response):
 
 @proxy.errorhandler(aiohttp.ClientError)
 async def handleHttpError(e):
-    return f"Unable to complete request due to error: {e}", 500
+    log.exception("Client error trying to proxy %s", request.full_path, exc_info=e)
+    return (
+        f"Unable to complete request due to error: {e}",
+        500,
+        {"Content-Type": "text/plain"},
+    )
 
 
 @proxy.route("/ugoira/<int:_id>")

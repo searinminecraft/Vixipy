@@ -317,7 +317,7 @@ class PartialArtwork:
         self.isUgoira: bool = self.illustType == 2
         self.pageCount: int = data["pageCount"]
         self.authorName: str = data["userName"]
-        self.authorId: int = data["userId"]
+        self.authorId: int = int(data["userId"])
         self.sl: int = int(data["sl"])
         self.isSensitive: int = self.sl >= 4
         self.createDate: datetime.datetime = (
@@ -335,6 +335,7 @@ class PartialArtwork:
             if data.get("uploadDate")
             else None
         )
+
 
         soupDesc = BeautifulSoup(data["description"], "html.parser")
 
@@ -415,6 +416,9 @@ class Artwork(PartialArtwork):
         self.isOriginal: bool = data["isOriginal"]
         self.width: int = data["width"]
         self.height: int = data["height"]
+        self.restrict: int = int(data["restrict"])
+        self.isPrivate: bool = self.restrict >= 1
+
 
         self.bookmarkId: int = (
             data["bookmarkData"]["id"] if data["bookmarkData"] else None
