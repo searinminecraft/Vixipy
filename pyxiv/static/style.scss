@@ -473,7 +473,7 @@ main {
 
 .feature-card {
   a {
-    color: unset;
+    color: white;
   }
 
   .container {
@@ -482,7 +482,7 @@ main {
     border-radius: 24px;
     overflow: hidden;
     background-color: var(--md-sys-color-surface-container);
-    transition: border-radius 150ms ease;
+    transition: .4s ease;
 
     &:hover {
       border-radius: 36px;
@@ -492,18 +492,24 @@ main {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: .4s ease;
+
+      &:hover {
+        transform: scale(115%);
+      }
     }
 
     .info {
+      pointer-events: none;
       position: absolute;
       bottom: 0;
       width: 100%;
+      height: 30%;
       padding: 1em;
-      transition: padding 150ms ease;
       background: linear-gradient(transparent, #222222);
       display: flex;
       flex-direction: column;
-      justify-content: bottom;
+      justify-content: flex-end;
 
       h3 {
         margin: unset;
