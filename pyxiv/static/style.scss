@@ -343,6 +343,51 @@ header {
   }
 }
 
+form.inline {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+
+  >div:not(.centered) {
+    display: flex;
+    align-items: center;
+    background-color: var(--md-sys-color-surface-container);
+    padding: 1em;
+    border-radius: 16px;
+
+    &.space-between {
+      justify-content: space-between;
+    }
+
+    &.column {
+      flex-direction: column;
+    }
+
+    .toggle-switch {
+      width: 100%;
+    }
+
+    select {
+      width: 30%
+    }
+
+    .radio-opts {
+      display: flex;
+      column-gap: 1em;
+    }
+
+    input[type=text],
+    textarea {
+      width: 100%;
+      border: none;
+    }
+
+    textarea {
+      resize: vertical
+    }
+  }
+}
+
 form.inline-form {
   width: 100%;
   display: flex;

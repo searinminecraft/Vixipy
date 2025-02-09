@@ -6,6 +6,7 @@ import time
 from urllib.parse import quote, urlparse
 import logging
 import random
+import aiohttp
 from http import HTTPStatus
 
 log = logging.getLogger("vixipy.api")
@@ -30,6 +31,7 @@ def mockSession():
     behavior of giving a random PHPSESSID.
     """
     return "".join([chr(random.randint(97, 122)) for _ in range(33)])
+
 
 phpsessid = ""
 p_ab_d_id = dict()
@@ -71,7 +73,9 @@ async def acquireSession():
     log.warning(await req.text())
     return "PHPSESSID=" + mockSession()
 
+
 nextIndex = -1
+
 
 async def pixivReq(
     method: str,
@@ -81,7 +85,7 @@ async def pixivReq(
     *,
     jsonPayload: dict = None,
     rawPayload: str = None,
-    authenticated: bool = True
+    authenticated: bool = True,
 ):
     """
     Send a request to pixiv servers.
@@ -117,11 +121,11 @@ async def pixivReq(
                     sess = random.choice(sess)
                 case "next":
                     global nextIndex
-                    nextIndex = nextIndex+1
+                    nextIndex = nextIndex + 1
                     if nextIndex == len(sess):
                         nextIndex = 0
                     sess = sess[nextIndex]
-        
+
         headers["Cookie"] = (
             f"PHPSESSID={sess}; p_ab_d_id={await acquire_p_ab(sess)}; p_ab_id=8; p_ab_id_2=4"
         )
@@ -568,3 +572,81 @@ async def getReplyAndRoot(illust_id: int, comment_id: int):
         "get",
         f"/ajax/illusts/comments/reply_and_root?illust_id={illust_id}&comment_id={comment_id}",
     )
+
+
+async def getUserIllustDetails(id: int):
+    return await pixivReq("get", f"/ajax/work/edit/illustration/{id}/init")
+
+
+async def editIllustrationDetails(
+    id: int,
+    *,
+    title: str,
+    caption: str = "",
+    allowTagEdit: bool = True,
+    xRestrict: str,
+    sexual: bool = False,
+    aiGenerated: bool,
+    restrict: str,
+    allowComment: bool = True,
+    original: bool = False,
+    responseAutoAccept: bool = False,
+    rtViolent: bool = False,
+    rtThoughts: bool = False,
+    rtAntiSocial: bool = False,
+    rtReligion: bool = False,
+    generateUnlistedSecret: bool = False,
+):
+
+    aiType = "aiGenerated" if aiGenerated else "notAiGenerated"
+    restrictTypes = ("loginOnly", "mypixiv", "private", "public", "unlisted")
+    xRestrictTypes = ("general", "r18", "r18g")
+
+    if restrict not in restrictTypes:
+        raise ValueError(
+            "Invalid restrict type. Possible values are: " + ", ".join(restrictTypes)
+        )
+    if xRestrict not in xRestrictTypes:
+        raise ValueError(
+            "Invalid xRestrict type. Possible values are: " + ", ".join(xRestrictTypes)
+        )
+
+    mp = aiohttp.MultipartWriter("form-data")
+    mpData = {
+        "title": title,
+        "titleTranslations[en]": "",
+        "caption": caption,
+        "captionTranslations[en]": "",
+        "allowTagEdit": str(allowTagEdit).lower(),
+        "xRestrict": xRestrict,
+        "sexual": str(sexual).lower(),
+        "aiType": aiType,
+        "restrict": restrict,
+        "allowComment": str(allowComment).lower(),
+        "original": str(original).lower(),
+        "responseAutoAccept": str(responseAutoAccept).lower(),
+        "ratings[violent]": str(rtViolent).lower(),
+        "ratings[thoughts]": str(rtThoughts).lower(),
+        "ratings[antisocial]": str(rtAntiSocial).lower(),
+        "ratings[religion]": str(rtReligion).lower(),
+        "generateUnlistedSecret": str(generateUnlistedSecret).lower(),
+    }
+    log.debug(mpData)
+
+    for k, v in mpData.items():
+        part = mp.append(v)
+        part.set_content_disposition("form-data", name=k)
+
+    resp: aiohttp.ClientResponse = await current_app.pixivApi.post(
+        f"/ajax/work/edit/illustration/{id}",
+        data=mp,
+        headers={
+            "Cookie": f"PHPSESSID={g.userPxSession}",
+            "Origin": "https://www.pixiv.net",
+            "x-csrf-token": g.userPxCSRF,
+            "Referer": f"https://www.pixiv.net/illustrations/edit/{id}",
+        },
+    )
+    json: dict = await resp.json()
+    if json["error"] == "true":
+        raise PixivError(json["message"], resp.status)

@@ -12,6 +12,7 @@ from quart_babel import _
 
 from .. import api
 from ..core.comments import postComment, postStamp
+from ..core.illustManagement import getInternalIllustDetails
 from ..core.user import getUserBookmarks, getNotifications
 from ..core.artwork import getFrequentTags
 from ..core.comments import getReplyAndRoot
@@ -153,7 +154,6 @@ async def followUser(_id: int):
         await flash(_("You cannot follow yourself."), "error")
         return redirect(r, code=303)
 
-
     if _id == 0:
         await flash(_("Invalid user"), "error")
         return redirect(r, code=303)
@@ -190,3 +190,35 @@ async def replyAndRoot():
         request.args.get("illust_id"), request.args.get("comment_id")
     )
     return await render_template("reply_and_root.html", child=child, root=root)
+
+
+@userAction.route("/editIllustration/<int:id>", methods=["GET", "POST"])
+async def editIllustration(id: int):
+    if request.method == "POST":
+        f = await request.form
+        title = f["title"]
+        caption = f["caption"]
+        restrict = f["restrict"]
+        xRestrict = f["xRestrict"]
+        aiGenerated = f.get("aigc") == "on"
+        allowComment = f.get("allowComment") == "on"
+        allowTagEdit = f.get("allowTagEdit") == "on"
+        original = f.get("original") == "on"
+
+        await api.editIllustrationDetails(
+            id,
+            title=title,
+            caption=caption,
+            restrict=restrict,
+            aiGenerated=aiGenerated,
+            allowComment=allowComment,
+            allowTagEdit=allowTagEdit,
+            original=original,
+            xRestrict=xRestrict,
+        )
+
+        await flash(_("Successfully edited details"))
+        return redirect(f"/artworks/{id}", code=303)
+    else:
+        data = await getInternalIllustDetails(id)
+        return await render_template("editDetails.html", data=data)

@@ -790,6 +790,26 @@ class NewsArticle(NewsEntry):
         )
 
 
+class UserInternalIllustDetails:
+    def __init__(self, data):
+        self.id: int = data["illustId"]
+        self.reuploadable: bool = data["reuploadable"]
+        self.illustPageCount: int = data["illustPageCount"]
+        self.illustThumbnailUrl: str = makeProxy(data["illustThumbnailUrl"])
+        self.title: str = data["title"]
+        self.caption: str = data["caption"]
+        self.allowTagEdit: bool = data["allowTagEdit"]
+        self.xRestrict: str = data["xRestrict"]
+        self.sexual: bool = data["sexual"]
+        self.aiType: str = data["aiType"]
+        self.aiGenerated: bool = self.aiType == "aiGenerated"
+        self.restrict: str = data["restrict"]
+        self.isRestrictLocked: bool = data["isRestrictLocked"]
+        self.allowComment: bool = data["allowComment"]
+        self.original: bool = data["original"]
+        self.tools: list[str] = data["tools"]
+
+
 class ArtworkDetailsPage:
     def __init__(
         self,
