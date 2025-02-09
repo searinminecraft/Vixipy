@@ -380,13 +380,12 @@ msgid "More download options..."
 msgstr "Higit pang mga opsyon sa pag-download…"
 
 #: pyxiv/templates/artwork.html:60
-#, fuzzy
 msgid "Your Illustration"
-msgstr "Mga Illustration"
+msgstr "Iyong Illustration"
 
 #: pyxiv/templates/artwork.html:66
 msgid "Limited Visibility"
-msgstr ""
+msgstr "Limitadong Visibility"
 
 #: pyxiv/templates/artwork.html:78 pyxiv/templates/editDetails.html:61
 #: pyxiv/templates/artwork.html:66
