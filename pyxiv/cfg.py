@@ -52,6 +52,8 @@ DefaultThemes = (
     "pink",
     "purple",
     "grayscale",
+    "brand-pixiv",
+    "ocean",
 )
 
 # normalize
