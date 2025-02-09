@@ -457,6 +457,64 @@ main {
   margin: 4px;
   padding: 8px;
   column-gap: 1em;
+
+  .feature-card {
+    flex-shrink: 0
+  }
+}
+
+.feature-card {
+  &.popular-tag {
+    .container {
+      width: 200px;
+    }
+  }
+}
+
+.feature-card {
+  a {
+    color: unset;
+  }
+
+  .container {
+    height: 300px;
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: var(--md-sys-color-surface-container);
+    transition: border-radius 150ms ease;
+
+    &:hover {
+      border-radius: 36px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 1em;
+      transition: padding 150ms ease;
+      background: linear-gradient(transparent, #222222);
+      display: flex;
+      flex-direction: column;
+      justify-content: bottom;
+
+      h3 {
+        margin: unset;
+        margin-bottom: 6px;
+      }
+
+      h3:only-child() {
+        margin: unset;
+      }
+    }
+  }
 }
 
 .artwork-entry {
@@ -1728,6 +1786,10 @@ div#ranking-calendar {
     img {
       width: 100%;
     }
+  }
+
+  .artwork-scroll-container>.feature-card:not(.popular-tag) {
+    width: 100% !important
   }
 
   header {

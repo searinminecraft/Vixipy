@@ -1,0 +1,13 @@
+<div class="feature-card popular-tag">
+  <a href="/tag/{{d.tag}}">
+    <div class="container">
+      <img src="{{d.info.thumbUrl}}" alt="#{{d.tag}}">
+      <div class="info">
+        <h3>#{{d.tag}}</h3>
+        {% if d.translation %}
+        <span>{{d.translation}}</span>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</div>

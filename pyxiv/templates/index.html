@@ -66,6 +66,16 @@
 	</div>
 </div>
 
+
+<div class="container">
+  <h2>{{ _("Popular tags") }}</h2>
+  <div class="artwork-scroll-container">
+    {% for d in data.trendingTags %}
+    {% include "components/trending-tag.html" %}
+    {% endfor %}
+  </div>
+</div>
+
 <div class="container">
 	<h2>{{ _("Recommended users") }}</h2>
 	<div class="artwork-scroll-container">
@@ -73,6 +83,15 @@
 		{% include "components/recommendedUser.html" %}
 		{% endfor %}
 	</div>
+</div>
+
+<div class="container">
+  <h2>{{ _("Newest articles in pixivision") }}</h2>
+  <div class="artwork-scroll-container">
+    {% for d in data.pixivisionArticles %}
+    {% include "components/pixivision-card.html" %}
+    {% endfor %}
+  </div>
 </div>
 
 {% for t in data.recommendByTag %}
@@ -85,6 +104,7 @@
 	</div>
 </div>
 {% endfor %}
+
 {% else %}
 
 <div class="container">

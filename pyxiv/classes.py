@@ -472,6 +472,17 @@ class ArtworkEntry(PartialArtwork):
         return f"<ArtworkEntry _id={self._id} title={self.title} author={self.authorName} xRestrict={self.xRestrict} isAI={self.isAI} aiType={self.aiType} isUgoira={self.isUgoira}>"
 
 
+class TrendingTag:
+    def __init__(self, tag: str, info: ArtworkEntry, translation: str, trendingRate: int):
+        self.tag: str = tag
+        self.info: ArtworkEntry = info
+        self.translation: str = translation
+        self.trendingRate: int = trendingRate
+
+    def __repr__(self):
+        return f"<TrendingTag tag={self.tag} info={self.info} translation={self.translation} trendingRate={self.trendingRate}>"
+
+
 class UserFollowData:
     """
     Represents data for following/followed/mypixiv users
@@ -849,6 +860,7 @@ class LandingPageLoggedIn:
         recommendedUsers: list[RecommendedUser],
         pixivisionArticles: list[PixivisionEntry],
         tags: list[SimpleTag],
+        trendingTags: list[TrendingTag],
     ):
         self.recommended: list[ArtworkEntry] = recommended
         self.recommendByTag: list[RecommendByTag] = recommendByTag
@@ -856,6 +868,7 @@ class LandingPageLoggedIn:
         self.recommendedUsers: list[RecommendedUser] = recommendedUsers
         self.pixivisionArticles: list[PixivisionEntry] = pixivisionArticles
         self.tags: list[SimpleTag] = tags
+        self.trendingTags: list[TrendingTag] = trendingTags
 
 
 class LandingPageManga:
