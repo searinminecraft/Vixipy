@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 20:17+0800\n"
-"PO-Revision-Date: 2025-02-06 00:21+0000\n"
+"PO-Revision-Date: 2025-02-11 12:13+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/user-"
-"interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:238
@@ -324,9 +325,8 @@ msgid "Successfully unfollowed user"
 msgstr "Matagumpay na na-unfollow ang user"
 
 #: pyxiv/routes/userAction.py:220
-#, fuzzy
 msgid "Successfully edited details"
-msgstr "Matagumpay na napadala ang stamp"
+msgstr "Matagumpay na nabago ang mga detalye"
 
 #: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
 msgid "Internal Server Error"
@@ -516,31 +516,28 @@ msgid "Reload"
 msgstr "I-reload"
 
 #: pyxiv/templates/editDetails.html:2
-#, fuzzy
 msgid "Edit illustration details"
-msgstr "Mga Illustration"
+msgstr "I-edit ang mga detalye ng illustration"
 
 #: pyxiv/templates/editDetails.html:5
-#, fuzzy
 msgid "Illustration Details"
-msgstr "Mga Illustration"
+msgstr "Mga Detalye ng Illustration"
 
 #: pyxiv/templates/editDetails.html:9
 msgid "Title (max 32 characters)"
-msgstr ""
+msgstr "Pamagat (hindi lalagpas sa 32 karakter)"
 
 #: pyxiv/templates/editDetails.html:11
 msgid "Description (max 3000 characters"
-msgstr ""
+msgstr "Paglalarawan (hindi lalagpas sa 3000 karakter)"
 
 #: pyxiv/templates/editDetails.html:16
 msgid "Allow users to edit tags"
-msgstr ""
+msgstr "Payagan ang mga user na i-edit ang mga tag"
 
 #: pyxiv/templates/editDetails.html:22
-#, fuzzy
 msgid "Content type"
-msgstr "Nilalaman:"
+msgstr "Uri ng nilalaman"
 
 #: pyxiv/templates/editDetails.html:26 pyxiv/templates/editDetails.html:39
 #: pyxiv/templates/index.html:29 pyxiv/templates/indexManga.html:27
@@ -550,26 +547,23 @@ msgstr "Lahat"
 
 #: pyxiv/templates/editDetails.html:37
 msgid "Visible to"
-msgstr ""
+msgstr "Nakikita ng"
 
 #: pyxiv/templates/editDetails.html:40
-#, fuzzy
 msgid "My pixiv only"
-msgstr "pixivision"
+msgstr "My pixiv lamang"
 
 #: pyxiv/templates/editDetails.html:41
-#, fuzzy
 msgid "Private"
-msgstr "Pagkapribado"
+msgstr "Pribado"
 
 #: pyxiv/templates/editDetails.html:47
-#, fuzzy
 msgid "Allow comments"
-msgstr "Walang mga komento!"
+msgstr "Payagan ang mga komento"
 
 #: pyxiv/templates/editDetails.html:67
 msgid "Save Changes"
-msgstr ""
+msgstr "I-save ang Mga Pagbabago"
 
 #: pyxiv/templates/error.html:2
 msgid "Error"
@@ -620,9 +614,8 @@ msgid "Today's Rankings"
 msgstr "Mga Ranking Ngayon"
 
 #: pyxiv/templates/index.html:71
-#, fuzzy
 msgid "Popular tags"
-msgstr "Sikat"
+msgstr "Mga sikat na tag"
 
 #: pyxiv/templates/index.html:80 pyxiv/templates/index.html:70
 msgid "Recommended users"
@@ -630,7 +623,7 @@ msgstr "Mga inirerekomendang user"
 
 #: pyxiv/templates/index.html:89
 msgid "Newest articles in pixivision"
-msgstr ""
+msgstr "Mga pinakabagong artikulo sa pixivision"
 
 #: pyxiv/templates/index.html:99 pyxiv/templates/index.html:80
 msgid "Recommended artworks with tag"
