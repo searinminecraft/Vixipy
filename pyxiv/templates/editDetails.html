@@ -6,9 +6,9 @@
 
 <form class="inline" action="/self/editIllustration/{{data.id}}" method="post">
   <div class="column">
-    <input type="text" name="title" required placeholder="Title (max 32 characters)" value="{{data.title}}">
+	  <input type="text" name="title" required placeholder="{{_("Title (max 32 characters)")}}" value="{{data.title}}">
     <hr>
-    <textarea rows="8" placeholder="Description (max 3000 characters)" name="caption">{{data.caption}}</textarea>
+    <textarea rows="8" placeholder="{{_("Description (max 3000 characters")}}" name="caption">{{data.caption}}</textarea>
   </div>
 
   <div>
@@ -19,11 +19,11 @@
   </div>
 
   <div class="space-between">
-    <span>Content type</span>
+    <span>{{_("Content type")}}</span>
     <div class="radio-opts">
       <input {% if data.xRestrict=="general" %}checked{% endif %} required id="general" type="radio" name="xRestrict"
         value="general">
-      <label for="general">All</label>
+      <label for="general">{{_("All")}}</label>
       <input {% if data.xRestrict=="r18" %}checked{% endif %} required id="r18" type="radio" name="xRestrict"
         value="r18">
       <label for="r18">R-18</label>
@@ -34,37 +34,37 @@
   </div>
 
   <div class="space-between">
-    <label for="restrict">Visible to</label>
+    <label for="restrict">{{_("Visible to")}}</label>
     <select id="restrict" required name="restrict">
-      <option value="public" {% if data.restrict=="public" %}selected{% endif %}>All users</option>
-      <option value="mypixiv" {% if data.restrict=="mypixiv" %}selected{% endif %}>My pixiv only</option>
-      <option value="private" {% if data.restrict=="private" %}selected{% endif %}>Private</option>
+      <option value="public" {% if data.restrict=="public" %}selected{% endif %}>{{_("All")}}</option>
+      <option value="mypixiv" {% if data.restrict=="mypixiv" %}selected{% endif %}>{{_("My pixiv only")}}</option>
+      <option value="private" {% if data.restrict=="private" %}selected{% endif %}>{{_("Private")}}</option>
     </select>
   </div>
 
   <div>
     <div class="toggle-switch">
-      <label for="allowComment">Allow comments</label>
+      <label for="allowComment">{{_("Allow comments")}}</label>
       <input type="checkbox" id="allowComment" {% if data.allowComment %}checked{% endif %} name="allowComment">
     </div>
   </div>
 
   <div>
     <div class="toggle-switch">
-      <label for="original">Original work</label>
+      <label for="original">{{_("Original")}}</label>
       <input type="checkbox" id="original" {% if data.original %}checked{% endif %} name="original">
     </div>
   </div>
 
   <div>
     <div class="toggle-switch">
-      <label for="aigc">AI generated</label>
+      <label for="aigc">{{_("AI generated")}}</label>
       <input type="checkbox" id="aigc" {% if data.aiGenerated %}checked{% endif %} name="aigc">
     </div>
   </div>
 
   <div class="centered">
-    <button type="submit" class="button">Save changes</button>
+    <button type="submit" class="button">{{_("Save Changes")}}</button>
   </div>
 
 </form>

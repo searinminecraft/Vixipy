@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-07 21:39+0800\n"
+"POT-Creation-Date: 2025-02-10 20:17+0800\n"
 "PO-Revision-Date: 2025-02-06 23:03+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
 "Language: zh_Hans\n"
@@ -246,37 +246,37 @@ msgstr "找不到插画"
 msgid "pixiv returned an error: %(error)s"
 msgstr "pixiv 返回错误：%(error)s"
 
-#: pyxiv/routes/userAction.py:65
+#: pyxiv/routes/userAction.py:66
 msgid "Successfully bookmarked post"
 msgstr "成功将作品加入收藏"
 
-#: pyxiv/routes/userAction.py:76
+#: pyxiv/routes/userAction.py:77
 msgid "Successfully removed bookmark"
 msgstr "成功移除收藏"
 
-#: pyxiv/routes/userAction.py:87
+#: pyxiv/routes/userAction.py:88
 msgid "Successfully liked post"
 msgstr "成功点赞作品"
 
-#: pyxiv/routes/userAction.py:103
+#: pyxiv/routes/userAction.py:104
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "无法发送评论：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:108
+#: pyxiv/routes/userAction.py:109
 msgid "Successfully posted comment"
 msgstr "成功发送评论"
 
-#: pyxiv/routes/userAction.py:125
+#: pyxiv/routes/userAction.py:126
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "无法发送表情贴图：%(errorClass)s：%(error)s"
 
-#: pyxiv/routes/userAction.py:130
+#: pyxiv/routes/userAction.py:131
 msgid "Successfully sent stamp"
 msgstr "成功发送表情贴图"
 
-#: pyxiv/routes/userAction.py:153
+#: pyxiv/routes/userAction.py:154
 msgid "You cannot follow yourself."
 msgstr "无法关注自己。"
 
@@ -301,6 +301,11 @@ msgstr "无法取消关注用户"
 #: pyxiv/routes/userAction.py:180
 msgid "Successfully unfollowed user"
 msgstr "成功取消关注用户"
+
+#: pyxiv/routes/userAction.py:220
+#, fuzzy
+msgid "Successfully edited details"
+msgstr "成功发送表情贴图"
 
 #: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
 msgid "Internal Server Error"
@@ -359,11 +364,12 @@ msgstr "插画"
 msgid "Limited Visibility"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:78
+#: pyxiv/templates/artwork.html:78 pyxiv/templates/editDetails.html:61
 msgid "AI generated"
 msgstr "AI 生成"
 
-#: pyxiv/templates/artwork.html:84 pyxiv/templates/rankings.html:33
+#: pyxiv/templates/artwork.html:84 pyxiv/templates/editDetails.html:54
+#: pyxiv/templates/rankings.html:33
 msgid "Original"
 msgstr "原创"
 
@@ -380,7 +386,7 @@ msgstr "敏感级别：%(sl)d"
 msgid "View on pixiv"
 msgstr "在 pixiv 上查看"
 
-#: pyxiv/templates/artwork.html:152 pyxiv/templates/index.html:93
+#: pyxiv/templates/artwork.html:152 pyxiv/templates/index.html:113
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr "查看所有"
@@ -477,6 +483,62 @@ msgstr "注意：推荐作品的算法和个性化，是基于实例的 pixiv �
 msgid "Reload"
 msgstr "重载"
 
+#: pyxiv/templates/editDetails.html:2
+#, fuzzy
+msgid "Edit illustration details"
+msgstr "插画"
+
+#: pyxiv/templates/editDetails.html:5
+#, fuzzy
+msgid "Illustration Details"
+msgstr "插画"
+
+#: pyxiv/templates/editDetails.html:9
+msgid "Title (max 32 characters)"
+msgstr ""
+
+#: pyxiv/templates/editDetails.html:11
+msgid "Description (max 3000 characters"
+msgstr ""
+
+#: pyxiv/templates/editDetails.html:16
+msgid "Allow users to edit tags"
+msgstr ""
+
+#: pyxiv/templates/editDetails.html:22
+#, fuzzy
+msgid "Content type"
+msgstr "内容："
+
+#: pyxiv/templates/editDetails.html:26 pyxiv/templates/editDetails.html:39
+#: pyxiv/templates/index.html:29 pyxiv/templates/indexManga.html:27
+#: pyxiv/templates/tag.html:133
+msgid "All"
+msgstr "所有"
+
+#: pyxiv/templates/editDetails.html:37
+msgid "Visible to"
+msgstr ""
+
+#: pyxiv/templates/editDetails.html:40
+#, fuzzy
+msgid "My pixiv only"
+msgstr "pixivision"
+
+#: pyxiv/templates/editDetails.html:41
+#, fuzzy
+msgid "Private"
+msgstr "隐私"
+
+#: pyxiv/templates/editDetails.html:47
+#, fuzzy
+msgid "Allow comments"
+msgstr "无评论！"
+
+#: pyxiv/templates/editDetails.html:67
+msgid "Save Changes"
+msgstr ""
+
 #: pyxiv/templates/error.html:2
 msgid "Error"
 msgstr "错误"
@@ -506,11 +568,6 @@ msgstr "插画"
 msgid "Manga"
 msgstr "漫画"
 
-#: pyxiv/templates/index.html:29 pyxiv/templates/indexManga.html:27
-#: pyxiv/templates/tag.html:133
-msgid "All"
-msgstr "所有"
-
 #: pyxiv/templates/index.html:35
 msgid "Latest from following"
 msgstr "来自关注用户的最新作品"
@@ -525,15 +582,24 @@ msgstr "空空如也！"
 msgid "Recommended works"
 msgstr "推荐作品"
 
-#: pyxiv/templates/index.html:61 pyxiv/templates/index.html:92
+#: pyxiv/templates/index.html:61 pyxiv/templates/index.html:112
 msgid "Today's Rankings"
 msgstr "今日排行"
 
-#: pyxiv/templates/index.html:70
+#: pyxiv/templates/index.html:71
+#, fuzzy
+msgid "Popular tags"
+msgstr "热门"
+
+#: pyxiv/templates/index.html:80
 msgid "Recommended users"
 msgstr "推荐用户"
 
-#: pyxiv/templates/index.html:80
+#: pyxiv/templates/index.html:89
+msgid "Newest articles in pixivision"
+msgstr ""
+
+#: pyxiv/templates/index.html:99
 msgid "Recommended artworks with tag"
 msgstr "推荐标签作品"
 
