@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-10 20:17+0800\n"
-"PO-Revision-Date: 2025-02-06 23:03+0000\n"
+"PO-Revision-Date: 2025-02-11 22:22+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:238
@@ -75,7 +75,7 @@ msgstr "该端点不允许此请求方法"
 
 #: pyxiv/app.py:344
 msgid "Your current theme is invalid. Please set the correct theme in settings."
-msgstr ""
+msgstr "当前主题无效。请在设置中设置正确的主题。"
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
 #: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
@@ -229,9 +229,8 @@ msgid "Successfully set language."
 msgstr "成功设置语言。"
 
 #: pyxiv/routes/settings.py:414
-#, fuzzy
 msgid "Successfully set theme"
-msgstr "成功发送表情贴图"
+msgstr "成功设置主题"
 
 #: pyxiv/routes/ugoiraconverter.py:16
 msgid "The ID you specified is not an ugoira."
@@ -303,9 +302,8 @@ msgid "Successfully unfollowed user"
 msgstr "成功取消关注用户"
 
 #: pyxiv/routes/userAction.py:220
-#, fuzzy
 msgid "Successfully edited details"
-msgstr "成功发送表情贴图"
+msgstr "成功编辑详细信息"
 
 #: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
 msgid "Internal Server Error"
@@ -356,13 +354,12 @@ msgid "More download options..."
 msgstr "更多下载选项..."
 
 #: pyxiv/templates/artwork.html:60
-#, fuzzy
 msgid "Your Illustration"
-msgstr "插画"
+msgstr "你的插画"
 
 #: pyxiv/templates/artwork.html:66
 msgid "Limited Visibility"
-msgstr ""
+msgstr "限制访问"
 
 #: pyxiv/templates/artwork.html:78 pyxiv/templates/editDetails.html:61
 msgid "AI generated"
@@ -484,31 +481,28 @@ msgid "Reload"
 msgstr "重载"
 
 #: pyxiv/templates/editDetails.html:2
-#, fuzzy
 msgid "Edit illustration details"
-msgstr "插画"
+msgstr "编辑插画详细信息"
 
 #: pyxiv/templates/editDetails.html:5
-#, fuzzy
 msgid "Illustration Details"
-msgstr "插画"
+msgstr "插画详细信息"
 
 #: pyxiv/templates/editDetails.html:9
 msgid "Title (max 32 characters)"
-msgstr ""
+msgstr "标题（最多 32 字符）"
 
 #: pyxiv/templates/editDetails.html:11
 msgid "Description (max 3000 characters"
-msgstr ""
+msgstr "描述（最多 3000 字符）"
 
 #: pyxiv/templates/editDetails.html:16
 msgid "Allow users to edit tags"
-msgstr ""
+msgstr "允许用户编辑标签"
 
 #: pyxiv/templates/editDetails.html:22
-#, fuzzy
 msgid "Content type"
-msgstr "内容："
+msgstr "内容类型"
 
 #: pyxiv/templates/editDetails.html:26 pyxiv/templates/editDetails.html:39
 #: pyxiv/templates/index.html:29 pyxiv/templates/indexManga.html:27
@@ -518,26 +512,23 @@ msgstr "所有"
 
 #: pyxiv/templates/editDetails.html:37
 msgid "Visible to"
-msgstr ""
+msgstr "公开范围"
 
 #: pyxiv/templates/editDetails.html:40
-#, fuzzy
 msgid "My pixiv only"
-msgstr "pixivision"
+msgstr "仅限好 P 友"
 
 #: pyxiv/templates/editDetails.html:41
-#, fuzzy
 msgid "Private"
-msgstr "隐私"
+msgstr "不公开"
 
 #: pyxiv/templates/editDetails.html:47
-#, fuzzy
 msgid "Allow comments"
-msgstr "无评论！"
+msgstr "允许评论"
 
 #: pyxiv/templates/editDetails.html:67
 msgid "Save Changes"
-msgstr ""
+msgstr "保存更改"
 
 #: pyxiv/templates/error.html:2
 msgid "Error"
@@ -587,9 +578,8 @@ msgid "Today's Rankings"
 msgstr "今日排行"
 
 #: pyxiv/templates/index.html:71
-#, fuzzy
 msgid "Popular tags"
-msgstr "热门"
+msgstr "热门标签"
 
 #: pyxiv/templates/index.html:80
 msgid "Recommended users"
@@ -597,7 +587,7 @@ msgstr "推荐用户"
 
 #: pyxiv/templates/index.html:89
 msgid "Newest articles in pixivision"
-msgstr ""
+msgstr "pixivision 最新文章"
 
 #: pyxiv/templates/index.html:99
 msgid "Recommended artworks with tag"
@@ -1333,22 +1323,20 @@ msgid "Use proxy server"
 msgstr "使用代理服务器"
 
 #: pyxiv/templates/settings/pyxivSettings.html:38
-#, fuzzy
 msgid "Theme"
-msgstr "主页"
+msgstr "主题"
 
 #: pyxiv/templates/settings/pyxivSettings.html:41
-#, fuzzy
 msgid "You can set your theme below."
-msgstr "在此选择偏好语言。"
+msgstr "在下方选择主题。"
 
 #: pyxiv/templates/settings/pyxivSettings.html:44
 msgid "Use default theme"
-msgstr ""
+msgstr "使用默认主题"
 
 #: pyxiv/templates/settings/pyxivSettings.html:51
 msgid "Set Theme"
-msgstr ""
+msgstr "设置主题"
 
 #: pyxiv/templates/settings/settingsMain.html:16
 msgid "Account"
@@ -1595,4 +1583,3 @@ msgstr "%(user)s 的漫画"
 #~ "once until you clear cookies for "
 #~ "this website."
 #~ msgstr "本警告只会显示一次，除非清除了本站 cookies。"
-
