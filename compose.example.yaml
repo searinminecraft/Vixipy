@@ -21,3 +21,4 @@ services:
       #PYXIV_DEFAULT_PROXY: ""
       #PYXIV_DEFAULT_THEME: ""
       #PYXIV_ADDITIONAL_THEMES: ""
+      PYXIV_WORKERS: 5

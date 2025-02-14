@@ -97,6 +97,7 @@ if not os.path.isfile("pyxiv.running"):
         "No R18": boolean(NoR18),
         "Rate limiting": boolean(RateLimitsEnabled),
         "Acquire session": boolean(TryAcquireSession),
+        "Workers": os.environ.get("PYXIV_WORKERS", "1"),
     }
 
     longest = ""

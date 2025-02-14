@@ -13,5 +13,6 @@ export GIT_REPO=$(git remote get-url origin)
 #export PYXIV_INSTANCENAME=""
 #export PYXIV_ACQUIRE_SESSION=0
 #export PYXIV_DEFAULT_PROXY=""
+export PYXIV_WORKERS=5
 
-hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers 5 --bind unix:pyxiv.sock pyxiv:app
+hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers ${PYXIV_WORKERS} --bind unix:pyxiv.sock pyxiv:app
