@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-10 20:17+0800\n"
+"POT-Creation-Date: 2025-02-16 16:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -534,7 +534,7 @@ msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
 #: pyxiv/templates/index.html:2 pyxiv/templates/indexManga.html:2
-#: pyxiv/templates/layouts/default.html:59 pyxiv/templates/user/index.html:81
+#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/user/index.html:81
 msgid "Home"
 msgstr ""
 
@@ -618,7 +618,7 @@ msgstr ""
 msgid "Continue to site"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:78 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:83 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr ""
 
@@ -640,7 +640,7 @@ msgstr ""
 msgid "No notifications"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:73
+#: pyxiv/templates/layouts/default.html:78
 #: pyxiv/templates/rankingCalendar.html:2
 msgid "Ranking calendar"
 msgstr ""
@@ -662,7 +662,7 @@ msgstr ""
 msgid "Day %(day)s"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:69
+#: pyxiv/templates/layouts/default.html:74
 #: pyxiv/templates/pixivision/index.html:23 pyxiv/templates/rankings.html:2
 msgid "Rankings"
 msgstr ""
@@ -956,15 +956,32 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
+#: pyxiv/templates/layouts/default.html:15
+msgid "Hold up!"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:16
+msgid ""
+"This tool is only meant to be used by developers. If someone told you to "
+"copy and paste something here, there is an 11/10 chance they are trying "
+"to steal your account!"
+msgstr ""
+
 #: pyxiv/templates/layouts/default.html:17
+msgid ""
+"If you know what you're doing, you should go contribute at: "
+"https://codeberg.org/vixipy/Vixipy"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:22
 msgid "This website requires JavaScript."
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:64
+#: pyxiv/templates/layouts/default.html:69
 msgid "Discover"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:83
+#: pyxiv/templates/layouts/default.html:88
 #: pyxiv/templates/ugoiraConverter/converter.html:2
 #: pyxiv/templates/ugoiraConverter/converter.html:30
 #: pyxiv/templates/ugoiraConverter/index.html:2
@@ -972,31 +989,31 @@ msgstr ""
 msgid "Ugoira Converter"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:87
+#: pyxiv/templates/layouts/default.html:92
 msgid "pixivision"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:91 pyxiv/templates/news/category.html:2
+#: pyxiv/templates/layouts/default.html:96 pyxiv/templates/news/category.html:2
 #: pyxiv/templates/news/category.html:24 pyxiv/templates/news/index.html:2
 msgid "pixiv News"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:95
-#: pyxiv/templates/layouts/default.html:123
+#: pyxiv/templates/layouts/default.html:100
+#: pyxiv/templates/layouts/default.html:128
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:115
+#: pyxiv/templates/layouts/default.html:120
 msgid "Profile"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:119 pyxiv/templates/user/index.html:84
+#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:84
 msgid "Bookmarks"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:127
+#: pyxiv/templates/layouts/default.html:132
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr ""
