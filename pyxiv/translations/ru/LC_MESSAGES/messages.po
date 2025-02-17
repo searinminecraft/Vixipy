@@ -7,20 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-10 20:17+0800\n"
+"POT-Creation-Date: 2025-02-16 16:38+0800\n"
 "PO-Revision-Date: 2025-02-11 22:22+0000\n"
-"Last-Translator: divergency <divergency@users.noreply.translate.codeberg.org>"
-"\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/ru/>\n"
+"Last-Translator: divergency "
+"<divergency@users.noreply.translate.codeberg.org>\n"
 "Language: ru\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/ru/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.9.2\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: pyxiv/app.py:238
 msgid "pixiv Error!"
@@ -80,7 +79,8 @@ msgstr "Этот метод не разрешен для этой конечно
 #: pyxiv/app.py:344
 msgid "Your current theme is invalid. Please set the correct theme in settings."
 msgstr ""
-"Текущая тема невалидна. Пожалуйста, поставьте корректную тему в настройках."
+"Текущая тема невалидна. Пожалуйста, поставьте корректную тему в "
+"настройках."
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
 #: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
@@ -575,7 +575,7 @@ msgid "An unknown error has occurred. Please try again later."
 msgstr "Произошла неизвестная ошибка. Пожалуйста, попробуйте снова позже."
 
 #: pyxiv/templates/index.html:2 pyxiv/templates/indexManga.html:2
-#: pyxiv/templates/layouts/default.html:59 pyxiv/templates/user/index.html:81
+#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/user/index.html:81
 msgid "Home"
 msgstr "Дом"
 
@@ -666,7 +666,7 @@ msgstr ""
 msgid "Continue to site"
 msgstr "Продолжить к сайту"
 
-#: pyxiv/templates/layouts/default.html:78 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:83 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr "Новейшие"
 
@@ -688,7 +688,7 @@ msgstr "Уведомления"
 msgid "No notifications"
 msgstr "Нет уведомлений"
 
-#: pyxiv/templates/layouts/default.html:73
+#: pyxiv/templates/layouts/default.html:78
 #: pyxiv/templates/rankingCalendar.html:2
 msgid "Ranking calendar"
 msgstr "Календарь Рейтингов"
@@ -710,7 +710,7 @@ msgstr "Следующий"
 msgid "Day %(day)s"
 msgstr "День %(day)s"
 
-#: pyxiv/templates/layouts/default.html:69
+#: pyxiv/templates/layouts/default.html:74
 #: pyxiv/templates/pixivision/index.html:23 pyxiv/templates/rankings.html:2
 msgid "Rankings"
 msgstr "Рейтинги"
@@ -1013,15 +1013,32 @@ msgstr "Искать работы..."
 msgid "Log in"
 msgstr "Войти"
 
+#: pyxiv/templates/layouts/default.html:15
+msgid "Hold up!"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:16
+msgid ""
+"This tool is only meant to be used by developers. If someone told you to "
+"copy and paste something here, there is an 11/10 chance they are trying "
+"to steal your account!"
+msgstr ""
+
 #: pyxiv/templates/layouts/default.html:17
+msgid ""
+"If you know what you're doing, you should go contribute at: "
+"https://codeberg.org/vixipy/Vixipy"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:22
 msgid "This website requires JavaScript."
 msgstr "Этот веб-сайт требует JavaScript."
 
-#: pyxiv/templates/layouts/default.html:64
+#: pyxiv/templates/layouts/default.html:69
 msgid "Discover"
 msgstr "Исследовать"
 
-#: pyxiv/templates/layouts/default.html:83
+#: pyxiv/templates/layouts/default.html:88
 #: pyxiv/templates/ugoiraConverter/converter.html:2
 #: pyxiv/templates/ugoiraConverter/converter.html:30
 #: pyxiv/templates/ugoiraConverter/index.html:2
@@ -1029,31 +1046,31 @@ msgstr "Исследовать"
 msgid "Ugoira Converter"
 msgstr "Конвертер Угойры"
 
-#: pyxiv/templates/layouts/default.html:87
+#: pyxiv/templates/layouts/default.html:92
 msgid "pixivision"
 msgstr "pixivision"
 
-#: pyxiv/templates/layouts/default.html:91 pyxiv/templates/news/category.html:2
+#: pyxiv/templates/layouts/default.html:96 pyxiv/templates/news/category.html:2
 #: pyxiv/templates/news/category.html:24 pyxiv/templates/news/index.html:2
 msgid "pixiv News"
 msgstr "pixiv Новости"
 
-#: pyxiv/templates/layouts/default.html:95
-#: pyxiv/templates/layouts/default.html:123
+#: pyxiv/templates/layouts/default.html:100
+#: pyxiv/templates/layouts/default.html:128
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr "Настройки"
 
-#: pyxiv/templates/layouts/default.html:115
+#: pyxiv/templates/layouts/default.html:120
 msgid "Profile"
 msgstr "Профиль"
 
-#: pyxiv/templates/layouts/default.html:119 pyxiv/templates/user/index.html:84
+#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:84
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: pyxiv/templates/layouts/default.html:127
+#: pyxiv/templates/layouts/default.html:132
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "Выйти"
@@ -1609,3 +1626,4 @@ msgstr "Манга %(user)s'а"
 
 #~ msgid "Go to ugoira.com for more options"
 #~ msgstr "Перейти на ugoira.com для других опций"
+
