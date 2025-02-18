@@ -109,10 +109,6 @@ async def pixivReq(
             headers[
                 "Cookie"
             ] += f"; p_ab_d_id={g.user_p_ab_d_id}; p_ab_id=8; p_ab_id_2=4"
-        try:
-            headers["X-User-Id"] = str(int(g.userPxSession.split("_")[0]))
-        except KeyError:
-            pass
     elif not cfg.AuthlessMode and not g.userPxSession:
         sess = cfg.PxSession
         if cfg.MultipleSessions:
