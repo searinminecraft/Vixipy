@@ -1,5 +1,6 @@
 from quart import (
     Quart,
+    abort,
     g,
     make_response,
     render_template,
@@ -316,14 +317,52 @@ def create_app():
 
         route = request.full_path.split("/")[1]
 
+        # block problematic user agents or bots
+
+        if any([
+            str(request.user_agent).__contains__(x)
+            for x in (
+                "Amazonbot",
+                "anthropic-ai",
+                "AppleBot-Extended",
+                "Bytespider",
+                "CCBot",
+                "ChatGPT-User",
+                "Claude-Web",
+                "cohere-ai",
+                "DiffBot",
+                "FacebookBot",
+                "FriendlyCrawler",
+                "Google-Extended",
+                "GPTBot",
+                "ICC-Crawler",
+                "ImagesiftBot",
+                "img2dataset",
+                "meta-externalagent",
+                "OAI-SearchBot",
+                "Omgili",
+                "PerplexityBot",
+                "PetalBot",
+                "Scrapy",
+                "Timpibot",
+                "VelenPublicWebCrawler",
+                "YouBot"
+            )
+        ]):
+            return "Forbidden", 403
+
+
         if route in ("static", "proxy", "robots.txt", "favicon.ico"):
             return
+
 
         if request.path.split("/")[1] == "en":
             p = request.path.replace("/en", "")
             if p == "":
                 p = "/"
             return redirect(p, code=308)
+
+
 
         g.rev = cfg.GitRev
         g.repo = cfg.GitRepo
@@ -345,6 +384,18 @@ def create_app():
             g.theme = cfg.DefaultTheme
         else:
             g.theme = currentTheme
+
+        if str(request.user_agent).__contains__("FB_IAB"):
+            return (
+                await render_template(
+                    "error.html",
+                    errortitle=_("Uh oh!"),
+                    errordesc=_("We have detected that you are using the Facebook WebView. Please click the 3 dots and select 'Open in external browser' to view.")
+                    ),
+                403
+            )
+
+
 
         if (not g.userPxSession and not g.userPxCSRF) or g.userPxSession == "":
             g.isAuthorized = False
