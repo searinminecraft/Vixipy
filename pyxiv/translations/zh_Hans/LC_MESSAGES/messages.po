@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-16 16:38+0800\n"
-"PO-Revision-Date: 2025-02-11 22:22+0000\n"
+"PO-Revision-Date: 2025-02-18 23:21+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: pyxiv/app.py:238
@@ -969,20 +969,21 @@ msgstr "登录"
 
 #: pyxiv/templates/layouts/default.html:15
 msgid "Hold up!"
-msgstr ""
+msgstr "打住！"
 
 #: pyxiv/templates/layouts/default.html:16
 msgid ""
 "This tool is only meant to be used by developers. If someone told you to "
 "copy and paste something here, there is an 11/10 chance they are trying "
 "to steal your account!"
-msgstr ""
+msgstr "这个工具是开发者用的。如果有人让你在这里复制粘贴一些东西，那么有 11/10 "
+"的几率是要盗号！"
 
 #: pyxiv/templates/layouts/default.html:17
 msgid ""
 "If you know what you're doing, you should go contribute at: "
 "https://codeberg.org/vixipy/Vixipy"
-msgstr ""
+msgstr "如果你知道自己在干什么，那么请在这里贡献：https://codeberg.org/vixipy/Vixipy"
 
 #: pyxiv/templates/layouts/default.html:22
 msgid "This website requires JavaScript."
@@ -1600,4 +1601,3 @@ msgstr "%(user)s 的漫画"
 #~ "once until you clear cookies for "
 #~ "this website."
 #~ msgstr "本警告只会显示一次，除非清除了本站 cookies。"
-

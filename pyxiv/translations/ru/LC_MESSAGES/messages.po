@@ -8,17 +8,18 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-16 16:38+0800\n"
-"PO-Revision-Date: 2025-02-11 22:22+0000\n"
-"Last-Translator: divergency "
-"<divergency@users.noreply.translate.codeberg.org>\n"
+"PO-Revision-Date: 2025-02-18 23:21+0000\n"
+"Last-Translator: divergency <divergency@users.noreply.translate.codeberg.org>"
+"\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ru/>\n"
 "Language: ru\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ru/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: pyxiv/app.py:238
@@ -1015,7 +1016,7 @@ msgstr "Войти"
 
 #: pyxiv/templates/layouts/default.html:15
 msgid "Hold up!"
-msgstr ""
+msgstr "Подождите!"
 
 #: pyxiv/templates/layouts/default.html:16
 msgid ""
@@ -1023,12 +1024,17 @@ msgid ""
 "copy and paste something here, there is an 11/10 chance they are trying "
 "to steal your account!"
 msgstr ""
+"Этот инструмент предназначен для использования только разработчиками. Если "
+"кто-то сказал вам скопировать и вставить что-то сюда, есть 11/10 шанс, что "
+"они пытаются украсть ваш аккаунт!"
 
 #: pyxiv/templates/layouts/default.html:17
 msgid ""
 "If you know what you're doing, you should go contribute at: "
 "https://codeberg.org/vixipy/Vixipy"
 msgstr ""
+"Если вы знаете что вы делаете, вам стоит пойти поучаствовать в проекте: "
+"https://codeberg.org/vixipy/Vixipy"
 
 #: pyxiv/templates/layouts/default.html:22
 msgid "This website requires JavaScript."
@@ -1626,4 +1632,3 @@ msgstr "Манга %(user)s'а"
 
 #~ msgid "Go to ugoira.com for more options"
 #~ msgstr "Перейти на ugoira.com для других опций"
-
