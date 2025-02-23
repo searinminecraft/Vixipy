@@ -238,7 +238,8 @@ def create_app():
                 "error.html",
                 errortitle=_("pixiv Error!"),
                 errordesc=_(
-                    "pixiv returned an error trying to request data: <code>%(error)s</code>",
+                    "pixiv returned an error trying to request data: <code>%(status)d - %(error)s</code>",
+                    status=e.code,
                     error=e if str(e) != "" else _("Unspecified error"),
                 ),
             ),
@@ -445,7 +446,7 @@ def create_app():
         # from https://codeberg.org/PixivFE/PixivFE/src/commit/665503fcc92034384e8b0346cd2fb8e4b419db7b/server/middleware/csp.go#L44
         # vixipy is still not a pixivfe competitor as always
         r.headers["Content-Security-Policy"] = (
-            "base-uri 'self'; default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-ILoveVixipy'; style-src 'self' 'unsafe-inline'; img-src 'self' data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'self';"
+                "base-uri 'self'; default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-ILoveVixipy'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'self';"
             % (p, p)
         )
         r.headers["X-Frame-Options"] = "DENY"

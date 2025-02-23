@@ -8,6 +8,8 @@ import logging
 import random
 import aiohttp
 from http import HTTPStatus
+from werkzeug.datastructures import FileStorage
+from aiohttp import MultipartWriter
 
 log = logging.getLogger("vixipy.api")
 
@@ -138,7 +140,7 @@ async def pixivReq(
         headers["User-Agent"] = (
             "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
         )
-    if rawPayload:
+    if not isinstance(rawPayload, MultipartWriter):
         headers["Content-Type"] = "application/x-www-form-urlencoded"
 
     if endpoint.startswith("/ajax"):
@@ -646,3 +648,6 @@ async def editIllustrationDetails(
     json: dict = await resp.json()
     if json["error"] == "true":
         raise PixivError(json["message"], resp.status)
+
+async def getMyProfile():
+    return await pixivReq("get", "/ajax/my_profile")

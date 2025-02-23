@@ -36,13 +36,7 @@
         <h1>{{ _("Internal Server Error") }}</h1>
         <p>
           {{ _('If this issue happens again, <a href="https://codeberg.org/vixipy/Vixipy/issues/new">file an issue</a>.') }}
-          <code>
-          {% if error | string | length < 64 %}
-          ({{error.__class__.__name__}}: {{error}})
-          {% else %}
-          {{error.__class__.__name__}}: {{_("(Exception message too long)")}}
-          {% endif %}
-          </code>
+          <code>({{error.__class__.__name__}}: {{error}})</code>
         </p>
             <a href="/">{{ _("Back to home") }}</a>
 

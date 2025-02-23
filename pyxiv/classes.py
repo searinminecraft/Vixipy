@@ -821,6 +821,35 @@ class UserInternalIllustDetails:
         self.tools: list[str] = data["tools"]
 
 
+class UserExternalServices:
+    def __init__(self, data):
+        self.twitter: str = data["twitter"]
+        self.instagram: str = data["instagram"]
+        self.tumblr: str = data["tumblr"]
+        self.facebook: str = data["facebook"]
+        self.circlems: str = data["circlems"]
+
+
+class UserMyProfile:
+    def __init__(self, data):
+        self.coverImage: str = makeProxy(data["coverImage"])
+        self.profileImage: str = makeProxy(data["profileImage"])
+        self.name: str = data["name"]
+        self.comment: str = data["comment"]
+        self.externalServices: UserExternalServices = UserExternalServices(data["externalService"])
+        self.pawooAuthorized: bool = data["pawoo"]["isPawooAuthorized"]
+        self.preferDisplayPawoo: bool = data["pawoo"]["preferDisplayPawoo"]
+        self.isOfficialUser: bool = data["isOfficialUser"]
+        self.jobId: int = data["job"]["value"]
+        self.birth: datetime = datetime(
+                data["birthYear"]["value"],
+                data["birthMonthAndDay"]["month"],
+                data["birthMonthAndDay"]["day"]
+                )
+        self.genderId: bool = data["gender"]["value"]
+        self.region: str = data["location"]["region"]
+        self.prefecture: str = data["location"]["prefecture"]
+
 class ArtworkDetailsPage:
     def __init__(
         self,

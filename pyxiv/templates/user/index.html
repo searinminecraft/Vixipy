@@ -61,6 +61,8 @@
 					{% else %}
 					<a class="button" href="/self/followUser/{{ user._id }}?r=/users/{{ user._id }}">{{ _("Follow") }}</a>
 					{% endif %}
+					{% else %}
+					<a href="/self/editProfile" class="button">{{ _("Edit profile") }}</a>
 					{% endif %}
 					{% endif %}
 				</div>

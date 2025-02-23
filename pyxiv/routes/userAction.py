@@ -1,5 +1,6 @@
 from quart import (
     Blueprint,
+    current_app,
     g,
     redirect,
     render_template,
@@ -16,7 +17,11 @@ from ..core.illustManagement import getInternalIllustDetails
 from ..core.user import getUserBookmarks, getNotifications
 from ..core.artwork import getFrequentTags
 from ..core.comments import getReplyAndRoot
+from ..core.my_profile import getProfileConfig
 
+from aiohttp import MultipartWriter
+import json
+from werkzeug.datastructures import FileStorage
 import logging
 
 log = logging.getLogger("pyxiv.routes.userAction")
@@ -222,3 +227,70 @@ async def editIllustration(id: int):
     else:
         data = await getInternalIllustDetails(id)
         return await render_template("editDetails.html", data=data)
+
+
+@userAction.route("/editProfile", methods=("GET", "POST"))
+async def editProfile():
+    if request.method == "POST":
+        data = (await api.getMyProfile())["body"]
+        f = await request.form
+        files = await request.files
+
+        mp = MultipartWriter("form-data")
+
+        profile: FileStorage = files["profile_image"]
+        cover: FileStorage = files["cover_image"]
+        data["name"] = f["name"]
+        data["comment"] = f.get("comment", "")
+        data["coverImage"] = None
+        data["profileImage"] = None
+
+        pData = profile.read()
+        coData = cover.read()
+
+        if len(pData) > 0:
+            log.debug("Adding and validating profile image")
+            validationMp = MultipartWriter("form-data")
+            valProfile = validationMp.append(
+                pData, {"Content-Type": profile.content_type}
+            )
+            valProfile.set_content_disposition(
+                "form-data", name="profile_image", filename=profile.name
+            )
+            await api.pixivReq(
+                "post",
+                "/ajax/my_profile/validate_profile_image",
+                {"Referer": "https://www.pixiv.net/settings/profile"},
+                rawPayload=validationMp,
+            )
+            log.debug("Successfully validated profile image")
+            profileMp = mp.append(pData, {"Content-Type": profile.content_type})
+            profileMp.set_content_disposition(
+                "form-data", name="profile_image", filename=profile.name
+            )
+        if len(coData) > 0:
+            log.debug("Adding cover image")
+            coverMp = mp.append(coData, {"Content-Type": cover.content_type})
+            coverMp.set_content_disposition(
+                "form-data", name="cover_image", filename=cover.name
+            )
+
+        log.debug(json.dumps(data))
+        profd = mp.append(json.dumps(data))
+        profd.set_content_disposition("form-data", name="profile")
+        log.debug("Finalizing...")
+        await api.pixivReq(
+            "post",
+            "/ajax/my_profile/update",
+            rawPayload=mp,
+            additionalHeaders={
+                "Referer": "https://www.pixiv.net/settings/profile"
+            },
+        )
+
+        await flash(_("Your profile has been updated"))
+        return redirect(url_for("users.userPage", _id=g.userdata._id), code=303)
+
+    else:
+        data = await getProfileConfig()
+        return await render_template("edit_profile.html", data=data)

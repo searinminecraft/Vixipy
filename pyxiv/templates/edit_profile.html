@@ -1,0 +1,51 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{_("Edit profile")}}{% endblock %}
+{% block content %}
+
+<h1>{{_("Edit profile")}}</h1>
+<h2>{{_("Preview")}}</h2>
+<form action="/self/editProfile" method="POST" enctype="multipart/form-data">
+<div id="profile-edit" class="container">
+  <div class="user-container">
+    <a>
+      <img id="banner" class="user-banner" target="_blank" src="{{ g.userdata.background }}" />
+    </a>
+    <div class="user-main">
+      <div class="user-info">
+        <img id="pfp" class="user-pfp" src="{{ g.userdata.imageBig }}" />
+        <div class="user-details">
+          <input name="name" type="text" placeholder="Nickname" required class="user-name" value="{{ g.userdata.name }}">
+          <span class="user-stats"><a>{{ _("<b>%(followingCount)s</b> following", followingCount=420) }}</a> - {{ _("<b>%(myPixiv)s</b> mypixiv", myPixiv=69) }}</span>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="user-data">
+      <textarea name="comment" rows="5" placeholder="{{_("Tell us a little bit about yourself!")}}">{{data.comment}}</textarea>
+    </div>
+  </div>
+</div>
+
+<h2>{{_("Images")}}</h2>
+<h3>{{_("Profile Picture")}}</h3>
+<label for="pfp-picker">{{ _("Choose profile picture (max. 5MB):") }}</label>
+<input id="pfp-picker" name="profile_image" type="file" accept="image/png, image/gif, image/jpeg">
+<h3>{{_("Cover Image")}}</h3>
+<label for="pfp-picker">{{ _("Choose cover image (max. 8MB):") }}</label>
+<input id="banner-picker" name="cover_image" type="file" accept="image/png, image/gif, image/jpeg">
+
+<div class="centered">
+  <button class="button">{{_("Save Changes")}}</button>
+</div>
+
+</form>
+
+<script nonce="ILoveVixipy">
+  const strs = {
+    tooLarge: '{{ _("The file you selected is too large") }}',
+    invalidType: '{{ _("Invalid file selected. Accepted formats include PNG, JPG, and GIF.") }}'
+  }
+</script>
+<script src="/static/edit_profile.js"></script>
+
+{% endblock %}

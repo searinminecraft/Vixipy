@@ -19,7 +19,12 @@
   border-radius: 8px;
   height: 36px;
   font-family: system-ui;
-  margin: 4px 0
+
+  margin: 4px 0;
+
+  &:focus {
+    outline: 2px solid var(--md-sys-color-primary)
+  }
 }
 
 
@@ -46,6 +51,11 @@
     margin-right: 8px;
     fill: currentColor
   }
+}
+
+::selection {
+  color: var(--md-sys-color-on-primary);
+  background: var(--md-sys-color-primary)
 }
 
 button.button {
@@ -888,6 +898,24 @@ div.taglist {
         }
       }
     }
+  }
+}
+
+#profile-edit {
+  input[name="name"] {
+    height: unset;
+    padding: unset;
+    margin: unset;
+    background-color: unset;
+    border: unset;
+    color: var(--md-sys-color-on-surface)
+  }
+
+  textarea[name="comment"] {
+    width: 100%;
+    border: unset;
+    height: unset;
+    resize: vertical;
   }
 }
 
@@ -1801,6 +1829,10 @@ div#ranking-calendar {
 
   .artwork-scroll-container>.feature-card:not(.popular-tag) {
     width: 100% !important
+  }
+
+  #profile-edit input[name=name] {
+    text-align: center;
   }
 
   header {
