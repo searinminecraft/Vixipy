@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-16 16:38+0800\n"
+"POT-Creation-Date: 2025-02-23 10:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,61 +17,73 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:238
+#: pyxiv/app.py:239
 msgid "pixiv Error!"
 msgstr ""
 
-#: pyxiv/app.py:241
+#: pyxiv/app.py:243
 #, python-format
-msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
+msgid ""
+"pixiv returned an error trying to request data: <code>%(status)d - "
+"%(error)s</code>"
 msgstr ""
 
-#: pyxiv/app.py:241
+#: pyxiv/app.py:243
 msgid "Unspecified error"
 msgstr ""
 
-#: pyxiv/app.py:252
+#: pyxiv/app.py:254
 msgid "Not found"
 msgstr ""
 
-#: pyxiv/app.py:253
+#: pyxiv/app.py:255
 msgid "The requested resource could not be found."
 msgstr ""
 
-#: pyxiv/app.py:263
+#: pyxiv/app.py:265
 msgid "Bad request"
 msgstr ""
 
-#: pyxiv/app.py:264
+#: pyxiv/app.py:266
 msgid "The server could not satisfy the request."
 msgstr ""
 
-#: pyxiv/app.py:274
+#: pyxiv/app.py:276
 msgid "Forbidden"
 msgstr ""
 
-#: pyxiv/app.py:275
+#: pyxiv/app.py:277
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: pyxiv/app.py:285
+#: pyxiv/app.py:287
 msgid "Unauthorized"
 msgstr ""
 
-#: pyxiv/app.py:287
+#: pyxiv/app.py:289
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 
-#: pyxiv/app.py:300
+#: pyxiv/app.py:302
 msgid "Method Not Allowed"
 msgstr ""
 
-#: pyxiv/app.py:301
+#: pyxiv/app.py:303
 msgid "This method is not allowed for this endpoint"
 msgstr ""
 
-#: pyxiv/app.py:344
+#: pyxiv/app.py:384
 msgid "Your current theme is invalid. Please set the correct theme in settings."
+msgstr ""
+
+#: pyxiv/app.py:393
+msgid "Uh oh!"
+msgstr ""
+
+#: pyxiv/app.py:394
+msgid ""
+"We have detected that you are using the Facebook WebView. Please click "
+"the 3 dots and select 'Open in external browser' to view."
 msgstr ""
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
@@ -242,64 +254,68 @@ msgstr ""
 msgid "pixiv returned an error: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:66
+#: pyxiv/routes/userAction.py:71
 msgid "Successfully bookmarked post"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:77
+#: pyxiv/routes/userAction.py:82
 msgid "Successfully removed bookmark"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:88
+#: pyxiv/routes/userAction.py:93
 msgid "Successfully liked post"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:104
+#: pyxiv/routes/userAction.py:109
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:109
+#: pyxiv/routes/userAction.py:114
 msgid "Successfully posted comment"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:126
+#: pyxiv/routes/userAction.py:131
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:131
+#: pyxiv/routes/userAction.py:136
 msgid "Successfully sent stamp"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:154
+#: pyxiv/routes/userAction.py:159
 msgid "You cannot follow yourself."
 msgstr ""
 
-#: pyxiv/routes/userAction.py:158 pyxiv/routes/userAction.py:173
+#: pyxiv/routes/userAction.py:163 pyxiv/routes/userAction.py:178
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
 #: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:163
+#: pyxiv/routes/userAction.py:168
 msgid "Could not follow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:165
+#: pyxiv/routes/userAction.py:170
 msgid "Successfully followed user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:178
+#: pyxiv/routes/userAction.py:183
 msgid "Could not unfollow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:180
+#: pyxiv/routes/userAction.py:185
 msgid "Successfully unfollowed user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:220
+#: pyxiv/routes/userAction.py:225
 msgid "Successfully edited details"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:291
+msgid "Your profile has been updated"
 msgstr ""
 
 #: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
@@ -312,19 +328,15 @@ msgid ""
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">file an issue</a>."
 msgstr ""
 
-#: pyxiv/templates/500.html:43
-msgid "(Exception message too long)"
-msgstr ""
-
-#: pyxiv/templates/500.html:47 pyxiv/templates/error.html:19
+#: pyxiv/templates/500.html:41 pyxiv/templates/error.html:19
 msgid "Back to home"
 msgstr ""
 
-#: pyxiv/templates/500.html:51
+#: pyxiv/templates/500.html:45
 msgid "Error details"
 msgstr ""
 
-#: pyxiv/templates/500.html:53
+#: pyxiv/templates/500.html:47
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
@@ -517,8 +529,59 @@ msgstr ""
 msgid "Allow comments"
 msgstr ""
 
-#: pyxiv/templates/editDetails.html:67
+#: pyxiv/templates/editDetails.html:67 pyxiv/templates/edit_profile.html:38
 msgid "Save Changes"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:2 pyxiv/templates/edit_profile.html:5
+#: pyxiv/templates/settings/account.html:49 pyxiv/templates/user/index.html:65
+msgid "Edit profile"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:6
+msgid "Preview"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:18 pyxiv/templates/user/index.html:37
+#, python-format
+msgid "<b>%(followingCount)s</b> following"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:18 pyxiv/templates/user/index.html:37
+#, python-format
+msgid "<b>%(myPixiv)s</b> mypixiv"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:24
+msgid "Tell us a little bit about yourself!"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:29
+msgid "Images"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:30
+msgid "Profile Picture"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:31
+msgid "Choose profile picture (max. 5MB):"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:33
+msgid "Cover Image"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:34
+msgid "Choose cover image (max. 8MB):"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:45
+msgid "The file you selected is too large"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:46
+msgid "Invalid file selected. Accepted formats include PNG, JPG, and GIF."
 msgstr ""
 
 #: pyxiv/templates/error.html:2
@@ -534,19 +597,19 @@ msgid "An unknown error has occurred. Please try again later."
 msgstr ""
 
 #: pyxiv/templates/index.html:2 pyxiv/templates/indexManga.html:2
-#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/user/index.html:81
+#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/user/index.html:83
 msgid "Home"
 msgstr ""
 
 #: pyxiv/templates/index.html:25 pyxiv/templates/indexManga.html:23
 #: pyxiv/templates/newest.html:17 pyxiv/templates/rankings.html:14
-#: pyxiv/templates/user/index.html:82
+#: pyxiv/templates/user/index.html:84
 msgid "Illustrations"
 msgstr ""
 
 #: pyxiv/templates/index.html:26 pyxiv/templates/indexManga.html:24
 #: pyxiv/templates/newest.html:18 pyxiv/templates/rankings.html:15
-#: pyxiv/templates/user/index.html:83
+#: pyxiv/templates/user/index.html:85
 msgid "Manga"
 msgstr ""
 
@@ -1009,7 +1072,7 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:84
+#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:86
 msgid "Bookmarks"
 msgstr ""
 
@@ -1211,11 +1274,11 @@ msgid ""
 "be sending requests on behalf of <strong>your account</strong>."
 msgstr ""
 
-#: pyxiv/templates/settings/account.html:49
+#: pyxiv/templates/settings/account.html:51
 msgid "Your pixiv session token"
 msgstr ""
 
-#: pyxiv/templates/settings/account.html:50
+#: pyxiv/templates/settings/account.html:52
 msgid ""
 "This is your pixiv <code>PHPSESSID</code> cookie, used to authenticate "
 "you on pixiv. You can copy this in case you want to switch instances or "
@@ -1467,16 +1530,6 @@ msgstr ""
 #: pyxiv/templates/user/index.html:21
 #, python-format
 msgid "%(user)s's profile picture"
-msgstr ""
-
-#: pyxiv/templates/user/index.html:37
-#, python-format
-msgid "<b>%(followingCount)s</b> following"
-msgstr ""
-
-#: pyxiv/templates/user/index.html:37
-#, python-format
-msgid "<b>%(myPixiv)s</b> mypixiv"
 msgstr ""
 
 #: pyxiv/templates/user/index.html:62

@@ -7,81 +7,92 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-16 16:38+0800\n"
+"POT-Creation-Date: 2025-02-23 10:12+0800\n"
 "PO-Revision-Date: 2025-02-18 23:21+0000\n"
-"Last-Translator: divergency <divergency@users.noreply.translate.codeberg.org>"
-"\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/ru/>\n"
+"Last-Translator: divergency "
+"<divergency@users.noreply.translate.codeberg.org>\n"
 "Language: ru\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/ru/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.9.2\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:238
+#: pyxiv/app.py:239
 msgid "pixiv Error!"
 msgstr "pixiv Ошибка!"
 
-#: pyxiv/app.py:241
-#, python-format
-msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
+#: pyxiv/app.py:243
+#, fuzzy, python-format
+msgid ""
+"pixiv returned an error trying to request data: <code>%(status)d - "
+"%(error)s</code>"
 msgstr "pixiv вернул ошибку пытаясь запросить данные: <code>%(error)s</code>"
 
-#: pyxiv/app.py:241
+#: pyxiv/app.py:243
 msgid "Unspecified error"
 msgstr "Неуказанная ошибка"
 
-#: pyxiv/app.py:252
+#: pyxiv/app.py:254
 msgid "Not found"
 msgstr "Не найдено"
 
-#: pyxiv/app.py:253
+#: pyxiv/app.py:255
 msgid "The requested resource could not be found."
 msgstr "Запрошенный ресурс не был найден."
 
-#: pyxiv/app.py:263
+#: pyxiv/app.py:265
 msgid "Bad request"
 msgstr "Неверный запрос"
 
-#: pyxiv/app.py:264
+#: pyxiv/app.py:266
 msgid "The server could not satisfy the request."
 msgstr "Сервер не смог удовлетворить запрос."
 
-#: pyxiv/app.py:274
+#: pyxiv/app.py:276
 msgid "Forbidden"
 msgstr "Запрещен"
 
-#: pyxiv/app.py:275
+#: pyxiv/app.py:277
 msgid "You do not have permission to access this page."
 msgstr "У вас нет разрешения на доступ к этой странице."
 
-#: pyxiv/app.py:285
+#: pyxiv/app.py:287
 msgid "Unauthorized"
 msgstr "Неавторизован"
 
-#: pyxiv/app.py:287
+#: pyxiv/app.py:289
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 "Предоставьте ваш pixiv PHPSESSID в настройках, чтобы выполнить это "
 "действие."
 
-#: pyxiv/app.py:300
+#: pyxiv/app.py:302
 msgid "Method Not Allowed"
 msgstr "Метод Не Разрешен"
 
-#: pyxiv/app.py:301
+#: pyxiv/app.py:303
 msgid "This method is not allowed for this endpoint"
 msgstr "Этот метод не разрешен для этой конечной точки"
 
-#: pyxiv/app.py:344
+#: pyxiv/app.py:384
 msgid "Your current theme is invalid. Please set the correct theme in settings."
 msgstr ""
 "Текущая тема невалидна. Пожалуйста, поставьте корректную тему в "
 "настройках."
+
+#: pyxiv/app.py:393
+msgid "Uh oh!"
+msgstr ""
+
+#: pyxiv/app.py:394
+msgid ""
+"We have detected that you are using the Facebook WebView. Please click "
+"the 3 dots and select 'Open in external browser' to view."
+msgstr ""
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
 #: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
@@ -267,65 +278,69 @@ msgstr "Иллюстрация не найдена"
 msgid "pixiv returned an error: %(error)s"
 msgstr "pixiv вернул ошибку: %(error)s"
 
-#: pyxiv/routes/userAction.py:66
+#: pyxiv/routes/userAction.py:71
 msgid "Successfully bookmarked post"
 msgstr "Успешно добавили пост в закладки"
 
-#: pyxiv/routes/userAction.py:77
+#: pyxiv/routes/userAction.py:82
 msgid "Successfully removed bookmark"
 msgstr "Успешно убрали закладку"
 
-#: pyxiv/routes/userAction.py:88
+#: pyxiv/routes/userAction.py:93
 msgid "Successfully liked post"
 msgstr "Успешно лайкнули пост"
 
-#: pyxiv/routes/userAction.py:104
+#: pyxiv/routes/userAction.py:109
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "Не можем отправить комментарий: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:109
+#: pyxiv/routes/userAction.py:114
 msgid "Successfully posted comment"
 msgstr "Успешно отправили комментарий"
 
-#: pyxiv/routes/userAction.py:126
+#: pyxiv/routes/userAction.py:131
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "Не можем отправить штамп: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:131
+#: pyxiv/routes/userAction.py:136
 msgid "Successfully sent stamp"
 msgstr "Успешно отправили штамп"
 
-#: pyxiv/routes/userAction.py:154
+#: pyxiv/routes/userAction.py:159
 msgid "You cannot follow yourself."
 msgstr "Вы не можете подписаться на себя."
 
-#: pyxiv/routes/userAction.py:158 pyxiv/routes/userAction.py:173
+#: pyxiv/routes/userAction.py:163 pyxiv/routes/userAction.py:178
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
 #: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr "Неверный пользователь"
 
-#: pyxiv/routes/userAction.py:163
+#: pyxiv/routes/userAction.py:168
 msgid "Could not follow user"
 msgstr "Не смогли подписаться на пользователя"
 
-#: pyxiv/routes/userAction.py:165
+#: pyxiv/routes/userAction.py:170
 msgid "Successfully followed user"
 msgstr "Успешно подписались на пользователя"
 
-#: pyxiv/routes/userAction.py:178
+#: pyxiv/routes/userAction.py:183
 msgid "Could not unfollow user"
 msgstr "Не смогли отписаться от пользователя"
 
-#: pyxiv/routes/userAction.py:180
+#: pyxiv/routes/userAction.py:185
 msgid "Successfully unfollowed user"
 msgstr "Успешно отписались от пользователя"
 
-#: pyxiv/routes/userAction.py:220
+#: pyxiv/routes/userAction.py:225
 msgid "Successfully edited details"
 msgstr "Успешно отредактировали детали"
+
+#: pyxiv/routes/userAction.py:291
+msgid "Your profile has been updated"
+msgstr ""
 
 #: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
 msgid "Internal Server Error"
@@ -340,19 +355,15 @@ msgstr ""
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">заполните форму об"
 " ошибке</a>."
 
-#: pyxiv/templates/500.html:43
-msgid "(Exception message too long)"
-msgstr "(Сообщение Exception слишком длинное)"
-
-#: pyxiv/templates/500.html:47 pyxiv/templates/error.html:19
+#: pyxiv/templates/500.html:41 pyxiv/templates/error.html:19
 msgid "Back to home"
 msgstr "Назад домой"
 
-#: pyxiv/templates/500.html:51
+#: pyxiv/templates/500.html:45
 msgid "Error details"
 msgstr "Детали ошибки"
 
-#: pyxiv/templates/500.html:53
+#: pyxiv/templates/500.html:47
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
@@ -559,9 +570,65 @@ msgstr "Приватная"
 msgid "Allow comments"
 msgstr "Разрешить комментарии"
 
-#: pyxiv/templates/editDetails.html:67
+#: pyxiv/templates/editDetails.html:67 pyxiv/templates/edit_profile.html:38
 msgid "Save Changes"
 msgstr "Сохранить Изменения"
+
+#: pyxiv/templates/edit_profile.html:2 pyxiv/templates/edit_profile.html:5
+#: pyxiv/templates/settings/account.html:49 pyxiv/templates/user/index.html:65
+#, fuzzy
+msgid "Edit profile"
+msgstr "Профиль"
+
+#: pyxiv/templates/edit_profile.html:6
+#, fuzzy
+msgid "Preview"
+msgstr "Предыдущий"
+
+#: pyxiv/templates/edit_profile.html:18 pyxiv/templates/user/index.html:37
+#, python-format
+msgid "<b>%(followingCount)s</b> following"
+msgstr "<b>%(followingCount)s</b> подписок"
+
+#: pyxiv/templates/edit_profile.html:18 pyxiv/templates/user/index.html:37
+#, python-format
+msgid "<b>%(myPixiv)s</b> mypixiv"
+msgstr "<b>%(myPixiv)s</b> мой pixiv"
+
+#: pyxiv/templates/edit_profile.html:24
+msgid "Tell us a little bit about yourself!"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:29
+msgid "Images"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:30
+#, fuzzy, python-format
+msgid "Profile Picture"
+msgstr "аватар профиля %(user)s'а"
+
+#: pyxiv/templates/edit_profile.html:31
+#, fuzzy, python-format
+msgid "Choose profile picture (max. 5MB):"
+msgstr "аватар профиля %(user)s'а"
+
+#: pyxiv/templates/edit_profile.html:33
+msgid "Cover Image"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:34
+msgid "Choose cover image (max. 8MB):"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:45
+#, fuzzy
+msgid "The file you selected is too large"
+msgstr "ID указанный вами не является угойрой."
+
+#: pyxiv/templates/edit_profile.html:46
+msgid "Invalid file selected. Accepted formats include PNG, JPG, and GIF."
+msgstr ""
 
 #: pyxiv/templates/error.html:2
 msgid "Error"
@@ -576,19 +643,19 @@ msgid "An unknown error has occurred. Please try again later."
 msgstr "Произошла неизвестная ошибка. Пожалуйста, попробуйте снова позже."
 
 #: pyxiv/templates/index.html:2 pyxiv/templates/indexManga.html:2
-#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/user/index.html:81
+#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/user/index.html:83
 msgid "Home"
 msgstr "Дом"
 
 #: pyxiv/templates/index.html:25 pyxiv/templates/indexManga.html:23
 #: pyxiv/templates/newest.html:17 pyxiv/templates/rankings.html:14
-#: pyxiv/templates/user/index.html:82
+#: pyxiv/templates/user/index.html:84
 msgid "Illustrations"
 msgstr "Иллюстрации"
 
 #: pyxiv/templates/index.html:26 pyxiv/templates/indexManga.html:24
 #: pyxiv/templates/newest.html:18 pyxiv/templates/rankings.html:15
-#: pyxiv/templates/user/index.html:83
+#: pyxiv/templates/user/index.html:85
 msgid "Manga"
 msgstr "Манга"
 
@@ -1024,9 +1091,9 @@ msgid ""
 "copy and paste something here, there is an 11/10 chance they are trying "
 "to steal your account!"
 msgstr ""
-"Этот инструмент предназначен для использования только разработчиками. Если "
-"кто-то сказал вам скопировать и вставить что-то сюда, есть 11/10 шанс, что "
-"они пытаются украсть ваш аккаунт!"
+"Этот инструмент предназначен для использования только разработчиками. "
+"Если кто-то сказал вам скопировать и вставить что-то сюда, есть 11/10 "
+"шанс, что они пытаются украсть ваш аккаунт!"
 
 #: pyxiv/templates/layouts/default.html:17
 msgid ""
@@ -1072,7 +1139,7 @@ msgstr "Настройки"
 msgid "Profile"
 msgstr "Профиль"
 
-#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:84
+#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:86
 msgid "Bookmarks"
 msgstr "Закладки"
 
@@ -1314,11 +1381,11 @@ msgstr ""
 "<strong>Напоминание:</strong> Входя в аккаунт, вы соглашаетесь, что "
 "сервер будет посылать запросы с <strong>вашего аккаунта</strong>."
 
-#: pyxiv/templates/settings/account.html:49
+#: pyxiv/templates/settings/account.html:51
 msgid "Your pixiv session token"
 msgstr "Ваш pixiv токен сессии"
 
-#: pyxiv/templates/settings/account.html:50
+#: pyxiv/templates/settings/account.html:52
 msgid ""
 "This is your pixiv <code>PHPSESSID</code> cookie, used to authenticate "
 "you on pixiv. You can copy this in case you want to switch instances or "
@@ -1594,16 +1661,6 @@ msgstr "Фон %(user)s'a"
 msgid "%(user)s's profile picture"
 msgstr "аватар профиля %(user)s'а"
 
-#: pyxiv/templates/user/index.html:37
-#, python-format
-msgid "<b>%(followingCount)s</b> following"
-msgstr "<b>%(followingCount)s</b> подписок"
-
-#: pyxiv/templates/user/index.html:37
-#, python-format
-msgid "<b>%(myPixiv)s</b> mypixiv"
-msgstr "<b>%(myPixiv)s</b> мой pixiv"
-
 #: pyxiv/templates/user/index.html:62
 msgid "Follow"
 msgstr "Подписаться"
@@ -1632,3 +1689,7 @@ msgstr "Манга %(user)s'а"
 
 #~ msgid "Go to ugoira.com for more options"
 #~ msgstr "Перейти на ugoira.com для других опций"
+
+#~ msgid "(Exception message too long)"
+#~ msgstr "(Сообщение Exception слишком длинное)"
+

@@ -7,82 +7,93 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-16 16:38+0800\n"
+"POT-Creation-Date: 2025-02-23 10:12+0800\n"
 "PO-Revision-Date: 2025-02-18 23:21+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.9.2\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:238
+#: pyxiv/app.py:239
 msgid "pixiv Error!"
 msgstr "Error sa pixiv!"
 
-#: pyxiv/app.py:241
-#, python-format
-msgid "pixiv returned an error trying to request data: <code>%(error)s</code>"
+#: pyxiv/app.py:243
+#, fuzzy, python-format
+msgid ""
+"pixiv returned an error trying to request data: <code>%(status)d - "
+"%(error)s</code>"
 msgstr ""
 "Nagbigay ng error ang pixiv habang naghihiling ng data: "
 "<code>%(error)s</code>"
 
-#: pyxiv/app.py:241
+#: pyxiv/app.py:243
 msgid "Unspecified error"
 msgstr "Hindi natukoy na eror"
 
-#: pyxiv/app.py:252
+#: pyxiv/app.py:254
 msgid "Not found"
 msgstr "Hindi nahanap"
 
-#: pyxiv/app.py:253
+#: pyxiv/app.py:255
 msgid "The requested resource could not be found."
 msgstr "Hindi mahanap ang resource na hinihiling."
 
-#: pyxiv/app.py:263
+#: pyxiv/app.py:265
 msgid "Bad request"
 msgstr "Hindi wastong hiling"
 
-#: pyxiv/app.py:264
+#: pyxiv/app.py:266
 msgid "The server could not satisfy the request."
 msgstr "Hindi matugunan ng server ang kahilingan."
 
-#: pyxiv/app.py:274
+#: pyxiv/app.py:276
 msgid "Forbidden"
 msgstr "Pinagbawalan"
 
-#: pyxiv/app.py:275
+#: pyxiv/app.py:277
 msgid "You do not have permission to access this page."
 msgstr "Wala kang pahintulot para i-access ang pahina."
 
-#: pyxiv/app.py:285
+#: pyxiv/app.py:287
 msgid "Unauthorized"
 msgstr "Hindi awtorisado"
 
-#: pyxiv/app.py:287
+#: pyxiv/app.py:289
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 "Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na "
 "ito."
 
-#: pyxiv/app.py:300
+#: pyxiv/app.py:302
 msgid "Method Not Allowed"
 msgstr "Hindi Pinapayagan ang Paraan"
 
-#: pyxiv/app.py:301
+#: pyxiv/app.py:303
 msgid "This method is not allowed for this endpoint"
 msgstr "Hindi pinapayagan ang paraang ito para sa endpoint na ito"
 
-#: pyxiv/app.py:344
+#: pyxiv/app.py:384
 msgid "Your current theme is invalid. Please set the correct theme in settings."
 msgstr ""
 "Hindi wasto ang iyong kaasalukuyang tema. Mangyaring itakda ang tamang "
 "tema sa mga setting."
+
+#: pyxiv/app.py:393
+msgid "Uh oh!"
+msgstr ""
+
+#: pyxiv/app.py:394
+msgid ""
+"We have detected that you are using the Facebook WebView. Please click "
+"the 3 dots and select 'Open in external browser' to view."
+msgstr ""
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
 #: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
@@ -267,65 +278,69 @@ msgstr "Hindi nahanap ang illustration"
 msgid "pixiv returned an error: %(error)s"
 msgstr "Nagbigay ng error ang pixiv: %(error)s"
 
-#: pyxiv/routes/userAction.py:66
+#: pyxiv/routes/userAction.py:71
 msgid "Successfully bookmarked post"
 msgstr "Matagumpay na na-bookmark ang post"
 
-#: pyxiv/routes/userAction.py:77
+#: pyxiv/routes/userAction.py:82
 msgid "Successfully removed bookmark"
 msgstr "Matagumpay na tinanggal ang bookmark"
 
-#: pyxiv/routes/userAction.py:88
+#: pyxiv/routes/userAction.py:93
 msgid "Successfully liked post"
 msgstr "Matagumpay na na-like ang post"
 
-#: pyxiv/routes/userAction.py:104
+#: pyxiv/routes/userAction.py:109
 #, python-format
 msgid "Unable to post comment: %(errorClass)s: %(error)s"
 msgstr "Hindi ma-post ang komento: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:109
+#: pyxiv/routes/userAction.py:114
 msgid "Successfully posted comment"
 msgstr "Matagumpay na na-post ang komento"
 
-#: pyxiv/routes/userAction.py:126
+#: pyxiv/routes/userAction.py:131
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
 msgstr "Hindi mapadala ang stamp: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:131
+#: pyxiv/routes/userAction.py:136
 msgid "Successfully sent stamp"
 msgstr "Matagumpay na napadala ang stamp"
 
-#: pyxiv/routes/userAction.py:154
+#: pyxiv/routes/userAction.py:159
 msgid "You cannot follow yourself."
 msgstr "Hindi mo maaaring sundan ang sarili mo."
 
-#: pyxiv/routes/userAction.py:158 pyxiv/routes/userAction.py:173
+#: pyxiv/routes/userAction.py:163 pyxiv/routes/userAction.py:178
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
 #: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr "Hindi wastong user"
 
-#: pyxiv/routes/userAction.py:163
+#: pyxiv/routes/userAction.py:168
 msgid "Could not follow user"
 msgstr "Hindi masundan ang user"
 
-#: pyxiv/routes/userAction.py:165
+#: pyxiv/routes/userAction.py:170
 msgid "Successfully followed user"
 msgstr "Matagumpay na nasundan ang user"
 
-#: pyxiv/routes/userAction.py:178
+#: pyxiv/routes/userAction.py:183
 msgid "Could not unfollow user"
 msgstr "Hindi ma-unfollow ang user"
 
-#: pyxiv/routes/userAction.py:180
+#: pyxiv/routes/userAction.py:185
 msgid "Successfully unfollowed user"
 msgstr "Matagumpay na na-unfollow ang user"
 
-#: pyxiv/routes/userAction.py:220
+#: pyxiv/routes/userAction.py:225
 msgid "Successfully edited details"
 msgstr "Matagumpay na nabago ang mga detalye"
+
+#: pyxiv/routes/userAction.py:291
+msgid "Your profile has been updated"
+msgstr ""
 
 #: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
 msgid "Internal Server Error"
@@ -340,19 +355,15 @@ msgstr ""
 "href=\"https://codeberg.org/vixipy/Vixipy/issues/new\">maghain ng "
 "isyu</a>."
 
-#: pyxiv/templates/500.html:43
-msgid "(Exception message too long)"
-msgstr "(Masyadong mahaba ang mensahe ng exception)"
-
-#: pyxiv/templates/500.html:47 pyxiv/templates/error.html:19
+#: pyxiv/templates/500.html:41 pyxiv/templates/error.html:19
 msgid "Back to home"
 msgstr "Bumalik sa panimula"
 
-#: pyxiv/templates/500.html:51
+#: pyxiv/templates/500.html:45
 msgid "Error details"
 msgstr "Mga detalye sa error"
 
-#: pyxiv/templates/500.html:53
+#: pyxiv/templates/500.html:47
 msgid ""
 "If you are going to report a bug, include the traceback if possible. You "
 "may redact information such as your home folder."
@@ -558,9 +569,65 @@ msgstr "Pribado"
 msgid "Allow comments"
 msgstr "Payagan ang mga komento"
 
-#: pyxiv/templates/editDetails.html:67
+#: pyxiv/templates/editDetails.html:67 pyxiv/templates/edit_profile.html:38
 msgid "Save Changes"
 msgstr "I-save ang Mga Pagbabago"
+
+#: pyxiv/templates/edit_profile.html:2 pyxiv/templates/edit_profile.html:5
+#: pyxiv/templates/settings/account.html:49 pyxiv/templates/user/index.html:65
+#, fuzzy
+msgid "Edit profile"
+msgstr "Iyong profile"
+
+#: pyxiv/templates/edit_profile.html:6
+#, fuzzy
+msgid "Preview"
+msgstr "Nakaraan"
+
+#: pyxiv/templates/edit_profile.html:18 pyxiv/templates/user/index.html:37
+#, python-format
+msgid "<b>%(followingCount)s</b> following"
+msgstr "<b>%(followingCount)s</b> sinusundan"
+
+#: pyxiv/templates/edit_profile.html:18 pyxiv/templates/user/index.html:37
+#, python-format
+msgid "<b>%(myPixiv)s</b> mypixiv"
+msgstr "<b>%(myPixiv)s</b> mga mypixiv"
+
+#: pyxiv/templates/edit_profile.html:24
+msgid "Tell us a little bit about yourself!"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:29
+msgid "Images"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:30
+#, fuzzy, python-format
+msgid "Profile Picture"
+msgstr "Larawan ng profile ni %(user)s"
+
+#: pyxiv/templates/edit_profile.html:31
+#, fuzzy, python-format
+msgid "Choose profile picture (max. 5MB):"
+msgstr "Larawan ng profile ni %(user)s"
+
+#: pyxiv/templates/edit_profile.html:33
+msgid "Cover Image"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:34
+msgid "Choose cover image (max. 8MB):"
+msgstr ""
+
+#: pyxiv/templates/edit_profile.html:45
+#, fuzzy
+msgid "The file you selected is too large"
+msgstr "Hindi ugoira ang ibinigay mong ID."
+
+#: pyxiv/templates/edit_profile.html:46
+msgid "Invalid file selected. Accepted formats include PNG, JPG, and GIF."
+msgstr ""
 
 #: pyxiv/templates/error.html:2
 msgid "Error"
@@ -575,19 +642,19 @@ msgid "An unknown error has occurred. Please try again later."
 msgstr "May naganap na hindi kilalang error. Pakisubukang muli mamaya."
 
 #: pyxiv/templates/index.html:2 pyxiv/templates/indexManga.html:2
-#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/user/index.html:81
+#: pyxiv/templates/layouts/default.html:64 pyxiv/templates/user/index.html:83
 msgid "Home"
 msgstr "Panimula"
 
 #: pyxiv/templates/index.html:25 pyxiv/templates/indexManga.html:23
 #: pyxiv/templates/newest.html:17 pyxiv/templates/rankings.html:14
-#: pyxiv/templates/user/index.html:82
+#: pyxiv/templates/user/index.html:84
 msgid "Illustrations"
 msgstr "Mga Illustration"
 
 #: pyxiv/templates/index.html:26 pyxiv/templates/indexManga.html:24
 #: pyxiv/templates/newest.html:18 pyxiv/templates/rankings.html:15
-#: pyxiv/templates/user/index.html:83
+#: pyxiv/templates/user/index.html:85
 msgid "Manga"
 msgstr "Mga Manga"
 
@@ -1031,8 +1098,8 @@ msgid ""
 "If you know what you're doing, you should go contribute at: "
 "https://codeberg.org/vixipy/Vixipy"
 msgstr ""
-"Kung alam mo kung ano ang iyong ginagawa, dapat kang mag-ambag sa: https://"
-"codeberg.org/vixipy/Vixipy"
+"Kung alam mo kung ano ang iyong ginagawa, dapat kang mag-ambag sa: "
+"https://codeberg.org/vixipy/Vixipy"
 
 #: pyxiv/templates/layouts/default.html:22
 msgid "This website requires JavaScript."
@@ -1070,7 +1137,7 @@ msgstr "Mga Setting"
 msgid "Profile"
 msgstr "Iyong profile"
 
-#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:84
+#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:86
 msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
@@ -1316,11 +1383,11 @@ msgstr ""
 "na ang instansya ay magpapadala ng mga kahilingan sa ngalan ng "
 "<strong>iyong account</strong>."
 
-#: pyxiv/templates/settings/account.html:49
+#: pyxiv/templates/settings/account.html:51
 msgid "Your pixiv session token"
 msgstr "Ang iyong pixiv session token"
 
-#: pyxiv/templates/settings/account.html:50
+#: pyxiv/templates/settings/account.html:52
 msgid ""
 "This is your pixiv <code>PHPSESSID</code> cookie, used to authenticate "
 "you on pixiv. You can copy this in case you want to switch instances or "
@@ -1597,16 +1664,6 @@ msgstr "Background ni %(user)s"
 msgid "%(user)s's profile picture"
 msgstr "Larawan ng profile ni %(user)s"
 
-#: pyxiv/templates/user/index.html:37
-#, python-format
-msgid "<b>%(followingCount)s</b> following"
-msgstr "<b>%(followingCount)s</b> sinusundan"
-
-#: pyxiv/templates/user/index.html:37
-#, python-format
-msgid "<b>%(myPixiv)s</b> mypixiv"
-msgstr "<b>%(myPixiv)s</b> mga mypixiv"
-
 #: pyxiv/templates/user/index.html:62
 msgid "Follow"
 msgstr "Sundan"
@@ -1735,3 +1792,7 @@ msgstr "Mga Manga ni %(user)s"
 #~ "Isang beses lang lalabas ang babalang"
 #~ " ito hanggang sa i-clear mo ang "
 #~ "cookies para sa website na ito."
+
+#~ msgid "(Exception message too long)"
+#~ msgstr "(Masyadong mahaba ang mensahe ng exception)"
+
