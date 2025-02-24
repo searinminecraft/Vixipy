@@ -140,7 +140,7 @@ async def pixivReq(
         headers["User-Agent"] = (
             "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
         )
-    if not isinstance(rawPayload, MultipartWriter):
+    if method.lower() == "post" and not isinstance(rawPayload, MultipartWriter) and jsonPayload is None:
         headers["Content-Type"] = "application/x-www-form-urlencoded"
 
     if endpoint.startswith("/ajax"):
