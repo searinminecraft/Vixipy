@@ -1,7 +1,9 @@
 from quart import Blueprint, abort, redirect, render_template, request, url_for
 from urllib.parse import urlparse
+import logging
 
 bp = Blueprint("pixivCompat", __name__)
+log = logging.getLogger("vixipy.routes.pixivCompat")
 
 
 @bp.route("/new_illust.php")
@@ -53,3 +55,21 @@ async def pixivRedir():
     return await render_template(
         "leave.html", dest=dest, showSensitiveNotice=showSensitiveNotice
     )
+
+
+@bp.get("/member_illust.php")
+async def member_illust():
+    args = request.args
+
+    # currently only comment_chk is known
+
+    match args["mode"]:
+        case "comment_chk":
+            return redirect(
+                url_for("artworks.artworkComments", _id=args["illust_id"]), code=308
+            )
+        case _:
+            log.warning(
+                "member_illust.php: Unknown mode %s, stubbing!", args.get("mode")
+            )
+            abort(400)
