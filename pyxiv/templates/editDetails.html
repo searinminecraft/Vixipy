@@ -39,6 +39,7 @@
       <option value="public" {% if data.restrict=="public" %}selected{% endif %}>{{_("All")}}</option>
       <option value="mypixiv" {% if data.restrict=="mypixiv" %}selected{% endif %}>{{_("My pixiv only")}}</option>
       <option value="private" {% if data.restrict=="private" %}selected{% endif %}>{{_("Private")}}</option>
+      <option value="loginOnly" {% if data.restrict=="loginOnly" %}selected{% endif %}>{{_("Logged in users only")}}</option>
     </select>
   </div>
 
