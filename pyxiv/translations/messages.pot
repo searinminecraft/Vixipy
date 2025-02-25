@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-23 10:12+0800\n"
+"POT-Creation-Date: 2025-02-25 11:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1186,10 +1186,7 @@ msgstr ""
 msgid ""
 "With Vixipy, you can enjoy using most pixiv features with a frontend you "
 "can trust. Your browser will never connect to any external server except "
-"if you specify an external image proxy server. The only things that "
-"Vixipy will log are the pixiv API requests, your user agent, and image "
-"proxy requests (unless you are using an external image proxy server, "
-"which you will have to trust it's privacy practices)."
+"if you specify an external image proxy server."
 msgstr ""
 
 #: pyxiv/templates/settings/about.html:16
@@ -1212,18 +1209,53 @@ msgstr ""
 
 #: pyxiv/templates/settings/about.html:22
 msgid ""
-"Performance-wise, Vixipy somewhat lags behind others, but is sometimes "
-"faster or on par with other pixiv frontends."
+"Performance-wise, Vixipy is sometimes faster or on par with other pixiv "
+"frontends."
 msgstr ""
 
 #: pyxiv/templates/settings/about.html:24
+msgid "What makes Vixipy unique?"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:25
+msgid ""
+"Vixipy not only a frontend that allows you to explore pixiv, but it also "
+"aims to be a useful and functional pixiv client similar to PixEz (an "
+"Android/iOS pixiv client written in Flutter), that allows you to do "
+"things like edit your profile, view notifications, express your opinions "
+"and feelings by sending comments and stickers, and more to come."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:27
 msgid "Acknowledgements"
 msgstr ""
 
-#: pyxiv/templates/settings/about.html:26
+#: pyxiv/templates/settings/about.html:29
 msgid ""
 "Vixipy is made possible through the use of open source projects, which "
 "are:"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:42
+msgid "Disclaimer"
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:43
+msgid ""
+"Vixipy is an unofficial pixiv frontend and is not made, approved or "
+"affiliated by pixiv (pixiv Inc.). This software has absolutely NO "
+"WARRANTY, and chances of your pixiv account getting in trouble or "
+"suspended are not guaranteed."
+msgstr ""
+
+#: pyxiv/templates/settings/about.html:45
+msgid ""
+"All works that are shown in this instance are originated from pixiv, and "
+"owned by their respective artists/authors. No copyright infringement is "
+"intended and the software and instance administrators have no control or "
+"liability to the content shown whatsoever. If you have any issues or "
+"concerns about works that, for example, infringe on your copyright and "
+"intellectual property rights, send these to pixiv, and not us."
 msgstr ""
 
 #: pyxiv/templates/settings/account.html:6
