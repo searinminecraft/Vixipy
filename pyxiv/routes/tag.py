@@ -19,7 +19,7 @@ limit_blueprint(
 )
 
 
-@tag.route("/<name>")
+@tag.route("/<path:name>")
 async def tagMain(name):
 
     args = request.args.copy()

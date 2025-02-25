@@ -326,7 +326,7 @@ async def searchArtwork(
     params: just refer to https://daydreamer-json.github.io/pixiv-ajax-api-docs/#search-artworks
     """
 
-    path = f"/ajax/search/artworks/{keyword}?p={p}"
+    path = f"/ajax/search/artworks/{quote(keyword, safe='')}?p={p}"
 
     if order:
         path += f"&order={order}"
@@ -369,7 +369,7 @@ async def getTagInfo(tag: str):
     Get information about a tag
     """
 
-    return await pixivReq("get", f"/ajax/search/tags/{tag}")
+    return await pixivReq("get", f"/ajax/search/tags/{quote(tag, safe='')}")
 
 
 async def getUserBookmarks(_id: int, tag: str = "", offset: int = 0, limit: int = 30):
