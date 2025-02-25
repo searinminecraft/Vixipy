@@ -8,6 +8,8 @@ Vixipy *[vick-see-pie]* is yet another privacy respecting pixiv frontend, allowi
 
 A mirror of Vixipy can be found on [git.gay](https://git.gay/vixipy/Vixipy)
 
+Join our (currently none/small) community of pixiv API researchers [on Matrix](https://matrix.to/#/#pixivapi:nope.chat)! You can also go here for support/questions about Vixipy.
+
 # Features currently present
 * Built-in proxy (to retrieve illustrations and images from pixiv)
 * Log in
