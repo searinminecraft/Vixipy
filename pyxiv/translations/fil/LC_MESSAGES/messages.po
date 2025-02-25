@@ -1291,7 +1291,6 @@ msgstr ""
 "<a href='https://0xacab.org/dCF/deCloudflare'>napakaraming problema.</a>"
 
 #: pyxiv/templates/settings/about.html:14
-#, fuzzy
 msgid ""
 "With Vixipy, you can enjoy using most pixiv features with a frontend you can "
 "trust. Your browser will never connect to any external server except if you "
@@ -1300,10 +1299,7 @@ msgstr ""
 "Sa Vixipy, mae-enjoy mo ang karamihan sa mga tampok ng pixiv gamit ang "
 "frontend na mapagkakatiwalaan mo. Hindi kokonekta ang iyong browser sa "
 "anumang panlabas na server maliban kung magtukoy ka ng panlabas na image "
-"proxy server. Ang matatala lamang ng Vixipy ay ang mga hiling sa pixiv API, "
-"iyong user agent, at mga hiling sa image proxy (maliban kung gumagamit ka ng "
-"panlabas na image proxy server, na kailangan mong pagkatiwalaan ang mga "
-"kasanayan sa pagkapribado nito)."
+"proxy server."
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
@@ -1331,13 +1327,12 @@ msgstr ""
 "kailangan."
 
 #: pyxiv/templates/settings/about.html:22
-#, fuzzy
 msgid ""
 "Performance-wise, Vixipy is sometimes faster or on par with other pixiv "
 "frontends."
 msgstr ""
-"Sa pagganap, medyo nahuhuli ang Vixipy sa iba, ngunit minsan ay mas mabilis "
-"o kapantay ng iba pang mga pixiv frontend."
+"Sa pagganap, Mas mabilis minsan ang Vixipy o kapantay ng iba pang mga pixiv "
+"frontend."
 
 #: pyxiv/templates/settings/about.html:24
 msgid "What makes Vixipy unique?"
