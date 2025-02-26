@@ -187,7 +187,9 @@ class PartialComment:
         try:
             self.commentDate = datetime.strptime(data["commentDate"], "%Y-%m-%d %H:%M")
         except ValueError:
-            self.commentDate = datetime.strptime(data["commentDate"], "%Y-%m-%d %H:%M:%S")
+            self.commentDate = datetime.strptime(
+                data["commentDate"], "%Y-%m-%d %H:%M:%S"
+            )
         self.commentParentId = (
             int(data["commentParentId"]) if data["commentParentId"] else None
         )
@@ -336,7 +338,6 @@ class PartialArtwork:
             else None
         )
 
-
         soupDesc = BeautifulSoup(data["description"], "html.parser")
 
         for link in soupDesc.find_all("a"):
@@ -419,7 +420,6 @@ class Artwork(PartialArtwork):
         self.restrict: int = int(data["restrict"])
         self.isPrivate: bool = self.restrict >= 1
 
-
         self.bookmarkId: int = (
             data["bookmarkData"]["id"] if data["bookmarkData"] else None
         )
@@ -473,7 +473,9 @@ class ArtworkEntry(PartialArtwork):
 
 
 class TrendingTag:
-    def __init__(self, tag: str, info: ArtworkEntry, translation: str, trendingRate: int):
+    def __init__(
+        self, tag: str, info: ArtworkEntry, translation: str, trendingRate: int
+    ):
         self.tag: str = tag
         self.info: ArtworkEntry = info
         self.translation: str = translation
@@ -780,12 +782,14 @@ class NewsArticle(NewsEntry):
 
             # fixing URL's (to turn them into regular URLs instead of embeds)
             # maybe move this logic to a separate function in the future if needed
-            parsed = list(urlparse(src)) # ['https', 'www.youtube.com', '/embed/z_qOw0GUJKM', '', 'si=GZk4QJ1H2WKr9h3E', '']
+            parsed = list(
+                urlparse(src)
+            )  # ['https', 'www.youtube.com', '/embed/z_qOw0GUJKM', '', 'si=GZk4QJ1H2WKr9h3E', '']
             if parsed[1] == "youtube.com" or parsed[1] == "www.youtube.com":
                 parsed[4] = ""
                 if parsed[2].startswith("/embed"):
                     parsed[2] = "/watch?v=" + parsed[2][7:]
-            
+
             src = urlunparse(parsed)
             originalUrl = s.new_tag("i")
             anchor = s.new_tag("a", attrs={"href": makeJumpPhp(src)})
@@ -836,19 +840,55 @@ class UserMyProfile:
         self.profileImage: str = makeProxy(data["profileImage"])
         self.name: str = data["name"]
         self.comment: str = data["comment"]
-        self.externalServices: UserExternalServices = UserExternalServices(data["externalService"])
+        self.externalServices: UserExternalServices = UserExternalServices(
+            data["externalService"]
+        )
         self.pawooAuthorized: bool = data["pawoo"]["isPawooAuthorized"]
         self.preferDisplayPawoo: bool = data["pawoo"]["preferDisplayPawoo"]
         self.isOfficialUser: bool = data["isOfficialUser"]
         self.jobId: int = data["job"]["value"]
         self.birth: datetime = datetime(
-                data["birthYear"]["value"],
-                data["birthMonthAndDay"]["month"],
-                data["birthMonthAndDay"]["day"]
-                )
+            data["birthYear"]["value"],
+            data["birthMonthAndDay"]["month"],
+            data["birthMonthAndDay"]["day"],
+        )
         self.genderId: bool = data["gender"]["value"]
         self.region: str = data["location"]["region"]
         self.prefecture: str = data["location"]["prefecture"]
+
+
+class MessageThreadUser:
+    def __init__(self, data):
+        self.id: int = int(data["user_id"])
+        self.username: str = data["user_name"]
+        self.icon: str = makeProxy(data["icon_url"])
+        self.isPremium: bool = data["is_premium"]
+        self.isMypixiv: bool = data["is_mypixiv"]
+        self.followed: bool = data["followed"]
+        self.blocked: bool = data["blocked"]
+        self.isCompleteUser: bool = data["is_complete_user"]
+
+
+class MessageThread:
+    def __init__(self, data):
+        t = data["thread"]
+        self.thread_id: int = int(t["thread_id"])
+        self.name: str = t["name"]
+        self.unreadNum: int = int(t["unread_num"])
+        self.memberNum: int = int(t["member_num"])
+        self.latestContent: str = t["latest_content"]
+        self.canSendMessage: bool = t["can_send_message"]
+        self.official: bool = t["is_official"]
+        self.mendako: bool = t["is_mendako"]
+        # not sure if 100x100 is the only size
+        self.icon: str = makeProxy(t["icon_url"]["100x100"])
+        self.modifiedAt: datetime = datetime.fromtimestamp(t["modified_at"])
+        self.isActiveThread: bool = t["is_active_thread"]
+        self.pairUserId: int = t["pair_user_id"]
+        self.users: list[MessageThreadUser] = [
+            MessageThreadUser(x) for x in data["users"]
+        ]
+
 
 class ArtworkDetailsPage:
     def __init__(

@@ -306,9 +306,7 @@ async def editProfile():
             "post",
             "/ajax/my_profile/update",
             rawPayload=mp,
-            additionalHeaders={
-                "Referer": "https://www.pixiv.net/settings/profile"
-            },
+            additionalHeaders={"Referer": "https://www.pixiv.net/settings/profile"},
         )
 
         await flash(_("Your profile has been updated"))

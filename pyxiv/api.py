@@ -140,7 +140,11 @@ async def pixivReq(
         headers["User-Agent"] = (
             "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
         )
-    if method.lower() == "post" and not isinstance(rawPayload, MultipartWriter) and jsonPayload is None:
+    if (
+        method.lower() == "post"
+        and not isinstance(rawPayload, MultipartWriter)
+        and jsonPayload is None
+    ):
         headers["Content-Type"] = "application/x-www-form-urlencoded"
 
     if endpoint.startswith("/ajax"):
@@ -460,7 +464,7 @@ async def deleteComment(illustId: int, commentId: int):
         additionalHeaders={
             "Origin": "https://www.pixiv.net/",
             "Referer": f"https://www.pixiv.net/en/artworks/{illustId}",
-            "Accept": "application/json"
+            "Accept": "application/json",
         },
     )
 
@@ -663,5 +667,38 @@ async def editIllustrationDetails(
     if json["error"] == "true":
         raise PixivError(json["message"], resp.status)
 
+
 async def getMyProfile():
     return await pixivReq("get", "/ajax/my_profile")
+
+
+async def sendMessage(thread_id: int, message: str):
+    return await pixivReq(
+        "post",
+        "/rpc/index.php",
+        rawPayload=(
+            "mode=message_thread_content_image_text&"
+            f"thread_id={thread_id}&"
+            f"text={quote(message, safe='')}&"
+            f"tt={g.userPxCSRF}"
+        ),
+        additionalHeaders={"Referer": "https://www.pixiv.net/messages.php"},
+    )
+
+
+async def getMessageThread(num: int, offset: int = 0):
+    return await pixivReq(
+        "get",
+        f"/rpc/index.php?mode=latest_message_threads2&num={num}&offset=0",
+        additionalHeaders={"Referer": "https://www.pixiv.net/messages.php"},
+    )
+
+
+async def getMessageThreads(thread_id: int):
+    return await pixivReq(
+        "get",
+        f"/rpc/index.php?mode=message_thread&thread_id={thread_id}",
+        additionalHeaders={"Referer": "https://www.pixiv.net/messages.php"},
+    )
+
+

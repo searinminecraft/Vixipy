@@ -320,50 +320,48 @@ def create_app():
 
         # block problematic user agents or bots
 
-        if any([
-            str(request.user_agent).__contains__(x)
-            for x in (
-                "Amazonbot",
-                "anthropic-ai",
-                "AppleBot-Extended",
-                "Bytespider",
-                "CCBot",
-                "ChatGPT-User",
-                "Claude-Web",
-                "cohere-ai",
-                "DiffBot",
-                "FacebookBot",
-                "FriendlyCrawler",
-                "Google-Extended",
-                "GPTBot",
-                "ICC-Crawler",
-                "ImagesiftBot",
-                "img2dataset",
-                "meta-externalagent",
-                "OAI-SearchBot",
-                "Omgili",
-                "PerplexityBot",
-                "PetalBot",
-                "Scrapy",
-                "Timpibot",
-                "VelenPublicWebCrawler",
-                "YouBot"
-            )
-        ]):
+        if any(
+            [
+                str(request.user_agent).__contains__(x)
+                for x in (
+                    "Amazonbot",
+                    "anthropic-ai",
+                    "AppleBot-Extended",
+                    "Bytespider",
+                    "CCBot",
+                    "ChatGPT-User",
+                    "Claude-Web",
+                    "cohere-ai",
+                    "DiffBot",
+                    "FacebookBot",
+                    "FriendlyCrawler",
+                    "Google-Extended",
+                    "GPTBot",
+                    "ICC-Crawler",
+                    "ImagesiftBot",
+                    "img2dataset",
+                    "meta-externalagent",
+                    "OAI-SearchBot",
+                    "Omgili",
+                    "PerplexityBot",
+                    "PetalBot",
+                    "Scrapy",
+                    "Timpibot",
+                    "VelenPublicWebCrawler",
+                    "YouBot",
+                )
+            ]
+        ):
             return "Forbidden", 403
-
 
         if route in ("static", "proxy", "robots.txt", "favicon.ico"):
             return
-
 
         if request.path.split("/")[1] == "en":
             p = request.path.replace("/en", "")
             if p == "":
                 p = "/"
             return redirect(p, code=308)
-
-
 
         g.rev = cfg.GitRev
         g.repo = cfg.GitRepo
@@ -381,7 +379,12 @@ def create_app():
         if currentTheme == "":
             g.theme = cfg.DefaultTheme
         elif currentTheme not in list(cfg.DefaultThemes) + cfg.Themes:
-            await flash(_("Your current theme is invalid. Please set the correct theme in settings."), "error")
+            await flash(
+                _(
+                    "Your current theme is invalid. Please set the correct theme in settings."
+                ),
+                "error",
+            )
             g.theme = cfg.DefaultTheme
         else:
             g.theme = currentTheme
@@ -391,12 +394,12 @@ def create_app():
                 await render_template(
                     "error.html",
                     errortitle=_("Uh oh!"),
-                    errordesc=_("We have detected that you are using the Facebook WebView. Please click the 3 dots and select 'Open in external browser' to view.")
+                    errordesc=_(
+                        "We have detected that you are using the Facebook WebView. Please click the 3 dots and select 'Open in external browser' to view."
                     ),
-                403
+                ),
+                403,
             )
-
-
 
         if (not g.userPxSession and not g.userPxCSRF) or g.userPxSession == "":
             g.isAuthorized = False
@@ -446,7 +449,7 @@ def create_app():
         # from https://codeberg.org/PixivFE/PixivFE/src/commit/665503fcc92034384e8b0346cd2fb8e4b419db7b/server/middleware/csp.go#L44
         # vixipy is still not a pixivfe competitor as always
         r.headers["Content-Security-Policy"] = (
-                "base-uri 'self'; default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-ILoveVixipy'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'self';"
+            "base-uri 'self'; default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-ILoveVixipy'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: %s; media-src 'self' %s; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'self';"
             % (p, p)
         )
         r.headers["X-Frame-Options"] = "DENY"

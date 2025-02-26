@@ -53,6 +53,10 @@
 
 <pre class="user-account-token"><span>{{request.cookies.get("PyXivSession")}}</span></pre>
 
+<h3>{{ _("CSRF Token") }}</h3>
+<p>{{ _("This is your CSRF (Cross Site Request Forgery) token which is used internally to send POST requests to pixiv. You probably shouldn't be needing it unless you're gonna mess or experiment with the pixiv API.") }}</p>
+<pre class="user-account-token"><span>{{request.cookies.get("PyXivCSRF")}}</span></pre>
+
 
 {% endif %}
 {% endblock %}

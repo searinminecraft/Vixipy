@@ -47,7 +47,9 @@ async def settingsIndex():
         themes = cfg.DefaultThemes
     else:
         themes = cfg.Themes + list(cfg.DefaultThemes)
-    return await render_template("settings/pyxivSettings.html", themes=themes, default_theme=cfg.DefaultTheme)
+    return await render_template(
+        "settings/pyxivSettings.html", themes=themes, default_theme=cfg.DefaultTheme
+    )
 
 
 @settings.route("/<ep>")
@@ -406,9 +408,7 @@ async def setTheme():
     form = await request.form
     theme = form["theme"]
 
-    resp = await make_response(
-        redirect(url_for("settings.settingsIndex"), code=303)
-    )
+    resp = await make_response(redirect(url_for("settings.settingsIndex"), code=303))
 
     resp.set_cookie("Vixipy-Theme", theme, max_age=COOKIE_MAXAGE)
     await flash(_("Successfully set theme"))
