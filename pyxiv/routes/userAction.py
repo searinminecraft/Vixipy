@@ -12,7 +12,7 @@ from quart import (
 from quart_babel import _
 
 from .. import api
-from ..core.comments import postComment, postStamp
+from ..core.comments import postComment, postStamp, deleteComment
 from ..core.illustManagement import getInternalIllustDetails
 from ..core.user import getUserBookmarks, getNotifications
 from ..core.artwork import getFrequentTags
@@ -136,6 +136,29 @@ async def stamp():
         await flash(_("Successfully sent stamp"))
 
     return redirect(url_for("artworks.artworkComments", _id=args["id"]))
+
+
+@userAction.get("/delete_comment")
+async def comment_delete():
+    args = request.args
+
+    illustId = args["i_id"]
+    commentId = args["del_id"]
+
+    try:
+        await deleteComment(illustId, commentId)
+        await flash(_("Successfully deleted comment"))
+    except Exception as e:
+        log.exception("Unable to delee comment")
+        await flash(
+            _(
+                "Unable to delete comment: %(errorClass)s: %(error)s",
+                errorClass=e.__class__.__name__,
+                error=str(e),
+            ),
+            "error",
+        )
+    return redirect(url_for("artworks.artworkComments", _id=illustId))
 
 
 @userAction.route("/notifications")

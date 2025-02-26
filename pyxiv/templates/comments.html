@@ -51,6 +51,9 @@
       {% if comment.hasReplies %}
       <small><a href="/artworks/{{ illustId }}/comments/replies/{{ comment._id }}">{{ _("View replies") }}</a></small>
       {% endif %}
+      {% if comment.editable %}
+      <small><a id="delete-comment" href="/self/delete_comment?i_id={{ illustId }}&del_id={{ comment._id }}">{{ _("Delete") }}</a></small>
+      {% endif %}
 		</div>
 	</div>
 	{% endfor %}
@@ -58,6 +61,7 @@
 	<p>{{ _("No comments!") }}</p>
 	{% endif %}
 </div>
+<script src="/static/comments.js"></script>
 {% endblock %}
 
 {% block additionalDialogs %}

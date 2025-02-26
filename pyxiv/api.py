@@ -451,6 +451,20 @@ async def postComment(illustId: int, authorId: int, comment: str):
     )
 
 
+async def deleteComment(illustId: int, commentId: int):
+    """Delete a comment"""
+    return await pixivReq(
+        "post",
+        "/rpc_delete_comment.php",
+        rawPayload=f"i_id={illustId}&del_id={commentId}",
+        additionalHeaders={
+            "Origin": "https://www.pixiv.net/",
+            "Referer": f"https://www.pixiv.net/en/artworks/{illustId}",
+            "Accept": "application/json"
+        },
+    )
+
+
 async def postStamp(illustId: int, authorId: int, stampId: int):
     return await pixivReq(
         "post",

@@ -4,6 +4,7 @@ from ..api import getArtworkComments as _getArtworkComments
 from ..api import getArtworkReplies as _getArtworkReplies
 from ..api import postComment as _postComment
 from ..api import postStamp as _postStamp
+from ..api import deleteComment as _deleteComment
 from ..api import getReplyAndRoot as _getReplyAndRoot
 from ..classes import Comment, CommentReply
 
@@ -39,6 +40,10 @@ async def getArtworkReplies(commentId: int):
 
 async def postComment(_id: int, authorId: int, comment: str):
     return await _postComment(_id, authorId, comment)
+
+
+async def deleteComment(_id: int, comment_id: int):
+    return await _deleteComment(_id, comment_id)
 
 
 async def postStamp(_id: int, authorId: int, stampId: int):
