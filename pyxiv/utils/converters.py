@@ -8,6 +8,8 @@ def makeJumpPhp(url: str) -> str:
     _url = urlparse(url)
 
     if _url.netloc == "www.pixiv.net":
+        if _url.path == '' or _url.path == "/":
+            return "/"
         if _url.path.startswith("/info.php"):
             return f"/news/{_url.query.split('=')[1]}"
         if _url.path.startswith("/artworks"):
