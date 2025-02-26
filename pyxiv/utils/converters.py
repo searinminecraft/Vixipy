@@ -4,10 +4,16 @@ from urllib.parse import quote, urlparse
 
 def makeJumpPhp(url: str) -> str:
     # NOTE: doesn't seem like this checks if url is from pixiv, so this may catch other urls (https://example.com/artworks/1234 for example), might be good to fix?
-    if url.__contains__("info.php"):
-        return f"/news/{urlparse(url).query.split('=')[1]}"
-    if url.__contains__("/artworks"):
-        return f"/artworks/{urlparse(url).path.split('/').pop()}"
+
+    _url = urlparse(url)
+
+    if _url.netloc == "www.pixiv.net":
+        if _url.path.startswith("/info.php"):
+            return f"/news/{_url.query.split('=')[1]}"
+        if _url.path.startswith("/artworks"):
+            return f"/artworks/{_url.path.split('/').pop()}"
+        if _url.path.startswith("/users"):
+            return f"/users/{_url.path.split('/').pop()}"
 
     return f"/jump.php?url={quote(url)}"
 
