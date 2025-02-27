@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-02-27 08:40+0800\n"
-"PO-Revision-Date: 2025-02-18 23:21+0000\n"
+"PO-Revision-Date: 2025-02-27 21:55+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:239
@@ -25,11 +25,11 @@ msgid "pixiv Error!"
 msgstr "pixiv 错误！"
 
 #: pyxiv/app.py:243
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "pixiv returned an error trying to request data: <code>%(status)d - "
 "%(error)s</code>"
-msgstr "请求数据时，pixiv 返回错误：<code>%(error)s</code>"
+msgstr "请求数据时，pixiv 返回错误：<code>%(status)d - %(error)s</code>"
 
 #: pyxiv/app.py:243
 msgid "Unspecified error"
@@ -81,13 +81,14 @@ msgstr "当前主题无效。请在设置中设置正确的主题。"
 
 #: pyxiv/app.py:396
 msgid "Uh oh!"
-msgstr ""
+msgstr "啊哦！"
 
 #: pyxiv/app.py:397
 msgid ""
 "We have detected that you are using the Facebook WebView. Please click "
 "the 3 dots and select 'Open in external browser' to view."
-msgstr ""
+msgstr "检测到你正在使用 Facebook "
+"WebView。请点击三个点图标，选择“在外部浏览器打开”来查看作品。"
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
 #: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
@@ -288,14 +289,13 @@ msgid "Successfully sent stamp"
 msgstr "成功发送表情贴图"
 
 #: pyxiv/routes/userAction.py:150
-#, fuzzy
 msgid "Successfully deleted comment"
-msgstr "成功发送评论"
+msgstr "评论删除成功"
 
 #: pyxiv/routes/userAction.py:157
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to delete comment: %(errorClass)s: %(error)s"
-msgstr "无法发送评论：%(errorClass)s：%(error)s"
+msgstr "无法删除评论：%(errorClass)s：%(error)s"
 
 #: pyxiv/routes/userAction.py:182
 msgid "You cannot follow yourself."
@@ -329,7 +329,7 @@ msgstr "成功编辑详细信息"
 
 #: pyxiv/routes/userAction.py:312
 msgid "Your profile has been updated"
-msgstr ""
+msgstr "资料已更新"
 
 #: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
 msgid "Internal Server Error"
@@ -459,9 +459,8 @@ msgid "View replies"
 msgstr "查看回复"
 
 #: pyxiv/templates/comments.html:55
-#, fuzzy
 msgid "Delete"
-msgstr "相关作品"
+msgstr "删除"
 
 #: pyxiv/templates/comments.html:61
 msgid "No comments!"
@@ -551,7 +550,7 @@ msgstr "不公开"
 
 #: pyxiv/templates/editDetails.html:42
 msgid "Logged in users only"
-msgstr ""
+msgstr "仅限登录用户"
 
 #: pyxiv/templates/editDetails.html:48
 msgid "Allow comments"
@@ -563,14 +562,12 @@ msgstr "保存更改"
 
 #: pyxiv/templates/edit_profile.html:2 pyxiv/templates/edit_profile.html:5
 #: pyxiv/templates/settings/account.html:49 pyxiv/templates/user/index.html:65
-#, fuzzy
 msgid "Edit profile"
-msgstr "资料"
+msgstr "编辑资料"
 
 #: pyxiv/templates/edit_profile.html:6
-#, fuzzy
 msgid "Preview"
-msgstr "之前"
+msgstr "预览"
 
 #: pyxiv/templates/edit_profile.html:18 pyxiv/templates/user/index.html:37
 #, python-format
@@ -584,38 +581,35 @@ msgstr "<b>%(myPixiv)s</b> mypixiv"
 
 #: pyxiv/templates/edit_profile.html:24
 msgid "Tell us a little bit about yourself!"
-msgstr ""
+msgstr "介绍一下你自己！"
 
 #: pyxiv/templates/edit_profile.html:29
 msgid "Images"
-msgstr ""
+msgstr "图片"
 
 #: pyxiv/templates/edit_profile.html:30
-#, fuzzy
 msgid "Profile Picture"
-msgstr "%(user)s 的头像"
+msgstr "头像"
 
 #: pyxiv/templates/edit_profile.html:31
-#, fuzzy
 msgid "Choose profile picture (max. 5MB):"
-msgstr "%(user)s 的头像"
+msgstr "选择头像（最大 5MB）："
 
 #: pyxiv/templates/edit_profile.html:33
 msgid "Cover Image"
-msgstr ""
+msgstr "封面图片"
 
 #: pyxiv/templates/edit_profile.html:34
 msgid "Choose cover image (max. 8MB):"
-msgstr ""
+msgstr "选择封面图片（最大 8MB）："
 
 #: pyxiv/templates/edit_profile.html:45
-#, fuzzy
 msgid "The file you selected is too large"
-msgstr "指定的 ID 不是动图。"
+msgstr "选择的图片过大"
 
 #: pyxiv/templates/edit_profile.html:46
 msgid "Invalid file selected. Accepted formats include PNG, JPG, and GIF."
-msgstr ""
+msgstr "选择的文件无效。可接受 PNG、JPG、GIF。"
 
 #: pyxiv/templates/error.html:2
 msgid "Error"
@@ -1050,7 +1044,7 @@ msgstr "搜索作品..."
 
 #: pyxiv/templates/components/navbar.html:14
 msgid "Messages"
-msgstr ""
+msgstr "消息"
 
 #: pyxiv/templates/components/navbar.html:34
 #: pyxiv/templates/settings/account.html:10
@@ -1263,7 +1257,7 @@ msgstr "性能方面，Vixipy 稍微弱于其他 pixiv 前端，但有时候和�
 
 #: pyxiv/templates/settings/about.html:24
 msgid "What makes Vixipy unique?"
-msgstr ""
+msgstr "Vixipy 有什么特别之处？"
 
 #: pyxiv/templates/settings/about.html:25
 msgid ""
@@ -1285,9 +1279,8 @@ msgid ""
 msgstr "Vixipy 的诞生离不开以下开源项目："
 
 #: pyxiv/templates/settings/about.html:42
-#, fuzzy
 msgid "Disclaimer"
-msgstr "发现"
+msgstr "免责声明"
 
 #: pyxiv/templates/settings/about.html:43
 msgid ""
@@ -1373,7 +1366,7 @@ msgstr ""
 
 #: pyxiv/templates/settings/account.html:56
 msgid "CSRF Token"
-msgstr ""
+msgstr "CSRF Token"
 
 #: pyxiv/templates/settings/account.html:57
 msgid ""
@@ -1730,4 +1723,3 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "(Exception message too long)"
 #~ msgstr "（异常消息过长）"
-
