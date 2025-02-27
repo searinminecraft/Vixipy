@@ -414,22 +414,30 @@ def create_app():
                 g.userdata = None
                 g.notificationCount = None
                 g.hasNotifications = False
+                g.messagesCount = 0
+                g.hasMessages = False
                 g.isPremium = False
                 return
 
             try:
-                notifications, userdata = await gather(
+                notifications, messages, userdata = await gather(
                     api.pixivReq(
                         "get",
                         "/rpc/notify_count.php?op=count_unread",
                         {"Referer": "https://www.pixiv.net/en"},
                     ),
+                    api.pixivReq(
+                        "get",
+                        "/rpc/index.php?mode=message_thread_unread_count",
+                    ),
                     getUser(g.userPxSession.split("_")[0], False),
                 )
 
                 g.notificationCount = notifications["popboard"]
+                g.messagesCount = int(messages["body"]["unread_count"])
                 g.userdata = userdata
                 g.hasNotifications = g.notificationCount > 0
+                g.hasMessages = g.messagesCount > 0
                 g.isPremium = g.userdata.premium
             except api.PixivError:
                 flash(

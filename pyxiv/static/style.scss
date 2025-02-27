@@ -219,7 +219,11 @@ select {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: 100ms
+  transition: 100ms;
+
+  > svg {
+    pointer-events: none
+  }
 }
 
 a.icon-button {
@@ -332,6 +336,7 @@ header {
       position: relative;
 
       .notification-indicator {
+        pointer-events: none;
         position: absolute;
         top: 0;
         right: 0;
