@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-25 11:22+0800\n"
+"POT-Creation-Date: 2025-02-27 08:40+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,15 +72,15 @@ msgstr ""
 msgid "This method is not allowed for this endpoint"
 msgstr ""
 
-#: pyxiv/app.py:384
+#: pyxiv/app.py:383
 msgid "Your current theme is invalid. Please set the correct theme in settings."
 msgstr ""
 
-#: pyxiv/app.py:393
+#: pyxiv/app.py:396
 msgid "Uh oh!"
 msgstr ""
 
-#: pyxiv/app.py:394
+#: pyxiv/app.py:397
 msgid ""
 "We have detected that you are using the Facebook WebView. Please click "
 "the 3 dots and select 'Open in external browser' to view."
@@ -147,93 +147,93 @@ msgstr ""
 msgid "Sun"
 msgstr ""
 
-#: pyxiv/routes/settings.py:125 pyxiv/routes/settings.py:129
+#: pyxiv/routes/settings.py:127 pyxiv/routes/settings.py:131
 msgid "Invalid token"
 msgstr ""
 
-#: pyxiv/routes/settings.py:144
+#: pyxiv/routes/settings.py:146
 #, python-format
 msgid "An exception occurred trying to log in: %s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:151
+#: pyxiv/routes/settings.py:153
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr ""
 
-#: pyxiv/routes/settings.py:165
+#: pyxiv/routes/settings.py:167
 msgid "Unable to extract CSRF"
 msgstr ""
 
-#: pyxiv/routes/settings.py:170
+#: pyxiv/routes/settings.py:172
 msgid "Unable to extract p_ab_d_id"
 msgstr ""
 
-#: pyxiv/routes/settings.py:181
+#: pyxiv/routes/settings.py:183
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:197
+#: pyxiv/routes/settings.py:199
 msgid "No token was supplied."
 msgstr ""
 
-#: pyxiv/routes/settings.py:207
+#: pyxiv/routes/settings.py:209
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr ""
 
-#: pyxiv/routes/settings.py:217 pyxiv/routes/settings.py:314
+#: pyxiv/routes/settings.py:219 pyxiv/routes/settings.py:316
 msgid "Successfully set proxy server"
 msgstr ""
 
-#: pyxiv/routes/settings.py:234
+#: pyxiv/routes/settings.py:236
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:240
+#: pyxiv/routes/settings.py:242
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr ""
 
-#: pyxiv/routes/settings.py:249
+#: pyxiv/routes/settings.py:251
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:255
+#: pyxiv/routes/settings.py:257
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
 msgstr ""
 
-#: pyxiv/routes/settings.py:289
+#: pyxiv/routes/settings.py:291
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
 
-#: pyxiv/routes/settings.py:298
+#: pyxiv/routes/settings.py:300
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:309
+#: pyxiv/routes/settings.py:311
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:359
+#: pyxiv/routes/settings.py:361
 msgid "Successfully set preferences"
 msgstr ""
 
-#: pyxiv/routes/settings.py:370 pyxiv/routes/settings.py:390
+#: pyxiv/routes/settings.py:372 pyxiv/routes/settings.py:392
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr ""
 
-#: pyxiv/routes/settings.py:381 pyxiv/routes/settings.py:400
+#: pyxiv/routes/settings.py:383 pyxiv/routes/settings.py:402
 msgid "Successfully set language."
 msgstr ""
 
@@ -284,37 +284,46 @@ msgstr ""
 msgid "Successfully sent stamp"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:159
+#: pyxiv/routes/userAction.py:150
+msgid "Successfully deleted comment"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:157
+#, python-format
+msgid "Unable to delete comment: %(errorClass)s: %(error)s"
+msgstr ""
+
+#: pyxiv/routes/userAction.py:182
 msgid "You cannot follow yourself."
 msgstr ""
 
-#: pyxiv/routes/userAction.py:163 pyxiv/routes/userAction.py:178
+#: pyxiv/routes/userAction.py:186 pyxiv/routes/userAction.py:201
 #: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
 #: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
 msgid "Invalid user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:168
+#: pyxiv/routes/userAction.py:191
 msgid "Could not follow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:170
+#: pyxiv/routes/userAction.py:193
 msgid "Successfully followed user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:183
+#: pyxiv/routes/userAction.py:206
 msgid "Could not unfollow user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:185
+#: pyxiv/routes/userAction.py:208
 msgid "Successfully unfollowed user"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:225
+#: pyxiv/routes/userAction.py:248
 msgid "Successfully edited details"
 msgstr ""
 
-#: pyxiv/routes/userAction.py:291
+#: pyxiv/routes/userAction.py:312
 msgid "Your profile has been updated"
 msgstr ""
 
@@ -366,11 +375,11 @@ msgstr ""
 msgid "Limited Visibility"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:78 pyxiv/templates/editDetails.html:61
+#: pyxiv/templates/artwork.html:78 pyxiv/templates/editDetails.html:62
 msgid "AI generated"
 msgstr ""
 
-#: pyxiv/templates/artwork.html:84 pyxiv/templates/editDetails.html:54
+#: pyxiv/templates/artwork.html:84 pyxiv/templates/editDetails.html:55
 #: pyxiv/templates/rankings.html:33
 msgid "Original"
 msgstr ""
@@ -441,23 +450,27 @@ msgstr ""
 msgid "View replies"
 msgstr ""
 
-#: pyxiv/templates/comments.html:58
+#: pyxiv/templates/comments.html:55
+msgid "Delete"
+msgstr ""
+
+#: pyxiv/templates/comments.html:61
 msgid "No comments!"
 msgstr ""
 
-#: pyxiv/templates/comments.html:69
+#: pyxiv/templates/comments.html:73
 msgid "Insert emoji/stamp"
 msgstr ""
 
-#: pyxiv/templates/comments.html:75
+#: pyxiv/templates/comments.html:79
 msgid "Emojis"
 msgstr ""
 
-#: pyxiv/templates/comments.html:83
+#: pyxiv/templates/comments.html:87
 msgid "Stamps"
 msgstr ""
 
-#: pyxiv/templates/comments.html:97
+#: pyxiv/templates/comments.html:101
 msgid ""
 "If you know a particular stamp ID, you can put it here. This allows you "
 "to send stamps that are usually only available for a limited time. <span "
@@ -465,7 +478,7 @@ msgid ""
 " your pixiv account. Use at your own risk.</span>"
 msgstr ""
 
-#: pyxiv/templates/comments.html:100
+#: pyxiv/templates/comments.html:104
 msgid "Send"
 msgstr ""
 
@@ -525,11 +538,15 @@ msgstr ""
 msgid "Private"
 msgstr ""
 
-#: pyxiv/templates/editDetails.html:47
+#: pyxiv/templates/editDetails.html:42
+msgid "Logged in users only"
+msgstr ""
+
+#: pyxiv/templates/editDetails.html:48
 msgid "Allow comments"
 msgstr ""
 
-#: pyxiv/templates/editDetails.html:67 pyxiv/templates/edit_profile.html:38
+#: pyxiv/templates/editDetails.html:68 pyxiv/templates/edit_profile.html:38
 msgid "Save Changes"
 msgstr ""
 
@@ -693,7 +710,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: pyxiv/templates/components/navbar.html:20
+#: pyxiv/templates/components/navbar.html:22
 #: pyxiv/templates/notifications.html:2 pyxiv/templates/notifications.html:5
 #: pyxiv/templates/settings/settingsMain.html:25
 msgid "Notifications"
@@ -1009,11 +1026,15 @@ msgid "Maximum Bookmarks"
 msgstr ""
 
 #: pyxiv/templates/components/navbar.html:10
-#: pyxiv/templates/components/navbar.html:38
+#: pyxiv/templates/components/navbar.html:39
 msgid "Search works..."
 msgstr ""
 
-#: pyxiv/templates/components/navbar.html:33
+#: pyxiv/templates/components/navbar.html:14
+msgid "Messages"
+msgstr ""
+
+#: pyxiv/templates/components/navbar.html:34
 #: pyxiv/templates/settings/account.html:10
 #: pyxiv/templates/settings/account.html:30
 msgid "Log in"
@@ -1315,6 +1336,17 @@ msgid ""
 "This is your pixiv <code>PHPSESSID</code> cookie, used to authenticate "
 "you on pixiv. You can copy this in case you want to switch instances or "
 "if you forget it. Hover to reveal."
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:56
+msgid "CSRF Token"
+msgstr ""
+
+#: pyxiv/templates/settings/account.html:57
+msgid ""
+"This is your CSRF (Cross Site Request Forgery) token which is used "
+"internally to send POST requests to pixiv. You probably shouldn't be "
+"needing it unless you're gonna mess or experiment with the pixiv API."
 msgstr ""
 
 #: pyxiv/templates/settings/language.html:6
