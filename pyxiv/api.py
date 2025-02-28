@@ -686,7 +686,7 @@ async def sendMessage(thread_id: int, message: str):
     )
 
 
-async def getMessageThread(num: int, offset: int = 0):
+async def getMessageThreads(num: int, offset: int = 0):
     return await pixivReq(
         "get",
         f"/rpc/index.php?mode=latest_message_threads2&num={num}&offset=0",
@@ -694,7 +694,7 @@ async def getMessageThread(num: int, offset: int = 0):
     )
 
 
-async def getMessageThreads(thread_id: int):
+async def getMessageThread(thread_id: int):
     return await pixivReq(
         "get",
         f"/rpc/index.php?mode=message_thread&thread_id={thread_id}",
@@ -702,3 +702,18 @@ async def getMessageThreads(thread_id: int):
     )
 
 
+async def getMessageThreadContents(
+    thread_id: int, num: int = 10, max_content_id: int = None
+):
+    path = (
+        "/rpc/index.php?mode=message_thread_contents"
+        f"&thread_id={thread_id}"
+        f"&num={num}"
+    )
+    if max_content_id:
+        path += f"&max_content_id={max_content_id}"
+    return await pixivReq(
+        "get",
+        path,
+        additionalHeaders={"Referer": "https://www.pixiv.net/messages.php"},
+    )

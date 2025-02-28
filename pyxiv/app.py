@@ -46,6 +46,7 @@ from .routes import (
     api as _api,
     ugoiraconverter,
     news,
+    messages,
 )
 
 log = logging.getLogger()
@@ -180,6 +181,7 @@ def create_app():
     app.register_blueprint(_api.bp)
     app.register_blueprint(ugoiraconverter.bp)
     app.register_blueprint(news.bp)
+    app.register_blueprint(messages.bp)
 
     @app.before_serving
     async def startup():

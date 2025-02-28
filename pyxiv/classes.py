@@ -869,25 +869,75 @@ class MessageThreadUser:
         self.isCompleteUser: bool = data["is_complete_user"]
 
 
-class MessageThread:
+class MessageThreadBase:
+    def __init__(self, data):
+        self.thread_id: int = int(data["thread_id"])
+        self.name: str = data.get("name", data.get("thread_name"))
+        self.unreadNum: int = int(data["unread_num"])
+        self.memberNum: int = int(data["member_num"])
+        self.latestContent: str = data["latest_content"]
+        self.official: bool = data["is_official"]
+        self.mendako: bool = data["is_mendako"]
+        # not sure if 100x100 is the only size
+        self.icon: str = makeProxy(data["icon_url"]["100x100"])
+        self.modifiedAt: datetime = datetime.fromtimestamp(int(data["modified_at"]))
+        self.isPair: bool = data["is_pair"]
+
+
+class MessageThread(MessageThreadBase):
     def __init__(self, data):
         t = data["thread"]
-        self.thread_id: int = int(t["thread_id"])
-        self.name: str = t["name"]
-        self.unreadNum: int = int(t["unread_num"])
-        self.memberNum: int = int(t["member_num"])
-        self.latestContent: str = t["latest_content"]
-        self.canSendMessage: bool = t["can_send_message"]
-        self.official: bool = t["is_official"]
-        self.mendako: bool = t["is_mendako"]
-        # not sure if 100x100 is the only size
-        self.icon: str = makeProxy(t["icon_url"]["100x100"])
-        self.modifiedAt: datetime = datetime.fromtimestamp(t["modified_at"])
-        self.isActiveThread: bool = t["is_active_thread"]
+        super().__init__(t)
         self.pairUserId: int = t["pair_user_id"]
+        self.canSendMessage: bool = t["can_send_message"]
         self.users: list[MessageThreadUser] = [
             MessageThreadUser(x) for x in data["users"]
         ]
+
+
+class MessageThreadContent:
+    def __init__(self, d):
+        self.contentId: int = int(d["content_id"])
+        self.createdAt: datetime = datetime.fromtimestamp(int(d["created_at"]))
+        self.thumbImg: str | None = (
+            makeProxy(d["content"]["image_urls"]["600x600"])
+            if d["content"]["type"] == "image"
+            else None
+        )
+        self.image: str | None = (
+            makeProxy(d["content"]["image_urls"]["big"])
+            if d["content"]["type"] == "image"
+            else None
+        )
+        self.isStarred: bool = d["content"].get("is_starred", False)
+        self.username: str = d["user"]["user_name"]
+        self.userid: int = int(d["user"]["user_id"])
+        self.iconUrl: str = makeProxy(d["user"]["icon_url"]["main_s"])
+        self.text: str = d["content"].get("text")
+
+
+class MessageThreadContents:
+    def __init__(self, d):
+        self.total: int = int(d["total"])
+        # {x.split("=")[0]: x.split("=")[1] for x in p.query.split("&")}
+        nextUrlArgs = (
+            {
+                x.split("=")[0]: x.split("=")[1]
+                for x in urlparse(d["next_url"]).query.split("&")
+            }
+            if d["next_url"]
+            else {}
+        )
+        self.nextContentId = nextUrlArgs.get("max_content_id")
+        self.contents: list[MessageThreadContent] = [
+            MessageThreadContent(x) for x in d["message_thread_contents"]
+        ]
+
+
+class MessageThreadEntry(MessageThreadBase):
+    def __init__(self, data):
+        super().__init__(data)
+        self.isActiveThread: bool = data["is_active_thread"]
 
 
 class ArtworkDetailsPage:

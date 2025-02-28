@@ -7,88 +7,87 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-27 08:40+0800\n"
+"POT-Creation-Date: 2025-02-28 21:40+0800\n"
 "PO-Revision-Date: 2025-02-27 21:55+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
-"Language-Team: Chinese (Simplified Han script) <https://"
-"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
+"Language-Team: Chinese (Simplified Han script) "
+"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
+"\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:239
+#: pyxiv/app.py:241
 msgid "pixiv Error!"
 msgstr "pixiv 错误！"
 
-#: pyxiv/app.py:243
+#: pyxiv/app.py:245
 #, python-format
 msgid ""
 "pixiv returned an error trying to request data: <code>%(status)d - "
 "%(error)s</code>"
 msgstr "请求数据时，pixiv 返回错误：<code>%(status)d - %(error)s</code>"
 
-#: pyxiv/app.py:243
+#: pyxiv/app.py:245
 msgid "Unspecified error"
 msgstr "未指定的错误"
 
-#: pyxiv/app.py:254
+#: pyxiv/app.py:256
 msgid "Not found"
 msgstr "找不到页面"
 
-#: pyxiv/app.py:255
+#: pyxiv/app.py:257
 msgid "The requested resource could not be found."
 msgstr "无法找到请求的资源。"
 
-#: pyxiv/app.py:265
+#: pyxiv/app.py:267
 msgid "Bad request"
 msgstr "请求无效"
 
-#: pyxiv/app.py:266
+#: pyxiv/app.py:268
 msgid "The server could not satisfy the request."
 msgstr "服务器无法满足该请求。"
 
-#: pyxiv/app.py:276
+#: pyxiv/app.py:278
 msgid "Forbidden"
 msgstr "无权访问"
 
-#: pyxiv/app.py:277
+#: pyxiv/app.py:279
 msgid "You do not have permission to access this page."
 msgstr "你没有权限访问该页面。"
 
-#: pyxiv/app.py:287
+#: pyxiv/app.py:289
 msgid "Unauthorized"
 msgstr "未验证"
 
-#: pyxiv/app.py:289
+#: pyxiv/app.py:291
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr "此操作需要在设置提供 pixiv PHPSESSID。"
 
-#: pyxiv/app.py:302
+#: pyxiv/app.py:304
 msgid "Method Not Allowed"
 msgstr "不允许该方法"
 
-#: pyxiv/app.py:303
+#: pyxiv/app.py:305
 msgid "This method is not allowed for this endpoint"
 msgstr "该端点不允许此请求方法"
 
-#: pyxiv/app.py:383
+#: pyxiv/app.py:385
 msgid "Your current theme is invalid. Please set the correct theme in settings."
 msgstr "当前主题无效。请在设置中设置正确的主题。"
 
-#: pyxiv/app.py:396
+#: pyxiv/app.py:398
 msgid "Uh oh!"
 msgstr "啊哦！"
 
-#: pyxiv/app.py:397
+#: pyxiv/app.py:399
 msgid ""
 "We have detected that you are using the Facebook WebView. Please click "
 "the 3 dots and select 'Open in external browser' to view."
-msgstr "检测到你正在使用 Facebook "
-"WebView。请点击三个点图标，选择“在外部浏览器打开”来查看作品。"
+msgstr "检测到你正在使用 Facebook WebView。请点击三个点图标，选择“在外部浏览器打开”来查看作品。"
 
 #: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
 #: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
@@ -1043,6 +1042,7 @@ msgid "Search works..."
 msgstr "搜索作品..."
 
 #: pyxiv/templates/components/navbar.html:14
+#: pyxiv/templates/messages/index.html:8 pyxiv/templates/messages/index.html:19
 msgid "Messages"
 msgstr "消息"
 
@@ -1113,6 +1113,19 @@ msgstr "收藏"
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "退出"
+
+#: pyxiv/templates/messages/index.html:22
+msgid ""
+"<b>Remember:</b> All messages are not end-to-end encrypted and are "
+"subject to the <a rel='noopener noreferrer' "
+"href='https://policies.pixiv.net'>pixiv Service Master Terms of Use</a>. "
+"Don't send sensitive information!"
+msgstr ""
+
+#: pyxiv/templates/messages/message.html:25
+#, fuzzy, python-format
+msgid "Message %(name)s"
+msgstr "消息"
 
 #: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:17
 #: pyxiv/templates/news/index.html:8
@@ -1723,3 +1736,4 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "(Exception message too long)"
 #~ msgstr "（异常消息过长）"
+

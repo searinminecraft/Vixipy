@@ -1,0 +1,32 @@
+{% extends "messages/index.html" %}
+{% block msgcomponent %}
+<div class="chat-wrapper">
+    <header class="info">
+        <div class="user">
+            <img src="{{threadData.icon}}" alt="">
+            <span>{{threadData.name}}</span>
+            {% if threadData.official %}
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#cacaca"><path d="m347-72-75-124-141-32 13-144-96-108 96-108-13-144 141-32 75-124 133 57 133-57 75 124 141 32-13 144 96 108-96 108 13 144-141 32-75 124-133-57-133 57Zm82-264 238-237-51-51-187 186-85-84-51 51 136 135Z"/></svg>
+            {% endif %} 
+        </div>
+    </header>
+    <div class="chat">
+        {% for c in thread.contents %}
+        <div class="message {% if c.userid == g.userdata._id %}self{% endif %}">
+            <img class="profile" src="{{ c.iconUrl }}" alt="{{ c.username }}">
+            <div class="content">
+                {{c.text|safe}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="message-box">
+        <form method="post">
+            <textarea required name="text" placeholder="{{_('Message %(name)s', name=threadData.name)}}"></textarea>
+            <button type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#cacaca"><path d="M144-192v-192l288-96-288-96v-192l720 288-720 288Z"/></svg>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
