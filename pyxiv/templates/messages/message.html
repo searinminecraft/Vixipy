@@ -10,32 +10,55 @@
             {% endif %} 
         </div>
     </header>
-    <div class="chat">
+    <div class="chat" data-thread-id="{{threadData.thread_id}}">
         {% for c in thread.contents %}
-        <div class="message {% if c.userid == g.userdata._id %}self{% endif %}">
+        <div class="message {% if c.userid == g.userdata._id %}self{% endif %}" data-content-id="{{c.contentId}}">
             <img class="profile" src="{{ c.iconUrl }}" alt="{{ c.username }}">
+            {% if c.type == "image" %}
+            <a href="{{c.image}}">
+                <img class="content-img" src="{{c.thumbImg}}" alt="Image">
+            </a>
+            {% else %}
             <div class="content">
                 {{c.text|safe}}
             </div>
+            {% endif %}
         </div>
         {% endfor %}
+        <input type="hidden" id="current-user" value="{{g.userdata._id}}">
+        <script src="/static/messages/messages.js"></script>
     </div>
     <div class="message-box">
 	{% if threadData.pairUserId == 11 %}
 	<div class="reserved-notice">
-	    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M420-360h120l-23-129q20-10 31.5-29t11.5-42q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 23 11.5 42t31.5 29l-23 129Zm60 280q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Z"/></svg>
+	    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#cacaca"><path d="M426-360h108l-24.33-139.67q20.31-9.43 31.98-27.36 11.68-17.93 11.68-39.64 0-30.25-21.56-51.79Q510.22-640 479.94-640q-30.27 0-51.77 21.54-21.5 21.54-21.5 51.79 0 21.71 11.68 39.64 11.67 17.93 31.98 27.36L426-360Zm54 279.33q-139.67-35-229.83-161.5Q160-368.67 160-520.67v-240l320-120 320 120v240q0 152-90.17 278.5Q619.67-115.67 480-80.67Z"/></svg>
 	    <div class="text">
 		<h3>{{_("This thread is reserved for important pixiv messages")}}</h3>
 		<small>{{_("pixiv nor Vixipy will never ask for login information or session tokens")}}</small>
 	    </div>
 	</div>
 	{% else %}
-        <form method="post">
-            <textarea required name="text" placeholder="{{_('Message %(name)s', name=threadData.name)}}"></textarea>
-            <button type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#cacaca"><path d="M144-192v-192l288-96-288-96v-192l720 288-720 288Z"/></svg>
+    <div class="file-preview-wrapper">
+        <div class="file-preview">
+            <div class="file">
+                <img id="img-preview" src="/proxy/s.pximg.net/common/images/no_profile.png">
+                <small id="filename">File.png</small>
+            </div>
+            <button id="remove-attachment" title="{{_('Remove')}}">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#cacaca"><path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/></svg>
             </button>
-        </form>
+        </div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        <label for="uploader" title="{{_('Upload image')}}">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#cacaca"><path d="M480-480ZM186.67-120q-27 0-46.84-19.83Q120-159.67 120-186.67v-586.66q0-27 19.83-46.84Q159.67-840 186.67-840h350v66.67h-350v586.66h586.66v-350H840v350q0 27-19.83 46.84Q800.33-120 773.33-120H186.67ZM240-281.33h480L574-476 449.33-311.33 356.67-434 240-281.33Zm448.67-322V-688h-85.34v-66.67h85.34V-840h66.66v85.33H840V-688h-84.67v84.67h-66.66Z"/></svg>
+        </label>
+        <input id="uploader" type="file" name="upfile" accept="image/png, image/gif, image/jpeg">
+        <textarea name="text" placeholder="{{_('Message %(name)s', name=threadData.name)}}" rows="1"></textarea>
+        <button type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#cacaca"><path d="M144-192v-192l288-96-288-96v-192l720 288-720 288Z"/></svg>
+        </button>
+    </form>
 	{% endif %}
     </div>
 </div>

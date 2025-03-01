@@ -1,5 +1,6 @@
-from quart import Blueprint, Response, current_app, g
+from quart import Blueprint, Response, current_app, g, request
 from ..api import pixivReq, PixivError
+from ..core import messages
 from .. import cfg
 from werkzeug.exceptions import NotFound
 import logging
@@ -66,3 +67,13 @@ async def ugoira_meta(_id: int):
         return {"error": True, "message": "Internal server error"}, 500
 
     return data
+
+
+@bp.get("/api/messages/<int:thread_id>/contents")
+async def getMessages(thread_id: int):
+    try:
+        data = await messages.getMessageThreadContents(thread_id, max_content_id=request.args.get("max_content_id"))
+        c = [x.to_json() for x in data.contents]
+        return {"contents": c}
+    except PixivError as e:
+        return {"error": True, message: str(e.message), body: {}}

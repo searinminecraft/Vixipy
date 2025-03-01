@@ -899,14 +899,15 @@ class MessageThreadContent:
     def __init__(self, d):
         self.contentId: int = int(d["content_id"])
         self.createdAt: datetime = datetime.fromtimestamp(int(d["created_at"]))
+        self.type: str = d["content"]["type"]
         self.thumbImg: str | None = (
             makeProxy(d["content"]["image_urls"]["600x600"])
-            if d["content"]["type"] == "image"
+            if self.type == "image"
             else None
         )
         self.image: str | None = (
             makeProxy(d["content"]["image_urls"]["big"])
-            if d["content"]["type"] == "image"
+            if self.type == "image"
             else None
         )
         self.isStarred: bool = d["content"].get("is_starred", False)
@@ -915,6 +916,19 @@ class MessageThreadContent:
         self.iconUrl: str = makeProxy(d["user"]["icon_url"]["main_s"])
         self.text: str = d["content"].get("text")
 
+    def to_json(self):
+        return {
+            "type": self.type,
+            "id": self.contentId,
+            "created_at": int(self.createdAt.timestamp()),
+            "starred": self.isStarred,
+            "username": self.username,
+            "userid": self.userid,
+            "icon": self.iconUrl,
+            "text": self.text,
+            "image": self.image,
+            "thumbnail": self.thumbImg,
+        }
 
 class MessageThreadContents:
     def __init__(self, d):

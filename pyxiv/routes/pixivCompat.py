@@ -73,3 +73,15 @@ async def member_illust():
                 "member_illust.php: Unknown mode %s, stubbing!", args.get("mode")
             )
             abort(400)
+
+
+@bp.get("/messages.php")
+async def messages():
+    if thread_id := request.args.get("thread_id"):
+        return redirect(
+            url_for("messages.messageThread", thread_id=thread_id), code=308
+        )
+    else:
+        return redirect(
+            url_for("messages.messagesMain"), code=308
+        )

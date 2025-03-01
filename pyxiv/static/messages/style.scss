@@ -11,7 +11,7 @@ body {
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
     scrollbar-color: var(--md-sys-color-tertiary) transparent;
-    font-family: sans-serif;
+    font-family: system-ui;
 }
 
 a {
@@ -204,7 +204,7 @@ a {
             display: flex;
             align-items: flex-end;
 
-            img {
+            img.profile {
                 min-width: 32px;
                 min-height: 32px;
                 width: 32px;
@@ -212,6 +212,10 @@ a {
                 border-radius: 50%;
                 object-fit: cover;
                 margin-right: 1em;
+            }
+
+            img.content-img {
+                border-radius: 24px;
             }
 
             .content {
@@ -262,11 +266,23 @@ a {
             display: flex;
             align-items: flex-end;
 
+            label[for=uploader] > svg {
+                fill: var(--md-sys-color-secondary);
+                margin-right: 1em;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+
+            input[type=file] {
+                display: none;
+            }
+
             textarea {
                 flex: 1;
                 background-color: var(--md-sys-color-surface-container);
                 border: unset;
-                padding: 8px;
+                padding: 10px;
                 border-radius: 8px;
                 font-family: sans-serif;
                 margin-right: 1em;
@@ -297,5 +313,50 @@ a {
                 }
             }
         }
+    }
+
+    .file-preview {
+        display: flex;
+        align-items: flex-start;
+
+        .file {
+            padding: .5em;
+            border-radius: 10px;
+            background-color: var(--md-sys-color-surface-container);
+            width: 156px;
+
+            img {
+                display: block;
+                object-fit: contain;
+                border-radius: 8px;
+                width: 100%;
+                height: auto;
+                margin-bottom: 8px;
+            }
+
+            small {
+                color: var(--md-sys-color-outline);
+                display: inline-block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 100%;
+            }
+        }
+
+        #remove-attachment {
+            margin-right: 1em;
+            background-color: unset;
+            border: unset;
+            cursor: pointer;
+
+            svg {
+                fill: var(--md-sys-color-outline)
+            }
+        }
+    }
+
+    .file-preview-wrapper {
+        display: none;
+        margin-bottom: 1em;
     }
 }
