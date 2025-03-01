@@ -237,6 +237,26 @@ a {
     .message-box {
         padding: 1em;
 
+        .reserved-notice {
+          padding: 1em;
+          display: flex;
+          align-items: center;
+          background-color: var(--md-sys-color-tertiary-container);
+          color: var(--md-sys-color-on-tertiary-container);
+          border-radius: 8px;
+
+          svg {
+            fill: currentColor;
+            margin-right: 1em;
+            flex-shrink: 0;
+          }
+
+          h3 {
+            margin: unset;
+            margin-bottom: 8px;
+          }
+        }
+
         form {
             width: 100%;
             display: flex;
