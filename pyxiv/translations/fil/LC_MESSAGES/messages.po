@@ -10,14 +10,15 @@ msgstr ""
 "POT-Creation-Date: 2025-03-02 14:22+0800\n"
 "PO-Revision-Date: 2025-02-27 21:55+0000\n"
 "Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:247
@@ -1184,6 +1185,10 @@ msgid ""
 "href='https://policies.pixiv.net'>pixiv Service Master Terms of Use</a>. "
 "Don't send sensitive information!"
 msgstr ""
+"<b>Tandaan:</b> Ang lahat ng mga mensahe ay hindi end-to-end na naka-encrypt "
+"at napapailalim sa <a rel='noopener noreferrer' href='https://"
+"policies.pixiv.net'>pixiv Service Master Terms of Use</a>. Huwag magpadala "
+"ng sensitibong impormasyon!"
 
 #: pyxiv/templates/messages/message.html:36
 msgid "This thread is reserved for important pixiv messages"
@@ -1204,9 +1209,9 @@ msgid "Upload image"
 msgstr "Larawan ng Cover"
 
 #: pyxiv/templates/messages/message.html:57
-#, fuzzy, python-format
+#, python-format
 msgid "Message %(name)s"
-msgstr "Mga Mensahe"
+msgstr "I-mensahe si/ang %(name)s"
 
 #: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:17
 #: pyxiv/templates/news/index.html:8
@@ -1986,4 +1991,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Privacy"
 #~ msgstr "Pagkapribado"
-
