@@ -97,7 +97,13 @@ def create_app():
         log.debug("matched lang %s", l)
         return l
 
-    babel = Babel(app, locale_selector=getLocale)
+    def getTimezone():
+        if g.get("tz") and g.tz != "":
+            return g.tz
+        
+        return "Asia/Tokyo"
+
+    babel = Babel(app, locale_selector=getLocale, timezone_selector=getTimezone)
 
     # https://www.pixiv.net/ajax/settings/self
     app.config["stamps"] = {
@@ -370,6 +376,7 @@ def create_app():
         g.version = cfg.Version + "+" + g.rev
         g.instanceName = cfg.PxInstanceName
         g.lang = request.cookies.get("lang")
+        g.tz = request.cookies.get("Vixipy-Timezone", "Asia/Tokyo")
 
         g.userPxSession = request.cookies.get("PyXivSession")
         g.userPxCSRF = request.cookies.get("PyXivCSRF")

@@ -337,6 +337,7 @@ class PartialArtwork:
             if data.get("uploadDate")
             else None
         )
+        self.alt: str = data["alt"]
 
         soupDesc = BeautifulSoup(data["description"], "html.parser")
 

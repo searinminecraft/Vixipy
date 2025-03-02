@@ -205,11 +205,12 @@ select {
 }
 
 select {
-  background-color: var(--md-sys-color-surface-container-high);
+  background-color: var(--md-sys-color-surface-container-low);
   border: none;
   border-radius: 8px;
   padding: 8px 1em;
   color: var(--md-sys-color-on-surface);
+  font-family: system-ui;
 }
 
 %icon-button-common {
@@ -1058,7 +1059,12 @@ div.taglist {
     flex: 70%;
     background-color: var(--md-sys-color-surface-container-high);
     border-radius: 36px;
-    padding: 1em 2em;
+    padding: 2em;
+
+    >*:first-child {
+      margin: unset;
+      margin-bottom: 1em;
+    }
 
     .current-user-account {
       display: flex;

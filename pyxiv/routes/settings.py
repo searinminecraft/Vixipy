@@ -16,6 +16,8 @@ import ipaddress
 import re
 import urllib.parse
 import logging
+import pytz
+import babel
 from aiohttp import ClientSession
 
 from .. import api
@@ -94,8 +96,17 @@ async def mainSettings(ep):
                 msItems=mailSettingsItems,
             )
         case "language":
+            current_lang = g.get("lang", "en") if g.get("lang") != "" else "en"
+            locale = babel.Locale(current_lang)
+            regions = ('AF', 'AX', 'AL', 'DZ', 'AS', 'AD', 'AO', 'AI', 'AQ', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BH', 'BD', 'BB', 'BY', 'BE', 'BZ', 'BJ', 'BM', 'BT', 'BO', 'BQ', 'BA', 'BW', 'BV', 'BR', 'IO', 'BN', 'BG', 'BF', 'BI', 'KH', 'CM', 'CA', 'CV', 'KY', 'CF', 'TD', 'CL', 'CN', 'CX', 'CC', 'CO', 'KM', 'CG', 'CD', 'CK', 'CR', 'CI', 'HR', 'CU', 'CW', 'CY', 'CZ', 'DK', 'DJ', 'DM', 'DO', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'ET', 'FK', 'FO', 'FJ', 'FI', 'FR', 'GF', 'PF', 'TF', 'GA', 'GM', 'GE', 'DE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GP', 'GU', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'HM', 'VA', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IR', 'IQ', 'IE', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'SZ', 'KI', 'KP', 'KR', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MH', 'MQ', 'MR', 'MU', 'YT', 'MX', 'FM', 'MD', 'MC', 'MN', 'ME', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'NC', 'NZ', 'NI', 'NE', 'NG', 'NU', 'NF', 'MP', 'NO', 'OM', 'PK', 'PW', 'PS', 'PA', 'PG', 'PY', 'PE', 'PH', 'PN', 'PL', 'PT', 'PR', 'QA', 'MK', 'RE', 'RO', 'RU', 'RW', 'BL', 'SH', 'KN', 'LC', 'MF', 'PM', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'RS', 'SC', 'SL', 'SG', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'ES', 'LK', 'SD', 'SR', 'SJ', 'SE', 'CH', 'SY', 'TW', 'TJ', 'TZ', 'TH', 'BS', 'TL', 'TG', 'TK', 'TO', 'TT', 'TN', 'TR', 'TM', 'TC', 'TV', 'UG', 'UA', 'AE', 'GB', 'US', 'UM', 'UY', 'UZ', 'VU', 'VE', 'VN', 'VG', 'VI', 'WF', 'EH', 'YE', 'ZM', 'ZW')
+            regionOpts = {
+                x: locale.territories[x] for x in regions
+            }
+            langOpts = {x: babel.Locale(x).language_name for x in current_app.config["languages"]}
+            pvOpts = {x: babel.Locale(x).language_name for x in ("en", "ja", "ko", "zh")}
             return await render_template(
-                "settings/language.html", pv_lang=("en", "ja", "ko", "zh", "zh-tw")
+                "settings/language.html", pv_lang=pvOpts,
+                tz=pytz.all_timezones, reg=regionOpts, langOpts=langOpts,
             )
         case "about":
             return await render_template("about")
@@ -390,16 +401,16 @@ async def setPixivisionLanguage():
     language = form["lang"]
     if language not in ("en", "ja", "ko", "zh", "zh-tw"):
         flash(_("Invalid language: %(code)s", code=language), "error")
-        return await redirect(url_for("settings.mainSettings", ep="language"), code=303)
+        return redirect(url_for("settings.mainSettings", ep="language"), code=303)
 
     resp = await make_response(
-        await redirect(url_for("settings.mainSettings", ep="language"), code=303)
+        redirect(url_for("settings.mainSettings", ep="language"), code=303)
     )
 
     resp.delete_cookie("PyXivPixivisionLang")
     resp.set_cookie("PyXivPixivisionLang", language, max_age=COOKIE_MAXAGE)
 
-    flash(_("Successfully set language."))
+    await flash(_("Successfully set language."))
     return resp
 
 
@@ -412,4 +423,28 @@ async def setTheme():
 
     resp.set_cookie("Vixipy-Theme", theme, max_age=COOKIE_MAXAGE)
     await flash(_("Successfully set theme"))
+    return resp
+
+
+@settings.post("/set-tz")
+async def setTz():
+    form = await request.form
+    tz = form["tz"]
+
+    resp = await make_response(redirect(url_for("settings.mainSettings", ep="language"), code=303))
+
+    resp.set_cookie("Vixipy-Timezone", tz, max_age=COOKIE_MAXAGE)
+    await flash(_("Successfully set timezone"))
+    return resp
+
+
+@settings.post("/set-region")
+async def setLocation():
+    form = await request.form
+    region = form["region"]
+
+    resp = await make_response(redirect(url_for("settings.mainSettings", ep="language"), code=303))
+
+    await api.pixivReq("post", "/ajax/settings/location", jsonPayload={"location": region})
+    await flash(_("Successfully set location"))
     return resp

@@ -100,6 +100,8 @@
 	<div class="artwork-container">
 		{% for d in t.artworks %}
 		{% include "components/artwork-prev.html" %}
+		{% else %}
+		<p>{{_("Nothing in here!")}}</p>
 		{% endfor %}
 	</div>
 </div>

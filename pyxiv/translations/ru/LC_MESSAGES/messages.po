@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-28 21:40+0800\n"
+"POT-Creation-Date: 2025-03-02 14:22+0800\n"
 "PO-Revision-Date: 2025-02-18 23:21+0000\n"
 "Last-Translator: divergency "
 "<divergency@users.noreply.translate.codeberg.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:241
+#: pyxiv/app.py:247
 msgid "pixiv Error!"
 msgstr "pixiv Ошибка!"
 
-#: pyxiv/app.py:245
+#: pyxiv/app.py:251
 #, python-format
 msgid ""
 "pixiv returned an error trying to request data: <code>%(status)d - "
@@ -34,63 +34,63 @@ msgstr ""
 "pixiv вернул ошибку пытаясь запросить данные: <code>%(status)d - "
 "%(error)s</code>"
 
-#: pyxiv/app.py:245
+#: pyxiv/app.py:251
 msgid "Unspecified error"
 msgstr "Неуказанная ошибка"
 
-#: pyxiv/app.py:256
+#: pyxiv/app.py:262
 msgid "Not found"
 msgstr "Не найдено"
 
-#: pyxiv/app.py:257
+#: pyxiv/app.py:263
 msgid "The requested resource could not be found."
 msgstr "Запрошенный ресурс не был найден."
 
-#: pyxiv/app.py:267
+#: pyxiv/app.py:273
 msgid "Bad request"
 msgstr "Неверный запрос"
 
-#: pyxiv/app.py:268
+#: pyxiv/app.py:274
 msgid "The server could not satisfy the request."
 msgstr "Сервер не смог удовлетворить запрос."
 
-#: pyxiv/app.py:278
+#: pyxiv/app.py:284
 msgid "Forbidden"
 msgstr "Запрещен"
 
-#: pyxiv/app.py:279
+#: pyxiv/app.py:285
 msgid "You do not have permission to access this page."
 msgstr "У вас нет разрешения на доступ к этой странице."
 
-#: pyxiv/app.py:289
+#: pyxiv/app.py:295
 msgid "Unauthorized"
 msgstr "Неавторизован"
 
-#: pyxiv/app.py:291
+#: pyxiv/app.py:297
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 "Предоставьте ваш pixiv PHPSESSID в настройках, чтобы выполнить это "
 "действие."
 
-#: pyxiv/app.py:304
+#: pyxiv/app.py:310
 msgid "Method Not Allowed"
 msgstr "Метод Не Разрешен"
 
-#: pyxiv/app.py:305
+#: pyxiv/app.py:311
 msgid "This method is not allowed for this endpoint"
 msgstr "Этот метод не разрешен для этой конечной точки"
 
-#: pyxiv/app.py:385
+#: pyxiv/app.py:392
 msgid "Your current theme is invalid. Please set the correct theme in settings."
 msgstr ""
 "Текущая тема невалидна. Пожалуйста, поставьте корректную тему в "
 "настройках."
 
-#: pyxiv/app.py:398
+#: pyxiv/app.py:405
 msgid "Uh oh!"
 msgstr "Ой ой!"
 
-#: pyxiv/app.py:399
+#: pyxiv/app.py:406
 msgid ""
 "We have detected that you are using the Facebook WebView. Please click "
 "the 3 dots and select 'Open in external browser' to view."
@@ -166,60 +166,60 @@ msgstr "Сб"
 msgid "Sun"
 msgstr "Вс"
 
-#: pyxiv/routes/settings.py:127 pyxiv/routes/settings.py:131
+#: pyxiv/routes/settings.py:138 pyxiv/routes/settings.py:142
 msgid "Invalid token"
 msgstr "Недействительный токен"
 
-#: pyxiv/routes/settings.py:146
+#: pyxiv/routes/settings.py:157
 #, python-format
 msgid "An exception occurred trying to log in: %s"
 msgstr "Произошло исключение при попытке войти: %s"
 
-#: pyxiv/routes/settings.py:153
+#: pyxiv/routes/settings.py:164
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "Не можем воспользоваться токеном. pixiv вернул код %(status)d"
 
-#: pyxiv/routes/settings.py:167
+#: pyxiv/routes/settings.py:178
 msgid "Unable to extract CSRF"
 msgstr "Не можем извлечь CSRF"
 
-#: pyxiv/routes/settings.py:172
+#: pyxiv/routes/settings.py:183
 msgid "Unable to extract p_ab_d_id"
 msgstr "Не можем извлечь p_ab_d_id"
 
-#: pyxiv/routes/settings.py:183
+#: pyxiv/routes/settings.py:194
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "Не можем воспользоваться токеном: %(error)s"
 
-#: pyxiv/routes/settings.py:199
+#: pyxiv/routes/settings.py:210
 msgid "No token was supplied."
 msgstr "Токен не был поставлен."
 
-#: pyxiv/routes/settings.py:209
+#: pyxiv/routes/settings.py:220
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "Вы успешно завершили сессию. До свидания!"
 
-#: pyxiv/routes/settings.py:219 pyxiv/routes/settings.py:316
+#: pyxiv/routes/settings.py:230 pyxiv/routes/settings.py:327
 msgid "Successfully set proxy server"
 msgstr "Успешно установили прокси сервер"
 
-#: pyxiv/routes/settings.py:236
+#: pyxiv/routes/settings.py:247
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "Пожалуйста укажите URL схему. Только http и https принимаются."
 
-#: pyxiv/routes/settings.py:242
+#: pyxiv/routes/settings.py:253
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "Неверная URL схема: %(scheme)s. Только http и https принимаются."
 
-#: pyxiv/routes/settings.py:251
+#: pyxiv/routes/settings.py:262
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "Этот адрес не разрешен: %(addr)s"
 
-#: pyxiv/routes/settings.py:257
+#: pyxiv/routes/settings.py:268
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
@@ -227,7 +227,7 @@ msgstr ""
 "Из-за ограничений в директивах Политики Безопасности Контента, IP Адреса "
 "не поддерживаются как прокси сервер."
 
-#: pyxiv/routes/settings.py:291
+#: pyxiv/routes/settings.py:302
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
@@ -236,7 +236,7 @@ msgstr ""
 "Картинки могут не загружаться, и могут повредить вашей "
 "конфиденциальности."
 
-#: pyxiv/routes/settings.py:300
+#: pyxiv/routes/settings.py:311
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
@@ -245,27 +245,37 @@ msgstr ""
 "Проверка целостности провалилась для теста прокси изображений. Ожидалось "
 "%(integrity)s, получили %(result)s"
 
-#: pyxiv/routes/settings.py:311
+#: pyxiv/routes/settings.py:322
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "Возникла ошибка при проверке прокси сервера: %(error)s"
 
-#: pyxiv/routes/settings.py:361
+#: pyxiv/routes/settings.py:372
 msgid "Successfully set preferences"
 msgstr "Успешно установили предпочтения"
 
-#: pyxiv/routes/settings.py:372 pyxiv/routes/settings.py:392
+#: pyxiv/routes/settings.py:383 pyxiv/routes/settings.py:403
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "Неверный язык: %(code)s"
 
-#: pyxiv/routes/settings.py:383 pyxiv/routes/settings.py:402
+#: pyxiv/routes/settings.py:394 pyxiv/routes/settings.py:413
 msgid "Successfully set language."
 msgstr "Успешно установили язык."
 
-#: pyxiv/routes/settings.py:414
+#: pyxiv/routes/settings.py:425
 msgid "Successfully set theme"
 msgstr "Успешно поставили тему"
+
+#: pyxiv/routes/settings.py:437
+#, fuzzy
+msgid "Successfully set timezone"
+msgstr "Успешно поставили тему"
+
+#: pyxiv/routes/settings.py:449
+#, fuzzy
+msgid "Successfully set location"
+msgstr "Успешно установили язык."
 
 #: pyxiv/routes/ugoiraconverter.py:16
 msgid "The ID you specified is not an ugoira."
@@ -434,7 +444,7 @@ msgstr "Уровень чувствительности: %(sl)d"
 msgid "View on pixiv"
 msgstr "Посмотреть на pixiv"
 
-#: pyxiv/templates/artwork.html:152 pyxiv/templates/index.html:113
+#: pyxiv/templates/artwork.html:152 pyxiv/templates/index.html:115
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr "Просмотреть все"
@@ -450,8 +460,9 @@ msgid "Some entries have been hidden due to filters"
 msgstr "Некоторые вставки были скрыты из-за фильтров"
 
 #: pyxiv/templates/artwork.html:175 pyxiv/templates/bookmarksSelf.html:25
-#: pyxiv/templates/user/bookmarks.html:25 pyxiv/templates/user/illusts.html:25
-#: pyxiv/templates/user/main.html:48 pyxiv/templates/user/manga.html:25
+#: pyxiv/templates/index.html:104 pyxiv/templates/user/bookmarks.html:25
+#: pyxiv/templates/user/illusts.html:25 pyxiv/templates/user/main.html:48
+#: pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
 msgstr "Здесь ничего нет!"
 
@@ -694,7 +705,7 @@ msgstr "Нечего показать!"
 msgid "Recommended works"
 msgstr "Рекомендованные работы"
 
-#: pyxiv/templates/index.html:61 pyxiv/templates/index.html:112
+#: pyxiv/templates/index.html:61 pyxiv/templates/index.html:114
 msgid "Today's Rankings"
 msgstr "Сегодняшние Рейтинги"
 
@@ -769,7 +780,6 @@ msgstr "Общие"
 
 #: pyxiv/templates/components/navbar.html:22
 #: pyxiv/templates/notifications.html:2 pyxiv/templates/notifications.html:5
-#: pyxiv/templates/settings/settingsMain.html:25
 msgid "Notifications"
 msgstr "Уведомления"
 
@@ -1182,7 +1192,24 @@ msgid ""
 "Don't send sensitive information!"
 msgstr ""
 
-#: pyxiv/templates/messages/message.html:25
+#: pyxiv/templates/messages/message.html:36
+msgid "This thread is reserved for important pixiv messages"
+msgstr ""
+
+#: pyxiv/templates/messages/message.html:37
+msgid "pixiv nor Vixipy will never ask for login information or session tokens"
+msgstr ""
+
+#: pyxiv/templates/messages/message.html:47
+#, fuzzy
+msgid "Remove"
+msgstr "Предыдущий"
+
+#: pyxiv/templates/messages/message.html:53
+msgid "Upload image"
+msgstr ""
+
+#: pyxiv/templates/messages/message.html:57
 #, python-format
 msgid "Message %(name)s"
 msgstr ""
@@ -1266,7 +1293,7 @@ msgid "Articles"
 msgstr "Статьи"
 
 #: pyxiv/templates/settings/about.html:6
-#: pyxiv/templates/settings/settingsMain.html:38
+#: pyxiv/templates/settings/settingsMain.html:40
 msgid "About Vixipy"
 msgstr "О Vixipy"
 
@@ -1482,24 +1509,29 @@ msgid ""
 msgstr ""
 
 #: pyxiv/templates/settings/language.html:6
-#: pyxiv/templates/settings/settingsMain.html:34
+#: pyxiv/templates/settings/settingsMain.html:36
+msgid "Language and location"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:8
 msgid "Language"
 msgstr "Язык"
 
-#: pyxiv/templates/settings/language.html:8
+#: pyxiv/templates/settings/language.html:10
 msgid "You can select your prefered language here."
 msgstr "Вы можете выбрать ваш язык предпочтения здесь."
 
-#: pyxiv/templates/settings/language.html:14
+#: pyxiv/templates/settings/language.html:15
+#: pyxiv/templates/settings/language.html:51
 msgid "Use system language"
 msgstr "Использовать язык системы"
 
-#: pyxiv/templates/settings/language.html:24
-#: pyxiv/templates/settings/language.html:43
+#: pyxiv/templates/settings/language.html:22
+#: pyxiv/templates/settings/language.html:58
 msgid "Set language"
 msgstr "Установить язык"
 
-#: pyxiv/templates/settings/language.html:27
+#: pyxiv/templates/settings/language.html:25
 msgid ""
 "Can't find the language you're looking for? Are the translations "
 "inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' "
@@ -1509,16 +1541,40 @@ msgstr ""
 "href='https://translate.codeberg.org/engage/vixipy' "
 "target='_blank'>Помогите с переводом!</a>"
 
-#: pyxiv/templates/settings/language.html:29
+#: pyxiv/templates/settings/language.html:27
+#, fuzzy
+msgid "Location"
+msgstr "Оглавнение/Заголовок"
+
+#: pyxiv/templates/settings/language.html:37
+#, fuzzy
+msgid "About location settings"
+msgstr "Настройки Аккаунта"
+
+#: pyxiv/templates/settings/language.html:40
+#, fuzzy
+msgid "Set Location"
+msgstr "Оглавнение/Заголовок"
+
+#: pyxiv/templates/settings/language.html:43
 msgid "pixivision Language"
 msgstr "Язык pixivision"
 
-#: pyxiv/templates/settings/language.html:31
+#: pyxiv/templates/settings/language.html:45
 msgid "You can set the language for pixivision articles here."
 msgstr "Вы можете установить язык для статей pixivision здесь."
 
+#: pyxiv/templates/settings/language.html:61
+msgid "Timezone"
+msgstr ""
+
+#: pyxiv/templates/settings/language.html:70
+#, fuzzy
+msgid "Set timezone"
+msgstr "Поставить Тему"
+
 #: pyxiv/templates/settings/license.html:6
-#: pyxiv/templates/settings/settingsMain.html:42
+#: pyxiv/templates/settings/settingsMain.html:44
 msgid "License"
 msgstr "Лицензия"
 
@@ -1557,43 +1613,39 @@ msgstr ""
 "Только изображения с домена <code>i.pximg.net</code> будут использовать "
 "указанный прокси сервер."
 
-#: pyxiv/templates/settings/pyxivSettings.html:13
-msgid "Your current preferred proxy server:"
-msgstr "Ваш текущий предпочтительный прокси сервер:"
-
-#: pyxiv/templates/settings/pyxivSettings.html:18
+#: pyxiv/templates/settings/pyxivSettings.html:15
 msgid "Use built-in proxy server"
 msgstr "Использовать встроенный прокси сервер"
 
-#: pyxiv/templates/settings/pyxivSettings.html:27
+#: pyxiv/templates/settings/pyxivSettings.html:22
 msgid "Use selected proxy"
 msgstr "Использовать выбранный прокси"
 
-#: pyxiv/templates/settings/pyxivSettings.html:30
+#: pyxiv/templates/settings/pyxivSettings.html:25
 msgid "Custom proxy server"
 msgstr "Пользовательский прокси сервер"
 
-#: pyxiv/templates/settings/pyxivSettings.html:31
+#: pyxiv/templates/settings/pyxivSettings.html:26
 msgid "You can specify a custom proxy server below."
 msgstr "Вы можете указать пользовательский прокси сервер снизу."
 
-#: pyxiv/templates/settings/pyxivSettings.html:35
+#: pyxiv/templates/settings/pyxivSettings.html:30
 msgid "Use proxy server"
 msgstr "Использовать прокси сервер"
 
-#: pyxiv/templates/settings/pyxivSettings.html:38
+#: pyxiv/templates/settings/pyxivSettings.html:33
 msgid "Theme"
 msgstr "Тема"
 
-#: pyxiv/templates/settings/pyxivSettings.html:41
+#: pyxiv/templates/settings/pyxivSettings.html:36
 msgid "You can set your theme below."
 msgstr "Вы можете поставить вашу тему снизу."
 
-#: pyxiv/templates/settings/pyxivSettings.html:44
+#: pyxiv/templates/settings/pyxivSettings.html:39
 msgid "Use default theme"
 msgstr "Использовать тему по умолчанию"
 
-#: pyxiv/templates/settings/pyxivSettings.html:51
+#: pyxiv/templates/settings/pyxivSettings.html:46
 msgid "Set Theme"
 msgstr "Поставить Тему"
 
@@ -1606,15 +1658,11 @@ msgstr "Аккаунт"
 msgid "Display Settings"
 msgstr "Настройки Отображения"
 
-#: pyxiv/templates/settings/settingsMain.html:29
-msgid "Privacy"
-msgstr "Конфиденциальность"
-
-#: pyxiv/templates/settings/settingsMain.html:46
+#: pyxiv/templates/settings/settingsMain.html:48
 msgid "Source Code"
 msgstr "Исходный Код"
 
-#: pyxiv/templates/settings/settingsMain.html:50
+#: pyxiv/templates/settings/settingsMain.html:52
 msgid "pixiv Premium"
 msgstr "pixiv Премиум"
 
@@ -1811,4 +1859,10 @@ msgstr "Манга %(user)s'а"
 #~ " лагает, в отличие от других, но "
 #~ "иногда быстрее или в ничье с "
 #~ "другими pixiv фронт-эндами."
+
+#~ msgid "Your current preferred proxy server:"
+#~ msgstr "Ваш текущий предпочтительный прокси сервер:"
+
+#~ msgid "Privacy"
+#~ msgstr "Конфиденциальность"
 
