@@ -24,6 +24,7 @@
 
 <p>{{ _("Can't find the language you're looking for? Are the translations inaccurate? <a href='https://translate.codeberg.org/engage/vixipy' target='_blank'>Help translate!</a>") }}<p></p>
 
+{% if g.isAuthorized %}
 <h2>{{ _("Location") }}</h2>
 
 <form action="/settings/set-region" method="post">
@@ -39,6 +40,7 @@
 	<br>
 	<button class="button" type="submit">{{ _("Set Location") }}</button>
 </form>
+{% endif %}
 
 <h2>{{ _("pixivision Language") }}</h2>
 
