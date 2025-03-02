@@ -68,6 +68,10 @@ async def member_illust():
             return redirect(
                 url_for("artworks.artworkComments", _id=args["illust_id"]), code=308
             )
+        case "medium":
+            return redirect(
+                url_for("artworks.artworkGet", _id=args["illust_id"]), code=308
+            )
         case _:
             log.warning(
                 "member_illust.php: Unknown mode %s, stubbing!", args.get("mode")
