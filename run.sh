@@ -14,5 +14,8 @@ export GIT_REPO=$(git remote get-url origin)
 #export PYXIV_ACQUIRE_SESSION=0
 #export PYXIV_DEFAULT_PROXY=""
 export PYXIV_WORKERS=5
+#export PYXIV_UGOIRA_SERVER="https://t-hk.ugoira.com/ugoira/%s.mp4"
+#export PYXIV_UGOIRA_SERVER_TRUSTED=0
+#export PYXIV_UGOIRA_SERVER_NEEDS_DATE=0
 
 hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers ${PYXIV_WORKERS} --bind unix:pyxiv.sock pyxiv:app

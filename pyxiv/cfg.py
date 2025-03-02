@@ -1,6 +1,7 @@
 import os
 import random
 import logging
+from urllib.parse import urlparse
 
 Version = "2.6"
 AuthlessMode = False
@@ -39,6 +40,13 @@ GitRev = os.environ.get("GIT_REVISION", "unknown")
 GitRepo = os.environ.get("GIT_REPO", "unknown")
 TryAcquireSession = int(os.environ.get("PYXIV_ACQUIRE_SESSION", 0)) == 1
 DefaultProxy = os.environ.get("PYXIV_DEFAULT_PROXY", "")
+UgoiraServer = os.environ.get("PYXIV_UGOIRA_SERVER", "https://t-hk.ugoira.com/ugoira/%s.mp4")
+UgoiraServerTrusted = int(os.environ.get("PYXIV_UGOIRA_SERVER_TRUSTED", 0)) == 1
+UgoiraServerNeedsDate = int(os.environ.get("PYXIV_UGOIRA_SERVER_NEEDS_DATE", 0)) == 1
+
+UgoiraServerNetloc = ""
+if UgoiraServerTrusted:
+    UgoiraServerNetloc = urlparse(UgoiraServer).netloc or ""
 
 Themes = os.environ.get("PYXIV_ADDITIONAL_THEMES", "").split(",")
 DefaultTheme = os.environ.get("PYXIV_DEFAULT_THEME", "aqua")

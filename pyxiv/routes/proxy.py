@@ -1,4 +1,5 @@
 from quart import Blueprint, Response, redirect, request, current_app
+from ..cfg import UgoiraServer
 import aiohttp
 
 import time
@@ -26,21 +27,22 @@ async def handleHttpError(e):
     )
 
 
-@proxy.route("/ugoira/<int:_id>")
-async def retrieveUgoira(_id: int):
+@proxy.route("/ugoira/<path:path>")
+async def retrieveUgoira(path: str):
 
     headers = {
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
-        "Referer": "https://ugoira.com/",
     }
     respHeaders = {"Cache-Control": "max-age=31536000"}
 
     req = await current_app.proxySession.get(
-        f"https://t-hk.ugoira.com/ugoira/{_id}.mp4", headers=headers
+        UgoiraServer % path, headers=headers
     )
 
-    respHeaders["Content-Type"] = req.headers["Content-Type"]
-    respHeaders["Content-Length"] = req.headers["Content-Length"]
+    if "Content-Type" in req.headers:
+        respHeaders["Content-Type"] = req.headers["Content-Type"]
+    if "Content-Length" in req.headers:
+        respHeaders["Content-Length"] = req.headers["Content-Length"]
     req.raise_for_status()
 
     async def requestContent():

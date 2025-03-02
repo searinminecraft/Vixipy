@@ -5,6 +5,7 @@ from urllib.parse import quote, urlparse, urlunparse
 from markupsafe import escape
 from quart_rate_limiter import RateLimiterStoreABC
 import pymemcache
+from .cfg import UgoiraServer, UgoiraServerNeedsDate, UgoiraServerTrusted
 
 
 #  tbh maybe i should make a Python library
@@ -434,10 +435,27 @@ class Artwork(PartialArtwork):
         self.userIllustIds = list(data["userIllusts"].keys())
         self.userIllusts = []
 
+        self.ugoiraUrl = ""
         for i in data["userIllusts"]:
-            if not data["userIllusts"][i]:
+            i = data["userIllusts"][i]
+            if not i:
                 continue
-            self.userIllusts.append(ArtworkEntry(data["userIllusts"][i]))
+            
+            if self.isUgoira and UgoiraServerNeedsDate and i["id"] == data["id"]:
+                self.ugoiraUrl = i["createDate"].split("+")[0].replace("-", "/").replace("T", "/").replace(":", "/") 
+                
+            self.userIllusts.append(ArtworkEntry(i))
+
+        if self.isUgoira:
+            if self.ugoiraUrl != "":
+                self.ugoiraUrl += "/" + str(data["id"])
+            else:
+                self.ugoiraUrl = str(data["id"])
+
+            if UgoiraServerTrusted:
+                self.ugoiraUrl = UgoiraServer % self.ugoiraUrl
+            else:
+                self.ugoiraUrl = "/proxy/ugoira/" + self.ugoiraUrl
 
 
 class ArtworkEntry(PartialArtwork):
