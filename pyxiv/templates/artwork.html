@@ -17,14 +17,14 @@
 	<div class="illust-main">
 		<div class="illusts">
 			{% if data.artwork.isUgoira %}
-			<video poster="{{ data.artwork.thumbUrl }}" controls autoplay playsinline loop src="/proxy/ugoira/{{ data.artwork._id }}">
-				<p>{{ _("Could not load ugoira. <a href='/proxy/ugoira/%(artworkId)d'>Download the video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to ugoira.com</a> for more options.", artworkId=data.artwork._id) }}</p>
+			<video poster="{{ data.artwork.thumbUrl }}" controls autoplay playsinline loop src="{{ data.artwork.ugoiraUrl }}">
+				<p>{{ _("Could not load ugoira. <a href='{{ data.artwork.ugoiraUrl }}'>Download the video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to ugoira.com</a> for more options.", artworkId=data.artwork._id) }}</p>
 			</video>
 
 			<ul class="actions">
 				<li>
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
-					<a href="/proxy/ugoira/{{ data.artwork._id }}">{{ _("Download") }}</a>
+					<a href="{{ data.artwork.ugoiraUrl }}">{{ _("Download") }}</a>
 				</li>
 				<li>
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m720-120 160-160-56-56-64 64v-167h-80v167l-64-64-56 56 160 160ZM560 0v-80h320V0H560ZM240-160q-33 0-56.5-23.5T160-240v-560q0-33 23.5-56.5T240-880h280l240 240v121h-80v-81H480v-200H240v560h240v80H240Zm0-80v-560 560Z"/></svg>
