@@ -149,6 +149,7 @@ endpoints and features that require authentication will not be accessible unless
 * `PYXIV_WORKERS` (default: 5): How much workers to spawn for handling requests. More workers use more system resources, but will be able to handle more requests
 * `PYXIV_RATELIMITS` (default: 0): EXPERIMENTAL: Whether to enable rate limiting on the instance (requires [memcached](https://memcached.org/) to be installed)
 * `PYXIV_UGOIRA_SERVER` (default: `https://t-hk.ugoira.com/ugoira/%s.mp4`): Server to use for Ugoira previews. For example, there are [simple-webm-ugoira](https://gitlab.com/pixivfe/simple-webm-ugoira) and [not-simple-webm-ugoira](https://git.maid.zone/laptop/not-simple-webm-ugoira) that you can host yourself
+* `PYXIV_UGOIRA_SERVER_REFERER` (default: `https://ugoira.com`): Referer header for proxying requests to the Ugoira previews server
 * `PYXIV_UGOIRA_SERVER_TRUSTED` (default: 0): Should the ugoira server be proxied?
 * `PYXIV_UGOIRA_SERVER_NEEDS_DATE` (default: 0): If the preview server can use the creation date
 

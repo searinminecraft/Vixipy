@@ -41,6 +41,7 @@ GitRepo = os.environ.get("GIT_REPO", "unknown")
 TryAcquireSession = int(os.environ.get("PYXIV_ACQUIRE_SESSION", 0)) == 1
 DefaultProxy = os.environ.get("PYXIV_DEFAULT_PROXY", "")
 UgoiraServer = os.environ.get("PYXIV_UGOIRA_SERVER", "https://t-hk.ugoira.com/ugoira/%s.mp4")
+UgoiraServerReferer = os.environ.get("PYXIV_UGOIRA_SERVER_REFERER", "https://ugoira.com")
 UgoiraServerTrusted = int(os.environ.get("PYXIV_UGOIRA_SERVER_TRUSTED", 0)) == 1
 UgoiraServerNeedsDate = int(os.environ.get("PYXIV_UGOIRA_SERVER_NEEDS_DATE", 0)) == 1
 

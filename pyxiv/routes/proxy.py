@@ -1,5 +1,5 @@
 from quart import Blueprint, Response, redirect, request, current_app
-from ..cfg import UgoiraServer
+from ..cfg import UgoiraServer, UgoiraServerReferer
 import aiohttp
 
 import time
@@ -33,6 +33,9 @@ async def retrieveUgoira(path: str):
     headers = {
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
     }
+    if UgoiraServerReferer != "":
+        headers["Referer"] = UgoiraServerReferer
+    
     respHeaders = {"Cache-Control": "max-age=31536000"}
 
     req = await current_app.proxySession.get(
