@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-02 14:22+0800\n"
-"PO-Revision-Date: 2025-02-27 21:55+0000\n"
-"Last-Translator: Kita Ikuyo <searinminecraft@courvix.com>\n"
+"PO-Revision-Date: 2025-03-02 13:39+0000\n"
+"Last-Translator: Kita Ikuyo <kitakita@disroot.org>\n"
 "Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/fil/>\n"
 "Language: fil\n"
@@ -269,14 +269,12 @@ msgid "Successfully set theme"
 msgstr "Matagumpay na natakda ang tema"
 
 #: pyxiv/routes/settings.py:437
-#, fuzzy
 msgid "Successfully set timezone"
-msgstr "Matagumpay na natakda ang tema"
+msgstr "Matagumpay na natakda ang timezone"
 
 #: pyxiv/routes/settings.py:449
-#, fuzzy
 msgid "Successfully set location"
-msgstr "Matagumpay na natakda ang wika."
+msgstr "Matagumpay na natakda ang lokasyon"
 
 #: pyxiv/routes/ugoiraconverter.py:16
 msgid "The ID you specified is not an ugoira."
@@ -1192,21 +1190,21 @@ msgstr ""
 
 #: pyxiv/templates/messages/message.html:36
 msgid "This thread is reserved for important pixiv messages"
-msgstr ""
+msgstr "Nakareserba ang thread na ito para sa mga importanteng mensahe ng pixiv"
 
 #: pyxiv/templates/messages/message.html:37
 msgid "pixiv nor Vixipy will never ask for login information or session tokens"
 msgstr ""
+"Hindi kailanman maghihingi ng impormasyon ng pag-login o mga session token "
+"ang pixiv o Vixipy"
 
 #: pyxiv/templates/messages/message.html:47
-#, fuzzy
 msgid "Remove"
-msgstr "Preview"
+msgstr "Tanggalin"
 
 #: pyxiv/templates/messages/message.html:53
-#, fuzzy
 msgid "Upload image"
-msgstr "Larawan ng Cover"
+msgstr "Mag-upload ng larawan"
 
 #: pyxiv/templates/messages/message.html:57
 #, python-format
@@ -1530,7 +1528,7 @@ msgstr ""
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:36
 msgid "Language and location"
-msgstr ""
+msgstr "Wika at lokasyon"
 
 #: pyxiv/templates/settings/language.html:8
 msgid "Language"
@@ -1561,19 +1559,16 @@ msgstr ""
 "target='_blank'>Tumulong sa pagsasalin!</a>"
 
 #: pyxiv/templates/settings/language.html:27
-#, fuzzy
 msgid "Location"
-msgstr "Paksa/Caption"
+msgstr "Lokasyon"
 
 #: pyxiv/templates/settings/language.html:37
-#, fuzzy
 msgid "About location settings"
-msgstr "Mga Setting ng Account"
+msgstr "Tungkol sa mga setting ng lokasyon"
 
 #: pyxiv/templates/settings/language.html:40
-#, fuzzy
 msgid "Set Location"
-msgstr "Paksa/Caption"
+msgstr "Itakda ang lokasyon"
 
 #: pyxiv/templates/settings/language.html:43
 msgid "pixivision Language"
@@ -1585,12 +1580,11 @@ msgstr "Maaari mong itakda ang wika para sa mga artikulo sa pixivision dito."
 
 #: pyxiv/templates/settings/language.html:61
 msgid "Timezone"
-msgstr ""
+msgstr "Timezone"
 
 #: pyxiv/templates/settings/language.html:70
-#, fuzzy
 msgid "Set timezone"
-msgstr "Itakda ang Tema"
+msgstr "Itakda ang timezone"
 
 #: pyxiv/templates/settings/license.html:6
 #: pyxiv/templates/settings/settingsMain.html:44
