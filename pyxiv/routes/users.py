@@ -49,7 +49,7 @@ async def userPage(_id: int):
                 "official": True,
                 "isFollowed": False,
                 "commentHtml": "",
-                "socials": {}
+                "social": {}
             }
         )
         pickup = []
