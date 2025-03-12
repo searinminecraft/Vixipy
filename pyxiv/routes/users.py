@@ -49,6 +49,7 @@ async def userPage(_id: int):
                 "official": True,
                 "isFollowed": False,
                 "commentHtml": "",
+                "socials": {}
             }
         )
         pickup = []
@@ -96,7 +97,7 @@ async def userIllusts(_id: int):
 
     if _id == 0:
         await flash(_("Invalid user"), "error")
-        return await redirect("/users/0")
+        return redirect("/users/0")
 
     currPage = int(request.args.get("p", 1))
 
@@ -150,7 +151,7 @@ async def userManga(_id: int):
 
     if _id == 0:
         await flash(_("Invalid user"), "error")
-        return await redirect("/users/0")
+        return redirect("/users/0")
 
     currPage = int(request.args.get("p", 1))
 
@@ -206,7 +207,7 @@ async def userBookmarks(_id: int):
 
     if _id == 0:
         await flash(_("Invalid user"), "error")
-        return await redirect("/users/0")
+        return redirect("/users/0")
 
     page = int(request.args.get("p", 1))
 
@@ -251,7 +252,7 @@ async def following(_id: int):
 
     if _id == 0:
         await flash(_("Invalid user"), "error")
-        return await redirect("/users/0")
+        return redirect("/users/0")
 
     if current_app.config["authless"]:
         if not g.isAuthorized:
