@@ -39,9 +39,20 @@ async def artworkGet(_id: int):
             )
         )
 
-    c = request.cookies
-
     artworkData = await getArtwork(_id)
+
+    if int(artworkData._id) == 99818936:
+        # special theme for a specific artwork
+        # that i use as my pfp, for certain accounts
+        # and people constantly ask about it
+
+        # this will always be the theme regardless of user
+        # settings / instance config
+        #
+        # maybe ill also try to integrate material you color
+        # generation for artwork pages someday
+
+        g.theme = "99818936"
 
     if current_app.config["nor18"] and artworkData.xRestrict >= 1:
         # mimic pixiv's behavior, which is to vaguely return
