@@ -498,26 +498,16 @@ def create_app():
         return await render_template("indexManga.html", data=data)
 
     @app.route("/robots.txt")
-    def robotsTxt():
+    async def robotsTxt():
         log.warning(
             "Possible crawler: %s (%s) accessed the robots.txt",
             request.user_agent,
             request.remote_addr,
         )
-        return (
-            """
-Crawl-delay: 15
-User-Agent: *
-Disallow: /
-Disallow: /proxy
-Allow: /artworks/*
-Disallow: /artworks/*/comments
-Allow: /users/*
-Allow: /news/*
-Allow: /pixivision/a/*
-""",
-            {"Content-Type": "text/plain"},
-        )
+        if os.path.isfile(os.path.join("pyxiv/instance/", "robots.txt")):
+            return await send_from_directory("pyxiv/instance", "robots.txt")
+
+        return await send_from_directory("pyxiv/static", "robots.txt")
 
     @app.route("/about")
     async def about():
