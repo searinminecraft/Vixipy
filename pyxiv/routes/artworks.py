@@ -12,6 +12,7 @@ from quart import (
 from asyncio import gather
 from quart_babel import _
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
+import logging
 
 from ..core.artwork import getArtwork, getArtworkPages, getRelatedArtworks
 from ..core.user import getUser, retrieveUserIllusts
@@ -21,6 +22,7 @@ from ..classes import ArtworkDetailsPage
 
 
 artworks = Blueprint("artworks", __name__, url_prefix="/artworks")
+log = logging.getLogger("vixipy.routes.artworks")
 limit_blueprint(
     artworks,
     limits=[RateLimit(1, timedelta(seconds=3)), RateLimit(10, timedelta(minutes=1))],
@@ -58,6 +60,18 @@ async def artworkGet(_id: int):
         # mimic pixiv's behavior, which is to vaguely return
         # a 404 if the illust is R-18(G)
         abort(404)
+
+    if artworkData.isLoginOnly and current_app.config["authless"]:
+        return (
+            await render_template(
+                "error.html",
+                errortitle=_("You cannot access this illustration"),
+                errordesc=_(
+                    "This illustration is set to be viewable by logged in users only. Since this instance is not associated with a pixiv account, you must log in to view."
+                ),
+            ),
+            401,
+        )
 
     if artworkData.xRestrict:
         if not bool(int(request.cookies.get("VixipyConsentSensitiveContent", 0))):

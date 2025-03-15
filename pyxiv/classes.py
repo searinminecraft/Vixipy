@@ -6,6 +6,7 @@ from markupsafe import escape
 from quart_rate_limiter import RateLimiterStoreABC
 import pymemcache
 from .cfg import UgoiraServer, UgoiraServerNeedsDate, UgoiraServerTrusted
+import random
 
 
 #  tbh maybe i should make a Python library
@@ -312,14 +313,19 @@ class PartialArtwork:
 
     def __init__(self, data):
         self._id: int = data["id"]
-        self.title: str = data["title"]
+        self.title: str = data["title"] if data["title"] != "" else None
         self.xRestrict: int = data["xRestrict"]
         self.isAI: bool = data["aiType"] == 2
         self.aiType: int = data["aiType"]
         self.illustType: int = data["illustType"]
         self.isUgoira: bool = self.illustType == 2
         self.pageCount: int = data["pageCount"]
-        self.authorName: str = data["userName"]
+        self.authorName: str = (
+            data["userName"]
+            if data["title"] != ""
+            # yes I know this is DDLC reference
+            else "Anonymous " + random.choice(["Monika", "Sayori", "Natsuki", "Yuri"])
+        )
         self.authorId: int = int(data["userId"])
         self.sl: int = int(data["sl"])
         self.isSensitive: int = self.sl >= 4
@@ -421,6 +427,7 @@ class Artwork(PartialArtwork):
         self.height: int = data["height"]
         self.restrict: int = int(data["restrict"])
         self.isPrivate: bool = self.restrict >= 1
+        self.isLoginOnly: bool = data["isLoginOnly"]
 
         self.bookmarkId: int = (
             data["bookmarkData"]["id"] if data["bookmarkData"] else None
@@ -440,10 +447,16 @@ class Artwork(PartialArtwork):
             i = data["userIllusts"][i]
             if not i:
                 continue
-            
+
             if self.isUgoira and UgoiraServerNeedsDate and i["id"] == data["id"]:
-                self.ugoiraUrl = i["createDate"].split("+")[0].replace("-", "/").replace("T", "/").replace(":", "/") 
-                
+                self.ugoiraUrl = (
+                    i["createDate"]
+                    .split("+")[0]
+                    .replace("-", "/")
+                    .replace("T", "/")
+                    .replace(":", "/")
+                )
+
             self.userIllusts.append(ArtworkEntry(i))
 
         if self.isUgoira:
@@ -948,6 +961,7 @@ class MessageThreadContent:
             "image": self.image,
             "thumbnail": self.thumbImg,
         }
+
 
 class MessageThreadContents:
     def __init__(self, d):
