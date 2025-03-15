@@ -429,7 +429,7 @@ def create_app():
                 return
 
             try:
-                notifications, messages, userdata = await gather(
+                notifications, messages, userdata, extra = await gather(
                     api.pixivReq(
                         "get",
                         "/rpc/notify_count.php?op=count_unread",
@@ -440,6 +440,7 @@ def create_app():
                         "/rpc/index.php?mode=message_thread_unread_count",
                     ),
                     getUser(g.userPxSession.split("_")[0], False),
+                    api.pixivReq("get", "/ajax/user/extra")
                 )
 
                 g.notificationCount = notifications["popboard"]
@@ -448,6 +449,7 @@ def create_app():
                 g.hasNotifications = g.notificationCount > 0
                 g.hasMessages = g.messagesCount > 0
                 g.isPremium = g.userdata.premium
+                g.extradata = extra
             except api.PixivError:
                 flash(
                     "Token is not valid anymore (logged out?), so you were signed out.",

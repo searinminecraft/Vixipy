@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-02 14:22+0800\n"
+"POT-Creation-Date: 2025-03-15 22:39+0800\n"
 "PO-Revision-Date: 2025-03-09 07:21+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
-"Language-Team: Chinese (Simplified Han script) <https://"
-"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
+"Language-Team: Chinese (Simplified Han script) "
+"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
+"\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:247
@@ -89,36 +89,44 @@ msgid ""
 "the 3 dots and select 'Open in external browser' to view."
 msgstr "检测到你正在使用 Facebook WebView。请点击三个点图标，选择“在外部浏览器打开”来查看作品。"
 
-#: pyxiv/routes/artworks.py:61 pyxiv/routes/artworks.py:73
-#: pyxiv/routes/artworks.py:85 pyxiv/routes/artworks.py:97
+#: pyxiv/routes/artworks.py:68 pyxiv/routes/artworks.py:86
+#: pyxiv/routes/artworks.py:98 pyxiv/routes/artworks.py:110
+#: pyxiv/routes/artworks.py:122
 msgid "You cannot access this illustration"
 msgstr "无法访问该插画"
 
-#: pyxiv/routes/artworks.py:62
+#: pyxiv/routes/artworks.py:69
+msgid ""
+"This illustration is set to be viewable by logged in users only. Since "
+"this instance is not associated with a pixiv account, you must log in to "
+"view."
+msgstr ""
+
+#: pyxiv/routes/artworks.py:87
 msgid ""
 "This illustration is potentially sensitive. To view it, turn off the "
 "\"Hide potentially sensitive content\" setting."
 msgstr "该插画可能包含敏感内容，必须在设置中关闭“隐藏可能包含敏感内容的作品”才可查看。"
 
-#: pyxiv/routes/artworks.py:74
+#: pyxiv/routes/artworks.py:99
 msgid ""
 "This illustration is AI generated. To view it, turn off the \"Hide AI "
 "generated works\" setting."
 msgstr "该插画为 AI 生成，必须在设置中关闭“隐藏 AI 生成作品”才可查看。"
 
-#: pyxiv/routes/artworks.py:86
+#: pyxiv/routes/artworks.py:111
 msgid ""
 "This illustration is rated as R-18. To view it, turn off the \"Hide "
 "explicit content (R-18)\" setting."
 msgstr "该插画评级为 R-18，必须在设置中关闭“隐藏浏览限制作品（R-18）”才可查看。"
 
-#: pyxiv/routes/artworks.py:98
+#: pyxiv/routes/artworks.py:123
 msgid ""
 "This illustration is rated as R-18G. To view it, turn off the \"Hide ero-"
 "guro (R-18G) content\" setting."
 msgstr "该插画评级为 R-18G，必须在设置中关闭“隐藏猎奇向作品（R-18G）”才可查看。"
 
-#: pyxiv/routes/artworks.py:130
+#: pyxiv/routes/artworks.py:155
 msgid "The creator turned off comments."
 msgstr "作者关闭了评论。"
 
@@ -150,105 +158,105 @@ msgstr "六"
 msgid "Sun"
 msgstr "日"
 
-#: pyxiv/routes/settings.py:138 pyxiv/routes/settings.py:142
+#: pyxiv/routes/settings.py:141 pyxiv/routes/settings.py:145
 msgid "Invalid token"
 msgstr "无效 token"
 
-#: pyxiv/routes/settings.py:157
+#: pyxiv/routes/settings.py:160
 #, python-format
 msgid "An exception occurred trying to log in: %s"
 msgstr "登录时出现异常：%s"
 
-#: pyxiv/routes/settings.py:164
+#: pyxiv/routes/settings.py:167
 #, python-format
 msgid "Cannot use token. pixiv returned code %(status)d"
 msgstr "无法使用 token。pixiv 返回代码 %(status)d"
 
-#: pyxiv/routes/settings.py:178
+#: pyxiv/routes/settings.py:181
 msgid "Unable to extract CSRF"
 msgstr "无法提取 CSRF"
 
-#: pyxiv/routes/settings.py:183
+#: pyxiv/routes/settings.py:186
 msgid "Unable to extract p_ab_d_id"
 msgstr "无法提取 p_ab_d_id"
 
-#: pyxiv/routes/settings.py:194
+#: pyxiv/routes/settings.py:197
 #, python-format
 msgid "Cannot use token: %(error)s"
 msgstr "无法使用 token：%(error)s"
 
-#: pyxiv/routes/settings.py:210
+#: pyxiv/routes/settings.py:213
 msgid "No token was supplied."
 msgstr "没有提供 token。"
 
-#: pyxiv/routes/settings.py:220
+#: pyxiv/routes/settings.py:223
 msgid "You have successfully terminated the session. Goodbye!"
 msgstr "会话已结束。再见！"
 
-#: pyxiv/routes/settings.py:230 pyxiv/routes/settings.py:327
+#: pyxiv/routes/settings.py:233 pyxiv/routes/settings.py:330
 msgid "Successfully set proxy server"
 msgstr "成功设置代理服务器"
 
-#: pyxiv/routes/settings.py:247
+#: pyxiv/routes/settings.py:250
 msgid "Please specify a URL scheme. Only http and https are accepted."
 msgstr "请在 URL 中指定协议，仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:253
+#: pyxiv/routes/settings.py:256
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
 msgstr "URL 协议无效：%(scheme)s。仅支持 http 和 https。"
 
-#: pyxiv/routes/settings.py:262
+#: pyxiv/routes/settings.py:265
 #, python-format
 msgid "This address is not allowed: %(addr)s"
 msgstr "无法使用该地址：%(addr)s"
 
-#: pyxiv/routes/settings.py:268
+#: pyxiv/routes/settings.py:271
 msgid ""
 "Due to limitations in Content-Security-Policy directives, IP Addresses "
 "are not supported as a proxy server."
 msgstr "由于 Content-Security-Policy 指令的限制，不支持将 IP 地址指定为代理服务器。"
 
-#: pyxiv/routes/settings.py:302
+#: pyxiv/routes/settings.py:305
 msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr "注意：你指定的代理服务器使用了 Cloudflare。图片可能无法加载，并且可能存在隐私问题。"
 
-#: pyxiv/routes/settings.py:311
+#: pyxiv/routes/settings.py:314
 #, python-format
 msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr "检查图片代理完整性时出错。需要 %(integrity)s，但得到了 %(result)s"
 
-#: pyxiv/routes/settings.py:322
+#: pyxiv/routes/settings.py:325
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
 msgstr "检查代理服务器时出错：%(error)s"
 
-#: pyxiv/routes/settings.py:372
+#: pyxiv/routes/settings.py:375
 msgid "Successfully set preferences"
 msgstr "成功设置首选项"
 
-#: pyxiv/routes/settings.py:383 pyxiv/routes/settings.py:403
+#: pyxiv/routes/settings.py:386 pyxiv/routes/settings.py:406
 #, python-format
 msgid "Invalid language: %(code)s"
 msgstr "语言无效：%(code)s"
 
-#: pyxiv/routes/settings.py:394 pyxiv/routes/settings.py:413
+#: pyxiv/routes/settings.py:397 pyxiv/routes/settings.py:416
 msgid "Successfully set language."
 msgstr "成功设置语言。"
 
-#: pyxiv/routes/settings.py:425
+#: pyxiv/routes/settings.py:428
 msgid "Successfully set theme"
 msgstr "成功设置主题"
 
-#: pyxiv/routes/settings.py:437
+#: pyxiv/routes/settings.py:440
 msgid "Successfully set timezone"
 msgstr "成功设置时区"
 
-#: pyxiv/routes/settings.py:449
+#: pyxiv/routes/settings.py:452
 msgid "Successfully set location"
 msgstr "成功设置位置"
 
@@ -309,8 +317,9 @@ msgid "You cannot follow yourself."
 msgstr "无法关注自己。"
 
 #: pyxiv/routes/userAction.py:186 pyxiv/routes/userAction.py:201
-#: pyxiv/routes/users.py:98 pyxiv/routes/users.py:152 pyxiv/routes/users.py:208
-#: pyxiv/routes/users.py:253 pyxiv/routes/users.py:293
+#: pyxiv/routes/users.py:100 pyxiv/routes/users.py:154
+#: pyxiv/routes/users.py:210 pyxiv/routes/users.py:255
+#: pyxiv/routes/users.py:295
 msgid "Invalid user"
 msgstr "无效用户"
 
@@ -365,10 +374,10 @@ msgid ""
 msgstr "报告 bug 时，若有 traceback，则也请附上。你可以删去诸如 home 目录等信息。"
 
 #: pyxiv/templates/artwork.html:21
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Could not load ugoira. <a href='/proxy/ugoira/%(artworkId)d'>Download the"
-" video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
+"Could not load ugoira. <a href='{{ data.artwork.ugoiraUrl }}'>Download "
+"the video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
 "ugoira.com</a> for more options."
 msgstr ""
 "无法加载动图。<a href='/proxy/ugoira/%(artworkId)d'>下载视频</a>，或<a "
@@ -718,7 +727,7 @@ msgstr "该域名常常用来分享敏感内容或 R-18 内容，大多数需要
 msgid "Continue to site"
 msgstr "继续访问"
 
-#: pyxiv/templates/layouts/default.html:83 pyxiv/templates/newest.html:2
+#: pyxiv/templates/layouts/default.html:86 pyxiv/templates/newest.html:2
 msgid "Newest"
 msgstr "最新"
 
@@ -730,7 +739,7 @@ msgstr "来自所有用户的最新作品"
 msgid "General"
 msgstr "一般"
 
-#: pyxiv/templates/components/navbar.html:22
+#: pyxiv/templates/components/navbar.html:28
 #: pyxiv/templates/notifications.html:2 pyxiv/templates/notifications.html:5
 msgid "Notifications"
 msgstr "通知"
@@ -739,7 +748,7 @@ msgstr "通知"
 msgid "No notifications"
 msgstr "无通知"
 
-#: pyxiv/templates/layouts/default.html:78
+#: pyxiv/templates/layouts/default.html:81
 #: pyxiv/templates/rankingCalendar.html:2
 msgid "Ranking calendar"
 msgstr "排行日历"
@@ -761,7 +770,7 @@ msgstr "之后"
 msgid "Day %(day)s"
 msgstr "第 %(day)s 日"
 
-#: pyxiv/templates/layouts/default.html:74
+#: pyxiv/templates/layouts/default.html:77
 #: pyxiv/templates/pixivision/index.html:23 pyxiv/templates/rankings.html:2
 msgid "Rankings"
 msgstr "排行"
@@ -1044,21 +1053,60 @@ msgstr "最低收藏"
 msgid "Maximum Bookmarks"
 msgstr "最高收藏"
 
-#: pyxiv/templates/components/navbar.html:10
-#: pyxiv/templates/components/navbar.html:39
+#: pyxiv/templates/components/navbar.html:12
+#: pyxiv/templates/components/navbar.html:48
 msgid "Search works..."
 msgstr "搜索作品..."
 
-#: pyxiv/templates/components/navbar.html:14
+#: pyxiv/templates/components/navbar.html:17
 #: pyxiv/templates/messages/index.html:8 pyxiv/templates/messages/index.html:19
 msgid "Messages"
 msgstr "消息"
 
-#: pyxiv/templates/components/navbar.html:34
+#: pyxiv/templates/components/navbar.html:43
 #: pyxiv/templates/settings/account.html:10
 #: pyxiv/templates/settings/account.html:30
 msgid "Log in"
 msgstr "登录"
+
+#: pyxiv/templates/components/navbar.html:57
+#, python-format
+msgid "%(following)d following - %(followers)d followers"
+msgstr ""
+
+#: pyxiv/templates/components/navbar.html:58
+#, python-format
+msgid "User ID: %(id)d"
+msgstr ""
+
+#: pyxiv/templates/components/navbar.html:67
+#: pyxiv/templates/layouts/default.html:139
+msgid "Profile"
+msgstr "资料"
+
+#: pyxiv/templates/components/navbar.html:74
+#: pyxiv/templates/layouts/default.html:143 pyxiv/templates/user/index.html:86
+msgid "Bookmarks"
+msgstr "收藏"
+
+#: pyxiv/templates/components/navbar.html:81
+#, fuzzy
+msgid "Followed Users"
+msgstr "关注的用户"
+
+#: pyxiv/templates/components/navbar.html:88
+#: pyxiv/templates/layouts/default.html:111
+#: pyxiv/templates/layouts/default.html:147
+#: pyxiv/templates/settings/settingsMain.html:2
+#: pyxiv/templates/settings/settingsMain.html:8
+msgid "Settings"
+msgstr "设置"
+
+#: pyxiv/templates/components/navbar.html:95
+#: pyxiv/templates/layouts/default.html:151
+#: pyxiv/templates/settings/account.html:46
+msgid "Log out"
+msgstr "退出"
 
 #: pyxiv/templates/layouts/default.html:15
 msgid "Hold up!"
@@ -1081,11 +1129,24 @@ msgstr "如果你知道自己在干什么，那么请在这里贡献：https://c
 msgid "This website requires JavaScript."
 msgstr "本网站需要 JavaScript。"
 
-#: pyxiv/templates/layouts/default.html:69
+#: pyxiv/templates/layouts/default.html:67
+msgid "Explore"
+msgstr ""
+
+#: pyxiv/templates/layouts/default.html:72
 msgid "Discover"
 msgstr "发现"
 
-#: pyxiv/templates/layouts/default.html:88
+#: pyxiv/templates/layouts/default.html:92
+msgid "pixivision"
+msgstr "pixivision"
+
+#: pyxiv/templates/layouts/default.html:96
+#, fuzzy
+msgid "Tools"
+msgstr "工具："
+
+#: pyxiv/templates/layouts/default.html:100
 #: pyxiv/templates/ugoiraConverter/converter.html:2
 #: pyxiv/templates/ugoiraConverter/converter.html:30
 #: pyxiv/templates/ugoiraConverter/index.html:2
@@ -1093,34 +1154,26 @@ msgstr "发现"
 msgid "Ugoira Converter"
 msgstr "动图转换器"
 
-#: pyxiv/templates/layouts/default.html:92
-msgid "pixivision"
-msgstr "pixivision"
+#: pyxiv/templates/layouts/default.html:103
+msgid "Miscellaneous"
+msgstr ""
 
-#: pyxiv/templates/layouts/default.html:96 pyxiv/templates/news/category.html:2
-#: pyxiv/templates/news/category.html:24 pyxiv/templates/news/index.html:2
+#: pyxiv/templates/layouts/default.html:107
+#: pyxiv/templates/news/category.html:2 pyxiv/templates/news/category.html:24
+#: pyxiv/templates/news/index.html:2
 msgid "pixiv News"
 msgstr "pixiv 新闻"
 
-#: pyxiv/templates/layouts/default.html:100
-#: pyxiv/templates/layouts/default.html:128
-#: pyxiv/templates/settings/settingsMain.html:2
-#: pyxiv/templates/settings/settingsMain.html:8
-msgid "Settings"
-msgstr "设置"
+#: pyxiv/templates/layouts/default.html:115
+#: pyxiv/templates/settings/about.html:6
+#: pyxiv/templates/settings/settingsMain.html:40
+msgid "About Vixipy"
+msgstr "关于 Vixipy"
 
-#: pyxiv/templates/layouts/default.html:120
-msgid "Profile"
-msgstr "资料"
-
-#: pyxiv/templates/layouts/default.html:124 pyxiv/templates/user/index.html:86
-msgid "Bookmarks"
-msgstr "收藏"
-
-#: pyxiv/templates/layouts/default.html:132
-#: pyxiv/templates/settings/account.html:46
-msgid "Log out"
-msgstr "退出"
+#: pyxiv/templates/layouts/default.html:119
+#: pyxiv/templates/settings/settingsMain.html:48
+msgid "Source Code"
+msgstr "源代码"
 
 #: pyxiv/templates/messages/index.html:22
 msgid ""
@@ -1229,11 +1282,6 @@ msgstr "精选"
 msgid "Articles"
 msgstr "文章"
 
-#: pyxiv/templates/settings/about.html:6
-#: pyxiv/templates/settings/settingsMain.html:40
-msgid "About Vixipy"
-msgstr "关于 Vixipy"
-
 #: pyxiv/templates/settings/about.html:8
 msgid ""
 "Vixipy is a free and open source, privacy respecting pixiv frontend, "
@@ -1317,11 +1365,11 @@ msgid ""
 "are:"
 msgstr "Vixipy 的诞生离不开以下开源项目："
 
-#: pyxiv/templates/settings/about.html:42
+#: pyxiv/templates/settings/about.html:43
 msgid "Disclaimer"
 msgstr "免责声明"
 
-#: pyxiv/templates/settings/about.html:43
+#: pyxiv/templates/settings/about.html:44
 msgid ""
 "Vixipy is an unofficial pixiv frontend and is not made, approved or "
 "affiliated by pixiv (pixiv Inc.). This software has absolutely NO "
@@ -1329,7 +1377,7 @@ msgid ""
 "suspended are not guaranteed."
 msgstr ""
 
-#: pyxiv/templates/settings/about.html:45
+#: pyxiv/templates/settings/about.html:46
 msgid ""
 "All works that are shown in this instance are originated from pixiv, and "
 "owned by their respective artists/authors. No copyright infringement is "
@@ -1428,12 +1476,12 @@ msgid "You can select your prefered language here."
 msgstr "在此选择偏好语言。"
 
 #: pyxiv/templates/settings/language.html:15
-#: pyxiv/templates/settings/language.html:51
+#: pyxiv/templates/settings/language.html:53
 msgid "Use system language"
 msgstr "使用系统语言"
 
 #: pyxiv/templates/settings/language.html:22
-#: pyxiv/templates/settings/language.html:58
+#: pyxiv/templates/settings/language.html:60
 msgid "Set language"
 msgstr "设置语言"
 
@@ -1446,34 +1494,34 @@ msgstr ""
 "没有你的语言，或者翻译有误？可以<a href='https://translate.codeberg.org/engage/vixipy' "
 "target='_blank'>帮助我们翻译！</a>"
 
-#: pyxiv/templates/settings/language.html:27
+#: pyxiv/templates/settings/language.html:28
 #, fuzzy
 msgid "Location"
 msgstr "标题、说明文字"
 
-#: pyxiv/templates/settings/language.html:37
+#: pyxiv/templates/settings/language.html:38
 #, fuzzy
 msgid "About location settings"
 msgstr "帐号设置"
 
-#: pyxiv/templates/settings/language.html:40
+#: pyxiv/templates/settings/language.html:41
 #, fuzzy
 msgid "Set Location"
 msgstr "标题、说明文字"
 
-#: pyxiv/templates/settings/language.html:43
+#: pyxiv/templates/settings/language.html:45
 msgid "pixivision Language"
 msgstr "pixivision 语言"
 
-#: pyxiv/templates/settings/language.html:45
+#: pyxiv/templates/settings/language.html:47
 msgid "You can set the language for pixivision articles here."
 msgstr "在此处设置 pixivision 文章语言。"
 
-#: pyxiv/templates/settings/language.html:61
+#: pyxiv/templates/settings/language.html:63
 msgid "Timezone"
 msgstr ""
 
-#: pyxiv/templates/settings/language.html:70
+#: pyxiv/templates/settings/language.html:72
 #, fuzzy
 msgid "Set timezone"
 msgstr "设置主题"
@@ -1557,10 +1605,6 @@ msgstr "帐号"
 #: pyxiv/templates/settings/viewing.html:7
 msgid "Display Settings"
 msgstr "显示设置"
-
-#: pyxiv/templates/settings/settingsMain.html:48
-msgid "Source Code"
-msgstr "源代码"
 
 #: pyxiv/templates/settings/settingsMain.html:52
 msgid "pixiv Premium"
@@ -1789,3 +1833,4 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "Privacy"
 #~ msgstr "隐私"
+

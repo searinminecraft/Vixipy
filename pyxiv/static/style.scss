@@ -222,7 +222,7 @@ select {
   border-radius: 50%;
   transition: 100ms;
 
-  > svg {
+  >svg {
     pointer-events: none
   }
 }
@@ -255,10 +255,6 @@ hr {
 }
 
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: var(--md-sys-color-surface-container);
   position: sticky;
   top: 0;
@@ -354,6 +350,73 @@ header {
           font-size: 12px;
           color: var(--md-sys-color-on-primary)
         }
+      }
+    }
+  }
+}
+
+#account-menu {
+  margin: 1em;
+  margin-top: 1.5em;
+  display: none;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--md-sys-color-surface-container);
+  width: 300px;
+  position: absolute;
+  right: 0;
+
+  &[data-open='1'] {
+    display: block
+  }
+
+  .extra-info {
+    padding: 1em;
+    color: var(--md-sys-color-outline);
+    display: block
+  }
+
+  .user-main {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    background-color: var(--md-sys-color-surface-container-high);
+
+    img {
+      @include profile-picture(64px);
+      margin-right: 1em;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      small {
+        color: var(--md-sys-color-outline)
+      }
+    }
+  }
+
+  nav {
+    padding: 1em;
+
+    a {
+      display: flex;
+      align-items: center;
+      padding: .5em 1em;
+
+      &.danger {
+        color: var(--md-sys-color-error)
+      }
+
+      svg {
+        fill: currentColor;
+        margin-right: 1em;
       }
     }
   }
@@ -1263,6 +1326,12 @@ div.taglist {
   background-color: var(--md-sys-color-surface-container);
   transition: 250ms cubic-bezier(0, .96, .42, .97);
   padding: 1em;
+  overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none
+  }
 
   &[data-visible] {
     transform: translateX(0)
