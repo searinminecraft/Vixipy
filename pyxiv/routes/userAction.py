@@ -169,8 +169,23 @@ async def notifications():
 
 @userAction.post("/favorite_tags/save")
 async def addTagToFavorites():
-    await api.addTagToFavorites(request.form["tag"])
-    return await redirect(request.args.get("r", "/"))
+    f = await request.form
+    tag = f["add"]
+    current = f["tags"].split(",")
+
+    await api.addTagToFavorites(current)
+    return redirect(url_for("tag.tagMain", name=tag))
+
+
+@userAction.post("/favorite_tags/delete")
+async def removeTagFromFavorites():
+    f = await request.form
+    tags = f["tags"].split(",")
+    print(tags)
+    tags.remove(f["remove"])
+    print(tags)
+    await api.addTagToFavorites(tags)
+    return redirect(url_for("tag.tagMain", name=f["remove"]))
 
 
 @userAction.route("/followUser/<int:_id>")

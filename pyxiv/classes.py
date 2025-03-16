@@ -238,15 +238,10 @@ class TagInfo:
         self.abstract: str = (
             data["pixpedia"]["abstract"] if data["pixpedia"].get("abstract") else None
         )
-        self.image: str = (
-            makeProxy(data["pixpedia"]["image"])
-            if data["pixpedia"].get("image")
-            else "/static/yanami.png"
-        )
-        self.imageId: int = (
-            int(data["pixpedia"]["id"]) if data["pixpedia"].get("id") else 121839265
-        )
+        self.image: str = makeProxy(data["pixpedia"].get("image"))
+        self.imageId: int = data["pixpedia"].get("id")
         self.imageTag: str = data["pixpedia"]["tag"]
+        self.favoriteTags: list[str] = data["myFavoriteTags"]
 
         try:
             self.enTranslation: str = (

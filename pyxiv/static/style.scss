@@ -68,7 +68,7 @@ button.button {
 
   &.neutral {
     color: var(--md-sys-color-on-surface);
-    background-color: var(--md-sys-color-outline)
+    background-color: var(--md-sys-color-surface-container-high)
   }
 }
 
@@ -85,7 +85,7 @@ a.button {
 
   &.neutral {
     color: var(--md-sys-color-on-surface);
-    background-color: var(--md-sys-color-outline)
+    background-color: var(--md-sys-color-surface-container-high)
   }
 }
 
@@ -602,6 +602,39 @@ main {
   }
 }
 
+.tag-main {
+  display: flex;
+  padding: .5em;
+  align-items: center;
+
+  img {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-right: 1.5em;
+    background-color: var(--md-sys-color-surface-container-low);
+    box-shadow: var(--md-sys-color-tertiary) .5em .5em
+  }
+
+  .info {
+    flex: 1;
+    margin-right: 1em;
+  }
+
+  .title {
+    margin: unset;
+
+    margin-bottom: .5em;
+
+    small {
+      color: var(--md-sys-color-outline);
+      font-weight: normal;
+    }
+  }
+}
+
 .artwork-entry {
   $max: 175px;
   max-width: $max;
@@ -765,11 +798,16 @@ div.taglist {
     overflow: hidden;
     overflow-x: scroll;
     scrollbar-width: none;
+    align-items: center;
     padding: 1em;
 
     >* {
       flex-shrink: 0
     }
+  }
+
+  &.no-padding {
+    padding: unset;
   }
 }
 
@@ -985,45 +1023,6 @@ div.taglist {
     border: unset;
     height: unset;
     resize: vertical;
-  }
-}
-
-.tag-main {
-  position: relative;
-
-  .backdrop-img {
-    position: absolute;
-    object-fit: cover;
-    border-radius: 24px;
-    z-index: -1;
-    background-color: var(--md-sys-color-surface-container);
-    width: 100%;
-    height: 100%;
-  }
-
-  .tag-meta {
-    display: flex;
-    width: 100%;
-    min-height: 300px;
-    border-radius: 24px;
-
-    img {
-      height: 100%;
-      width: 350px;
-      object-fit: cover;
-      background-color: var(--md-sys-color-surface-dim);
-      margin-right: 2em;
-      border-radius: 24px 16px 16px 24px;
-
-      .tag-info div {
-        padding-right: 2em;
-
-        p {
-          word-wrap: anywhere;
-          word-break: break-word
-        }
-      }
-    }
   }
 }
 
@@ -1915,6 +1914,20 @@ div#ranking-calendar {
     text-align: center;
   }
 
+  .tag-main {
+    flex-direction: column;
+
+    img {
+      margin-right: unset;
+    }
+
+    .info {
+      text-align: center;
+      margin-right: unset;
+      margin: 1em 0
+    }
+  }
+
   header {
     #searchbox {
       display: none
@@ -1983,26 +1996,6 @@ div#ranking-calendar {
 
     .user-data {
       width: 100% !important
-    }
-  }
-
-  .tag-meta {
-    flex-direction: column;
-
-    .imglink img {
-      width: 100%;
-      height: 250px;
-      object-position: top;
-      border-radius: 24px 24px 16px 16px;
-      margin-right: unset !important
-    }
-
-    .tag-info {
-      padding: 1em;
-
-      >div {
-        padding-right: unset !important;
-      }
     }
   }
 

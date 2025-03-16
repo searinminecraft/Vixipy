@@ -517,9 +517,9 @@ async def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
     )
 
 
-async def addTagToFavorites(tag: str):
+async def addTagToFavorites(tag: list[str]):
     return await pixivReq(
-        "post", f"/ajax/favorite_tags/save", jsonPayload={"tags": [tag]}
+        "post", f"/ajax/favorite_tags/save", jsonPayload={"tags": tag}
     )
 
 

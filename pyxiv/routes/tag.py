@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from quart import (
     Blueprint,
     g,
@@ -11,12 +13,18 @@ from quart import (
 from quart_rate_limiter import RateLimit, limit_blueprint, timedelta
 from ..core.search import searchArtwork, getTagInfo
 from asyncio import gather
+from typing import TYPE_CHECKING
+import logging
 
 tag = Blueprint("tag", __name__, url_prefix="/tag")
 limit_blueprint(
     tag,
     limits=[RateLimit(1, timedelta(seconds=3)), RateLimit(15, timedelta(minutes=1))],
 )
+log = logging.getLogger("vixipy.routes.tag")
+
+if TYPE_CHECKING:
+    from ..classes import TagInfo, SearchResults
 
 
 @tag.route("/<path:name>")
@@ -38,7 +46,16 @@ async def tagMain(name):
     except Exception:
         abort(400)
 
+    data: SearchResults
+    tagInfo: TagInfo
+
     g.tag = name
+    favoriteTags: list[str] = tagInfo.favoriteTags
+    favoriteTagsC = favoriteTags.copy()
+    inf = name in favoriteTags
+
+    if not inf:
+        favoriteTagsC.append(name)
 
     try:
         currPage = actual.pop("p")
@@ -69,6 +86,8 @@ async def tagMain(name):
         path=path,
         useSym=useSym,
         gobeyond=overridepagecount,
+        favoriteTags=favoriteTagsC,
+        tagInFavorites=inf,
     )
 
 

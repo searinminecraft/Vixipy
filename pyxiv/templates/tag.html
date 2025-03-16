@@ -2,26 +2,29 @@
 {% block title %}{{ tagInfo.tag }}{% endblock %}
 {% block content %}
 
-<div class="container">
-	<div class="tag-main">
-    <!-- <img class="backdrop-img" src="{{ tagInfo.image }}"/> -->
-		<div class="tag-meta">
-			<a class="imglink" href="/artworks/{{ tagInfo.imageId }}">
-				<img src="{{ tagInfo.image }}"  alt="#{{ tagInfo.tag }}" title="#{{ tagInfo.tag }}"/>
-			</a>
-			<div class="tag-info">
-				<div>
-					{% if tagInfo.enTranslation %}
-					<h2>#{{ tagInfo.tag }} <i>{{ tagInfo.enTranslation }}</i></h2>
-					{% else %}
-					<h2>#{{ tagInfo.tag }}</h2>
-					{% endif %}
-					<small>{{ _("%(total)s works", total=data.total|numberformat) }}</small>
-					<p>{{ tagInfo.abstract }}</p>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="tag-main">
+  {% if tagInfo.image %}
+  <img src="{{tagInfo.image}}" alt="{{tagInfo.tag}}" loading="lazy">
+  {% endif %}
+  <div class="info">
+    <h2 class="title">#{{tagInfo.tag}}{% if tagInfo.enTranslation %} <small>{{tagInfo.enTranslation}}</small>{% endif %}</h2>
+    <span class="workcount">{{ _("<b>%(total)s</b> works", total=data.total|numberformat) }}</span>
+    {% if tagInfo.abstract %}
+    <p>{{ tagInfo.abstract }}</p>
+    {% endif %}
+  </div>
+  {% if g.isAuthorized %}
+  <form action="/self/favorite_tags/{% if tagInFavorites %}delete{% else %}save{% endif %}" method="post">
+    <input type="hidden" name="tags" value="{{','.join(favoriteTags)}}">
+    {% if tagInFavorites %}
+    <input type="hidden" name="remove" value="{{tagInfo.tag}}">
+    <button type="submit" class="button neutral">{{_("Remove from favorites")}}</button>
+    {% else %}
+    <input type="hidden" name="add" value="{{tagInfo.tag}}">
+    <button type="submit" class="button">{{_("Add to favorites")}}</button>
+    {% endif %}
+  </form>
+  {% endif %}
 </div>
 
 <br>
@@ -35,16 +38,14 @@
 
 <div class="container">
 	<h2>{{ _("Related tags") }}</h2>
-	<div class="related-tags">
-		{% for tag in data.relatedTags %}
-		<div class="tag">
-			<a href="/tag/{{ tag.tag }}">#{{ tag.tag }}</a>
-			{% if tag.enTranslation %}
-			<i>{{ tag.enTranslation }}</i>
-			{% endif %}
-		</div>
-		{% endfor %}
-	</div>
+  <div class="taglist scroll no-padding">
+    {% for tag in data.relatedTags %}
+    <span>
+      <a href="/tag/{{tag.tag}}">#{{ tag.tag }}</a>
+      {{ tag.enTranslation }}
+    </span>
+    {% endfor %}
+  </div>
 </div>
 
 {% if currPage | int == 1 %}

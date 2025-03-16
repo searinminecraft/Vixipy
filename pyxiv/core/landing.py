@@ -82,9 +82,24 @@ async def getLandingPage(mode: str) -> LandingPageLoggedIn:
         res.artworks = filterEntriesFromPreferences(res.artworks)
         recommendByTag.append(res)
 
+    for ft in data["page"]["myFavoriteTags"]:
+        if ft in data["tagTranslation"]:
+            translation = (
+                data["tagTranslation"][ft].get("en")
+                if data["tagTranslation"][ft].get("en", "") != ""
+                else data["tagTranslation"][ft]["romaji"]
+            )
+        else:
+            translation = None
+        tags.append(SimpleTag({"tag": ft, "tag_translation": translation}))
+
     for tag in data["page"]["tags"]:
         if tag["tag"] in data["tagTranslation"]:
-            translation = data["tagTranslation"][tag["tag"]].get("en")
+            translation = (
+                data["tagTranslation"][tag["tag"]]["en"]
+                if data["tagTranslation"][tag["tag"]].get("en", "") != ""
+                else data["tagTranslation"][tag["tag"]]["romaji"]
+            )
         else:
             translation = None
         tags.append(SimpleTag({"tag": tag["tag"], "tag_translation": translation}))
