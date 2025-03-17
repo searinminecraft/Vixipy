@@ -347,18 +347,8 @@ class PartialArtwork:
             # dont append jump.php when pixiv has already done this for us
             if link.get("href").__contains__("/jump.php?"):
                 continue
-
-            l = link.get("href")
-            replacePixiv = ("users", "artworks")
-
-            if l.__contains__("https://www.pixiv.net") and any(
-                [l.__contains__(x) for x in replacePixiv]
-            ):
-                link.attrs["href"] = "/" + "/".join(
-                    l.split("https://www.pixiv.net")[1].split("/")[2:]
-                )
             else:
-                link.attrs["href"] = "/jump.php?" + quote(l)
+                link.attrs["href"] = makeJumpPhp(link.get("href"))
 
         self.description = str(soupDesc)
         self.descriptionRaw = soupDesc.text

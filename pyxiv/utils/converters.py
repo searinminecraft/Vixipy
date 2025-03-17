@@ -15,7 +15,7 @@ def makeJumpPhp(url: str) -> str:
         if _url.path.startswith("/artworks"):
             return f"/artworks/{_url.path.split('/').pop()}"
         if _url.path.startswith("/users"):
-            return f"/users/{_url.path.split('/').pop()}"
+            return _url.path
 
     return f"/jump.php?url={quote(url)}"
 

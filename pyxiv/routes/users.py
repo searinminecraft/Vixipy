@@ -93,7 +93,7 @@ async def userPage(_id: int):
     )
 
 
-@users.route("/<int:_id>/illusts")
+@users.route("/<int:_id>/illustrations")
 async def userIllusts(_id: int):
 
     if _id == 0:
