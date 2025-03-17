@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-15 22:39+0800\n"
-"PO-Revision-Date: 2025-03-09 07:21+0000\n"
+"PO-Revision-Date: 2025-03-17 14:00+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:247
@@ -100,7 +100,7 @@ msgid ""
 "This illustration is set to be viewable by logged in users only. Since "
 "this instance is not associated with a pixiv account, you must log in to "
 "view."
-msgstr ""
+msgstr "该插画设置为仅登录用户可见。本实例没有关联 pixiv 帐号，你必须登录才能查看。"
 
 #: pyxiv/routes/artworks.py:87
 msgid ""
@@ -380,8 +380,9 @@ msgid ""
 "the video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
 "ugoira.com</a> for more options."
 msgstr ""
-"无法加载动图。<a href='/proxy/ugoira/%(artworkId)d'>下载视频</a>，或<a "
-"href='/proxy/ugoira/%(artworkId)d'>前往 ugoira.com</a> 进行更多操作。"
+"无法加载动图。<a href='{{ data.artwork.ugoiraUrl }}'>下载视频</a>，或<a "
+"href='<a href='https://ugoira.com/i/%(artworkId)d'>'>前往 ugoira.com</a> "
+"进行更多操作。"
 
 #: pyxiv/templates/artwork.html:27
 msgid "Download"
@@ -1072,12 +1073,12 @@ msgstr "登录"
 #: pyxiv/templates/components/navbar.html:57
 #, python-format
 msgid "%(following)d following - %(followers)d followers"
-msgstr ""
+msgstr "%(following)d 已关注 - %(followers)d 粉丝"
 
 #: pyxiv/templates/components/navbar.html:58
 #, python-format
 msgid "User ID: %(id)d"
-msgstr ""
+msgstr "用户 ID：%(id)d"
 
 #: pyxiv/templates/components/navbar.html:67
 #: pyxiv/templates/layouts/default.html:139
@@ -1131,7 +1132,7 @@ msgstr "本网站需要 JavaScript。"
 
 #: pyxiv/templates/layouts/default.html:67
 msgid "Explore"
-msgstr ""
+msgstr "发现"
 
 #: pyxiv/templates/layouts/default.html:72
 msgid "Discover"
@@ -1142,9 +1143,8 @@ msgid "pixivision"
 msgstr "pixivision"
 
 #: pyxiv/templates/layouts/default.html:96
-#, fuzzy
 msgid "Tools"
-msgstr "工具："
+msgstr "工具"
 
 #: pyxiv/templates/layouts/default.html:100
 #: pyxiv/templates/ugoiraConverter/converter.html:2
@@ -1156,7 +1156,7 @@ msgstr "动图转换器"
 
 #: pyxiv/templates/layouts/default.html:103
 msgid "Miscellaneous"
-msgstr ""
+msgstr "杂项"
 
 #: pyxiv/templates/layouts/default.html:107
 #: pyxiv/templates/news/category.html:2 pyxiv/templates/news/category.html:24
@@ -1182,29 +1182,29 @@ msgid ""
 "href='https://policies.pixiv.net'>pixiv Service Master Terms of Use</a>. "
 "Don't send sensitive information!"
 msgstr ""
+"<b>提醒：</b>所有消息都没有端到端加密，并遵循<a rel='noopener noreferrer' "
+"href='https://policies.pixiv.net'>pixiv 主使用条款</a>。不要发送敏感信息！"
 
 #: pyxiv/templates/messages/message.html:36
 msgid "This thread is reserved for important pixiv messages"
-msgstr ""
+msgstr "此对话专用于发送重要 pixiv 信息"
 
 #: pyxiv/templates/messages/message.html:37
 msgid "pixiv nor Vixipy will never ask for login information or session tokens"
-msgstr ""
+msgstr "pixiv 和 Vixipy 不会询问帐号信息或 session token"
 
 #: pyxiv/templates/messages/message.html:47
-#, fuzzy
 msgid "Remove"
-msgstr "预览"
+msgstr "移除"
 
 #: pyxiv/templates/messages/message.html:53
-#, fuzzy
 msgid "Upload image"
-msgstr "封面图片"
+msgstr "上传图片"
 
 #: pyxiv/templates/messages/message.html:57
-#, fuzzy, python-format
+#, python-format
 msgid "Message %(name)s"
-msgstr "消息"
+msgstr "消息 %(name)s"
 
 #: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:17
 #: pyxiv/templates/news/index.html:8
@@ -1306,14 +1306,12 @@ msgstr ""
 "href='https://0xacab.org/dCF/deCloudflare'>有非常多的问题。</a>"
 
 #: pyxiv/templates/settings/about.html:14
-#, fuzzy
 msgid ""
 "With Vixipy, you can enjoy using most pixiv features with a frontend you "
 "can trust. Your browser will never connect to any external server except "
 "if you specify an external image proxy server."
-msgstr ""
-"Vixipy 是一个可以信赖的 pixiv 前端。除非指定了外部图片代理服务器，否则浏览器不会连接到任何外部服务器。Vixipy 只会记录 "
-"pixiv API 请求、你的用户代理（UA），以及及图片代理请求（除非你使用了外部图片代理服务器，这时你得确保它能妥善处理隐私）。"
+msgstr "Vixipy 是一个可以信赖的 pixiv "
+"前端。除非指定了外部图片代理服务器，否则浏览器不会连接到任何外部服务器。"
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
@@ -1336,11 +1334,10 @@ msgid ""
 msgstr "Vixipy 现在、以后都不会是任何 pixiv 前端的竞品。当然，Vixipy 确实会从其他前端汲取灵感，但会在需要时署名及鸣谢。"
 
 #: pyxiv/templates/settings/about.html:22
-#, fuzzy
 msgid ""
 "Performance-wise, Vixipy is sometimes faster or on par with other pixiv "
 "frontends."
-msgstr "性能方面，Vixipy 稍微弱于其他 pixiv 前端，但有时候和其他齐平。"
+msgstr "性能方面，Vixipy 相较其他前端齐平，有时更快。"
 
 #: pyxiv/templates/settings/about.html:24
 msgid "What makes Vixipy unique?"
@@ -1465,7 +1462,7 @@ msgstr ""
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:36
 msgid "Language and location"
-msgstr ""
+msgstr "语言和位置"
 
 #: pyxiv/templates/settings/language.html:8
 msgid "Language"
@@ -1495,19 +1492,16 @@ msgstr ""
 "target='_blank'>帮助我们翻译！</a>"
 
 #: pyxiv/templates/settings/language.html:28
-#, fuzzy
 msgid "Location"
-msgstr "标题、说明文字"
+msgstr "位置"
 
 #: pyxiv/templates/settings/language.html:38
-#, fuzzy
 msgid "About location settings"
-msgstr "帐号设置"
+msgstr "关于位置设置"
 
 #: pyxiv/templates/settings/language.html:41
-#, fuzzy
 msgid "Set Location"
-msgstr "标题、说明文字"
+msgstr "设置位置"
 
 #: pyxiv/templates/settings/language.html:45
 msgid "pixivision Language"
@@ -1519,12 +1513,11 @@ msgstr "在此处设置 pixivision 文章语言。"
 
 #: pyxiv/templates/settings/language.html:63
 msgid "Timezone"
-msgstr ""
+msgstr "时区"
 
 #: pyxiv/templates/settings/language.html:72
-#, fuzzy
 msgid "Set timezone"
-msgstr "设置主题"
+msgstr "设置时区"
 
 #: pyxiv/templates/settings/license.html:6
 #: pyxiv/templates/settings/settingsMain.html:44
@@ -1833,4 +1826,3 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "Privacy"
 #~ msgstr "隐私"
-
