@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-15 22:39+0800\n"
-"PO-Revision-Date: 2025-03-02 13:39+0000\n"
+"PO-Revision-Date: 2025-03-17 02:21+0000\n"
 "Last-Translator: Kita Ikuyo <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:247
@@ -109,6 +110,9 @@ msgid ""
 "this instance is not associated with a pixiv account, you must log in to "
 "view."
 msgstr ""
+"Nakatakda ang illustration na makikita lamang ng mga naka-login na user. "
+"Dahil ang instance na ito ay hindi nauugnay sa isang pixiv account, "
+"kailangan mong mag-login para makita ito."
 
 #: pyxiv/routes/artworks.py:87
 msgid ""
@@ -400,16 +404,15 @@ msgstr ""
 "mong tanggalin ang mga impormasyon tulad ng iyong home folder."
 
 #: pyxiv/templates/artwork.html:21
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not load ugoira. <a href='{{ data.artwork.ugoiraUrl }}'>Download "
 "the video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
 "ugoira.com</a> for more options."
 msgstr ""
-"Hindi ma-load ang ugoira. <a "
-"href='/proxy/ugoira/%(artworkId)d'>I-download ang video</a>, o <a "
-"href='https://ugoira.com/i/%(artworkId)d'>pumunta sa ugoira.com</a> para "
-"sa higit pang mga opsyon."
+"Hindi ma-load ang ugoira. <a href='{{ data.artwork.ugoiraUrl }}'>I-download "
+"ang video</a>, o <a href='https://ugoira.com/i/%(artworkId)d'>pumunta sa "
+"ugoira.com</a> para sa higit pang mga opsyon."
 
 #: pyxiv/templates/artwork.html:27
 msgid "Download"
@@ -1120,12 +1123,12 @@ msgstr "Mag-log in"
 #: pyxiv/templates/components/navbar.html:57
 #, python-format
 msgid "%(following)d following - %(followers)d followers"
-msgstr ""
+msgstr "%(following)d sinusundan - %(followers)d mga tagasunod"
 
 #: pyxiv/templates/components/navbar.html:58
 #, python-format
 msgid "User ID: %(id)d"
-msgstr ""
+msgstr "ID ng User: %(id)d"
 
 #: pyxiv/templates/components/navbar.html:67
 #: pyxiv/templates/layouts/default.html:139
@@ -1138,9 +1141,8 @@ msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
 #: pyxiv/templates/components/navbar.html:81
-#, fuzzy
 msgid "Followed Users"
-msgstr "mga sinusundan na user"
+msgstr "Mga Sinusundan na User"
 
 #: pyxiv/templates/components/navbar.html:88
 #: pyxiv/templates/layouts/default.html:111
@@ -1184,7 +1186,7 @@ msgstr "Nangangailangan ng JavaScript ang website na ito."
 
 #: pyxiv/templates/layouts/default.html:67
 msgid "Explore"
-msgstr ""
+msgstr "Galugarin"
 
 #: pyxiv/templates/layouts/default.html:72
 msgid "Discover"
@@ -1195,9 +1197,8 @@ msgid "pixivision"
 msgstr "pixivision"
 
 #: pyxiv/templates/layouts/default.html:96
-#, fuzzy
 msgid "Tools"
-msgstr "Gamit:"
+msgstr "Mga Kagamitan"
 
 #: pyxiv/templates/layouts/default.html:100
 #: pyxiv/templates/ugoiraConverter/converter.html:2
@@ -1209,7 +1210,7 @@ msgstr "Converter ng Ugoira"
 
 #: pyxiv/templates/layouts/default.html:103
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Iba pa"
 
 #: pyxiv/templates/layouts/default.html:107
 #: pyxiv/templates/news/category.html:2 pyxiv/templates/news/category.html:24
@@ -2028,4 +2029,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Privacy"
 #~ msgstr "Pagkapribado"
-
