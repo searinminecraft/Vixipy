@@ -996,6 +996,78 @@ class PixivisionEntry:
         self.title: str = data["title"]
 
 
+class NovelAbc:
+    def __init__(self, d):
+        self.id: int = int(d["id"])
+        self.title: str = d["title"]
+        # TODO: figure out genre value
+        self.genre: int = int(d["genre"])
+        self.restrict: int = int(d["restrict"])
+        self.xRestrict: int = int(d["xRestrict"])
+        self.userId: int = int(d["userId"])
+        self.username: str = d["userName"]
+        self.profileImageUrl: str = makeProxy(d.get("profileImageUrl"))
+        self.wordCount: int = d["wordCount"]
+        self.readingTime: int = d["readingTime"]
+        self.useWordCount: bool = d["useWordCount"]
+        self.description: str = d["description"]
+        self.bookmarkCount: int = d["bookmarkCount"]
+        self.isOriginal: bool = d["isOriginal"]
+        self.aiGenerated: bool = d["aiType"] == 2
+
+
+class NovelEntry(NovelAbc):
+    def __init__(self, d):
+        super().__init__(d)
+        self.createDate: datetime = datetime.fromisoformat(d["createDate"])
+        self.updateDate: datetime = datetime.fromisoformat(d["updateDate"])
+        self.bookmarkData: dict = d["bookmarkData"]
+        self.bookmarked: bool = self.bookmarkData is not None
+        self.isMasked: bool = d["isMasked"]
+        self.isUnlisted: bool = d["isUnlisted"]
+        self.tags: list[str] = d["tags"]
+
+
+class Novel(NovelAbc):
+    def __init__(self, d):
+        super().__init__(d)
+        self.createDate: datetime = datetime.fromisoformat(d["createDate"])
+        self.bookmarkData: dict = d["bookmarkData"]
+        self.bookmarked: bool = self.bookmarkData is not None
+        self.tags: list[str] = [x["tag"] for x in d["tags"]["tags"]]
+        self.description: str = d["description"]
+        self.content: str = d["content"]
+        self.isBungei: bool = d["isBungei"]
+        self.coverUrl: str = makeProxy(d["coverUrl"])
+        self.ogp: str = d["extraData"]["meta"]["ogp"]["description"]
+        self.ogpImage: str = d["extraData"]["meta"]["ogp"]["image"]
+
+
+class NovelSeries(NovelAbc):
+    def __init__(self, d):
+        super().__init__(d)
+        self.textCount: int = d.get("textCount", d["textLength"])
+        self.coverSmall: str = makeProxy(d["cover"]["240mw"])
+        self.coverLarge: str = makeProxy(d["cover"]["480mw"])
+        self.cover: str = makeProxy(d["cover"]["1200x1200"])
+        self.createDate: datetime = datetime.fromisoformat(d["createDateTime"])
+        self.updateDate: datetime = datetime.fromisoformat(d["updateDateTime"])
+        self.isOneshot: bool = d["isOneshot"]
+        self.isConcluded: bool = d["isConcluded"]
+        self.episodeCount: int = d["episodeCount"]
+        self.publishedEpisodeCount: int = d["publishedEpisodeCount"]
+        self.latestPublishDate: datetime = datetime.fromisoformat(
+            d["latestPublishDateTime"]
+        )
+        self.latestEpisodeId: int = int(d["latestEpisodeId"])
+        self.isWatched: bool = d["isWatched"]
+        self.isNotifying: bool = d["isNotifying"]
+        self.publishedTextLength: int = d["publishedTextLength"]
+        self.publishedWordCount: int = d["publishedWordCount"]
+        self.publishedReadingTime: int = d["publishedReadingTime"]
+        self.tags: list[str] = d["tags"]
+
+
 class RecommendByTag:
     def __init__(self, name: str, artworks: list[ArtworkEntry]):
         self.name: str = name

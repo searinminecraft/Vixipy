@@ -155,9 +155,6 @@ async def pixivReq(
             endpoint += "?lang=en"
 
     log.info(f"Requesting {endpoint} with method {method}...")
-    log.debug(
-        "Headers: %s", {**current_app.pixivApi.headers, **headers, **additionalHeaders}
-    )
 
     start = time.perf_counter()
     req = await current_app.pixivApi.request(
@@ -172,7 +169,6 @@ async def pixivReq(
     log.info(
         f"{endpoint} Result status {req.status} {HTTPStatus(req.status).name} - {round((end - start) * 1000)}ms"
     )
-    log.debug(req.request_info)
 
     if req.status == 429:
         raise PixivError("Rate limited")
@@ -717,3 +713,11 @@ async def getMessageThreadContents(
         path,
         additionalHeaders={"Referer": "https://www.pixiv.net/messages.php"},
     )
+
+
+async def getNovel(id: int):
+    return await pixivReq("get", f"/ajax/novel/{id}")
+
+
+async def getRecommendedNovels(id: int, limit: int = 15):
+    return await pixivReq("get", f"/ajax/novel/{id}/recommend/init?limit={limit}")
