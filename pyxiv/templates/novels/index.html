@@ -1,0 +1,43 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{ _("Novels") }}{% endblock %}
+{% set mode = request.args.get("mode", "all") %}
+{% block content %}
+
+{% if g.get('omittedByFilter') %}
+<i>{{ _("Some entries have been hidden due to filters") }}</i>
+{% endif %}
+
+<div class="component-header">
+  <ul class="tab-navigation">
+    <li><a href="/">{{ _("Illustrations") }}</a></li>
+    <li><a href="/manga">{{ _("Manga") }}</a></li>
+    <li class="active"><a href="">{{_("Novels")}}</a></li>
+  </ul>
+  <div class="choice-toggle">
+    <a {% if mode=="all" %}class="active"{% endif %} href="?mode=all">{{ _("All") }}</a>
+    <a {% if mode=="r18" %}class="active"{% endif %} href="?mode=r18">R-18</a>
+  </div>
+</div>
+
+<h2>{{_("Latest from following")}}</h2>
+<div class="novel-container">
+    {% for d in following %}
+    {% include "components/novel-entry.html" %}
+    {% endfor %}
+</div>
+
+<h2>{{_("Popular original novels")}}</h2>
+<div class="novel-container">
+    {% for d in popular_novel_series %}
+    {% include "components/novel-entry.html" %}
+    {% endfor %}
+</div>
+
+<h2>{{_("Recommended works")}}</h2>
+<div class="novel-container">
+    {% for d in recommended %}
+    {% include "components/novel-entry.html" %}
+    {% endfor %}
+</div>
+
+{% endblock %}

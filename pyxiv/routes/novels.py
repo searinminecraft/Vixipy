@@ -1,19 +1,88 @@
+from __future__ import annotations
+
 from quart import (
     Blueprint,
     abort,
     g,
+    render_template,
+    request,
 )
-from ..core.novels import getNovel, getRecommendedNovels
+from ..core.novels import (
+    getNovel,
+    getRecommendedNovels,
+    getLanding,
+    getLatestNovelsFromFollowing,
+)
 from ..core.user import getUser
+from ..classes import NovelEntry, NovelSeries
 from asyncio import gather
+from typing import TYPE_CHECKING, Dict
+import logging
+
+if TYPE_CHECKING:
+    from werkzeug.datastructures import ImmutableDict
+    from ..classes import Novel, User
 
 
 bp = Blueprint("novels", __name__)
+log = logging.getLogger("vixipy.routes.novels")
 
 
 @bp.route("/novels")
 async def novels_root():
-    abort(501)
+    args: ImmutableDict = request.args
+    mode: str = args.get("mode", "all")
+    landing = await getLanding(mode, "novel")
+
+    landing: dict
+
+    novels: Dict[int, NovelEntry] = {}
+    novel_series: Dict[int, NovelSeries] = {}
+    following: list[NovelEntry] = []
+    popular_novel_series: list[NovelSeries] = []
+    recommmended: list[NovelEntry] = []
+
+    for n in landing["body"]["thumbnails"]["novel"]:
+        novels[int(n["id"])] = NovelEntry(n)
+
+    for ns in landing["body"]["thumbnails"]["novelSeries"]:
+        novel_series[int(ns["id"])] = NovelSeries(ns)
+
+    for rec_id in landing["body"]["page"]["recommend"]["ids"]:
+        recommmended.append(novels[int(rec_id)])
+
+    for pop_ns_id in landing["body"]["page"]["popularSeriesIds"]:
+        try:
+            popular_novel_series.append(novel_series[int(pop_ns_id)])
+        except Exception:
+            log.warn(
+                "%d in popularSeriesIds, but not in our novel_series", int(pop_ns_id)
+            )
+
+    for follow_n_id in landing["body"]["page"]["follow"]:
+        try:
+            following.append(novels[int(follow_n_id)])
+        except Exception:
+            log.debug(novels)
+            log.warn(
+                "%d in follow, but not in our novels", int(follow_n_id)
+            )
+
+    log.debug((
+        "Status: Novels: %d, "
+        "Novel Series: %d, "
+        "Popular Series: %d, "
+        "Recommended: %d, "
+        "Following: %d"
+        ),
+        len(novels),
+        len(novel_series),
+        len(popular_novel_series),
+        len(recommmended),
+        len(following)
+    )
+
+    return await render_template("novels/index.html", recommended=recommmended, popular_novel_series=popular_novel_series, following=following)
 
 
 @bp.route("/novels/<int:id>")
@@ -23,6 +92,11 @@ async def novel_main(id: int):
         getUser(data.userId, False),
         getRecommendedNovels(id),
     )
+
+    data: Novel
+    user: User
+    recommended: list[NovelEntry]
+
     return repr(data), {"Content-Type": "text/plain"}
 
 

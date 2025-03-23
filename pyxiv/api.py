@@ -221,11 +221,11 @@ async def getLanding(mode: str = "all", content: str = "illust"):
     return await pixivReq("get", f"/ajax/top/{content}?mode={mode}")
 
 
-async def getLatestFromFollowing(mode: str, page: int):
+async def getLatestFromFollowing(mode: str, page: int, *, content: str = "illust"):
     """
     Get the latest works from users the user is following
     """
-    return await pixivReq("get", f"/ajax/follow_latest/illust?mode={mode}&p={page}")
+    return await pixivReq("get", f"/ajax/follow_latest/{content}?mode={mode}&p={page}")
 
 
 async def getUserInfo(userId: int, full: bool = True):

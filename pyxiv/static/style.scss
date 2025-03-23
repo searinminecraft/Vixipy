@@ -1894,6 +1894,85 @@ div#ranking-calendar {
   }
 }
 
+.novel-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.novel-entry {
+  display: flex;
+
+  img {
+    width: 80px;
+    height: 122px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 1em;
+    flex-shrink: 0;
+    background-color: var(--md-sys-color-surface-container)
+  }
+
+  .info { 
+    flex: 1;
+
+    a.title {
+      color: unset;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    a.author {
+      display: flex;
+      align-items: center;
+      color: unset;
+      margin: 6px 0;
+
+      img {
+        @include profile-picture(24px);
+        margin-right: .5em;
+        flex-shrink: 0;
+      }
+    }
+
+    p {
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1em;
+      margin-top: 8px;
+
+      span {
+        font-size: 12px;
+        color: var(--md-sys-color-outline)
+      }
+    }
+  }
+
+  .metadata {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 8px;
+
+    div.value {
+      background-color: var(--md-sys-color-surface-container);
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+
+      &.r18 {
+        background-color: var(--md-sys-color-error) !important;
+        color: var(--md-sys-color-on-error) !important;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 750px) {
 
   #news {

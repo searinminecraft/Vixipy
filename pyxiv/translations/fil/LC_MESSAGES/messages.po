@@ -7,25 +7,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-15 22:39+0800\n"
+"POT-Creation-Date: 2025-03-23 19:43+0800\n"
 "PO-Revision-Date: 2025-03-17 02:21+0000\n"
 "Last-Translator: Kita Ikuyo <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: pyxiv/app.py:247
+#: pyxiv/app.py:249
 msgid "pixiv Error!"
 msgstr "Error sa pixiv!"
 
-#: pyxiv/app.py:251
+#: pyxiv/app.py:253
 #, python-format
 msgid ""
 "pixiv returned an error trying to request data: <code>%(status)d - "
@@ -34,63 +33,63 @@ msgstr ""
 "Nagbigay ng error ang pixiv habang naghihiling ng data: <code>%(status)d "
 "- %(error)s</code>"
 
-#: pyxiv/app.py:251
+#: pyxiv/app.py:253
 msgid "Unspecified error"
 msgstr "Hindi natukoy na eror"
 
-#: pyxiv/app.py:262
+#: pyxiv/app.py:264
 msgid "Not found"
 msgstr "Hindi nahanap"
 
-#: pyxiv/app.py:263
+#: pyxiv/app.py:265
 msgid "The requested resource could not be found."
 msgstr "Hindi mahanap ang resource na hinihiling."
 
-#: pyxiv/app.py:273
+#: pyxiv/app.py:275
 msgid "Bad request"
 msgstr "Hindi wastong hiling"
 
-#: pyxiv/app.py:274
+#: pyxiv/app.py:276
 msgid "The server could not satisfy the request."
 msgstr "Hindi matugunan ng server ang kahilingan."
 
-#: pyxiv/app.py:284
+#: pyxiv/app.py:286
 msgid "Forbidden"
 msgstr "Pinagbawalan"
 
-#: pyxiv/app.py:285
+#: pyxiv/app.py:287
 msgid "You do not have permission to access this page."
 msgstr "Wala kang pahintulot para i-access ang pahina."
 
-#: pyxiv/app.py:295
+#: pyxiv/app.py:297
 msgid "Unauthorized"
 msgstr "Hindi awtorisado"
 
-#: pyxiv/app.py:297
+#: pyxiv/app.py:299
 msgid "Provide your pixiv PHPSESSID in settings to perform this action."
 msgstr ""
 "Ibigay ang iyong pixiv PHPSESSID sa mga setting para gawin ang aksyon na "
 "ito."
 
-#: pyxiv/app.py:310
+#: pyxiv/app.py:312
 msgid "Method Not Allowed"
 msgstr "Hindi Pinapayagan ang Paraan"
 
-#: pyxiv/app.py:311
+#: pyxiv/app.py:313
 msgid "This method is not allowed for this endpoint"
 msgstr "Hindi pinapayagan ang paraang ito para sa endpoint na ito"
 
-#: pyxiv/app.py:392
+#: pyxiv/app.py:394
 msgid "Your current theme is invalid. Please set the correct theme in settings."
 msgstr ""
 "Hindi wasto ang iyong kaasalukuyang tema. Mangyaring itakda ang tamang "
 "tema sa mga setting."
 
-#: pyxiv/app.py:405
+#: pyxiv/app.py:407
 msgid "Uh oh!"
 msgstr "Ay, naku!"
 
-#: pyxiv/app.py:406
+#: pyxiv/app.py:408
 msgid ""
 "We have detected that you are using the Facebook WebView. Please click "
 "the 3 dots and select 'Open in external browser' to view."
@@ -339,38 +338,38 @@ msgstr "Matagumpay na binura ang komento"
 msgid "Unable to delete comment: %(errorClass)s: %(error)s"
 msgstr "Hindi mabura ang komento: %(errorClass)s: %(error)s"
 
-#: pyxiv/routes/userAction.py:182
+#: pyxiv/routes/userAction.py:197
 msgid "You cannot follow yourself."
 msgstr "Hindi mo maaaring sundan ang sarili mo."
 
-#: pyxiv/routes/userAction.py:186 pyxiv/routes/userAction.py:201
+#: pyxiv/routes/userAction.py:201 pyxiv/routes/userAction.py:216
 #: pyxiv/routes/users.py:100 pyxiv/routes/users.py:154
 #: pyxiv/routes/users.py:210 pyxiv/routes/users.py:255
 #: pyxiv/routes/users.py:295
 msgid "Invalid user"
 msgstr "Hindi wastong user"
 
-#: pyxiv/routes/userAction.py:191
+#: pyxiv/routes/userAction.py:206
 msgid "Could not follow user"
 msgstr "Hindi masundan ang user"
 
-#: pyxiv/routes/userAction.py:193
+#: pyxiv/routes/userAction.py:208
 msgid "Successfully followed user"
 msgstr "Matagumpay na nasundan ang user"
 
-#: pyxiv/routes/userAction.py:206
+#: pyxiv/routes/userAction.py:221
 msgid "Could not unfollow user"
 msgstr "Hindi ma-unfollow ang user"
 
-#: pyxiv/routes/userAction.py:208
+#: pyxiv/routes/userAction.py:223
 msgid "Successfully unfollowed user"
 msgstr "Matagumpay na na-unfollow ang user"
 
-#: pyxiv/routes/userAction.py:248
+#: pyxiv/routes/userAction.py:263
 msgid "Successfully edited details"
 msgstr "Matagumpay na nabago ang mga detalye"
 
-#: pyxiv/routes/userAction.py:312
+#: pyxiv/routes/userAction.py:327
 msgid "Your profile has been updated"
 msgstr "Pinalitan na ang iyong profile"
 
@@ -410,9 +409,10 @@ msgid ""
 "the video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
 "ugoira.com</a> for more options."
 msgstr ""
-"Hindi ma-load ang ugoira. <a href='{{ data.artwork.ugoiraUrl }}'>I-download "
-"ang video</a>, o <a href='https://ugoira.com/i/%(artworkId)d'>pumunta sa "
-"ugoira.com</a> para sa higit pang mga opsyon."
+"Hindi ma-load ang ugoira. <a href='{{ data.artwork.ugoiraUrl "
+"}}'>I-download ang video</a>, o <a "
+"href='https://ugoira.com/i/%(artworkId)d'>pumunta sa ugoira.com</a> para "
+"sa higit pang mga opsyon."
 
 #: pyxiv/templates/artwork.html:27
 msgid "Download"
@@ -434,8 +434,9 @@ msgstr "Limitadong Visibility"
 msgid "AI generated"
 msgstr "Binuo ng AI"
 
-#: pyxiv/templates/artwork.html:84 pyxiv/templates/editDetails.html:55
-#: pyxiv/templates/rankings.html:33
+#: pyxiv/templates/artwork.html:84
+#: pyxiv/templates/components/novel-entry.html:50
+#: pyxiv/templates/editDetails.html:55 pyxiv/templates/rankings.html:33
 msgid "Original"
 msgstr "Orihinal"
 
@@ -452,7 +453,7 @@ msgstr "Antas ng sensitivity: %(sl)d"
 msgid "View on pixiv"
 msgstr "Tignan sa pixiv"
 
-#: pyxiv/templates/artwork.html:152 pyxiv/templates/index.html:115
+#: pyxiv/templates/artwork.html:152 pyxiv/templates/index.html:116
 #: pyxiv/templates/user/main.html:56
 msgid "View all"
 msgstr "Tignan lahat"
@@ -463,12 +464,13 @@ msgstr "Kaugnay"
 
 #: pyxiv/templates/artwork.html:165 pyxiv/templates/discover.html:7
 #: pyxiv/templates/index.html:9 pyxiv/templates/indexManga.html:7
-#: pyxiv/templates/newest.html:7 pyxiv/templates/tag.html:29
+#: pyxiv/templates/newest.html:7 pyxiv/templates/novels/index.html:7
+#: pyxiv/templates/tag.html:32
 msgid "Some entries have been hidden due to filters"
 msgstr "Ang ilang mga entry ay naitago dahil sa mga filter"
 
 #: pyxiv/templates/artwork.html:175 pyxiv/templates/bookmarksSelf.html:25
-#: pyxiv/templates/index.html:104 pyxiv/templates/user/bookmarks.html:25
+#: pyxiv/templates/index.html:105 pyxiv/templates/user/bookmarks.html:25
 #: pyxiv/templates/user/illusts.html:25 pyxiv/templates/user/main.html:48
 #: pyxiv/templates/user/manga.html:25
 msgid "Nothing in here!"
@@ -584,8 +586,8 @@ msgid "Content type"
 msgstr "Uri ng nilalaman"
 
 #: pyxiv/templates/editDetails.html:26 pyxiv/templates/editDetails.html:39
-#: pyxiv/templates/index.html:29 pyxiv/templates/indexManga.html:27
-#: pyxiv/templates/tag.html:133
+#: pyxiv/templates/index.html:30 pyxiv/templates/indexManga.html:28
+#: pyxiv/templates/novels/index.html:17 pyxiv/templates/tag.html:134
 msgid "All"
 msgstr "Lahat"
 
@@ -684,48 +686,55 @@ msgid "Home"
 msgstr "Panimula"
 
 #: pyxiv/templates/index.html:25 pyxiv/templates/indexManga.html:23
-#: pyxiv/templates/newest.html:17 pyxiv/templates/rankings.html:14
-#: pyxiv/templates/user/index.html:84
+#: pyxiv/templates/newest.html:17 pyxiv/templates/novels/index.html:12
+#: pyxiv/templates/rankings.html:14 pyxiv/templates/user/index.html:84
 msgid "Illustrations"
 msgstr "Mga Illustration"
 
 #: pyxiv/templates/index.html:26 pyxiv/templates/indexManga.html:24
-#: pyxiv/templates/newest.html:18 pyxiv/templates/rankings.html:15
-#: pyxiv/templates/user/index.html:85
+#: pyxiv/templates/newest.html:18 pyxiv/templates/novels/index.html:13
+#: pyxiv/templates/rankings.html:15 pyxiv/templates/user/index.html:85
 msgid "Manga"
 msgstr "Mga Manga"
 
-#: pyxiv/templates/index.html:35
+#: pyxiv/templates/index.html:27 pyxiv/templates/indexManga.html:25
+#: pyxiv/templates/novels/index.html:2 pyxiv/templates/novels/index.html:14
+#, fuzzy
+msgid "Novels"
+msgstr "Balita"
+
+#: pyxiv/templates/index.html:36 pyxiv/templates/novels/index.html:22
 msgid "Latest from following"
 msgstr "Pinakabago mula sa mga sinusundan"
 
-#: pyxiv/templates/index.html:42 pyxiv/templates/index.html:55
-#: pyxiv/templates/indexManga.html:40 pyxiv/templates/news/category.html:37
-#: pyxiv/templates/news/index.html:34 pyxiv/templates/tag.html:87
+#: pyxiv/templates/index.html:43 pyxiv/templates/index.html:56
+#: pyxiv/templates/indexManga.html:41 pyxiv/templates/news/category.html:37
+#: pyxiv/templates/news/index.html:34 pyxiv/templates/tag.html:88
 msgid "Nothing to show!"
 msgstr "Walang maipapakita!"
 
-#: pyxiv/templates/index.html:48 pyxiv/templates/indexManga.html:33
+#: pyxiv/templates/index.html:49 pyxiv/templates/indexManga.html:34
+#: pyxiv/templates/novels/index.html:36
 msgid "Recommended works"
 msgstr "Mga inirerekomendang gawa"
 
-#: pyxiv/templates/index.html:61 pyxiv/templates/index.html:114
+#: pyxiv/templates/index.html:62 pyxiv/templates/index.html:115
 msgid "Today's Rankings"
 msgstr "Mga Ranking Ngayon"
 
-#: pyxiv/templates/index.html:71
+#: pyxiv/templates/index.html:72
 msgid "Popular tags"
 msgstr "Mga sikat na tag"
 
-#: pyxiv/templates/index.html:80
+#: pyxiv/templates/index.html:81
 msgid "Recommended users"
 msgstr "Mga inirerekomendang user"
 
-#: pyxiv/templates/index.html:89
+#: pyxiv/templates/index.html:90
 msgid "Newest articles in pixivision"
 msgstr "Mga pinakabagong artikulo sa pixivision"
 
-#: pyxiv/templates/index.html:99
+#: pyxiv/templates/index.html:100
 msgid "Recommended artworks with tag"
 msgstr "Mga inirerekomendang artwork na may tag na"
 
@@ -871,7 +880,7 @@ msgstr "Bagito"
 msgid "Date:"
 msgstr "Petsa:"
 
-#: pyxiv/templates/rankings.html:38 pyxiv/templates/tag.html:218
+#: pyxiv/templates/rankings.html:38 pyxiv/templates/tag.html:219
 msgid "Apply"
 msgstr "I-apply"
 
@@ -932,112 +941,120 @@ msgstr "Bumalik"
 msgid "Continue"
 msgstr "Magpatuloy"
 
-#: pyxiv/templates/tag.html:19
-#, python-format
-msgid "%(total)s works"
+#: pyxiv/templates/tag.html:11
+#, fuzzy, python-format
+msgid "<b>%(total)s</b> works"
 msgstr "%(total)s mga gawa"
 
-#: pyxiv/templates/tag.html:34
+#: pyxiv/templates/tag.html:21
+msgid "Remove from favorites"
+msgstr ""
+
+#: pyxiv/templates/tag.html:24
+msgid "Add to favorites"
+msgstr ""
+
+#: pyxiv/templates/tag.html:37
 msgid "Advanced search options"
 msgstr "Mga advanced na opsyon sa paghahanap"
 
-#: pyxiv/templates/tag.html:37
+#: pyxiv/templates/tag.html:40
 msgid "Related tags"
 msgstr "Mga nauugnay na tag"
 
-#: pyxiv/templates/tag.html:53
+#: pyxiv/templates/tag.html:54
 msgid "Popular artworks"
 msgstr "Mga popular na artwork"
 
-#: pyxiv/templates/tag.html:57
+#: pyxiv/templates/tag.html:58
 msgid "Recent"
 msgstr "Kamakailan"
 
-#: pyxiv/templates/tag.html:66
+#: pyxiv/templates/tag.html:67
 msgid "All time"
 msgstr "Lahat ng oras"
 
-#: pyxiv/templates/tag.html:78
+#: pyxiv/templates/tag.html:79
 msgid "Works"
 msgstr "Mga gawa"
 
-#: pyxiv/templates/tag.html:117
+#: pyxiv/templates/tag.html:118
 msgid "Advanced search options (experimental)"
 msgstr "Mga advanced na opsyon sa paghahanap (pang-eksperimento)"
 
-#: pyxiv/templates/tag.html:129
+#: pyxiv/templates/tag.html:130
 msgid "Mode"
 msgstr "Mode"
 
-#: pyxiv/templates/tag.html:131
+#: pyxiv/templates/tag.html:132
 msgid "Safe"
 msgstr "Ligtas"
 
-#: pyxiv/templates/tag.html:134
+#: pyxiv/templates/tag.html:135
 msgid "R-18"
 msgstr "R-18"
 
-#: pyxiv/templates/tag.html:138
+#: pyxiv/templates/tag.html:139
 msgid "Order by"
 msgstr "Isaayos ayon sa"
 
-#: pyxiv/templates/tag.html:140
+#: pyxiv/templates/tag.html:141
 msgid "Date"
 msgstr "Petsa"
 
-#: pyxiv/templates/tag.html:141
+#: pyxiv/templates/tag.html:142
 msgid "Date (Descending)"
 msgstr "Petsa (Pababa)"
 
-#: pyxiv/templates/tag.html:143
+#: pyxiv/templates/tag.html:144
 msgid "Popular"
 msgstr "Sikat"
 
-#: pyxiv/templates/tag.html:144
+#: pyxiv/templates/tag.html:145
 msgid "Popular (Descending)"
 msgstr "Sikat (Pababa)"
 
-#: pyxiv/templates/tag.html:145
+#: pyxiv/templates/tag.html:146
 msgid "Popular among male users"
 msgstr "Sikat sa mga lalaking gumagamit"
 
-#: pyxiv/templates/tag.html:146
+#: pyxiv/templates/tag.html:147
 msgid "Popular among male users (Descending)"
 msgstr "Sikat sa mga lalaking gumagamit (Pababa)"
 
-#: pyxiv/templates/tag.html:147
+#: pyxiv/templates/tag.html:148
 msgid "Popular among female users"
 msgstr "Sikat sa mga babaeng gumagamit"
 
-#: pyxiv/templates/tag.html:148
+#: pyxiv/templates/tag.html:149
 msgid "Popular among female users (Descending)"
 msgstr "Sikat sa mga babaeng gumagamit (Pababa)"
 
-#: pyxiv/templates/tag.html:152
+#: pyxiv/templates/tag.html:153
 msgid "Search mode"
 msgstr "Mode ng paghahanap"
 
-#: pyxiv/templates/tag.html:154 pyxiv/templates/tag.html:189
+#: pyxiv/templates/tag.html:155 pyxiv/templates/tag.html:190
 msgid "Unspecified"
 msgstr "Hindi tinukoy"
 
-#: pyxiv/templates/tag.html:155
+#: pyxiv/templates/tag.html:156
 msgid "Tag (Exact Match)"
 msgstr "Tag (Eksaktong Tugma)"
 
-#: pyxiv/templates/tag.html:156
+#: pyxiv/templates/tag.html:157
 msgid "Tag (Partial Match)"
 msgstr "Tag (Bahagyang Tugma)"
 
-#: pyxiv/templates/tag.html:157
+#: pyxiv/templates/tag.html:158
 msgid "Title/Caption"
 msgstr "Paksa/Caption"
 
-#: pyxiv/templates/tag.html:162
+#: pyxiv/templates/tag.html:163
 msgid "Go beyond last page"
 msgstr "Lumampas sa huling pahina"
 
-#: pyxiv/templates/tag.html:164
+#: pyxiv/templates/tag.html:165
 msgid ""
 "Use this if you are sure that there are more results beyond the last page"
 " (due to pixiv's quirky API). If nothing shows up, try to refresh the "
@@ -1048,59 +1065,59 @@ msgstr ""
 "subukang i-refresh ang page nang paulit-ulit. Kung hindi ito gumana, "
 "maaaring ito na talaga ang huling pahina."
 
-#: pyxiv/templates/tag.html:169
+#: pyxiv/templates/tag.html:170
 msgid "More Options..."
 msgstr "Higit pang mga opsyon…"
 
-#: pyxiv/templates/tag.html:172
+#: pyxiv/templates/tag.html:173
 msgid "Minimum Width"
 msgstr "Pinakamababang haba"
 
-#: pyxiv/templates/tag.html:176
+#: pyxiv/templates/tag.html:177
 msgid "Maximum Width"
 msgstr "Pinakamalaking haba"
 
-#: pyxiv/templates/tag.html:180
+#: pyxiv/templates/tag.html:181
 msgid "Minimum Height"
 msgstr "Pinakamababang taas"
 
-#: pyxiv/templates/tag.html:184
+#: pyxiv/templates/tag.html:185
 msgid "Maximum Height"
 msgstr "Pinakamataas na Taas"
 
-#: pyxiv/templates/tag.html:187
+#: pyxiv/templates/tag.html:188
 msgid "Ratio"
 msgstr "Ratio"
 
-#: pyxiv/templates/tag.html:190
+#: pyxiv/templates/tag.html:191
 msgid "Portrait"
 msgstr "Portrait"
 
-#: pyxiv/templates/tag.html:191
+#: pyxiv/templates/tag.html:192
 msgid "Square"
 msgstr "Parisukat"
 
-#: pyxiv/templates/tag.html:192
+#: pyxiv/templates/tag.html:193
 msgid "Landscape"
 msgstr "Landscape"
 
-#: pyxiv/templates/tag.html:196
+#: pyxiv/templates/tag.html:197
 msgid "Tool:"
 msgstr "Gamit:"
 
-#: pyxiv/templates/tag.html:200
+#: pyxiv/templates/tag.html:201
 msgid "Posted before"
 msgstr "Na-post bago"
 
-#: pyxiv/templates/tag.html:204
+#: pyxiv/templates/tag.html:205
 msgid "Posted after"
 msgstr "Na-post pagkatapos"
 
-#: pyxiv/templates/tag.html:209
+#: pyxiv/templates/tag.html:210
 msgid "Minimum Bookmarks"
 msgstr "Pinakamababang Mga Bookmark"
 
-#: pyxiv/templates/tag.html:213
+#: pyxiv/templates/tag.html:214
 msgid "Maximum Bookmarks"
 msgstr "Pinakamataas na Mga Bookmark"
 
@@ -1131,12 +1148,10 @@ msgid "User ID: %(id)d"
 msgstr "ID ng User: %(id)d"
 
 #: pyxiv/templates/components/navbar.html:67
-#: pyxiv/templates/layouts/default.html:139
 msgid "Profile"
 msgstr "Iyong profile"
 
-#: pyxiv/templates/components/navbar.html:74
-#: pyxiv/templates/layouts/default.html:143 pyxiv/templates/user/index.html:86
+#: pyxiv/templates/components/navbar.html:74 pyxiv/templates/user/index.html:86
 msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
@@ -1146,17 +1161,103 @@ msgstr "Mga Sinusundan na User"
 
 #: pyxiv/templates/components/navbar.html:88
 #: pyxiv/templates/layouts/default.html:111
-#: pyxiv/templates/layouts/default.html:147
 #: pyxiv/templates/settings/settingsMain.html:2
 #: pyxiv/templates/settings/settingsMain.html:8
 msgid "Settings"
 msgstr "Mga Setting"
 
 #: pyxiv/templates/components/navbar.html:95
-#: pyxiv/templates/layouts/default.html:151
 #: pyxiv/templates/settings/account.html:46
 msgid "Log out"
 msgstr "Mag-log out"
+
+#: pyxiv/templates/components/novel-entry.html:14
+msgid "Romance"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:16
+msgid "Isekai fantasy"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:18
+msgid "Contemporary fantasy"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:20
+msgid "Mystery"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:22
+#, fuzzy
+msgid "Horror"
+msgstr "Error"
+
+#: pyxiv/templates/components/novel-entry.html:24
+msgid "Sci-fi"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:26
+#, fuzzy
+msgid "Literature"
+msgstr "Itinatampok"
+
+#: pyxiv/templates/components/novel-entry.html:28
+msgid "Drama"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:30
+msgid "Historical pieces"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:32
+#, fuzzy
+msgid "BL (yaoi)"
+msgstr "Araw-araw (AI)"
+
+#: pyxiv/templates/components/novel-entry.html:34
+msgid "Yuri"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:36
+#, fuzzy
+msgid "For kids"
+msgstr "Mga gawa"
+
+#: pyxiv/templates/components/novel-entry.html:38
+msgid "Poetry"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:40
+msgid "Essays/non-fiction"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:42
+msgid "Screenplays/scripts"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:44
+msgid "Reviews/opinion pieces"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:46
+#, fuzzy
+msgid "Other"
+msgstr "Tema"
+
+#: pyxiv/templates/components/novel-entry.html:83
+#, python-format
+msgid "%(episode)s Episode(s)"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:86
+#, python-format
+msgid "%(wordCount)s words"
+msgstr ""
+
+#: pyxiv/templates/components/novel-entry.html:87
+#, python-format
+msgid "%(textCount)s characters"
+msgstr ""
 
 #: pyxiv/templates/layouts/default.html:15
 msgid "Hold up!"
@@ -1315,6 +1416,10 @@ msgstr "Na-post noong %(date)s"
 msgid "News from pixiv"
 msgstr "Mga balita mula sa pixiv"
 
+#: pyxiv/templates/novels/index.html:29
+msgid "Popular original novels"
+msgstr ""
+
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
 msgid "Category:"
@@ -1449,11 +1554,11 @@ msgstr ""
 "Naging posible ang Vixipy sa pamamagitan ng paggamit ng mga open source "
 "na proyekto, na:"
 
-#: pyxiv/templates/settings/about.html:43
+#: pyxiv/templates/settings/about.html:45
 msgid "Disclaimer"
 msgstr "Disclaimer"
 
-#: pyxiv/templates/settings/about.html:44
+#: pyxiv/templates/settings/about.html:46
 msgid ""
 "Vixipy is an unofficial pixiv frontend and is not made, approved or "
 "affiliated by pixiv (pixiv Inc.). This software has absolutely NO "
@@ -1465,7 +1570,7 @@ msgstr ""
 "walang ganap na warranty, at ang mga pagkakataon ng iyong pixiv account "
 "na nagkakaproblema o nasuspinde ay hindi garantisado."
 
-#: pyxiv/templates/settings/about.html:46
+#: pyxiv/templates/settings/about.html:48
 msgid ""
 "All works that are shown in this instance are originated from pixiv, and "
 "owned by their respective artists/authors. No copyright infringement is "
@@ -2029,3 +2134,4 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Privacy"
 #~ msgstr "Pagkapribado"
+

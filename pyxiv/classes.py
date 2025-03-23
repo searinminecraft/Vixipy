@@ -2,7 +2,7 @@ from .utils.converters import makeProxy, makeJumpPhp
 from datetime import datetime
 from bs4 import BeautifulSoup
 from urllib.parse import quote, urlparse, urlunparse
-from markupsafe import escape
+from markupsafe import escape, Markup
 from quart_rate_limiter import RateLimiterStoreABC
 import pymemcache
 from .cfg import UgoiraServer, UgoiraServerNeedsDate, UgoiraServerTrusted
@@ -1010,7 +1010,6 @@ class NovelAbc:
         self.wordCount: int = d["wordCount"]
         self.readingTime: int = d["readingTime"]
         self.useWordCount: bool = d["useWordCount"]
-        self.description: str = d["description"]
         self.bookmarkCount: int = d["bookmarkCount"]
         self.isOriginal: bool = d["isOriginal"]
         self.aiGenerated: bool = d["aiType"] == 2
@@ -1021,17 +1020,21 @@ class NovelEntry(NovelAbc):
         super().__init__(d)
         self.createDate: datetime = datetime.fromisoformat(d["createDate"])
         self.updateDate: datetime = datetime.fromisoformat(d["updateDate"])
+        self.thumbUrl: str = makeProxy(d["url"])
         self.bookmarkData: dict = d["bookmarkData"]
         self.bookmarked: bool = self.bookmarkData is not None
         self.isMasked: bool = d["isMasked"]
         self.isUnlisted: bool = d["isUnlisted"]
         self.tags: list[str] = d["tags"]
+        self.description: str = Markup(d["description"]).striptags()
+        self.textCount: int = d["textCount"]
 
 
 class Novel(NovelAbc):
     def __init__(self, d):
         super().__init__(d)
         self.createDate: datetime = datetime.fromisoformat(d["createDate"])
+        self.characterCount: int = d["characterCount"]
         self.bookmarkData: dict = d["bookmarkData"]
         self.bookmarked: bool = self.bookmarkData is not None
         self.tags: list[str] = [x["tag"] for x in d["tags"]["tags"]]
@@ -1041,15 +1044,16 @@ class Novel(NovelAbc):
         self.coverUrl: str = makeProxy(d["coverUrl"])
         self.ogp: str = d["extraData"]["meta"]["ogp"]["description"]
         self.ogpImage: str = d["extraData"]["meta"]["ogp"]["image"]
+        self.isLoginOnly: bool = d["isLoginOnly"]
 
 
 class NovelSeries(NovelAbc):
     def __init__(self, d):
         super().__init__(d)
-        self.textCount: int = d.get("textCount", d["textLength"])
-        self.coverSmall: str = makeProxy(d["cover"]["240mw"])
-        self.coverLarge: str = makeProxy(d["cover"]["480mw"])
-        self.cover: str = makeProxy(d["cover"]["1200x1200"])
+        self.textCount: int = d["textLength"]
+        self.coverSmall: str = makeProxy(d["cover"]["urls"]["240mw"])
+        self.coverLarge: str = makeProxy(d["cover"]["urls"]["480mw"])
+        self.cover: str = makeProxy(d["cover"]["urls"]["1200x1200"])
         self.createDate: datetime = datetime.fromisoformat(d["createDateTime"])
         self.updateDate: datetime = datetime.fromisoformat(d["updateDateTime"])
         self.isOneshot: bool = d["isOneshot"]
