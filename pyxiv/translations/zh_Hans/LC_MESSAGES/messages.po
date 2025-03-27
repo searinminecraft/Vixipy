@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-23 19:43+0800\n"
-"PO-Revision-Date: 2025-03-17 14:00+0000\n"
+"PO-Revision-Date: 2025-03-28 03:21+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:249
@@ -374,14 +374,14 @@ msgid ""
 msgstr "报告 bug 时，若有 traceback，则也请附上。你可以删去诸如 home 目录等信息。"
 
 #: pyxiv/templates/artwork.html:21
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not load ugoira. <a href='{{ data.artwork.ugoiraUrl }}'>Download "
 "the video</a>, or <a href='https://ugoira.com/i/%(artworkId)d'>go to "
 "ugoira.com</a> for more options."
 msgstr ""
-"无法加载动图。<a href='{{ data.artwork.ugoiraUrl }}'>下载视频</a>，或<a href='<a "
-"href='https://ugoira.com/i/%(artworkId)d'>'>前往 ugoira.com</a> 进行更多操作。"
+"无法加载动图。<a href='{{ data.artwork.ugoiraUrl }}'>下载视频</a>，或<a "
+"href='https://ugoira.com/i/%(artworkId)d'>前往 ugoira.com</a> 进行更多操作。"
 
 #: pyxiv/templates/artwork.html:27
 msgid "Download"
@@ -895,9 +895,9 @@ msgid "Continue"
 msgstr "继续"
 
 #: pyxiv/templates/tag.html:11
-#, fuzzy, python-format
+#, python-format
 msgid "<b>%(total)s</b> works"
-msgstr "%(total)s 份作品"
+msgstr "<b>%(total)s</b> 份作品"
 
 #: pyxiv/templates/tag.html:21
 msgid "Remove from favorites"
@@ -1929,4 +1929,3 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "Privacy"
 #~ msgstr "隐私"
-
