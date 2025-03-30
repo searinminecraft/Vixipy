@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-30 10:28+0800\n"
-"PO-Revision-Date: 2025-03-24 08:42+0000\n"
+"PO-Revision-Date: 2025-03-30 02:36+0000\n"
 "Last-Translator: Kita Ikuyo <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:249
@@ -574,7 +575,6 @@ msgid "Title (max 32 characters)"
 msgstr "Pamagat (hindi lalagpas sa 32 karakter)"
 
 #: pyxiv/templates/editDetails.html:11
-#, fuzzy
 msgid "Description (max 3000 characters)"
 msgstr "Paglalarawan (hindi lalagpas sa 3000 karakter)"
 
@@ -1683,7 +1683,6 @@ msgid "Language"
 msgstr "Wika"
 
 #: pyxiv/templates/settings/language.html:10
-#, fuzzy
 msgid "You can select your preferred language here."
 msgstr "Maari mong pillin ang gusto mong wika dito."
 
@@ -2129,4 +2128,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Privacy"
 #~ msgstr "Pagkapribado"
-
