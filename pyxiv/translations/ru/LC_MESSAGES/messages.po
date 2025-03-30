@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-23 19:43+0800\n"
+"POT-Creation-Date: 2025-03-30 10:28+0800\n"
 "PO-Revision-Date: 2025-02-18 23:21+0000\n"
 "Last-Translator: divergency "
 "<divergency@users.noreply.translate.codeberg.org>\n"
@@ -576,7 +576,8 @@ msgid "Title (max 32 characters)"
 msgstr "Титул (макс. 32 символа)"
 
 #: pyxiv/templates/editDetails.html:11
-msgid "Description (max 3000 characters"
+#, fuzzy
+msgid "Description (max 3000 characters)"
 msgstr "Описание (макс. 3000 символов"
 
 #: pyxiv/templates/editDetails.html:16
@@ -1671,16 +1672,16 @@ msgid "Language"
 msgstr "Язык"
 
 #: pyxiv/templates/settings/language.html:10
-msgid "You can select your prefered language here."
+#, fuzzy
+msgid "You can select your preferred language here."
 msgstr "Вы можете выбрать ваш язык предпочтения здесь."
 
 #: pyxiv/templates/settings/language.html:15
-#: pyxiv/templates/settings/language.html:53
 msgid "Use system language"
 msgstr "Использовать язык системы"
 
 #: pyxiv/templates/settings/language.html:22
-#: pyxiv/templates/settings/language.html:60
+#: pyxiv/templates/settings/language.html:59
 msgid "Set language"
 msgstr "Установить язык"
 
@@ -1717,11 +1718,11 @@ msgstr "Язык pixivision"
 msgid "You can set the language for pixivision articles here."
 msgstr "Вы можете установить язык для статей pixivision здесь."
 
-#: pyxiv/templates/settings/language.html:63
+#: pyxiv/templates/settings/language.html:62
 msgid "Timezone"
 msgstr ""
 
-#: pyxiv/templates/settings/language.html:72
+#: pyxiv/templates/settings/language.html:71
 #, fuzzy
 msgid "Set timezone"
 msgstr "Поставить Тему"
