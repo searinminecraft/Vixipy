@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-23 19:43+0800\n"
-"PO-Revision-Date: 2025-03-30 02:29+0000\n"
+"PO-Revision-Date: 2025-03-31 15:21+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
@@ -321,11 +321,11 @@ msgstr "Коментар успішно опубліковано"
 #: pyxiv/routes/userAction.py:131
 #, python-format
 msgid "Unable to send stamp: %(errorClass)s: %(error)s"
-msgstr "Не вдалося надіслати штамп: %(errorClass)s: %(error)s"
+msgstr "Не вдалося надіслати наклейку: %(errorClass)s: %(error)s"
 
 #: pyxiv/routes/userAction.py:136
 msgid "Successfully sent stamp"
-msgstr "Штамп успішно надіслано"
+msgstr "Наклейку успішно надіслано"
 
 #: pyxiv/routes/userAction.py:150
 msgid "Successfully deleted comment"
@@ -514,7 +514,7 @@ msgstr "Коментарів немає!"
 
 #: pyxiv/templates/comments.html:73
 msgid "Insert emoji/stamp"
-msgstr "Додати емоджі/штамп"
+msgstr "Додати емоджі/наклейку"
 
 #: pyxiv/templates/comments.html:79
 msgid "Emojis"
@@ -522,7 +522,7 @@ msgstr "Емоджі"
 
 #: pyxiv/templates/comments.html:87
 msgid "Stamps"
-msgstr "Штампи"
+msgstr "Наклейки"
 
 #: pyxiv/templates/comments.html:101
 msgid ""
@@ -531,8 +531,8 @@ msgid ""
 "style='color: #f38ba8;'><b>Warning:</b> This may result in termination of"
 " your pixiv account. Use at your own risk.</span>"
 msgstr ""
-"Якщо вам відомий ID певного штампа, можете ввести його тут. Таким чином ви "
-"зможете надсилати штампи, які зазвичай доступні лише протягом обмеженого "
+"Якщо вам відомий ID певної наклейки, можете ввести його тут. Таким чином ви "
+"зможете надсилати наклейки, які зазвичай доступні лише протягом обмеженого "
 "часу. <span style='color: #f38ba8;'><b>Увага:</b> це може призвести до "
 "видалення вашого облікового запису pixiv. Користуйтесь на свій страх і "
 "ризик.</span>"
@@ -1516,7 +1516,7 @@ msgstr ""
 "корисним і функціональним клієнтом, подібним до PixEz (клієнт pixiv для "
 "Android/iOS, написаний на Flutter), щоб надати вам можливість редагувати "
 "свій профіль, переглядати сповіщення, висловлювати свої думки і почуття, "
-"надсилаючи коментарі і стікери, та багато іншого."
+"надсилаючи коментарі і наклейки, та багато іншого."
 
 #: pyxiv/templates/settings/about.html:27
 msgid "Acknowledgements"
