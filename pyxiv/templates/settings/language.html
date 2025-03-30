@@ -7,7 +7,7 @@
 
 <h2>{{ _("Language") }}</h2>
 
-<p>{{ _("You can select your prefered language here.") }}</p>
+<p>{{ _("You can select your preferred language here.") }}</p>
 
 <form action="/settings/set-language" method="POST">
 	{% set currentLang = request.cookies.get("lang", "") %}
@@ -50,7 +50,6 @@
 	{% set currentLang = request.cookies.get("PyXivPixivisionLang", "en") %}
 
 	<select name="lang">
-		<option value="" {% if currentLang == '' %}selected{% endif%}>{{_("Use system language")}}</option>
 		{% for l in pv_lang %}
 		<option value="{{l}}" {% if currentLang == l %}selected{% endif %}>{{pv_lang[l]}}</option>
 		{% endfor %}
