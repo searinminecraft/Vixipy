@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-30 10:28+0800\n"
-"PO-Revision-Date: 2025-03-17 14:00+0000\n"
+"PO-Revision-Date: 2025-04-03 06:21+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
@@ -662,9 +662,8 @@ msgstr "漫画"
 
 #: pyxiv/templates/index.html:27 pyxiv/templates/indexManga.html:25
 #: pyxiv/templates/novels/index.html:2 pyxiv/templates/novels/index.html:14
-#, fuzzy
 msgid "Novels"
-msgstr "新闻"
+msgstr "小说"
 
 #: pyxiv/templates/index.html:36 pyxiv/templates/novels/index.html:22
 msgid "Latest from following"
@@ -902,11 +901,11 @@ msgstr "<b>%(total)s</b> 份作品"
 
 #: pyxiv/templates/tag.html:21
 msgid "Remove from favorites"
-msgstr ""
+msgstr "取消收藏"
 
 #: pyxiv/templates/tag.html:24
 msgid "Add to favorites"
-msgstr ""
+msgstr "添加收藏"
 
 #: pyxiv/templates/tag.html:37
 msgid "Advanced search options"
@@ -1198,17 +1197,17 @@ msgstr "主题"
 #: pyxiv/templates/components/novel-entry.html:83
 #, python-format
 msgid "%(episode)s Episode(s)"
-msgstr ""
+msgstr "%(episode)s 期"
 
 #: pyxiv/templates/components/novel-entry.html:86
 #, python-format
 msgid "%(wordCount)s words"
-msgstr ""
+msgstr "%(wordCount)s 词"
 
 #: pyxiv/templates/components/novel-entry.html:87
 #, python-format
 msgid "%(textCount)s characters"
-msgstr ""
+msgstr "%(textCount)s 字"
 
 #: pyxiv/templates/layouts/default.html:15
 msgid "Hold up!"
