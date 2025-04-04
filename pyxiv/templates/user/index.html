@@ -83,6 +83,7 @@
 		<li {% if currentSection == "home" %}class="active"{% endif %}><a href="/users/{{ user._id }}">{{ _("Home") }}</a></li>
 		<li {% if currentSection == "illust" %}class="active"{% endif %}><a href="/users/{{ user._id }}/illustrations#checkpoint">{{ _("Illustrations") }}</a></li>
 		<li {% if currentSection == "manga" %}class="active"{% endif %}><a href="/users/{{ user._id }}/manga#checkpoint">{{ _("Manga") }}</a></li>
+		<li {% if currentSection == "novels" %}class="active"{% endif %}><a href="/users/{{ user._id }}/novels#checkpoint">{{ _("Novels") }}</a></li>
 		<li {% if currentSection == "bookmarks" %}class="active"{% endif %}><a href="/users/{{ user._id }}/bookmarks#checkpoint">{{ _("Bookmarks") }}</a>
 	</ul>
 </div>

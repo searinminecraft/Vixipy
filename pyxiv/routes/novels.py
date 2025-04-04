@@ -12,9 +12,11 @@ from ..core.novels import (
     getRecommendedNovels,
     getLanding,
     getLatestNovelsFromFollowing,
+    getNovelSeries,
+    getNovelSeriesContents,
 )
 from ..core.user import getUser
-from ..classes import NovelEntry, NovelSeries
+from ..classes import NovelEntry, NovelSeriesEntry, NovelSeries
 from asyncio import gather
 from typing import TYPE_CHECKING, Dict
 import logging
@@ -37,16 +39,16 @@ async def novels_root():
     landing: dict
 
     novels: Dict[int, NovelEntry] = {}
-    novel_series: Dict[int, NovelSeries] = {}
+    novel_series: Dict[int, NovelSeriesEntry] = {}
     following: list[NovelEntry] = []
-    popular_novel_series: list[NovelSeries] = []
+    popular_novel_series: list[NovelSeriesEntry] = []
     recommmended: list[NovelEntry] = []
 
     for n in landing["body"]["thumbnails"]["novel"]:
         novels[int(n["id"])] = NovelEntry(n)
 
     for ns in landing["body"]["thumbnails"]["novelSeries"]:
-        novel_series[int(ns["id"])] = NovelSeries(ns)
+        novel_series[int(ns["id"])] = NovelSeriesEntry(ns)
 
     for rec_id in landing["body"]["page"]["recommend"]["ids"]:
         recommmended.append(novels[int(rec_id)])
@@ -97,9 +99,21 @@ async def novel_main(id: int):
     user: User
     recommended: list[NovelEntry]
 
-    return repr(data), {"Content-Type": "text/plain"}
-
+    return await render_template("novels/novel.html", data=data, user=user, recommended=recommended)
 
 @bp.route("/novels/series/<int:id>")
 async def novel_series(id: int):
-    abort(501)
+    p = int(request.args.get("p", 1))
+    series, content = await gather(
+        getNovelSeries(id),
+        getNovelSeriesContents(id, p)
+    )
+    series: NovelSeries
+    content: list[NovelEntry]
+
+    x, y = divmod(series.total, 30)
+    total = x
+    if y >= 1:
+        total += 1
+
+    return await render_template("novels/series.html", data=series, content=content, total=total)

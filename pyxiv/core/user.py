@@ -8,6 +8,8 @@ from ..classes import (
     Notification,
     UserFollowData,
     PartialUser,
+    NovelEntry,
+    NovelSeriesEntry
 )
 from ..utils.filtering import filterEntriesFromPreferences
 
@@ -88,3 +90,8 @@ async def getUserFollowers(_id: int, offset: int = 0, limit: int = 30):
     total = data["total"]
 
     return total, [UserFollowData(x) for x in data["users"]]
+
+
+async def retrieveUserNovels(_id: int, ids: list[int]) -> list[NovelEntry]:
+    data = (await api.retrieveUserNovels(_id, ids))["body"]["works"]
+    return [NovelEntry(x) for x in list(data.values())]

@@ -1000,7 +1000,6 @@ class NovelAbc:
     def __init__(self, d):
         self.id: int = int(d["id"])
         self.title: str = d["title"]
-        # TODO: figure out genre value
         self.genre: int = int(d["genre"])
         self.restrict: int = int(d["restrict"])
         self.xRestrict: int = int(d["xRestrict"])
@@ -1030,6 +1029,26 @@ class NovelEntry(NovelAbc):
         self.textCount: int = d["textCount"]
 
 
+class NovelSeriesNav:
+    def __init__(self, d):
+        self.title: str = d["title"]
+        self.order: int = d["order"]
+        self.id: int = int(d["id"])
+        self.available: bool = d["available"]
+
+
+class NovelSeriesNavData:
+    def __init__(self, d):
+        self.seriesId: int = d["seriesId"]
+        self.title: str = d["title"]
+        self.concluded: bool = d["isConcluded"]
+        self.watched: bool = d["isWatched"]
+        self.notifying: bool = d["isNotifying"]
+        self.order: int = d["order"]
+        self.prev: NovelSeriesNav = NovelSeriesNav(d["prev"]) if d["prev"] else None
+        self.next: NovelSeriesNav = NovelSeriesNav(d["next"]) if d["next"] else None
+
+
 class Novel(NovelAbc):
     def __init__(self, d):
         super().__init__(d)
@@ -1045,9 +1064,11 @@ class Novel(NovelAbc):
         self.ogp: str = d["extraData"]["meta"]["ogp"]["description"]
         self.ogpImage: str = d["extraData"]["meta"]["ogp"]["image"]
         self.isLoginOnly: bool = d["isLoginOnly"]
+        self.likeCount: int = int(d["likeCount"])
+        self.seriesNavData: NovelSeriesNavData = NovelSeriesNavData(d["seriesNavData"]) if d["seriesNavData"] else None
 
 
-class NovelSeries(NovelAbc):
+class NovelSeriesEntry(NovelAbc):
     def __init__(self, d):
         super().__init__(d)
         self.textCount: int = d["textLength"]
@@ -1070,8 +1091,43 @@ class NovelSeries(NovelAbc):
         self.publishedWordCount: int = d["publishedWordCount"]
         self.publishedReadingTime: int = d["publishedReadingTime"]
         self.tags: list[str] = d["tags"]
+        
+
+class NovelSeries:
+    def __init__(self, d):
+        self.aiType: int = d["aiType"]
+        self.caption: str = d["caption"]
+        self.coverSmall: str = makeProxy(d["cover"]["urls"]["240mw"])
+        self.coverLarge: str = makeProxy(d["cover"]["urls"]["480mw"])
+        self.cover: str = makeProxy(d["cover"]["urls"]["original"])
+        self.createDate: datetime = datetime.fromisoformat(d["createDate"])
+        self.contentCount: int = d["displaySeriesContentCount"]
+        self.firstNovelId: int = int(d["firstNovelId"])
+        self.genreId: int = int(d["genreId"])
+        self.hasGlossary: bool = d.get("hasGlossary")
+        self.id: int = int(d["id"])
+        self.isConcluded: bool = d["isConcluded"]
+        self.isNotifying: bool = d["isNotifying"]
+        self.isOriginal: bool = d["isOriginal"]
+        self.isWatched: bool = d["isWatched"]
+        self.language: str = d["language"]
+        self.lastPublishedContentTimestamp: datetime = datetime.fromtimestamp(d["lastPublishedContentTimestamp"])
+        self.latestNovelId: int = int(d["latestNovelId"])
+        self.profileImageUrl: str = makeProxy(d["profileImageUrl"])
+        self.publishedContentCount: int = d["publishedContentCount"]
+        self.characterCount: int = d["publishedTotalCharacterCount"]
+        self.wordCount: int = d["publishedTotalWordCount"]
+        self.readingTime: int = d["publishedReadingTime"]
+        self.tags: list[str] = d["tags"]
+        self.title: str = d["title"]
+        self.total: str = d["total"]
+        self.userId: int = int(d["userId"])
+        self.username: str = d["userName"]
+        self.updateDate: datetime = datetime.fromisoformat(d["updateDate"])
+        self.xRestrict: int = d["xRestrict"]
 
 
+        
 class RecommendByTag:
     def __init__(self, name: str, artworks: list[ArtworkEntry]):
         self.name: str = name

@@ -32,11 +32,11 @@
   color: var(--md-sys-color-on-primary);
   background-color: var(--md-sys-color-primary);
   font-size: 16px;
-  border-radius: 16px;
+  border-radius: 999999px;
   border: none;
-  padding: 4px 18px;
-  height: 32px;
+  padding: 8px 18px;
   font-family: system-ui;
+  font-weight: bold;
 }
 
 .noscript-alert {
@@ -1913,7 +1913,7 @@ div#ranking-calendar {
     background-color: var(--md-sys-color-surface-container)
   }
 
-  .info { 
+  .info {
     flex: 1;
 
     a.title {
@@ -1959,7 +1959,7 @@ div#ranking-calendar {
     column-gap: 8px;
 
     div.value {
-      background-color: var(--md-sys-color-surface-container);
+      background-color: var(--md-sys-color-surface-container-high);
       padding: 4px 8px;
       border-radius: 8px;
       font-size: 12px;
@@ -1969,6 +1969,107 @@ div#ranking-calendar {
         color: var(--md-sys-color-on-error) !important;
         font-weight: bold;
       }
+    }
+  }
+}
+
+#novel-main {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 16px;
+  padding: 1.5em;
+
+  >.info {
+    display: flex;
+    align-items: flex-start;
+
+    img.cover {
+      width: 120px;
+      height: 170px;
+      background-color: var(--md-sys-color-surface-container-low);
+      border-radius: 8px;
+      margin-right: 1em;
+      flex-shrink: 0;
+    }
+
+    .meta {
+      flex: 1;
+
+      h2 {
+        margin: unset;
+        margin-bottom: 12px;
+      }
+
+      a.author {
+        display: flex;
+        align-items: center;
+        color: unset;
+
+        img {
+          flex-shrink: 0;
+          margin-right: 8px;
+          @include profile-picture(24px);
+        }
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 1em;
+        margin-top: 8px;
+
+        span {
+          font-size: 12px;
+          color: var(--md-sys-color-outline)
+        }
+      }
+
+      .description {
+        margin: 1em 0;
+      }
+
+      .act {
+        display: flex;
+        align-items: center;
+        column-gap: .5em
+      }
+    }
+  }
+
+  pre.contents {
+    font-family: system-ui;
+    font-size: 18px;
+  }
+
+  >#novel-series-works {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+  }
+
+  >.series-nav {
+    margin: auto;
+    background-color: var(--md-sys-color-surface-container-lowest);
+    border-radius: 16px;
+    text-align: center;
+    width: 80%;
+    padding: 2em 4em;
+
+    small {
+      color: var(--md-sys-color-outline);
+      display: block;
+    }
+
+    > a {
+      color: unset;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1em;
+      margin-top: 1em;
     }
   }
 }

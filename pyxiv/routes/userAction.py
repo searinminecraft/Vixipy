@@ -330,3 +330,23 @@ async def editProfile():
     else:
         data = await getProfileConfig()
         return await render_template("edit_profile.html", data=data)
+
+@userAction.route("/novel_series/<int:id>/watch")
+async def watchNovelSeries(id):
+    await api.pixivReq("post", f"/ajax/novel/series/{id}/watch", jsonPayload={})
+    return redirect(request.args.get("r", "/"))
+
+@userAction.route("/novel_series/<int:id>/unwatch")
+async def unwatchNovelSeries(id):
+    await api.pixivReq("post", f"/ajax/novel/series/{id}/unwatch", jsonPayload={})
+    return redirect(request.args.get("r", "/"))
+
+@userAction.route("/novel_series/<int:id>/notifications/subscribe")
+async def subscribeNovelSeriesNotification(id):
+    await api.pixivReq("post", f"/ajax/novel/series/{id}/watchlist/notification/turn_on", jsonPayload={})
+    return redirect(request.args.get("r", "/"))
+
+@userAction.route("/novel_series/<int:id>/notifications/unsubscribe")
+async def unsubscribeNovelSeriesNotification(id):
+    await api.pixivReq("post", f"/ajax/novel/series/{id}/watchlist/notification/turn_off", jsonPayload={})
+    return redirect(request.args.get("r", "/"))

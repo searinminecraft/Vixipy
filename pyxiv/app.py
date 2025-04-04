@@ -232,6 +232,12 @@ def create_app():
             return
         log.info("Shutting down. Goodbye!")  # only log once
 
+    if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
+        @app.after_request
+        async def prevent_cache(r):
+            r.headers["Cache-Control"] = "no-cache"
+            return r
+
     @app.errorhandler(429)
     async def tooManyRequests(e):
         log.warn(

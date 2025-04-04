@@ -16,13 +16,15 @@ from .. import api
 from ..core.user import (
     getUser,
     retrieveUserIllusts,
+    retrieveUserNovels,
     getUserBookmarks,
     getUserTopIllusts,
     getUserFollowing,
     getUserFollowers,
 )
+from ..core.novels import getFrequentTags as getFrequentNovelTags
 from ..core.artwork import getFrequentTags
-from ..classes import User, ArtworkEntry
+from ..classes import User, ArtworkEntry, NovelSeries
 
 users = Blueprint("users", __name__, url_prefix="/users")
 limit_blueprint(
@@ -160,7 +162,7 @@ async def userManga(_id: int):
         getUser(_id),
         api.getUserIllustManga(_id),
     )
-    data = data["body"]["manga"]
+    data = data["body"]["novels"]
 
     if len(data) >= 1:
         ids = [int(x) for x in list(data.keys())]
@@ -178,25 +180,70 @@ async def userManga(_id: int):
 
         offset = ids[(50 * currPage) - 50 : 50 * currPage]
         illusts, frequent = await gather(
-            retrieveUserIllusts(_id, offset),
-            getFrequentTags(offset),
+            retrieveUserNovels(_id),
+            getFrequentTagsNovel(offset),
         )
-        if any([x.xRestrict for x in illusts]):
-            if not bool(int(request.cookies.get("VixipyConsentSensitiveContent", 0))):
-                return await render_template(
-                    "sensitivityWarning.html", dest=request.full_path
-                )
-
     else:
         illusts = []
         frequent = []
         pages = 1
 
     return await render_template(
-        "user/manga.html",
+        "user/novels.html",
         user=user,
         illusts=illusts,
         total=len(data),
+        pages=pages,
+        canGoNext=(not currPage == pages),
+        canGoPrevious=(not currPage == 1),
+    )
+
+@users.route("/<int:_id>/novels")
+async def userNovels(_id: int):
+
+    if _id == 0:
+        await flash(_("Invalid user"), "error")
+        return redirect("/users/0")
+
+    currPage = int(request.args.get("p", 1))
+
+    user, data = await gather(
+        getUser(_id),
+        api.getUserIllustManga(_id),
+    )
+    nv = data["body"]["novels"]
+    series = [NovelSeries(x) for x in data["body"]["novelSeries"]]
+
+    if len(nv) >= 1:
+        ids = [int(x) for x in list(nv.keys())]
+
+        pages, extra = divmod(len(nv), 50)
+
+        if extra > 0:
+            pages += 1
+
+        if currPage > pages:
+            return (
+                await render_template("error.html", error="Exceeded maximum pages"),
+                400,
+            )
+
+        offset = ids[(50 * currPage) - 50 : 50 * currPage]
+        illusts, frequent = await gather(
+            retrieveUserNovels(_id, offset),
+            getFrequentNovelTags(offset),
+        )
+    else:
+        illusts = []
+        frequent = []
+        pages = 1
+
+    return await render_template(
+        "user/novels.html",
+        user=user,
+        illusts=illusts,
+        series=series,
+        total=len(nv),
         pages=pages,
         canGoNext=(not currPage == pages),
         canGoPrevious=(not currPage == 1),

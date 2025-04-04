@@ -501,6 +501,18 @@ async def retrieveUserIllusts(_id: int, illustIds: list[int]):
     return await pixivReq("get", path)
 
 
+async def retrieveUserNovels(_id: int, ids: list[int]):
+    path = f"/ajax/user/{_id}/profile/novels"
+
+    for k, v in enumerate(ids):
+        if k == 0:
+            path += f"?ids[]={int(v)}"
+        else:
+            path += f"&ids[]={int(v)}"
+
+    return await pixivReq("get", path)
+
+
 async def getUserFollowing(_id: int, offset: int = 0, limit: int = 30):
     return await pixivReq(
         "get", f"/ajax/user/{_id}/following?offset={offset}&limit={limit}&rest=show"
@@ -549,6 +561,20 @@ async def getFrequentTags(ids: list[int]):
     """Get frequent tags based on illust IDs"""
 
     path = "/ajax/tags/frequent/illust"
+
+    for k, v in enumerate(ids):
+        if k == 0:
+            path += f"?ids[]={int(v)}"
+        else:
+            path += f"&ids[]={int(v)}"
+
+    return await pixivReq("get", path)
+
+
+async def getFrequentTagsNovel(ids: list[int]):
+    """Get frequent tags based on illust IDs"""
+
+    path = "/ajax/tags/frequent/novel"
 
     for k, v in enumerate(ids):
         if k == 0:
@@ -721,3 +747,9 @@ async def getNovel(id: int):
 
 async def getRecommendedNovels(id: int, limit: int = 15):
     return await pixivReq("get", f"/ajax/novel/{id}/recommend/init?limit={limit}")
+
+async def getNovelSeries(id: int):
+    return await pixivReq("get", f"/ajax/novel/series/{id}")
+
+async def getNovelSeriesContents(id: int, last_order: int):
+    return await pixivReq("get", f"/ajax/novel/series_content/{id}?limit=30&last_order={last_order}&order_by=asc")

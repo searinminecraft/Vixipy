@@ -1,0 +1,42 @@
+{% extends "user/index.html" %}
+{% set currentSection="novels" %}
+
+{% block userComponent %}
+
+{% if frequent | length > 0 %}
+<h3>{{ _("Frequent tags") }}</h3>
+
+<div class="taglist">
+  {% for t in frequent %}
+  <span><a href="/tag/{{ t.tag }}">#{{ t.tag }}</a> {{ t.tag_translation }}</span>
+  {% endfor %}
+</div>
+
+<br>
+<br>
+{% endif %}
+
+<h2>{{_("Novels")}}</h2>
+<div class="novel-container">
+	{% for d in illusts %}
+	{% include "components/novel-entry.html" %}
+	{% else %}
+	<p>{{ _("Nothing in here!") }}</p>
+	{% endfor %}
+</div>
+
+<div class="paginator">
+        {% if canGoPrevious %}
+	<a href="?p={{ (request.args.get('p', 1) | int) - 1 }}">&lt;</a>
+        {% else %}
+        <a>&lt;</a>
+        {% endif %}
+	<span>Page {{ request.args.get('p', 1) }} of {{ pages }}</span>
+        {% if canGoNext %}
+        <a href="?p={{ (request.args.get('p', 1) | int) + 1 }}">&gt;</a>
+        {% else %}
+        <a>&gt;</a>
+        {% endif %}
+</div>
+
+{% endblock %}

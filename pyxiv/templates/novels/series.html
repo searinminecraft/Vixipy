@@ -1,0 +1,59 @@
+{% extends "layouts/default.html" %}
+{% block title %}{{_("Series %(title)s", title=data.title)}} | {{_("Novels")}}{% endblock %}
+
+{% block content %}
+<div id="novel-main">
+    <div class="info">
+      <img class="cover" src="{{data.cover}}" alt="{{data.title}}">
+      <div class="meta">
+        <h2>{{data.title}}</h2>
+        <a class="author" href="/users/{{data.userId}}">
+          <img src="{{data.profileImageUrl}}" alt="{{data.username}}">
+          {{data.username}}
+        </a>
+        <div class="stats">
+          <span>{{data.createDate|dateformat}}</span>
+          <span>{{_("Updated %(date)s", date=data.updateDate|dateformat)}}</span>
+          <span>{{_("%(episode)s Episode(s)", episode=data.total|numberformat)}}</span>
+          <span>{{_("%(wordCount)s words", wordCount=data.wordCount|numberformat)}}</span>
+          <span>{{_("%(textCount)s characters", textCount=data.characterCount|numberformat)}}</span>
+        </div>
+        <div class="taglist">
+            {% for tag in data.tags %}
+            <span><a>#{{tag}}</a></span>
+            {% endfor %}
+        </div>
+        <div class="description">
+          {{data.caption|safe}}
+        </div>
+        <div class="act">
+          {% if data.isWatched %}
+          <a class="button neutral" href="/self/novel_series/{{data.id}}/unwatch?r=%2Fnovels%2Fseries%2F{{data.id}}">{{_("Already in your watchlist")}}</a>
+          {% if data.isNotifying %}
+          <a class="icon-button" href="/self/novel_series/{{data.id}}/notifications/unsubscribe?r=%2Fnovels%2Fseries%2F{{data.id}}"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#cacaca"><path d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160ZM480-80q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80Z"/></svg></a>
+          {% else %}
+          <a class="icon-button" href="/self/novel_series/{{data.id}}/notifications/subscribe?r=%2Fnovels%2Fseries%2F{{data.id}}"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#cacaca"><path d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z"/></svg></a>
+          {% endif %}
+          {% else %}
+          <a class="button" href="/self/novel_series/{{data.id}}/watch?r=%2Fnovels%2Fseries%2F{{data.id}}">{{_("Add to Watchlist")}}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <h1>{{_("Works")}}</h1>
+    <div id="novel-series-works">
+      {%- for d in content -%}
+      {% include "components/novel-entry.html" %}
+      {%- endfor -%}
+    </div>
+
+    <div class="paginator">
+      {% set p = request.args.get("p", 1) | int %}
+
+      <a href="{% if p != 1 %}{{url_for('novels.novel_series', id=data.id, p=p-1)}}{% endif %}">&lt;</a>
+      <span>Page {{p}} of {{total}}</span>
+      <a href="{% if p < total %}{{url_for('novels.novel_series', id=data.id, p=p+1)}}{% endif %}">&gt;</a>
+    </div>
+</div>
+
+{% endblock %}

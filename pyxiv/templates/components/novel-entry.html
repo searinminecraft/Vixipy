@@ -1,5 +1,5 @@
 <div class="novel-entry">
-    {% if d.__class__.__name__ == 'NovelSeries' %}
+    {% if d.__class__.__name__ == 'NovelSeriesEntry' %}
     <a href="/novels/series/{{d.id}}">
         <img class="thumb" src="{{d.coverSmall}}" alt="{{d.title}}">
     {% else %}
@@ -57,7 +57,7 @@
             {% endif %}
         </div>
 
-        {% if d.__class__.__name__ == 'NovelSeries' %}
+        {% if d.__class__.__name__ == 'NovelSeriesEntry' %}
         <a href="/novels/series/{{d.id}}" class="title">
         {% else %}
         <a href="/novels/{{d.id}}" class="title">
@@ -79,7 +79,7 @@
             {% endfor %}
         </div>
         <div class="stats">
-            {% if d.__class__.__name__ == 'NovelSeries' %}
+            {% if d.__class__.__name__ == 'NovelSeriesEntry' %}
             <span>{{_("%(episode)s Episode(s)", episode=d.episodeCount|numberformat)}}</span>
             {% endif %}
             <span>{{d.createDate|dateformat}}</span>
