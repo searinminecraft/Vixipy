@@ -18,7 +18,9 @@
 		{% endif %}
 		<div class="user-main">
 			<div class="user-info">
-        <img class="user-pfp" src="{{ user.imageBig }}" alt="{{ _("%(user)s's profile picture", user=user.name) }}"/>
+				<a href="{{ user.imageBig }}" target="_blank">
+        			<img class="user-pfp" src="{{ user.imageBig }}" alt="{{ _("%(user)s's profile picture", user=user.name) }}"/>
+				</a>
 				<div class="user-details">
 					<span class="user-name">
 						{{ user.name }}
