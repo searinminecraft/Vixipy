@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-04 20:38+0800\n"
-"PO-Revision-Date: 2025-03-30 02:36+0000\n"
+"PO-Revision-Date: 2025-04-05 13:21+0000\n"
 "Last-Translator: Kita Ikuyo <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:255
@@ -1423,36 +1424,34 @@ msgstr "Mga popular na orihinal na nobela"
 #: pyxiv/templates/novels/novel.html:4 pyxiv/templates/novels/series.html:2
 #, python-format
 msgid "Series %(title)s"
-msgstr ""
+msgstr "Serye %(title)s"
 
 #: pyxiv/templates/novels/novel.html:25
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)s likes"
-msgstr "%(wordCount)s salita"
+msgstr "%(count)s mga like"
 
 #: pyxiv/templates/novels/novel.html:26
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)s bookmarks"
-msgstr "%(wordCount)s salita"
+msgstr "%(count)s mga bookmark"
 
 #: pyxiv/templates/novels/novel.html:43
-#, fuzzy
 msgid "Series"
-msgstr "Mga User"
+msgstr "Serye"
 
 #: pyxiv/templates/novels/series.html:16
-#, fuzzy, python-format
+#, python-format
 msgid "Updated %(date)s"
-msgstr "Na-post noong %(date)s"
+msgstr "Na-update noong %(date)s"
 
 #: pyxiv/templates/novels/series.html:31
 msgid "Already in your watchlist"
-msgstr ""
+msgstr "Nasa watchlist mo"
 
 #: pyxiv/templates/novels/series.html:38
-#, fuzzy
 msgid "Add to Watchlist"
-msgstr "Idagdag sa mga paborito"
+msgstr "Idagdag sa Watchlist"
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
@@ -2167,4 +2166,3 @@ msgstr "Mga Manga ni %(user)s"
 
 #~ msgid "Privacy"
 #~ msgstr "Pagkapribado"
-

@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-30 10:28+0800\n"
-"PO-Revision-Date: 2025-04-03 06:21+0000\n"
+"PO-Revision-Date: 2025-04-07 07:21+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:255
@@ -538,7 +538,6 @@ msgid "Title (max 32 characters)"
 msgstr "标题（最多 32 字符）"
 
 #: pyxiv/templates/editDetails.html:11
-#, fuzzy
 msgid "Description (max 3000 characters)"
 msgstr "描述（最多 3000 字符）"
 
@@ -665,7 +664,6 @@ msgstr "漫画"
 #: pyxiv/templates/novels/index.html:14 pyxiv/templates/novels/novel.html:4
 #: pyxiv/templates/novels/novel.html:6 pyxiv/templates/novels/series.html:2
 #: pyxiv/templates/user/index.html:86 pyxiv/templates/user/novels.html:19
-#, fuzzy
 msgid "Novels"
 msgstr "小说"
 
@@ -1109,7 +1107,6 @@ msgid "Bookmarks"
 msgstr "收藏"
 
 #: pyxiv/templates/components/navbar.html:81
-#, fuzzy
 msgid "Followed Users"
 msgstr "关注的用户"
 
@@ -1127,76 +1124,71 @@ msgstr "退出"
 
 #: pyxiv/templates/components/novel-entry.html:14
 msgid "Romance"
-msgstr ""
+msgstr "恋爱"
 
 #: pyxiv/templates/components/novel-entry.html:16
 msgid "Isekai fantasy"
-msgstr ""
+msgstr "异世界奇幻"
 
 #: pyxiv/templates/components/novel-entry.html:18
 msgid "Contemporary fantasy"
-msgstr ""
+msgstr "现代奇幻"
 
 #: pyxiv/templates/components/novel-entry.html:20
 msgid "Mystery"
-msgstr ""
+msgstr "悬疑"
 
 #: pyxiv/templates/components/novel-entry.html:22
-#, fuzzy
 msgid "Horror"
-msgstr "错误"
+msgstr "恐怖"
 
 #: pyxiv/templates/components/novel-entry.html:24
 msgid "Sci-fi"
-msgstr ""
+msgstr "科幻"
 
 #: pyxiv/templates/components/novel-entry.html:26
-#, fuzzy
 msgid "Literature"
-msgstr "精选"
+msgstr "文学"
 
 #: pyxiv/templates/components/novel-entry.html:28
 msgid "Drama"
-msgstr ""
+msgstr "生活・情感"
 
 #: pyxiv/templates/components/novel-entry.html:30
 msgid "Historical pieces"
-msgstr ""
+msgstr "历史・时代"
 
 #: pyxiv/templates/components/novel-entry.html:32
-#, fuzzy
 msgid "BL (yaoi)"
-msgstr "今日（AI）"
+msgstr "BL"
 
 #: pyxiv/templates/components/novel-entry.html:34
 msgid "Yuri"
-msgstr ""
+msgstr "百合"
 
 #: pyxiv/templates/components/novel-entry.html:36
-#, fuzzy
 msgid "For kids"
-msgstr "作品"
+msgstr "儿童向"
 
 #: pyxiv/templates/components/novel-entry.html:38
 msgid "Poetry"
-msgstr ""
+msgstr "散文・诗歌"
 
 #: pyxiv/templates/components/novel-entry.html:40
 msgid "Essays/non-fiction"
-msgstr ""
+msgstr "随笔・纪实"
 
 #: pyxiv/templates/components/novel-entry.html:42
 msgid "Screenplays/scripts"
-msgstr ""
+msgstr "剧本・台本"
 
 #: pyxiv/templates/components/novel-entry.html:44
 msgid "Reviews/opinion pieces"
-msgstr ""
+msgstr "评论・感想"
 
 #: pyxiv/templates/components/novel-entry.html:46
-#, fuzzy
 msgid "Other"
-msgstr "主题"
+msgstr "其他"
 
 #: pyxiv/templates/components/novel-entry.html:83
 #: pyxiv/templates/novels/series.html:17
@@ -1969,4 +1961,3 @@ msgstr "%(user)s 的漫画"
 
 #~ msgid "Privacy"
 #~ msgstr "隐私"
-
