@@ -172,7 +172,6 @@ For example, you can theme your instance by making `pyxiv/instance/themes/theme-
 | vx.maid.zone | https://vx.maid.zone  | [yes](http://vx.maidzonekwrk4xbbmynqnprq2lu7picruncfscfwmyzbmec6naurhyqd.onion/) | no | no | DE | |
 | NeonW     | http://neonw.su:10353 | no                                                                               | [yes](http://pgk3uwr2sui7qob6aso2b5i7ubmdyf6btk2kjmyr754nh2yggdaq.b32.i2p) | no | KZ | rolling instance and will always be on latest version. Warning: insecure |
 | TorVixipy | none                    | [yes](http://mvrlopacpgnjh2rsykqwtwvxkeozzumo7rfy5uawjv4fnm2top5kdqqd.onion/)  | [yes](http://kw7udvyvztn4ypdsidahzf4kd3fag6loouucnzwgqflgv7y7ek3a.b32.i2p) | no | UA | |
-| vx2.maid.zone | https://vx2.maid.zone | no | no | no | UA | IPv6 only, maybe unstable |
 
 # Translate Vixipy
 
