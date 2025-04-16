@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-04 20:38+0800\n"
-"PO-Revision-Date: 2025-02-18 23:21+0000\n"
-"Last-Translator: divergency "
-"<divergency@users.noreply.translate.codeberg.org>\n"
+"PO-Revision-Date: 2025-04-15 14:12+0000\n"
+"Last-Translator: lainie <lainie@noreply.codeberg.org>\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ru/>\n"
 "Language: ru\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ru/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.10.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: pyxiv/app.py:255
 msgid "pixiv Error!"
-msgstr "pixiv Ошибка!"
+msgstr "Ошибка pixiv!"
 
 #: pyxiv/app.py:259
 #, python-format
@@ -31,7 +31,7 @@ msgid ""
 "pixiv returned an error trying to request data: <code>%(status)d - "
 "%(error)s</code>"
 msgstr ""
-"pixiv вернул ошибку пытаясь запросить данные: <code>%(status)d - "
+"pixiv вернул ошибку, пытаясь запросить данные: <code>%(status)d - "
 "%(error)s</code>"
 
 #: pyxiv/app.py:259
@@ -56,7 +56,7 @@ msgstr "Сервер не смог удовлетворить запрос."
 
 #: pyxiv/app.py:292
 msgid "Forbidden"
-msgstr "Запрещен"
+msgstr "Запрещено"
 
 #: pyxiv/app.py:293
 msgid "You do not have permission to access this page."
@@ -95,6 +95,8 @@ msgid ""
 "We have detected that you are using the Facebook WebView. Please click "
 "the 3 dots and select 'Open in external browser' to view."
 msgstr ""
+"Мы заметили, что вы используете Facebook WebView. Пожалуйста, нажмите 3 "
+"точки и выберите 'Открыть в стороннем браузере', чтобы посмотреть."
 
 #: pyxiv/routes/artworks.py:68 pyxiv/routes/artworks.py:86
 #: pyxiv/routes/artworks.py:98 pyxiv/routes/artworks.py:110
@@ -108,6 +110,9 @@ msgid ""
 "this instance is not associated with a pixiv account, you must log in to "
 "view."
 msgstr ""
+"Эта иллюстрация показывается только пользователям, вошедшим в аккаунт. Так "
+"как данная инстанция не связанна с аккаунтом pixiv, вы должны войти в него, "
+"чтобы посмотреть эту иллюстрацию."
 
 #: pyxiv/routes/artworks.py:87
 msgid ""
@@ -215,12 +220,12 @@ msgstr "Успешно установили прокси сервер"
 
 #: pyxiv/routes/settings.py:250
 msgid "Please specify a URL scheme. Only http and https are accepted."
-msgstr "Пожалуйста укажите URL схему. Только http и https принимаются."
+msgstr "Пожалуйста, укажите схему URL. Принимаются только http и https."
 
 #: pyxiv/routes/settings.py:256
 #, python-format
 msgid "Invalid URL scheme: %(scheme)s. Only http and https are accepted."
-msgstr "Неверная URL схема: %(scheme)s. Только http и https принимаются."
+msgstr "Неверная схема URL: %(scheme)s. Принимаются только http и https."
 
 #: pyxiv/routes/settings.py:265
 #, python-format
@@ -240,9 +245,9 @@ msgid ""
 "Note: the proxy server you have specified is behind Cloudflare. Images "
 "may possibly not load, and may breach your privacy."
 msgstr ""
-"На заметку: прокси сервер который вы выбрали находится за Cloudflare. "
-"Картинки могут не загружаться, и могут повредить вашей "
-"конфиденциальности."
+"Заметка: прокси-сервер, который вы выбрали, находится за Cloudflare. "
+"Вероятно, некоторые изображения могут не загрузиться. Ваша "
+"конфиденциальность может быть под угрозой."
 
 #: pyxiv/routes/settings.py:314
 #, python-format
@@ -250,13 +255,13 @@ msgid ""
 "Integrity check failed for image proxy test. Expected %(integrity)s, got "
 "%(result)s"
 msgstr ""
-"Проверка целостности провалилась для теста прокси изображений. Ожидалось "
-"%(integrity)s, получили %(result)s"
+"Проверка целостности провалилась для теста проксирования изображений. "
+"Ожидалось %(integrity)s, получили %(result)s"
 
 #: pyxiv/routes/settings.py:325
 #, python-format
 msgid "An error occured trying to check proxy server: %(error)s"
-msgstr "Возникла ошибка при проверке прокси сервера: %(error)s"
+msgstr "Возникла ошибка при проверке прокси-сервера: %(error)s"
 
 #: pyxiv/routes/settings.py:375
 msgid "Successfully set preferences"
@@ -276,9 +281,8 @@ msgid "Successfully set theme"
 msgstr "Успешно поставили тему"
 
 #: pyxiv/routes/settings.py:440
-#, fuzzy
 msgid "Successfully set timezone"
-msgstr "Успешно поставили тему"
+msgstr "Успешно поставили часовой пояс"
 
 #: pyxiv/routes/settings.py:452
 #, fuzzy
@@ -287,7 +291,7 @@ msgstr "Успешно установили язык."
 
 #: pyxiv/routes/ugoiraconverter.py:16
 msgid "The ID you specified is not an ugoira."
-msgstr "ID указанный вами не является угойрой."
+msgstr "ID, указанный вами не является угойрой."
 
 #: pyxiv/routes/ugoiraconverter.py:19
 msgid "Illustration not found"
@@ -371,7 +375,7 @@ msgstr "Успешно отредактировали детали"
 
 #: pyxiv/routes/userAction.py:327
 msgid "Your profile has been updated"
-msgstr ""
+msgstr "Ваш профиль был обновлен"
 
 #: pyxiv/templates/500.html:9 pyxiv/templates/500.html:36
 msgid "Internal Server Error"
@@ -510,9 +514,8 @@ msgid "View replies"
 msgstr "Просмотреть ответы"
 
 #: pyxiv/templates/comments.html:55
-#, fuzzy
 msgid "Delete"
-msgstr "Похожие"
+msgstr "Удалить"
 
 #: pyxiv/templates/comments.html:61
 msgid "No comments!"
@@ -576,9 +579,8 @@ msgid "Title (max 32 characters)"
 msgstr "Титул (макс. 32 символа)"
 
 #: pyxiv/templates/editDetails.html:11
-#, fuzzy
 msgid "Description (max 3000 characters)"
-msgstr "Описание (макс. 3000 символов"
+msgstr "Описание (макс. 3000 символов)"
 
 #: pyxiv/templates/editDetails.html:16
 msgid "Allow users to edit tags"
@@ -608,7 +610,7 @@ msgstr "Приватная"
 
 #: pyxiv/templates/editDetails.html:42
 msgid "Logged in users only"
-msgstr ""
+msgstr "Только для авторизованных пользователей"
 
 #: pyxiv/templates/editDetails.html:48
 msgid "Allow comments"
@@ -620,14 +622,12 @@ msgstr "Сохранить Изменения"
 
 #: pyxiv/templates/edit_profile.html:2 pyxiv/templates/edit_profile.html:5
 #: pyxiv/templates/settings/account.html:49 pyxiv/templates/user/index.html:65
-#, fuzzy
 msgid "Edit profile"
-msgstr "Профиль"
+msgstr "Редактировать профиль"
 
 #: pyxiv/templates/edit_profile.html:6
-#, fuzzy
 msgid "Preview"
-msgstr "Предыдущий"
+msgstr "Предпросмотр"
 
 #: pyxiv/templates/edit_profile.html:18 pyxiv/templates/user/index.html:37
 #, python-format
@@ -641,38 +641,36 @@ msgstr "<b>%(myPixiv)s</b> мой pixiv"
 
 #: pyxiv/templates/edit_profile.html:24
 msgid "Tell us a little bit about yourself!"
-msgstr ""
+msgstr "Расскажите нам о себе!"
 
 #: pyxiv/templates/edit_profile.html:29
 msgid "Images"
-msgstr ""
+msgstr "Картинки"
 
 #: pyxiv/templates/edit_profile.html:30
-#, fuzzy
 msgid "Profile Picture"
-msgstr "аватар профиля %(user)s'а"
+msgstr "Аватар"
 
 #: pyxiv/templates/edit_profile.html:31
-#, fuzzy
 msgid "Choose profile picture (max. 5MB):"
-msgstr "аватар профиля %(user)s'а"
+msgstr "Выберите аватар (макс. 5MB):"
 
 #: pyxiv/templates/edit_profile.html:33
 msgid "Cover Image"
-msgstr ""
+msgstr "Обложка картинки"
 
 #: pyxiv/templates/edit_profile.html:34
 msgid "Choose cover image (max. 8MB):"
-msgstr ""
+msgstr "Выберите обложку для картинки (макс. 8MB):"
 
 #: pyxiv/templates/edit_profile.html:45
-#, fuzzy
 msgid "The file you selected is too large"
-msgstr "ID указанный вами не является угойрой."
+msgstr "Файл, выбранный вами, слишком велик"
 
 #: pyxiv/templates/edit_profile.html:46
 msgid "Invalid file selected. Accepted formats include PNG, JPG, and GIF."
 msgstr ""
+"Выбран файл с некорректным расширением. Разрешенные форматы: PNG, JPG и GIF."
 
 #: pyxiv/templates/error.html:2
 msgid "Error"
@@ -708,9 +706,8 @@ msgstr "Манга"
 #: pyxiv/templates/novels/index.html:14 pyxiv/templates/novels/novel.html:4
 #: pyxiv/templates/novels/novel.html:6 pyxiv/templates/novels/series.html:2
 #: pyxiv/templates/user/index.html:86 pyxiv/templates/user/novels.html:19
-#, fuzzy
 msgid "Novels"
-msgstr "Новости"
+msgstr "Романы"
 
 #: pyxiv/templates/index.html:36 pyxiv/templates/novels/index.html:22
 msgid "Latest from following"
@@ -951,17 +948,17 @@ msgid "Continue"
 msgstr "Продолжить"
 
 #: pyxiv/templates/tag.html:11
-#, fuzzy, python-format
+#, python-format
 msgid "<b>%(total)s</b> works"
-msgstr "%(total)s работ"
+msgstr "<b>%(total)s</b> работ"
 
 #: pyxiv/templates/tag.html:21
 msgid "Remove from favorites"
-msgstr ""
+msgstr "Убрать из избранного"
 
 #: pyxiv/templates/tag.html:24
 msgid "Add to favorites"
-msgstr ""
+msgstr "Добавить в избранное"
 
 #: pyxiv/templates/tag.html:37
 msgid "Advanced search options"
@@ -1139,7 +1136,7 @@ msgstr "Искать работы..."
 #: pyxiv/templates/components/navbar.html:17
 #: pyxiv/templates/messages/index.html:8 pyxiv/templates/messages/index.html:19
 msgid "Messages"
-msgstr ""
+msgstr "Сообщения"
 
 #: pyxiv/templates/components/navbar.html:43
 #: pyxiv/templates/settings/account.html:10
@@ -1148,14 +1145,14 @@ msgid "Log in"
 msgstr "Войти"
 
 #: pyxiv/templates/components/navbar.html:57
-#, python-format
+#, fuzzy, python-format
 msgid "%(following)d following - %(followers)d followers"
-msgstr ""
+msgstr "%(following)d подписан - %(followers)d подписчики"
 
 #: pyxiv/templates/components/navbar.html:58
 #, python-format
 msgid "User ID: %(id)d"
-msgstr ""
+msgstr "Идентификатор пользователя: %(id)d"
 
 #: pyxiv/templates/components/navbar.html:67
 msgid "Profile"
@@ -1166,9 +1163,8 @@ msgid "Bookmarks"
 msgstr "Закладки"
 
 #: pyxiv/templates/components/navbar.html:81
-#, fuzzy
 msgid "Followed Users"
-msgstr "подписки на пользователей"
+msgstr "Подписки"
 
 #: pyxiv/templates/components/navbar.html:88
 #: pyxiv/templates/layouts/default.html:116
@@ -1184,11 +1180,11 @@ msgstr "Выйти"
 
 #: pyxiv/templates/components/novel-entry.html:14
 msgid "Romance"
-msgstr ""
+msgstr "Романтика"
 
 #: pyxiv/templates/components/novel-entry.html:16
 msgid "Isekai fantasy"
-msgstr ""
+msgstr "Исекай"
 
 #: pyxiv/templates/components/novel-entry.html:18
 msgid "Contemporary fantasy"
@@ -1196,82 +1192,78 @@ msgstr ""
 
 #: pyxiv/templates/components/novel-entry.html:20
 msgid "Mystery"
-msgstr ""
+msgstr "Мистика"
 
 #: pyxiv/templates/components/novel-entry.html:22
 #, fuzzy
 msgid "Horror"
-msgstr "Ошибка"
+msgstr "Хоррор"
 
 #: pyxiv/templates/components/novel-entry.html:24
 msgid "Sci-fi"
-msgstr ""
+msgstr "Научная фантастика"
 
 #: pyxiv/templates/components/novel-entry.html:26
-#, fuzzy
 msgid "Literature"
-msgstr "Избранное"
+msgstr "Литература"
 
 #: pyxiv/templates/components/novel-entry.html:28
 msgid "Drama"
-msgstr ""
+msgstr "Драма"
 
 #: pyxiv/templates/components/novel-entry.html:30
 msgid "Historical pieces"
-msgstr ""
+msgstr "Из истории"
 
 #: pyxiv/templates/components/novel-entry.html:32
-#, fuzzy
 msgid "BL (yaoi)"
-msgstr "Ежедневные (ИИ)"
+msgstr "Яой"
 
 #: pyxiv/templates/components/novel-entry.html:34
 msgid "Yuri"
-msgstr ""
+msgstr "Юри"
 
 #: pyxiv/templates/components/novel-entry.html:36
-#, fuzzy
 msgid "For kids"
-msgstr "Работы"
+msgstr "Для детей"
 
 #: pyxiv/templates/components/novel-entry.html:38
 msgid "Poetry"
-msgstr ""
+msgstr "Поэзия"
 
 #: pyxiv/templates/components/novel-entry.html:40
 msgid "Essays/non-fiction"
-msgstr ""
+msgstr "Эссе/реальные истории"
 
 #: pyxiv/templates/components/novel-entry.html:42
 msgid "Screenplays/scripts"
-msgstr ""
+msgstr "Сценарии"
 
 #: pyxiv/templates/components/novel-entry.html:44
 msgid "Reviews/opinion pieces"
-msgstr ""
+msgstr "Рецензии/мнения"
 
 #: pyxiv/templates/components/novel-entry.html:46
-#, fuzzy
 msgid "Other"
-msgstr "Тема"
+msgstr "Прочее"
 
 #: pyxiv/templates/components/novel-entry.html:83
 #: pyxiv/templates/novels/series.html:17
 #, python-format
 msgid "%(episode)s Episode(s)"
-msgstr ""
+msgstr "%(episode)s Эпизод(ы)"
 
 #: pyxiv/templates/components/novel-entry.html:86
 #: pyxiv/templates/novels/novel.html:27 pyxiv/templates/novels/series.html:18
 #, python-format
 msgid "%(wordCount)s words"
-msgstr ""
+msgstr "%(wordCount)s слов"
 
 #: pyxiv/templates/components/novel-entry.html:87
 #: pyxiv/templates/novels/novel.html:28 pyxiv/templates/novels/series.html:19
 #, python-format
 msgid "%(textCount)s characters"
-msgstr ""
+msgstr "%(textCount)s персонажей"
 
 #: pyxiv/templates/layouts/default.html:15
 msgid "Hold up!"
@@ -1301,20 +1293,19 @@ msgstr "Этот веб-сайт требует JavaScript."
 
 #: pyxiv/templates/layouts/default.html:67
 msgid "Explore"
-msgstr ""
+msgstr "Исследовать"
 
 #: pyxiv/templates/layouts/default.html:72
 msgid "Discover"
-msgstr "Исследовать"
+msgstr "Найти новое"
 
 #: pyxiv/templates/layouts/default.html:97
 msgid "pixivision"
 msgstr "pixivision"
 
 #: pyxiv/templates/layouts/default.html:101
-#, fuzzy
 msgid "Tools"
-msgstr "Инструмент:"
+msgstr "Инструменты"
 
 #: pyxiv/templates/layouts/default.html:105
 #: pyxiv/templates/ugoiraConverter/converter.html:2
@@ -1326,7 +1317,7 @@ msgstr "Конвертер Угойры"
 
 #: pyxiv/templates/layouts/default.html:108
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Прочее"
 
 #: pyxiv/templates/layouts/default.html:112
 #: pyxiv/templates/news/category.html:2 pyxiv/templates/news/category.html:24
@@ -1352,28 +1343,32 @@ msgid ""
 "href='https://policies.pixiv.net'>pixiv Service Master Terms of Use</a>. "
 "Don't send sensitive information!"
 msgstr ""
+"<b>Помните:</b> Все сообщения не защищенны сквозным шифрованием и на них "
+"распространяются <a rel='noopener noreferrer' href='https://"
+"policies.pixiv.net'>Условия использования pixiv</a>. Не оставляйте "
+"чувствительную информацию!"
 
 #: pyxiv/templates/messages/message.html:36
 msgid "This thread is reserved for important pixiv messages"
-msgstr ""
+msgstr "Этот чат зарезервирован для важных сообщений от pixiv"
 
 #: pyxiv/templates/messages/message.html:37
 msgid "pixiv nor Vixipy will never ask for login information or session tokens"
 msgstr ""
+"pivix или Vixipy сами никогда не запросят инфомацию, необходимую для входа"
 
 #: pyxiv/templates/messages/message.html:47
-#, fuzzy
 msgid "Remove"
-msgstr "Предыдущий"
+msgstr "Удалить"
 
 #: pyxiv/templates/messages/message.html:53
 msgid "Upload image"
-msgstr ""
+msgstr "Загрузить изображение"
 
 #: pyxiv/templates/messages/message.html:57
 #, python-format
 msgid "Message %(name)s"
-msgstr ""
+msgstr "Написать %(name)s"
 
 #: pyxiv/templates/news/category.html:7 pyxiv/templates/news/entry.html:17
 #: pyxiv/templates/news/index.html:8
@@ -1428,27 +1423,26 @@ msgstr "Новости от pixiv"
 
 #: pyxiv/templates/novels/index.html:29
 msgid "Popular original novels"
-msgstr ""
+msgstr "Популярные оригинальные романы"
 
 #: pyxiv/templates/novels/novel.html:4 pyxiv/templates/novels/series.html:2
 #, python-format
 msgid "Series %(title)s"
-msgstr ""
+msgstr "Серия %(title)s"
 
 #: pyxiv/templates/novels/novel.html:25
 #, python-format
 msgid "%(count)s likes"
-msgstr ""
+msgstr "%(count)s лайков"
 
 #: pyxiv/templates/novels/novel.html:26
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)s bookmarks"
-msgstr "Закладки"
+msgstr "%(count)s закладок"
 
 #: pyxiv/templates/novels/novel.html:43
-#, fuzzy
 msgid "Series"
-msgstr "Пользователи"
+msgstr "Серия"
 
 #: pyxiv/templates/novels/series.html:16
 #, fuzzy, python-format
@@ -1457,11 +1451,11 @@ msgstr "Загружено %(date)s"
 
 #: pyxiv/templates/novels/series.html:31
 msgid "Already in your watchlist"
-msgstr ""
+msgstr "Уже отслеживается"
 
 #: pyxiv/templates/novels/series.html:38
 msgid "Add to Watchlist"
-msgstr ""
+msgstr "Следить"
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
@@ -1521,20 +1515,15 @@ msgstr ""
 "href='https://0xacab.org/dCF/deCloudflare'>кучу, кучу проблем.</a>"
 
 #: pyxiv/templates/settings/about.html:14
-#, fuzzy
 msgid ""
 "With Vixipy, you can enjoy using most pixiv features with a frontend you "
 "can trust. Your browser will never connect to any external server except "
 "if you specify an external image proxy server."
 msgstr ""
-"С Vixipy, вы можете наслаждаться использованием большинства возможностей "
-"pixiv с фронт-эндом, которому вы можете доверять. Ваш браузер никогда не "
-"будет соединяться с никаким внешним сервером, кроме как если вы укажете "
-"внешний сервер прокси изображений. Единственные вещи, которые Vixipy "
-"будет записывать, это запросы к pixiv API, ваш user agent, и запросы к "
-"прокси изображений (кроме тех случаев, когда вы используете внешний "
-"сервер прокси изображений, которому вам придется доверять в терминах их "
-"практик конфиденциальности)."
+"С Vixipy вы можете наслаждаться использованием большинства возможностей "
+"pixiv с фронтендом, заслуживающим доверия. Ваш браузер никогда не "
+"подключится к любому внешнему серверу, если только вы вручную не укажете "
+"внешний прокси-сервер для изображений."
 
 #: pyxiv/templates/settings/about.html:16
 msgid ""
@@ -1561,17 +1550,16 @@ msgstr ""
 "правильным упоминанием и аттрибуцией, если нужно."
 
 #: pyxiv/templates/settings/about.html:22
-#, fuzzy
 msgid ""
 "Performance-wise, Vixipy is sometimes faster or on par with other pixiv "
 "frontends."
 msgstr ""
-"В плане производительности, Vixipy более-менее лагает, в отличие от "
-"других, но иногда быстрее или в ничье с другими pixiv фронт-эндами."
+"С точки зрения производительности, Vixipy наравне с другими фронтендами "
+"pixiv. Иногда он даже показывает лучшую производительность."
 
 #: pyxiv/templates/settings/about.html:24
 msgid "What makes Vixipy unique?"
-msgstr ""
+msgstr "Что делает Vixipy уникальным?"
 
 #: pyxiv/templates/settings/about.html:25
 msgid ""
@@ -1581,6 +1569,12 @@ msgid ""
 "things like edit your profile, view notifications, express your opinions "
 "and feelings by sending comments and stickers, and more to come."
 msgstr ""
+"Vixipy - не просто фронтенд, позволяющий вам просматривать pixiv, он в том "
+"числе старается быть полезным и функциональным клиентом, чем-то похожим на "
+"PixEz (клиент pixiv для Android/IOS, написанный на Flutter), который "
+"позволяет вам выполнять различные действия, вроде редактирования вашего "
+"профиля, просмотра уведомлений, высказывания своего мнения и чувств, "
+"отправляя комментарии и стикеры, и многое другое."
 
 #: pyxiv/templates/settings/about.html:27
 msgid "Acknowledgements"
@@ -1593,9 +1587,8 @@ msgid ""
 msgstr "Vixipy стал возможным благодаря другим проектам с открытым источником:"
 
 #: pyxiv/templates/settings/about.html:45
-#, fuzzy
 msgid "Disclaimer"
-msgstr "Исследовать"
+msgstr "Предупреждение"
 
 #: pyxiv/templates/settings/about.html:46
 msgid ""
@@ -1604,6 +1597,10 @@ msgid ""
 "WARRANTY, and chances of your pixiv account getting in trouble or "
 "suspended are not guaranteed."
 msgstr ""
+"Vixipy - неофициальный фронтенд для pixiv, и он не был сделан, одобрен, или "
+"как-то связан с pixiv (pixiv Inc.). Это программное обеспечение не "
+"предлагает НИКАКИХ ГАРАНТИЙ, и сохранность вашего аккаунта (или его "
+"возможная блокировка) никем не гарантируется."
 
 #: pyxiv/templates/settings/about.html:48
 msgid ""
@@ -1614,6 +1611,13 @@ msgid ""
 "concerns about works that, for example, infringe on your copyright and "
 "intellectual property rights, send these to pixiv, and not us."
 msgstr ""
+"Все работы, показываемые на этой инстанции происходят на сервисе pixiv, и "
+"принадлежат их авторам. Никакого нарушения авторских прав не предполагается, "
+"и программное обеспечение, как и инстанции не контролируют и не несут "
+"никакой ответственности за представленный контент. Если у вас есть какие-"
+"либо вопросы или опасения по поводу работ, которые, например, нарушают ваши "
+"авторские права и права на интеллектуальную собственность, пожалуйста, "
+"отправляйте их в pixiv, а не нам."
 
 #: pyxiv/templates/settings/account.html:6
 msgid "Account Settings"
@@ -1692,7 +1696,7 @@ msgstr ""
 
 #: pyxiv/templates/settings/account.html:56
 msgid "CSRF Token"
-msgstr ""
+msgstr "Токен CSRF"
 
 #: pyxiv/templates/settings/account.html:57
 msgid ""
@@ -1700,20 +1704,22 @@ msgid ""
 "internally to send POST requests to pixiv. You probably shouldn't be "
 "needing it unless you're gonna mess or experiment with the pixiv API."
 msgstr ""
+"Это ваш CSRF (Cross Site Request Forgery) токен, который будет использован "
+"штатно для отправки POST запросов к pixiv. Скорее всего, вам он не "
+"понадобится, если только вы не собираетесь экспериментировать с API pixiv."
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:36
 msgid "Language and location"
-msgstr ""
+msgstr "Язык и локация"
 
 #: pyxiv/templates/settings/language.html:8
 msgid "Language"
 msgstr "Язык"
 
 #: pyxiv/templates/settings/language.html:10
-#, fuzzy
 msgid "You can select your preferred language here."
-msgstr "Вы можете выбрать ваш язык предпочтения здесь."
+msgstr "Вы можете выбрать ваш предпочтительный язык здесь."
 
 #: pyxiv/templates/settings/language.html:15
 msgid "Use system language"
@@ -1735,19 +1741,16 @@ msgstr ""
 "target='_blank'>Помогите с переводом!</a>"
 
 #: pyxiv/templates/settings/language.html:28
-#, fuzzy
 msgid "Location"
-msgstr "Оглавнение/Заголовок"
+msgstr "Локация"
 
 #: pyxiv/templates/settings/language.html:38
-#, fuzzy
 msgid "About location settings"
-msgstr "Настройки Аккаунта"
+msgstr "О настройках локации"
 
 #: pyxiv/templates/settings/language.html:41
-#, fuzzy
 msgid "Set Location"
-msgstr "Оглавнение/Заголовок"
+msgstr "Выставить локацию"
 
 #: pyxiv/templates/settings/language.html:45
 msgid "pixivision Language"
@@ -1759,12 +1762,11 @@ msgstr "Вы можете установить язык для статей pixi
 
 #: pyxiv/templates/settings/language.html:62
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 #: pyxiv/templates/settings/language.html:71
-#, fuzzy
 msgid "Set timezone"
-msgstr "Поставить Тему"
+msgstr "Выставить часовой пояс"
 
 #: pyxiv/templates/settings/license.html:6
 #: pyxiv/templates/settings/settingsMain.html:44
@@ -2054,4 +2056,3 @@ msgstr "Манга %(user)s'а"
 
 #~ msgid "Privacy"
 #~ msgstr "Конфиденциальность"
-
