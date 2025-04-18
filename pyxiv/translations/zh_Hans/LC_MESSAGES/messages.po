@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-30 10:28+0800\n"
-"PO-Revision-Date: 2025-04-07 07:21+0000\n"
+"PO-Revision-Date: 2025-04-16 07:03+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
@@ -1358,40 +1358,39 @@ msgstr "pixiv 新闻"
 
 #: pyxiv/templates/novels/index.html:29
 msgid "Popular original novels"
-msgstr ""
+msgstr "热门原创小说"
 
 #: pyxiv/templates/novels/novel.html:4 pyxiv/templates/novels/series.html:2
 #, python-format
 msgid "Series %(title)s"
-msgstr ""
+msgstr "%(title)s 系列"
 
 #: pyxiv/templates/novels/novel.html:25
 #, python-format
 msgid "%(count)s likes"
-msgstr ""
+msgstr "%(count)s 点赞"
 
 #: pyxiv/templates/novels/novel.html:26
 #, fuzzy, python-format
 msgid "%(count)s bookmarks"
-msgstr "收藏"
+msgstr "%(name)s%(count)s 收藏"
 
 #: pyxiv/templates/novels/novel.html:43
-#, fuzzy
 msgid "Series"
-msgstr "用户"
+msgstr "系列"
 
 #: pyxiv/templates/novels/series.html:16
-#, fuzzy, python-format
+#, python-format
 msgid "Updated %(date)s"
-msgstr "发布于 %(date)s"
+msgstr "更新于 %(date)s"
 
 #: pyxiv/templates/novels/series.html:31
 msgid "Already in your watchlist"
-msgstr ""
+msgstr "已经在关注列表"
 
 #: pyxiv/templates/novels/series.html:38
 msgid "Add to Watchlist"
-msgstr ""
+msgstr "添加关注"
 
 #: pyxiv/templates/pixivision/article.html:15
 #: pyxiv/templates/pixivision/index.html:17
@@ -1604,7 +1603,6 @@ msgid "Language"
 msgstr "语言"
 
 #: pyxiv/templates/settings/language.html:10
-#, fuzzy
 msgid "You can select your preferred language here."
 msgstr "在此选择偏好语言。"
 
