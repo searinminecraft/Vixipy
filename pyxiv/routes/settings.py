@@ -131,7 +131,7 @@ async def mainSettings(ep):
 async def setSession():
     f = await request.form
 
-    csrfMatch = '"token":"([0-9a-f]+)"'
+    csrfMatch = r'\\"token\\":\\"([0-9a-f]+)\\"'
 
     if f.get("token") and f.get("token") != "":
 
@@ -176,10 +176,10 @@ async def setSession():
         r = re.search(csrfMatch, data)
         try:
             csrf = r.group(1)
-        except IndexError:
+        except Exception:
             log.debug("Could not extract CSRF token")
             await flash(_("Unable to extract CSRF"), "error")
-            return redirect(url_for("settings.settingsMain", ep="account"))
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
         p_ab_d_id = await extract_p_ab_d_id(f["token"])
         if p_ab_d_id == "":
