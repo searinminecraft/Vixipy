@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-03-30 10:28+0800\n"
-"PO-Revision-Date: 2025-04-16 07:03+0000\n"
+"PO-Revision-Date: 2025-04-21 16:53+0000\n"
 "Last-Translator: Peaksol <p@peaksol.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
@@ -1371,9 +1371,9 @@ msgid "%(count)s likes"
 msgstr "%(count)s 点赞"
 
 #: pyxiv/templates/novels/novel.html:26
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)s bookmarks"
-msgstr "%(name)s%(count)s 收藏"
+msgstr "%(count)s 收藏"
 
 #: pyxiv/templates/novels/novel.html:43
 msgid "Series"
@@ -1485,6 +1485,10 @@ msgid ""
 "things like edit your profile, view notifications, express your opinions "
 "and feelings by sending comments and stickers, and more to come."
 msgstr ""
+"Vixipy 不止能用来浏览 pixiv，还能用作一个 pixiv 客户端，类似于 PixEz（使用 "
+"Flutter 编写的 Android/iOS pixiv "
+"客户端）。使用它，可以编辑个人资料、查看通知，通过评论、贴纸来发表观点和感想"
+"等。"
 
 #: pyxiv/templates/settings/about.html:27
 msgid "Acknowledgements"
@@ -1507,6 +1511,9 @@ msgid ""
 "WARRANTY, and chances of your pixiv account getting in trouble or "
 "suspended are not guaranteed."
 msgstr ""
+"Vixipy 是一个非官方的 pixiv 前端，并非由 pixiv（pixiv "
+"Inc.）制作、授权或所属。本软件不附带任何担保，也不能保证你的 pixiv "
+"帐号不会遇到问题或遭到停用。"
 
 #: pyxiv/templates/settings/about.html:48
 msgid ""
@@ -1517,6 +1524,10 @@ msgid ""
 "concerns about works that, for example, infringe on your copyright and "
 "intellectual property rights, send these to pixiv, and not us."
 msgstr ""
+"本实例显示的所有作品均来自 "
+"pixiv，并且归相应的画师、作者所有，无意图侵犯版权。软件及实例管理员对所显示的"
+"内容无法控制，且不承担责任。若对作品有任何疑问，如侵犯了你的版权或知识产权，"
+"请将问题发送至 pixiv，而非发送至我们。"
 
 #: pyxiv/templates/settings/account.html:6
 msgid "Account Settings"
@@ -1592,6 +1603,8 @@ msgid ""
 "internally to send POST requests to pixiv. You probably shouldn't be "
 "needing it unless you're gonna mess or experiment with the pixiv API."
 msgstr ""
+"这是你的 CSRF（跨站请求伪造）token，用于向 pixiv 发送 POST "
+"请求。通常不需要用到它，除非要调试或者实验 pixiv API。"
 
 #: pyxiv/templates/settings/language.html:6
 #: pyxiv/templates/settings/settingsMain.html:36
