@@ -3,4 +3,4 @@ __pycache__
 pyxiv.sock
 pyxiv.running
 compose.yaml
-pyxiv/instance/*
+instance
