@@ -53,7 +53,7 @@ async def pixiv_request(
         _cookies["p_ab_d_id"] = app.pixiv_p_ab_id
         _cookies["p_ab_d_id"] = app.pixiv_p_ab_id_2
         if not "PHPSESSID" in _cookies:
-            _cookies["PHPSESSID"] = app.phpsessid
+            _cookies["PHPSESSID"] = app.pixiv_phpsessid
 
     for k, v in _cookies.items():
         cookie_header += f"{k}={v}; "

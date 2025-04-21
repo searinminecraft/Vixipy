@@ -27,7 +27,7 @@ def create_app():
     app = Quart(__name__, instance_relative_config=True)
     app.config.from_mapping(
         VIXIPY_VERSION="3",
-        ACCEPT_LANGUAGE="en_US;en,q=0.9",
+        ACCEPT_LANGUAGE="en_US,en;q=0.9",
         SECRET_KEY="Vyxie",
         INSTANCE_NAME="Vixipy",
         LANGUAGES=[],
