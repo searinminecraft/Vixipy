@@ -1,8 +1,0 @@
-<p>subtemplate triggers executing error</p>
-
-{% extends "layouts/default.html" %}
-{% block title %}tmplerr{% endblock %}
-
-{% block content %}
-{{ !g.isauthorized }}
-{% endblock %}

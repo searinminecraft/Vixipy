@@ -1,9 +1,0 @@
-Crawl-delay: 15
-User-Agent: *
-Disallow: /
-Disallow: /proxy
-Allow: /artworks/*
-Disallow: /artworks/*/comments
-Allow: /users/*
-Allow: /news/*
-Allow: /pixivision/a/*
