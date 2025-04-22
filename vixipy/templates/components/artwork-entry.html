@@ -1,0 +1,17 @@
+{% macro entry(data, minimal=false) -%}
+<div class="artwork-entry">
+    <div class="img-container">
+        <div class="meta"></div>
+        <a href="{{url_for('artworks._get_artwork', id=data.id)}}">
+            <img src="{{data.thumb}}" alt="{{data.alt}}">
+        </a>
+    </div>
+
+    {% if not minimal %}
+    <a class="title" href="{{url_for('artworks._get_artwork', id=data.id)}}">{{ data.title }}</a>
+    <a class="author" href="/users/{{data.authorId}}">
+        <img src="{{data.profileimg}}" alt="{{data.authorName}}" loading="lazy"> {{data.authorName}}
+    </a>
+    {% endif %}
+</div>
+{%- endmacro %}

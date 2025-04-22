@@ -1,0 +1,38 @@
+input[type=text],
+input[type=password],
+textarea {
+    border: 3px solid var(--md-sys-color-outline-variant);
+    color: var(--md-sys-color-on-surface);
+    background-color: var(--md-sys-color-surface-container-lowest);
+    padding: 12px 10px;
+    border-radius: 8px;
+
+    &:focus {
+        outline: unset;
+    }
+
+    &.width-100 {
+        width: 100%;
+    }
+}
+
+label {
+    &.block {
+        display: block;
+    }
+
+    &.heading {
+        font-weight: bold;
+        margin-bottom: 6px;
+        font-size: 18px;
+    }
+}
+
+form {
+    .actions {
+        margin-top: 1em;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1em;
+    }
+}

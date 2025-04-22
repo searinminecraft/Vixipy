@@ -1,0 +1,8 @@
+@mixin profile-img($size) {
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+    object-fit: cover;
+    object-position: center;
+    background-color: var(--md-sys-color-surface-container-low);
+}

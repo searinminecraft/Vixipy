@@ -1,0 +1,90 @@
+@use '../mixins';
+
+.bg-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    object-fit: cover;
+}
+
+#login-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    backdrop-filter: blur(2rem);
+
+    .main-login {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        main {
+            background-color: var(--md-sys-color-surface);
+            padding: 2em;
+            border-radius: 24px;
+            display: flex;
+            width: 80%;
+            height: 75%;
+            max-width: 1400px;
+            max-height: 1200px;
+            gap: 4em;
+
+            > * {
+                flex: 50%
+            }
+
+            .info {
+                svg {
+                    fill: var(--md-sys-color-primary);
+                }
+                overflow: auto;
+            }
+
+            .form-area {
+                display: flex;
+                align-items: center;
+
+                form {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .attribution {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 1em 1.5em;
+        border-radius: 12px;
+        background-color: var(--md-sys-color-surface-container);
+        display: flex;
+        margin-left: 1em;
+        margin-bottom: 1em;
+        align-items: center;
+
+        img.profile {
+            @include mixins.profile-img(32px);
+            margin-right: 1em;
+        }
+
+        .info {
+            > a {
+                color: unset;
+                font-weight: bold;
+                font-size: 12px;
+            }
+            p {
+                margin: unset;
+                margin-top: 4px;
+                font-size: 12px;
+            }
+        }
+    }
+}

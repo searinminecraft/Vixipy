@@ -1,0 +1,59 @@
+@use 'mixins';
+
+.artwork-entry {
+    max-width: 150px;
+    min-width: 150px;
+
+    .img-container {
+        position: relative;
+
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            object-position: top;
+            background-color: var(--md-sys-color-surface-container-low);
+            border-radius: 8px;
+        }
+    }
+
+    .title, .author {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+    }
+
+    .title {
+        font-weight: bold;
+        color: unset;
+        margin: 4px 0;
+    }
+
+    .author {
+        display: flex;
+        align-items: center;
+
+        img {
+            @include mixins.profile-img(16px);
+            margin-right: 12px;
+        }
+    }
+}
+
+.artwork-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1em;
+}
+
+.scrolling-container {
+    width: 100%;
+    display: flex;
+    column-gap: 1em;
+    overflow: hidden;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}

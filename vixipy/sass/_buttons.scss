@@ -1,0 +1,71 @@
+%button-common {
+    border: unset;
+    padding: 8px 18px;
+    border-radius: 999999px;
+    display: inline-block;
+
+    &.icon {
+        display: flex;
+        align-items: center;
+
+        svg {
+            fill: currentColor;
+            margin-right: 1em;
+        }
+    }
+}
+
+button {
+    font-size: 16px;
+}
+
+a.button, button.button {
+    @extend %button-common;
+
+    &.primary {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary)
+    }
+
+    &.neutral {
+        background-color: var(--md-sys-color-surface5);
+        color: var(--md-sys-color-on-surface);
+    }
+    &.secondary {
+        background-color: var(--md-sys-color-secondary);
+        color: var(--md-sys-color-on-secondary)
+    }
+    &.tertiary {
+        background-color: var(--md-sys-color-tertiary);
+        color: var(--md-sys-color-on-tertiary)
+    }
+}
+
+a.label-button, button.label-button {
+    @extend %button-common;
+
+    background-color: unset;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--md-sys-color-primary);
+}
+
+a.icon-button, button.icon-button {
+    background-color: unset;
+    border: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--md-sys-color-on-surface);
+    transition: background-color .1s ease;
+    padding: 6px;
+
+    svg {
+        fill: currentColor
+    }
+
+    &:hover {
+        background-color: rgba(0,0,0,.1);
+    }
+}

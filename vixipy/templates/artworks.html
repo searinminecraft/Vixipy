@@ -1,6 +1,19 @@
 {% extends "layouts/default.html" %}
-{% set title = _("") %}
+{% set title = work.alt %}
+
+{% import "components/artwork-entry.html" as artwork_entry %}
 
 {% block content %}
-
+<main>
+    <h2>{{_("Recommended Works")}}</h2>
+    {% if recommend | length > 0 %}
+    <div class="artwork-container">
+        {% for r in recommend %}
+        {{ artwork_entry.entry(r) }}
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>{{_("No recommended works to show.")}}</p>
+    {% endif %}
+</main>
 {% endblock %}

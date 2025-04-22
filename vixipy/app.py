@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from quart import (
     Quart,
+    Response,
     g,
     request,
 )
@@ -15,7 +16,11 @@ from time import perf_counter
 from typing import TYPE_CHECKING
 
 from .routes import (
-    index
+    index,
+    proxy,
+    vanity,
+    artworks,
+    login,
 )
 from . import session as pixiv_session_handler
 
@@ -35,11 +40,11 @@ def create_app():
         NO_R18="0",
         PORT="8000",
         TOKEN="",
-        DEBUG="0"
+        IMG_PROXY="/proxy/i.pximg.net"
     )
     app.config.from_prefixed_env("VIXIPY")
 
-    if app.config["DEBUG"] == "1":
+    if app.config["DEBUG"]:
         loglevel = logging.DEBUG
     else:
         loglevel = logging.INFO
@@ -65,6 +70,10 @@ def create_app():
     babel = Babel(app, locale_selector=get_user_language)
 
     app.register_blueprint(index)
+    app.register_blueprint(proxy)
+    app.register_blueprint(vanity)
+    app.register_blueprint(artworks)
+    app.register_blueprint(login)
 
     # =================================
     if app.config["LOG_HTTP"] == "1":
@@ -80,6 +89,12 @@ def create_app():
             log.info(
                 "%s %s - %s %dms", request.method, request.url, r.status, g.time_taken
             )
+            return r
+
+    if app.config["DEBUG"]:
+        @app.after_request
+        async def disable_cache(r: Response):
+            r.headers["Cache-Control"] = "no-cache"
             return r
     # =================================
 
@@ -107,6 +122,8 @@ def create_app():
         log.info("  * Log HTTP Requests: %s", "yes" if app.config["LOG_HTTP"] == "1" else "no")
         log.info("  * Using Account: %s", "yes" if app.config["TOKEN"] != "" else "no")
         log.info("  * No R18: %s", "yes" if app.config["NO_R18"] == "1" else "no")
+        log.info("  * Image Proxy: %s", app.config["IMG_PROXY"])
+        log.info("  * Debug: %s", app.config["DEBUG"])
 
         with open(os.path.join(app.instance_path, ".running"), "w") as f:
             f.write("")

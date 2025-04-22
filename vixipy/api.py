@@ -3,7 +3,9 @@ from __future__ import annotations
 from quart import current_app, g
 import logging
 import time
-from typing import TYPE_CHECKING, Iterable, List, Tuple
+from typing import TYPE_CHECKING, List, Tuple
+
+from .types import *
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
@@ -21,7 +23,7 @@ class PixivError(Exception):
 async def pixiv_request(
     endpoint: str,
     method: str = "get",
-    params: Iterable[List[Tuple]] = [],
+    params: List[Tuple[str, str]] = [],
     *,
     cookies={},
     headers: dict = {},
@@ -49,11 +51,14 @@ async def pixiv_request(
         if method.lower() == "post":
             _headers["x-csrf-token"] = g.csrf
     else:
-        _cookies["p_ab_d_id"] = app.pixiv_p_ab_d_id
-        _cookies["p_ab_d_id"] = app.pixiv_p_ab_id
-        _cookies["p_ab_d_id"] = app.pixiv_p_ab_id_2
+        _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_d_id
+        _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_id
+        _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_id_2
         if not "PHPSESSID" in _cookies:
-            _cookies["PHPSESSID"] = app.pixiv_phpsessid
+            if current_app.config.get("TOKEN"):
+                _cookies["PHPSESSID"] = current_app.config["TOKEN"]
+            else:
+                _cookies["PHPSESSID"] = current_app.pixiv_phpsessid
 
     for k, v in _cookies.items():
         cookie_header += f"{k}={v}; "
@@ -76,4 +81,37 @@ async def pixiv_request(
     res = await r.json()
     if res.get("error") == True or res.get("isSucceed") == False:
         raise PixivError(res["message"], r.status, endpoint)
-    return res
+
+    if res.get('body'):
+        return res["body"]
+    else:
+        return res
+            
+
+async def get_user(id: int, full: bool = False) -> User:
+    data = await pixiv_request(f"/ajax/user/{id}", params=[("full", int(full))])
+    if full:
+        return User(data)
+    else:
+        return PartialUser(data)    
+
+async def get_notification_count() -> int:
+    data = await pixiv_request(f"/rpc/notify_count.php", params=[("op", "count_unread")], headers={"Referer": "https://www.pixiv.net"})
+    return data["popboard"]
+
+async def get_self_extra() -> UserExtraData:
+    data = await pixiv_request("/ajax/user/extra")
+    return UserExtraData(data)
+
+
+async def get_artwork(id: int) -> Artwork:
+    data = await pixiv_request(f"/ajax/illust/{id}")
+    return Artwork(data)
+
+async def get_artwork_pages(id: int) -> ArtworkPage:
+    data = await pixiv_request(f"/ajax/illust/{id}/pages")
+    return [ArtworkPage(x) for x in data]
+
+async def get_recommended_works(id: int) -> list[ArtworkEntry]:
+    data = await pixiv_request(f"/ajax/illust/{id}/recommend/init", params=[('limit', '180')])
+    return [ArtworkEntry(x) for x in data["illusts"]]
