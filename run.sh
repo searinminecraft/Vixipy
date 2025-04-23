@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source venv/bin/activate
 
 #export PYXIV_TOKEN="token_123456"
