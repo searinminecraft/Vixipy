@@ -40,7 +40,7 @@ def create_app():
         NO_R18="0",
         PORT="8000",
         TOKEN="",
-        IMG_PROXY="/proxy/i.pximg.net"
+        IMG_PROXY="/proxy/i.pximg.net",
     )
     app.config.from_prefixed_env("VIXIPY")
 
@@ -77,6 +77,7 @@ def create_app():
 
     # =================================
     if app.config["LOG_HTTP"] == "1":
+
         @app.before_request
         async def record_begin_time():
             g.req_start = perf_counter()
@@ -92,10 +93,12 @@ def create_app():
             return r
 
     if app.config["DEBUG"]:
+
         @app.after_request
         async def disable_cache(r: Response):
             r.headers["Cache-Control"] = "no-cache"
             return r
+
     # =================================
 
     pixiv_session_handler.init_app(app)
@@ -111,7 +114,10 @@ def create_app():
         log.info(r" __   ____  __  ⠀⠀⡇⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⠀⠀⠀⠀⠀⠀⠙⣷⡴⠶⣦")
         log.info(r" \ \ / /\ \/ /  ⠀⠀⢱⡀⠀⠉⠉⠀⠀⠀⠀⠛⠃⠀⢠⡟⠂⠀⠀⢀⣀⣠⣤⠿⠞⠛⠋")
         log.info(r"  \ V /  >  <   ⣠⠾⠋⠙⣶⣤⣤⣤⣤⣤⣀⣠⣤⣾⣿⠴⠶⠚⠋⠉⠁⠀⠀⠀⠀⠀⠀")
-        log.info(r"   \_/  /_/\_\  ⠛⠒⠛⠉⠉⠀⠀⠀⣴⠟⣣⡴⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀v%s", app.config["VIXIPY_VERSION"])
+        log.info(
+            r"   \_/  /_/\_\  ⠛⠒⠛⠉⠉⠀⠀⠀⣴⠟⣣⡴⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀v%s",
+            app.config["VIXIPY_VERSION"],
+        )
         log.info("~~~~~~~~~~~~~~~~~~~~~~~~⠛⠛~~~~~~~~~~~~~~~~~~~~~~~~~")
 
         log.info("Vixipy is listening on port %s", app.config["PORT"])
@@ -119,7 +125,10 @@ def create_app():
         log.info("Configuration:")
         log.info("  * Accept Language: %s", app.config["ACCEPT_LANGUAGE"])
         log.info("  * Instance Name: %s", app.config["INSTANCE_NAME"])
-        log.info("  * Log HTTP Requests: %s", "yes" if app.config["LOG_HTTP"] == "1" else "no")
+        log.info(
+            "  * Log HTTP Requests: %s",
+            "yes" if app.config["LOG_HTTP"] == "1" else "no",
+        )
         log.info("  * Using Account: %s", "yes" if app.config["TOKEN"] != "" else "no")
         log.info("  * No R18: %s", "yes" if app.config["NO_R18"] == "1" else "no")
         log.info("  * Image Proxy: %s", app.config["IMG_PROXY"])
@@ -134,6 +143,7 @@ def create_app():
             os.remove(os.path.join(app.instance_path, ".running"))
         except (FileNotFoundError, OSError):
             pass
+
     # =================================
 
     # =================================
@@ -165,22 +175,32 @@ def create_app():
                 app.pixiv_phpsessid = phpsessid.value
             else:
                 log.warn("Failed to get PHPSESSID from pixiv. Using random.")
-                app.pixiv_phpsessid = "".join([chr(random.randint(97, 122)) for _ in range(33)])
+                app.pixiv_phpsessid = "".join(
+                    [chr(random.randint(97, 122)) for _ in range(33)]
+                )
         else:
-            r: ClientResponse = await app.pixiv.head("", headers={"Cookie": f"PHPSESSID={app.config['TOKEN']}"}, allow_redirects=True)
+            r: ClientResponse = await app.pixiv.head(
+                "",
+                headers={"Cookie": f"PHPSESSID={app.config['TOKEN']}"},
+                allow_redirects=True,
+            )
 
         app.pixiv_p_ab_d_id = r.cookies["p_ab_d_id"].value
         app.pixiv_p_ab_id = r.cookies["p_ab_id"].value
         app.pixiv_p_ab_id_2 = r.cookies["p_ab_id_2"].value
 
-        log.info("Obtained p_ab* cookies: _id=%s, _id_2=%s, _d_id=%s",
-                app.pixiv_p_ab_id, app.pixiv_p_ab_id_2, app.pixiv_p_ab_d_id)
-
+        log.info(
+            "Obtained p_ab* cookies: _id=%s, _id_2=%s, _d_id=%s",
+            app.pixiv_p_ab_id,
+            app.pixiv_p_ab_id_2,
+            app.pixiv_p_ab_d_id,
+        )
 
     @app.after_serving
     async def close_clientsession():
         await app.pixiv.close()
         await app.content_proxy.close()
+
     # =================================
 
     return app

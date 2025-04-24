@@ -27,7 +27,7 @@
                         <label for="token" class="block heading">Token</label>
                         <input type="password" class="width-100" required name="token">
                         <div class="actions">
-                            <a href="/" class="label-button">Return</a>
+                            <a href="{{request.args.get('return_to', '/')}}" class="label-button">Return</a>
                             <button class="button primary" type="submit">Sign in</button>
                         </div>
                     </form>

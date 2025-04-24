@@ -1,5 +1,60 @@
 {% extends "layouts/default.html" %}
 {% set title = _("Home") %}
 
+{% import "components/artwork-entry.html" as ae %}
+
 {% block content %}
+<main>
+    {% if following | length > 0 %}
+    <section id="following">
+        <h2>{{_("Works by users you are following")}}</h2>
+        <div class="artwork-container">
+            {% for il in following %}
+            {{ ae.entry(il) }}
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+    {% if recommend | length > 0 %}
+    <section id="recommended">
+        <h2>{{_("Recommended works")}}</h2>
+        <div class="artwork-container">
+            {% for il in recommend %}
+            {{ ae.entry(il) }}
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+    {% for rt in rec_tag %}
+    <section>
+        <h2>{{_("Recommended illustrations tagged #%(tag)s", tag=rt.translation.en or rt.translation.romaji or rt.translation.orig or rt.name )}}</h2>
+        {% if config["DEBUG"] %}
+        <pre>
+translation: {{rt.translation}}
+en: {{rt.translation.en}}
+ja: {{rt.translation.ja}}
+ko: {{rt.translation.ko}}
+zh: {{rt.translation.zh}}
+zh_tw: {{rt.translation.zh_tw}}
+romaji: {{rt.translation.romaji}}
+orig: {{rt.translation.orig}}
+illusts: {{rt}}
+        </pre>
+        {% endif %}
+        <div class="artwork-container">
+            {% for il in rt.illusts %}
+            {{ ae.entry(il) }}
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+    <section id="new">
+        <h2>{{_("Newest by all")}}</h2>
+        <div class="artwork-container">
+            {% for il in new %}
+            {{ ae.entry(il) }}
+            {% endfor %}
+        </div>
+    </section>
+</main>
 {% endblock %}

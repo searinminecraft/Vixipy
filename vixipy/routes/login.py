@@ -9,7 +9,7 @@ from quart import (
     request,
     redirect,
     render_template,
-    url_for
+    url_for,
 )
 from quart_babel import _
 
@@ -24,6 +24,7 @@ if TYPE_CHECKING:
 bp = Blueprint("login", __name__)
 log = logging.getLogger("vixipy.routes.login")
 COOKIE_MAXAGE = 2592000
+
 
 @bp.route("/self/login", methods=["GET", "POST"])
 async def login_page():
@@ -42,7 +43,9 @@ async def login_page():
             await flash(_("Invalid token"), "error")
             return await render_template("login.html")
 
-        r: ClientResponse = await current_app.pixiv.get("", allow_redirects=True, headers={"Cookie": f"PHPSESSID={token}"})
+        r: ClientResponse = await current_app.pixiv.get(
+            "", allow_redirects=True, headers={"Cookie": f"PHPSESSID={token}"}
+        )
         r.raise_for_status()
         t = await r.text()
 
@@ -65,10 +68,12 @@ async def login_page():
         res.set_cookie("Vixipy-Token", token, max_age=COOKIE_MAXAGE, httponly=True)
         res.set_cookie("Vixipy-CSRF", csrf, max_age=COOKIE_MAXAGE, httponly=True)
         res.set_cookie("Vixipy-p_ab_id", p_ab_id, max_age=COOKIE_MAXAGE, httponly=True)
-        res.set_cookie("Vixipy-p_ab_id_2", p_ab_id_2, max_age=COOKIE_MAXAGE, httponly=True)
-        res.set_cookie("Vixipy-p_ab_d_id", p_ab_d_id, max_age=COOKIE_MAXAGE, httponly=True)
+        res.set_cookie(
+            "Vixipy-p_ab_id_2", p_ab_id_2, max_age=COOKIE_MAXAGE, httponly=True
+        )
+        res.set_cookie(
+            "Vixipy-p_ab_d_id", p_ab_d_id, max_age=COOKIE_MAXAGE, httponly=True
+        )
         return res
-
-
 
     return await render_template("login.html")

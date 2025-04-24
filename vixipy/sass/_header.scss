@@ -3,7 +3,7 @@
 header {
     padding: 8px 1em;
     background-color: var(--md-sys-color-surface-container);
-    box-shadow: 0 -2px 4px rgba(0,0,0,.26);
+    box-shadow: 0 -3px 6px rgba(0,0,0,.26);
     position: sticky;
     top: 0;
     z-index: 1;
@@ -59,14 +59,14 @@ header {
             }
         }
 
-        button#user {
+        a#user {
             color: unset;
             padding: unset;
             border: unset;
-            border-radius: 50%;
-            margin-left: 12px;
+            display: block;
             width: 32px;
             height: 32px;
+            margin-left: 8px;
 
             img {
                 @include profile-img(32px);

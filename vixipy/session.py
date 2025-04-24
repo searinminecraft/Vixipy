@@ -4,21 +4,18 @@ from asyncio import gather
 from quart import g, request
 from typing import TYPE_CHECKING
 
-from .api import (
-    get_notification_count,
-    get_self_extra,
-    get_user
-)
+from .api import get_notification_count, get_self_extra, get_user
 
 if TYPE_CHECKING:
     from quart import Quart
-    from .types import (
-        User,
-        UserExtraData
-    )
+    from .types import User, UserExtraData
+
 
 async def get_session_data():
-    if any(request.path.startswith(f"/{x}") for x in ("favicon.ico", "robots.txt", "static", "proxy")):
+    if any(
+        request.path.startswith(f"/{x}")
+        for x in ("favicon.ico", "robots.txt", "static", "proxy", "sass")
+    ):
         return
 
     c = request.cookies
@@ -33,9 +30,7 @@ async def get_session_data():
         g.p_ab_id_2 = c.get("Vixipy-p_ab_id_2")
 
         notification_count, user, extra = await gather(
-            get_notification_count(),
-            get_user(g.token.split('_')[0]),
-            get_self_extra()
+            get_notification_count(), get_user(g.token.split("_")[0]), get_self_extra()
         )
 
         notification_count: int
@@ -45,6 +40,7 @@ async def get_session_data():
         g.current_user = user
         g.notification_count = notification_count
         g.current_user_extra = extra
+
 
 def init_app(app: Quart):
     app.before_request(get_session_data)

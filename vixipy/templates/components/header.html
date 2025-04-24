@@ -17,9 +17,9 @@
                 <div class="count">{{g.notification_count}}</div>
                 {% endif %}
             </a>
-            <button id="user" title="{{g.current_user.name}}">
+            <a id="user" title="{{g.current_user.name}}" href="/self/actions">
                 <img src="{{g.current_user.image}}" alt="{{g.current_user.name}}" loading="lazy">
-            </button>
+            </a>
             {% else %}
             <a class="sign-in-button" href="/self/login">Sign in</a>
             {% endif %}

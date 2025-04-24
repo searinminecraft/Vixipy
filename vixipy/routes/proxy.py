@@ -1,11 +1,6 @@
 from __future__ import annotations
 
-from quart import (
-    Blueprint,
-    abort,
-    current_app,
-    request
-)
+from quart import Blueprint, abort, current_app, request
 
 import logging
 from typing import TYPE_CHECKING
@@ -16,13 +11,14 @@ if TYPE_CHECKING:
 bp = Blueprint("proxy", __name__)
 log = logging.getLogger("vixipy.routes.proxy")
 
+
 @bp.get("/proxy/<path:url>")
 async def perform_proxy_request(url: str):
     permitted = ("i.pximg.net", "s.pximg.net")
 
     if url.split("/")[0] not in permitted:
         abort(400)
-    
+
     response_headers = {"Cache-Control": "max-age=31536000"}
 
     r: ClientResponse = await current_app.content_proxy.get("https://" + url)
@@ -37,6 +33,5 @@ async def perform_proxy_request(url: str):
     async def stream():
         async for chunk in r.content.iter_chunked(10 * 1024):
             yield chunk
-    
-    return stream(), response_headers
 
+    return stream(), response_headers

@@ -1,6 +1,7 @@
 from quart import current_app
 from urllib.parse import urlparse
 
+
 def proxy(url: str) -> str:
     url = urlparse(url)
 

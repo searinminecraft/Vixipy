@@ -8,6 +8,8 @@
 
 * {
     box-sizing: border-box;
+    scrollbar-color: var(--md-sys-color-primary) var(--md-sys-color-surface-container);
+    scrollbar-width: thin;
 }
 
 body {
@@ -24,6 +26,14 @@ a {
 
 body > main {
     margin: 0 auto;
-    max-width: 1200px;
-    padding: 0 1em;
+    max-width: 1000px;
+    padding: 2em 1em;
+    animation: .15s ease 0s normal appear-transition;
+}
+
+@keyframes appear-transition {
+    from {
+        opacity: 0;
+        transform: translateY(50px)
+    }
 }

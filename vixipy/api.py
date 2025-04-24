@@ -12,6 +12,7 @@ if TYPE_CHECKING:
 
 log = logging.getLogger("vixipy.api")
 
+
 class PixivError(Exception):
     def __init__(self, message: str, code: int, path: str):
         self.code: int = code
@@ -19,6 +20,7 @@ class PixivError(Exception):
         self.message: str = message
 
         super().__init__(f"{code}: {message} - {path}")
+
 
 async def pixiv_request(
     endpoint: str,
@@ -77,27 +79,33 @@ async def pixiv_request(
     )
     req_end = time.perf_counter()
     log.info("%s status %d - %dms", endpoint, r.status, (req_end - req_start) * 1000)
-    
+
     res = await r.json()
     if res.get("error") == True or res.get("isSucceed") == False:
         raise PixivError(res["message"], r.status, endpoint)
 
-    if res.get('body'):
+    if res.get("body"):
         return res["body"]
     else:
         return res
-            
+
 
 async def get_user(id: int, full: bool = False) -> User:
     data = await pixiv_request(f"/ajax/user/{id}", params=[("full", int(full))])
     if full:
         return User(data)
     else:
-        return PartialUser(data)    
+        return PartialUser(data)
+
 
 async def get_notification_count() -> int:
-    data = await pixiv_request(f"/rpc/notify_count.php", params=[("op", "count_unread")], headers={"Referer": "https://www.pixiv.net"})
+    data = await pixiv_request(
+        f"/rpc/notify_count.php",
+        params=[("op", "count_unread")],
+        headers={"Referer": "https://www.pixiv.net"},
+    )
     return data["popboard"]
+
 
 async def get_self_extra() -> UserExtraData:
     data = await pixiv_request("/ajax/user/extra")
@@ -108,10 +116,17 @@ async def get_artwork(id: int) -> Artwork:
     data = await pixiv_request(f"/ajax/illust/{id}")
     return Artwork(data)
 
-async def get_artwork_pages(id: int) -> ArtworkPage:
+
+async def get_artwork_pages(id: int) -> list[ArtworkPage]:
     data = await pixiv_request(f"/ajax/illust/{id}/pages")
-    return [ArtworkPage(x) for x in data]
+    _pages = []
+    for k, page in enumerate(data):
+        _pages.append(ArtworkPage(page, k+1))
+    return _pages
+
 
 async def get_recommended_works(id: int) -> list[ArtworkEntry]:
-    data = await pixiv_request(f"/ajax/illust/{id}/recommend/init", params=[('limit', '180')])
+    data = await pixiv_request(
+        f"/ajax/illust/{id}/recommend/init", params=[("limit", "180")]
+    )
     return [ArtworkEntry(x) for x in data["illusts"]]

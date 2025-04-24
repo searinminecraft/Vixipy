@@ -27,12 +27,13 @@
         main {
             background-color: var(--md-sys-color-surface);
             padding: 2em;
-            border-radius: 24px;
+            border-radius: 36px;
             display: flex;
-            width: 80%;
-            height: 75%;
+            width: 70%;
+            height: 60%;
             max-width: 1400px;
             max-height: 1200px;
+            min-height: 500px;
             gap: 4em;
 
             > * {

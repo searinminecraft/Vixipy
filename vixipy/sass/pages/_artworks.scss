@@ -1,0 +1,112 @@
+#artwork-main {
+    display: flex;
+    gap: 2em;
+
+    main {
+        flex: 70%;
+        border-radius: 12px;
+        background-color: var(--md-sys-color-surface-container);
+        overflow: hidden;
+
+        .works {
+            .work {
+                position: relative;
+
+                a {
+                    line-height: 0px;
+                    font-size: 0px;
+                    display: block;
+                    cursor: zoom-in;
+
+                    img {
+                        width: 100%;
+                        object-fit: contain;
+                        min-width: 48px;
+                    }
+                }
+
+                .meta {
+                    position: absolute;
+                    top: 0;
+                    padding: 8px;
+                    display: flex;
+                    justify-content: flex-end;
+                    width: 100%;
+                    pointer-events: none;
+                    column-gap: .5em;
+
+                    > div {
+                        font-size: 12px;
+                        font-weight: bold;
+                        color: var(--md-sys-color-on-primary-container);
+                        background-color: var(--md-sys-color-primary-container);
+                        padding: 6px 10px;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    aside {
+        flex: 30%;
+
+        h2 {
+            margin: unset;
+            margin-bottom: .5em
+        }
+
+        ul {
+            list-style: none;
+            margin: unset;
+            padding: unset;
+            li {
+                display: inline-block;
+            }
+        }
+
+        .tags {
+            li {
+                color: var(--md-sys-color-outline);
+                font-size: 12px;
+
+                a {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .data {
+            margin: .5em 0;
+
+            li {
+                margin-right: .5em;
+            }
+
+            li, a {
+                color: var(--md-sys-color-outline);
+                display: inline-flex;
+                align-items: center;
+
+                svg {
+                    fill: var(--md-sys-color-secondary);
+                    margin-right: 4px;
+                }
+            }
+        }
+
+        .create-date {
+            color: var(--md-sys-color-outline);
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #artwork-main {
+        flex-direction: column;
+
+        > * {
+            flex: unset !important
+        }
+    }
+}

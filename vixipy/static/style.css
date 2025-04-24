@@ -104,6 +104,8 @@ a.icon.label-button svg, button.icon.label-button svg, a.icon.button svg, button
 
 button {
   font-size: 16px;
+  font-family: inherit;
+  font-weight: bold;
 }
 
 a.button.primary, button.button.primary {
@@ -151,7 +153,7 @@ a.icon-button:hover, button.icon-button:hover {
 header {
   padding: 8px 1em;
   background-color: var(--md-sys-color-surface-container);
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.26);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -199,16 +201,16 @@ header .right #notifications .count {
   outline: 3px solid var(--md-sys-color-surface);
   pointer-events: none;
 }
-header .right button#user {
+header .right a#user {
   color: unset;
   padding: unset;
   border: unset;
-  border-radius: 50%;
-  margin-left: 12px;
+  display: block;
   width: 32px;
   height: 32px;
+  margin-left: 8px;
 }
-header .right button#user img {
+header .right a#user img {
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -281,7 +283,7 @@ header .right .sign-in-button {
 input[type=text],
 input[type=password],
 textarea {
-  border: 3px solid var(--md-sys-color-outline-variant);
+  border: 2px solid var(--md-sys-color-outline-variant);
   color: var(--md-sys-color-on-surface);
   background-color: var(--md-sys-color-surface-container-lowest);
   padding: 12px 10px;
@@ -314,6 +316,97 @@ form .actions {
   gap: 1em;
 }
 
+#artwork-main {
+  display: flex;
+  gap: 2em;
+}
+#artwork-main main {
+  flex: 70%;
+  border-radius: 12px;
+  background-color: var(--md-sys-color-surface-container);
+  overflow: hidden;
+}
+#artwork-main main .works .work {
+  position: relative;
+}
+#artwork-main main .works .work a {
+  line-height: 0px;
+  font-size: 0px;
+  display: block;
+  cursor: zoom-in;
+}
+#artwork-main main .works .work a img {
+  width: 100%;
+  object-fit: contain;
+  min-width: 48px;
+}
+#artwork-main main .works .work .meta {
+  position: absolute;
+  top: 0;
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  pointer-events: none;
+  column-gap: 0.5em;
+}
+#artwork-main main .works .work .meta > div {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--md-sys-color-on-primary-container);
+  background-color: var(--md-sys-color-primary-container);
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+#artwork-main aside {
+  flex: 30%;
+}
+#artwork-main aside h2 {
+  margin: unset;
+  margin-bottom: 0.5em;
+}
+#artwork-main aside ul {
+  list-style: none;
+  margin: unset;
+  padding: unset;
+}
+#artwork-main aside ul li {
+  display: inline-block;
+}
+#artwork-main aside .tags li {
+  color: var(--md-sys-color-outline);
+  font-size: 12px;
+}
+#artwork-main aside .tags li a {
+  font-weight: bold;
+}
+#artwork-main aside .data {
+  margin: 0.5em 0;
+}
+#artwork-main aside .data li {
+  margin-right: 0.5em;
+}
+#artwork-main aside .data li, #artwork-main aside .data a {
+  color: var(--md-sys-color-outline);
+  display: inline-flex;
+  align-items: center;
+}
+#artwork-main aside .data li svg, #artwork-main aside .data a svg {
+  fill: var(--md-sys-color-secondary);
+  margin-right: 4px;
+}
+#artwork-main aside .create-date {
+  color: var(--md-sys-color-outline);
+}
+
+@media screen and (max-width: 768px) {
+  #artwork-main {
+    flex-direction: column;
+  }
+  #artwork-main > * {
+    flex: unset !important;
+  }
+}
 .bg-wrapper {
   position: fixed;
   width: 100%;
@@ -341,12 +434,13 @@ form .actions {
 #login-wrapper .main-login main {
   background-color: var(--md-sys-color-surface);
   padding: 2em;
-  border-radius: 24px;
+  border-radius: 36px;
   display: flex;
-  width: 80%;
-  height: 75%;
+  width: 70%;
+  height: 60%;
   max-width: 1400px;
   max-height: 1200px;
+  min-height: 500px;
   gap: 4em;
 }
 #login-wrapper .main-login main > * {
@@ -399,6 +493,8 @@ form .actions {
 
 * {
   box-sizing: border-box;
+  scrollbar-color: var(--md-sys-color-primary) var(--md-sys-color-surface-container);
+  scrollbar-width: thin;
 }
 
 body {
@@ -415,8 +511,16 @@ a {
 
 body > main {
   margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 1em;
+  max-width: 1000px;
+  padding: 2em 1em;
+  animation: 0.15s ease 0s normal appear-transition;
+}
+
+@keyframes appear-transition {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

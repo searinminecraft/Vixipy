@@ -7,6 +7,7 @@ bp = Blueprint("vanity", __name__)
 
 log = logging.getLogger("vixipy.routes.vanity")
 
+
 @bp.get("/@<name>")
 async def pixivme_handle(name):
     async with ClientSession("https://pixiv.me") as s:
