@@ -7,6 +7,53 @@
     .img-container {
         position: relative;
 
+        a {
+            line-height: 0px;
+            font-size: 0px;
+            display: block;
+        }
+
+        .meta {
+            position: absolute;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: .5em .5em 0;
+            width: 100%;
+
+            > div {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: .5em;
+            }
+
+            .tag {
+                color: var(--md-sys-color-on-surface);
+                background-color: var(--md-sys-color-surface-container);
+                border-radius: 4px;
+                padding: 4px 8px;
+                display: flex;
+                align-items: center;
+                font-size: 10px;
+                font-weight: bold;
+
+                svg {
+                    fill: currentColor;
+                    margin-right: .5em
+                }
+
+                &.r18 {
+                    background-color: var(--md-sys-color-error-container);
+                    color: var(--md-sys-color-on-error-container);
+                }
+
+                &.ai {
+                    background-color: var(--md-sys-color-tertiary-container);
+                    color: var(--md-sys-color-on-tertiary-contaainer);
+                }
+            }
+        }
+
         img {
             width: 150px;
             height: 150px;
@@ -55,5 +102,9 @@
     column-gap: 1em;
     overflow: hidden;
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding: 8px;
+
+    > * {
+        flex-shrink: 0;
+    }
 }

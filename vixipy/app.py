@@ -21,8 +21,10 @@ from .routes import (
     vanity,
     artworks,
     login,
+    search,
 )
 from . import session as pixiv_session_handler
+from . import error_handler
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
@@ -74,6 +76,7 @@ def create_app():
     app.register_blueprint(vanity)
     app.register_blueprint(artworks)
     app.register_blueprint(login)
+    app.register_blueprint(search)
 
     # =================================
     if app.config["LOG_HTTP"] == "1":
@@ -102,6 +105,7 @@ def create_app():
     # =================================
 
     pixiv_session_handler.init_app(app)
+    error_handler.init_app(app)
 
     # =================================
     @app.before_serving

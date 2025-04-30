@@ -1,0 +1,45 @@
+{% extends "layouts/default.html" %}
+{% set title = _("Results for %(tag)s", tag=tag_info.tag) %}
+
+{% from "components/artwork-entry.html" import entry %}
+
+{% block content %}
+<section id="search-info">
+    <div class="banner-wrapper">
+        <img src="{{tag_info.pixpedia.image}}" alt="">
+        <div class="backdrop-wrapper"></div>
+    </div>
+    <main>
+        <div class="wrapper">
+            {% if tag_info.pixpedia.image %}
+            <img src="{{tag_info.pixpedia.image}}" alt="{{tag_info.tag}}">
+            {% endif %}
+            <article>
+                {% if tag_info.translation %}
+                <h3>#{{tag_info.tag}} <small>{{ tag_info.translation.en or tag_info.translation.romaji }}</small></h3>
+                {% else %}
+                <h3>#{{tag_info.tag}}</h3>
+                {% endif %}
+                <p title="{{_('%(illust)s Illustrations, %(novel)s Novels', illust=data.total_illustmanga|numberformat, novel=data.total_novel|numberformat)}}">{{_("<b>%(total)s</b> Works", total=data.total|numberformat)}}</p>
+                {% if tag_info.pixpedia.abstract %}
+                <p class="abstract">{{tag_info.pixpedia.abstract}}</p>
+                {% endif %}
+            </article>
+        </div>
+    </main>
+</section>
+<main>
+    <section class="checkpoint">
+        {% if data.total > 0 %}
+        <h2>{{_("Illustrations and Manga")}}</h2>
+        <div class="artwork-container">
+            {% for e in data.results %}
+            {{ entry(e) }}
+            {% endfor %}    
+        </div>
+        {% else %}
+        <p>{{_("No matching results found.")}}</p>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

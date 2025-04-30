@@ -3,6 +3,8 @@ from datetime import datetime
 
 from typing import Optional
 
+NO_IMAGE = "https://s.pximg.net/common/images/no_profile.png"
+NO_IMAGE_S = "https://s.pximg.net/common/images/no_profile_s.png"
 
 def blank_to_none(v) -> Optional[str]:
     return v if v != "" else None
@@ -63,6 +65,16 @@ class ArtworkBase:
         self.authorId = d["userId"]
         self.authorName = d["userName"]
         self.pages = int(d["pageCount"])
+        self.ai = int(d["aiType"]) == 2
+    
+    @property
+    def xrestrict_friendlyname(self):
+        names = {
+            1: "R-18",
+            2: "R-18G"
+        }
+
+        return names.get(int(self.xrestrict), "R-18")
 
 
 class Artwork(ArtworkBase):
@@ -93,12 +105,24 @@ class Artwork(ArtworkBase):
         self.loginonly = d["isLoginOnly"]
         self.ai = d["aiType"] == 2
 
+        self.other_works: list[ArtworkEntry] = []
+        self.works_missing: list[int] = []
+
+        for x in d["userIllusts"]:
+            if d["userIllusts"][x] is None:
+                self.works_missing.append(int(x))
+            else:
+                self.other_works.append(ArtworkEntry(d["userIllusts"][x]))
+
 
 class ArtworkEntry(ArtworkBase):
     def __init__(self, d):
         super().__init__(d)
         self.thumb = proxy(d["url"])
-        self.profileimg = proxy(d["profileImageUrl"])
+        self.profileimg = proxy(d.get("profileImageUrl"))
+    
+    def __repr__(self):
+        return f"<ArtworkEntry {self.id}>"
 
 
 class ArtworkPage:
@@ -128,3 +152,58 @@ class RecommendByTag:
         self.illusts = illusts
         self.name = name
         self.translation = translation
+
+class SearchResultsBase:
+    def __init__(
+        self,
+        d,
+    ):
+        _related_tags = d["relatedTags"]
+        _tag_translation = d["tagTranslation"]
+        self.related_tags = [Tag(x, _tag_translation.get(x, {"en": None})["en"]) for x in _related_tags]
+
+class SearchResultsTop(SearchResultsBase):
+    def __init__(self, d):
+        super().__init__(d)
+        self.total_novel: int = d["novel"]["total"]
+        if im := d.get("illustManga"):
+            self.total_illustmanga: int = d["illustManga"]["total"]
+            self.total: int = self.total_illustmanga + d["novel"]["total"]
+            self.results: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["illustManga"]["data"]]
+        else:
+            _illusts = d["illust"]
+            _manga = d["manga"]
+
+            self.total_illustmanga: int = _illusts["total"] + _manga["total"]
+            self.total = self.total_illustmanga + d["novel"]["total"]
+            self.results: list[ArtworkEntry] = sorted(
+                [ArtworkEntry(x) for x in _illusts["data"]] +
+                [ArtworkEntry(x) for x in _manga["data"]],
+                key=lambda _: _.id,
+                reverse=True
+            )
+
+class SearchResultsIllustManga(SearchResultsBase):
+    def __init__(self, d):
+        super().__init__(d)
+        self.total: int = d["illustManga"]["total"]
+        self.results: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["illustManga"]["data"]]
+
+class SearchResultsManga(SearchResultsBase):
+    def __init__(self, d):
+        super().__init__(d)
+        self.total: int = d["manga"]["total"]
+        self.results: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["manga"]["data"]]
+
+class PixpediaInfo:
+    def __init__(self, d):
+        self.abstract: Optional[str] = d.get("abstract")
+        self.image: Optional[str] = proxy(d.get("image"))
+
+class TagInfo:
+    def __init__(self, d):
+        self.tag = d["tag"]
+        self.pixpedia: PixpediaInfo = PixpediaInfo(d["pixpedia"])
+        self.translation: Optional[TagTranslation] = None
+        if self.tag in d["tagTranslation"]:
+            self.translation = TagTranslation(self.tag, d["tagTranslation"][self.tag])

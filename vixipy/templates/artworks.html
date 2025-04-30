@@ -22,8 +22,31 @@
                 </div>
                 {% endfor %}
             </div>
+            <div class="userdata">
+                <div class="author">
+                    <div class="author-main">
+                        <a class="author-link" href="/users/{{work.authorId}}">
+                            <img src="{{user.image}}" alt="{{work.authorName}}">
+                            {{work.authorName}}
+                        </a>
+                        {% if g.authorized %}
+                        {% if not user.followed %}
+                        <a class="button primary" href="/self/action/user/{{work.authorId}}/follow">{{_("Follow")}}</a>
+                        {% else %}
+                        <a class="button neutral" href="/self/action/user/{{work.authorId}}/unfollow">{{_("Following")}}</a>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    <a href="/users/{{work.authorId}}">{{_("View all works")}}</a>
+                </div>
+                <div class="scrolling-container">
+                    {% for w in user_works %}
+                    {{ artwork_entry.entry(w, false, false) }}
+                    {% endfor %}
+                </div>
+            </div>
         </main>
-        <aside class="user-info">
+        <aside>
             <h2>{{work.title}}</h2>
             <ul class="tags">
                 {% for t in work.tags %}

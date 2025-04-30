@@ -5,6 +5,8 @@
 @use 'form';
 @use 'pages/artworks';
 @use 'pages/login';
+@use 'pages/tags';
+@use 'error';
 
 * {
     box-sizing: border-box;
@@ -28,7 +30,10 @@ body > main {
     margin: 0 auto;
     max-width: 1000px;
     padding: 2em 1em;
-    animation: .15s ease 0s normal appear-transition;
+
+    &:not(.no-transition) {
+        animation: .15s ease 0s normal appear-transition;
+    }
 }
 
 @keyframes appear-transition {

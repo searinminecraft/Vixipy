@@ -7,3 +7,4 @@ def proxy(url: str) -> str:
 
     if url.netloc == "i.pximg.net":
         return current_app.config["IMG_PROXY"] + url.path
+    return "/proxy/" + str(url.netloc + url.path)

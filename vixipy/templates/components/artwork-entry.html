@@ -1,14 +1,38 @@
-{% macro entry(data, minimal=false) -%}
+{% macro entry(data, title=true, author=true) -%}
 <div class="artwork-entry">
     <div class="img-container">
-        <div class="meta"></div>
+        <div class="meta">
+            {#
+                first div - left
+                second - right
+            #}
+            <div>
+                {% if data.ai %}
+                <div class="tag ai">AI</div>
+                {% endif %}
+                {% if data.xrestrict >= 1 %}
+                <div class="tag r18">
+                    {{data.xrestrict_friendlyname}}
+                </div>
+                {% endif %} 
+            </div>
+            <div>
+                {% if data.pages >= 2 %}
+                <div class="tag">
+                    {{data.pages}}
+                </div>
+                {% endif %}
+            </div>
+        </div>
         <a href="{{url_for('artworks._get_artwork', id=data.id)}}">
             <img src="{{data.thumb}}" alt="{{data.alt}}">
         </a>
     </div>
 
-    {% if not minimal %}
+    {% if title %}
     <a class="title" href="{{url_for('artworks._get_artwork', id=data.id)}}">{{ data.title }}</a>
+    {% endif %}
+    {% if author %}
     <a class="author" href="/users/{{data.authorId}}">
         <img src="{{data.profileimg}}" alt="{{data.authorName}}" loading="lazy"> {{data.authorName}}
     </a>

@@ -67,7 +67,7 @@ async def pixiv_request(
 
     _headers["Cookie"] = cookie_header
 
-    log.info("Requesting %s with method %s", endpoint, method)
+    log.info("Requesting %s%s with method %s", endpoint, _params, method)
 
     req_start = time.perf_counter()
     r: ClientResponse = await current_app.pixiv.request(
@@ -89,6 +89,10 @@ async def pixiv_request(
     else:
         return res
 
+
+# ==========================================================
+# // API CALLS                                            //
+# ==========================================================
 
 async def get_user(id: int, full: bool = False) -> User:
     data = await pixiv_request(f"/ajax/user/{id}", params=[("full", int(full))])
@@ -130,3 +134,35 @@ async def get_recommended_works(id: int) -> list[ArtworkEntry]:
         f"/ajax/illust/{id}/recommend/init", params=[("limit", "180")]
     )
     return [ArtworkEntry(x) for x in data["illusts"]]
+
+
+async def get_user_illusts_from_ids(user_id: int, ids: list[int]) -> list[ArtworkEntry]:
+    if len(ids) == 0:
+        return []
+
+    data = await pixiv_request(
+        f"/ajax/user/{user_id}/illusts", params=[("ids[]", x) for x in ids]
+    )
+    return [ArtworkEntry(x) for x in data.values()]
+
+async def search(type_: str, query: str, **kwargs):
+    _params = []
+    for k,v in kwargs.items():
+        _params.append((k,v))
+
+    data = await pixiv_request(
+        f"/ajax/search/{type_}/{query}", params=_params
+    )
+    match type_:
+        case "top":
+            return SearchResultsTop(data)
+        case "artworks":
+            return SearchResultsIllustManga(data)
+        case "manga":
+            return SearchResultsManga(data)
+        case _:
+            raise ValueError("Invalid search type")
+
+async def get_tag_info(tag: str):
+    data = await pixiv_request(f"/ajax/search/tags/{tag}")
+    return TagInfo(data)

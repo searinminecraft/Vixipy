@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 #artwork-main {
     display: flex;
     gap: 2em;
@@ -11,6 +13,10 @@
         .works {
             .work {
                 position: relative;
+
+                &:only-child, &:last-child img {
+                    border-radius: 0 0 12px 12px;
+                }
 
                 a {
                     line-height: 0px;
@@ -42,6 +48,41 @@
                         background-color: var(--md-sys-color-primary-container);
                         padding: 6px 10px;
                         border-radius: 4px;
+                    }
+                }
+            }
+        }
+
+        .userdata {
+            max-width: 90%;
+            margin: 1em auto;
+
+            .author {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1em;
+
+                > a {
+                    color: var(--md-sys-color-outline);
+                    font-size: 12px;
+                }
+
+                .author-main {
+                    display: flex;
+                    align-items: center;
+
+                    .author-link {
+                        display: flex;
+                        align-items: center;
+                        color: unset;
+                        font-weight: bold;
+                        margin-right: 1em;
+
+                        img {
+                            @include profile-img(36px);
+                            margin-right: .5em;
+                        }
                     }
                 }
             }
