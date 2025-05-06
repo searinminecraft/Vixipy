@@ -52,13 +52,15 @@ from .routes import (
 
 log = logging.getLogger()
 
+async def reverse_proxy_key_function():
+    return request.headers["X-Forwarded-For"] or request.remote_addr
 
 def create_app():
     app = Quart(__name__, static_folder=None)
     store = MemcacheStore(address=os.environ.get("PYXIV_MEMCACHED", "localhost"))
     key_function = remote_addr_key
     if int(os.environ.get("PYXIV_BEHIND_REVERSE_PROXY", 0)) == 1:
-        key_function = lambda: request.headers["X-Forwarded-For"] or request.remote_addr
+        key_function = reverse_proxy_key_function
     limiter = RateLimiter(app, store=store, key_function=key_function)
 
     if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
