@@ -248,7 +248,7 @@ def create_app():
         log.warn(
             "Remote %s (%s) has been rate limited.",
             request.user_agent,
-            key_function(),
+            await key_function(),
         )
         return "Too many requests\n", 429
 
@@ -517,7 +517,7 @@ def create_app():
         log.warning(
             "Possible crawler: %s (%s) accessed the robots.txt",
             request.user_agent,
-            key_function(),
+            await key_function(),
         )
         if os.path.isfile(os.path.join("pyxiv/instance/", "robots.txt")):
             return await send_from_directory("pyxiv/instance", "robots.txt")
