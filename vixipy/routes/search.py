@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 bp = Blueprint("search", __name__)
 log = logging.getLogger("vixipy.routes.search")
 
-@bp.route("/tags/<query>")
+@bp.route("/tags/<path:query>")
 async def search_main(query: str):
     args: ImmutableMultiDict = request.args
     data, tag_info = await gather(
@@ -30,4 +30,11 @@ async def search_main(query: str):
 
     log.info(data.results)
     
-    return await render_template("search/index.html", data=data, tag_info=tag_info)
+    return await render_template("search/main.html", data=data, tag_info=tag_info)
+
+@bp.route("/tags/<path:query>/artworks")
+async def search_artworks(query: str):
+    data, tag_info = await gather(
+        search("artworks", query),
+        get_tag_info(query)
+    )

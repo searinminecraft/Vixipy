@@ -4,6 +4,8 @@ from quart import current_app, g
 import logging
 import time
 from typing import TYPE_CHECKING, List, Tuple
+from urllib.parse import quote
+from aiohttp.client_exceptions import ContentTypeError
 
 from .types import *
 
@@ -80,14 +82,17 @@ async def pixiv_request(
     req_end = time.perf_counter()
     log.info("%s status %d - %dms", endpoint, r.status, (req_end - req_start) * 1000)
 
-    res = await r.json()
-    if res.get("error") == True or res.get("isSucceed") == False:
-        raise PixivError(res["message"], r.status, endpoint)
+    try:
+        res = await r.json()
+        if res.get("error") == True or res.get("isSucceed") == False:
+            raise PixivError(res["message"], r.status, endpoint)
 
-    if res.get("body"):
-        return res["body"]
-    else:
-        return res
+        if res.get("body"):
+            return res["body"]
+        else:
+            return res
+    except ContentTypeError:
+        raise PixivError(await r.text(), r.status, endpoint)
 
 
 # ==========================================================
@@ -151,7 +156,7 @@ async def search(type_: str, query: str, **kwargs):
         _params.append((k,v))
 
     data = await pixiv_request(
-        f"/ajax/search/{type_}/{query}", params=_params
+        f"/ajax/search/{type_}/{quote(query, safe='')}", params=_params
     )
     match type_:
         case "top":
@@ -164,5 +169,5 @@ async def search(type_: str, query: str, **kwargs):
             raise ValueError("Invalid search type")
 
 async def get_tag_info(tag: str):
-    data = await pixiv_request(f"/ajax/search/tags/{tag}")
+    data = await pixiv_request(f"/ajax/search/tags/{quote(tag, safe='')}")
     return TagInfo(data)

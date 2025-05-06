@@ -97,6 +97,17 @@
             margin-bottom: .5em
         }
 
+        .sl-warn {
+            display: flex;
+            align-items: center;
+            color: var(--md-sys-color-error);
+            
+            svg {
+                fill: currentColor;
+                margin-right: .5em;
+            }
+        }
+
         ul {
             list-style: none;
             margin: unset;

@@ -29,17 +29,6 @@
     </main>
 </section>
 <main>
-    <section class="checkpoint">
-        {% if data.total > 0 %}
-        <h2>{{_("Illustrations and Manga")}}</h2>
-        <div class="artwork-container">
-            {% for e in data.results %}
-            {{ entry(e) }}
-            {% endfor %}    
-        </div>
-        {% else %}
-        <p>{{_("No matching results found.")}}</p>
-        {% endif %}
-    </section>
+{% block body %}{% endblock %}
 </main>
 {% endblock %}
