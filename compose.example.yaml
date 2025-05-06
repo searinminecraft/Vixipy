@@ -28,6 +28,7 @@ services:
       #PYXIV_UGOIRA_SERVER_NEEDS_DATE: 0
       #PYXIV_RATELIMITS: 1
       #PYXIV_MEMCACHED: "memcached" # uncomment if using ratelimiting!!
+      #PYXIV_BEHIND_REVERSE_PROXY: 0
 
   # need for ratelimiting!!!!
   # memcached:

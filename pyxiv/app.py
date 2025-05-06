@@ -18,7 +18,7 @@ import logging
 import os
 
 from quart_babel import Babel, _
-from quart_rate_limiter import RateLimiter
+from quart_rate_limiter import RateLimiter, remote_addr_key
 
 import pyxivision
 
@@ -56,7 +56,10 @@ log = logging.getLogger()
 def create_app():
     app = Quart(__name__, static_folder=None)
     store = MemcacheStore(address=os.environ.get("PYXIV_MEMCACHED", "localhost"))
-    limiter = RateLimiter(app, store=store)
+    key_function = remote_addr_key
+    if int(os.environ.get("PYXIV_BEHIND_REVERSE_PROXY", 0)) == 1:
+        key_function = lambda: request.headers["X-Forwarded-For"] or request.remote_addr
+    limiter = RateLimiter(app, store=store, key_function=key_function)
 
     if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
         logLevel = logging.DEBUG
@@ -243,7 +246,7 @@ def create_app():
         log.warn(
             "Remote %s (%s) has been rate limited.",
             request.user_agent,
-            request.remote_addr,
+            key_function(),
         )
         return "Too many requests\n", 429
 
@@ -512,7 +515,7 @@ def create_app():
         log.warning(
             "Possible crawler: %s (%s) accessed the robots.txt",
             request.user_agent,
-            request.remote_addr,
+            key_function(),
         )
         if os.path.isfile(os.path.join("pyxiv/instance/", "robots.txt")):
             return await send_from_directory("pyxiv/instance", "robots.txt")
