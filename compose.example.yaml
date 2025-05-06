@@ -26,3 +26,13 @@ services:
       #PYXIV_UGOIRA_SERVER_REFERER: ""
       #PYXIV_UGOIRA_SERVER_TRUSTED: 0
       #PYXIV_UGOIRA_SERVER_NEEDS_DATE: 0
+      #PYXIV_RATELIMITS: 1
+      #PYXIV_MEMCACHED: "memcached" # uncomment if using ratelimiting!!
+
+  # need for ratelimiting!!!!
+  # memcached:
+  #   image: memcached
+  #   command:
+  #     - --conn-limit=1024
+  #     - --memory-limit=64
+  #     - --threads=2

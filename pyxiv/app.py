@@ -55,7 +55,7 @@ log = logging.getLogger()
 
 def create_app():
     app = Quart(__name__, static_folder=None)
-    store = MemcacheStore()
+    store = MemcacheStore(address=os.environ.get("PYXIV_MEMCACHED", "localhost"))
     limiter = RateLimiter(app, store=store)
 
     if int(os.environ.get("PYXIV_DEBUG", 0)) == 1:
