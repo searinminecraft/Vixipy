@@ -7,7 +7,6 @@ from quart import (
     request,
     redirect,
     flash,
-    abort,
     send_from_directory,
 )
 from aiohttp import ClientSession, DummyCookieJar
