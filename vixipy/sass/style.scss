@@ -3,12 +3,14 @@
 @use 'header';
 @use 'works';
 @use 'form';
-@use 'pages/artworks';
-@use 'pages/login';
-@use 'pages/tags';
 @use 'error';
 @use 'tabs';
 @use 'paginator';
+
+@use 'pages/artworks';
+@use 'pages/login';
+@use 'pages/tags';
+@use 'pages/search';
 
 * {
     box-sizing: border-box;

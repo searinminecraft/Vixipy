@@ -51,12 +51,13 @@ def create_app():
     else:
         loglevel = logging.INFO
 
-    log = logging.getLogger("vixipy")
     logging.basicConfig(
         level=loglevel,
         format=("%(asctime)s    %(name)s %(levelname)s: %(message)s"),
         style="%",
     )
+
+    log = logging.getLogger("vixipy")
 
     try:
         os.makedirs(app.instance_path)

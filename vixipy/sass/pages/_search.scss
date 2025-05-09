@@ -1,0 +1,20 @@
+.searchbox {
+    display: flex;
+    align-items: center;
+    border-radius: 999999px;
+    padding: 8px 1em;
+    background-color: var(--md-sys-color-surface-container);
+
+    input {
+        flex: 1;
+        border: unset;
+        background-color: unset;
+        font-size: 14px;
+        padding: 0 1em;
+    }
+
+    svg {
+        flex-shrink: 0;
+        fill: var(--md-sys-color-secondary);
+    }
+}
