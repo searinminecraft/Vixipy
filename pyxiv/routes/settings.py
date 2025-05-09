@@ -184,7 +184,7 @@ async def setSession():
         p_ab_d_id = await extract_p_ab_d_id(f["token"])
         if p_ab_d_id == "":
             await flash(_("Unable to extract p_ab_d_id"), "error")
-            return redirect(url_for("settings.settingsMain", ep="account"))
+            return redirect(url_for("settings.mainSettings", ep="account"))
 
         try:
             log.debug("Verifying session token...")

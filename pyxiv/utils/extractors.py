@@ -3,7 +3,6 @@ import re
 import logging
 
 log = logging.getLogger("vixipy.utils.extractors")
-p_ab_regex = "'p_ab_d_id': \"(\\d+)\""
 
 
 async def extract_p_ab_d_id(phpsessid: str = None):
@@ -15,13 +14,15 @@ async def extract_p_ab_d_id(phpsessid: str = None):
         headers["Cookie"]: f"PHPSESSID={phpsessid}"
     # Praying for you, O great Mita
     req = await current_app.pixivApi.get("/en/artworks/126421105", headers=headers)
+    req.close()
     if req.status != 200:
         log.warning("Unable to get p_ab_d_id, status %d", req.status)
         return ""
 
     try:
-        res = re.search(p_ab_regex, await req.text()).group(1)
-    except IndexError:
+        if c := req.cookies.get("p_ab_d_id"):
+            res = c.value
+    except Exception:
         log.warning("Unable to extract p_ab_d_id")
         return ""
 
