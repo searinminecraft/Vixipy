@@ -71,3 +71,15 @@ a.icon-button, button.icon-button {
         background-color: rgba(0,0,0,.1);
     }
 }
+
+div.button-pointer {
+    width: 100%;
+    margin-top: 1em;
+
+    > button, > .button {
+        width: 80%;
+        text-align: center;
+        margin: auto;
+        display: block;
+    }
+}

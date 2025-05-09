@@ -182,11 +182,16 @@ class SearchResultsTop(SearchResultsBase):
                 key=lambda _: _.id,
                 reverse=True
             )
+        
+        _popular = d["popular"]
+        self.popular_recent = [ArtworkEntry(x) for x in _popular["recent"]]
+        self.popular_permanent = [ArtworkEntry(x) for x in _popular["permanent"]]
 
 class SearchResultsIllustManga(SearchResultsBase):
     def __init__(self, d):
         super().__init__(d)
         self.total: int = d["illustManga"]["total"]
+        self.last: int = d["illustManga"]["lastPage"]
         self.results: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["illustManga"]["data"]]
 
 class SearchResultsManga(SearchResultsBase):
@@ -194,6 +199,7 @@ class SearchResultsManga(SearchResultsBase):
         super().__init__(d)
         self.total: int = d["manga"]["total"]
         self.results: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["manga"]["data"]]
+        self.last: int = d["manga"]["lastPage"]
 
 class PixpediaInfo:
     def __init__(self, d):

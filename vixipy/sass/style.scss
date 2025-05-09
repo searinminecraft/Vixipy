@@ -7,6 +7,8 @@
 @use 'pages/login';
 @use 'pages/tags';
 @use 'error';
+@use 'tabs';
+@use 'paginator';
 
 * {
     box-sizing: border-box;

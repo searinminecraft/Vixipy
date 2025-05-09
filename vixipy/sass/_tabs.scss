@@ -1,0 +1,20 @@
+nav.tabs {
+    display: flex;
+    a {
+        border-top: 3px solid transparent;
+        color: var(--md-sys-color-outline);
+        padding: 12px 24px;
+        font-weight: bold;
+        display: block;
+        transition: color .15s ease;
+
+        &.active {
+            border-top-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-surface);
+        }
+
+        &:hover {
+            color: var(--md-sys-color-on-surface);
+        }
+    }
+}

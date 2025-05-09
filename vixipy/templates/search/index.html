@@ -2,6 +2,7 @@
 {% set title = _("Results for %(tag)s", tag=tag_info.tag) %}
 
 {% from "components/artwork-entry.html" import entry %}
+{% from "components/paginator.html" import paginator %}
 
 {% block content %}
 <section id="search-info">
@@ -20,7 +21,7 @@
                 {% else %}
                 <h3>#{{tag_info.tag}}</h3>
                 {% endif %}
-                <p title="{{_('%(illust)s Illustrations, %(novel)s Novels', illust=data.total_illustmanga|numberformat, novel=data.total_novel|numberformat)}}">{{_("<b>%(total)s</b> Works", total=data.total|numberformat)}}</p>
+                <p>{{_("<b>%(total)s</b> Works", total=data.total|numberformat)}}</p>
                 {% if tag_info.pixpedia.abstract %}
                 <p class="abstract">{{tag_info.pixpedia.abstract}}</p>
                 {% endif %}

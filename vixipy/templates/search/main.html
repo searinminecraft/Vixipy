@@ -1,12 +1,42 @@
 {% extends "search/index.html" %}
 {% block body %}
+
 <section class="checkpoint">
+    <nav class="tabs">
+        <a href="#" class="active">{{_("Top")}}</a>
+        <a href="/tags/{{tag_info.tag}}/artworks">{{_("Illustrations")}}</a>
+        <a href="/tags/{{tag_info.tag}}/manga">{{_("Manga")}}</a>
+        <a href="/tags/{{tag_info.tag}}/novels">{{_("Novels")}}</a>
+        <a href="#">{{_("User")}}</a>
+    </nav>
     {% if data.total > 0 %}
+    {% if data.popular_recent | length > 0 or data.popular_permanent | length > 0 %}
+    <h2>{{_("Popular Works")}}</h2>
+    {% if data.popular_recent | length > 0 %}
+    <h3>{{_("Recent")}}</h3>
+    <div class="scrolling-container">
+        {% for e in data.popular_recent %}
+        {{ entry(e) }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if data.popular_permanent | length > 0 %}
+    <h3>{{_("All Time")}}</h3>
+    <div class="scrolling-container">
+        {% for e in data.popular_permanent %}
+        {{ entry(e) }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endif %}
     <h2>{{_("Illustrations and Manga")}}</h2>
     <div class="artwork-container">
         {% for e in data.results %}
         {{ entry(e) }}
-        {% endfor %}    
+        {% endfor %}
+    </div>
+    <div class="button-pointer">
+        <a href="/tags/{{tag_info.tag}}/artworks" class="button neutral">{{_("View All")}}</a>
     </div>
     {% else %}
     <p>{{_("No matching results found.")}}</p>

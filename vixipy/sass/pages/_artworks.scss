@@ -13,6 +13,7 @@
         .works {
             .work {
                 position: relative;
+                overflow: hidden;
 
                 &:only-child, &:last-child img {
                     border-radius: 0 0 12px 12px;

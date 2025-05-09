@@ -1,0 +1,27 @@
+.paginator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-sys-color-outline);
+    margin-top: 1em;
+
+    span {
+        font-weight: bold;
+        margin: 0 1em
+    }
+
+    a {
+        color: unset;
+        display: block;
+        height: 24px;
+        transition: color .15s ease;
+
+        &:hover {
+            color: var(--md-sys-color-on-surface);
+        }
+    }
+
+    svg {
+        fill: currentColor
+    }
+}
