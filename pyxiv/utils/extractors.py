@@ -22,6 +22,9 @@ async def extract_p_ab_d_id(phpsessid: str = None):
     try:
         if c := req.cookies.get("p_ab_d_id"):
             res = c.value
+        else:
+            log.warning("Unable to extract p_ab_d_id")
+            return ""
     except Exception:
         log.warning("Unable to extract p_ab_d_id")
         return ""
