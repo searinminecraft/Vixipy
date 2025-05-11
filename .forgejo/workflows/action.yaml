@@ -1,0 +1,40 @@
+name: CI/CD pipeline
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: codeberg-tiny
+    container:
+      env:
+        STORAGE_DRIVER: vfs
+        BUILDAH_ISOLATION: chroot
+    steps:
+      - uses: https://code.forgejo.org/actions/checkout@v4
+
+      - name: Setup Pre-requisites
+        run: |
+          apt-get update
+          apt-get install -y buildah podman qemu-user-static
+          echo root:1:65536 | tee /etc/subuid > /etc/subgid
+          printf '[storage]\ndriver="vfs"\nrunroot="/run/containers/storage"\ngraphroot="/var/lib/containers/storage"\n' >/etc/containers/storage.conf
+
+      - name: Build Image
+        id: build_image
+        uses: https://github.com/redhat-actions/buildah-build@v2
+        with:
+          image: ${{ env.GITHUB_REPOSITORY }}
+          tags: latest ${{ env.GITHUB_REF_NAME }}
+          # platform: linux/amd64, linux/arm64
+          containerfiles: Dockerfile
+
+      - name: Push Image
+        uses: https://github.com/redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build_image.outputs.image }}
+          tags: ${{ steps.build_image.outputs.tags }}
+          registry: codeberg.org
+          username: ${{ env.GITHUB_REPOSITORY_OWNER }}
+          password: ${{ secrets.CODEBERG_TOKEN }}
