@@ -2,6 +2,10 @@ FROM python:3.13-slim-bookworm
 
 WORKDIR /vixipy
 
+# set environment variables
+ENV PYXIV_PORT=8000 \
+    PYXIV_WORKERS=5
+
 # put it before copy so it can be properly cached
 RUN apt update
 RUN apt install --no-install-recommends -y git
