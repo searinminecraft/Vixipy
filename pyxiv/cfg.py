@@ -3,7 +3,7 @@ import random
 import logging
 from urllib.parse import urlparse
 
-Version = "2.6"
+Version = "2.7"
 AuthlessMode = False
 log = logging.getLogger("vixipy.cfg")
 
