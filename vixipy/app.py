@@ -22,6 +22,7 @@ from .routes import (
     artworks,
     login,
     search,
+    upload,
 )
 from . import session as pixiv_session_handler
 from . import error_handler
@@ -78,6 +79,7 @@ def create_app():
     app.register_blueprint(artworks)
     app.register_blueprint(login)
     app.register_blueprint(search)
+    app.register_blueprint(upload)
 
     # =================================
     if app.config["LOG_HTTP"] == "1":
@@ -183,12 +185,18 @@ def create_app():
                 app.pixiv_phpsessid = "".join(
                     [chr(random.randint(97, 122)) for _ in range(33)]
                 )
+            app.pixiv_yuid_b = r.cookies["yuid_b"].value
         else:
             r: ClientResponse = await app.pixiv.head(
                 "",
                 headers={"Cookie": f"PHPSESSID={app.config['TOKEN']}"},
                 allow_redirects=True,
             )
+            r2: ClientResponse = await app.pixiv.head(
+                "",
+                allow_redirects=True,
+            )
+            app.pixiv_yuid_b = r2.cookies["yuid_b"].value
 
         app.pixiv_p_ab_d_id = r.cookies["p_ab_d_id"].value
         app.pixiv_p_ab_id = r.cookies["p_ab_id"].value
@@ -200,6 +208,7 @@ def create_app():
             app.pixiv_p_ab_id_2,
             app.pixiv_p_ab_d_id,
         )
+        log.info("Obtained yuid_b: %s", app.pixiv_yuid_b)
 
     @app.after_serving
     async def close_clientsession():

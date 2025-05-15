@@ -27,5 +27,16 @@
 			"",
 			"{% endblock %}"
 		]
+	},
+	"Quart Blueprint": {
+		"scope": "python",
+		"prefix": "bp",
+		"body": [
+			"from quart import (",
+			"    Blueprint",
+			")",
+			"",
+			"bp = Blueprint(\"$1\", __name__)"
+		]
 	}
 }

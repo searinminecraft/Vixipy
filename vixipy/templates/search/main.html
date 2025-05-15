@@ -1,6 +1,8 @@
 {% extends "search/index.html" %}
+{% block outer %}
+{% include "search/search_filter.html" %}
+{% endblock %}
 {% block body %}
-
 <section class="checkpoint">
     <nav class="tabs">
         <a href="#" class="active">{{_("Top")}}</a>

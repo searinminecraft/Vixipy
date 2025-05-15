@@ -6,6 +6,7 @@ from asyncio import gather
 import logging
 import random
 from typing import TYPE_CHECKING
+from urllib.parse import quote
 from ..api import pixiv_request, search, get_tag_info
 from ..types import ArtworkEntry, RecommendByTag, TagTranslation
 
@@ -44,6 +45,15 @@ async def search_artworks(query: str):
     args: ImmutableMultiDict = request.args.copy()
 
     page = int(args.pop("p", 1))
+    args = {
+        "word": quote(query, safe=''),
+        "order": "date_d",
+        "mode": "all",
+        "csw": 0,
+        "s_mode": "s_tag_full",
+        "type": "illust_and_ugoira",
+        **args
+    }
 
     data, tag_info = await gather(
         search("artworks", query, **args, p=page), get_tag_info(query)

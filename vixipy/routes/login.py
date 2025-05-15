@@ -23,7 +23,9 @@ if TYPE_CHECKING:
 
 bp = Blueprint("login", __name__)
 log = logging.getLogger("vixipy.routes.login")
-COOKIE_MAXAGE = 2592000
+COOKIE_MAXAGE = 60 * 60 * 24 * 30 * 6
+#               ^    ^    ^    ^    ^
+#               sec  min  hr   day  mo
 
 
 @bp.route("/self/login", methods=["GET", "POST"])
@@ -35,6 +37,7 @@ async def login_page():
     if request.method == "POST":
         f = await request.form
         token = f["token"]
+        return_path = f.get("return_to", "/")
 
         try:
             await pixiv_request("/ajax/user/extra", cookies={"PHPSESSID": token})
@@ -45,6 +48,9 @@ async def login_page():
 
         r: ClientResponse = await current_app.pixiv.get(
             "", allow_redirects=True, headers={"Cookie": f"PHPSESSID={token}"}
+        )
+        unauth_r: ClientResponse = await current_app.pixiv.get(
+            "", allow_redirects=True
         )
         r.raise_for_status()
         t = await r.text()
@@ -58,6 +64,7 @@ async def login_page():
         p_ab_id = r.cookies["p_ab_id"].value
         p_ab_id_2 = r.cookies["p_ab_id_2"].value
         p_ab_d_id = r.cookies["p_ab_d_id"].value
+        yuid_b = unauth_r.cookies["yuid_b"].value
         log.debug("Extracted necessary info:")
         log.debug("csrf = %s", csrf)
         log.debug("p_ab_id = %s", p_ab_id)
@@ -68,6 +75,7 @@ async def login_page():
         res.set_cookie("Vixipy-Token", token, max_age=COOKIE_MAXAGE, httponly=True)
         res.set_cookie("Vixipy-CSRF", csrf, max_age=COOKIE_MAXAGE, httponly=True)
         res.set_cookie("Vixipy-p_ab_id", p_ab_id, max_age=COOKIE_MAXAGE, httponly=True)
+        res.set_cookie("Vixipy-yuid_b", yuid_b, max_age=COOKIE_MAXAGE, httponly=True)
         res.set_cookie(
             "Vixipy-p_ab_id_2", p_ab_id_2, max_age=COOKIE_MAXAGE, httponly=True
         )

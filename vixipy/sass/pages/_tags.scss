@@ -32,7 +32,7 @@
             max-width: 1000px;
             padding: 2em;
             display: flex;
-            gap: 2em;
+            gap: 1.5em;
 
             > img {
                 width: 128px;
@@ -40,6 +40,9 @@
                 border-radius: 8px;
                 object-fit: cover;
                 flex-shrink: 0;
+                background-color: var(--md-sys-color-surface-container);
+                border: 2px solid var(--md-sys-color-surface-container-lowest);
+                transform: translateY(-3.5em);
             }
 
             article {
@@ -55,6 +58,7 @@
 
                 .abstract {
                     margin-bottom: unset;
+                    font-size: 14px;
                 }
             }
         }

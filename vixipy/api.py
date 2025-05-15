@@ -51,6 +51,7 @@ async def pixiv_request(
         _cookies["p_ab_id"] = g.p_ab_id
         _cookies["p_ab_id_2"] = g.p_ab_id_2
         _cookies["PHPSESSID"] = g.token
+        _cookies["yuid_b"] = g.yuid_b
 
         if method.lower() == "post":
             _headers["x-csrf-token"] = g.csrf
@@ -58,6 +59,7 @@ async def pixiv_request(
         _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_d_id
         _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_id
         _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_id_2
+        _cookies["yuid_b"] = current_app.pixiv_yuid_b
         if not "PHPSESSID" in _cookies:
             if current_app.config.get("TOKEN"):
                 _cookies["PHPSESSID"] = current_app.config["TOKEN"]

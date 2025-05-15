@@ -28,6 +28,7 @@ async def get_session_data():
         g.p_ab_d_id = c.get("Vixipy-p_ab_d_id")
         g.p_ab_id = c.get("Vixipy-p_ab_id")
         g.p_ab_id_2 = c.get("Vixipy-p_ab_id_2")
+        g.yuid_b = c.get("Vixipy-yuid_b")
 
         notification_count, user, extra = await gather(
             get_notification_count(), get_user(g.token.split("_")[0]), get_self_extra()

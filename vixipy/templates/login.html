@@ -25,6 +25,7 @@
                 <div class="form-area">
                     <form action="/self/login" method="post">
                         <label for="token" class="block heading">Token</label>
+                        <input type="hidden" name="return_to" value="{{request.args.get('return_to', '/')}}">
                         <input type="password" class="width-100" required name="token">
                         <div class="actions">
                             <a href="{{request.args.get('return_to', '/')}}" class="label-button">Return</a>
