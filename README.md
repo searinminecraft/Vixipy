@@ -186,7 +186,7 @@ If you have the time, [help translate](https://translate.codeberg.org/engage/vix
 
 # See also
 * [PixivFE](https://codeberg.org/VnPower/PixivFE) - The project that Vixipy initially took inspiration from. Note that Vixipy is **no longer** a clone of PixivFE
-* [LiteXiv](https://codeberg.org/Peaksol/LiteXiv) - Yet another pixiv frontend, written in PHP
+* [LiteXiv](https://codeberg.org/haydenwu/LiteXiv) - Yet another pixiv frontend, written in PHP
 
 # License
 
@@ -201,7 +201,7 @@ Vixipy comes with NO WARRANTY, and we will certainly not be responsible for anyt
 * [laptopcat](https://codeberg.org/laptop) for code contributions and ideas
 * People who have translated Vixipy:
     * [Myself](https://codeberg.org/kita) (Kita) - Filipino `fil`
-    * [Peaksol](https://codeberg.org/Peaksol) - Chinese (Simplified Han Script) `zh_Hans`
+    * [Hayden](https://codeberg.org/haydenwu) - Chinese (Simplified Han Script) `zh_Hans`
     * [divergency](https://codeberg.org/divergency) - Russian `ru`
 * Maybe you could be in this list? :3
 
