@@ -55,7 +55,8 @@ class ArtworkBase:
         self.title = d["title"]
         self.description = d["description"]
         self.type = d["illustType"]
-        self.uploadDate = datetime.fromisoformat(d["createDate"])
+        self.uploadDate_raw = d["createDate"]
+        self.uploadDate = datetime.fromisoformat(self.uploadDate_raw)
         self.xrestrict = d["xRestrict"]
         self.r18 = self.xrestrict >= 1
         self.r18g = self.xrestrict == 2
@@ -100,6 +101,7 @@ class Artwork(ArtworkBase):
         self.likeCount = d["likeCount"]
         self.commentCount = d["commentCount"]
         self.viewCount = d["viewCount"]
+        self.deficient = d["urls"]["regular"] is None
 
         self.original = d["isOriginal"]
         self.loginonly = d["isLoginOnly"]
@@ -118,7 +120,8 @@ class Artwork(ArtworkBase):
 class ArtworkEntry(ArtworkBase):
     def __init__(self, d):
         super().__init__(d)
-        self.thumb = proxy(d["url"])
+        self.unproxied_thumb = d["url"]
+        self.thumb = proxy(self.unproxied_thumb)
         self.profileimg = proxy(d.get("profileImageUrl"))
     
     def __repr__(self):
