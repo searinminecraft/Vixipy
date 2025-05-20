@@ -45,7 +45,6 @@ from .routes import (
     api as _api,
     ugoiraconverter,
     news,
-    messages,
     novels,
 )
 
@@ -192,7 +191,6 @@ def create_app():
     app.register_blueprint(_api.bp)
     app.register_blueprint(ugoiraconverter.bp)
     app.register_blueprint(news.bp)
-    app.register_blueprint(messages.bp)
     app.register_blueprint(novels.bp)
 
     @app.before_serving
@@ -435,31 +433,23 @@ def create_app():
                 g.userdata = None
                 g.notificationCount = None
                 g.hasNotifications = False
-                g.messagesCount = 0
-                g.hasMessages = False
                 g.isPremium = False
                 return
 
             try:
-                notifications, messages, userdata, extra = await gather(
+                notifications, userdata, extra = await gather(
                     api.pixivReq(
                         "get",
                         "/rpc/notify_count.php?op=count_unread",
                         {"Referer": "https://www.pixiv.net/en"},
-                    ),
-                    api.pixivReq(
-                        "get",
-                        "/rpc/index.php?mode=message_thread_unread_count",
                     ),
                     getUser(g.userPxSession.split("_")[0], False),
                     api.pixivReq("get", "/ajax/user/extra")
                 )
 
                 g.notificationCount = notifications["popboard"]
-                g.messagesCount = int(messages["body"]["unread_count"])
                 g.userdata = userdata
                 g.hasNotifications = g.notificationCount > 0
-                g.hasMessages = g.messagesCount > 0
                 g.isPremium = g.userdata.premium
                 g.extradata = extra
             except api.PixivError:
