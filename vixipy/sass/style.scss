@@ -7,11 +7,13 @@
 @use 'tabs';
 @use 'paginator';
 @use 'dialog';
+@use 'notice';
 
 @use 'pages/artworks';
 @use 'pages/login';
 @use 'pages/tags';
 @use 'pages/search';
+@use 'pages/upload';
 
 * {
     box-sizing: border-box;

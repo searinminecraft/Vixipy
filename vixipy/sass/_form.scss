@@ -26,6 +26,18 @@ label {
         margin-bottom: 6px;
         font-size: 18px;
     }
+
+    &.hint {
+        color: var(--md-sys-color-outline);
+        font-size: 12px;
+        margin-top: 8px;
+    }
+}
+
+fieldset {
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: 6px;
+    padding: 1em;
 }
 
 form {

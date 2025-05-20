@@ -51,6 +51,8 @@ def create_app():
         loglevel = logging.DEBUG
     else:
         loglevel = logging.INFO
+    
+    print(repr(loglevel))
 
     logging.basicConfig(
         level=loglevel,

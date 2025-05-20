@@ -1,5 +1,5 @@
 from quart import (
-    Blueprint, g, redirect, render_template, url_for
+    Blueprint, g, abort, redirect, render_template, request, url_for
 )
 
 bp = Blueprint("upload", __name__)
@@ -10,3 +10,14 @@ async def upload_main():
         return redirect(url_for("login.login_page", return_to="/illustrations/upload"))
     
     return await render_template("upload.html")
+
+@bp.post("/self/illustration/upload")
+async def do_upload():
+    """This is gonna be spicy"""
+    if not g.authorized:
+        abort(403)
+    
+    f = await request.form
+    files = await request.files
+
+    print(request.files)
