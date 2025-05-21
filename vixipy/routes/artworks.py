@@ -28,12 +28,12 @@ async def __attempt_work_extraction(id: int, userIllusts: list[ArtworkEntry], pa
         else:
             return "0" + str(n)
 
-    log.info(uil_to_dict)
+    log.debug(uil_to_dict)
     if id in uil_to_dict:
-        log.info(uil_to_dict[id].unproxied_thumb)
+        log.debug(uil_to_dict[id].unproxied_thumb)
         extracted_thumb = thumb_reg.search(uil_to_dict[id].unproxied_thumb)
         if not extracted_thumb:
-            log.info("Failed to extract date from thumbnail. Trying create date...")
+            log.debug("Failed to extract date from thumbnail. Trying create date...")
             d = datetime.datetime.fromisoformat(uil_to_dict[id].uploadDate_raw)
 
             _date = f"{d.year}/{pz(d.month)}/{pz(d.day)}/{pz(d.hour)}/{pz(d.minute)}/{pz(d.second)}"
@@ -46,13 +46,13 @@ async def __attempt_work_extraction(id: int, userIllusts: list[ArtworkEntry], pa
             for ext in ("jpg", "png"):
                 _orig_uri = f"/img-original/img/{_date}/{id}_p{x}.{ext}"
 
-                log.info("Trying %s", _orig_uri)
+                log.debug("Trying %s", _orig_uri)
                 ori: ClientResponse = await current_app.content_proxy.head("https://i.pximg.net" + _orig_uri)
                 if ori.status != 200:
-                    log.info("Did not work!")
+                    log.debug("Did not work!")
                     continue
                 else:
-                    log.info("%s works!", _orig_uri)
+                    log.debug("%s works!", _orig_uri)
                     _orig = _orig_uri
                     break
 

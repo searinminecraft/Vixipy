@@ -6,6 +6,7 @@ import time
 from typing import TYPE_CHECKING, List, Tuple
 from urllib.parse import quote
 from aiohttp.client_exceptions import ContentTypeError
+import random
 
 from .types import *
 
@@ -56,15 +57,15 @@ async def pixiv_request(
         if method.lower() == "post":
             _headers["x-csrf-token"] = g.csrf
     else:
-        _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_d_id
-        _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_id
-        _cookies["p_ab_d_id"] = current_app.pixiv_p_ab_id_2
-        _cookies["yuid_b"] = current_app.pixiv_yuid_b
+        if not g.get("chosen_token", None):
+            g.chosen_token = random.choice(current_app.tokens)
+        log.debug("Using %s", g.chosen_token)
+        _cookies["p_ab_d_id"] = g.chosen_token["p_ab_d_id"]
+        _cookies["p_ab_id"] = g.chosen_token["p_ab_id"]
+        _cookies["p_ab_id_2"] = g.chosen_token["p_ab_id_2"]
+        _cookies["yuid_b"] = g.chosen_token["yuid_b"]
         if not "PHPSESSID" in _cookies:
-            if current_app.config.get("TOKEN"):
-                _cookies["PHPSESSID"] = current_app.config["TOKEN"]
-            else:
-                _cookies["PHPSESSID"] = current_app.pixiv_phpsessid
+            _cookies["PHPSESSID"] = g.chosen_token["token"]
 
     for k, v in _cookies.items():
         cookie_header += f"{k}={v}; "
@@ -173,3 +174,27 @@ async def search(type_: str, query: str, **kwargs):
 async def get_tag_info(tag: str):
     data = await pixiv_request(f"/ajax/search/tags/{quote(tag, safe='')}")
     return TagInfo(data)
+
+
+async def get_ranking(
+    mode: str = "daily",
+    date: str = None,
+    content: str = None
+):
+
+    params = [
+        ('format', 'json'),
+        ('mode', mode)
+    ]
+
+    if date:
+        params.append(('date', date))
+    if content:
+        params.append(('content', content))
+
+    data = await pixiv_request(
+        f"/ranking.php",
+        params=params
+    )
+
+    return RankingData(data)

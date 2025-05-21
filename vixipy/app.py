@@ -13,7 +13,7 @@ import logging
 import os
 import random
 from time import perf_counter
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, TypedDict
 
 from .routes import (
     index,
@@ -29,6 +29,13 @@ from . import error_handler
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
+
+class Token(TypedDict):
+    token: str
+    p_ab_id: str
+    p_ab_id_2: str
+    p_ab_d_id: str
+    yuid_b: str
 
 
 def create_app():
@@ -46,19 +53,8 @@ def create_app():
         IMG_PROXY="/proxy/i.pximg.net",
     )
     app.config.from_prefixed_env("VIXIPY")
-
-    if app.config["DEBUG"]:
-        loglevel = logging.DEBUG
-    else:
-        loglevel = logging.INFO
-    
-    print(repr(loglevel))
-
-    logging.basicConfig(
-        level=loglevel,
-        format=("%(asctime)s    %(name)s %(levelname)s: %(message)s"),
-        style="%",
-    )
+    app.tokens: list[Token] = []
+    app.no_token = False
 
     log = logging.getLogger("vixipy")
 
@@ -114,6 +110,20 @@ def create_app():
 
     # =================================
     @app.before_serving
+    def init_logger():
+        if app.config["DEBUG"]:
+            loglevel = logging.DEBUG
+            logging.getLogger("asyncio").setLevel(logging.ERROR)
+        else:
+            loglevel = logging.INFO
+
+        logging.basicConfig(
+            level=loglevel,
+            format=("%(asctime)s    %(name)s %(levelname)s: %(message)s"),
+            style="%",
+        )
+
+    @app.before_serving
     def init_msg():
         if os.path.exists(os.path.join(app.instance_path, ".running")):
             return
@@ -128,8 +138,6 @@ def create_app():
             app.config["VIXIPY_VERSION"],
         )
         log.info("~~~~~~~~~~~~~~~~~~~~~~~~⠛⠛~~~~~~~~~~~~~~~~~~~~~~~~~")
-
-        log.info("Vixipy is listening on port %s", app.config["PORT"])
         log.info("")
         log.info("Configuration:")
         log.info("  * Accept Language: %s", app.config["ACCEPT_LANGUAGE"])
@@ -178,39 +186,52 @@ def create_app():
     @app.before_serving
     async def credential_init():
         if app.config["TOKEN"] == "":
+            app.no_token = True
+
             r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
             if phpsessid := r.cookies.get("PHPSESSID"):
                 log.info("Got initial PHPSESSID: %s", phpsessid.value)
-                app.pixiv_phpsessid = phpsessid.value
+                t_res = phpsessid.value
             else:
                 log.warn("Failed to get PHPSESSID from pixiv. Using random.")
-                app.pixiv_phpsessid = "".join(
+                t_res = "".join(
                     [chr(random.randint(97, 122)) for _ in range(33)]
                 )
-            app.pixiv_yuid_b = r.cookies["yuid_b"].value
+
+            app.tokens.append({
+                "token": t_res,
+                "p_ab_d_id": r.cookies["p_ab_d_id"].value,
+                "p_ab_id": r.cookies["p_ab_id"].value,
+                "p_ab_id_2": r.cookies["p_ab_id_2"].value,
+                "yuid_b": r.cookies["yuid_b"].value
+            })
         else:
-            r: ClientResponse = await app.pixiv.head(
-                "",
-                headers={"Cookie": f"PHPSESSID={app.config['TOKEN']}"},
-                allow_redirects=True,
-            )
-            r2: ClientResponse = await app.pixiv.head(
-                "",
-                allow_redirects=True,
-            )
-            app.pixiv_yuid_b = r2.cookies["yuid_b"].value
+            for t in app.config["TOKEN"].split(","):
+                try:
+                    r: ClientResponse = await app.pixiv.head(
+                        "",
+                        headers={"Cookie": f"PHPSESSID={t}"},
+                        allow_redirects=True,
+                    )
+                except Exception:
+                    log.exception("Error at token %s. Skipping.", t)
+                    continue
+                    
+                r2: ClientResponse = await app.pixiv.head(
+                    "",
+                    allow_redirects=True,
+                )
 
-        app.pixiv_p_ab_d_id = r.cookies["p_ab_d_id"].value
-        app.pixiv_p_ab_id = r.cookies["p_ab_id"].value
-        app.pixiv_p_ab_id_2 = r.cookies["p_ab_id_2"].value
-
-        log.info(
-            "Obtained p_ab* cookies: _id=%s, _id_2=%s, _d_id=%s",
-            app.pixiv_p_ab_id,
-            app.pixiv_p_ab_id_2,
-            app.pixiv_p_ab_d_id,
-        )
-        log.info("Obtained yuid_b: %s", app.pixiv_yuid_b)
+                app.tokens.append({
+                    "token": t,
+                    "p_ab_d_id": r.cookies["p_ab_d_id"].value,
+                    "p_ab_id": r.cookies["p_ab_id"].value,
+                    "p_ab_id_2": r.cookies["p_ab_id_2"].value,
+                    "yuid_b": r2.cookies["yuid_b"].value
+                })
+            
+            if len(app.tokens) == 0:
+                raise RuntimeError("No tokens to use.")
 
     @app.after_serving
     async def close_clientsession():

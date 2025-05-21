@@ -1,6 +1,6 @@
 from quart import Blueprint, abort, g, request, render_template
 
-from ..api import pixiv_request
+from ..api import pixiv_request, get_ranking
 from ..types import Tag, ArtworkEntry, TagTranslation, RecommendByTag
 
 from typing import Dict
@@ -70,4 +70,5 @@ async def index():
             new=new,
         )
     else:
-        return await render_template("index_logged_out.html")
+        data = await get_ranking()
+        return await render_template("index_logged_out.html", data=data)

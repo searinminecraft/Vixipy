@@ -4,7 +4,6 @@
     padding: 1em;
     background-color: var(--md-sys-color-primary-container);
     color: var(--md-sys-color-on-primary-container);
-    width: 100%;
     border-radius: 8px;
     gap: 1em;
     margin: .5em;
@@ -27,5 +26,9 @@
     svg {
         fill: currentColor;
         flex-shrink: 0;
+    }
+
+    > div {
+        margin-top: 2px
     }
 }

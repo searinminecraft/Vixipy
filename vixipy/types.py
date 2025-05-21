@@ -128,6 +128,47 @@ class ArtworkEntry(ArtworkBase):
         return f"<ArtworkEntry {self.id}>"
 
 
+class RankingData:
+    def __init__(self, d):
+        self.page: int = d["page"]
+        self.prev: Optional[int] = d["prev"] if d["prev"] != False else None
+        self.next: Optional[int] = d["next"] if d["next"] != False else None
+        self.date_r: str = d["date"]
+        self.date: datetime = datetime.strptime(self.date_r, "%Y%m%d")
+        self.prev_date_r: Optional[str] = d["prev_date"] if d["prev_date"] != False else None
+        self.prev_date: Optional[datetime] = datetime.strptime(self.prev_date_r, "%Y%m%d") if self.prev_date_r else None
+        self.next_date_r: Optional[str] = d["next_date"] if d["next_date"] != False else None
+        self.next_date: Optional[datetime] = datetime.strptime(self.next_date_r, "%Y%m%d") if self.next_date_r else None
+        self.mode: str = d["mode"]
+        self.content: str = d["content"]
+        self.contents: list[ArtworkEntry] = []
+
+        for x in d["contents"]:
+            _cd = datetime.strptime(x["date"], "%Y年%m月%d日 %H:%M")
+            self.contents.append(
+                ArtworkEntry(
+                    {
+                        "id": x["illust_id"],
+                        "title": x["title"],
+                        "description": None,
+                        "illustType": x["illust_type"],
+                        "createDate": _cd.isoformat(),
+                        "xRestrict": 0,
+                        "sl": 2,
+                        "alt": "",
+                        "userId": x["user_id"],
+                        "userName": x["user_name"],
+                        "pageCount": x["illust_page_count"],
+                        "aiType": 0,
+                        "url": x["url"],
+                        "profileImageUrl": x["profile_img"]
+                    }
+                )
+            )
+        
+
+
+
 class ArtworkPage:
     def __init__(self, d, page):
         self.reg = proxy(d["urls"]["regular"])
