@@ -5,3 +5,4 @@ from .artworks import bp as artworks
 from .login import bp as login
 from .search import bp as search
 from .upload import bp as upload
+from .discovery import bp as discovery

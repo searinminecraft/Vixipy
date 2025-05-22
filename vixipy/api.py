@@ -198,3 +198,11 @@ async def get_ranking(
     )
 
     return RankingData(data)
+
+async def get_discovery(
+    mode: str = "all",
+) -> list[ArtworkEntry]:
+
+    data = await pixiv_request("/ajax/discovery/artworks", params=[('mode', mode), ('limit', 100)])
+
+    return [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]

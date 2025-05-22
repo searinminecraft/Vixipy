@@ -23,6 +23,7 @@ from .routes import (
     login,
     search,
     upload,
+    discovery,
 )
 from . import session as pixiv_session_handler
 from . import error_handler
@@ -78,6 +79,7 @@ def create_app():
     app.register_blueprint(login)
     app.register_blueprint(search)
     app.register_blueprint(upload)
+    app.register_blueprint(discovery)
 
     # =================================
     if app.config["LOG_HTTP"] == "1":
