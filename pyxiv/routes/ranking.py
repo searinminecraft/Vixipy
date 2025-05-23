@@ -58,7 +58,10 @@ async def getCalendar(mode: str = "daily", date: int = None):
             l = t.find("a")
             if l:
                 lnk = l.get("href")
-                img = makeProxy(l.find("img").get("data-src"))
+                if i := l.find("img"):
+                    img = makeProxy(i.get("data-src"))
+                else:
+                    img = "/static/logo.png"
             if da:
                 day = da.text
                 match day:
