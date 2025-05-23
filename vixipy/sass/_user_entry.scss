@@ -1,0 +1,37 @@
+@use 'mixins' as *;
+
+.user-sc {
+    display: flex;
+
+    main {
+        width: 550px;
+        display: flex;
+        padding: 1em;
+        align-items: flex-start;
+
+        img {
+            @include profile-img(72px);
+            flex-shrink: 0;
+            margin-right: .75em;
+        }
+
+        a {
+            color: unset;
+        }
+
+        h3 {
+            margin: unset;
+            margin-bottom: .75rem;
+        }
+    }
+}
+
+@media (max-width: 876px) {
+    .user-sc {
+        flex-direction: column;
+
+        main {
+            width: unset !important;
+        }
+    }
+}

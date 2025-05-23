@@ -2,9 +2,12 @@ from quart import (
     Blueprint, g, abort, redirect, render_template, request, url_for
 )
 
+from ..decorators import require_login
+
 bp = Blueprint("upload", __name__)
 
 @bp.route("/illustrations/upload")
+@require_login
 async def upload_main():
     if not g.authorized:
         return redirect(url_for("login.login_page", return_to="/illustrations/upload"))

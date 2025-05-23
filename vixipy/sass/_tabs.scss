@@ -9,6 +9,7 @@ nav.tabs {
         font-weight: bold;
         display: block;
         transition: color .15s ease;
+        text-align: center;
 
         &.active {
             border-top-color: var(--md-sys-color-primary);

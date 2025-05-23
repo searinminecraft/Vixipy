@@ -257,3 +257,12 @@ class TagInfo:
         self.translation: Optional[TagTranslation] = None
         if self.tag in d["tagTranslation"]:
             self.translation = TagTranslation(self.tag, d["tagTranslation"][self.tag])
+
+
+class RecommendedUser():
+    def __init__(self, user: PartialUser, recent: list[ArtworkEntry]):
+        self.user: PartialUser = user
+        self.recent: list[ArtworkEntry] = recent
+    
+    def __repr__(self):
+        return f"<RecommendedUser user={self.user} recent={self.recent}>"
