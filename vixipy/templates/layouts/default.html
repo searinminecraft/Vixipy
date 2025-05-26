@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
     <script src="/static/jquery-3.7.1.min.js"></script>
+    <script src="/static/htmx.min.js"></script>
     {% if title %}
     <title>{{title}} | Vixipy</title>
     {% else %}
     <title>Vixipy</title>
     {% endif %}
 </head>
-<body>
+<body hx-swap="innerHTML" hx-boost="true">
     {% include "components/header.html" %}
     {% block outer %}{% endblock %}
     {% block content %}{% endblock %}
