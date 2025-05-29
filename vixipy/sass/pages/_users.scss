@@ -1,0 +1,70 @@
+@use '../mixins' as *;
+
+#prof-user-info {
+    .profile-wrap {
+        background-color: var(--md-sys-color-surface-container);
+        > a {
+            display: block;
+
+            ~ main {
+                border-radius: 24px 24px 0 0;
+
+                .profile-img {
+                    transform: translateY(-3em);
+                    margin-bottom: -3em;
+                }
+            }
+        }
+        img {
+            height: 100vh;
+            width: 100%;
+            max-height: 960px;
+            object-fit: cover;
+            display: block;
+
+            &[data-collapsed] {
+                max-height: 120px;
+            }
+        }
+        main {
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            padding: 1.5em;
+            background-color: var(--md-sys-color-surface-container);
+
+            .wrap {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .user-area {
+                display: flex;
+
+                .profile-img {
+                    display: block;
+                
+                    img {
+                        @include profile-img(112px);
+                        border: 2px solid var(--md-sys-color-surface-container);
+                        flex-shrink: 0;
+                        margin-right: 1.5em;
+                    }
+                }
+
+                .info {
+                    flex: 1;
+
+                    h2 {
+                        margin: unset;
+                        margin-bottom: 1em;
+                    }
+                }
+
+                .actions {
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+}

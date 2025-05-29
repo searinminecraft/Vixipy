@@ -34,12 +34,16 @@ async def pixiv_request(
     headers: dict = {},
     json_payload: dict = {},
     raw_payload=None,
+    touch=False,
 ):
 
     _cookies = {**cookies}
     _headers = {**headers}
     _params = ""
     cookie_header = ""
+
+    if touch or endpoint.startswith("/touch/ajax"):
+        _headers["User-Agent"] = "Mozilla/5.0 (Android 10; Mobile; rv:138.0) Gecko/138.0 Firefox/138.0"
 
     for i, v in enumerate(params):
         if i == 0:
@@ -108,6 +112,36 @@ async def get_user(id: int, full: bool = False) -> User:
         return User(data)
     else:
         return PartialUser(data)
+
+
+async def get_user_profile_top(id: int) -> list[ArtworkEntry]:
+    data = await pixiv_request(f"/ajax/user/{id}/profile/top")
+    illusts = [ArtworkEntry(data["illusts"][x]) for x in data["illusts"]]
+    manga = [ArtworkEntry(data["manga"][x]) for x in data["manga"]]
+    return sorted(illusts + manga, key=lambda _: _.id, reverse=True)
+
+
+async def get_user_illusts(id: int, content_type: str = "illust", page: int = 1, tag: str = None):
+    params = [
+        ('id', id),
+        ('type', content_type),
+        ('p', page)
+    ]
+
+    if tag:
+        params.append(('tag', tag))
+
+    data = await pixiv_request(
+        "/touch/ajax/user/illusts",
+        params=params
+    )
+
+    return UserPageIllusts(data)
+
+
+async def get_user_bookmarks(id: int, page: int = 1) -> tuple[int, list[ArtworkEntry]]:
+    data = await pixiv_request(f"/ajax/user/{id}/illusts/bookmarks", params=[("tag", ""), ("offset", (48*page)-48), ("limit", 48), ("rest", "show")])
+    return data["total"], [ArtworkEntry(x) for x in data["works"]]
 
 
 async def get_notification_count() -> int:

@@ -1,0 +1,23 @@
+{% extends "users/base.html" %}
+{% from "components/artwork-entry.html" import entry %}
+{% from "components/paginator.html" import paginator %}
+{% set current = "bookmarks" %}
+{% set banner_collapse = true %}
+{% set page = request.args.get("p", 1)|int %}
+
+{% block c %}
+<h2>{{_("Bookmarks")}}</h2>
+<div class="artwork-container">
+    {% for x in il %}
+    {{entry(x)}}
+    {% endfor %}
+</div>
+{{-
+    paginator(
+        page,
+        pages,
+        url_for("users.user_bookmarks", user=data.id, p=page-1),
+        url_for("users.user_bookmarks", user=data.id, p=page+1)
+    )
+-}}
+{% endblock %}

@@ -6,3 +6,4 @@ from .login import bp as login
 from .search import bp as search
 from .upload import bp as upload
 from .discovery import bp as discovery
+from .users import bp as users

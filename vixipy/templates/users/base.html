@@ -1,0 +1,71 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<section id="prof-user-info">
+{%- set background_alttext = _("%(user)s's background", user=data.name) -%}
+{%- set pfp_alttext = _("%(user)s's profile picture", user=data.name) -%}
+<div class="profile-wrap">
+    {% if data.background %}
+    <a href="{{data.background}}" target="_blank">
+        <img {% if banner_collapse %}data-collapsed{% endif %} src="{{data.background}}" alt="{{background_alttext}}">
+    </a>
+    {% endif %}
+    <main>
+        <div class="wrap">
+            <div class="user-area">
+                <a class="profile-img" href="{{data.imageBig}}" target="_blank">
+                    <img src="{{data.imageBig}}" alt="{{pfp_alttext}}">
+                </a>
+                <div class="info">
+                    <h2>{{data.name}}</h2>
+                    <div class="user-stats">
+                        <b>{{data.following}}</b> {{_("Following")}}
+                    </div>
+                </div>
+                <div class="actions">
+                    {% if g.get("current_user") and g.current_user.id == data.id %}
+                    <a href="/self/edit_profile" class="button neutral">{{_("Edit Profile")}}</a>
+                    {% else %}
+                    {% if g.authorized %}
+                    {% if not data.followed %}
+                    <a class="button primary" href="/self/action/user/{{data.id}}/follow">{{_("Follow")}}</a>
+                    {% else %}
+                    <a class="button neutral" href="/self/action/user/{{data.id}}/unfollow">{{_("Following")}}</a>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</section>
+<main>
+        <nav class="tabs">
+        <a {% if current == 'home' -%}
+            href="#" class="active"
+            {% else %}
+            href="{{url_for('users.user_profile', user=data.id)}}"
+            {% endif -%}>{{_("Home")}}</a>
+        
+        <a {% if current == 'illust' -%}
+            href="#" class="active"
+            {%- else -%}
+            href="{{url_for('users.user_illusts', user=data.id)}}"
+            {%- endif -%}>{{_("Illustrations")}}</a>
+
+        <a {% if current == 'manga' -%}
+            href="#" class="active"
+            {%- else -%}
+            href="{{url_for('users.user_manga', user=data.id)}}"
+            {%- endif -%}>{{_("Manga")}}</a>
+
+        <a {% if current == 'bookmarks' -%}
+            href="#" class="active"
+            {%- else -%}
+            href="{{url_for('users.user_bookmarks', user=data.id)}}"
+            {%- endif -%}>{{_("Bookmarks")}}</a>
+    </nav>
+    {% block c %}{% endblock %}
+</main>
+{% endblock %}

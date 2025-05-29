@@ -266,3 +266,26 @@ class RecommendedUser():
     
     def __repr__(self):
         return f"<RecommendedUser user={self.user} recent={self.recent}>"
+
+class UserPageIllusts:
+    def __init__(self, d: dict):
+        self.total: int = d["total"]
+        self.last_page: int = d["lastPage"]
+        self.illusts: list[ArtworkEntry] = [
+            ArtworkEntry({
+                "id": int(x["id"]),
+                "title": x["title"],
+                "description": x["comment"],
+                "illustType": x["type"],
+                "createDate": datetime.fromtimestamp(x["upload_timestamp"]).isoformat(),
+                "xRestrict": int(x["x_restrict"]),
+                "sl": x["sl"],
+                "userId": int(x["author_details"]["user_id"]),
+                "userName": x["author_details"]["user_name"],
+                "alt": x["alt"],
+                "aiType": x["ai_type"],
+                "pageCount": x["page_count"],
+                "url": x["url_s"],
+                "profileImageUrl": None
+            }) for x in d["illusts"]
+        ]

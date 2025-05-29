@@ -1,0 +1,23 @@
+{% extends "users/base.html" %}
+{% from "components/artwork-entry.html" import entry %}
+{% from "components/paginator.html" import paginator %}
+{% set current = "illust" %}
+{% set banner_collapse = true %}
+{% set page = request.args.get("p", 1)|int %}
+
+{% block c %}
+<h2>{{_("Illustrations")}}</h2>
+<div class="artwork-container">
+    {% for x in il.illusts %}
+    {{entry(x, true, false)}}
+    {% endfor %}
+</div>
+{{-
+    paginator(
+        page,
+        il.last_page,
+        url_for("users.user_illusts", user=data.id, p=page-1),
+        url_for("users.user_illusts", user=data.id, p=page+1)
+    )
+-}}
+{% endblock %}

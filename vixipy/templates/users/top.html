@@ -1,0 +1,12 @@
+{% extends "users/base.html" %}
+{% from "components/artwork-entry.html" import entry %}
+{% set current = 'home' %}
+
+{% block c %}
+<h2>{{_("Illustrations and Manga")}}</h2>
+<div class="artwork-container">
+    {% for x in top %}
+    {{ entry(x, true, false) }}
+    {% endfor %}
+</div>
+{% endblock %}
