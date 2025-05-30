@@ -12,7 +12,8 @@
     <title>Vixipy</title>
     {% endif %}
 </head>
-<body hx-swap="innerHTML" hx-boost="true">
+<body hx-swap="innerHTML" hx-boost="true" hx-indicator="#loading">
+    <div id="loading"></div>
     {% include "components/header.html" %}
     {% block outer %}{% endblock %}
     {% block content %}{% endblock %}
