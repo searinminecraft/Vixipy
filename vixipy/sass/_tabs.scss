@@ -1,6 +1,11 @@
 nav.tabs {
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        width: 0
+    }
 
     a {
         border-top: 4px solid transparent;

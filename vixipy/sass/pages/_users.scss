@@ -68,3 +68,27 @@
         }
     }
 }
+
+@media (max-width: 550px) {
+    .profile-wrap {
+        > a img {
+            max-height: 120px !important;
+            object-position: top;
+        }
+
+        .user-area {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .info {
+                margin-bottom: 1em;
+            }
+
+            .profile-img img {
+                margin-right: unset !important;
+                margin-bottom: 1em;
+            }
+        }
+    }
+}
