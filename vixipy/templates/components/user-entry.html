@@ -11,7 +11,16 @@
                 <h3>{{user.name}}</h3>
             </a>
             <br>
-            <a href="/self/action/user/{{user.id}}/follow" class="button primary">{{_("Follow")}}</a>
+            {% if g.authorized %}
+            <form action="/self/action/user/{{user.id}}/{% if not user.followed %}follow{% else %}unfollow{% endif %}"
+                hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
+                hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
+                <input type="hidden" name="return_to" value="{{request.path}}">
+                <button type="submit" class="button {%if not user.followed%}primary{%else%}neutral{%endif%}">
+                    {%if not user.followed%}{{_("Follow")}}{%else%}{{_("Unfollow")}}{% endif %}
+                </button>
+            </form>
+            {% endif %}
         </div>
     </main>
     <div class="scrolling-container">

@@ -3,17 +3,20 @@
 {% block content %}
 <section id="prof-user-info">
 {%- set background_alttext = _("%(user)s's background", user=data.name) -%}
+{%- set background_view_hint = _("Click to open %(user)s's banner in a new tab.", user=data.name) -%}
 {%- set pfp_alttext = _("%(user)s's profile picture", user=data.name) -%}
+{%- set pfp_view_hint = _("Click to open %(user)s's profile picture in a new tab.", user=data.name) -%}
+
 <div class="profile-wrap">
     {% if data.background %}
-    <a href="{{data.background}}" target="_blank">
+    <a href="{{data.background}}" target="_blank" title="{{background_view_hint}}">
         <img {% if banner_collapse %}data-collapsed{% endif %} src="{{data.background}}" alt="{{background_alttext}}">
     </a>
     {% endif %}
     <main>
         <div class="wrap">
             <div class="user-area">
-                <a class="profile-img" href="{{data.imageBig}}" target="_blank">
+                <a class="profile-img" href="{{data.imageBig}}" target="_blank" title="{{pfp_view_hint}}">
                     <img src="{{data.imageBig}}" alt="{{pfp_alttext}}">
                 </a>
                 <div class="info">
@@ -27,11 +30,14 @@
                     <a href="/self/edit_profile" class="button neutral">{{_("Edit Profile")}}</a>
                     {% else %}
                     {% if g.authorized %}
-                    {% if not data.followed %}
-                    <a class="button primary" href="/self/action/user/{{data.id}}/follow">{{_("Follow")}}</a>
-                    {% else %}
-                    <a class="button neutral" href="/self/action/user/{{data.id}}/unfollow">{{_("Following")}}</a>
-                    {% endif %}
+                    <form action="/self/action/user/{{data.id}}/{% if not data.followed %}follow{% else %}unfollow{% endif %}"
+                        hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
+                        hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
+                        <input type="hidden" name="return_to" value="{{request.path}}">
+                        <button type="submit" class="button {%if not data.followed%}primary{%else%}neutral{%endif%}">
+                            {%if not data.followed%}{{_("Follow")}}{%else%}{{_("Unfollow")}}{% endif %}
+                        </button>
+                    </form>
                     {% endif %}
                     {% endif %}
                 </div>

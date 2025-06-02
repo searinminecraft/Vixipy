@@ -30,18 +30,22 @@ async def get_session_data():
         g.p_ab_id_2 = c.get("Vixipy-p_ab_id_2")
         g.yuid_b = c.get("Vixipy-yuid_b")
 
-        if not request.path.startswith("/api"):
-            notification_count, user, extra = await gather(
-                get_notification_count(), get_user(g.token.split("_")[0]), get_self_extra()
-            )
+        if request.path.startswith("/api"):
+            return
+        if request.headers.get("X-Vixipy-Quick-Action") == "true":
+            return
+
+        notification_count, user, extra = await gather(
+            get_notification_count(), get_user(g.token.split("_")[0]), get_self_extra()
+        )
     
-            notification_count: int
-            user: User
-            extra: UserExtraData
+        notification_count: int
+        user: User
+        extra: UserExtraData
     
-            g.current_user = user
-            g.notification_count = notification_count
-            g.current_user_extra = extra
+        g.current_user = user
+        g.notification_count = notification_count
+        g.current_user_extra = extra
 
 
 def init_app(app: Quart):

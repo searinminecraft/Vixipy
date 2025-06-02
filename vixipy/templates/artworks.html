@@ -30,11 +30,14 @@
                             {{work.authorName}}
                         </a>
                         {% if g.authorized %}
-                        {% if not user.followed %}
-                        <a class="button primary" href="/self/action/user/{{work.authorId}}/follow">{{_("Follow")}}</a>
-                        {% else %}
-                        <a class="button neutral" href="/self/action/user/{{work.authorId}}/unfollow">{{_("Following")}}</a>
-                        {% endif %}
+                        <form action="/self/action/user/{{user.id}}/{% if not user.followed %}follow{% else %}unfollow{% endif %}"
+                            hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
+                            hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
+                            <input type="hidden" name="return_to" value="{{request.path}}">
+                            <button type="submit" class="button {%if not user.followed%}primary{%else%}neutral{%endif%}">
+                                {%if not user.followed%}{{_("Follow")}}{%else%}{{_("Unfollow")}}{% endif %}
+                            </button>
+                        </form>
                         {% endif %}
                     </div>
                     <a href="/users/{{work.authorId}}">{{_("View all works")}}</a>

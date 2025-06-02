@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from quart import current_app, g
+from quart import current_app, g, request
 import logging
 import time
 from typing import TYPE_CHECKING, List, Tuple
@@ -12,6 +12,7 @@ from .types import *
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
+    from typing import Any
 
 log = logging.getLogger("vixipy.api")
 
@@ -32,7 +33,7 @@ async def pixiv_request(
     *,
     cookies={},
     headers: dict = {},
-    json_payload: dict = {},
+    json_payload: dict = None,
     raw_payload=None,
     touch=False,
 ):
@@ -44,6 +45,9 @@ async def pixiv_request(
 
     if touch or endpoint.startswith("/touch/ajax"):
         _headers["User-Agent"] = "Mozilla/5.0 (Android 10; Mobile; rv:138.0) Gecko/138.0 Firefox/138.0"
+    
+    if raw_payload:
+        _headers["Content-Type"] = "application/x-www-form-urlencoded"
 
     for i, v in enumerate(params):
         if i == 0:
