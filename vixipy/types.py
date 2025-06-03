@@ -56,6 +56,9 @@ class ArtworkBase:
         self.description = d["description"]
         self.type = d["illustType"]
         self.uploadDate_raw = d["createDate"]
+        self.bookmarked = d.get("bookmarkData") is not None
+        self.bookmark_id = d["bookmarkData"]["id"] if d.get("bookmarkData") else None
+        self.bookmark_private = d["bookmarkData"]["private"] if d.get("bookmarkData") else False
         self.uploadDate = datetime.fromisoformat(self.uploadDate_raw)
         self.xrestrict = d["xRestrict"]
         self.r18 = self.xrestrict >= 1
@@ -99,6 +102,7 @@ class Artwork(ArtworkBase):
         self.height = d["height"]
         self.bookmarkCount = d["bookmarkCount"]
         self.likeCount = d["likeCount"]
+        self.liked = d["likeData"]
         self.commentCount = d["commentCount"]
         self.viewCount = d["viewCount"]
         self.deficient = d["urls"]["regular"] is None
@@ -161,7 +165,11 @@ class RankingData:
                         "pageCount": x["illust_page_count"],
                         "aiType": 0,
                         "url": x["url"],
-                        "profileImageUrl": x["profile_img"]
+                        "profileImageUrl": x["profile_img"],
+                        "bookmarkData": {
+                            "id": int(x["bookmark_id"]),
+                            "private": int(x["bookmark_illust_restrict"]) == 1
+                        } if x.get("is_bookmarked") else None
                     }
                 )
             )
