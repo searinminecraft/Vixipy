@@ -4,7 +4,9 @@ from quart import (
     Blueprint,
     request,
     redirect,
-    url_for
+    url_for,
+    g,
+    abort
 )
 
 from ..api import pixiv_request
@@ -17,6 +19,15 @@ if TYPE_CHECKING:
 bp = Blueprint("user_action", __name__)
 
 HX_HEADER = '{"X-Vixipy-Quick-Action": "true"}' #  work around for python
+
+@bp.before_request
+async def ensure_authorized():
+    isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
+    if not g.get("authorized"):
+        if isQuickAction:
+            abort(401)
+        return redirect(url_for("login.login_page"))
+
 
 @bp.post("/self/action/user/<int:id>/<action>")
 async def follow_unfollow(id: int, action: Union["follow", "unfollow"]):
