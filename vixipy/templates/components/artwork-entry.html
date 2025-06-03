@@ -1,5 +1,5 @@
-{% macro entry(data, title=true, author=true) -%}
-<div class="artwork-entry">
+{% macro entry(data, title=true, author=true, small=false) -%}
+<div class="artwork-entry {%if small%}small{%endif%}">
     <div class="img-container">
         <div class="meta">
             {#
