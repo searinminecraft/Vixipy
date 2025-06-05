@@ -54,12 +54,18 @@ def create_app():
         PORT="8000",
         TOKEN="",
         IMG_PROXY="/proxy/i.pximg.net",
+        PIXIV_DIRECT_CONNECTION="0"
     )
     app.config.from_prefixed_env("VIXIPY")
     app.tokens: list[Token] = []
     app.no_token = False
 
     log = logging.getLogger("vixipy")
+
+    try:
+        app.config["PIXIV_DIRECT_CONNECTION"] = bool(int(app.config["PIXIV_DIRECT_CONNECTION"]))
+    except Exception:
+        app.config["PIXIV_DIRECT_CONNECTION"] = False
 
     try:
         os.makedirs(app.instance_path)
@@ -155,6 +161,7 @@ def create_app():
         log.info("  * Using Account: %s", "yes" if app.config["TOKEN"] != "" else "no")
         log.info("  * No R18: %s", "yes" if app.config["NO_R18"] == "1" else "no")
         log.info("  * Image Proxy: %s", app.config["IMG_PROXY"])
+        log.info("  * Bypass Cloudflare: %s", app.config["PIXIV_DIRECT_CONNECTION"])
         log.info("  * Debug: %s", app.config["DEBUG"])
 
         with open(os.path.join(app.instance_path, ".running"), "w") as f:
@@ -177,12 +184,21 @@ def create_app():
             "Accept-Language": app.config["ACCEPT_LANGUAGE"],
         }
 
-        app.pixiv: ClientSession = ClientSession(
-            "https://www.pixiv.net",
-            headers=header_common,
-            connector_owner=False,
-            cookie_jar=DummyCookieJar(),
-        )
+        if not app.config["PIXIV_DIRECT_CONNECTION"]:
+            app.pixiv: ClientSession = ClientSession(
+                "https://www.pixiv.net",
+                headers=header_common,
+                connector_owner=False,
+                cookie_jar=DummyCookieJar(),
+            )
+        else:
+            app.pixiv: ClientSession = ClientSession(
+                "https://210.140.139.155",
+                headers={**header_common, "Host": "www.pixiv.net"},
+                connector_owner=False,
+                cookie_jar=DummyCookieJar(),
+            )
+
         app.content_proxy: ClientSession = ClientSession(
             headers={**header_common, "Referer": "https://www.pixiv.net"},
             connector_owner=False,
@@ -194,7 +210,13 @@ def create_app():
         if app.config["TOKEN"] == "":
             app.no_token = True
 
-            r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
+             
+            if app.config["PIXIV_DIRECT_CONNECTION"]:
+                log.debug("Use Direct Connection to pixiv")
+                r: ClientResponse = await app.pixiv.head("", allow_redirects=True, server_hostname="www.pixiv.net")
+            else:
+                r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
+            r.raise_for_status()
             if phpsessid := r.cookies.get("PHPSESSID"):
                 log.info("Got initial PHPSESSID: %s", phpsessid.value)
                 t_res = phpsessid.value
@@ -214,19 +236,39 @@ def create_app():
         else:
             for t in app.config["TOKEN"].split(","):
                 try:
-                    r: ClientResponse = await app.pixiv.head(
-                        "",
-                        headers={"Cookie": f"PHPSESSID={t}"},
-                        allow_redirects=True,
-                    )
+
+                    if app.config["PIXIV_DIRECT_CONNECTION"]:
+                        log.debug("Use Direct Connection to pixiv")
+                        r: ClientResponse = await app.pixiv.head(
+                            "",
+                            headers={"Cookie": f"PHPSESSID={t}"},
+                            server_hostname="www.pixiv.net",
+                            allow_redirects=True,
+                        )
+                    else:
+                        r: ClientResponse = await app.pixiv.head(
+                            "",
+                            headers={"Cookie": f"PHPSESSID={t}"},
+                            allow_redirects=True,
+                        )
+                    r.raise_for_status()
                 except Exception:
                     log.exception("Error at token %s. Skipping.", t)
                     continue
                     
-                r2: ClientResponse = await app.pixiv.head(
-                    "",
-                    allow_redirects=True,
-                )
+
+                if app.config["PIXIV_DIRECT_CONNECTION"]:
+                    r2: ClientResponse = await app.pixiv.head(
+                        "",
+                        allow_redirects=True,
+                        server_hostname="www.pixiv.net"
+                    )
+                else:
+                    r2: ClientResponse = await app.pixiv.head(
+                        "",
+                        allow_redirects=True,
+                    )
+
 
                 app.tokens.append({
                     "token": t,
