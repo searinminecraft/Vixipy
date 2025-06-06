@@ -1,7 +1,7 @@
 <header>
     <div class="wrapper">
         <div class="left">
-            <a class="branding" href="/">Vixipy {% if config["DEBUG"] %}<small class="debug-label">{{_("Debug")}}</small>{% endif %}</a>
+            <a class="branding" href="/">{{config["INSTANCE_NAME"]}} {% if config["DEBUG"] %}<small class="debug-label">{{_("Debug")}}</small>{% endif %}</a>
         </div>
         <div class="right">
             <a class="icon-button" title='{{_("Search")}}' href="/search">
