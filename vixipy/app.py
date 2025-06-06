@@ -5,6 +5,7 @@ from quart import (
     Response,
     g,
     request,
+    redirect
 )
 from quart_babel import Babel
 
@@ -107,6 +108,16 @@ def create_app():
                 "%s %s - %s %dms", request.method, request.url, r.status, g.time_taken
             )
             return r
+
+    @app.before_request
+    async def check_path():
+        if request.path.startswith("/en"):
+            stripped = request.path.removeprefix("/en")
+            if stripped == "":
+                return redirect("/", code=308)
+            else:
+                return redirect(stripped, code=308)
+
 
     if app.config["DEBUG"]:
 
