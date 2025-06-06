@@ -42,7 +42,8 @@
                 flex-shrink: 0;
                 background-color: var(--md-sys-color-surface-container);
                 border: 2px solid var(--md-sys-color-surface-container-lowest);
-                transform: translateY(-3.5em);
+                transform: translateY(-4em);
+                margin-bottom: -4em;
             }
 
             article {
