@@ -48,7 +48,7 @@ async def search_artworks(query: str):
     args = {
         "word": quote(query, safe=''),
         "order": "date_d",
-        "mode": "all",
+        "mode": "safe",
         "csw": 0,
         "s_mode": "s_tag_full",
         "type": "illust_and_ugoira",
