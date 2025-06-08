@@ -9,6 +9,7 @@
         <a href="/tags/{{tag_info.tag}}/novels">{{_("Novels")}}</a>
         <a href="#">{{_("User")}}</a>
     </nav>
+    {% include "components/tag-search-filter.html" %}
     {% if data.total > 0 %}
     <h2>{{_("Illustrations")}}</h2>
     <div class="artwork-container">

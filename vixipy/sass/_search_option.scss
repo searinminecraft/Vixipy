@@ -1,0 +1,15 @@
+#tag-search-filter {
+    padding: 1.5em;
+    background-color: var(--md-sys-color-surface-container);
+    border-radius: 16px;
+
+    form {
+        > * {
+            width: 100%;
+        }
+
+        h2 {
+            margin-top: unset;
+        }
+    }
+}

@@ -1,0 +1,193 @@
+<br>
+<br>
+<details>
+<summary>{{_("Search options")}}</summary>
+<div id="tag-search-filter">
+    {%- set word = request.args.get("word", tag_info.tag)-%}
+    {%- set s_mode = request.args.get("s_mode", "s_tag_full") -%}
+    {%- set order = request.args.get("order", "date_d")-%}
+    {%- set mode = request.args.get("mode", "safe")-%}
+    {%- set scd = request.args.get("scd", "")-%}
+    {%- set ecd = request.args.get("ecd", "")-%}
+    {%- set wlt = request.args.get("wlt", "")-%}
+    {%- set wgt = request.args.get("wgt", "")-%}
+    {%- set hlt = request.args.get("hlt", "")-%}
+    {%- set hgt = request.args.get("hgt", "")-%}
+    {%- set ratio = request.args.get("ratio", "")-%}
+
+    <form action="{{request.path}}">
+        <h2>{{_("Search options")}}</h2>
+
+        <label for="word" class="block heading">{{_("Keywords")}}</label>
+        <input type="text" class="width-100" id="word" name="word" value="{{word}}">
+        <br>
+        <br>
+
+        <label for="target" class="block heading">{{_("Target")}}</label>
+        <select name="s_mode" id="target">
+            <option value="s_tag_full" {%if s_mode=="s_tag_full"%}selected{%endif%}>{{_("Tags (perfect match)")}}</option>
+            <option value="s_tag" {%if s_mode=="s_tag"%}selected{%endif%}>{{_("Tags (partial match)")}}</option>
+            <option value="s_tc" {%if s_mode=="s_tc"%}selected{%endif%}>{{_("Title/caption")}}</option>
+        </select>
+        <br>
+        <br>
+
+        <fieldset>
+            <legend>{{_("Filters")}}</legend>
+
+            <label for="mode" class="block heading">{{_("Mode")}}</label>
+            <select name="mode" id="mode" class="width-100">
+                <option value="all" {%if mode=="all"%}selected{%endif%}>{{_("All")}}</option>
+                <option value="safe" {%if mode=="safe"%}selected{%endif%}>{{_("Safe")}}</option>
+                <option value="r18" {%if mode=="r18"%}selected{%endif%}>{{_("R-18")}}</option>
+            </select>
+            <br>
+            <br>
+
+            <label class="block heading">{{_("Width")}}</label>
+            <div class="ranged">
+                <input type="number" name="wlt" value="{{wlt}}" placeholder="{{_('min')}}">
+                <input type="number" name="wgt" value="{{wgt}}" placeholder="{{_('max')}}">
+            </div>
+            <br>
+
+            <label class="block heading">{{_("Height")}}</label>
+            <div class="ranged">
+                <input type="number" name="hlt" value="{{hlt}}" placeholder="{{_('min')}}">
+                <input type="number" name="hgt" value="{{hgt}}" placeholder="{{_('max')}}">
+            </div>
+            <br>
+
+            <label for="ratio" class="block heading">{{_("Ratio")}}</label>
+            <select name="ratio" id="ratio" class="width-100">
+                <option value="" {%if ratio==""%}selected{%endif%}>{{_("All ratios")}}</option>
+                <option value="0.5" {%if ratio=="0.5"%}selected{%endif%}>{{_("Horizontal")}}</option>
+                <option value="-0.5" {%if ratio=="-0.5"%}selected{%endif%}>{{_("Vertical")}}</option>
+                <option value="0" {%if ratio=="0"%}selected{%endif%}>{{_("Square")}}</option>
+            </select>
+            <br>
+            <br>
+
+            <label for="tool" class="block heading">{{_("Tool")}}</label>
+            <input class="width-100" type="text" name="tool" id="tool" list="tools" placeholder="{{_('All tools')}}">
+            <datalist id="tools">
+                <option value="SAI"></option>
+                <option value="Photoshop"></option>
+                <option value="CLIP STUDIO PAINT"></option>
+                <option value="IllustStudio"></option>
+                <option value="ComicStudio"></option>
+                <option value="Pixia"></option>
+                <option value="AzPainter2"></option>
+                <option value="Painter"></option>
+                <option value="Illustrator"></option>
+                <option value="GIMP"></option>
+                <option value="FireAlpaca"></option>
+                <option value="Oekaki BBS"></option>
+                <option value="AzPainter"></option>
+                <option value="CGillust"></option>
+                <option value="Oekaki Chat"></option>
+                <option value="Tegaki Blog"></option>
+                <option value="MS_Paint"></option>
+                <option value="PictBear"></option>
+                <option value="openCanvas"></option>
+                <option value="PaintShopPro"></option>
+                <option value="EDGE"></option>
+                <option value="drawr"></option>
+                <option value="COMICWORKS"></option>
+                <option value="AzDrawing"></option>
+                <option value="SketchBookPro"></option>
+                <option value="PhotoStudio"></option>
+                <option value="Paintgraphic"></option>
+                <option value="MediBang Paint"></option>
+                <option value="NekoPaint"></option>
+                <option value="Inkscape"></option>
+                <option value="ArtRage"></option>
+                <option value="AzDrawing2"></option>
+                <option value="Fireworks"></option>
+                <option value="ibisPaint"></option>
+                <option value="AfterEffects"></option>
+                <option value="mdiapp"></option>
+                <option value="GraphicsGale"></option>
+                <option value="Krita"></option>
+                <option value="kokuban.in"></option>
+                <option value="RETAS STUDIO"></option>
+                <option value="e-mote"></option>
+                <option value="4thPaint"></option>
+                <option value="ComiLabo"></option>
+                <option value="pixiv Sketch"></option>
+                <option value="Pixelmator"></option>
+                <option value="Procreate"></option>
+                <option value="Expression"></option>
+                <option value="PicturePublisher"></option>
+                <option value="Processing"></option>
+                <option value="Live2D"></option>
+                <option value="dotpict"></option>
+                <option value="Aseprite"></option>
+                <option value="Pastela"></option>
+                <option value="Poser"></option>
+                <option value="Metasequoia"></option>
+                <option value="Blender"></option>
+                <option value="Shade"></option>
+                <option value="3dsMax"></option>
+                <option value="DAZ Studio"></option>
+                <option value="ZBrush"></option>
+                <option value="Comi Po!"></option>
+                <option value="Maya"></option>
+                <option value="Lightwave3D"></option>
+                <option value="Hexagon King"></option>
+                <option value="Vue"></option>
+                <option value="SketchUp"></option>
+                <option value="CINEMA4D"></option>
+                <option value="XSI"></option>
+                <option value="CARRARA"></option>
+                <option value="Bryce"></option>
+                <option value="STRATA"></option>
+                <option value="Sculptris"></option>
+                <option value="modo"></option>
+                <option value="AnimationMaster"></option>
+                <option value="VistaPro"></option>
+                <option value="Sunny3D"></option>
+                <option value="3D-Coat"></option>
+                <option value="Paint 3D"></option>
+                <option value="VRoid Studio"></option>
+                <option value="Mechanical pencil"></option>
+                <option value="Pencil"></option>
+                <option value="Ballpoint pen"></option>
+                <option value="Thin marker"></option>
+                <option value="Colored pencil"></option>
+                <option value="Copic marker"></option>
+                <option value="Dip pen"></option>
+                <option value="Watercolors"></option>
+                <option value="Brush"></option>
+                <option value="Calligraphy pen"></option>
+                <option value="Felt-tip pen"></option>
+                <option value="Magic marker"></option>
+                <option value="Watercolor brush"></option>
+                <option value="Paint"></option>
+                <option value="Acrylic paint"></option>
+                <option value="Fountain pen"></option>
+                <option value="Pastels"></option>
+                <option value="Airbrush"></option>
+                <option value="Color ink"></option>
+                <option value="Crayon"></option>
+                <option value="Oil paint"></option>
+                <option value="Coupy pencil"></option>
+                <option value="Gansai"></option>
+                <option value="Pastel Crayons"></option>
+            </datalist>
+        </fieldset>
+        <br>
+        <br>
+
+        <label class="block heading">{{_("Period")}}</label>
+        <div class="ranged">
+            <input type="date" name="scd" value="{{scd}}">
+            <input type="date" name="ecd" value="{{ecd}}">
+        </div>
+        <br>
+        <br>
+
+        <button type="submit" class="label-button">{{_("Apply")}}</button>
+    </form>
+</div>
+</details>
