@@ -10,8 +10,8 @@
                 border-radius: 24px 24px 0 0;
 
                 .profile-img {
-                    transform: translateY(-3em);
-                    margin-bottom: -3em;
+                    transform: translateY(-3.5em);
+                    margin-bottom: -3.5em;
                 }
             }
         }
@@ -30,7 +30,7 @@
             position: sticky;
             bottom: 0;
             width: 100%;
-            padding: 1.5em;
+            padding: 2em 1.5em;
             background-color: var(--md-sys-color-surface-container);
 
             .wrap {
@@ -45,7 +45,7 @@
                     display: block;
                 
                     img {
-                        @include profile-img(112px);
+                        @include profile-img(111px);
                         border: 2px solid var(--md-sys-color-surface-container);
                         flex-shrink: 0;
                         margin-right: 1.5em;
@@ -55,9 +55,17 @@
                 .info {
                     flex: 1;
 
-                    h2 {
+                    h3 {
                         margin: unset;
                         margin-bottom: 1em;
+                    }
+
+                    .user-stats {
+                        color: var(--md-sys-color-outline);
+
+                        b {
+                          color: var(--md-sys-color-on-surface);
+                        }
                     }
                 }
 

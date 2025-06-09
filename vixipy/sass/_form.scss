@@ -4,16 +4,20 @@ input[type=date],
 input[type=number],
 select,
 textarea {
-    border: 2px solid var(--md-sys-color-outline-variant);
+    border: unset;
+    border-bottom: 3px solid var(--md-sys-color-outline-variant);
     color: var(--md-sys-color-on-surface);
-    background-color: var(--md-sys-color-surface-container-lowest);
+    background-color: unset;
     padding: 10px 12px;
-    border-radius: 8px;
+    border-radius: 4px 4px 0 0;
     font-family: inherit;
     font-size: 16px;
+    transition: .15s ease;
 
     &:focus {
         outline: unset;
+        border-bottom-color: var(--md-sys-color-primary);
+        background-color: var(--md-sys-color-surface-container-high);
     }
 
     &.width-100 {
