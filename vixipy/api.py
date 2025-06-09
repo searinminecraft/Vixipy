@@ -153,8 +153,8 @@ async def get_user_illusts(id: int, content_type: str = "illust", page: int = 1,
     return UserPageIllusts(data)
 
 
-async def get_user_bookmarks(id: int, page: int = 1) -> tuple[int, list[ArtworkEntry]]:
-    data = await pixiv_request(f"/ajax/user/{id}/illusts/bookmarks", params=[("tag", ""), ("offset", (48*page)-48), ("limit", 48), ("rest", "show")])
+async def get_user_bookmarks(id: int, page: int = 1, tag: str = "") -> tuple[int, list[ArtworkEntry]]:
+    data = await pixiv_request(f"/ajax/user/{id}/illusts/bookmarks", params=[("tag", tag), ("offset", (48*page)-48), ("limit", 48), ("rest", "show")])
     return data["total"], [ArtworkEntry(x) for x in data["works"]]
 
 

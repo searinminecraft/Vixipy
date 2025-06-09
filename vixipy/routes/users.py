@@ -45,7 +45,7 @@ async def user_manga(user: int):
 async def user_bookmarks(user: int):
     data, bkdata = await gather(
         get_user(user, True),
-        get_user_bookmarks(user, int(request.args.get("p", 1)))
+        get_user_bookmarks(user, int(request.args.get("p", 1)), request.args.get("tag", ""))
     )
 
     pages, y = divmod(bkdata[0], 48)
