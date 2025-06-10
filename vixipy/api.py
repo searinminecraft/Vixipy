@@ -218,6 +218,8 @@ async def search(type_: str, query: str, **kwargs):
             return SearchResultsIllustManga(data)
         case "manga":
             return SearchResultsManga(data)
+        case "novels":
+            return SearchResultsNovel(data)
         case _:
             raise ValueError("Invalid search type")
 
@@ -272,3 +274,8 @@ async def get_recommended_users() -> list[RecommendedUser]:
         result.append(RecommendedUser(user, illusts))
     
     return result
+
+
+async def get_novel(id: int) -> Novel:
+    data = await pixiv_request(f"/ajax/novel/{id}")
+    return Novel(data)

@@ -1,0 +1,52 @@
+{% extends "layouts/default.html" %}
+{% set title = data.title %}
+
+{% block content %}
+<main>
+    <section id="novel-container">
+        <main>
+            <div class="info">
+                <a href="{{data.cover}}" target="_blank">
+                    <img src="{{data.cover}}">
+                </a>
+                <main>
+                    <h2>{{data.title}}</h2>
+                    <p>{{data.description or _("No description")}}</p>
+                    <ul class="tags">
+                        {% for t in data.tags %}
+                        <li><a href="/tags/{{t}}">#{{t}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </main>
+            </div>
+            <pre>{{data.content|safe}}</pre>
+        </main>
+        <aside>
+            <div class="author-info">
+                <a href="{{url_for('users.user_profile', user=data.user_id)}}">
+                    <img src="{{user.image}}" alt="{{data.user_name}}">
+                    {{data.user_name}}
+                </a>
+                {% if g.authorized %}
+                <form action="/self/action/user/{{user.id}}/{% if not user.followed %}follow{% else %}unfollow{% endif %}"
+                    hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
+                    hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
+                    <input type="hidden" name="return_to" value="{{request.path}}">
+                    <button type="submit" class="button {%if not user.followed%}primary{%else%}neutral{%endif%}">
+                        {%if not user.followed%}{{_("Follow")}}{%else%}{{_("Unfollow")}}{% endif %}
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+            <h4>{{_("Other works")}}</h4>
+            <ul class="user-novel-list">
+                {% for x in data.user_novels %}
+                <li>
+                    <a href="{{url_for('novels.novel_main', id=x.id)}}">{{x.title}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+    </section>
+</main>
+{% endblock %}

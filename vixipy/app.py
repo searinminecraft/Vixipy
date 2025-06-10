@@ -27,7 +27,8 @@ from .routes import (
     discovery,
     users,
     user_action,
-    profile_edit
+    profile_edit,
+    novels
 )
 from . import session as pixiv_session_handler
 from . import error_handler
@@ -93,6 +94,7 @@ def create_app():
     app.register_blueprint(users)
     app.register_blueprint(user_action)
     app.register_blueprint(profile_edit)
+    app.register_blueprint(novels)
 
     # =================================
     if app.config["LOG_HTTP"] == "1":

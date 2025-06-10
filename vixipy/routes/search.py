@@ -17,6 +17,7 @@ if TYPE_CHECKING:
         SearchResultsTop,
         SearchResultsIllustManga,
         SearchResultsManga,
+        SearchResultsNovel,
     )
     from typing import Dict, List
 
@@ -96,7 +97,22 @@ async def search_manga(query: str):
 
 @bp.route("/tags/<path:query>/novels")
 async def search_novel(query: str):
-    abort(501)
+    args: ImmutableMultiDict = request.args.copy()
+
+    page = int(args.pop("p", 1))
+
+    data, tag_info = await gather(
+        search("novels", query, **args, p=page), get_tag_info(query)
+    )
+
+    return await render_template(
+        "search/novel.html",
+        data=data,
+        tag_info=tag_info,
+        page=page,
+        prev=url_for("search.search_novel", query=query, **args, p=page - 1),
+        next=url_for("search.search_novel", query=query, **args, p=page + 1),
+    )
 
 
 class RecommendTag:
