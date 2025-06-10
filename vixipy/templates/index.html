@@ -8,7 +8,7 @@
     {% if following | length > 0 %}
     <section id="following">
         <h2>{{_("Works by users you are following")}}</h2>
-        <div class="artwork-container">
+        <div class="scrolling-container">
             {% for il in following %}
             {{ ae.entry(il) }}
             {% endfor %}
@@ -27,7 +27,7 @@
     {% endif %}
     {% for rt in rec_tag %}
     <section>
-        <h2>{{_("Recommended illustrations tagged #%(tag)s", tag=rt.translation.en or rt.translation.romaji or rt.translation.orig or rt.name )}}</h2>
+        <h2>{{_("Recommended illustrations tagged <a href='%(link)s' title='%(title)s'>#%(tag)s</a>", tag=rt.translation.en or rt.translation.romaji or rt.translation.orig or rt.name, title=rt.name, link=url_for("search.search_main", query=rt.name))}}</h2>
         {% if config["DEBUG"] %}
         <pre>
 translation: {{rt.translation}}
