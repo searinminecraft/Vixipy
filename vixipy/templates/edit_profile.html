@@ -1,0 +1,125 @@
+{% extends "layouts/default.html" %}
+{% set title = "Edit profile" %}
+
+{% block content %}
+<main>
+    <h1>{{_("Edit profile")}}</h1>
+    <form id="profile-edit" action="{{url_for('profile_edit.edit_profile')}}" enctype="multipart/form-data" method="post">
+        <h3>{{_("Profile images")}}</h3>
+
+        <div class="no-js">
+            <label for="pimg">{{_("Choose profile picture: ")}}</label>
+            <input class="hidden no-js" id="pimg" name="profileImage" type="file" accept="image/png, image/jpeg, image/gif">
+            <label for="pimg">{{_("Choose cover image: ")}}</label>
+            <input class="hidden no-js" id="cimg" name="coverImage" type="file" accept="image/png, image/jpeg, image/gif">
+        </div>
+        <div class="image-edit require-js">
+            <label for="pimg">
+                <img id="prev_pimg" src="{{data['profileImage']}}">
+                <small>{{_("Max. 5MB")}}</small>
+            </label>
+            <label for="cimg">
+                {% if data['coverImage'] %}
+                <img id="prev_cimg" src="{{data['coverImage']}}">
+                {% else %}
+                <div class="dummy"></div>
+                {% endif %}
+                <small>{{_("Max. 8MB")}}</small>
+            </label>
+        </div>
+        <br><br>
+
+        <label for="name" class="block heading">{{_("Nickname")}}</label>
+        <input spellcheck="false" type="text" name="name" id="name" maxlength="15" required value="{{data['name']}}">
+        <br><br>
+
+        <label for="comment" class="block heading">{{_("Self introduction")}}</label>
+        <textarea name="comment" id="comment" class="width-100" rows="5">{{data['comment']}}</textarea>
+        <br><br>
+
+        <label for="website" class="block heading">{{_("Website")}}</label>
+        <input spellcheck="false" class="width-100" type="text" name="website" id="website" value="{{data['webpage']}}">
+        <br><br>
+
+        <h3>{{_("Social media")}}</h3>
+        {%- set ext = data['externalService'] -%}
+        <input spellcheck="false" type="text" name="twitter" placeholder="{{_('Twitter/X ID')}}" value="{{ext['twitter'] or ''}}">
+        <input spellcheck="false" type="text" name="instagram" placeholder="{{_('Instagram ID')}}" value="{{ext['instagram'] or ''}}">
+        <input spellcheck="false" type="text" name="tumblr" placeholder="{{_('Tumblr ID')}}" value="{{ext['tumblr'] or ''}}">
+        <input spellcheck="false" type="text" name="facebook" placeholder="{{_('Facebook ID')}}" value="{{ext['facebook'] or ''}}">
+        <input spellcheck="false" type="text" name="circlems" placeholder="{{_('Circle.ms ID')}}" value="{{ext['circlems'] or ''}}">
+        <br><br>
+
+        <label class="block heading" for="gender">{{_("Gender")}}</label>
+        <select name="gender" id="gender">
+            <option value="1" {% if data['gender']['value'] == 1%}selected{%endif%}>{{_("Male")}}</option>
+            <option value="2" {% if data['gender']['value'] == 2%}selected{%endif%}>{{_("Female")}}</option>
+            <option value="0" {% if data['gender']['value'] == 0%}selected{%endif%}>{{_("Rather not say")}}</option>
+        </select>
+        <select name="gender_restrict">
+            <option value="0" {% if data['gender']['restriction'] == 0%}selected{%endif%}>{{_("Public")}}</option>
+            <option value="1" {% if data['gender']['restriction'] == 1%}selected{%endif%}>{{_("My pixiv only")}}</option>
+            <option value="2" {% if data['gender']['restriction'] == 2%}selected{%endif%}>{{_("Private")}}</option>
+        </select>
+        <br><br>
+
+        <label for="birthday" class="block heading">{{_("Birthday")}}</label>
+        {%- if data['birthMonthAndDay']['month'] < 10 %}{% set month = "0" + data['birthMonthAndDay']['month']|string %}{%else%}{% set month = data['birthMonthAndDay']['month']%}{%endif%}
+        {%- if data['birthMonthAndDay']['day'] < 10 %}{% set day = "0" + data['birthMonthAndDay']['day']|string %}{%else%}{% set day = data['birthMonthAndDay']['day']%}{%endif%}
+        <input type="date" required id="birthday" name="birthday" value="{{data['birthYear']['value']|string + '-' + month|string + '-' + day|string}}">
+        <br><br>
+
+        <label for="birthyear_restrict" class="block heading">{{_("Birth year privacy")}}</label>
+        <select name="birthyear_restrict" id="birthyear_restrict">
+            <option value="0" {% if data['birthYear']['restriction'] == 0%}selected{%endif%}>{{_("Public")}}</option>
+            <option value="1" {% if data['birthYear']['restriction'] == 1%}selected{%endif%}>{{_("My pixiv only")}}</option>
+            <option value="2" {% if data['birthYear']['restriction'] == 2%}selected{%endif%}>{{_("Private")}}</option>
+        </select>
+        <br><br>
+
+        <label for="birthday_restrict" class="block heading">{{_("Birthday privacy")}}</label>
+        <select name="birthday_restrict" id="birthday_restrict">
+            <option value="0" {% if data['birthMonthAndDay']['restriction'] == 0%}selected{%endif%}>{{_("Public")}}</option>
+            <option value="1" {% if data['birthMonthAndDay']['restriction'] == 1%}selected{%endif%}>{{_("My pixiv only")}}</option>
+            <option value="2" {% if data['birthMonthAndDay']['restriction'] == 2%}selected{%endif%}>{{_("Private")}}</option>
+        </select>
+        <br><br>
+
+        <button type="submit" class="button primary">{{_("Save Changes")}}</button>
+    </form>
+    <script>
+        $(document).ready(()=>{
+            $("#pimg, #cimg").change((ev)=>{
+                console.log(ev)
+                let prev
+                let maxSize
+
+                const old_pimg = "{{data['profileImage']}}"
+                const old_cimg = "{{data['coverImage']}}"
+
+                switch (ev.target.id) {
+                    case "pimg":
+                        maxSize = 1024*1024*5
+                        prev = $("#prev_pimg")
+                        revert = old_pimg
+                        break
+                    case "cimg":
+                        maxSize = 1024*1024*8
+                        prev = $("#prev_cimg")
+                        revert = old_cimg
+                        break
+                }
+                
+                if (ev.target.files[0].size > maxSize) {
+                    alert("File size is too large")
+                    ev.target.value = ""
+                    prev.attr('src', revert)
+                    return
+                }
+
+                prev.attr('src', URL.createObjectURL(ev.target.files[0]))
+            })
+        })
+    </script>
+</main>
+{% endblock %}

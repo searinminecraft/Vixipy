@@ -17,6 +17,7 @@
 @use 'pages/search';
 @use 'pages/upload';
 @use 'pages/users';
+@use 'pages/edit_profile';
 
 * {
     box-sizing: border-box;
@@ -63,6 +64,10 @@ body > main {
     &.htmx-request {
         opacity: 1
     }
+}
+
+.no-js {
+    display: none;
 }
 
 @keyframes appear-transition {

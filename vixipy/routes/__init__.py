@@ -8,3 +8,4 @@ from .upload import bp as upload
 from .discovery import bp as discovery
 from .users import bp as users
 from .user_action import bp as user_action
+from .profile_edit import bp as profile_edit

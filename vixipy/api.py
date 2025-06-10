@@ -5,6 +5,7 @@ import logging
 import time
 from typing import TYPE_CHECKING, List, Tuple
 from urllib.parse import quote
+from aiohttp import MultipartWriter
 from aiohttp.client_exceptions import ContentTypeError
 import random
 
@@ -46,7 +47,8 @@ async def pixiv_request(
     if touch or endpoint.startswith("/touch/ajax"):
         _headers["User-Agent"] = "Mozilla/5.0 (Android 10; Mobile; rv:138.0) Gecko/138.0 Firefox/138.0"
     
-    if raw_payload:
+    if raw_payload and not isinstance(raw_payload, MultipartWriter):
+        log.debug("Use urlencoded by default")
         _headers["Content-Type"] = "application/x-www-form-urlencoded"
 
     for i, v in enumerate(params):

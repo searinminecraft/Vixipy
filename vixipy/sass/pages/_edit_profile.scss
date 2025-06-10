@@ -1,0 +1,43 @@
+@use '../mixins' as *;
+
+#profile-edit {
+    .image-edit {
+        display: flex;
+        gap: 2.5rem;
+
+        img, div.dummy {
+            display: block;
+            margin-bottom: 1em;
+            background-color: var(--md-sys-color-surface-container);
+        }
+
+        small {
+            color: var(--md-sys-color-outline-variant);
+        }
+
+        label[for=pimg] {
+            flex-shrink: 0;
+            img {
+                @include profile-img(170px);
+            }
+        }
+
+        label[for=cimg] {
+            flex: 1;
+            img, div.dummy {
+                border-radius: 16px;
+                object-fit: cover;
+                width: 100%;
+                height: 170px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #profile-edit {
+        .image-edit {
+            flex-direction: column;
+        }
+    }
+}
