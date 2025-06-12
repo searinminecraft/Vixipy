@@ -6,11 +6,13 @@ from quart import (
 
 from ..api import pixiv_request
 import traceback
+import logging
 from typing import Union
 from urllib.parse import quote
 from werkzeug.exceptions import HTTPException, BadRequest, NotFound
 
 bp = Blueprint("api", __name__)
+log = logging.getLogger("vixipy.routes.api")
 
 def make_error(message: str, code: int = 500, body: Union[dict, list] = []):
     return {
@@ -53,10 +55,11 @@ async def autocomplete_handler():
     result: list[dict] = []
 
     for x in data["candidates"]:
+        log.debug(x)
         if x["type"] in ("romaji", "tag_translation"):
             result.append({
                 "name": x["tag_name"],
-                "sub": x["tag_translation"],
+                "sub": x.get("tag_translation"),
                 "access_count": int(x["access_count"])
             })
         else:
