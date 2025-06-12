@@ -1,3 +1,58 @@
+.search-container {
+    position: relative;
+    
+    .suggestions {
+        position: absolute;
+        width: 100%;
+        background-color: var(--md-sys-color-surface-container);
+        list-style: none;
+        margin: unset;
+        margin-top: 1em;
+        padding: 1em;
+        border-radius: 16px;
+        overflow: hidden;
+        overflow-y: auto;
+        z-index: 5;
+        display: none;
+        animation: suggest-popup .2s ease;
+        max-height: 65vh;
+
+        &[data-open] {
+            display: block;
+        }
+        
+        li {
+            margin-bottom: .2em;
+
+            &:last-child {
+                margin-bottom: unset;
+            }
+        }
+
+        a {
+            padding: .5em .75em;
+            border-radius: 6px;
+            color: unset;
+            display: block;
+            transition: background-color .2s ease;
+
+            &:hover {
+                background-color: var(--md-sys-color-surface-variant)
+            }
+
+            span {
+                display: block;
+                font-weight: bold;
+            }
+            small {
+                margin-top: .5em;
+                color: var(--md-sys-color-outline);
+                display: block;
+            }
+        }
+    }
+}
+
 .searchbox {
     display: flex;
     align-items: center;
@@ -16,5 +71,16 @@
     svg {
         flex-shrink: 0;
         fill: var(--md-sys-color-secondary);
+    }
+
+    input:focus {
+        background-color: unset !important;
+    }
+}
+
+@keyframes suggest-popup {
+    from {
+        opacity: 0;
+        transform: translateY(1em)
     }
 }

@@ -10,3 +10,4 @@ from .users import bp as users
 from .user_action import bp as user_action
 from .profile_edit import bp as profile_edit
 from .novels import bp as novels
+from .api import bp as api
