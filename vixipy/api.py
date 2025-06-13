@@ -6,7 +6,7 @@ import time
 from typing import TYPE_CHECKING, List, Tuple
 from urllib.parse import quote
 from aiohttp import MultipartWriter
-from aiohttp.client_exceptions import ContentTypeError
+from aiohttp.client_exceptions import ContentTypeError, ServerDisconnectedError
 import random
 
 from .types import *
@@ -85,23 +85,29 @@ async def pixiv_request(
     log.info("Requesting %s%s with method %s", endpoint, _params, method)
 
     req_start = time.perf_counter()
-    if current_app.config["PIXIV_DIRECT_CONNECTION"]:
-        r: ClientResponse = await current_app.pixiv.request(
-            method,
-            endpoint + _params,
-            server_hostname="www.pixiv.net",
-            headers=_headers,
-            data=raw_payload,
-            json=json_payload,
-        )
-    else:
-        r: ClientResponse = await current_app.pixiv.request(
-            method,
-            endpoint + _params,
-            headers=_headers,
-            data=raw_payload,
-            json=json_payload,
-        )
+    while True:
+        try:
+            if current_app.config["PIXIV_DIRECT_CONNECTION"]:
+                r: ClientResponse = await current_app.pixiv.request(
+                    method,
+                    endpoint + _params,
+                    server_hostname="www.pixiv.net",
+                    headers=_headers,
+                    data=raw_payload,
+                    json=json_payload,
+                )
+            else:
+                r: ClientResponse = await current_app.pixiv.request(
+                    method,
+                    endpoint + _params,
+                    headers=_headers,
+                    data=raw_payload,
+                    json=json_payload,
+                )
+        except ServerDisconnectedError:
+            continue
+        else:
+            break
     req_end = time.perf_counter()
     log.info("%s status %d - %dms", endpoint, r.status, (req_end - req_start) * 1000)
 
