@@ -205,11 +205,11 @@ class NovelBase:
 
         return names.get(int(self.xrestrict), "R-18")
     
-class NovelSeries(NovelBase):
+class NovelSeriesEntry(NovelBase):
     def __init__(self, d):
         super().__init__(d)
-        self.cover: str = proxy(d["cover"]["480mw"])
-        self.profileImg: str = proxy(d["profileImageUrl"])
+        self.cover: str = proxy(d["cover"]["240mw"])
+        self.profile_image: str = proxy(d["profileImageUrl"])
         self.oneshot: bool = d["isOneshot"]
         self.caption: str = d["caption"]
         self.concluded: bool = d["isConcluded"]
@@ -222,6 +222,36 @@ class NovelSeries(NovelBase):
         self.published_character_count: int = d["publishedTextLength"]
         self.published_word_count: int = d["published_word_count"]
         self.published_reading_time: int = d["publishedReadingTime"]
+
+
+class NovelSeries:
+    def __init__(self, d):
+        self.id: int = int(d["id"])
+        self.user_id: int = int(d["userId"])
+        self.user_name: str = d["userName"]
+        self.profile_image: str = proxy(d["profileImageUrl"])
+        self.xrestrict: int = d["xRestrict"]
+        self.original: bool = d["isOriginal"]
+        self.concluded: bool = d["isConcluded"]
+        self.genre_id: int = int(d["genreId"])
+        self.title: str = d["title"]
+        self.caption: str = d["caption"]
+        self.language: str = d["language"]
+        self.tags: list[str] = d["tags"]
+        self.published_content_count: int = d["publishedContentCount"]
+        self.published_character_count: int = d["publishedTotalCharacterCount"]
+        self.published_word_count: int = d["publishedTotalWordCount"]
+        self.published_reading_time: int = d["publishedReadingTime"]
+        self.latest_published_date: datetime = datetime.fromtimestamp(d["lastPublishedContentTimestamp"])
+        self.created_date: datetime = datetime.fromtimestamp(d["createdTimestamp"])
+        self.updated_date: datetime = datetime.fromtimestamp(d["updatedTimestamp"])
+        self.first_novel_id: int = int(d["firstNovelId"])
+        self.lastest_novel_id: int = int(d["latestNovelId"])
+        self.total: int = d["total"]
+        self.cover: str = proxy(d["cover"]["urls"]["480mw"])
+        self.watched: bool = d["isWatched"]
+        self.ai: bool = d["aiType"] == 2
+        self.has_glossary: bool = d["hasGlossary"]
 
 
 class NovelSeriesNav:
@@ -247,9 +277,11 @@ class NovelSeriesNavData:
 class NovelEntry(NovelBase):
     def __init__(self, d):
         super().__init__(d)
-        self.profile_image: str = d["profileImageUrl"]
+        self.profile_image: str = proxy(d["profileImageUrl"])
         self.description: str = d["description"]
         self.bookmarked = d["bookmarkData"] is not None
+        self.cover = proxy(d["url"])
+
 
 class Novel(NovelBase):
     def __init__(self, d):
@@ -315,6 +347,7 @@ class SearchResultsTop(SearchResultsBase):
     def __init__(self, d):
         super().__init__(d)
         self.total_novel: int = d["novel"]["total"]
+        self.novels: list[NovelEntry] = [NovelEntry(x) for x in d["novel"]["data"]]
         if im := d.get("illustManga"):
             self.total_illustmanga: int = d["illustManga"]["total"]
             self.total: int = self.total_illustmanga + d["novel"]["total"]

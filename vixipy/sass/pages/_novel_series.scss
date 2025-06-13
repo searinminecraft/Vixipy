@@ -1,0 +1,100 @@
+@use '../mixins' as *;
+
+#novel-series {
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--md-sys-color-surface-container);
+
+    .info {
+        padding: 1.5em;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5em;
+
+        >a {
+            display: block;
+
+            img {
+                width: 150px;
+                height: 200px;
+                object-fit: cover;
+                background-color: var(--md-sys-color-surface-container-low);
+                border-radius: 12px;
+            }
+        }
+
+        main {
+            pre {
+                white-space: pre-wrap;
+                font-family: inherit;
+            }
+
+            .author {
+                display: flex;
+                align-items: center;
+                gap: .3em;
+
+                .profile-img {
+                    display: block;
+
+                    img {
+                        @include profile-img(24px);
+                        display: block;
+                    }
+                }
+
+                .user {
+                    color: unset;
+                }
+            }
+
+            .tags {
+                list-style: none;
+                margin: unset;
+                padding: unset;
+
+                li {
+                    display: inline-block;
+                    color: var(--md-sys-color-outline);
+                    font-size: 12px;
+
+                    a {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .metadata {
+                list-style: none;
+                margin: unset;
+                margin-top: 1em;
+                padding: unset;
+                display: flex;
+                gap: .35rem;
+
+                li {
+                    color: var(--md-sys-color-outline);
+                    font-size: 11px;
+                    display: flex;
+                    align-items: center;
+                    gap: .2rem;
+
+                    svg {
+                        flex-shrink: 0;
+                        fill: currentColor;
+                    }
+                }
+            }
+        }
+    }
+
+    #checkpoint {
+        padding: 3em;
+
+        .contents {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1em;
+        }
+    }
+}

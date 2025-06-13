@@ -1,7 +1,6 @@
 {% extends "search/index.html" %}
-{% block outer %}
-{% include "search/search_filter.html" %}
-{% endblock %}
+
+{% from "components/novel-entry.html" import nentry %}
 {% block body %}
 <section class="checkpoint">
     <nav class="tabs">
@@ -31,6 +30,7 @@
     </div>
     {% endif %}
     {% endif %}
+    {% if data.total_illustmanga > 0 %}
     <h2>{{_("Illustrations and Manga")}}</h2>
     <div class="artwork-container">
         {% for e in data.results %}
@@ -40,6 +40,19 @@
     <div class="button-pointer">
         <a href="/tags/{{tag_info.tag}}/artworks" class="button neutral">{{_("View All")}}</a>
     </div>
+    {% endif %}
+
+    {% if data.total_novel > 0 %}
+    <h2>{{_("Novels")}}</h2>
+    <div class="novels-container">
+        {% for n in data.novels %}
+        {{ nentry(n) }}
+        {% endfor %}
+    </div>
+    <div class="button-pointer">
+        <a href="/tags/{{tag_info.tag}}/novels" class="button neutral">{{_("View All")}}</a>
+    </div>
+    {% endif %}
     {% else %}
     <p>{{_("No matching results found.")}}</p>
     {% endif %}

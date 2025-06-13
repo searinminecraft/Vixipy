@@ -1,0 +1,28 @@
+{% extends "search/index.html" %}
+{% from "components/novel-entry.html" import nentry %}
+{% block body %}
+
+<section class="checkpoint">
+    <nav class="tabs">
+        <a href="/tags/{{tag_info.tag}}">{{_("Top")}}</a>
+        <a href="/tags/{{tag_info.tag}}/artworks">{{_("Illustrations")}}</a>
+        <a href="/tags/{{tag_info.tag}}/manga">{{_("Manga")}}</a>
+        <a href="#" class="active">{{_("Novels")}}</a>
+        <a href="#">{{_("User")}}</a>
+    </nav>
+
+    {% if data.total > 0 %}
+    <h2>{{_("Novels")}}</h2>
+    <div class="novels-container">
+        {% for e in data.results %}
+        {{ nentry(e) }}
+        {% endfor %}
+    </div>
+    {{ paginator(
+        page, data.last, prev, next
+    ) }}
+    {% else %}
+    <p>{{_("No matching results found.")}}</p>
+    {% endif %}
+</section>
+{% endblock %}

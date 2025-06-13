@@ -1,6 +1,8 @@
 {% extends "layouts/default.html" %}
 {% set title = data.title %}
 
+{% from "components/novel-entry.html" import nentry %}
+
 {% block content %}
 <main>
     <section id="novel-container">
@@ -47,6 +49,14 @@
                 {% endfor %}
             </ul>
         </aside>
+    </section>
+    <section id="related">
+        <h2>{{_("Related works")}}</h2>
+        <div class="novels-container">
+            {%for x in recommend%}
+            {{ nentry(x) }}
+            {% endfor %}
+        </div>
     </section>
 </main>
 {% endblock %}

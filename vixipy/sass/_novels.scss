@@ -1,0 +1,118 @@
+@use 'mixins' as *;
+
+.novels-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1em
+}
+
+.novel-entry {
+    display: flex;
+    gap: 1em;
+
+    .cover {
+        width: 80px;
+        height: 112px;
+        display: block;
+        border-radius: 12px;
+        background-color: var(--md-sys-color-surface-container-low);
+        overflow: hidden;
+        flex-shrink: 0;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    main {
+        overflow: hidden;
+
+        .categories {
+            list-style: none;
+            padding: unset;
+            margin: unset;
+            
+            li {
+                display: inline-block;
+                padding: 4px 8px;
+                background-color: var(--md-sys-color-surface-container);
+                border-radius: 4px;
+                font-size: 10px;
+                font-weight: bold;
+            }
+        }
+
+        .title {
+            color: unset;
+            font-weight: bold;
+            width: 100%;
+            text-overflow: ellipsis;
+            display: block;
+            overflow: hidden;
+        }
+
+        .author {
+            margin-top: .5em;
+            display: flex;
+            align-items: center;
+            gap: .5em;
+
+            img {
+                @include profile-img(24px);
+                flex-shrink: 0;
+            }
+
+            .name {
+                color: var(--md-sys-color-outline);
+                flex: 1;
+                overflow: hidden;
+                display: inline-block;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .tags {
+            list-style: none;
+            padding: unset;
+            margin: unset;
+
+            li {
+                display: inline-block;
+
+                a {
+                    font-weight: bold;
+                    font-size: 11px;
+                }
+            }
+        }
+
+        .metadata {
+            list-style: none;
+            margin: unset;
+            padding: unset;
+            display: flex;
+            gap: .35rem;
+
+            li {
+                color: var(--md-sys-color-outline);
+                font-size: 11px;
+                display: flex;
+                align-items: center;
+                gap: .2rem;
+
+                svg {
+                    flex-shrink: 0;
+                    fill: currentColor;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .novels-container {
+        grid-template-columns: 1fr !important;
+    }
+}

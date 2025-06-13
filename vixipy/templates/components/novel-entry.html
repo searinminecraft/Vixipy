@@ -1,0 +1,81 @@
+{%- macro nentry(data, categories=true, author=true, caption=true) %}
+<div class="novel-entry">
+    {%- set is_series = data.__class__.__name__ == 'NovelSeriesEntry' -%}
+    {%- if is_series %}
+    {% set link = url_for('novels.novel_series_main', id=data.id)%}
+    {% else %}
+    {% set link = url_for('novels.novel_main', id=data.id) %}
+    {% endif -%}
+
+    <a class="cover" href="{{link}}">
+        <img src="{{data.cover}}" alt="{{data.title}}" loading="lazy">
+    </a>
+    <main>
+        {% if categories %}
+        <ul class="categories">
+            {% if data.xrestrict >= 1 %}<li>{{data.xrestrict_friendlyname}}</li>{% endif %}
+            {% if data.original %}<li>{{_("Original")}}</li>{% endif %}
+            {% if is_series %}<li>{{_("Series")}}</li>{% endif %}
+            {% if data.oneshot %}<li>{{_("Oneshot")}}</li>{% endif %}
+            {%- set genre=data.genre_id %}
+            {% if genre == 1 %}
+            <li>{{_("Romance")}}</li>
+            {% elif genre == 2 %}
+            <li>{{_("Isekai fantasy")}}</li>
+            {% elif genre == 3 %}
+            <li>{{_("Contemporary fantasy")}}</li>
+            {% elif genre == 4 %}
+            <li>{{_("Mystery")}}</li>
+            {% elif genre == 5 %}
+            <li>{{_("Horror")}}</li>
+            {% elif genre == 6 %}
+            <li>{{_("Sci-fi")}}</li>
+            {% elif genre == 7 %}
+            <li>{{_("Literature")}}</li>
+            {% elif genre == 8 %}
+            <li>{{_("Drama")}}</li>
+            {% elif genre == 9 %}
+            <li>{{_("Historical pieces")}}</li>
+            {% elif genre == 10 %}
+            <li>{{_("BL (yaoi)")}}</li>
+            {% elif genre == 11 %}
+            <li>{{_("Yuri")}}</li>
+            {% elif genre == 12 %}
+            <li>{{_("For kids")}}</li>
+            {% elif genre == 13 %}
+            <li>{{_("Poetry")}}</li>
+            {% elif genre == 14 %}
+            <li>{{_("Essays/non-fiction")}}</li>
+            {% elif genre == 15 %}
+            <li>{{_("Screenplays/scripts")}}</li>
+            {% elif genre == 16 %}
+            <li>{{_("Reviews/opinion pieces")}}</li>
+            {% elif genre == 17 %}
+            <li>{{_("Other")}}</li>
+            {% endif -%}
+        </ul>
+        {% endif %}
+        <a class="title" href="{{link}}" title="{{data.title}}">{{data.title}}</a>
+        {% if author %}
+        <div class="author">
+            <a href="">
+                <img src="{{data.profile_image}}" alt="{{data.user_name}}" loading="lazy">
+            </a>
+            <a class="name" href="">
+                {{data.user_name}}
+            </a>
+        </div>
+        {% endif %}
+        <ul class="tags">
+            {% for t in data.tags %}
+            <li><a href="{{url_for('search.search_novel', query=t)}}">#{{t}}</a></li>
+            {% endfor %}
+        </ul>
+        <ul class="metadata">
+            <li>{{_("%(wc)s words(s)", wc=data.word_count|numberformat)}}</li>
+            <li>{{_("%(cc)s character(s)", cc=data.character_count|numberformat)}}</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="m480-144-50-45q-100-89-165-152.5t-102.5-113Q125-504 110.5-545T96-629q0-89 61-150t150-61q49 0 95 21t78 59q32-38 78-59t95-21q89 0 150 61t61 150q0 43-14 83t-51.5 89q-37.5 49-103 113.5T528-187l-48 43Z"/></svg> {{data.bookmark_count|numberformat}}</li>
+        </ul>
+    </main>
+</div>
+{% endmacro -%}
