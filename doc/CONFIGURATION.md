@@ -6,6 +6,7 @@ Vixipy can be configured by using environment variables, all starting with `VIXI
 * `SECRET_KEY`: (Default: `Vyxie`) Defines the secret key used for Flask's flash notifications. Recommended to change for production use.
 * `INSTANCE_NAME`: (Default: `Vixipy`) Defines the instance name.
 * `LOG_HTTP`: (Default: 1) Whether to log HTTP requests (does not affect pixiv reqtests)
+* `LOG_PIXIV`: (Default: 1) Whether to log requests to pixiv. If turned off, only errors are logged
 * `NO_R18`: (Default: 0) Whether to disable R-18 work viewing
 * `NO_SENSITIVE`: (Default: 0) Whether to disable Sensitive works. Enabling this will also enable `NO_R18`
 * `TOKEN`: The pixiv token to use for all unauthenticated requests. If not specified, a random one will be used, and all endpoints that require authentication will require login.

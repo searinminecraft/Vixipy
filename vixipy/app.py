@@ -54,6 +54,7 @@ def create_app():
         INSTANCE_NAME="Vixipy",
         LANGUAGES=[],
         LOG_HTTP="1",
+        LOG_PIXIV="0",
         NO_R18="0",
         PORT="8000",
         TOKEN="",
@@ -70,6 +71,16 @@ def create_app():
         app.config["PIXIV_DIRECT_CONNECTION"] = bool(int(app.config["PIXIV_DIRECT_CONNECTION"]))
     except Exception:
         app.config["PIXIV_DIRECT_CONNECTION"] = False
+
+    try:
+        app.config["LOG_PIXIV"] = bool(int(app.config["LOG_PIXIV"]))
+    except Exception:
+        app.config["LOG_PIXIV"] = False
+
+    try:
+        app.config["LOG_HTTP"] = bool(int(app.config["LOG_HTTP"]))
+    except Exception:
+        app.config["LOG_HTTP"] = False
 
     try:
         os.makedirs(app.instance_path)
@@ -99,7 +110,7 @@ def create_app():
     app.register_blueprint(api)
 
     # =================================
-    if app.config["LOG_HTTP"] == "1":
+    if app.config["LOG_HTTP"]:
 
         @app.before_request
         async def record_begin_time():
@@ -146,6 +157,8 @@ def create_app():
         else:
             loglevel = logging.INFO
 
+        logging.getLogger("vixipy.api").setLevel(logging.INFO if app.config["LOG_PIXIV"] else logging.ERROR)
+
         logging.basicConfig(
             level=loglevel,
             format=("%(asctime)s    %(name)s %(levelname)s: %(message)s"),
@@ -172,9 +185,9 @@ def create_app():
         log.info("  * Accept Language: %s", app.config["ACCEPT_LANGUAGE"])
         log.info("  * Instance Name: %s", app.config["INSTANCE_NAME"])
         log.info(
-            "  * Log HTTP Requests: %s",
-            "yes" if app.config["LOG_HTTP"] == "1" else "no",
+            "  * Log HTTP Requests: %s", app.config["LOG_HTTP"]
         )
+        log.info("  * Log pixiv Requests: %s", app.config["LOG_PIXIV"])
         log.info("  * Using Account: %s", "yes" if app.config["TOKEN"] != "" else "no")
         log.info("  * No R18: %s", "yes" if app.config["NO_R18"] == "1" else "no")
         log.info("  * Image Proxy: %s", app.config["IMG_PROXY"])

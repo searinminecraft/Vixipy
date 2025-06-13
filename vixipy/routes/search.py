@@ -36,8 +36,6 @@ async def search_main(query: str):
     data: SearchResultsTop
     tag_info: TagInfo
 
-    log.info(data.results)
-
     return await render_template("search/main.html", data=data, tag_info=tag_info)
 
 

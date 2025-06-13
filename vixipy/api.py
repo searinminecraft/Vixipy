@@ -108,6 +108,7 @@ async def pixiv_request(
     try:
         res = await r.json()
         if res.get("error") == True or res.get("isSucceed") == False:
+            log.error("Error: pixiv API returned error %s", res["message"])
             raise PixivError(res["message"], r.status, endpoint)
 
         if res.get("body"):
