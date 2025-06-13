@@ -135,6 +135,13 @@ def create_app():
             else:
                 return redirect(stripped, code=308)
 
+    
+    @app.after_request
+    async def funny_headers(r: Response):
+        r.headers["Server"] = "Monika"
+        r.headers["X-Powered-By"] = "Your Reality"
+        return r
+
 
     if app.config["DEBUG"]:
 
