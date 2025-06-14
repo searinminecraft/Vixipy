@@ -105,11 +105,16 @@ async def pixiv_request(
                     json=json_payload,
                 )
         except ServerDisconnectedError:
+            log.error("[%s] Got ServerDisconnectedError, trying again...", endpoint)
             continue
         else:
             break
     req_end = time.perf_counter()
-    log.info("%s status %d - %dms", endpoint, r.status, (req_end - req_start) * 1000)
+    req_time = (req_end - req_start) * 1000
+    
+    if req_time >= 500:
+        log.warning("[%s] Request took %dms", endpoint, req_time)
+    log.info("%s status %d - %dms", endpoint, r.status, req_time)
 
     try:
         res = await r.json()

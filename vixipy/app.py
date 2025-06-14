@@ -164,7 +164,7 @@ def create_app():
         else:
             loglevel = logging.INFO
 
-        logging.getLogger("vixipy.api").setLevel(logging.INFO if app.config["LOG_PIXIV"] else logging.ERROR)
+        logging.getLogger("vixipy.api").setLevel(logging.INFO if app.config["LOG_PIXIV"] else logging.WARNING)
 
         logging.basicConfig(
             level=loglevel,
