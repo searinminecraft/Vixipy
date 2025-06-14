@@ -1,0 +1,23 @@
+{% extends "users/base.html" %}
+{% from "components/novel-entry.html" import nentry %}
+{% from "components/paginator.html" import paginator %}
+{% set current = "novel" %}
+{% set banner_collapse = true %}
+{% set page = request.args.get("p", 1)|int %}
+
+{% block c %}
+<h2>{{_("Novels")}}</h2>
+<div class="novels-container">
+    {% for x in novels %}
+    {{nentry(x, true, false)}}
+    {% endfor %}
+</div>
+{{-
+    paginator(
+        page,
+        pages,
+        url_for("users.user_novels", user=data.id, p=page-1),
+        url_for("users.user_novels", user=data.id, p=page+1)
+    )
+-}}
+{% endblock %}

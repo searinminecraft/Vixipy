@@ -1,0 +1,85 @@
+{% extends "layouts/default.html" %}
+{% set title = _("Novels") %}
+
+{% from "components/novel-entry.html" import nentry %}
+
+{% block content %}
+
+<main>
+
+{% if g.authorized and followed|length > 0 %}
+<section id="following">
+    <h2>{{_("Works by users you are following")}}</h2>
+    <div class="novels-container">
+        {% for x in followed %}
+        {{ nentry(x) }}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section id="editor-picks">
+
+</section>
+
+<section id="popular">
+    <h2>{{_("Popular original novels")}}</h2>
+    <div class="novels-container">
+        {% for x in popular %}
+        {{ nentry(x) }}
+        {% endfor %}
+    </div>
+</section>
+
+<section id="recommend">
+    <h2>{{_("Recommended works")}}</h2>
+    <div class="novels-container">
+        {% for x in recommend %}
+        {{ nentry(x) }}
+        {% endfor %}
+    </div>
+</section>
+
+
+<section id="daily-ranking">
+    <hgroup>
+        <small>{{_("Daily ranking")}}</small>
+        <h2>{{_("%(date)s ranking", date=ranking.date|dateformat("MMM dd"))}}</h2>
+    </hgroup>
+    <div class="novels-container">
+        {% for x in ranking.entries %}
+        {{ nentry(x) }}
+        {% endfor %}
+    </div>
+</section>
+
+
+<section id="daily-ranking-m">
+    <hgroup>
+        <small>{{_("Popularity ranking among male users")}}</small>
+        <h2>{{_("%(date)s ranking", date=ranking_m.date|dateformat("MMM dd"))}}</h2>
+    </hgroup>
+    <div class="novels-container">
+        {% for x in ranking_m.entries %}
+        {{ nentry(x) }}
+        {% endfor %}
+    </div>
+</section>
+
+
+<section id="daily-ranking-f">
+    <hgroup>
+        <small>{{_("Popularity ranking among female users")}}</small>
+        <h2>{{_("%(date)s ranking", date=ranking_f.date|dateformat("MMM dd"))}}</h2>
+    </hgroup>
+    <div class="novels-container">
+        {% for x in ranking_f.entries %}
+        {{ nentry(x) }}
+        {% endfor %}
+    </div>
+</section>
+
+
+</main>
+
+{% endblock %}

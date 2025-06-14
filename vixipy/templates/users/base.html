@@ -66,6 +66,12 @@
             href="{{url_for('users.user_manga', user=data.id)}}"
             {%- endif -%}>{{_("Manga")}}</a>
 
+        <a {% if current == 'novel' -%}
+            href="#" class="active"
+            {%- else -%}
+            href="{{url_for('users.user_novels', user=data.id)}}"
+            {%- endif -%}>{{_("Novels")}}</a>
+
         <a {% if current == 'bookmarks' -%}
             href="#" class="active"
             {%- else -%}

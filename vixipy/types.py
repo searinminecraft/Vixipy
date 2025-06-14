@@ -208,7 +208,7 @@ class NovelBase:
 class NovelSeriesEntry(NovelBase):
     def __init__(self, d):
         super().__init__(d)
-        self.cover: str = proxy(d["cover"]["240mw"])
+        self.cover: str = proxy(d["cover"]["urls"]["240mw"])
         self.profile_image: str = proxy(d["profileImageUrl"])
         self.oneshot: bool = d["isOneshot"]
         self.caption: str = d["caption"]
@@ -220,7 +220,7 @@ class NovelSeriesEntry(NovelBase):
         self.watched: bool = d["isWatched"]
         self.notifying: bool = d["isNotifying"]
         self.published_character_count: int = d["publishedTextLength"]
-        self.published_word_count: int = d["published_word_count"]
+        self.published_word_count: int = d["publishedWordCount"]
         self.published_reading_time: int = d["publishedReadingTime"]
 
 
@@ -264,7 +264,7 @@ class NovelSeriesNav:
 
 class NovelSeriesNavData:
     def __init__(self, d):
-        self.seriesId: int = d["seriesId"]
+        self.series_id: int = d["seriesId"]
         self.title: str = d["title"]
         self.concluded: bool = d["isConcluded"]
         self.watched: bool = d["isWatched"]

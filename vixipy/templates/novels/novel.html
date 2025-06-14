@@ -1,5 +1,9 @@
 {% extends "layouts/default.html" %}
+{% if data.series_nav_data %}
+{% set title = "#" + data.series_nav_data.order|string + " " + data.title + " | " + data.series_nav_data.title %}
+{% else %}
 {% set title = data.title %}
+{% endif %}
 
 {% from "components/novel-entry.html" import nentry %}
 
@@ -12,8 +16,20 @@
                     <img src="{{data.cover}}">
                 </a>
                 <main>
+                    {% if data.series_nav_data %}
+                    <small class="series-title">{{data.series_nav_data.title}} #{{data.series_nav_data.order}}</small>
+                    {% endif %}
                     <h2>{{data.title}}</h2>
-                    <p>{{data.description or _("No description")}}</p>
+                    <div class="author">
+                        {%- set user_lnk = url_for('users.user_profile', user=data.user_id) -%}
+                        <a class="profile-img" href="{{user_lnk}}">
+                            <img src="{{user.image}}" alt="{{data.user_name}}">
+                        </a>
+                        <a class="user" href="{{user_lnk}}">
+                            {{data.user_name}}
+                        </a>
+                    </div>
+                    <pre>{{data.description|safe or _("No description")}}</pre>
                     <ul class="tags">
                         {% for t in data.tags %}
                         <li><a href="/tags/{{t}}">#{{t}}</a></li>
@@ -21,34 +37,29 @@
                     </ul>
                 </main>
             </div>
-            <pre>{{data.content|safe}}</pre>
-        </main>
-        <aside>
-            <div class="author-info">
-                <a href="{{url_for('users.user_profile', user=data.user_id)}}">
-                    <img src="{{user.image}}" alt="{{data.user_name}}">
-                    {{data.user_name}}
-                </a>
-                {% if g.authorized %}
-                <form action="/self/action/user/{{user.id}}/{% if not user.followed %}follow{% else %}unfollow{% endif %}"
-                    hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
-                    hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
-                    <input type="hidden" name="return_to" value="{{request.path}}">
-                    <button type="submit" class="button {%if not user.followed%}primary{%else%}neutral{%endif%}">
-                        {%if not user.followed%}{{_("Follow")}}{%else%}{{_("Unfollow")}}{% endif %}
-                    </button>
-                </form>
+            <section id="novel-contents">
+                <pre>{{data.content|safe}}</pre>
+
+                {% if data.series_nav_data %}
+                {%- set nav = data.series_nav_data -%}
+                <div class="series-nav">
+                    <small>{{_("Series")}}</small>
+                    <a class="title" href="{{url_for('novels.novel_series_main', id=nav.series_id)}}">
+                        <h3>{{nav.title}}</h3>
+
+                        <nav>
+                            {% if nav.prev and nav.prev.available %}
+                            <a class="button neutral" href="{{url_for('novels.novel_main', id=nav.prev.id)}}">#{{nav.prev.order}} {{nav.prev.title}}</a>
+                            {% endif %}
+                            {% if nav.next and nav.next.available %}
+                            <a class="button neutral" href="{{url_for('novels.novel_main', id=nav.next.id)}}">#{{nav.next.order}} {{nav.next.title}}</a>
+                            {% endif %}
+                        </nav>
+                    </a>
+                </div>
                 {% endif %}
-            </div>
-            <h4>{{_("Other works")}}</h4>
-            <ul class="user-novel-list">
-                {% for x in data.user_novels %}
-                <li>
-                    <a href="{{url_for('novels.novel_main', id=x.id)}}">{{x.title}}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </aside>
+            </section>
+        </main>
     </section>
     <section id="related">
         <h2>{{_("Related works")}}</h2>

@@ -85,3 +85,16 @@ body > main {
         background-position: right;
     }
 }
+
+hgroup {
+    margin: 1em 0;
+
+    small {
+        color: var(--md-sys-color-outline);
+        margin-bottom: 4px
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        margin: unset;
+    }
+}

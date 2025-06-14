@@ -7,8 +7,9 @@ from quart import (
 )
 
 from asyncio import gather
-from ..api import get_user, get_user_profile_top, get_user_illusts, get_user_bookmarks
+from ..api import get_user, get_user_profile_top, get_user_illusts, get_user_bookmarks, pixiv_request
 from ..decorators import tokenless_require_login
+from ..types import NovelEntry
 
 bp = Blueprint("users", __name__)
 
@@ -53,6 +54,32 @@ async def user_bookmarks(user: int):
         pages += 1
 
     return await render_template("users/bookmarks.html", data=data, il=bkdata[1], pages=pages)
+
+
+@bp.get("/users/<int:user>/novels")
+async def user_novels(user: int):
+    data, cts = await gather(
+        get_user(user, True),
+        pixiv_request(f"/ajax/user/{user}/profile/all")
+    )
+
+    p = int(request.args.get("p", 1))
+
+    if len(cts["novels"]) > 0:
+        novel_ids = [int(x) for x in cts["novels"].keys()]
+        to_get = novel_ids[(30*p)-30:30*p]
+
+        ndata = await pixiv_request(f"/ajax/user/{user}/profile/novels", params=[("ids[]", x) for x in to_get])
+        novels = [NovelEntry(x) for x in ndata["works"].values()]
+
+        pages, _ = divmod(len(novels), 30)
+        if _ > 0:
+            pages += 1
+    else:
+        novels = []
+        pages = 1
+
+    return await render_template("users/novels.html", data=data, novels=novels, pages=pages)
 
 
 @bp.get("/u/<int:user>")

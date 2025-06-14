@@ -1,14 +1,10 @@
 @use '../mixins' as *;
 
 #novel-container {
-    display: flex;
-    gap: 1.5em;
-
     >main {
         overflow: hidden;
         border-radius: 16px;
         background-color: var(--md-sys-color-surface-container);
-        flex: 70%;
 
         .info {
             padding: 1.5em;
@@ -29,6 +25,40 @@
             }
 
             main {
+                small.series-title {
+                    color: var(--md-sys-color-outline);
+                    margin-bottom: 4px;
+                }
+
+                h2 {
+                    margin: unset;
+                    margin-bottom: 1em;
+                }
+
+                pre {
+                    white-space: pre-wrap;
+                    font-family: inherit;
+                }
+
+                .author {
+                    display: flex;
+                    align-items: center;
+                    gap: .3em;
+
+                    .profile-img {
+                        display: block;
+
+                        img {
+                            @include profile-img(24px);
+                            display: block;
+                        }
+                    }
+
+                    .user {
+                        color: unset;
+                    }
+                }
+
                 .tags {
                     list-style: none;
                     margin: unset;
@@ -47,47 +77,52 @@
             }
         }
 
-        pre {
+        #novel-contents {
             background-color: var(--md-sys-color-surface-container-low);
-            font-family: inherit;
-            padding: 2.5rem;
-            word-wrap: break-word;
-            white-space: pre-wrap;
-            margin: unset;
-        }
-    }
-    aside {
-        flex: 30%;
 
-        .author-info {
-            a {
-                display: flex;
-                align-items: center;
-                gap: .5em;
-                font-weight: bold;
-                color: unset;
+            pre {
+                font-family: inherit;
+                padding: 2.5rem;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+                margin: unset;
+            }
 
-                img {
-                    @include profile-img(32px);
+            .series-nav {
+                text-align: center;
+                padding: 2em 4em;
+                margin: 2rem auto;
+                width: 85%;
+                border-radius: 16px;
+                background-color: var(--md-sys-color-surface-container-lowest);
+
+                small {
+                    color: var(--md-sys-color-outline);
                 }
-            }
-            button {
-                width: 100%;
-                margin-top: 1em;
-                padding-top: 8px;
-                padding-bottom: 8px;
-            }
-        }
 
-        .user-novel-list {
-            padding: unset;
-            padding-left: 1.2em;
-            margin: unset;
-
-            li {
-                a {
+                .title {
                     color: unset;
-                    font-weight: bold;
+
+                    h3 {
+                        margin: unset;
+                        margin-top: 6px;
+                        margin-bottom: 1em;
+                    }
+                }
+
+                nav {
+                    a.button {
+                        overflow: hidden;
+                        width: 100%;
+                        text-overflow: ellipsis;
+                        padding-top: 8px;
+                        padding-bottom: 8px;
+                        margin-bottom: .5em;
+
+                        &:last-child, &:only-child {
+                            margin-bottom: unset;
+                        }
+                    }
                 }
             }
         }
