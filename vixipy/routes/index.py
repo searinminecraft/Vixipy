@@ -22,7 +22,7 @@ async def index():
         recommend_by_tag: list[RecommendBytag] = []
         new: list[ArtworkEntry] = []
 
-        data = await pixiv_request("/ajax/top/illust", params=[("mode", mode)])
+        data = await pixiv_request("/ajax/top/illust", params=[("mode", mode)], ignore_cache=True)
 
         _page = data["page"]
         _tag_translations = data["tagTranslation"]

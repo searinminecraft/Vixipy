@@ -126,7 +126,7 @@ async def search_dashboard():
         form = await request.form
         return redirect(url_for("search.search_main", query=form["query"]))
 
-    data = await pixiv_request("/ajax/search/suggestion")
+    data = await pixiv_request("/ajax/search/suggestion", ignore_cache=True)
 
     _translations: Dict[str, TagTranslation] = {
         x: TagTranslation(x, data["tagTranslation"][x]) for x in data["tagTranslation"]

@@ -54,7 +54,9 @@ def create_app():
         INSTANCE_NAME="Vixipy",
         LANGUAGES=[],
         LOG_HTTP="1",
-        LOG_PIXIV="0",
+        LOG_PIXIV="1",
+        CACHE_PIXIV_REQUESTS="0",
+        CACHE_TTL="300",
         NO_R18="0",
         PORT="8000",
         TOKEN="",
@@ -81,6 +83,13 @@ def create_app():
         app.config["LOG_HTTP"] = bool(int(app.config["LOG_HTTP"]))
     except Exception:
         app.config["LOG_HTTP"] = False
+
+
+    try:
+        app.config["CACHE_PIXIV_REQUESTS"] = bool(int(app.config["CACHE_PIXIV_REQUESTS"]))
+    except Exception:
+        app.config["CACHE_PIXIV_REQUESTS"] = False
+
 
     try:
         os.makedirs(app.instance_path)
@@ -154,6 +163,9 @@ def create_app():
 
     pixiv_session_handler.init_app(app)
     error_handler.init_app(app)
+    if app.config["CACHE_PIXIV_REQUESTS"]:
+        from . import cache_client
+        cache_client.init_app(app)
 
     # =================================
     @app.before_serving
@@ -164,7 +176,8 @@ def create_app():
         else:
             loglevel = logging.INFO
 
-        logging.getLogger("vixipy.api").setLevel(logging.INFO if app.config["LOG_PIXIV"] else logging.WARNING)
+        if not app.config["DEBUG"]:
+            logging.getLogger("vixipy.api").setLevel(logging.INFO if app.config["LOG_PIXIV"] else logging.WARNING)
 
         logging.basicConfig(
             level=loglevel,
@@ -195,6 +208,9 @@ def create_app():
             "  * Log HTTP Requests: %s", app.config["LOG_HTTP"]
         )
         log.info("  * Log pixiv Requests: %s", app.config["LOG_PIXIV"])
+        log.info("  * Cache pixiv Requests: %s", app.config["CACHE_PIXIV_REQUESTS"])
+        if app.config["CACHE_PIXIV_REQUESTS"]:
+            log.info("  * Cache TTL: %s", app.config["CACHE_TTL"])
         log.info("  * Using Account: %s", "yes" if app.config["TOKEN"] != "" else "no")
         log.info("  * No R18: %s", "yes" if app.config["NO_R18"] == "1" else "no")
         log.info("  * Image Proxy: %s", app.config["IMG_PROXY"])

@@ -13,3 +13,11 @@ Vixipy can be configured by using environment variables, all starting with `VIXI
     * You can specify multiple tokens by separating them with a `,`. Vixipy will choose a random one for each request context.
 * `IMG_PROXY`: (Default: `/proxy/i.pximg.net`) Specifies the image proxy to use. A list of image proxies can be found [here](https://pixivfe-docs.pages.dev/public-image-proxies/).
 * `PIXIV_DIRECT_CONNECTION`: (Default: 0) Whether to use a direct connection to pixiv servers rather than Cloudflare. Enabling this allows for bypassing blocks (except for Tor exits), but can be slower depending on network conditions and location.
+* `CACHE_PIXIV_REQUESTS`: (Default: 0) Whether to cache requests from pixiv. If disabled, all requests to pixiv will be sent directly without caching.
+    * Note: This requires [Memcached]("https://www.memcached.org"), and requires the `-I` argument to be set to at least `4m`.
+* `CACHE_TTL`: (Default: 300) This is the duration in seconds for which an item remains valid in the cache before it's considered stale and needs to be fetched again from the pixiv API.
+    * The TTL is applied to most API responses and can safely be set to a high value. Dynamic content such as Discovery and Newest is never cached.
+* `MEMCACHED_HOST`: (Default: `127.0.0.1`) Specifies the Memcached host
+* `MEMCACHED_PORT`: (Default: 11211) Specifies the Memcached port
+
+###### Parts of this documentation are derived from the [PixivFE Documentation](https://pixivfe-docs.pages.dev) and are licensed under the GFDL-1.3-or-later.

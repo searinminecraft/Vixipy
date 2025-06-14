@@ -7,7 +7,9 @@ from typing import TYPE_CHECKING, List, Tuple
 from urllib.parse import quote
 from aiohttp import MultipartWriter
 from aiohttp.client_exceptions import ContentTypeError, ServerDisconnectedError
+import json
 import random
+import hashlib
 
 from .types import *
 
@@ -37,12 +39,29 @@ async def pixiv_request(
     json_payload: dict = None,
     raw_payload=None,
     touch=False,
+    ignore_cache=False,
 ):
+    ignore_cache = method == "post" or ignore_cache == True
+    cache_enabled = current_app.config["CACHE_PIXIV_REQUESTS"]
 
     _cookies = {**cookies}
     _headers = {**headers}
     _params = ""
     cookie_header = ""
+
+    for i, v in enumerate(params):
+        if i == 0:
+            _params += f"?{v[0]}={v[1]}"
+        else:
+            _params += f"&{v[0]}={v[1]}"
+
+    hashed_value = hashlib.md5(bytes(endpoint + _params, "utf-8")).hexdigest()
+
+    if cache_enabled and not ignore_cache:
+        cache_result = await current_app.cache_client.get(bytes(f"endpoint_{hashed_value}", 'utf-8'))
+        if cache_result:
+            log.info("[hit] %s", endpoint)
+            return json.loads(cache_result)
 
     if touch or endpoint.startswith("/touch/ajax"):
         _headers["User-Agent"] = "Mozilla/5.0 (Android 10; Mobile; rv:138.0) Gecko/138.0 Firefox/138.0"
@@ -50,12 +69,6 @@ async def pixiv_request(
     if raw_payload and not isinstance(raw_payload, MultipartWriter):
         log.debug("Use urlencoded by default")
         _headers["Content-Type"] = "application/x-www-form-urlencoded"
-
-    for i, v in enumerate(params):
-        if i == 0:
-            _params += f"?{v[0]}={v[1]}"
-        else:
-            _params += f"&{v[0]}={v[1]}"
 
     if g.authorized:
         _cookies["p_ab_d_id"] = g.p_ab_d_id
@@ -82,7 +95,7 @@ async def pixiv_request(
 
     _headers["Cookie"] = cookie_header
 
-    log.info("Requesting %s%s with method %s", endpoint, _params, method)
+    log.info("[%s] %s%s", method, endpoint, _params)
 
     req_start = time.perf_counter()
     while True:
@@ -114,7 +127,7 @@ async def pixiv_request(
     
     if req_time >= 500:
         log.warning("[%s] Request took %dms", endpoint, req_time)
-    log.info("%s status %d - %dms", endpoint, r.status, req_time)
+    log.info("[%dms] [%s] %d", req_time, endpoint, r.status)
 
     try:
         res = await r.json()
@@ -123,11 +136,18 @@ async def pixiv_request(
             raise PixivError(res["message"], r.status, endpoint)
 
         if res.get("body"):
-            return res["body"]
-        else:
-            return res
+            res = res["body"]
     except ContentTypeError:
         raise PixivError(await r.text(), r.status, endpoint)
+    
+    if cache_enabled and not ignore_cache:
+        await current_app.cache_client.set(
+            bytes(f"endpoint_{hashed_value}", "utf-8"),
+            bytes(json.dumps(res), "utf-8"), 
+            int(current_app.config["CACHE_TTL"]),
+        )
+
+    return res
 
 
 # ==========================================================
@@ -267,13 +287,13 @@ async def get_discovery(
     mode: str = "all",
 ) -> list[ArtworkEntry]:
 
-    data = await pixiv_request("/ajax/discovery/artworks", params=[('mode', mode), ('limit', 100)])
+    data = await pixiv_request("/ajax/discovery/artworks", params=[('mode', mode), ('limit', 100)], ignore_cache=True)
 
     return [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]
 
 
 async def get_recommended_users() -> list[RecommendedUser]:
-    data = await pixiv_request("/ajax/discovery/users", params=[('limit', 50)])
+    data = await pixiv_request("/ajax/discovery/users", params=[('limit', 50)], ignore_cache=True)
 
     _illusts_to_dict: dict[int, ArtworkEntry] = {int(x["id"]): ArtworkEntry(x) for x in data["thumbnails"]["illust"]}
     _users_to_dict: dict[int, PartialUser] = {int(x["userId"]): PartialUser(x) for x in data["users"]}
