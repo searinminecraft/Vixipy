@@ -11,6 +11,7 @@ import logging
 
 from ..api import get_discovery, get_recommended_users
 from ..decorators import tokenless_require_login
+from ..filters import filter_from_prefs as ff
 
 bp = Blueprint("discovery", __name__)
 log = logging.getLogger("vixipy.routes.discovery")
@@ -23,7 +24,7 @@ async def discovery_root():
         mode=request.args.get("mode", "all")
     )
 
-    return await render_template("discovery/illustrations.html", data=data)
+    return await render_template("discovery/illustrations.html", data=ff(data))
 
 @bp.route("/discovery/users")
 @tokenless_require_login

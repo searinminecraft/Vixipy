@@ -17,6 +17,7 @@ from ..api import (
     get_novel_series_contents,
     pixiv_request,
 )
+from ..filters import filter_from_prefs as ff
 from ..types import NovelEntry, NovelSeriesEntry
 from asyncio import gather
 from datetime import datetime
@@ -78,7 +79,7 @@ async def novel_root():
         if novel := __novels.get(int(x["id"])):
             _ranking.append(novel)
 
-    ranking = NovelRanking(_ranking_date, _ranking)
+    ranking = NovelRanking(_ranking_date, ff(_ranking))
 
 
     _gender_ranking = __page["genderRanking"]
@@ -91,7 +92,7 @@ async def novel_root():
         if novel := __novels.get(int(x["id"])):
             _ranking_m.append(novel)
 
-    ranking_m = NovelRanking(_ranking_m_date, _ranking_m)
+    ranking_m = NovelRanking(_ranking_m_date, ff(_ranking_m))
 
 
     _ranking_f_data = _gender_ranking["female"]
@@ -102,14 +103,14 @@ async def novel_root():
         if novel := __novels.get(int(x["id"])):
             _ranking_f.append(novel)
 
-    ranking_f = NovelRanking(_ranking_f_date, _ranking_f)
+    ranking_f = NovelRanking(_ranking_f_date, ff(_ranking_f))
 
 
     return await render_template(
         "novels/index.html",
-        followed=from_followed,
-        popular=popular_orig,
-        recommend=recommend,
+        followed=ff(from_followed),
+        popular=ff(popular_orig),
+        recommend=ff(recommend),
         ranking=ranking,
         ranking_m=ranking_m,
         ranking_f=ranking_f,
@@ -124,7 +125,7 @@ async def novel_main(id: int):
         get_user(data.user_id),
         get_recommended_novels(id),
     )
-    return await render_template("novels/novel.html", data=data, user=user, recommend=recommend)
+    return await render_template("novels/novel.html", data=data, user=user, recommend=ff(recommend))
 
 @bp.route("/novel/series/<int:id>")
 async def novel_series_main(id: int):

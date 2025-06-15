@@ -1,6 +1,7 @@
 from quart import Blueprint, abort, g, request, render_template
 
 from ..api import pixiv_request, get_ranking
+from ..filters import filter_from_prefs as ff
 from ..types import Tag, ArtworkEntry, TagTranslation, RecommendByTag
 
 from typing import Dict
@@ -64,10 +65,10 @@ async def index():
 
         return await render_template(
             "index.html",
-            following=following,
-            recommend=recommend,
+            following=ff(following),
+            recommend=ff(recommend),
             rec_tag=recommend_by_tag,
-            new=new,
+            new=ff(new),
         )
     else:
         data = await get_ranking()

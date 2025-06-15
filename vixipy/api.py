@@ -11,6 +11,7 @@ import json
 import random
 import hashlib
 
+from .filters import filter_from_prefs as ff
 from .types import *
 
 if TYPE_CHECKING:
@@ -303,7 +304,7 @@ async def get_recommended_users() -> list[RecommendedUser]:
     for x in data["recommendedUsers"]:
         user = _users_to_dict[int(x["userId"])]
         illusts = [_illusts_to_dict[int(y)] for y in x["recentIllustIds"]]
-        result.append(RecommendedUser(user, illusts))
+        result.append(RecommendedUser(user, ff(illusts)))
     
     return result
 

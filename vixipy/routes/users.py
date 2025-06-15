@@ -9,6 +9,7 @@ from quart import (
 from asyncio import gather
 from ..api import get_user, get_user_profile_top, get_user_illusts, get_user_bookmarks, pixiv_request
 from ..decorators import tokenless_require_login
+from ..filters import filter_from_prefs as ff
 from ..types import NovelEntry
 
 bp = Blueprint("users", __name__)
@@ -20,7 +21,7 @@ async def user_profile(user: int):
         get_user_profile_top(user)
     )
 
-    return await render_template("users/top.html", data=data, top=top)
+    return await render_template("users/top.html", data=data, top=ff(top))
 
 @bp.get("/users/<int:user>/illustrations")
 async def user_illusts(user: int):
@@ -38,6 +39,8 @@ async def user_manga(user: int):
         get_user_illusts(user, content_type="manga", page=int(request.args.get("p", 1)))
     )
 
+    il.illusts = ff(il.illusts)
+
     return await render_template("users/manga.html", data=data, il=il)
 
 
@@ -53,7 +56,7 @@ async def user_bookmarks(user: int):
     if y > 0:
         pages += 1
 
-    return await render_template("users/bookmarks.html", data=data, il=bkdata[1], pages=pages)
+    return await render_template("users/bookmarks.html", data=data, il=ff(bkdata[1]), pages=pages)
 
 
 @bp.get("/users/<int:user>/novels")
@@ -79,7 +82,7 @@ async def user_novels(user: int):
         novels = []
         pages = 1
 
-    return await render_template("users/novels.html", data=data, novels=novels, pages=pages)
+    return await render_template("users/novels.html", data=data, novels=ff(novels), pages=pages)
 
 
 @bp.get("/u/<int:user>")

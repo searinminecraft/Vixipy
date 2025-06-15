@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from quart import Blueprint, abort, current_app, render_template
+from quart import Blueprint, abort, current_app, render_template, request
 from asyncio import gather
 import datetime
 import logging
@@ -8,6 +8,7 @@ import re
 from typing import TYPE_CHECKING
 
 from ..api import get_artwork, get_artwork_pages, get_recommended_works, get_user, get_user_illusts_from_ids
+from ..filters import filter_from_prefs as ff
 from ..types import ArtworkPage
 
 if TYPE_CHECKING:
@@ -80,6 +81,15 @@ async def __attempt_work_extraction(id: int, userIllusts: list[ArtworkEntry], pa
 @bp.get("/artworks/<int:id>")
 async def _get_artwork(id: int):
     work: Artwork = await get_artwork(id)
+
+    if work.ai and bool(int(request.cookies.get("Vixipy-No-AI", 0))):
+        abort(404)
+
+    if ((current_app.config["NO_R18"] or current_app.config["NO_SENSITIVE"]) and work.xrestrict >= 1) \
+        or (bool(int(request.cookies.get("Vixipy-No-R18", 0))) and work.xrestrict >= 1) \
+        or (bool(int(request.cookies.get("Vixipy-No-R18G", 1))) and work.xrestrict == 2):
+        abort(404)
+
     if work.deficient:
         log.info("Work is deficient, trying to extract pages...")
         pages, recommend, user, works = await gather(
@@ -105,5 +115,5 @@ async def _get_artwork(id: int):
         abort(404)
 
     return await render_template(
-        "artworks.html", work=work, pages=pages, recommend=recommend, user=user, user_works=sorted(works + work.other_works, key=lambda _: int(_.id))
+        "artworks.html", work=work, pages=pages, recommend=ff(recommend), user=user, user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id)))
     )

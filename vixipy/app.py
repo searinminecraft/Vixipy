@@ -58,6 +58,7 @@ def create_app():
         CACHE_PIXIV_REQUESTS="0",
         CACHE_TTL="300",
         NO_R18="0",
+        NO_SENSITIVE="0",
         PORT="8000",
         TOKEN="",
         IMG_PROXY="/proxy/i.pximg.net",
@@ -84,11 +85,20 @@ def create_app():
     except Exception:
         app.config["LOG_HTTP"] = False
 
-
     try:
         app.config["CACHE_PIXIV_REQUESTS"] = bool(int(app.config["CACHE_PIXIV_REQUESTS"]))
     except Exception:
         app.config["CACHE_PIXIV_REQUESTS"] = False
+
+    try:
+        app.config["NO_R18"] = bool(int(app.config["NO_R18"]))
+    except Exception:
+        app.config["NO_R18"] = False
+
+    try:
+        app.config["NO_SENSITIVE"] = bool(int(app.config["NO_SENSITIVE"]))
+    except Exception:
+        app.config["NO_SENSITIVE"] = False
 
 
     try:
@@ -211,8 +221,9 @@ def create_app():
         log.info("  * Cache pixiv Requests: %s", app.config["CACHE_PIXIV_REQUESTS"])
         if app.config["CACHE_PIXIV_REQUESTS"]:
             log.info("  * Cache TTL: %s", app.config["CACHE_TTL"])
-        log.info("  * Using Account: %s", "yes" if app.config["TOKEN"] != "" else "no")
-        log.info("  * No R18: %s", "yes" if app.config["NO_R18"] == "1" else "no")
+        log.info("  * Using Account: %s", app.config["TOKEN"] != "")
+        log.info("  * No R18: %s", app.config["NO_R18"] or app.config["NO_SENSITIVE"])
+        log.info("  * No Sensitive Works: %s", app.config["NO_SENSITIVE"])
         log.info("  * Image Proxy: %s", app.config["IMG_PROXY"])
         log.info("  * Bypass Cloudflare: %s", app.config["PIXIV_DIRECT_CONNECTION"])
         log.info("  * Debug: %s", app.config["DEBUG"])
