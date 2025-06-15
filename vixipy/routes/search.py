@@ -8,6 +8,7 @@ import random
 from typing import TYPE_CHECKING
 from urllib.parse import quote
 from ..api import pixiv_request, search, get_tag_info
+from ..filters import filter_from_prefs as ff
 from ..types import ArtworkEntry, RecommendByTag, TagTranslation
 
 if TYPE_CHECKING:
@@ -36,6 +37,9 @@ async def search_main(query: str):
     data: SearchResultsTop
     tag_info: TagInfo
 
+    data.results = ff(data.results)
+    data.novels = ff(data.novels)
+
     return await render_template("search/main.html", data=data, tag_info=tag_info)
 
 
@@ -57,6 +61,8 @@ async def search_artworks(query: str):
     data, tag_info = await gather(
         search("artworks", query, **args, p=page), get_tag_info(query)
     )
+
+    data.results = ff(data.results)
 
     return await render_template(
         "search/illust.html",
@@ -83,6 +89,8 @@ async def search_manga(query: str):
         search("manga", query, **args, p=page), get_tag_info(query)
     )
 
+    data.results = ff(data.results)
+
     return await render_template(
         "search/manga.html",
         data=data,
@@ -102,6 +110,8 @@ async def search_novel(query: str):
     data, tag_info = await gather(
         search("novels", query, **args, p=page), get_tag_info(query)
     )
+
+    data.results = ff(data.results)
 
     return await render_template(
         "search/novel.html",
@@ -153,7 +163,7 @@ async def search_dashboard():
         for __id in __ids:
             if il := _illusts.get(__id):
                 __illusts.append(il)
-        recommend_by_tag.append(RecommendByTag(__illusts, __tag, __translation))
+        recommend_by_tag.append(RecommendByTag(ff(__illusts), __tag, __translation))
 
     log.debug("Recommended Tags: %s", recommend_tags)
     log.debug("Recommend By tag: %s", recommend_by_tag)
