@@ -278,6 +278,7 @@ def create_app():
                 headers=header_common,
                 connector_owner=False,
                 cookie_jar=DummyCookieJar(),
+                proxy=app.config.get("PROXY")
             )
         else:
             app.pixiv: ClientSession = ClientSession(
@@ -285,6 +286,7 @@ def create_app():
                 headers={**header_common, "Host": "www.pixiv.net"},
                 connector_owner=False,
                 cookie_jar=DummyCookieJar(),
+                proxy=app.config.get("PROXY")
             )
 
         app.content_proxy: ClientSession = ClientSession(
