@@ -1,4 +1,4 @@
-from quart import Blueprint, abort, g, request, render_template
+from quart import Blueprint, abort, current_app, g, request, render_template
 
 from ..api import pixiv_request, get_ranking
 from ..filters import filter_from_prefs as ff
@@ -15,6 +15,9 @@ async def index():
         mode = request.args.get("mode", "all")
         if mode not in ("all", "r18"):
             abort(400)
+
+        if mode == "r18" and (current_app.config["NO_R18"] or current_app.config["NO_SENSITIVE"]):
+            abort(403)
 
         tag_translations: Dict[str, TagTranslation] = {}
         illusts: Dict[int, ArtworkEntry] = {}
