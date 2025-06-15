@@ -294,6 +294,7 @@ def create_app():
             headers={**header_common, "Referer": "https://www.pixiv.net"},
             connector_owner=False,
             cookie_jar=DummyCookieJar(),
+            proxy=app.config.get("PROXY")
         )
 
     @app.before_serving
