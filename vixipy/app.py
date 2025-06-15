@@ -4,6 +4,7 @@ from quart import (
     Quart,
     Response,
     g,
+    make_response,
     request,
     redirect
 )
@@ -11,6 +12,7 @@ from quart_babel import Babel
 
 from aiohttp import ClientSession, DummyCookieJar
 import logging
+import mimetypes
 import os
 import random
 from time import perf_counter
@@ -46,7 +48,7 @@ class Token(TypedDict):
 
 
 def create_app():
-    app = Quart(__name__, instance_relative_config=True)
+    app = Quart(__name__, instance_relative_config=True, static_folder=None)
     app.config.from_mapping(
         VIXIPY_VERSION="3",
         ACCEPT_LANGUAGE="en_US,en;q=0.9",
@@ -239,6 +241,28 @@ def create_app():
             pass
 
     # =================================
+
+    @app.route("/static/<path:resource>")
+    async def custom_static_folder(resource: str):
+
+        try:
+            async with await app.open_instance_resource("custom/" + resource) as f:
+                r = await f.read()
+                return r, {"Content-Type": mimetypes.guess_file_type(resource)[0]}
+        except Exception:
+            async with await app.open_resource("static/" + resource) as f:
+                r = await f.read()
+                return r, {"Content-Type": mimetypes.guess_file_type(resource)[0]}
+
+    
+    @app.route("/robots.txt")
+    async def robots_txt():
+        try:
+            async with await app.open_instance_resource("custom/robots.txt") as f:
+                r = await f.read()
+                return r, {"Content-Type": "text/plain"}
+        except Exception:
+            return await custom_static_folder("robots.txt")
 
     # =================================
     @app.before_serving
