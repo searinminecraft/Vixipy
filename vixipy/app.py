@@ -252,7 +252,7 @@ def create_app():
         except Exception:
             async with await app.open_resource("static/" + resource) as f:
                 r = await f.read()
-                return r, {"Content-Type": mimetypes.guess_file_type(resource)[0]}
+                return r, {"Content-Type": mimetypes.guess_type(resource)[0]}
 
     
     @app.route("/robots.txt")
