@@ -22,4 +22,4 @@ RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 EXPOSE ${PYXIV_PORT}
 
-CMD GIT_REVISION=$(cat rev.txt) GIT_REPO=$(cat repo.txt) PYXIV_SECRET=$(base64 /dev/urandom | head -c 50) hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers ${PYXIV_WORKERS} pyxiv:app
+CMD GIT_REVISION=$(cat rev.txt) GIT_REPO=$(cat repo.txt) PYXIV_SECRET=$(base64 /dev/urandom | head -c 50) hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers ${PYXIV_WORKERS} vixipy:app
