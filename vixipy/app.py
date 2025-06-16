@@ -64,7 +64,8 @@ def create_app():
         PORT="8000",
         TOKEN="",
         IMG_PROXY="/proxy/i.pximg.net",
-        PIXIV_DIRECT_CONNECTION="0"
+        PIXIV_DIRECT_CONNECTION="0",
+        ACQUIRE_SESSION="0"
     )
     app.config.from_prefixed_env("VIXIPY")
     app.tokens: list[Token] = []
@@ -76,6 +77,11 @@ def create_app():
         app.config["PIXIV_DIRECT_CONNECTION"] = bool(int(app.config["PIXIV_DIRECT_CONNECTION"]))
     except Exception:
         app.config["PIXIV_DIRECT_CONNECTION"] = False
+
+    try:
+        app.config["ACQUIRE_SESSION"] = bool(int(app.config["ACQUIRE_SESSION"]))
+    except Exception:
+        app.config["ACQUIRE_SESSION"] = True
 
     try:
         app.config["LOG_PIXIV"] = bool(int(app.config["LOG_PIXIV"]))
@@ -156,7 +162,7 @@ def create_app():
             else:
                 return redirect(stripped, code=308)
 
-    
+
     @app.after_request
     async def funny_headers(r: Response):
         r.headers["Server"] = "Monika"
@@ -254,7 +260,7 @@ def create_app():
                 r = await f.read()
                 return r, {"Content-Type": mimetypes.guess_type(resource)[0]}
 
-    
+
     @app.route("/robots.txt")
     async def robots_txt():
         try:
@@ -300,29 +306,55 @@ def create_app():
         if app.config["TOKEN"] == "":
             app.no_token = True
 
-             
-            if app.config["PIXIV_DIRECT_CONNECTION"]:
-                log.debug("Use Direct Connection to pixiv")
-                r: ClientResponse = await app.pixiv.head("", allow_redirects=True, server_hostname="www.pixiv.net")
-            else:
-                r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
-            r.raise_for_status()
-            if phpsessid := r.cookies.get("PHPSESSID"):
-                log.info("Got initial PHPSESSID: %s", phpsessid.value)
-                t_res = phpsessid.value
-            else:
-                log.warn("Failed to get PHPSESSID from pixiv. Using random.")
+            if not app.config["ACQUIRE_SESSION"]:
+                log.info("Skipping session acquisition from pixiv. Using random token.")
                 t_res = "".join(
                     [chr(random.randint(97, 122)) for _ in range(33)]
                 )
+                app.tokens.append({
+                    "token": t_res,
+                    "p_ab_d_id": "".join([chr(random.randint(97, 122)) for _ in range(8)]),
+                    "p_ab_id": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
+                    "p_ab_id_2": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
+                    "yuid_b": "".join([chr(random.randint(97, 122)) for _ in range(16)])
+                })
+            else:
+                try:
+                    if app.config["PIXIV_DIRECT_CONNECTION"]:
+                        log.debug("Use Direct Connection to pixiv")
+                        r: ClientResponse = await app.pixiv.head("", allow_redirects=True, server_hostname="www.pixiv.net")
+                    else:
+                        r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
+                    r.raise_for_status()
 
-            app.tokens.append({
-                "token": t_res,
-                "p_ab_d_id": r.cookies["p_ab_d_id"].value,
-                "p_ab_id": r.cookies["p_ab_id"].value,
-                "p_ab_id_2": r.cookies["p_ab_id_2"].value,
-                "yuid_b": r.cookies["yuid_b"].value
-            })
+                    if phpsessid := r.cookies.get("PHPSESSID"):
+                        log.info("Got initial PHPSESSID: %s", phpsessid.value)
+                        t_res = phpsessid.value
+                    else:
+                        log.warn("Failed to get PHPSESSID from pixiv. Using random.")
+                        t_res = "".join(
+                            [chr(random.randint(97, 122)) for _ in range(33)]
+                        )
+
+                    app.tokens.append({
+                        "token": t_res,
+                        "p_ab_d_id": r.cookies["p_ab_d_id"].value,
+                        "p_ab_id": r.cookies["p_ab_id"].value,
+                        "p_ab_id_2": r.cookies["p_ab_id_2"].value,
+                        "yuid_b": r.cookies["yuid_b"].value
+                    })
+                except Exception as e:
+                    log.warn("Failed to acquire session from pixiv (error: %s). Using fallback token.", str(e))
+                    t_res = "".join(
+                        [chr(random.randint(97, 122)) for _ in range(33)]
+                    )
+                    app.tokens.append({
+                        "token": t_res,
+                        "p_ab_d_id": "".join([chr(random.randint(97, 122)) for _ in range(8)]),
+                        "p_ab_id": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
+                        "p_ab_id_2": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
+                        "yuid_b": "".join([chr(random.randint(97, 122)) for _ in range(16)])
+                    })
         else:
             for t in app.config["TOKEN"].split(","):
                 try:
@@ -345,7 +377,7 @@ def create_app():
                 except Exception:
                     log.exception("Error at token %s. Skipping.", t)
                     continue
-                    
+
 
                 if app.config["PIXIV_DIRECT_CONNECTION"]:
                     r2: ClientResponse = await app.pixiv.head(
@@ -367,7 +399,7 @@ def create_app():
                     "p_ab_id_2": r.cookies["p_ab_id_2"].value,
                     "yuid_b": r2.cookies["yuid_b"].value
                 })
-            
+
             if len(app.tokens) == 0:
                 raise RuntimeError("No tokens to use.")
 
