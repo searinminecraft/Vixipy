@@ -58,10 +58,10 @@
         <a class="title" href="{{link}}" title="{{data.title}}">{{data.title}}</a>
         {% if author %}
         <div class="author">
-            <a href="">
+		<a href="{{url_for('users.user_novels', user=data.user_id)}}">
                 <img src="{{data.profile_image}}" alt="{{data.user_name}}" loading="lazy">
             </a>
-            <a class="name" href="">
+            <a class="name" href="{{url_for('users.user_novels', user=data.user_id)}}">
                 {{data.user_name}}
             </a>
         </div>

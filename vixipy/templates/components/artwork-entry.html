@@ -30,7 +30,7 @@
     </div>
 
     {% if title %}
-    <a class="title" href="{{url_for('artworks._get_artwork', id=data.id)}}">{{ data.title }}</a>
+    <a class="title" title="{{ data.title }}" href="{{url_for('artworks._get_artwork', id=data.id)}}">{{ data.title }}</a>
     {% endif %}
     {% if author %}
     <a class="author" href="/users/{{data.authorId}}">
