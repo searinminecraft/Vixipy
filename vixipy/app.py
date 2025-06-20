@@ -1,13 +1,6 @@
 from __future__ import annotations
 
-from quart import (
-    Quart,
-    Response,
-    g,
-    make_response,
-    request,
-    redirect
-)
+from quart import Quart, Response, g, make_response, request, redirect
 from quart_babel import Babel
 
 from aiohttp import ClientSession, DummyCookieJar
@@ -39,6 +32,7 @@ from . import error_handler
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
 
+
 class Token(TypedDict):
     token: str
     p_ab_id: str
@@ -65,7 +59,7 @@ def create_app():
         TOKEN="",
         IMG_PROXY="/proxy/i.pximg.net",
         PIXIV_DIRECT_CONNECTION="0",
-        ACQUIRE_SESSION="0"
+        ACQUIRE_SESSION="0",
     )
     app.config.from_prefixed_env("VIXIPY")
     app.tokens: list[Token] = []
@@ -74,7 +68,9 @@ def create_app():
     log = logging.getLogger("vixipy")
 
     try:
-        app.config["PIXIV_DIRECT_CONNECTION"] = bool(int(app.config["PIXIV_DIRECT_CONNECTION"]))
+        app.config["PIXIV_DIRECT_CONNECTION"] = bool(
+            int(app.config["PIXIV_DIRECT_CONNECTION"])
+        )
     except Exception:
         app.config["PIXIV_DIRECT_CONNECTION"] = False
 
@@ -94,7 +90,9 @@ def create_app():
         app.config["LOG_HTTP"] = False
 
     try:
-        app.config["CACHE_PIXIV_REQUESTS"] = bool(int(app.config["CACHE_PIXIV_REQUESTS"]))
+        app.config["CACHE_PIXIV_REQUESTS"] = bool(
+            int(app.config["CACHE_PIXIV_REQUESTS"])
+        )
     except Exception:
         app.config["CACHE_PIXIV_REQUESTS"] = False
 
@@ -107,7 +105,6 @@ def create_app():
         app.config["NO_SENSITIVE"] = bool(int(app.config["NO_SENSITIVE"]))
     except Exception:
         app.config["NO_SENSITIVE"] = False
-
 
     try:
         os.makedirs(app.instance_path)
@@ -162,13 +159,11 @@ def create_app():
             else:
                 return redirect(stripped, code=308)
 
-
     @app.after_request
     async def funny_headers(r: Response):
         r.headers["Server"] = "Monika"
         r.headers["X-Powered-By"] = "Your Reality"
         return r
-
 
     if app.config["DEBUG"]:
 
@@ -183,6 +178,7 @@ def create_app():
     error_handler.init_app(app)
     if app.config["CACHE_PIXIV_REQUESTS"]:
         from . import cache_client
+
         cache_client.init_app(app)
 
     # =================================
@@ -195,7 +191,9 @@ def create_app():
             loglevel = logging.INFO
 
         if not app.config["DEBUG"]:
-            logging.getLogger("vixipy.api").setLevel(logging.INFO if app.config["LOG_PIXIV"] else logging.WARNING)
+            logging.getLogger("vixipy.api").setLevel(
+                logging.INFO if app.config["LOG_PIXIV"] else logging.WARNING
+            )
 
         logging.basicConfig(
             level=loglevel,
@@ -222,9 +220,7 @@ def create_app():
         log.info("Configuration:")
         log.info("  * Accept Language: %s", app.config["ACCEPT_LANGUAGE"])
         log.info("  * Instance Name: %s", app.config["INSTANCE_NAME"])
-        log.info(
-            "  * Log HTTP Requests: %s", app.config["LOG_HTTP"]
-        )
+        log.info("  * Log HTTP Requests: %s", app.config["LOG_HTTP"])
         log.info("  * Log pixiv Requests: %s", app.config["LOG_PIXIV"])
         log.info("  * Cache pixiv Requests: %s", app.config["CACHE_PIXIV_REQUESTS"])
         if app.config["CACHE_PIXIV_REQUESTS"]:
@@ -260,7 +256,6 @@ def create_app():
                 r = await f.read()
                 return r, {"Content-Type": mimetypes.guess_type(resource)[0]}
 
-
     @app.route("/robots.txt")
     async def robots_txt():
         try:
@@ -284,7 +279,7 @@ def create_app():
                 headers=header_common,
                 connector_owner=False,
                 cookie_jar=DummyCookieJar(),
-                proxy=app.config.get("PROXY")
+                proxy=app.config.get("PROXY"),
             )
         else:
             app.pixiv: ClientSession = ClientSession(
@@ -292,7 +287,7 @@ def create_app():
                 headers={**header_common, "Host": "www.pixiv.net"},
                 connector_owner=False,
                 cookie_jar=DummyCookieJar(),
-                proxy=app.config.get("PROXY")
+                proxy=app.config.get("PROXY"),
             )
 
         app.content_proxy: ClientSession = ClientSession(
@@ -308,23 +303,30 @@ def create_app():
 
             if not app.config["ACQUIRE_SESSION"]:
                 log.info("Skipping session acquisition from pixiv. Using random token.")
-                t_res = "".join(
-                    [chr(random.randint(97, 122)) for _ in range(33)]
+                t_res = "".join([chr(random.randint(97, 122)) for _ in range(33)])
+                yuidb, p_ab_d_id, p_ab_id, p_ab_id_2 = (
+                    pixiv_session_handler._generate_ab_cookies()
                 )
-                app.tokens.append({
-                    "token": t_res,
-                    "p_ab_d_id": "".join([chr(random.randint(97, 122)) for _ in range(8)]),
-                    "p_ab_id": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
-                    "p_ab_id_2": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
-                    "yuid_b": "".join([chr(random.randint(97, 122)) for _ in range(16)])
-                })
+                app.tokens.append(
+                    {
+                        "token": t_res,
+                        "p_ab_d_id": p_ab_d_id,
+                        "p_ab_id": p_ab_id,
+                        "p_ab_id_2": p_ab_id_2,
+                        "yuid_b": yuidb,
+                    }
+                )
             else:
                 try:
                     if app.config["PIXIV_DIRECT_CONNECTION"]:
                         log.debug("Use Direct Connection to pixiv")
-                        r: ClientResponse = await app.pixiv.head("", allow_redirects=True, server_hostname="www.pixiv.net")
+                        r: ClientResponse = await app.pixiv.head(
+                            "", allow_redirects=True, server_hostname="www.pixiv.net"
+                        )
                     else:
-                        r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
+                        r: ClientResponse = await app.pixiv.head(
+                            "", allow_redirects=True
+                        )
                     r.raise_for_status()
 
                     if phpsessid := r.cookies.get("PHPSESSID"):
@@ -336,25 +338,33 @@ def create_app():
                             [chr(random.randint(97, 122)) for _ in range(33)]
                         )
 
-                    app.tokens.append({
-                        "token": t_res,
-                        "p_ab_d_id": r.cookies["p_ab_d_id"].value,
-                        "p_ab_id": r.cookies["p_ab_id"].value,
-                        "p_ab_id_2": r.cookies["p_ab_id_2"].value,
-                        "yuid_b": r.cookies["yuid_b"].value
-                    })
-                except Exception as e:
-                    log.warn("Failed to acquire session from pixiv (error: %s). Using fallback token.", str(e))
-                    t_res = "".join(
-                        [chr(random.randint(97, 122)) for _ in range(33)]
+                    app.tokens.append(
+                        {
+                            "token": t_res,
+                            "p_ab_d_id": r.cookies["p_ab_d_id"].value,
+                            "p_ab_id": r.cookies["p_ab_id"].value,
+                            "p_ab_id_2": r.cookies["p_ab_id_2"].value,
+                            "yuid_b": r.cookies["yuid_b"].value,
+                        }
                     )
-                    app.tokens.append({
-                        "token": t_res,
-                        "p_ab_d_id": "".join([chr(random.randint(97, 122)) for _ in range(8)]),
-                        "p_ab_id": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
-                        "p_ab_id_2": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
-                        "yuid_b": "".join([chr(random.randint(97, 122)) for _ in range(16)])
-                    })
+                except Exception as e:
+                    log.warn(
+                        "Failed to acquire session from pixiv (error: %s). Using fallback token.",
+                        str(e),
+                    )
+                    t_res = "".join([chr(random.randint(97, 122)) for _ in range(33)])
+                    yuidb, p_ab_d_id, p_ab_id, p_ab_id_2 = (
+                        pixiv_session_handler._generate_ab_cookies()
+                    )
+                    app.tokens.append(
+                        {
+                            "token": t_res,
+                            "p_ab_d_id": p_ab_d_id,
+                            "p_ab_id": p_ab_id,
+                            "p_ab_id_2": p_ab_id_2,
+                            "yuid_b": yuidb,
+                        }
+                    )
         else:
             for t in app.config["TOKEN"].split(","):
                 try:
@@ -378,12 +388,9 @@ def create_app():
                     log.exception("Error at token %s. Skipping.", t)
                     continue
 
-
                 if app.config["PIXIV_DIRECT_CONNECTION"]:
                     r2: ClientResponse = await app.pixiv.head(
-                        "",
-                        allow_redirects=True,
-                        server_hostname="www.pixiv.net"
+                        "", allow_redirects=True, server_hostname="www.pixiv.net"
                     )
                 else:
                     r2: ClientResponse = await app.pixiv.head(
@@ -391,14 +398,15 @@ def create_app():
                         allow_redirects=True,
                     )
 
-
-                app.tokens.append({
-                    "token": t,
-                    "p_ab_d_id": r.cookies["p_ab_d_id"].value,
-                    "p_ab_id": r.cookies["p_ab_id"].value,
-                    "p_ab_id_2": r.cookies["p_ab_id_2"].value,
-                    "yuid_b": r2.cookies["yuid_b"].value
-                })
+                app.tokens.append(
+                    {
+                        "token": t,
+                        "p_ab_d_id": r.cookies["p_ab_d_id"].value,
+                        "p_ab_id": r.cookies["p_ab_id"].value,
+                        "p_ab_id_2": r.cookies["p_ab_id_2"].value,
+                        "yuid_b": r2.cookies["yuid_b"].value,
+                    }
+                )
 
             if len(app.tokens) == 0:
                 raise RuntimeError("No tokens to use.")

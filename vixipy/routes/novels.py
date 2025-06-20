@@ -1,12 +1,6 @@
 from __future__ import annotations
 
-from quart import (
-    Blueprint,
-    render_template,
-    redirect,
-    request,
-    url_for
-)
+from quart import Blueprint, render_template, redirect, request, url_for
 
 
 from ..api import (
@@ -28,6 +22,7 @@ if TYPE_CHECKING:
 
 bp = Blueprint("novels", __name__)
 
+
 class NovelRanking:
     def __init__(self, date: str, entries: list[NovelEntry]):
         self.date: datetime = datetime.strptime(date, "%Y-%m-%d")
@@ -44,14 +39,14 @@ class EditorRecommend:
 async def novel_root():
     mode = request.args.get("mode", "all")
     data = await pixiv_request(
-        "/ajax/top/novel",
-        params=[("mode", mode)],
-        ignore_cache=True
+        "/ajax/top/novel", params=[("mode", mode)], ignore_cache=True
     )
 
     __page = data["page"]
 
-    __novel_series = {int(x["id"]): NovelSeriesEntry(x) for x in data["thumbnails"]["novelSeries"]}
+    __novel_series = {
+        int(x["id"]): NovelSeriesEntry(x) for x in data["thumbnails"]["novelSeries"]
+    }
     __novels = {int(x["id"]): NovelEntry(x) for x in data["thumbnails"]["novel"]}
 
     from_followed: list[NovelEntry] = []
@@ -65,12 +60,11 @@ async def novel_root():
     for x in __page["follow"]:
         if novel := __novels.get(x):
             from_followed.append(novel)
-    
+
     for x in __page["popularSeriesIds"]:
         if series := __novel_series.get(int(x)):
             popular_orig.append(series)
 
-    
     _ranking_data = __page["ranking"]
     _ranking_date: str = _ranking_data["date"]
     _ranking: list[NovelEntry] = []
@@ -80,7 +74,6 @@ async def novel_root():
             _ranking.append(novel)
 
     ranking = NovelRanking(_ranking_date, ff(_ranking))
-
 
     _gender_ranking = __page["genderRanking"]
 
@@ -94,7 +87,6 @@ async def novel_root():
 
     ranking_m = NovelRanking(_ranking_m_date, ff(_ranking_m))
 
-
     _ranking_f_data = _gender_ranking["female"]
     _ranking_f_date: str = _ranking_f_data["date"]
     _ranking_f: list[NovelEntry] = []
@@ -105,7 +97,6 @@ async def novel_root():
 
     ranking_f = NovelRanking(_ranking_f_date, ff(_ranking_f))
 
-
     return await render_template(
         "novels/index.html",
         followed=ff(from_followed),
@@ -114,7 +105,7 @@ async def novel_root():
         ranking=ranking,
         ranking_m=ranking_m,
         ranking_f=ranking_f,
-        editor_recommend=editor_recommend
+        editor_recommend=editor_recommend,
     )
 
 
@@ -125,24 +116,29 @@ async def novel_main(id: int):
         get_user(data.user_id),
         get_recommended_novels(id),
     )
-    return await render_template("novels/novel.html", data=data, user=user, recommend=ff(recommend))
+    return await render_template(
+        "novels/novel.html", data=data, user=user, recommend=ff(recommend)
+    )
+
 
 @bp.route("/novel/series/<int:id>")
 async def novel_series_main(id: int):
     data, contents = await gather(
         get_novel_series(id),
-        get_novel_series_contents(id, int(request.args.get("p", 1)))
+        get_novel_series_contents(id, int(request.args.get("p", 1))),
     )
-    
+
     data: NovelSeries
 
     pages, _ = divmod(data.published_content_count, 30)
     if _ > 0:
         pages += 1
-    return await render_template("novels/series.html", data=data, contents=contents, pages=pages)
+    return await render_template(
+        "novels/series.html", data=data, contents=contents, pages=pages
+    )
 
 
 @bp.route("/novel/show.php")
 async def pixivcompat_novel():
     id_ = request.args["id"]
-    return redirect(url_for('novels.novel_main', id=id_))
+    return redirect(url_for("novels.novel_main", id=id_))

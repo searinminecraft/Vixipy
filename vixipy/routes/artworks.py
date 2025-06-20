@@ -7,7 +7,13 @@ import logging
 import re
 from typing import TYPE_CHECKING
 
-from ..api import get_artwork, get_artwork_pages, get_recommended_works, get_user, get_user_illusts_from_ids
+from ..api import (
+    get_artwork,
+    get_artwork_pages,
+    get_recommended_works,
+    get_user,
+    get_user_illusts_from_ids,
+)
 from ..filters import filter_from_prefs as ff
 from ..types import ArtworkPage
 
@@ -17,9 +23,14 @@ if TYPE_CHECKING:
 
 bp = Blueprint("artworks", __name__)
 log = logging.getLogger("vixipy.routes.artworks")
-thumb_reg = re.compile(r"https?:\/\/i.pximg.net\/c\/.+\/img\/(\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2})\/(\d+)_p(\d+)_.+\.(jpg|png)")
+thumb_reg = re.compile(
+    r"https?:\/\/i.pximg.net\/c\/.+\/img\/(\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2})\/(\d+)_p(\d+)_.+\.(jpg|png)"
+)
 
-async def __attempt_work_extraction(id: int, userIllusts: list[ArtworkEntry], pagesCount: int):
+
+async def __attempt_work_extraction(
+    id: int, userIllusts: list[ArtworkEntry], pagesCount: int
+):
     uil_to_dict: list[ArtworkEntry] = {int(i.id): i for i in userIllusts}
     result: list[ArtworkPage] = []
 
@@ -40,7 +51,7 @@ async def __attempt_work_extraction(id: int, userIllusts: list[ArtworkEntry], pa
             _date = f"{d.year}/{pz(d.month)}/{pz(d.day)}/{pz(d.hour)}/{pz(d.minute)}/{pz(d.second)}"
         else:
             _date = extracted_thumb.group(1)
-        
+
         for x in range(pagesCount):
             _master = f"/img-master/img/{_date}/{id}_p{x}_master1200.jpg"
             _orig = None
@@ -48,7 +59,9 @@ async def __attempt_work_extraction(id: int, userIllusts: list[ArtworkEntry], pa
                 _orig_uri = f"/img-original/img/{_date}/{id}_p{x}.{ext}"
 
                 log.debug("Trying %s", _orig_uri)
-                ori: ClientResponse = await current_app.content_proxy.head("https://i.pximg.net" + _orig_uri)
+                ori: ClientResponse = await current_app.content_proxy.head(
+                    "https://i.pximg.net" + _orig_uri
+                )
                 if ori.status != 200:
                     log.debug("Did not work!")
                     continue
@@ -65,9 +78,9 @@ async def __attempt_work_extraction(id: int, userIllusts: list[ArtworkEntry], pa
                             "original": "i.pximg.net" + _orig,
                         },
                         "width": "(unknown)",
-                        "height": "(unknown)"
+                        "height": "(unknown)",
                     },
-                    x+1
+                    x + 1,
                 )
             )
 
@@ -77,7 +90,6 @@ async def __attempt_work_extraction(id: int, userIllusts: list[ArtworkEntry], pa
         return []
 
 
-
 @bp.get("/artworks/<int:id>")
 async def _get_artwork(id: int):
     work: Artwork = await get_artwork(id)
@@ -85,9 +97,14 @@ async def _get_artwork(id: int):
     if work.ai and bool(int(request.cookies.get("Vixipy-No-AI", 0))):
         abort(404)
 
-    if ((current_app.config["NO_R18"] or current_app.config["NO_SENSITIVE"]) and work.xrestrict >= 1) \
-        or (bool(int(request.cookies.get("Vixipy-No-R18", 0))) and work.xrestrict >= 1) \
-        or (bool(int(request.cookies.get("Vixipy-No-R18G", 1))) and work.xrestrict == 2):
+    if (
+        (
+            (current_app.config["NO_R18"] or current_app.config["NO_SENSITIVE"])
+            and work.xrestrict >= 1
+        )
+        or (bool(int(request.cookies.get("Vixipy-No-R18", 0))) and work.xrestrict >= 1)
+        or (bool(int(request.cookies.get("Vixipy-No-R18G", 1))) and work.xrestrict == 2)
+    ):
         abort(404)
 
     if work.deficient:
@@ -115,5 +132,10 @@ async def _get_artwork(id: int):
         abort(404)
 
     return await render_template(
-        "artworks.html", work=work, pages=pages, recommend=ff(recommend), user=user, user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id)))
+        "artworks.html",
+        work=work,
+        pages=pages,
+        recommend=ff(recommend),
+        user=user,
+        user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id))),
     )

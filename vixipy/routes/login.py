@@ -46,10 +46,12 @@ async def login_page():
             await flash(_("Invalid token"), "error")
             return await render_template("login.html")
 
-
         if current_app.config["PIXIV_DIRECT_CONNECTION"]:
             r: ClientResponse = await current_app.pixiv.get(
-                "", allow_redirects=True, headers={"Cookie": f"PHPSESSID={token}"}, server_hostname="www.pixiv.net"
+                "",
+                allow_redirects=True,
+                headers={"Cookie": f"PHPSESSID={token}"},
+                server_hostname="www.pixiv.net",
             )
             unauth_r: ClientResponse = await current_app.pixiv.get(
                 "", allow_redirects=True, server_hostname="www.pixiv.net"
@@ -61,7 +63,6 @@ async def login_page():
             unauth_r: ClientResponse = await current_app.pixiv.get(
                 "", allow_redirects=True
             )
-
 
         r.raise_for_status()
         t = await r.text()

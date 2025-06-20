@@ -7,6 +7,7 @@ from quart import (
 
 bp = Blueprint("settings", __name__)
 
+
 @bp.route("/settings")
 async def root():
     return ""

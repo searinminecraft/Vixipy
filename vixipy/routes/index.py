@@ -16,7 +16,9 @@ async def index():
         if mode not in ("all", "r18"):
             abort(400)
 
-        if mode == "r18" and (current_app.config["NO_R18"] or current_app.config["NO_SENSITIVE"]):
+        if mode == "r18" and (
+            current_app.config["NO_R18"] or current_app.config["NO_SENSITIVE"]
+        ):
             abort(403)
 
         tag_translations: Dict[str, TagTranslation] = {}
@@ -26,7 +28,9 @@ async def index():
         recommend_by_tag: list[RecommendBytag] = []
         new: list[ArtworkEntry] = []
 
-        data = await pixiv_request("/ajax/top/illust", params=[("mode", mode)], ignore_cache=True)
+        data = await pixiv_request(
+            "/ajax/top/illust", params=[("mode", mode)], ignore_cache=True
+        )
 
         _page = data["page"]
         _tag_translations = data["tagTranslation"]

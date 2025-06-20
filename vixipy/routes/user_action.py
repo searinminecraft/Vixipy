@@ -1,13 +1,6 @@
 from __future__ import annotations
 
-from quart import (
-    Blueprint,
-    request,
-    redirect,
-    url_for,
-    g,
-    abort
-)
+from quart import Blueprint, request, redirect, url_for, g, abort
 
 from ..api import pixiv_request
 from typing import TYPE_CHECKING
@@ -18,7 +11,8 @@ if TYPE_CHECKING:
 
 bp = Blueprint("user_action", __name__)
 
-HX_HEADER = '{"X-Vixipy-Quick-Action": "true"}' #  work around for python
+HX_HEADER = '{"X-Vixipy-Quick-Action": "true"}'  #  work around for python
+
 
 @bp.before_request
 async def ensure_authorized():
@@ -34,18 +28,19 @@ async def follow_unfollow(id: int, action: Union["follow", "unfollow"]):
     f = await request.form
     isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
     rt = f.get("return_to", "/")
-    
 
     if action == "follow":
         await pixiv_request(
             "/touch/ajax_api/ajax_api.php",
             "post",
             raw_payload=f"mode=add_bookmark_user&restrict=0&user_id={id}",
-            headers={"Referer": f"https://www.pixiv.net/en/users/{id}", "Origin": "https://www.pixiv.net"}
+            headers={
+                "Referer": f"https://www.pixiv.net/en/users/{id}",
+                "Origin": "https://www.pixiv.net",
+            },
         )
         if isQuickAction:
-            return (
-f"""
+            return f"""
 <form action="/self/action/user/{id}/unfollow"
     hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
     hx-headers='{HX_HEADER}' method="post">
@@ -55,7 +50,6 @@ f"""
     </button>
 </form>
 """
-            )
         else:
             return redirect(rt, code=303)
     elif action == "unfollow":
@@ -63,11 +57,13 @@ f"""
             "/touch/ajax_api/ajax_api.php",
             "post",
             raw_payload=f"mode=delete_bookmark_user&user_id={id}",
-            headers={"Referer": f"https://www.pixiv.net/en/users/{id}", "Origin": "https://www.pixiv.net"}
+            headers={
+                "Referer": f"https://www.pixiv.net/en/users/{id}",
+                "Origin": "https://www.pixiv.net",
+            },
         )
         if isQuickAction:
-            return (
-f"""
+            return f"""
 <form action="/self/action/user/{id}/follow"
     hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
     hx-headers='{HX_HEADER}' method="post">
@@ -77,7 +73,6 @@ f"""
     </button>
 </form>
 """
-            )
         else:
             return redirect(rt, code=303)
 
@@ -96,13 +91,12 @@ async def perform_work_action(id: int, action: Union["bookmark", "like"]):
                 "illust_id": str(id),
                 "restrict": 0,
                 "comment": "",
-                "tags": []
-            }
+                "tags": [],
+            },
         )
 
         if isQuickAction:
-            return (
-f"""
+            return f"""
 <form action="/self/action/delete_bookmark/{data['last_bookmark_id']}" method="post"
 hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false" hx-indicator="this"
 hx-headers='{HX_HEADER}'>
@@ -115,24 +109,19 @@ hx-headers='{HX_HEADER}'>
     </button>
 </form>
 """
-            )
         else:
             return redirect(rt, code=303)
 
     if action == "like":
         await pixiv_request(
-            "/ajax/illusts/like",
-            "post",
-            json_payload={"illust_id": str(id)}
+            "/ajax/illusts/like", "post", json_payload={"illust_id": str(id)}
         )
 
         if isQuickAction:
-            return (
-f"""
+            return f"""
 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M709.23-164H257.08v-440l273.38-271.84L546.3-870q17.24 12.23 25.35 30.5 8.12 18.27 3.12 37.35V-806L538.3-604h289.39q26.54 0 45.42 18.89Q892-566.23 892-539.69v41.61q0 7.23-1.31 12.96t-3.92 11.97L773.15-205.69q-8.61 19.23-25.84 30.46T709.23-164ZM205.08-604v440H68v-440h137.08Z"/></svg>
 {int(f['like_count']) + 1}
 """
-            )
         else:
             return redirect(rt, code=303)
 
@@ -144,14 +133,11 @@ async def delete_bookmark(id: int):
     rt = f.get("return_to", "/")
 
     await pixiv_request(
-        "/ajax/illusts/bookmarks/delete",
-        "post",
-        raw_payload=f"bookmark_id={id}"
+        "/ajax/illusts/bookmarks/delete", "post", raw_payload=f"bookmark_id={id}"
     )
 
     if isQuickAction:
-        return (
-f"""
+        return f"""
 <form action="/self/action/works/{f['work_id']}/bookmark" method="post"
 hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false" hx-indicator="this"
 hx-headers='{HX_HEADER}'>
@@ -164,6 +150,5 @@ hx-headers='{HX_HEADER}'>
     </button>
 </form>
 """
-            )
     else:
         return redirect(rt, code=303)
