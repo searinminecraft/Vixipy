@@ -46,7 +46,6 @@ class Token(TypedDict):
     p_ab_d_id: str
     yuid_b: str
 
-
 def create_app():
     app = Quart(__name__, instance_relative_config=True, static_folder=None)
     app.config.from_mapping(
@@ -311,12 +310,13 @@ def create_app():
                 t_res = "".join(
                     [chr(random.randint(97, 122)) for _ in range(33)]
                 )
+                yuidb, p_ab_d_id, p_ab_id, p_ab_id_2 = pixiv_session_handler._generate_ab_cookies()
                 app.tokens.append({
                     "token": t_res,
-                    "p_ab_d_id": "".join([chr(random.randint(97, 122)) for _ in range(8)]),
-                    "p_ab_id": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
-                    "p_ab_id_2": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
-                    "yuid_b": "".join([chr(random.randint(97, 122)) for _ in range(16)])
+                    "p_ab_d_id": p_ab_d_id,
+                    "p_ab_id": p_ab_id,
+                    "p_ab_id_2": p_ab_id_2,
+                    "yuid_b": yuidb,
                 })
             else:
                 try:
@@ -348,12 +348,13 @@ def create_app():
                     t_res = "".join(
                         [chr(random.randint(97, 122)) for _ in range(33)]
                     )
+                    yuidb, p_ab_d_id, p_ab_id, p_ab_id_2 = pixiv_session_handler._generate_ab_cookies()
                     app.tokens.append({
                         "token": t_res,
-                        "p_ab_d_id": "".join([chr(random.randint(97, 122)) for _ in range(8)]),
-                        "p_ab_id": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
-                        "p_ab_id_2": "".join([chr(random.randint(48, 57)) for _ in range(8)]),
-                        "yuid_b": "".join([chr(random.randint(97, 122)) for _ in range(16)])
+                        "p_ab_d_id": p_ab_d_id,
+                        "p_ab_id": p_ab_id,
+                        "p_ab_id_2": p_ab_id_2,
+                        "yuid_b": yuidb
                     })
         else:
             for t in app.config["TOKEN"].split(","):

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import random
+import string
 from asyncio import gather
 from quart import g, request
 from typing import TYPE_CHECKING
@@ -9,6 +11,25 @@ from .api import get_notification_count, get_self_extra, get_user
 if TYPE_CHECKING:
     from quart import Quart
     from .types import User, UserExtraData
+
+
+def _generate_ab_cookies() -> tuple[str, str, str, str]:
+    """
+    Generates yuid_b and three ab cookie values.
+    """
+    yuidb_chars = string.ascii_letters + string.digits
+    yuidb_length = 7
+    ab_id_upper_bound = 10
+
+    yuidb = "".join(random.choices(yuidb_chars, k=yuidb_length))
+
+    # Non-negative pseudo-random 31-bit integer.
+    p_ab_d_id = str(random.randint(0, 2**31 - 1))
+
+    p_ab_id = str(random.randint(0, ab_id_upper_bound - 1))
+    p_ab_id_2 = str(random.randint(0, ab_id_upper_bound - 1))
+
+    return yuidb, p_ab_d_id, p_ab_id, p_ab_id_2
 
 
 async def get_session_data():
@@ -38,11 +59,11 @@ async def get_session_data():
         notification_count, user, extra = await gather(
             get_notification_count(), get_user(g.token.split("_")[0]), get_self_extra()
         )
-    
+
         notification_count: int
         user: User
         extra: UserExtraData
-    
+
         g.current_user = user
         g.notification_count = notification_count
         g.current_user_extra = extra
