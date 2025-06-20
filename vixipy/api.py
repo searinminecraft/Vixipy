@@ -59,14 +59,18 @@ async def pixiv_request(
     hashed_value = hashlib.md5(bytes(endpoint + _params, "utf-8")).hexdigest()
 
     if cache_enabled and not ignore_cache:
-        cache_result = await current_app.cache_client.get(bytes(f"endpoint_{hashed_value}", 'utf-8'))
+        cache_result = await current_app.cache_client.get(
+            bytes(f"endpoint_{hashed_value}", "utf-8")
+        )
         if cache_result:
             log.info("[hit] %s", endpoint)
             return json.loads(cache_result)
 
     if touch or endpoint.startswith("/touch/ajax"):
-        _headers["User-Agent"] = "Mozilla/5.0 (Android 10; Mobile; rv:138.0) Gecko/138.0 Firefox/138.0"
-    
+        _headers["User-Agent"] = (
+            "Mozilla/5.0 (Android 10; Mobile; rv:138.0) Gecko/138.0 Firefox/138.0"
+        )
+
     if raw_payload and not isinstance(raw_payload, MultipartWriter):
         log.debug("Use urlencoded by default")
         _headers["Content-Type"] = "application/x-www-form-urlencoded"
@@ -125,7 +129,7 @@ async def pixiv_request(
             break
     req_end = time.perf_counter()
     req_time = (req_end - req_start) * 1000
-    
+
     if req_time >= 500:
         log.warning("[%s] Request took %dms", endpoint, req_time)
     log.info("[%dms] [%s] %d", req_time, endpoint, r.status)
@@ -140,11 +144,11 @@ async def pixiv_request(
             res = res["body"]
     except ContentTypeError:
         raise PixivError(await r.text(), r.status, endpoint)
-    
+
     if cache_enabled and not ignore_cache:
         await current_app.cache_client.set(
             bytes(f"endpoint_{hashed_value}", "utf-8"),
-            bytes(json.dumps(res), "utf-8"), 
+            bytes(json.dumps(res), "utf-8"),
             int(current_app.config["CACHE_TTL"]),
         )
 
@@ -154,6 +158,7 @@ async def pixiv_request(
 # ==========================================================
 # // API CALLS                                            //
 # ==========================================================
+
 
 async def get_user(id: int, full: bool = False) -> User:
     data = await pixiv_request(f"/ajax/user/{id}", params=[("full", int(full))])
@@ -170,26 +175,31 @@ async def get_user_profile_top(id: int) -> list[ArtworkEntry]:
     return sorted(illusts + manga, key=lambda _: _.id, reverse=True)
 
 
-async def get_user_illusts(id: int, content_type: str = "illust", page: int = 1, tag: str = None):
-    params = [
-        ('id', id),
-        ('type', content_type),
-        ('p', page)
-    ]
+async def get_user_illusts(
+    id: int, content_type: str = "illust", page: int = 1, tag: str = None
+):
+    params = [("id", id), ("type", content_type), ("p", page)]
 
     if tag:
-        params.append(('tag', tag))
+        params.append(("tag", tag))
 
-    data = await pixiv_request(
-        "/touch/ajax/user/illusts",
-        params=params
-    )
+    data = await pixiv_request("/touch/ajax/user/illusts", params=params)
 
     return UserPageIllusts(data)
 
 
-async def get_user_bookmarks(id: int, page: int = 1, tag: str = "") -> tuple[int, list[ArtworkEntry]]:
-    data = await pixiv_request(f"/ajax/user/{id}/illusts/bookmarks", params=[("tag", tag), ("offset", (48*page)-48), ("limit", 48), ("rest", "show")])
+async def get_user_bookmarks(
+    id: int, page: int = 1, tag: str = ""
+) -> tuple[int, list[ArtworkEntry]]:
+    data = await pixiv_request(
+        f"/ajax/user/{id}/illusts/bookmarks",
+        params=[
+            ("tag", tag),
+            ("offset", (48 * page) - 48),
+            ("limit", 48),
+            ("rest", "show"),
+        ],
+    )
     return data["total"], [ArtworkEntry(x) for x in data["works"]]
 
 
@@ -216,7 +226,7 @@ async def get_artwork_pages(id: int) -> list[ArtworkPage]:
     data = await pixiv_request(f"/ajax/illust/{id}/pages")
     _pages = []
     for k, page in enumerate(data):
-        _pages.append(ArtworkPage(page, k+1))
+        _pages.append(ArtworkPage(page, k + 1))
     return _pages
 
 
@@ -236,10 +246,11 @@ async def get_user_illusts_from_ids(user_id: int, ids: list[int]) -> list[Artwor
     )
     return [ArtworkEntry(x) for x in data.values()]
 
+
 async def search(type_: str, query: str, **kwargs):
     _params = []
-    for k,v in kwargs.items():
-        _params.append((k,v))
+    for k, v in kwargs.items():
+        _params.append((k, v))
 
     data = await pixiv_request(
         f"/ajax/search/{type_}/{quote(query, safe='')}", params=_params
@@ -256,48 +267,50 @@ async def search(type_: str, query: str, **kwargs):
         case _:
             raise ValueError("Invalid search type")
 
+
 async def get_tag_info(tag: str):
     data = await pixiv_request(f"/ajax/search/tags/{quote(tag, safe='')}")
     return TagInfo(data)
 
 
-async def get_ranking(
-    mode: str = "daily",
-    date: str = None,
-    content: str = None
-):
+async def get_ranking(mode: str = "daily", date: str = None, content: str = None):
 
-    params = [
-        ('format', 'json'),
-        ('mode', mode)
-    ]
+    params = [("format", "json"), ("mode", mode)]
 
     if date:
-        params.append(('date', date))
+        params.append(("date", date))
     if content:
-        params.append(('content', content))
+        params.append(("content", content))
 
-    data = await pixiv_request(
-        f"/ranking.php",
-        params=params
-    )
+    data = await pixiv_request(f"/ranking.php", params=params)
 
     return RankingData(data)
+
 
 async def get_discovery(
     mode: str = "all",
 ) -> list[ArtworkEntry]:
 
-    data = await pixiv_request("/ajax/discovery/artworks", params=[('mode', mode), ('limit', 100)], ignore_cache=True)
+    data = await pixiv_request(
+        "/ajax/discovery/artworks",
+        params=[("mode", mode), ("limit", 100)],
+        ignore_cache=True,
+    )
 
     return [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]
 
 
 async def get_recommended_users() -> list[RecommendedUser]:
-    data = await pixiv_request("/ajax/discovery/users", params=[('limit', 50)], ignore_cache=True)
+    data = await pixiv_request(
+        "/ajax/discovery/users", params=[("limit", 50)], ignore_cache=True
+    )
 
-    _illusts_to_dict: dict[int, ArtworkEntry] = {int(x["id"]): ArtworkEntry(x) for x in data["thumbnails"]["illust"]}
-    _users_to_dict: dict[int, PartialUser] = {int(x["userId"]): PartialUser(x) for x in data["users"]}
+    _illusts_to_dict: dict[int, ArtworkEntry] = {
+        int(x["id"]): ArtworkEntry(x) for x in data["thumbnails"]["illust"]
+    }
+    _users_to_dict: dict[int, PartialUser] = {
+        int(x["userId"]): PartialUser(x) for x in data["users"]
+    }
 
     result: list[RecommendedUser] = []
 
@@ -305,7 +318,7 @@ async def get_recommended_users() -> list[RecommendedUser]:
         user = _users_to_dict[int(x["userId"])]
         illusts = [_illusts_to_dict[int(y)] for y in x["recentIllustIds"]]
         result.append(RecommendedUser(user, ff(illusts)))
-    
+
     return result
 
 
@@ -315,7 +328,9 @@ async def get_novel(id: int) -> Novel:
 
 
 async def get_recommended_novels(id: int) -> list[NovelEntry]:
-    data = await pixiv_request(f"/ajax/novel/{id}/recommend/init", params=[("limit", 20)])
+    data = await pixiv_request(
+        f"/ajax/novel/{id}/recommend/init", params=[("limit", 20)]
+    )
     return [NovelEntry(x) for x in data["novels"]]
 
 
@@ -327,16 +342,14 @@ async def get_novel_series(id: int) -> NovelSeries:
 async def get_novel_series_contents(id: int, page: int = 1) -> NovelEntry:
     data = await pixiv_request(
         f"/ajax/novel/series_content/{id}",
-        params=[
-            ("limit", 30),
-            ("last_order", (30*page)-30),
-            ("order_by", "asc")]
-        )
-    
-    __entries: dict[int, NovelEntry] = {x["id"]: NovelEntry(x) for x in data["thumbnails"]["novel"]}
+        params=[("limit", 30), ("last_order", (30 * page) - 30), ("order_by", "asc")],
+    )
+
+    __entries: dict[int, NovelEntry] = {
+        x["id"]: NovelEntry(x) for x in data["thumbnails"]["novel"]
+    }
 
     for x in data["page"]["seriesContents"]:
         __entries[x["id"]].title = f"#{x['series']['contentOrder']} {x['title']}"
-    
-    return list(__entries.values())
 
+    return list(__entries.values())

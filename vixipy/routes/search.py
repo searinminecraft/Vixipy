@@ -49,13 +49,13 @@ async def search_artworks(query: str):
 
     page = int(args.pop("p", 1))
     args = {
-        "word": quote(query, safe=''),
+        "word": quote(query, safe=""),
         "order": "date_d",
         "mode": "safe",
         "csw": 0,
         "s_mode": "s_tag_full",
         "type": "illust_and_ugoira",
-        **args
+        **args,
     }
 
     data, tag_info = await gather(

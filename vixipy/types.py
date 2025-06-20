@@ -6,6 +6,7 @@ from typing import Optional
 NO_IMAGE = "https://s.pximg.net/common/images/no_profile.png"
 NO_IMAGE_S = "https://s.pximg.net/common/images/no_profile_s.png"
 
+
 def blank_to_none(v) -> Optional[str]:
     return v if v != "" else None
 
@@ -58,7 +59,9 @@ class ArtworkBase:
         self.uploadDate_raw = d["createDate"]
         self.bookmarked = d.get("bookmarkData") is not None
         self.bookmark_id = d["bookmarkData"]["id"] if d.get("bookmarkData") else None
-        self.bookmark_private = d["bookmarkData"]["private"] if d.get("bookmarkData") else False
+        self.bookmark_private = (
+            d["bookmarkData"]["private"] if d.get("bookmarkData") else False
+        )
         self.uploadDate = datetime.fromisoformat(self.uploadDate_raw)
         self.xrestrict = d["xRestrict"]
         self.r18 = self.xrestrict >= 1
@@ -70,13 +73,10 @@ class ArtworkBase:
         self.authorName = d["userName"]
         self.pages = int(d["pageCount"])
         self.ai = int(d["aiType"]) == 2
-    
+
     @property
     def xrestrict_friendlyname(self):
-        names = {
-            1: "R-18",
-            2: "R-18G"
-        }
+        names = {1: "R-18", 2: "R-18G"}
 
         return names.get(int(self.xrestrict), "R-18")
 
@@ -127,7 +127,7 @@ class ArtworkEntry(ArtworkBase):
         self.unproxied_thumb = d["url"]
         self.thumb = proxy(self.unproxied_thumb)
         self.profileimg = proxy(d.get("profileImageUrl"))
-    
+
     def __repr__(self):
         return f"<ArtworkEntry {self.id}>"
 
@@ -139,10 +139,18 @@ class RankingData:
         self.next: Optional[int] = d["next"] if d["next"] != False else None
         self.date_r: str = d["date"]
         self.date: datetime = datetime.strptime(self.date_r, "%Y%m%d")
-        self.prev_date_r: Optional[str] = d["prev_date"] if d["prev_date"] != False else None
-        self.prev_date: Optional[datetime] = datetime.strptime(self.prev_date_r, "%Y%m%d") if self.prev_date_r else None
-        self.next_date_r: Optional[str] = d["next_date"] if d["next_date"] != False else None
-        self.next_date: Optional[datetime] = datetime.strptime(self.next_date_r, "%Y%m%d") if self.next_date_r else None
+        self.prev_date_r: Optional[str] = (
+            d["prev_date"] if d["prev_date"] != False else None
+        )
+        self.prev_date: Optional[datetime] = (
+            datetime.strptime(self.prev_date_r, "%Y%m%d") if self.prev_date_r else None
+        )
+        self.next_date_r: Optional[str] = (
+            d["next_date"] if d["next_date"] != False else None
+        )
+        self.next_date: Optional[datetime] = (
+            datetime.strptime(self.next_date_r, "%Y%m%d") if self.next_date_r else None
+        )
         self.mode: str = d["mode"]
         self.content: str = d["content"]
         self.contents: list[ArtworkEntry] = []
@@ -166,20 +174,26 @@ class RankingData:
                         "aiType": 0,
                         "url": x["url"],
                         "profileImageUrl": x["profile_img"],
-                        "bookmarkData": {
-                            "id": int(x["bookmark_id"]),
-                            "private": int(x["bookmark_illust_restrict"]) == 1
-                        } if x.get("is_bookmarked") else None
+                        "bookmarkData": (
+                            {
+                                "id": int(x["bookmark_id"]),
+                                "private": int(x["bookmark_illust_restrict"]) == 1,
+                            }
+                            if x.get("is_bookmarked")
+                            else None
+                        ),
                     }
                 )
             )
-        
+
 
 class NovelBase:
     def __init__(self, d: dict):
         self.ai: int = d["aiType"] == 2
         self.bookmark_count: int = d["bookmarkCount"]
-        self.create_date: datetime = datetime.fromisoformat(d.get("createDate") or d.get("createDateTime"))
+        self.create_date: datetime = datetime.fromisoformat(
+            d.get("createDate") or d.get("createDateTime")
+        )
         self.genre_id: int = int(d["genre"])
         self.id: int = int(d["id"])
         self.original: bool = d["isOriginal"]
@@ -190,21 +204,17 @@ class NovelBase:
         self.user_name: str = d["userName"]
         self.word_count: int = d["wordCount"]
         self.character_count: int = int(
-            d.get("characterCount") or
-            d.get("textCount") or
-            d.get("textLength")
+            d.get("characterCount") or d.get("textCount") or d.get("textLength")
         )
         self.xrestrict = d["xRestrict"]
 
     @property
     def xrestrict_friendlyname(self):
-        names = {
-            1: "R-18",
-            2: "R-18G"
-        }
+        names = {1: "R-18", 2: "R-18G"}
 
         return names.get(int(self.xrestrict), "R-18")
-    
+
+
 class NovelSeriesEntry(NovelBase):
     def __init__(self, d):
         super().__init__(d)
@@ -215,7 +225,9 @@ class NovelSeriesEntry(NovelBase):
         self.concluded: bool = d["isConcluded"]
         self.episode_count: int = d["episodeCount"]
         self.published_episode_count: int = d["publishedEpisodeCount"]
-        self.latest_published_date: datetime = datetime.fromisoformat(d["latestPublishDateTime"])
+        self.latest_published_date: datetime = datetime.fromisoformat(
+            d["latestPublishDateTime"]
+        )
         self.latest_episode_id: int = int(d["latestEpisodeId"])
         self.watched: bool = d["isWatched"]
         self.notifying: bool = d["isNotifying"]
@@ -242,7 +254,9 @@ class NovelSeries:
         self.published_character_count: int = d["publishedTotalCharacterCount"]
         self.published_word_count: int = d["publishedTotalWordCount"]
         self.published_reading_time: int = d["publishedReadingTime"]
-        self.latest_published_date: datetime = datetime.fromtimestamp(d["lastPublishedContentTimestamp"])
+        self.latest_published_date: datetime = datetime.fromtimestamp(
+            d["lastPublishedContentTimestamp"]
+        )
         self.created_date: datetime = datetime.fromtimestamp(d["createdTimestamp"])
         self.updated_date: datetime = datetime.fromtimestamp(d["updatedTimestamp"])
         self.first_novel_id: int = int(d["firstNovelId"])
@@ -294,7 +308,9 @@ class Novel(NovelBase):
         self.bookmarked: bool = d["bookmarkData"] is not None
         self.liked: bool = d["likeData"]
         self.tags: list[str] = [x["tag"] for x in d["tags"]["tags"]]
-        self.series_nav_data: Optional[NovelSeriesNavData] = NovelSeriesNavData(d["seriesNavData"]) if d["seriesNavData"] else None
+        self.series_nav_data: Optional[NovelSeriesNavData] = (
+            NovelSeriesNavData(d["seriesNavData"]) if d["seriesNavData"] else None
+        )
         self.user_novels: list[NovelEntry] = []
 
         for x in d["userNovels"].values():
@@ -334,6 +350,7 @@ class RecommendByTag:
         self.name = name
         self.translation = translation
 
+
 class SearchResultsBase:
     def __init__(
         self,
@@ -341,7 +358,10 @@ class SearchResultsBase:
     ):
         _related_tags = d["relatedTags"]
         _tag_translation = d["tagTranslation"]
-        self.related_tags = [Tag(x, _tag_translation.get(x, {"en": None})["en"]) for x in _related_tags]
+        self.related_tags = [
+            Tag(x, _tag_translation.get(x, {"en": None})["en"]) for x in _related_tags
+        ]
+
 
 class SearchResultsTop(SearchResultsBase):
     def __init__(self, d):
@@ -351,7 +371,9 @@ class SearchResultsTop(SearchResultsBase):
         if im := d.get("illustManga"):
             self.total_illustmanga: int = d["illustManga"]["total"]
             self.total: int = self.total_illustmanga + d["novel"]["total"]
-            self.results: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["illustManga"]["data"]]
+            self.results: list[ArtworkEntry] = [
+                ArtworkEntry(x) for x in d["illustManga"]["data"]
+            ]
         else:
             _illusts = d["illust"]
             _manga = d["manga"]
@@ -359,22 +381,26 @@ class SearchResultsTop(SearchResultsBase):
             self.total_illustmanga: int = _illusts["total"] + _manga["total"]
             self.total = self.total_illustmanga + d["novel"]["total"]
             self.results: list[ArtworkEntry] = sorted(
-                [ArtworkEntry(x) for x in _illusts["data"]] +
-                [ArtworkEntry(x) for x in _manga["data"]],
+                [ArtworkEntry(x) for x in _illusts["data"]]
+                + [ArtworkEntry(x) for x in _manga["data"]],
                 key=lambda _: _.id,
-                reverse=True
+                reverse=True,
             )
-        
+
         _popular = d["popular"]
         self.popular_recent = [ArtworkEntry(x) for x in _popular["recent"]]
         self.popular_permanent = [ArtworkEntry(x) for x in _popular["permanent"]]
+
 
 class SearchResultsIllustManga(SearchResultsBase):
     def __init__(self, d):
         super().__init__(d)
         self.total: int = d["illustManga"]["total"]
         self.last: int = d["illustManga"]["lastPage"]
-        self.results: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["illustManga"]["data"]]
+        self.results: list[ArtworkEntry] = [
+            ArtworkEntry(x) for x in d["illustManga"]["data"]
+        ]
+
 
 class SearchResultsManga(SearchResultsBase):
     def __init__(self, d):
@@ -391,10 +417,12 @@ class SearchResultsNovel(SearchResultsBase):
         self.results: list[NovelEntry] = [NovelEntry(x) for x in d["novel"]["data"]]
         self.last: int = d["novel"]["lastPage"]
 
+
 class PixpediaInfo:
     def __init__(self, d):
         self.abstract: Optional[str] = d.get("abstract")
         self.image: Optional[str] = proxy(d.get("image"))
+
 
 class TagInfo:
     def __init__(self, d):
@@ -405,33 +433,39 @@ class TagInfo:
             self.translation = TagTranslation(self.tag, d["tagTranslation"][self.tag])
 
 
-class RecommendedUser():
+class RecommendedUser:
     def __init__(self, user: PartialUser, recent: list[ArtworkEntry]):
         self.user: PartialUser = user
         self.recent: list[ArtworkEntry] = recent
-    
+
     def __repr__(self):
         return f"<RecommendedUser user={self.user} recent={self.recent}>"
+
 
 class UserPageIllusts:
     def __init__(self, d: dict):
         self.total: int = d["total"]
         self.last_page: int = d["lastPage"]
         self.illusts: list[ArtworkEntry] = [
-            ArtworkEntry({
-                "id": int(x["id"]),
-                "title": x["title"],
-                "description": x["comment"],
-                "illustType": x["type"],
-                "createDate": datetime.fromtimestamp(x["upload_timestamp"]).isoformat(),
-                "xRestrict": int(x["x_restrict"]),
-                "sl": x["sl"],
-                "userId": int(x["author_details"]["user_id"]),
-                "userName": x["author_details"]["user_name"],
-                "alt": x["alt"],
-                "aiType": x["ai_type"],
-                "pageCount": x["page_count"],
-                "url": x["url_s"],
-                "profileImageUrl": None
-            }) for x in d["illusts"]
+            ArtworkEntry(
+                {
+                    "id": int(x["id"]),
+                    "title": x["title"],
+                    "description": x["comment"],
+                    "illustType": x["type"],
+                    "createDate": datetime.fromtimestamp(
+                        x["upload_timestamp"]
+                    ).isoformat(),
+                    "xRestrict": int(x["x_restrict"]),
+                    "sl": x["sl"],
+                    "userId": int(x["author_details"]["user_id"]),
+                    "userName": x["author_details"]["user_name"],
+                    "alt": x["alt"],
+                    "aiType": x["ai_type"],
+                    "pageCount": x["page_count"],
+                    "url": x["url_s"],
+                    "profileImageUrl": None,
+                }
+            )
+            for x in d["illusts"]
         ]

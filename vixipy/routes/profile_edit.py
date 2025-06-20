@@ -23,6 +23,7 @@ if TYPE_CHECKING:
 bp = Blueprint("profile_edit", __name__)
 log = logging.getLogger("vixipy.routes.profile_edit")
 
+
 @bp.route("/self/edit_profile", methods=("GET", "POST"))
 async def edit_profile():
     data = await pixiv_request("/ajax/my_profile")
@@ -37,39 +38,56 @@ async def edit_profile():
 
         if profile_image := files.get("profileImage"):
             d = profile_image.read()
-            
+
             mp_verify = MultipartWriter("form-data")
-            mp_verify.append(d, {"Content-Type": profile_image.content_type}).set_content_disposition("form-data", name="profile_image", filename=profile_image.name)
+            mp_verify.append(
+                d, {"Content-Type": profile_image.content_type}
+            ).set_content_disposition(
+                "form-data", name="profile_image", filename=profile_image.name
+            )
 
             log.debug("Validating profile image...")
             validate_res = await pixiv_request(
                 "/ajax/my_profile/validate_profile_image",
                 "post",
                 headers={"Referer": "https://www.pixiv.net/settings/profile"},
-                raw_payload=mp_verify
+                raw_payload=mp_verify,
             )
 
             log.debug("Profile image validated. data=%s", validate_res)
 
-            main_mp.append(d, {"Content-Type": profile_image.content_type}).set_content_disposition("form-data", name="profile_image", filename=profile_image.name)
-        
+            main_mp.append(
+                d, {"Content-Type": profile_image.content_type}
+            ).set_content_disposition(
+                "form-data", name="profile_image", filename=profile_image.name
+            )
+
         if cover_image := files.get("coverImage"):
             d = cover_image.read()
-            main_mp.append(d, {"Content-Type": cover_image.content_type}).set_content_disposition("form-data", name="cover_image", filename=cover_image.name)
+            main_mp.append(
+                d, {"Content-Type": cover_image.content_type}
+            ).set_content_disposition(
+                "form-data", name="cover_image", filename=cover_image.name
+            )
 
-        
         data["name"] = frm["name"]
         data["comment"] = frm["comment"]
         data["webpage"] = frm["website"]
         log.debug(data)
         data["externalService"]["twitter"] = frm["twitter"] if frm["twitter"] else None
-        data["externalService"]["instagram"] = frm["instagram"] if frm["instagram"] else None
+        data["externalService"]["instagram"] = (
+            frm["instagram"] if frm["instagram"] else None
+        )
         data["externalService"]["tumblr"] = frm["tumblr"] if frm["tumblr"] else None
-        data["externalService"]["facebook"] = frm["facebook"] if frm["facebook"] else None
-        data["externalService"]["circlems"] = frm["circlems"] if frm["circlems"] else None
+        data["externalService"]["facebook"] = (
+            frm["facebook"] if frm["facebook"] else None
+        )
+        data["externalService"]["circlems"] = (
+            frm["circlems"] if frm["circlems"] else None
+        )
         data["gender"]["value"] = int(frm["gender"])
         data["gender"]["restriction"] = int(frm["gender_restrict"])
-        
+
         birth = datetime.strptime(frm["birthday"], "%Y-%m-%d")
 
         data["birthYear"]["value"] = birth.year
@@ -87,7 +105,7 @@ async def edit_profile():
             "/ajax/my_profile/update",
             "post",
             headers={"Referer": "https://www.pixiv.net/settings/profile"},
-            raw_payload=main_mp
+            raw_payload=main_mp,
         )
 
         return redirect(url_for("users.user_profile", user=g.current_user.id))
