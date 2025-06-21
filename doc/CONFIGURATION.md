@@ -12,7 +12,7 @@ Vixipy can be configured by creating `config.py` in the `instance` folder (recom
 |-|-|-|-|
 | ACCEPT_LANGUAGE | Defines the [`Accept-Language`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Language) header. | string | `en_US,en;q=0.9` |
 | SECRET_KEY | Defines the secret key used for Flask's flash notifications. Recommended to change for production use. | string | Vyxie |
-| INSTANCE_NAME | Defines the instance name. It should be short and memorable. | bool  | Vixipy |
+| INSTANCE_NAME | Defines the instance name. It should be short and memorable. | string | Vixipy |
 | LOG_HTTP | Whether to log HTTP requests (not to be confused with `LOG_PIXIV`) | bool | True |
 | LOG_PIXIV | Whether to log requests to pixiv servers. If it is disabled, only errors and warnings are logged | bool | True |
 | NO_R18 | Whether to disable viewing R-18(G) works instance-wide regardless of server settings.<br><br>Useful when for example your VPS' Acceptable Use Policy disallows such content. | bool | False |
