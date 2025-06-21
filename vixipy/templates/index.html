@@ -48,6 +48,7 @@ illusts: {{rt}}
         </div>
     </section>
     {% endfor %}
+    {% if new|length > 0 %}
     <section id="new">
         <h2>{{_("Newest by all")}}</h2>
         <div class="artwork-container">
@@ -56,5 +57,6 @@ illusts: {{rt}}
             {% endfor %}
         </div>
     </section>
+    {% endif %}
 </main>
 {% endblock %}
