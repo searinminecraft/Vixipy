@@ -26,8 +26,11 @@ from .routes import (
     novels,
     api,
 )
-from . import session as pixiv_session_handler
-from . import error_handler
+from . import (
+    config as cfg,
+    error_handler,
+    session as pixiv_session_handler
+)
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
@@ -62,49 +65,13 @@ def create_app():
         ACQUIRE_SESSION="0",
     )
     app.config.from_prefixed_env("VIXIPY")
+    app.config.from_pyfile(app.instance_path + "/config.py", silent=True)
+    cfg.convert_config(app)
+
     app.tokens: list[Token] = []
     app.no_token = False
 
     log = logging.getLogger("vixipy")
-
-    try:
-        app.config["PIXIV_DIRECT_CONNECTION"] = bool(
-            int(app.config["PIXIV_DIRECT_CONNECTION"])
-        )
-    except Exception:
-        app.config["PIXIV_DIRECT_CONNECTION"] = False
-
-    try:
-        app.config["ACQUIRE_SESSION"] = bool(int(app.config["ACQUIRE_SESSION"]))
-    except Exception:
-        app.config["ACQUIRE_SESSION"] = True
-
-    try:
-        app.config["LOG_PIXIV"] = bool(int(app.config["LOG_PIXIV"]))
-    except Exception:
-        app.config["LOG_PIXIV"] = False
-
-    try:
-        app.config["LOG_HTTP"] = bool(int(app.config["LOG_HTTP"]))
-    except Exception:
-        app.config["LOG_HTTP"] = False
-
-    try:
-        app.config["CACHE_PIXIV_REQUESTS"] = bool(
-            int(app.config["CACHE_PIXIV_REQUESTS"])
-        )
-    except Exception:
-        app.config["CACHE_PIXIV_REQUESTS"] = False
-
-    try:
-        app.config["NO_R18"] = bool(int(app.config["NO_R18"]))
-    except Exception:
-        app.config["NO_R18"] = False
-
-    try:
-        app.config["NO_SENSITIVE"] = bool(int(app.config["NO_SENSITIVE"]))
-    except Exception:
-        app.config["NO_SENSITIVE"] = False
 
     try:
         os.makedirs(app.instance_path)
@@ -225,7 +192,7 @@ def create_app():
         log.info("  * Cache pixiv Requests: %s", app.config["CACHE_PIXIV_REQUESTS"])
         if app.config["CACHE_PIXIV_REQUESTS"]:
             log.info("  * Cache TTL: %s", app.config["CACHE_TTL"])
-        log.info("  * Using Account: %s", app.config["TOKEN"] != "")
+        log.info("  * Using Account: %s", len(app.config["TOKEN"]) > 0)
         log.info("  * No R18: %s", app.config["NO_R18"] or app.config["NO_SENSITIVE"])
         log.info("  * No Sensitive Works: %s", app.config["NO_SENSITIVE"])
         log.info("  * Image Proxy: %s", app.config["IMG_PROXY"])
@@ -299,7 +266,7 @@ def create_app():
 
     @app.before_serving
     async def credential_init():
-        if app.config["TOKEN"] == "":
+        if len(app.config["TOKEN"]) == 0:
             app.no_token = True
 
             if not app.config["ACQUIRE_SESSION"]:
@@ -367,7 +334,7 @@ def create_app():
                         }
                     )
         else:
-            for t in app.config["TOKEN"].split(","):
+            for t in app.config["TOKEN"]:
                 try:
 
                     if app.config["PIXIV_DIRECT_CONNECTION"]:
