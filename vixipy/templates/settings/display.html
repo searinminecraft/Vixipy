@@ -1,0 +1,51 @@
+{% extends "settings/index.html" %}
+{% set settings_title = _("Display settings") %}
+
+{% block settings_content %}
+<h3>{{_("Display settings")}}</h3>
+<section>
+    <div>
+        {{_("Work content")}}
+    </div>
+    <main>
+        <form action="/settings/set_content_filter" method="post">
+            {%- set ai_enabled = c.get("Vixipy-No-AI", 0)|int == 1 -%}
+            {%- set r18_enabled = c.get("Vixipy-No-R18", 0)|int == 1 -%}
+            {%- set r18g_enabled = c.get("Vixipy-No-R18G", 0)|int == 1 -%}
+            {%- set sensitive_enabled = c.get("Vixipy-No-Sensitive", 0)|int == 1 -%}
+
+            <label class="toggle-switch">
+                <input type="checkbox" name="hide-ai"
+                    {% if ai %}{% if ai_enabled %}checked{% endif %}{% else %}disabled checked{% endif %}
+                > {{_("Hide AI-generated work")}}
+            </label>
+            <label class="toggle-switch">
+                <input type="checkbox" name="hide-sensitive" 
+                    {% if sensitive %}{% if sensitive_enabled %}checked{% endif %}{% else %}disabled checked{% endif %}> {{_("Hide works that may contain sensitive content")}}
+            </label>
+            {% if not sensitive_enabled %}
+            <label class="toggle-switch">
+                <input type="checkbox" name="hide-r18"
+                    {% if r18 %}{% if r18_enabled %}checked{% endif %}{% else %}disabled checked{% endif %}> {{_("Hide explicit content (R-18)")}}
+            </label>
+            {% if not r18_enabled %}
+            <label class="toggle-switch">
+                <input type="checkbox" name="hide-r18g"
+                    {% if r18g %}{% if r18g_enabled %}checked{% endif %}{% else %}disabled checked{% endif %}> {{_("Hide ero-guro content (R-18G)")}}
+            </label>
+            {% endif %}
+            {% endif %}
+            <br>
+            <button class="button smaller neutral" type="submit">{{_("Save preferences")}}</button>
+        </form>
+    </main>
+</section>
+<section>
+    <div>{{_("Ad display settings")}}</div>
+    <main>
+        <label class="toggle-switch">
+            <input type="checkbox" disabled> {{_("Display")}}
+        </label>
+    </main>
+</section>
+{% endblock %}

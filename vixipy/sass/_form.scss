@@ -70,3 +70,49 @@ form {
         }
     }
 }
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    font-size: 14px;
+    padding: 2px;
+
+    input[type=checkbox] {
+        appearance: none;
+        cursor: pointer;
+        min-width: 32px;
+        height: 20px;
+        background-color: var(--md-sys-color-outline-variant);
+        border-radius: 999999px;
+        position: relative;
+        border: 3px solid transparent;
+        transition: .2s ease;
+
+        &:checked {
+            background-color: var(--md-sys-color-primary);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 2px solid transparent;
+            width: 10px;
+            height: 10px;
+            background-color: var(--md-sys-color-outline);
+            border-radius: 12px;
+            transition: .2s ease;
+        }
+
+        &:checked::after {
+            background-color: var(--md-sys-color-on-primary);
+            left: 12px;
+        }
+
+        &:disabled {
+            opacity: .4;
+        }
+    }
+}

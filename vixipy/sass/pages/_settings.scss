@@ -1,0 +1,81 @@
+#settings {
+    display: flex;
+    gap: 1em;
+
+    .menu {
+        min-width: 300px;
+
+        h2 {
+            margin: unset;
+            margin-bottom: 1em;
+        }
+
+        nav {
+            a {
+                display: flex;
+                width: 100%;
+                padding: 12px 1.25em;
+                color: unset;
+                font-weight: bold;
+                color: var(--md-sys-color-outline);
+                border-radius: 999999px;
+                transition: .2s ease;
+                ;
+
+                &:hover,
+                &.sel {
+                    background-color: var(--md-sys-color-surface-variant);
+                    color: var(--md-sys-color-on-surface)
+                }
+            }
+        }
+    }
+
+    .content {
+        flex: 1;
+        padding: 1.5em 2em;
+        background-color: var(--md-sys-color-surface-container);
+        overflow: hidden;
+        border-radius: 20px;
+
+        > h3 {
+            margin: unset;
+            margin-bottom: 1em;
+        }
+
+        >section {
+            display: flex;
+            gap: 1em;
+            margin-bottom: 1em;
+
+            &:last-child {
+                margin-bottom: unset !important;
+            }
+
+            >div {
+                font-weight: bold;
+                width: 200px;
+                flex-shrink: 0;
+                font-size: 14px;
+            }
+
+            >main {
+                flex: 1;
+
+                .tip {
+                    color: var(--md-sys-color-outline)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #settings {
+        flex-direction: column;
+
+        .content > section {
+            flex-direction: column;
+        }
+    }
+}

@@ -25,9 +25,11 @@ from .routes import (
     profile_edit,
     novels,
     api,
+    settings,
 )
 from . import (
     config as cfg,
+    csp,
     error_handler,
     session as pixiv_session_handler
 )
@@ -67,6 +69,7 @@ def create_app():
     app.config.from_prefixed_env("VIXIPY")
     app.config.from_pyfile(app.instance_path + "/config.py", silent=True)
     cfg.convert_config(app)
+    csp.init_app(app)
 
     app.tokens: list[Token] = []
     app.no_token = False
@@ -99,6 +102,7 @@ def create_app():
     app.register_blueprint(profile_edit)
     app.register_blueprint(novels)
     app.register_blueprint(api)
+    app.register_blueprint(settings)
 
     # =================================
     if app.config["LOG_HTTP"]:
