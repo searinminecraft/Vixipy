@@ -27,12 +27,7 @@ from .routes import (
     api,
     settings,
 )
-from . import (
-    config as cfg,
-    csp,
-    error_handler,
-    session as pixiv_session_handler
-)
+from . import config as cfg, csp, error_handler, session as pixiv_session_handler
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
@@ -265,7 +260,7 @@ def create_app():
             headers={**header_common, "Referer": "https://www.pixiv.net"},
             connector_owner=False,
             cookie_jar=DummyCookieJar(),
-            proxy=app.config.get("PROXY")
+            proxy=app.config.get("PROXY"),
         )
 
     @app.before_serving

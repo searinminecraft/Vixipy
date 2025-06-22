@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from quart import Quart
 
+
 def convert_config(app: Quart):
     """
     Convert configuration values to more appropriate ones
