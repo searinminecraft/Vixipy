@@ -27,8 +27,6 @@ async def perform_proxy_request(url: str):
     response_headers["Content-Type"] = r.headers["Content-Type"]
     if content_length := r.headers.get("content-length"):
         response_headers["Content-Length"] = content_length
-    else:
-        log.warning("%s has no content length", url)
 
     async def stream():
         async for chunk in r.content.iter_chunked(10 * 1024):
