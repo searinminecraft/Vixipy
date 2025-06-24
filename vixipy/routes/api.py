@@ -1,6 +1,7 @@
-from quart import Blueprint, abort, request
+from quart import Blueprint, abort, current_app, request
 
 from ..api import pixiv_request
+import asyncio
 import traceback
 import logging
 from typing import Union
@@ -28,6 +29,13 @@ async def handle_bad_request(e: BadRequest):
 async def handle_errors(e: Exception):
     return make_error(
         "Exception error", body={"error": str(e), "traceback": traceback.format_exc()}
+    )
+
+
+@bp.errorhandler(NotFound)
+async def handle_not_found(e: Exception):
+    return make_error(
+        "Couldn't find requested page", code=404
     )
 
 
@@ -66,4 +74,42 @@ async def autocomplete_handler():
 
     return make_json_response(
         body=sorted(result, key=lambda _: _["access_count"], reverse=True)
+    )
+
+
+@bp.route("/api/configuration")
+async def node_info():
+    account = not current_app.no_token
+
+    try:
+        git_p = await asyncio.create_subprocess_exec(
+            "git", "rev-parse", "--short", "HEAD",
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
+        git_o, err = await git_p.communicate()
+        if err:
+            raise Exception
+    except Exception:
+        log.exception("Failure retrieving commit")
+        git_o = "unknown"
+
+    rev = str(git_o.decode("utf-8")).rstrip()
+
+    return make_json_response(
+        body={
+            "acceptLanguage": current_app.config["ACCEPT_LANGUAGE"],
+            "commit": rev,
+            "instanceName": current_app.config["INSTANCE_NAME"],
+            "r18": not current_app.config["NO_SENSITIVE"] and not current_app.config["NO_R18"],
+            "sensitiveWorks": not current_app.config["NO_SENSITIVE"],
+            "ratelimiting": False,
+            "repo": "https://codeberg.org/vixipy/Vixipy",
+            "usesAccount": account,
+            "logHttp": current_app.config["LOG_HTTP"],
+            "logPixiv": current_app.config["LOG_PIXIV"],
+            "version": current_app.config["VIXIPY_VERSION"],
+            "bypassCloudflare": current_app.config["PIXIV_DIRECT_CONNECTION"],
+            "imageProxy": current_app.config["IMG_PROXY"]
+        }
     )
