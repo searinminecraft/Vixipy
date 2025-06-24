@@ -1,4 +1,4 @@
-# Japanese translations for PROJECT.
+# Translations template for PROJECT.
 # Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
@@ -8,12 +8,10 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-24 10:11+0800\n"
-"PO-Revision-Date: 2025-06-24 11:05+0000\n"
-"Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language: ja\n"
-"Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ja/>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,7 +34,7 @@ msgstr ""
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
-msgstr "フォローする"
+msgstr ""
 
 #: vixipy/templates/artworks.html:38
 #: vixipy/templates/components/user-entry.html:20
@@ -46,7 +44,7 @@ msgstr ""
 
 #: vixipy/templates/artworks.html:43
 msgid "View all works"
-msgstr "作品一覧を見る"
+msgstr ""
 
 #: vixipy/templates/artworks.html:68
 #, python-format
@@ -55,7 +53,7 @@ msgstr ""
 
 #: vixipy/templates/artworks.html:130 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr "関連作品"
+msgstr ""
 
 #: vixipy/templates/artworks.html:138
 msgid "No recommended works to show."
@@ -63,11 +61,11 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
-msgstr "プロフィール編集"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:8
 msgid "Profile images"
-msgstr "プロフィール画像"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:11
 msgid "Choose profile picture: "
@@ -87,19 +85,19 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:32
 msgid "Nickname"
-msgstr "ニックネーム"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:36
 msgid "Self introduction"
-msgstr "自己紹介"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:40
 msgid "Website"
-msgstr "ウェブサイト"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:44
 msgid "Social media"
-msgstr "外部サービス"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:46
 msgid "Twitter/X ID"
@@ -123,38 +121,38 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:53
 msgid "Gender"
-msgstr "性別"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:55
 msgid "Male"
-msgstr "男性"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:56
 msgid "Female"
-msgstr "女性"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:57
 msgid "Rather not say"
-msgstr "どちらも選ばない"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
 #: vixipy/templates/edit_profile.html:82 vixipy/templates/upload.html:41
 msgid "Public"
-msgstr "全体に公開"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
 #: vixipy/templates/edit_profile.html:83 vixipy/templates/upload.html:43
 msgid "My pixiv only"
-msgstr "マイピクに公開"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
 #: vixipy/templates/edit_profile.html:84 vixipy/templates/upload.html:44
 msgid "Private"
-msgstr "非公開"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:66
 msgid "Birthday"
-msgstr "誕生日"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:72
 msgid "Birth year privacy"
@@ -166,15 +164,15 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:88
 msgid "Save Changes"
-msgstr "変更を保存"
+msgstr ""
 
 #: vixipy/templates/error.html:2
 msgid "Error"
-msgstr "エラー"
+msgstr ""
 
 #: vixipy/templates/error.html:7
 msgid "An error occurred."
-msgstr "エラーが発生しました。"
+msgstr ""
 
 #: vixipy/templates/error.html:8
 #, python-format
@@ -190,26 +188,26 @@ msgstr ""
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
 #: vixipy/templates/users/base.html:55
 msgid "Home"
-msgstr "ホーム"
+msgstr ""
 
 #: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
-msgstr "フォローユーザーの作品"
+msgstr ""
 
 #: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
-msgstr "おすすめ作品"
+msgstr ""
 
-#: vixipy/templates/index.html:36
+#: vixipy/templates/index.html:30
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
-msgstr "<a href='%(link)s' title='%(title)s'>#%(tag)s</a>のおすすめイラスト作品"
+msgstr ""
 
-#: vixipy/templates/index.html:59
+#: vixipy/templates/index.html:53
 msgid "Newest by all"
-msgstr "みんなの新着"
+msgstr ""
 
 #: vixipy/templates/index_logged_out.html:16
 #, python-format
@@ -219,11 +217,11 @@ msgstr ""
 #: vixipy/templates/index_logged_out.html:24
 #: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
 msgid "View All"
-msgstr "すべて見る"
+msgstr ""
 
 #: vixipy/templates/login.html:6
 msgid "Sign in"
-msgstr "サインイン"
+msgstr ""
 
 #: vixipy/templates/login.html:18
 msgid ""
@@ -264,7 +262,7 @@ msgstr ""
 
 #: vixipy/templates/upload.html:14
 msgid "Title"
-msgstr "タイトル"
+msgstr ""
 
 #: vixipy/templates/upload.html:17
 msgid "Caption"
@@ -272,7 +270,7 @@ msgstr ""
 
 #: vixipy/templates/upload.html:20
 msgid "Tags"
-msgstr "タグ"
+msgstr ""
 
 #: vixipy/templates/upload.html:22
 msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
@@ -345,7 +343,7 @@ msgstr ""
 #: vixipy/templates/components/novel-entry.html:42
 #: vixipy/templates/upload.html:56
 msgid "Yuri"
-msgstr "百合"
+msgstr ""
 
 #: vixipy/templates/upload.html:63
 msgid ""
@@ -374,106 +372,106 @@ msgstr ""
 #: vixipy/templates/search/novel.html:15 vixipy/templates/users/base.html:73
 #: vixipy/templates/users/novels.html:9
 msgid "Novels"
-msgstr "小説"
+msgstr ""
 
 #: vixipy/templates/components/header.html:11
 #: vixipy/templates/discovery/index.html:3
 #: vixipy/templates/discovery/index.html:9
 msgid "Discovery"
-msgstr "ディスカバリー"
+msgstr ""
 
 #: vixipy/templates/components/header.html:14
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
 msgid "Settings"
-msgstr "設定"
+msgstr ""
 
 #: vixipy/templates/components/header.html:18
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 msgid "Bookmarks"
-msgstr "ブックマーク"
+msgstr ""
 
 #: vixipy/templates/components/header.html:21
 msgid "Notifications"
-msgstr "通知"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
-msgstr "オリジナル"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:18
 #: vixipy/templates/novels/novel.html:46
 msgid "Series"
-msgstr "シリーズ"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:19
 msgid "Oneshot"
-msgstr "読み切り作品"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:22
 msgid "Romance"
-msgstr "恋愛"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:24
 msgid "Isekai fantasy"
-msgstr "異世界ファンタジー"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:26
 msgid "Contemporary fantasy"
-msgstr "現代ファンタジー"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:28
 msgid "Mystery"
-msgstr "ミステリー"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:30
 msgid "Horror"
-msgstr "ホラー"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:32
 msgid "Sci-fi"
-msgstr "SF"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:34
 msgid "Literature"
-msgstr "文学"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:36
 msgid "Drama"
-msgstr "ヒューマンドラマ"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:38
 msgid "Historical pieces"
-msgstr "歴史・時代"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:40
 msgid "BL (yaoi)"
-msgstr "BL"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:44
 msgid "For kids"
-msgstr "子供向け"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:46
 msgid "Poetry"
-msgstr "詩"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:48
 msgid "Essays/non-fiction"
-msgstr "エッセイ・ノンフィクション"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:50
 msgid "Screenplays/scripts"
-msgstr "シナリオ・台本"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:52
 msgid "Reviews/opinion pieces"
-msgstr "評論・感想"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:54
 msgid "Other"
-msgstr "その他"
+msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:75
 #, python-format
@@ -599,11 +597,11 @@ msgstr ""
 
 #: vixipy/templates/discovery/index.html:15
 msgid "Recommended illustrations"
-msgstr "おすすめ作品"
+msgstr ""
 
 #: vixipy/templates/discovery/index.html:21
 msgid "Recommended users"
-msgstr "おすすめユーザー"
+msgstr ""
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"
@@ -657,36 +655,36 @@ msgstr ""
 
 #: vixipy/templates/search/dashboard.html:22
 msgid "Popular illust tags"
-msgstr "人気のイラストタグ"
+msgstr ""
 
 #: vixipy/templates/search/dashboard.html:29
 #, python-format
 msgid "#%(tag)s recommended works"
-msgstr "#%(tag)sのおすすめ作品"
+msgstr ""
 
 #: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
 #: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
 msgid "Top"
-msgstr "トップ"
+msgstr ""
 
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
 #: vixipy/templates/users/illust.html:9
 msgid "Illustrations"
-msgstr "イラスト"
+msgstr ""
 
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
 #: vixipy/templates/users/manga.html:9
 msgid "Manga"
-msgstr "マンガ"
+msgstr ""
 
 #: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
 #: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
 msgid "User"
-msgstr "ユーザー"
+msgstr ""
 
 #: vixipy/templates/search/illust.html:24 vixipy/templates/search/main.html:57
 #: vixipy/templates/search/manga.html:23 vixipy/templates/search/novel.html:25
@@ -705,7 +703,7 @@ msgstr ""
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
-msgstr "人気の作品"
+msgstr ""
 
 #: vixipy/templates/search/main.html:17
 msgid "Recent"
@@ -717,13 +715,13 @@ msgstr ""
 
 #: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:6
 msgid "Illustrations and Manga"
-msgstr "イラスト・マンガ"
+msgstr ""
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
 #: vixipy/templates/settings/index.html:17
 msgid "Display settings"
-msgstr "閲覧と表示"
+msgstr ""
 
 #: vixipy/templates/settings/display.html:8
 msgid "Work content"
@@ -751,62 +749,51 @@ msgstr ""
 
 #: vixipy/templates/settings/display.html:44
 msgid "Ad display settings"
-msgstr "広告表示"
+msgstr ""
 
 #: vixipy/templates/settings/display.html:47
 msgid "Display"
-msgstr "表示する"
+msgstr ""
 
 #: vixipy/templates/settings/index.html:15
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
-msgstr "Vixipy設定"
+msgstr ""
 
 #: vixipy/templates/settings/index.html:16
 msgid "Account"
-msgstr "アカウント"
+msgstr ""
 
 #: vixipy/templates/settings/index.html:18
-#: vixipy/templates/settings/language.html:3
-#: vixipy/templates/settings/language.html:6
 msgid "Language and location"
-msgstr "使用する言語"
+msgstr ""
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
-msgstr "について"
-
-#: vixipy/templates/settings/language.html:9
-#, fuzzy
-msgid "Language"
-msgstr "マンガ"
-
-#: vixipy/templates/settings/language.html:20
-msgid "Set language"
 msgstr ""
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
-msgstr "画像プロキシサーバー"
+msgstr ""
 
 #: vixipy/templates/settings/main.html:15
 msgid "Use proxy specified by instance"
-msgstr "インスタンスで指定されたプロキシを使用する"
+msgstr ""
 
 #: vixipy/templates/settings/main.html:16
 #: vixipy/templates/settings/main.html:18
 msgid "Use built-in proxy"
-msgstr "組み込みプロキシを使用する"
+msgstr ""
 
 #: vixipy/templates/settings/main.html:26
 msgid ""
 "An image proxy allows retrieving images from pixiv without making any "
 "connection to pixiv servers."
-msgstr "画像プロキシを使用すると、pixiv サーバーに接続せずに pixiv から画像を取得できます。"
+msgstr ""
 
 #: vixipy/templates/settings/main.html:28
 msgid "Use selected proxy"
-msgstr "選択したプロキシを使用する"
+msgstr ""
 
 #: vixipy/templates/settings/main.html:34
 msgid "Color Scheme"
@@ -838,9 +825,8 @@ msgstr ""
 
 #: vixipy/templates/users/base.html:25
 msgid "Following"
-msgstr "フォロー中"
+msgstr ""
 
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
-msgstr "プロフィール編集"
-
+msgstr ""
