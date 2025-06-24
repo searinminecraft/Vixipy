@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-24 10:11+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-24 03:27+0000\n"
+"Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:46
@@ -34,7 +37,7 @@ msgstr ""
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
-msgstr ""
+msgstr "フォローする"
 
 #: vixipy/templates/artworks.html:38
 #: vixipy/templates/components/user-entry.html:20
@@ -44,7 +47,7 @@ msgstr ""
 
 #: vixipy/templates/artworks.html:43
 msgid "View all works"
-msgstr ""
+msgstr "作品一覧を見る"
 
 #: vixipy/templates/artworks.html:68
 #, python-format
@@ -53,7 +56,7 @@ msgstr ""
 
 #: vixipy/templates/artworks.html:130 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr ""
+msgstr "関連作品"
 
 #: vixipy/templates/artworks.html:138
 msgid "No recommended works to show."
@@ -61,11 +64,11 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
-msgstr ""
+msgstr "プロフィール編集"
 
 #: vixipy/templates/edit_profile.html:8
 msgid "Profile images"
-msgstr ""
+msgstr "プロフィール画像"
 
 #: vixipy/templates/edit_profile.html:11
 msgid "Choose profile picture: "
@@ -85,19 +88,19 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:32
 msgid "Nickname"
-msgstr ""
+msgstr "ニックネーム"
 
 #: vixipy/templates/edit_profile.html:36
 msgid "Self introduction"
-msgstr ""
+msgstr "自己紹介"
 
 #: vixipy/templates/edit_profile.html:40
 msgid "Website"
-msgstr ""
+msgstr "ウェブサイト"
 
 #: vixipy/templates/edit_profile.html:44
 msgid "Social media"
-msgstr ""
+msgstr "外部サービス"
 
 #: vixipy/templates/edit_profile.html:46
 msgid "Twitter/X ID"
@@ -121,38 +124,38 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:53
 msgid "Gender"
-msgstr ""
+msgstr "性別"
 
 #: vixipy/templates/edit_profile.html:55
 msgid "Male"
-msgstr ""
+msgstr "男性"
 
 #: vixipy/templates/edit_profile.html:56
 msgid "Female"
-msgstr ""
+msgstr "女性"
 
 #: vixipy/templates/edit_profile.html:57
 msgid "Rather not say"
-msgstr ""
+msgstr "どちらも選ばない"
 
 #: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
 #: vixipy/templates/edit_profile.html:82 vixipy/templates/upload.html:41
 msgid "Public"
-msgstr ""
+msgstr "全体に公開"
 
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
 #: vixipy/templates/edit_profile.html:83 vixipy/templates/upload.html:43
 msgid "My pixiv only"
-msgstr ""
+msgstr "マイピクに公開"
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
 #: vixipy/templates/edit_profile.html:84 vixipy/templates/upload.html:44
 msgid "Private"
-msgstr ""
+msgstr "非公開"
 
 #: vixipy/templates/edit_profile.html:66
 msgid "Birthday"
-msgstr ""
+msgstr "誕生日"
 
 #: vixipy/templates/edit_profile.html:72
 msgid "Birth year privacy"
@@ -164,7 +167,7 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:88
 msgid "Save Changes"
-msgstr ""
+msgstr "変更を保存"
 
 #: vixipy/templates/error.html:2
 msgid "Error"
@@ -192,22 +195,22 @@ msgstr ""
 
 #: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
-msgstr ""
+msgstr "フォローユーザーの作品"
 
 #: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
-msgstr ""
+msgstr "おすすめ作品"
 
 #: vixipy/templates/index.html:30
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
-msgstr ""
+msgstr "<a href='%(link)s' title='%(title)s'>#%(tag)s</a>のおすすめイラスト作品"
 
 #: vixipy/templates/index.html:53
 msgid "Newest by all"
-msgstr ""
+msgstr "みんなの新着"
 
 #: vixipy/templates/index_logged_out.html:16
 #, python-format
@@ -217,7 +220,7 @@ msgstr ""
 #: vixipy/templates/index_logged_out.html:24
 #: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
 msgid "View All"
-msgstr ""
+msgstr "すべて見る"
 
 #: vixipy/templates/login.html:6
 msgid "Sign in"
@@ -372,38 +375,38 @@ msgstr ""
 #: vixipy/templates/search/novel.html:15 vixipy/templates/users/base.html:73
 #: vixipy/templates/users/novels.html:9
 msgid "Novels"
-msgstr ""
+msgstr "小説"
 
 #: vixipy/templates/components/header.html:11
 #: vixipy/templates/discovery/index.html:3
 #: vixipy/templates/discovery/index.html:9
 msgid "Discovery"
-msgstr ""
+msgstr "ディスカバリー"
 
 #: vixipy/templates/components/header.html:14
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: vixipy/templates/components/header.html:18
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 msgid "Bookmarks"
-msgstr ""
+msgstr "ブックマーク"
 
 #: vixipy/templates/components/header.html:21
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
-msgstr ""
+msgstr "オリジナル"
 
 #: vixipy/templates/components/novel-entry.html:18
 #: vixipy/templates/novels/novel.html:46
 msgid "Series"
-msgstr ""
+msgstr "シリーズ"
 
 #: vixipy/templates/components/novel-entry.html:19
 msgid "Oneshot"
@@ -766,7 +769,7 @@ msgstr ""
 
 #: vixipy/templates/settings/index.html:18
 msgid "Language and location"
-msgstr ""
+msgstr "使用する言語"
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
@@ -825,7 +828,7 @@ msgstr ""
 
 #: vixipy/templates/users/base.html:25
 msgid "Following"
-msgstr ""
+msgstr "フォロー中"
 
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
