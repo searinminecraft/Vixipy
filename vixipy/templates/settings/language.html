@@ -1,0 +1,24 @@
+
+{% extends "settings/index.html" %}
+{% set settings_title = _("Language and location") %}
+
+{% block settings_content %}
+<h3>{{_("Language and location")}}</h3>
+<section>
+    <div>
+        {{_("Language")}}
+    </div>
+    <main>
+        <form action="/settings/set_language" method="post">
+            <select name="lang">
+		<option value="" {% if not request.cookies.get("Vixipy-Language", "") %}selected{%endif%}>{{"Use system language"}}</option>
+		{% for l in langs %}
+		<option value="{{l}}" {%if request.cookies.get("Vixipy-Language") == l%}selected{%endif%}>{{langs[l]}}</option>
+		{% endfor %}
+            </select>
+            <br><br>
+            <button class="button smaller neutral" type="submit">{{_("Set language")}}</button>
+        </form>
+    </main>
+</section>
+{% endblock %}

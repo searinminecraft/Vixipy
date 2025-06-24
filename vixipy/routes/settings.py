@@ -10,6 +10,7 @@ from quart import (
 )
 
 from ..api import pixiv_request
+import babel
 
 bp = Blueprint("settings", __name__)
 
@@ -109,3 +110,18 @@ async def set_content_filter():
         httponly=True,
     )
     return r
+
+
+@bp.route("/settings/language-and-location")
+async def language_location():
+    langs = {x: babel.Locale(x).language_name for x in current_app.config["LANGUAGES"]}
+    return await render_template("settings/language.html", langs=langs)
+
+
+@bp.post("/settings/set_language")
+async def set_language():
+    f = await request.form
+    r = await make_response(redirect(url_for("settings.language_location"), code=303))
+    r.set_cookie("Vixipy-Language", f["lang"], max_age=MAX_AGE, httponly=True)
+    return r
+

@@ -358,9 +358,12 @@ class SearchResultsBase:
     ):
         _related_tags = d["relatedTags"]
         _tag_translation = d["tagTranslation"]
-        self.related_tags = [
-            Tag(x, _tag_translation.get(x, {"en": None})["en"]) for x in _related_tags
-        ]
+        if isinstance(_tag_translation, list):
+            self.related_tags = [Tag(x, None) for x in _related_tags]
+        else:
+            self.related_tags = [
+                Tag(x, _tag_translation.get(x, {"en": None})["en"]) for x in _related_tags
+            ]
 
 
 class SearchResultsTop(SearchResultsBase):
@@ -397,17 +400,26 @@ class SearchResultsIllustManga(SearchResultsBase):
         super().__init__(d)
         self.total: int = d["illustManga"]["total"]
         self.last: int = d["illustManga"]["lastPage"]
-        self.results: list[ArtworkEntry] = [
-            ArtworkEntry(x) for x in d["illustManga"]["data"]
-        ]
+        self.results: list[ArtworkEntry] = []
+
+        for x in d["illustManga"]["data"]:
+            if x.get("isAdContainer"):
+                continue
+            self.results.append(ArtworkEntry(x))
 
 
 class SearchResultsManga(SearchResultsBase):
     def __init__(self, d):
         super().__init__(d)
         self.total: int = d["manga"]["total"]
-        self.results: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["manga"]["data"]]
         self.last: int = d["manga"]["lastPage"]
+        self.results: list[ArtworkEntry] = []
+
+        for x in d["manga"]["data"]:
+            if x.get("isAdContainer"):
+                continue
+            self.results.append(ArtworkEntry(x))
+
 
 
 class SearchResultsNovel(SearchResultsBase):

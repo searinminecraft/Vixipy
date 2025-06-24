@@ -50,6 +50,20 @@ async def pixiv_request(
     _params = ""
     cookie_header = ""
 
+    try:
+        lang = request.cookies.get("Vixipy-Language") 
+    except Exception:
+        lang = "en"
+
+    params = params.copy()
+
+    params.append((
+        "lang", {
+            "en": "en",
+            "ja": "ja"
+        }.get(lang, "en"))
+    )
+
     for i, v in enumerate(params):
         if i == 0:
             _params += f"?{v[0]}={v[1]}"

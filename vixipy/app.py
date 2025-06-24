@@ -48,7 +48,7 @@ def create_app():
         ACCEPT_LANGUAGE="en_US,en;q=0.9",
         SECRET_KEY="Vyxie",
         INSTANCE_NAME="Vixipy",
-        LANGUAGES=[],
+        LANGUAGES=["en", "ja", "fil"],
         LOG_HTTP="1",
         LOG_PIXIV="1",
         CACHE_PIXIV_REQUESTS="0",

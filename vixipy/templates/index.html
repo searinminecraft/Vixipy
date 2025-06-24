@@ -26,8 +26,14 @@
     </section>
     {% endif %}
     {% for rt in rec_tag %}
+    {%- if request.cookies.get("Vixipy-Language", "en") != "en" %}
+    {% set preferred = rt.translation.orig or rt.name %}
+    {% else %}
+    {% set preferred = rt.translation.en or rt.translation.romaji or rt.translation.orig or rt.name %}
+    {% endif -%}
+
     <section>
-        <h2>{{_("Recommended illustrations tagged <a href='%(link)s' title='%(title)s'>#%(tag)s</a>", tag=rt.translation.en or rt.translation.romaji or rt.translation.orig or rt.name, title=rt.name, link=url_for("search.search_main", query=rt.name))}}</h2>
+        <h2>{{_("Recommended illustrations tagged <a href='%(link)s' title='%(title)s'>#%(tag)s</a>", tag=preferred, title=rt.name, link=url_for("search.search_main", query=rt.name))}}</h2>
         {% if config["DEBUG"] %}
         <pre>
 translation: {{rt.translation}}

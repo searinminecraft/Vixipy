@@ -1,4 +1,4 @@
-# Translations template for PROJECT.
+# Filipino translations for PROJECT.
 # Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-24 10:11+0800\n"
+"POT-Creation-Date: 2025-06-24 19:01+0800\n"
 "PO-Revision-Date: 2025-06-24 07:23+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:46
@@ -184,8 +183,8 @@ msgid ""
 "Looks like something went wrong. If you think this is a bug, file a "
 "report <a href='%(link)s'>here</a>"
 msgstr ""
-"Mukhang may maling nangyari. Kung sa tingin mo ay isa itong bug, mag-file ng "
-"ulat <a href='%(link)s'>dito</a>"
+"Mukhang may maling nangyari. Kung sa tingin mo ay isa itong bug, mag-file"
+" ng ulat <a href='%(link)s'>dito</a>"
 
 #: vixipy/templates/error.html:10
 msgid "Back to home"
@@ -204,7 +203,7 @@ msgstr "Mga gawa mula sa mga sinusundang user"
 msgid "Recommended works"
 msgstr "Mga inirerekomendang gawa"
 
-#: vixipy/templates/index.html:30
+#: vixipy/templates/index.html:36
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
@@ -213,7 +212,7 @@ msgstr ""
 "Mga inirerekomendang illustration na naka-tag na <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:53
+#: vixipy/templates/index.html:59
 msgid "Newest by all"
 msgstr "Pinakabago mula sa lahat"
 
@@ -241,8 +240,7 @@ msgstr ""
 
 #: vixipy/templates/login.html:20
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
-msgstr ""
-"Pakikipag-ugnayan sa gawa (tulad ng pag-like, bookmark, pagkomento, atbp.)"
+msgstr "Pakikipag-ugnayan sa gawa (tulad ng pag-like, bookmark, pagkomento, atbp.)"
 
 #: vixipy/templates/login.html:21
 msgid "Personalized landing"
@@ -259,8 +257,8 @@ msgid ""
 " attestation requirement."
 msgstr ""
 "Upang mag-sign in, kakailanganin mo ang <code>PHPSESSID</code> cookie ng "
-"iyong account. Hindi posible ang mga login gamit username at password dahil "
-"sa kinakailangan sa pagpapatunay ng reCAPTCHA enterprise."
+"iyong account. Hindi posible ang mga login gamit username at password "
+"dahil sa kinakailangan sa pagpapatunay ng reCAPTCHA enterprise."
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
@@ -365,10 +363,10 @@ msgid ""
 "Vixipy is provided to you as is, without warranty of any kind and will "
 "not be responsible for any action taken whatsoever."
 msgstr ""
-"Sa pamamagitan ng pag-post ng iyong gawa, sumasang-ayon ka sa Mga Tuntunin "
-"ng Serbisyo ng pixiv. Ang Vixipy ay ibinibigay sa iyo gaya ng dati, nang "
-"walang anumang uri ng warranty at hindi mananagot para sa anumang aksyon na "
-"ginawa kahit ano pa man."
+"Sa pamamagitan ng pag-post ng iyong gawa, sumasang-ayon ka sa Mga "
+"Tuntunin ng Serbisyo ng pixiv. Ang Vixipy ay ibinibigay sa iyo gaya ng "
+"dati, nang walang anumang uri ng warranty at hindi mananagot para sa "
+"anumang aksyon na ginawa kahit ano pa man."
 
 #: vixipy/templates/upload.html:66
 msgid "Post"
@@ -783,12 +781,23 @@ msgid "Account"
 msgstr "Account"
 
 #: vixipy/templates/settings/index.html:18
+#: vixipy/templates/settings/language.html:3
+#: vixipy/templates/settings/language.html:6
 msgid "Language and location"
 msgstr "Wika at lokasyon"
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
 msgstr "Tungkol sa"
+
+#: vixipy/templates/settings/language.html:9
+#, fuzzy
+msgid "Language"
+msgstr "Mga Manga"
+
+#: vixipy/templates/settings/language.html:20
+msgid "Set language"
+msgstr ""
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
@@ -850,3 +859,4 @@ msgstr "Sinusundan"
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
 msgstr "I-edit ang Profile"
+

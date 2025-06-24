@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-24 10:11+0800\n"
+"POT-Creation-Date: 2025-06-24 19:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,14 +198,14 @@ msgstr ""
 msgid "Recommended works"
 msgstr ""
 
-#: vixipy/templates/index.html:30
+#: vixipy/templates/index.html:36
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
 
-#: vixipy/templates/index.html:53
+#: vixipy/templates/index.html:59
 msgid "Newest by all"
 msgstr ""
 
@@ -765,11 +765,21 @@ msgid "Account"
 msgstr ""
 
 #: vixipy/templates/settings/index.html:18
+#: vixipy/templates/settings/language.html:3
+#: vixipy/templates/settings/language.html:6
 msgid "Language and location"
 msgstr ""
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
+msgstr ""
+
+#: vixipy/templates/settings/language.html:9
+msgid "Language"
+msgstr ""
+
+#: vixipy/templates/settings/language.html:20
+msgid "Set language"
 msgstr ""
 
 #: vixipy/templates/settings/main.html:9
