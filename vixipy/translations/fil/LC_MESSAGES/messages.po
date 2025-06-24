@@ -8,171 +8,175 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-24 10:11+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-24 06:49+0000\n"
+"Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:46
 msgid "Invalid token"
-msgstr ""
+msgstr "Hindi wastong token"
 
 #: vixipy/routes/login.py:73
 msgid "Unable to extract CSRF"
-msgstr ""
+msgstr "Hindi ma-extract ang CSRF"
 
 #: vixipy/templates/artworks.html:20
 #, python-format
 msgid "Page %(page)d of %(total)d"
-msgstr ""
+msgstr "Pahina %(page)d/%(total)d"
 
 #: vixipy/templates/artworks.html:38
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
-msgstr ""
+msgstr "Sundan"
 
 #: vixipy/templates/artworks.html:38
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
-msgstr ""
+msgstr "I-unfollow"
 
 #: vixipy/templates/artworks.html:43
 msgid "View all works"
-msgstr ""
+msgstr "Tignan ang lahat ng mga gawa"
 
 #: vixipy/templates/artworks.html:68
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
-msgstr ""
+msgstr "Antas ng sensitivity: %(sl)d"
 
 #: vixipy/templates/artworks.html:130 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr ""
+msgstr "Mga kaugnay na gawa"
 
 #: vixipy/templates/artworks.html:138
 msgid "No recommended works to show."
-msgstr ""
+msgstr "Walang mga inirerekomendang gawa na papakita."
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
-msgstr ""
+msgstr "I-edit ang profile"
 
 #: vixipy/templates/edit_profile.html:8
 msgid "Profile images"
-msgstr ""
+msgstr "Mga larawan ng profile"
 
 #: vixipy/templates/edit_profile.html:11
 msgid "Choose profile picture: "
-msgstr ""
+msgstr "Pumili ng larawan ng profile: "
 
 #: vixipy/templates/edit_profile.html:13
 msgid "Choose cover image: "
-msgstr ""
+msgstr "Pumili ng cover image: "
 
 #: vixipy/templates/edit_profile.html:19
 msgid "Max. 5MB"
-msgstr ""
+msgstr "Max. 5MB"
 
 #: vixipy/templates/edit_profile.html:27
 msgid "Max. 8MB"
-msgstr ""
+msgstr "Max. 8MB"
 
 #: vixipy/templates/edit_profile.html:32
 msgid "Nickname"
-msgstr ""
+msgstr "Palayaw"
 
 #: vixipy/templates/edit_profile.html:36
 msgid "Self introduction"
-msgstr ""
+msgstr "Pagpapakilala sa sarili"
 
 #: vixipy/templates/edit_profile.html:40
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: vixipy/templates/edit_profile.html:44
 msgid "Social media"
-msgstr ""
+msgstr "Social media"
 
 #: vixipy/templates/edit_profile.html:46
 msgid "Twitter/X ID"
-msgstr ""
+msgstr "Twitter/X ID"
 
 #: vixipy/templates/edit_profile.html:47
 msgid "Instagram ID"
-msgstr ""
+msgstr "Instagram ID"
 
 #: vixipy/templates/edit_profile.html:48
 msgid "Tumblr ID"
-msgstr ""
+msgstr "Tumblr ID"
 
 #: vixipy/templates/edit_profile.html:49
 msgid "Facebook ID"
-msgstr ""
+msgstr "Facebook ID"
 
 #: vixipy/templates/edit_profile.html:50
 msgid "Circle.ms ID"
-msgstr ""
+msgstr "Circle.ms ID"
 
 #: vixipy/templates/edit_profile.html:53
 msgid "Gender"
-msgstr ""
+msgstr "Kasarian"
 
 #: vixipy/templates/edit_profile.html:55
 msgid "Male"
-msgstr ""
+msgstr "Lalaki"
 
 #: vixipy/templates/edit_profile.html:56
 msgid "Female"
-msgstr ""
+msgstr "Babae"
 
 #: vixipy/templates/edit_profile.html:57
 msgid "Rather not say"
-msgstr ""
+msgstr "Sa halip ay hindi sabihin"
 
 #: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
 #: vixipy/templates/edit_profile.html:82 vixipy/templates/upload.html:41
 msgid "Public"
-msgstr ""
+msgstr "Pampubliko"
 
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
 #: vixipy/templates/edit_profile.html:83 vixipy/templates/upload.html:43
 msgid "My pixiv only"
-msgstr ""
+msgstr "Aking pixiv lamang"
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
 #: vixipy/templates/edit_profile.html:84 vixipy/templates/upload.html:44
 msgid "Private"
-msgstr ""
+msgstr "Pribado"
 
 #: vixipy/templates/edit_profile.html:66
 msgid "Birthday"
-msgstr ""
+msgstr "Kaarawan"
 
 #: vixipy/templates/edit_profile.html:72
 msgid "Birth year privacy"
-msgstr ""
+msgstr "Privacy sa taon ng pagsilang"
 
 #: vixipy/templates/edit_profile.html:80
 msgid "Birthday privacy"
-msgstr ""
+msgstr "Privacy sa kaarawan"
 
 #: vixipy/templates/edit_profile.html:88
 msgid "Save Changes"
-msgstr ""
+msgstr "I-save ang Mga Pagbabago"
 
 #: vixipy/templates/error.html:2
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: vixipy/templates/error.html:7
 msgid "An error occurred."
-msgstr ""
+msgstr "May nangyaring error."
 
 #: vixipy/templates/error.html:8
 #, python-format
@@ -180,23 +184,25 @@ msgid ""
 "Looks like something went wrong. If you think this is a bug, file a "
 "report <a href='%(link)s'>here</a>"
 msgstr ""
+"Mukhang may maling nangyari. Kung sa tingin mo ay isa itong bug, mag-file ng "
+"ulat <a href='%(link)s'>dito</a>"
 
 #: vixipy/templates/error.html:10
 msgid "Back to home"
-msgstr ""
+msgstr "Bumalik sa panimula"
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
 #: vixipy/templates/users/base.html:55
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
-msgstr ""
+msgstr "Mga gawa mula sa mga sinusundang user"
 
 #: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
-msgstr ""
+msgstr "Mga inirerekomendang gawa"
 
 #: vixipy/templates/index.html:30
 #, python-format
@@ -204,38 +210,43 @@ msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
+"Mga inirerekomendang illustration na naka-tag na <a href='%(link)s' "
+"title='%(title)s'>#%(tag)s</a>"
 
 #: vixipy/templates/index.html:53
 msgid "Newest by all"
-msgstr ""
+msgstr "Pinakabago mula sa lahat"
 
 #: vixipy/templates/index_logged_out.html:16
 #, python-format
 msgid "Ranking for %(date)s"
-msgstr ""
+msgstr "Ranking para sa %(date)s"
 
 #: vixipy/templates/index_logged_out.html:24
 #: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
 msgid "View All"
-msgstr ""
+msgstr "Tignan Lahat"
 
 #: vixipy/templates/login.html:6
 msgid "Sign in"
-msgstr ""
+msgstr "Mag-sign in"
 
 #: vixipy/templates/login.html:18
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
 msgstr ""
+"Mag-sign in sa iyong pixiv account para ma-access ang mga feature na "
+"karaniwang nangangailangan nito, gaya ng:"
 
 #: vixipy/templates/login.html:20
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
 msgstr ""
+"Pakikipag-ugnayan sa gawa (tulad ng pag-like, bookmark, pagkomento, atbp.)"
 
 #: vixipy/templates/login.html:21
 msgid "Personalized landing"
-msgstr ""
+msgstr "Naka-personalize na landing"
 
 #: vixipy/templates/login.html:22
 msgid "<b>Coming soon:</b> work uploads"
@@ -247,103 +258,106 @@ msgid ""
 "Username and password logins are not possible due to reCAPTCHA enterprise"
 " attestation requirement."
 msgstr ""
+"Upang mag-sign in, kakailanganin mo ang <code>PHPSESSID</code> cookie ng "
+"iyong account. Hindi posible ang mga login gamit username at password dahil "
+"sa kinakailangan sa pagpapatunay ng reCAPTCHA enterprise."
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
-msgstr ""
+msgstr "I-submit ang Illustration"
 
 #: vixipy/templates/upload.html:9
 msgid "Files"
-msgstr ""
+msgstr "Mga File"
 
 #: vixipy/templates/upload.html:13
 msgid "Basic Information"
-msgstr ""
+msgstr "Pangunahing Impormasyon"
 
 #: vixipy/templates/upload.html:14
 msgid "Title"
-msgstr ""
+msgstr "Paksa"
 
 #: vixipy/templates/upload.html:17
 msgid "Caption"
-msgstr ""
+msgstr "Caption"
 
 #: vixipy/templates/upload.html:20
 msgid "Tags"
-msgstr ""
+msgstr "Mga Tag"
 
 #: vixipy/templates/upload.html:22
 msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
-msgstr ""
+msgstr "Max. 10 tag, ihiwalay gamit ang kuwit. Tinatanggal ang whitespace."
 
 #: vixipy/templates/upload.html:24
 msgid "Don't allow users to edit tags"
-msgstr ""
+msgstr "Huwag payagan ang mga user na baguhin ang mga tag"
 
 #: vixipy/templates/upload.html:28
 msgid "Content and Privacy"
-msgstr ""
+msgstr "Nilalaman at Pagkapribado"
 
 #: vixipy/templates/upload.html:29
 msgid "AI-generated work"
-msgstr ""
+msgstr "Gawang binuo ng AI"
 
 #: vixipy/templates/upload.html:30
 msgid "Allow comments"
-msgstr ""
+msgstr "Payagan ang mga komento"
 
 #: vixipy/templates/upload.html:31
 msgid "Original work"
-msgstr ""
+msgstr "Orihinal na gawa"
 
 #: vixipy/templates/upload.html:34
 msgid "Visible to"
-msgstr ""
+msgstr "Nakikita ng"
 
 #: vixipy/templates/upload.html:35
 msgid "All Ages"
-msgstr ""
+msgstr "Lahat ng Mga Edad"
 
 #: vixipy/templates/upload.html:40
 msgid "Open to"
-msgstr ""
+msgstr "Bukas sa"
 
 #: vixipy/templates/upload.html:42
 msgid "Logged-in users only"
-msgstr ""
+msgstr "Naka-log in na user lamang"
 
 #: vixipy/templates/upload.html:47
 msgid "Adult Content"
-msgstr ""
+msgstr "Pang-adultong Nilalaman"
 
 #: vixipy/templates/upload.html:48
 msgid "Yes"
-msgstr ""
+msgstr "Oo"
 
 #: vixipy/templates/upload.html:49
 msgid "No"
-msgstr ""
+msgstr "Hindi"
 
 #: vixipy/templates/upload.html:52
 msgid "Mature Content"
-msgstr ""
+msgstr "Mature na Nilalaman"
 
 #: vixipy/templates/upload.html:53
 msgid "Minors"
-msgstr ""
+msgstr "Mga menor de edad"
 
 #: vixipy/templates/upload.html:54
 msgid "Furry"
-msgstr ""
+msgstr "Furry"
 
 #: vixipy/templates/upload.html:55
 msgid "BL"
-msgstr ""
+msgstr "BL"
 
 #: vixipy/templates/components/novel-entry.html:42
 #: vixipy/templates/upload.html:56
 msgid "Yuri"
-msgstr ""
+msgstr "Yuri"
 
 #: vixipy/templates/upload.html:63
 msgid ""
@@ -351,19 +365,23 @@ msgid ""
 "Vixipy is provided to you as is, without warranty of any kind and will "
 "not be responsible for any action taken whatsoever."
 msgstr ""
+"Sa pamamagitan ng pag-post ng iyong gawa, sumasang-ayon ka sa Mga Tuntunin "
+"ng Serbisyo ng pixiv. Ang Vixipy ay ibinibigay sa iyo gaya ng dati, nang "
+"walang anumang uri ng warranty at hindi mananagot para sa anumang aksyon na "
+"ginawa kahit ano pa man."
 
 #: vixipy/templates/upload.html:66
 msgid "Post"
-msgstr ""
+msgstr "I-post"
 
 #: vixipy/templates/components/header.html:4
 msgid "Debug"
-msgstr ""
+msgstr "Debug"
 
 #: vixipy/templates/components/header.html:7
 #: vixipy/templates/search/dashboard.html:2
 msgid "Search"
-msgstr ""
+msgstr "Maghanap"
 
 #: vixipy/templates/components/header.html:10
 #: vixipy/templates/novels/index.html:2 vixipy/templates/search/illust.html:9
@@ -372,106 +390,106 @@ msgstr ""
 #: vixipy/templates/search/novel.html:15 vixipy/templates/users/base.html:73
 #: vixipy/templates/users/novels.html:9
 msgid "Novels"
-msgstr ""
+msgstr "Mga Nobela"
 
 #: vixipy/templates/components/header.html:11
 #: vixipy/templates/discovery/index.html:3
 #: vixipy/templates/discovery/index.html:9
 msgid "Discovery"
-msgstr ""
+msgstr "Pagtuklas"
 
 #: vixipy/templates/components/header.html:14
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
 msgid "Settings"
-msgstr ""
+msgstr "Mga Setting"
 
 #: vixipy/templates/components/header.html:18
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 msgid "Bookmarks"
-msgstr ""
+msgstr "Mga Bookmark"
 
 #: vixipy/templates/components/header.html:21
 msgid "Notifications"
-msgstr ""
+msgstr "Mga Abiso"
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
-msgstr ""
+msgstr "Orihinal"
 
 #: vixipy/templates/components/novel-entry.html:18
 #: vixipy/templates/novels/novel.html:46
 msgid "Series"
-msgstr ""
+msgstr "Serye"
 
 #: vixipy/templates/components/novel-entry.html:19
 msgid "Oneshot"
-msgstr ""
+msgstr "Oneshot"
 
 #: vixipy/templates/components/novel-entry.html:22
 msgid "Romance"
-msgstr ""
+msgstr "Pagmamahalan"
 
 #: vixipy/templates/components/novel-entry.html:24
 msgid "Isekai fantasy"
-msgstr ""
+msgstr "Isekai na pantasya"
 
 #: vixipy/templates/components/novel-entry.html:26
 msgid "Contemporary fantasy"
-msgstr ""
+msgstr "Kontemporaryong pantasya"
 
 #: vixipy/templates/components/novel-entry.html:28
 msgid "Mystery"
-msgstr ""
+msgstr "Misteryo"
 
 #: vixipy/templates/components/novel-entry.html:30
 msgid "Horror"
-msgstr ""
+msgstr "Katatakutan"
 
 #: vixipy/templates/components/novel-entry.html:32
 msgid "Sci-fi"
-msgstr ""
+msgstr "Sayens piksyon"
 
 #: vixipy/templates/components/novel-entry.html:34
 msgid "Literature"
-msgstr ""
+msgstr "Panitikan"
 
 #: vixipy/templates/components/novel-entry.html:36
 msgid "Drama"
-msgstr ""
+msgstr "Dula"
 
 #: vixipy/templates/components/novel-entry.html:38
 msgid "Historical pieces"
-msgstr ""
+msgstr "Makasaysayang mga piraso"
 
 #: vixipy/templates/components/novel-entry.html:40
 msgid "BL (yaoi)"
-msgstr ""
+msgstr "BL (yaoi)"
 
 #: vixipy/templates/components/novel-entry.html:44
 msgid "For kids"
-msgstr ""
+msgstr "Para sa mga bata"
 
 #: vixipy/templates/components/novel-entry.html:46
 msgid "Poetry"
-msgstr ""
+msgstr "Tula"
 
 #: vixipy/templates/components/novel-entry.html:48
 msgid "Essays/non-fiction"
-msgstr ""
+msgstr "Mga sanaysay/non-fiction"
 
 #: vixipy/templates/components/novel-entry.html:50
 msgid "Screenplays/scripts"
-msgstr ""
+msgstr "Senaryo/mga script"
 
 #: vixipy/templates/components/novel-entry.html:52
 msgid "Reviews/opinion pieces"
-msgstr ""
+msgstr "Mga review/opinyon"
 
 #: vixipy/templates/components/novel-entry.html:54
 msgid "Other"
-msgstr ""
+msgstr "Iba"
 
 #: vixipy/templates/components/novel-entry.html:75
 #, python-format
@@ -486,250 +504,250 @@ msgstr ""
 #: vixipy/templates/components/paginator.html:6
 #, python-format
 msgid "Page %(current)d of %(last)d"
-msgstr ""
+msgstr "Pahina %(current)d/%(last)d"
 
 #: vixipy/templates/components/tag-search-filter.html:4
 #: vixipy/templates/components/tag-search-filter.html:19
 msgid "Search options"
-msgstr ""
+msgstr "Mga opsyon sa paghahanap"
 
 #: vixipy/templates/components/tag-search-filter.html:21
 msgid "Keywords"
-msgstr ""
+msgstr "Mga Keyword"
 
 #: vixipy/templates/components/tag-search-filter.html:26
 msgid "Target"
-msgstr ""
+msgstr "Target"
 
 #: vixipy/templates/components/tag-search-filter.html:28
 msgid "Tags (perfect match)"
-msgstr ""
+msgstr "Mga Tag (perpektong tugma)"
 
 #: vixipy/templates/components/tag-search-filter.html:29
 msgid "Tags (partial match)"
-msgstr ""
+msgstr "Mga Tag (bahagyang tugma)"
 
 #: vixipy/templates/components/tag-search-filter.html:30
 msgid "Title/caption"
-msgstr ""
+msgstr "Paksa/caption"
 
 #: vixipy/templates/components/tag-search-filter.html:36
 msgid "Filters"
-msgstr ""
+msgstr "Mga Filter"
 
 #: vixipy/templates/components/tag-search-filter.html:38
 msgid "Mode"
-msgstr ""
+msgstr "Mode"
 
 #: vixipy/templates/components/tag-search-filter.html:40
 msgid "All"
-msgstr ""
+msgstr "Lahat"
 
 #: vixipy/templates/components/tag-search-filter.html:41
 msgid "Safe"
-msgstr ""
+msgstr "Ligtas"
 
 #: vixipy/templates/components/tag-search-filter.html:42
 msgid "R-18"
-msgstr ""
+msgstr "R-18"
 
 #: vixipy/templates/components/tag-search-filter.html:47
 msgid "Width"
-msgstr ""
+msgstr "Lapad"
 
 #: vixipy/templates/components/tag-search-filter.html:49
 #: vixipy/templates/components/tag-search-filter.html:56
 msgid "min"
-msgstr ""
+msgstr "min"
 
 #: vixipy/templates/components/tag-search-filter.html:50
 #: vixipy/templates/components/tag-search-filter.html:57
 msgid "max"
-msgstr ""
+msgstr "max"
 
 #: vixipy/templates/components/tag-search-filter.html:54
 msgid "Height"
-msgstr ""
+msgstr "Taas"
 
 #: vixipy/templates/components/tag-search-filter.html:61
 msgid "Ratio"
-msgstr ""
+msgstr "Ratio"
 
 #: vixipy/templates/components/tag-search-filter.html:63
 msgid "All ratios"
-msgstr ""
+msgstr "Lahat ng mga ratio"
 
 #: vixipy/templates/components/tag-search-filter.html:64
 msgid "Horizontal"
-msgstr ""
+msgstr "Pahalang"
 
 #: vixipy/templates/components/tag-search-filter.html:65
 msgid "Vertical"
-msgstr ""
+msgstr "Patayo"
 
 #: vixipy/templates/components/tag-search-filter.html:66
 msgid "Square"
-msgstr ""
+msgstr "Parisukat"
 
 #: vixipy/templates/components/tag-search-filter.html:71
 msgid "Tool"
-msgstr ""
+msgstr "Kagamitan"
 
 #: vixipy/templates/components/tag-search-filter.html:72
 msgid "All tools"
-msgstr ""
+msgstr "Lahat ng mga kagamitan"
 
 #: vixipy/templates/components/tag-search-filter.html:182
 msgid "Period"
-msgstr ""
+msgstr "Panahon"
 
 #: vixipy/templates/components/tag-search-filter.html:190
 msgid "Apply"
-msgstr ""
+msgstr "I-apply"
 
 #: vixipy/templates/discovery/illustrations.html:14
 msgid "Nothing to recommend. Sorry!"
-msgstr ""
+msgstr "Walang irerekomenda. Paumanhin!"
 
 #: vixipy/templates/discovery/illustrations.html:17
 msgid "Reload"
-msgstr ""
+msgstr "I-reload"
 
 #: vixipy/templates/discovery/index.html:15
 msgid "Recommended illustrations"
-msgstr ""
+msgstr "Mga inirerekomendang larawan"
 
 #: vixipy/templates/discovery/index.html:21
 msgid "Recommended users"
-msgstr ""
+msgstr "Mga inirerekomendang user"
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"
-msgstr ""
+msgstr "Mga popular na orihinal na nobela"
 
 #: vixipy/templates/novels/index.html:46
 msgid "Daily ranking"
-msgstr ""
+msgstr "Araw-araw na ranggo"
 
 #: vixipy/templates/novels/index.html:47 vixipy/templates/novels/index.html:60
 #: vixipy/templates/novels/index.html:73
 #, python-format
 msgid "%(date)s ranking"
-msgstr ""
+msgstr "Ranggo sa %(date)s"
 
 #: vixipy/templates/novels/index.html:59
 msgid "Popularity ranking among male users"
-msgstr ""
+msgstr "Ranggo ng katanyagan sa mga lalaking gumagamit"
 
 #: vixipy/templates/novels/index.html:72
 msgid "Popularity ranking among female users"
-msgstr ""
+msgstr "Ranggo ng katanyagan sa mga babaeng gumagamit"
 
 #: vixipy/templates/novels/novel.html:32 vixipy/templates/novels/series.html:25
 msgid "No description"
-msgstr ""
+msgstr "Walang paglalarawan"
 
 #: vixipy/templates/novels/series.html:32
 #, python-format
 msgid "%(ep)s Episode(s)"
-msgstr ""
+msgstr "%(ep)s (mga) Episode"
 
 #: vixipy/templates/novels/series.html:33
 #, python-format
 msgid "Updated on %(date)s"
-msgstr ""
+msgstr "Na-update noong %(date)s"
 
 #: vixipy/templates/novels/series.html:34
 #, python-format
 msgid "%(cc)s Character(s)"
-msgstr ""
+msgstr "%(cc)s (mga) Karakter"
 
 #: vixipy/templates/novels/series.html:35
 #, python-format
 msgid "%(cc)s Word(s)"
-msgstr ""
+msgstr "%(cc)s (mga) Salita"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
-msgstr ""
+msgstr "Maghanap ng mga gawa…"
 
 #: vixipy/templates/search/dashboard.html:22
 msgid "Popular illust tags"
-msgstr ""
+msgstr "Mga popular na tag ng larawan"
 
 #: vixipy/templates/search/dashboard.html:29
 #, python-format
 msgid "#%(tag)s recommended works"
-msgstr ""
+msgstr "Mga inirerekomendang gawa ng #%(tag)s"
 
 #: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
 #: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
 msgid "Top"
-msgstr ""
+msgstr "Top"
 
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
 #: vixipy/templates/users/illust.html:9
 msgid "Illustrations"
-msgstr ""
+msgstr "Mga Larawan"
 
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
 #: vixipy/templates/users/manga.html:9
 msgid "Manga"
-msgstr ""
+msgstr "Mga Manga"
 
 #: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
 #: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
 msgid "User"
-msgstr ""
+msgstr "Mga User"
 
 #: vixipy/templates/search/illust.html:24 vixipy/templates/search/main.html:57
 #: vixipy/templates/search/manga.html:23 vixipy/templates/search/novel.html:25
 msgid "No matching results found."
-msgstr ""
+msgstr "Walang mga tumutugma na resulta na nahanap."
 
 #: vixipy/templates/search/index.html:2
 #, python-format
 msgid "Results for %(tag)s"
-msgstr ""
+msgstr "Mga resulta para sa %(tag)s"
 
 #: vixipy/templates/search/index.html:24
 #, python-format
 msgid "<b>%(total)s</b> Works"
-msgstr ""
+msgstr "<b>%(total)s</b> (mga) Gawa"
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
-msgstr ""
+msgstr "Mga Sikat na Gawa"
 
 #: vixipy/templates/search/main.html:17
 msgid "Recent"
-msgstr ""
+msgstr "Kamakailan"
 
 #: vixipy/templates/search/main.html:25
 msgid "All Time"
-msgstr ""
+msgstr "Lahat ng Oras"
 
 #: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:6
 msgid "Illustrations and Manga"
-msgstr ""
+msgstr "Mga Larawan at Manga"
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
 #: vixipy/templates/settings/index.html:17
 msgid "Display settings"
-msgstr ""
+msgstr "Mga setting ng pag-display"
 
 #: vixipy/templates/settings/display.html:8
 msgid "Work content"
-msgstr ""
+msgstr "Nilalaman ng gawa"
 
 #: vixipy/templates/settings/display.html:20
 msgid "Hide AI-generated work"
-msgstr ""
+msgstr "Itago ang mga gawang binuo ng AI"
 
 #: vixipy/templates/settings/display.html:24
 msgid "Hide works that may contain sensitive content"
