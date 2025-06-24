@@ -8,171 +8,175 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-24 19:01+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-24 20:05+0000\n"
+"Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:46
 msgid "Invalid token"
-msgstr ""
+msgstr "Недійсний токен"
 
 #: vixipy/routes/login.py:73
 msgid "Unable to extract CSRF"
-msgstr ""
+msgstr "Не вдається витягти CSRF"
 
 #: vixipy/templates/artworks.html:20
 #, python-format
 msgid "Page %(page)d of %(total)d"
-msgstr ""
+msgstr "Сторінка %(page)d з %(total)d"
 
 #: vixipy/templates/artworks.html:38
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
-msgstr ""
+msgstr "Стежити"
 
 #: vixipy/templates/artworks.html:38
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
-msgstr ""
+msgstr "Не стежити"
 
 #: vixipy/templates/artworks.html:43
 msgid "View all works"
-msgstr ""
+msgstr "Усі роботи"
 
 #: vixipy/templates/artworks.html:68
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
-msgstr ""
+msgstr "Рівень чутливості: %(sl)d"
 
 #: vixipy/templates/artworks.html:130 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr ""
+msgstr "Пов'язані роботи"
 
 #: vixipy/templates/artworks.html:138
 msgid "No recommended works to show."
-msgstr ""
+msgstr "Немає рекомендованих робіт для показу."
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
-msgstr ""
+msgstr "Редагувати профіль"
 
 #: vixipy/templates/edit_profile.html:8
 msgid "Profile images"
-msgstr ""
+msgstr "Зображення профілю"
 
 #: vixipy/templates/edit_profile.html:11
 msgid "Choose profile picture: "
-msgstr ""
+msgstr "Виберіть зображення профілю "
 
 #: vixipy/templates/edit_profile.html:13
 msgid "Choose cover image: "
-msgstr ""
+msgstr "Виберіть зображення для обкладинки "
 
 #: vixipy/templates/edit_profile.html:19
 msgid "Max. 5MB"
-msgstr ""
+msgstr "Не більше 5 МБ"
 
 #: vixipy/templates/edit_profile.html:27
 msgid "Max. 8MB"
-msgstr ""
+msgstr "Не більше 8 МБ"
 
 #: vixipy/templates/edit_profile.html:32
 msgid "Nickname"
-msgstr ""
+msgstr "Псевдонім"
 
 #: vixipy/templates/edit_profile.html:36
 msgid "Self introduction"
-msgstr ""
+msgstr "Про себе"
 
 #: vixipy/templates/edit_profile.html:40
 msgid "Website"
-msgstr ""
+msgstr "Вебсайт"
 
 #: vixipy/templates/edit_profile.html:44
 msgid "Social media"
-msgstr ""
+msgstr "Соцмережі"
 
 #: vixipy/templates/edit_profile.html:46
 msgid "Twitter/X ID"
-msgstr ""
+msgstr "Twitter/X ID"
 
 #: vixipy/templates/edit_profile.html:47
 msgid "Instagram ID"
-msgstr ""
+msgstr "Instagram ID"
 
 #: vixipy/templates/edit_profile.html:48
 msgid "Tumblr ID"
-msgstr ""
+msgstr "Tumblr ID"
 
 #: vixipy/templates/edit_profile.html:49
 msgid "Facebook ID"
-msgstr ""
+msgstr "Facebook ID"
 
 #: vixipy/templates/edit_profile.html:50
 msgid "Circle.ms ID"
-msgstr ""
+msgstr "Circle.ms ID"
 
 #: vixipy/templates/edit_profile.html:53
 msgid "Gender"
-msgstr ""
+msgstr "Стать"
 
 #: vixipy/templates/edit_profile.html:55
 msgid "Male"
-msgstr ""
+msgstr "Чоловіча"
 
 #: vixipy/templates/edit_profile.html:56
 msgid "Female"
-msgstr ""
+msgstr "Жіноча"
 
 #: vixipy/templates/edit_profile.html:57
 msgid "Rather not say"
-msgstr ""
+msgstr "Волію не вказувати"
 
 #: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
 #: vixipy/templates/edit_profile.html:82 vixipy/templates/upload.html:41
 msgid "Public"
-msgstr ""
+msgstr "Загальнодоступний"
 
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
 #: vixipy/templates/edit_profile.html:83 vixipy/templates/upload.html:43
 msgid "My pixiv only"
-msgstr ""
+msgstr "Тільки мій pixiv"
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
 #: vixipy/templates/edit_profile.html:84 vixipy/templates/upload.html:44
 msgid "Private"
-msgstr ""
+msgstr "Приватний"
 
 #: vixipy/templates/edit_profile.html:66
 msgid "Birthday"
-msgstr ""
+msgstr "Дата народження"
 
 #: vixipy/templates/edit_profile.html:72
 msgid "Birth year privacy"
-msgstr ""
+msgstr "Конфіденційність щодо року народження"
 
 #: vixipy/templates/edit_profile.html:80
 msgid "Birthday privacy"
-msgstr ""
+msgstr "Конфіденційність щодо дати народження"
 
 #: vixipy/templates/edit_profile.html:88
 msgid "Save Changes"
-msgstr ""
+msgstr "Зберегти зміни"
 
 #: vixipy/templates/error.html:2
 msgid "Error"
-msgstr ""
+msgstr "Помилка"
 
 #: vixipy/templates/error.html:7
 msgid "An error occurred."
-msgstr ""
+msgstr "Виникла помилка."
 
 #: vixipy/templates/error.html:8
 #, python-format
@@ -180,23 +184,25 @@ msgid ""
 "Looks like something went wrong. If you think this is a bug, file a "
 "report <a href='%(link)s'>here</a>"
 msgstr ""
+"Щось пішло не так. Якщо ви гадаєте, що це недолік, надішліть звіт про "
+"помилку <a href='%(link)s'>сюди</a>"
 
 #: vixipy/templates/error.html:10
 msgid "Back to home"
-msgstr ""
+msgstr "Повернутися додому"
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
 #: vixipy/templates/users/base.html:55
 msgid "Home"
-msgstr ""
+msgstr "Домівка"
 
 #: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
-msgstr ""
+msgstr "Роботи користувачів, за якими ви стежите"
 
 #: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
-msgstr ""
+msgstr "Рекомендовані роботи"
 
 #: vixipy/templates/index.html:36
 #, python-format
@@ -204,42 +210,47 @@ msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
+"Рекомендовані ілюстрації з тегом <a href='%(link)s' "
+"title='%(title)s'>#%(tag)s</a>"
 
 #: vixipy/templates/index.html:59
 msgid "Newest by all"
-msgstr ""
+msgstr "Нове від усіх"
 
 #: vixipy/templates/index_logged_out.html:16
 #, python-format
 msgid "Ranking for %(date)s"
-msgstr ""
+msgstr "Рейтинг за %(date)s"
 
 #: vixipy/templates/index_logged_out.html:24
 #: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
 msgid "View All"
-msgstr ""
+msgstr "Переглянути всі"
 
 #: vixipy/templates/login.html:6
 msgid "Sign in"
-msgstr ""
+msgstr "Увійти"
 
 #: vixipy/templates/login.html:18
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
 msgstr ""
+"Увійдіть у свій обліковий запис pixiv, щоб отримати доступ до функцій, які "
+"потребують облікового запису, а саме:"
 
 #: vixipy/templates/login.html:20
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
 msgstr ""
+"Взаємодія, як-от уподобання робіт, коментування, додавання в закладки тощо"
 
 #: vixipy/templates/login.html:21
 msgid "Personalized landing"
-msgstr ""
+msgstr "Персоналізована цільова сторінка"
 
 #: vixipy/templates/login.html:22
 msgid "<b>Coming soon:</b> work uploads"
-msgstr ""
+msgstr "<b>Уже скоро:</b> публікація робіт"
 
 #: vixipy/templates/login.html:24
 msgid ""
@@ -247,103 +258,106 @@ msgid ""
 "Username and password logins are not possible due to reCAPTCHA enterprise"
 " attestation requirement."
 msgstr ""
+"Щоб увійти, вам знадобиться файл cookie <code>PHPSESSID</code> вашого "
+"облікового запису. Вхід за допомогою імені користувача та пароля неможливий "
+"через обов'язкову перевірку reCAPTCHA."
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
-msgstr ""
+msgstr "Опублікувати ілюстрацію"
 
 #: vixipy/templates/upload.html:9
 msgid "Files"
-msgstr ""
+msgstr "Файли"
 
 #: vixipy/templates/upload.html:13
 msgid "Basic Information"
-msgstr ""
+msgstr "Основні відомості"
 
 #: vixipy/templates/upload.html:14
 msgid "Title"
-msgstr ""
+msgstr "Назва"
 
 #: vixipy/templates/upload.html:17
 msgid "Caption"
-msgstr ""
+msgstr "Опис"
 
 #: vixipy/templates/upload.html:20
 msgid "Tags"
-msgstr ""
+msgstr "Теги"
 
 #: vixipy/templates/upload.html:22
 msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
-msgstr ""
+msgstr "Максимум 10 тегів, розділених комою. Пробіли видаляються."
 
 #: vixipy/templates/upload.html:24
 msgid "Don't allow users to edit tags"
-msgstr ""
+msgstr "Не дозволяти користувачам редагувати теги"
 
 #: vixipy/templates/upload.html:28
 msgid "Content and Privacy"
-msgstr ""
+msgstr "Вміст і конфіденційність"
 
 #: vixipy/templates/upload.html:29
 msgid "AI-generated work"
-msgstr ""
+msgstr "Створено ШІ"
 
 #: vixipy/templates/upload.html:30
 msgid "Allow comments"
-msgstr ""
+msgstr "Дозволити коментарі"
 
 #: vixipy/templates/upload.html:31
 msgid "Original work"
-msgstr ""
+msgstr "Оригінальна робота"
 
 #: vixipy/templates/upload.html:34
 msgid "Visible to"
-msgstr ""
+msgstr "Видимість для"
 
 #: vixipy/templates/upload.html:35
 msgid "All Ages"
-msgstr ""
+msgstr "Будь-який вік"
 
 #: vixipy/templates/upload.html:40
 msgid "Open to"
-msgstr ""
+msgstr "Відкрити для"
 
 #: vixipy/templates/upload.html:42
 msgid "Logged-in users only"
-msgstr ""
+msgstr "Тільки авторизовані користувачі"
 
 #: vixipy/templates/upload.html:47
 msgid "Adult Content"
-msgstr ""
+msgstr "Вміст для дорослих (Adult)"
 
 #: vixipy/templates/upload.html:48
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: vixipy/templates/upload.html:49
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: vixipy/templates/upload.html:52
 msgid "Mature Content"
-msgstr ""
+msgstr "Відвертий вміст (Mature)"
 
 #: vixipy/templates/upload.html:53
 msgid "Minors"
-msgstr ""
+msgstr "Неповнолітні"
 
 #: vixipy/templates/upload.html:54
 msgid "Furry"
-msgstr ""
+msgstr "Фурі"
 
 #: vixipy/templates/upload.html:55
 msgid "BL"
-msgstr ""
+msgstr "BL"
 
 #: vixipy/templates/components/novel-entry.html:42
 #: vixipy/templates/upload.html:56
 msgid "Yuri"
-msgstr ""
+msgstr "Юрі"
 
 #: vixipy/templates/upload.html:63
 msgid ""
@@ -351,19 +365,22 @@ msgid ""
 "Vixipy is provided to you as is, without warranty of any kind and will "
 "not be responsible for any action taken whatsoever."
 msgstr ""
+"Публікуючи свою роботу, ви погоджуєтеся з Умовами використання сервісу "
+"pixiv. Vixipy надано вам як є, без жодних гарантій; ми не несемо "
+"відповідальності за будь-які дії."
 
 #: vixipy/templates/upload.html:66
 msgid "Post"
-msgstr ""
+msgstr "Опублікувати"
 
 #: vixipy/templates/components/header.html:4
 msgid "Debug"
-msgstr ""
+msgstr "Налагодження"
 
 #: vixipy/templates/components/header.html:7
 #: vixipy/templates/search/dashboard.html:2
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 #: vixipy/templates/components/header.html:10
 #: vixipy/templates/novels/index.html:2 vixipy/templates/search/illust.html:9
@@ -372,471 +389,473 @@ msgstr ""
 #: vixipy/templates/search/novel.html:15 vixipy/templates/users/base.html:73
 #: vixipy/templates/users/novels.html:9
 msgid "Novels"
-msgstr ""
+msgstr "Романи"
 
 #: vixipy/templates/components/header.html:11
 #: vixipy/templates/discovery/index.html:3
 #: vixipy/templates/discovery/index.html:9
 msgid "Discovery"
-msgstr ""
+msgstr "Огляд"
 
 #: vixipy/templates/components/header.html:14
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 #: vixipy/templates/components/header.html:18
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 msgid "Bookmarks"
-msgstr ""
+msgstr "Закладки"
 
 #: vixipy/templates/components/header.html:21
 msgid "Notifications"
-msgstr ""
+msgstr "Сповіщення"
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
-msgstr ""
+msgstr "Оригінал"
 
 #: vixipy/templates/components/novel-entry.html:18
 #: vixipy/templates/novels/novel.html:46
 msgid "Series"
-msgstr ""
+msgstr "Серії"
 
 #: vixipy/templates/components/novel-entry.html:19
 msgid "Oneshot"
-msgstr ""
+msgstr "Ван-шот"
 
 #: vixipy/templates/components/novel-entry.html:22
 msgid "Romance"
-msgstr ""
+msgstr "Романтика"
 
 #: vixipy/templates/components/novel-entry.html:24
 msgid "Isekai fantasy"
-msgstr ""
+msgstr "Ісекай"
 
 #: vixipy/templates/components/novel-entry.html:26
 msgid "Contemporary fantasy"
-msgstr ""
+msgstr "Сучасне фентезі"
 
 #: vixipy/templates/components/novel-entry.html:28
 msgid "Mystery"
-msgstr ""
+msgstr "Містика"
 
 #: vixipy/templates/components/novel-entry.html:30
 msgid "Horror"
-msgstr ""
+msgstr "Жахи"
 
 #: vixipy/templates/components/novel-entry.html:32
 msgid "Sci-fi"
-msgstr ""
+msgstr "Наукова фантастика"
 
 #: vixipy/templates/components/novel-entry.html:34
 msgid "Literature"
-msgstr ""
+msgstr "Література"
 
 #: vixipy/templates/components/novel-entry.html:36
 msgid "Drama"
-msgstr ""
+msgstr "Драма"
 
 #: vixipy/templates/components/novel-entry.html:38
 msgid "Historical pieces"
-msgstr ""
+msgstr "Історичні твори"
 
 #: vixipy/templates/components/novel-entry.html:40
 msgid "BL (yaoi)"
-msgstr ""
+msgstr "BL (яой)"
 
 #: vixipy/templates/components/novel-entry.html:44
 msgid "For kids"
-msgstr ""
+msgstr "Для дітей"
 
 #: vixipy/templates/components/novel-entry.html:46
 msgid "Poetry"
-msgstr ""
+msgstr "Поезія"
 
 #: vixipy/templates/components/novel-entry.html:48
 msgid "Essays/non-fiction"
-msgstr ""
+msgstr "Есе / Документальна література"
 
 #: vixipy/templates/components/novel-entry.html:50
 msgid "Screenplays/scripts"
-msgstr ""
+msgstr "Сценарії"
 
 #: vixipy/templates/components/novel-entry.html:52
 msgid "Reviews/opinion pieces"
-msgstr ""
+msgstr "Оглядові / публіцистичні статті"
 
 #: vixipy/templates/components/novel-entry.html:54
 msgid "Other"
-msgstr ""
+msgstr "Інше"
 
 #: vixipy/templates/components/novel-entry.html:75
 #, python-format
 msgid "%(wc)s words(s)"
-msgstr ""
+msgstr "%(wc)s слів"
 
 #: vixipy/templates/components/novel-entry.html:76
 #, python-format
 msgid "%(cc)s character(s)"
-msgstr ""
+msgstr "%(cc)s знаків"
 
 #: vixipy/templates/components/paginator.html:6
 #, python-format
 msgid "Page %(current)d of %(last)d"
-msgstr ""
+msgstr "Сторінка %(current)d з %(last)d"
 
 #: vixipy/templates/components/tag-search-filter.html:4
 #: vixipy/templates/components/tag-search-filter.html:19
 msgid "Search options"
-msgstr ""
+msgstr "Параметри пошуку"
 
 #: vixipy/templates/components/tag-search-filter.html:21
 msgid "Keywords"
-msgstr ""
+msgstr "Ключові слова"
 
 #: vixipy/templates/components/tag-search-filter.html:26
 msgid "Target"
-msgstr ""
+msgstr "Цільова аудиторія"
 
 #: vixipy/templates/components/tag-search-filter.html:28
 msgid "Tags (perfect match)"
-msgstr ""
+msgstr "Теги (точний збіг)"
 
 #: vixipy/templates/components/tag-search-filter.html:29
 msgid "Tags (partial match)"
-msgstr ""
+msgstr "Теги (частковий збіг)"
 
 #: vixipy/templates/components/tag-search-filter.html:30
 msgid "Title/caption"
-msgstr ""
+msgstr "Назва/опис"
 
 #: vixipy/templates/components/tag-search-filter.html:36
 msgid "Filters"
-msgstr ""
+msgstr "Фільтри"
 
 #: vixipy/templates/components/tag-search-filter.html:38
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 #: vixipy/templates/components/tag-search-filter.html:40
 msgid "All"
-msgstr ""
+msgstr "Усі"
 
 #: vixipy/templates/components/tag-search-filter.html:41
 msgid "Safe"
-msgstr ""
+msgstr "Безпечний"
 
 #: vixipy/templates/components/tag-search-filter.html:42
 msgid "R-18"
-msgstr ""
+msgstr "R-18"
 
 #: vixipy/templates/components/tag-search-filter.html:47
 msgid "Width"
-msgstr ""
+msgstr "Ширина"
 
 #: vixipy/templates/components/tag-search-filter.html:49
 #: vixipy/templates/components/tag-search-filter.html:56
 msgid "min"
-msgstr ""
+msgstr "мін."
 
 #: vixipy/templates/components/tag-search-filter.html:50
 #: vixipy/templates/components/tag-search-filter.html:57
 msgid "max"
-msgstr ""
+msgstr "макс."
 
 #: vixipy/templates/components/tag-search-filter.html:54
 msgid "Height"
-msgstr ""
+msgstr "Висота"
 
 #: vixipy/templates/components/tag-search-filter.html:61
 msgid "Ratio"
-msgstr ""
+msgstr "Пропорція"
 
 #: vixipy/templates/components/tag-search-filter.html:63
 msgid "All ratios"
-msgstr ""
+msgstr "Будь-яка пропорція"
 
 #: vixipy/templates/components/tag-search-filter.html:64
 msgid "Horizontal"
-msgstr ""
+msgstr "Горизонтальна"
 
 #: vixipy/templates/components/tag-search-filter.html:65
 msgid "Vertical"
-msgstr ""
+msgstr "Вертикальна"
 
 #: vixipy/templates/components/tag-search-filter.html:66
 msgid "Square"
-msgstr ""
+msgstr "Квадратна"
 
 #: vixipy/templates/components/tag-search-filter.html:71
 msgid "Tool"
-msgstr ""
+msgstr "Інструмент"
 
 #: vixipy/templates/components/tag-search-filter.html:72
 msgid "All tools"
-msgstr ""
+msgstr "Усі інструменти"
 
 #: vixipy/templates/components/tag-search-filter.html:182
 msgid "Period"
-msgstr ""
+msgstr "Період"
 
 #: vixipy/templates/components/tag-search-filter.html:190
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 #: vixipy/templates/discovery/illustrations.html:14
 msgid "Nothing to recommend. Sorry!"
-msgstr ""
+msgstr "Нічого порекомендувати. Вибачте!"
 
 #: vixipy/templates/discovery/illustrations.html:17
 msgid "Reload"
-msgstr ""
+msgstr "Оновити"
 
 #: vixipy/templates/discovery/index.html:15
 msgid "Recommended illustrations"
-msgstr ""
+msgstr "Рекомендовані ілюстрації"
 
 #: vixipy/templates/discovery/index.html:21
 msgid "Recommended users"
-msgstr ""
+msgstr "Рекомендовані користувачі"
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"
-msgstr ""
+msgstr "Популярні оригінальні романи"
 
 #: vixipy/templates/novels/index.html:46
 msgid "Daily ranking"
-msgstr ""
+msgstr "Щоденний рейтинг"
 
 #: vixipy/templates/novels/index.html:47 vixipy/templates/novels/index.html:60
 #: vixipy/templates/novels/index.html:73
 #, python-format
 msgid "%(date)s ranking"
-msgstr ""
+msgstr "Рейтинг %(date)s"
 
 #: vixipy/templates/novels/index.html:59
 msgid "Popularity ranking among male users"
-msgstr ""
+msgstr "Рейтинг популярності серед чоловіків"
 
 #: vixipy/templates/novels/index.html:72
 msgid "Popularity ranking among female users"
-msgstr ""
+msgstr "Рейтинг популярності серед жінок"
 
 #: vixipy/templates/novels/novel.html:32 vixipy/templates/novels/series.html:25
 msgid "No description"
-msgstr ""
+msgstr "Без опису"
 
 #: vixipy/templates/novels/series.html:32
 #, python-format
 msgid "%(ep)s Episode(s)"
-msgstr ""
+msgstr "%(ep)s епізодів"
 
 #: vixipy/templates/novels/series.html:33
 #, python-format
 msgid "Updated on %(date)s"
-msgstr ""
+msgstr "Оновлено %(date)s"
 
 #: vixipy/templates/novels/series.html:34
 #, python-format
 msgid "%(cc)s Character(s)"
-msgstr ""
+msgstr "%(cc)s знаків"
 
 #: vixipy/templates/novels/series.html:35
 #, python-format
 msgid "%(cc)s Word(s)"
-msgstr ""
+msgstr "%(cc)s слів"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
-msgstr ""
+msgstr "Шукати роботи..."
 
 #: vixipy/templates/search/dashboard.html:22
 msgid "Popular illust tags"
-msgstr ""
+msgstr "Популярні теги"
 
 #: vixipy/templates/search/dashboard.html:29
 #, python-format
 msgid "#%(tag)s recommended works"
-msgstr ""
+msgstr "#%(tag)s рекомендовані роботи"
 
 #: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
 #: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
 msgid "Top"
-msgstr ""
+msgstr "Найкраще"
 
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
 #: vixipy/templates/users/illust.html:9
 msgid "Illustrations"
-msgstr ""
+msgstr "Ілюстрації"
 
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
 #: vixipy/templates/users/manga.html:9
 msgid "Manga"
-msgstr ""
+msgstr "Манґа"
 
 #: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
 #: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
 msgid "User"
-msgstr ""
+msgstr "Користувач"
 
 #: vixipy/templates/search/illust.html:24 vixipy/templates/search/main.html:57
 #: vixipy/templates/search/manga.html:23 vixipy/templates/search/novel.html:25
 msgid "No matching results found."
-msgstr ""
+msgstr "Не знайдено відповідних результатів."
 
 #: vixipy/templates/search/index.html:2
 #, python-format
 msgid "Results for %(tag)s"
-msgstr ""
+msgstr "Результати для %(tag)s"
 
 #: vixipy/templates/search/index.html:24
 #, python-format
 msgid "<b>%(total)s</b> Works"
-msgstr ""
+msgstr "<b>%(total)s</b> робіт"
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
-msgstr ""
+msgstr "Популярні роботи"
 
 #: vixipy/templates/search/main.html:17
 msgid "Recent"
-msgstr ""
+msgstr "Нещодавні"
 
 #: vixipy/templates/search/main.html:25
 msgid "All Time"
-msgstr ""
+msgstr "За весь час"
 
 #: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:6
 msgid "Illustrations and Manga"
-msgstr ""
+msgstr "Ілюстрації і манґа"
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
 #: vixipy/templates/settings/index.html:17
 msgid "Display settings"
-msgstr ""
+msgstr "Налаштування показу"
 
 #: vixipy/templates/settings/display.html:8
 msgid "Work content"
-msgstr ""
+msgstr "Вміст робіт"
 
 #: vixipy/templates/settings/display.html:20
 msgid "Hide AI-generated work"
-msgstr ""
+msgstr "Приховати роботи, створені ШІ"
 
 #: vixipy/templates/settings/display.html:24
 msgid "Hide works that may contain sensitive content"
-msgstr ""
+msgstr "Приховати роботи, які можуть містити делікатний вміст"
 
 #: vixipy/templates/settings/display.html:29
 msgid "Hide explicit content (R-18)"
-msgstr ""
+msgstr "Приховати відвертий вміст (R-18)"
 
 #: vixipy/templates/settings/display.html:34
 msgid "Hide ero-guro content (R-18G)"
-msgstr ""
+msgstr "Приховати вміст ероґуро (R-18G)"
 
 #: vixipy/templates/settings/display.html:39
 msgid "Save preferences"
-msgstr ""
+msgstr "Зберегти налаштування"
 
 #: vixipy/templates/settings/display.html:44
 msgid "Ad display settings"
-msgstr ""
+msgstr "Налаштування показу реклами"
 
 #: vixipy/templates/settings/display.html:47
 msgid "Display"
-msgstr ""
+msgstr "Відображення"
 
 #: vixipy/templates/settings/index.html:15
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
-msgstr ""
+msgstr "Налаштування Vixipy"
 
 #: vixipy/templates/settings/index.html:16
 msgid "Account"
-msgstr ""
+msgstr "Обліковий запис"
 
 #: vixipy/templates/settings/index.html:18
 #: vixipy/templates/settings/language.html:3
 #: vixipy/templates/settings/language.html:6
 msgid "Language and location"
-msgstr ""
+msgstr "Мова і місцезнаходження"
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
-msgstr ""
+msgstr "Про Vixipy"
 
 #: vixipy/templates/settings/language.html:9
 msgid "Language"
-msgstr ""
+msgstr "Мова"
 
 #: vixipy/templates/settings/language.html:20
 msgid "Set language"
-msgstr ""
+msgstr "Змінити мову"
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
-msgstr ""
+msgstr "Проксі-сервер зображень"
 
 #: vixipy/templates/settings/main.html:15
 msgid "Use proxy specified by instance"
-msgstr ""
+msgstr "Використовувати проксі, встановлений екземпляром"
 
 #: vixipy/templates/settings/main.html:16
 #: vixipy/templates/settings/main.html:18
 msgid "Use built-in proxy"
-msgstr ""
+msgstr "Використовувати вбудований проксі"
 
 #: vixipy/templates/settings/main.html:26
 msgid ""
 "An image proxy allows retrieving images from pixiv without making any "
 "connection to pixiv servers."
 msgstr ""
+"Проксі-сервер зображень дає змогу отримувати зображення з pixiv без "
+"підключення вашого пристрою до серверів pixiv."
 
 #: vixipy/templates/settings/main.html:28
 msgid "Use selected proxy"
-msgstr ""
+msgstr "Використовувати вибраний проксі"
 
 #: vixipy/templates/settings/main.html:34
 msgid "Color Scheme"
-msgstr ""
+msgstr "Колірна схема"
 
 #: vixipy/templates/settings/main.html:43
 msgid "Set color scheme"
-msgstr ""
+msgstr "Застосувати колірну схему"
 
 #: vixipy/templates/users/base.html:5
 #, python-format
 msgid "%(user)s's background"
-msgstr ""
+msgstr "Фон %(user)s"
 
 #: vixipy/templates/users/base.html:6
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
-msgstr ""
+msgstr "Натисніть, щоб відкрити банер %(user)s у новій вкладці."
 
 #: vixipy/templates/users/base.html:7
 #, python-format
 msgid "%(user)s's profile picture"
-msgstr ""
+msgstr "Зображення профілю %(user)s"
 
 #: vixipy/templates/users/base.html:8
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
-msgstr ""
+msgstr "Натисніть, щоб відкрити зображення профілю %(user)s у новій вкладці."
 
 #: vixipy/templates/users/base.html:25
 msgid "Following"
-msgstr ""
+msgstr "Відстежувані"
 
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
-msgstr ""
+msgstr "Редагувати профіль"
