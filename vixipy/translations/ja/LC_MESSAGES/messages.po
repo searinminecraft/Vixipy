@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-24 10:11+0800\n"
-"PO-Revision-Date: 2025-06-24 11:05+0000\n"
+"PO-Revision-Date: 2025-06-24 15:14+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ja/>\n"
 "Language: ja\n"
-"Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ja/>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:46
@@ -607,25 +608,25 @@ msgstr "おすすめユーザー"
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"
-msgstr ""
+msgstr "オリジナルの人気作品"
 
 #: vixipy/templates/novels/index.html:46
 msgid "Daily ranking"
-msgstr ""
+msgstr "デイリーランキング"
 
 #: vixipy/templates/novels/index.html:47 vixipy/templates/novels/index.html:60
 #: vixipy/templates/novels/index.html:73
 #, python-format
 msgid "%(date)s ranking"
-msgstr ""
+msgstr "%(date)sのランキング"
 
 #: vixipy/templates/novels/index.html:59
 msgid "Popularity ranking among male users"
-msgstr ""
+msgstr "男性に人気ランキング"
 
 #: vixipy/templates/novels/index.html:72
 msgid "Popularity ranking among female users"
-msgstr ""
+msgstr "女性に人気ランキング"
 
 #: vixipy/templates/novels/novel.html:32 vixipy/templates/novels/series.html:25
 msgid "No description"
@@ -634,7 +635,7 @@ msgstr ""
 #: vixipy/templates/novels/series.html:32
 #, python-format
 msgid "%(ep)s Episode(s)"
-msgstr ""
+msgstr "%(ep)s話"
 
 #: vixipy/templates/novels/series.html:33
 #, python-format
@@ -644,7 +645,7 @@ msgstr ""
 #: vixipy/templates/novels/series.html:34
 #, python-format
 msgid "%(cc)s Character(s)"
-msgstr ""
+msgstr "%(cc)s文字"
 
 #: vixipy/templates/novels/series.html:35
 #, python-format
@@ -653,7 +654,7 @@ msgstr ""
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
-msgstr ""
+msgstr "作品を検…"
 
 #: vixipy/templates/search/dashboard.html:22
 msgid "Popular illust tags"
@@ -701,7 +702,7 @@ msgstr ""
 #: vixipy/templates/search/index.html:24
 #, python-format
 msgid "<b>%(total)s</b> Works"
-msgstr ""
+msgstr "<b>%(total)s</b> 作品"
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
@@ -843,4 +844,3 @@ msgstr "フォロー中"
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
 msgstr "プロフィール編集"
-
