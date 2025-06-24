@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-24 10:11+0800\n"
-"PO-Revision-Date: 2025-06-24 06:49+0000\n"
+"PO-Revision-Date: 2025-06-24 07:23+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/fil/>\n"
@@ -494,12 +494,12 @@ msgstr "Iba"
 #: vixipy/templates/components/novel-entry.html:75
 #, python-format
 msgid "%(wc)s words(s)"
-msgstr ""
+msgstr "%(wc)s (mga) salita"
 
 #: vixipy/templates/components/novel-entry.html:76
 #, python-format
 msgid "%(cc)s character(s)"
-msgstr ""
+msgstr "%(cc)s (mga) karakter"
 
 #: vixipy/templates/components/paginator.html:6
 #, python-format
@@ -751,67 +751,69 @@ msgstr "Itago ang mga gawang binuo ng AI"
 
 #: vixipy/templates/settings/display.html:24
 msgid "Hide works that may contain sensitive content"
-msgstr ""
+msgstr "Itago ang mga gawa na maaaring maglaman ng mga sensitibong nilalaman"
 
 #: vixipy/templates/settings/display.html:29
 msgid "Hide explicit content (R-18)"
-msgstr ""
+msgstr "Itago ang tahasang nilalaman (R-18)"
 
 #: vixipy/templates/settings/display.html:34
 msgid "Hide ero-guro content (R-18G)"
-msgstr ""
+msgstr "Itago ang ero-guro na nilalaman (R-18G)"
 
 #: vixipy/templates/settings/display.html:39
 msgid "Save preferences"
-msgstr ""
+msgstr "I-save ang mga kagustuhan"
 
 #: vixipy/templates/settings/display.html:44
 msgid "Ad display settings"
-msgstr ""
+msgstr "Mga setting sa pagpakita ng mga ad"
 
 #: vixipy/templates/settings/display.html:47
 msgid "Display"
-msgstr ""
+msgstr "Ipakita"
 
 #: vixipy/templates/settings/index.html:15
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
-msgstr ""
+msgstr "Mga setting sa Vixipy"
 
 #: vixipy/templates/settings/index.html:16
 msgid "Account"
-msgstr ""
+msgstr "Account"
 
 #: vixipy/templates/settings/index.html:18
 msgid "Language and location"
-msgstr ""
+msgstr "Wika at lokasyon"
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
-msgstr ""
+msgstr "Tungkol sa"
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
-msgstr ""
+msgstr "Proxy Server ng Larawan"
 
 #: vixipy/templates/settings/main.html:15
 msgid "Use proxy specified by instance"
-msgstr ""
+msgstr "Gamitin ang proxy na tinakda ng instansya"
 
 #: vixipy/templates/settings/main.html:16
 #: vixipy/templates/settings/main.html:18
 msgid "Use built-in proxy"
-msgstr ""
+msgstr "Gamitin ang kasamang proxy"
 
 #: vixipy/templates/settings/main.html:26
 msgid ""
 "An image proxy allows retrieving images from pixiv without making any "
 "connection to pixiv servers."
 msgstr ""
+"Nagbibigay-daan ang proxy ng larawan ang pagkuha ng mga larawan mula sa "
+"pixiv nang hindi gumawa ng anumang koneksyon sa mga server ng pixiv."
 
 #: vixipy/templates/settings/main.html:28
 msgid "Use selected proxy"
-msgstr ""
+msgstr "Gamitin ang piniling proxy"
 
 #: vixipy/templates/settings/main.html:34
 msgid "Color Scheme"
@@ -824,27 +826,27 @@ msgstr ""
 #: vixipy/templates/users/base.html:5
 #, python-format
 msgid "%(user)s's background"
-msgstr ""
+msgstr "Background ni %(user)s"
 
 #: vixipy/templates/users/base.html:6
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
-msgstr ""
+msgstr "I-click para buksan ang banner ni %(user)s sa bagong tab."
 
 #: vixipy/templates/users/base.html:7
 #, python-format
 msgid "%(user)s's profile picture"
-msgstr ""
+msgstr "Larawan ng profile ni %(user)s"
 
 #: vixipy/templates/users/base.html:8
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
-msgstr ""
+msgstr "I-click para buksan ang larawan ng profile ni %(user)s sa bagong tab."
 
 #: vixipy/templates/users/base.html:25
 msgid "Following"
-msgstr ""
+msgstr "Sinusundan"
 
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
-msgstr ""
+msgstr "I-edit ang Profile"
