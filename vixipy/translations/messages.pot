@@ -1,0 +1,833 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-06-24 10:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: vixipy/routes/login.py:46
+msgid "Invalid token"
+msgstr ""
+
+#: vixipy/routes/login.py:73
+msgid "Unable to extract CSRF"
+msgstr ""
+
+#: vixipy/templates/artworks.html:20
+#, python-format
+msgid "Page %(page)d of %(total)d"
+msgstr ""
+
+#: vixipy/templates/artworks.html:38
+#: vixipy/templates/components/user-entry.html:20
+#: vixipy/templates/users/base.html:38
+msgid "Follow"
+msgstr ""
+
+#: vixipy/templates/artworks.html:38
+#: vixipy/templates/components/user-entry.html:20
+#: vixipy/templates/users/base.html:38
+msgid "Unfollow"
+msgstr ""
+
+#: vixipy/templates/artworks.html:43
+msgid "View all works"
+msgstr ""
+
+#: vixipy/templates/artworks.html:68
+#, python-format
+msgid "Sensitivity Level: %(sl)d"
+msgstr ""
+
+#: vixipy/templates/artworks.html:130 vixipy/templates/novels/novel.html:65
+msgid "Related works"
+msgstr ""
+
+#: vixipy/templates/artworks.html:138
+msgid "No recommended works to show."
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:6
+msgid "Edit profile"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:8
+msgid "Profile images"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:11
+msgid "Choose profile picture: "
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:13
+msgid "Choose cover image: "
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:19
+msgid "Max. 5MB"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:27
+msgid "Max. 8MB"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:32
+msgid "Nickname"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:36
+msgid "Self introduction"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:40
+msgid "Website"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:44
+msgid "Social media"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:46
+msgid "Twitter/X ID"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:47
+msgid "Instagram ID"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:48
+msgid "Tumblr ID"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:49
+msgid "Facebook ID"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:50
+msgid "Circle.ms ID"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:53
+msgid "Gender"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:55
+msgid "Male"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:56
+msgid "Female"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:57
+msgid "Rather not say"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
+#: vixipy/templates/edit_profile.html:82 vixipy/templates/upload.html:41
+msgid "Public"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
+#: vixipy/templates/edit_profile.html:83 vixipy/templates/upload.html:43
+msgid "My pixiv only"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
+#: vixipy/templates/edit_profile.html:84 vixipy/templates/upload.html:44
+msgid "Private"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:66
+msgid "Birthday"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:72
+msgid "Birth year privacy"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:80
+msgid "Birthday privacy"
+msgstr ""
+
+#: vixipy/templates/edit_profile.html:88
+msgid "Save Changes"
+msgstr ""
+
+#: vixipy/templates/error.html:2
+msgid "Error"
+msgstr ""
+
+#: vixipy/templates/error.html:7
+msgid "An error occurred."
+msgstr ""
+
+#: vixipy/templates/error.html:8
+#, python-format
+msgid ""
+"Looks like something went wrong. If you think this is a bug, file a "
+"report <a href='%(link)s'>here</a>"
+msgstr ""
+
+#: vixipy/templates/error.html:10
+msgid "Back to home"
+msgstr ""
+
+#: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
+#: vixipy/templates/users/base.html:55
+msgid "Home"
+msgstr ""
+
+#: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
+msgid "Works by users you are following"
+msgstr ""
+
+#: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
+msgid "Recommended works"
+msgstr ""
+
+#: vixipy/templates/index.html:30
+#, python-format
+msgid ""
+"Recommended illustrations tagged <a href='%(link)s' "
+"title='%(title)s'>#%(tag)s</a>"
+msgstr ""
+
+#: vixipy/templates/index.html:53
+msgid "Newest by all"
+msgstr ""
+
+#: vixipy/templates/index_logged_out.html:16
+#, python-format
+msgid "Ranking for %(date)s"
+msgstr ""
+
+#: vixipy/templates/index_logged_out.html:24
+#: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
+msgid "View All"
+msgstr ""
+
+#: vixipy/templates/login.html:6
+msgid "Sign in"
+msgstr ""
+
+#: vixipy/templates/login.html:18
+msgid ""
+"Sign in to your pixiv account to access features that normally require "
+"it, such as:"
+msgstr ""
+
+#: vixipy/templates/login.html:20
+msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
+msgstr ""
+
+#: vixipy/templates/login.html:21
+msgid "Personalized landing"
+msgstr ""
+
+#: vixipy/templates/login.html:22
+msgid "<b>Coming soon:</b> work uploads"
+msgstr ""
+
+#: vixipy/templates/login.html:24
+msgid ""
+"To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
+"Username and password logins are not possible due to reCAPTCHA enterprise"
+" attestation requirement."
+msgstr ""
+
+#: vixipy/templates/upload.html:2
+msgid "Submit Illustration"
+msgstr ""
+
+#: vixipy/templates/upload.html:9
+msgid "Files"
+msgstr ""
+
+#: vixipy/templates/upload.html:13
+msgid "Basic Information"
+msgstr ""
+
+#: vixipy/templates/upload.html:14
+msgid "Title"
+msgstr ""
+
+#: vixipy/templates/upload.html:17
+msgid "Caption"
+msgstr ""
+
+#: vixipy/templates/upload.html:20
+msgid "Tags"
+msgstr ""
+
+#: vixipy/templates/upload.html:22
+msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
+msgstr ""
+
+#: vixipy/templates/upload.html:24
+msgid "Don't allow users to edit tags"
+msgstr ""
+
+#: vixipy/templates/upload.html:28
+msgid "Content and Privacy"
+msgstr ""
+
+#: vixipy/templates/upload.html:29
+msgid "AI-generated work"
+msgstr ""
+
+#: vixipy/templates/upload.html:30
+msgid "Allow comments"
+msgstr ""
+
+#: vixipy/templates/upload.html:31
+msgid "Original work"
+msgstr ""
+
+#: vixipy/templates/upload.html:34
+msgid "Visible to"
+msgstr ""
+
+#: vixipy/templates/upload.html:35
+msgid "All Ages"
+msgstr ""
+
+#: vixipy/templates/upload.html:40
+msgid "Open to"
+msgstr ""
+
+#: vixipy/templates/upload.html:42
+msgid "Logged-in users only"
+msgstr ""
+
+#: vixipy/templates/upload.html:47
+msgid "Adult Content"
+msgstr ""
+
+#: vixipy/templates/upload.html:48
+msgid "Yes"
+msgstr ""
+
+#: vixipy/templates/upload.html:49
+msgid "No"
+msgstr ""
+
+#: vixipy/templates/upload.html:52
+msgid "Mature Content"
+msgstr ""
+
+#: vixipy/templates/upload.html:53
+msgid "Minors"
+msgstr ""
+
+#: vixipy/templates/upload.html:54
+msgid "Furry"
+msgstr ""
+
+#: vixipy/templates/upload.html:55
+msgid "BL"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:42
+#: vixipy/templates/upload.html:56
+msgid "Yuri"
+msgstr ""
+
+#: vixipy/templates/upload.html:63
+msgid ""
+"By posting your work, you hereby agree to the pixiv Terms of Service. "
+"Vixipy is provided to you as is, without warranty of any kind and will "
+"not be responsible for any action taken whatsoever."
+msgstr ""
+
+#: vixipy/templates/upload.html:66
+msgid "Post"
+msgstr ""
+
+#: vixipy/templates/components/header.html:4
+msgid "Debug"
+msgstr ""
+
+#: vixipy/templates/components/header.html:7
+#: vixipy/templates/search/dashboard.html:2
+msgid "Search"
+msgstr ""
+
+#: vixipy/templates/components/header.html:10
+#: vixipy/templates/novels/index.html:2 vixipy/templates/search/illust.html:9
+#: vixipy/templates/search/main.html:10 vixipy/templates/search/main.html:46
+#: vixipy/templates/search/manga.html:9 vixipy/templates/search/novel.html:10
+#: vixipy/templates/search/novel.html:15 vixipy/templates/users/base.html:73
+#: vixipy/templates/users/novels.html:9
+msgid "Novels"
+msgstr ""
+
+#: vixipy/templates/components/header.html:11
+#: vixipy/templates/discovery/index.html:3
+#: vixipy/templates/discovery/index.html:9
+msgid "Discovery"
+msgstr ""
+
+#: vixipy/templates/components/header.html:14
+#: vixipy/templates/settings/index.html:3
+#: vixipy/templates/settings/index.html:5
+#: vixipy/templates/settings/index.html:13
+msgid "Settings"
+msgstr ""
+
+#: vixipy/templates/components/header.html:18
+#: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
+msgid "Bookmarks"
+msgstr ""
+
+#: vixipy/templates/components/header.html:21
+msgid "Notifications"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:17
+msgid "Original"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:18
+#: vixipy/templates/novels/novel.html:46
+msgid "Series"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:19
+msgid "Oneshot"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:22
+msgid "Romance"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:24
+msgid "Isekai fantasy"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:26
+msgid "Contemporary fantasy"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:28
+msgid "Mystery"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:30
+msgid "Horror"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:32
+msgid "Sci-fi"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:34
+msgid "Literature"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:36
+msgid "Drama"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:38
+msgid "Historical pieces"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:40
+msgid "BL (yaoi)"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:44
+msgid "For kids"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:46
+msgid "Poetry"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:48
+msgid "Essays/non-fiction"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:50
+msgid "Screenplays/scripts"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:52
+msgid "Reviews/opinion pieces"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:54
+msgid "Other"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:75
+#, python-format
+msgid "%(wc)s words(s)"
+msgstr ""
+
+#: vixipy/templates/components/novel-entry.html:76
+#, python-format
+msgid "%(cc)s character(s)"
+msgstr ""
+
+#: vixipy/templates/components/paginator.html:6
+#, python-format
+msgid "Page %(current)d of %(last)d"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:4
+#: vixipy/templates/components/tag-search-filter.html:19
+msgid "Search options"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:21
+msgid "Keywords"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:26
+msgid "Target"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:28
+msgid "Tags (perfect match)"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:29
+msgid "Tags (partial match)"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:30
+msgid "Title/caption"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:36
+msgid "Filters"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:38
+msgid "Mode"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:40
+msgid "All"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:41
+msgid "Safe"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:42
+msgid "R-18"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:47
+msgid "Width"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:49
+#: vixipy/templates/components/tag-search-filter.html:56
+msgid "min"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:50
+#: vixipy/templates/components/tag-search-filter.html:57
+msgid "max"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:54
+msgid "Height"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:61
+msgid "Ratio"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:63
+msgid "All ratios"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:64
+msgid "Horizontal"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:65
+msgid "Vertical"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:66
+msgid "Square"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:71
+msgid "Tool"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:72
+msgid "All tools"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:182
+msgid "Period"
+msgstr ""
+
+#: vixipy/templates/components/tag-search-filter.html:190
+msgid "Apply"
+msgstr ""
+
+#: vixipy/templates/discovery/illustrations.html:14
+msgid "Nothing to recommend. Sorry!"
+msgstr ""
+
+#: vixipy/templates/discovery/illustrations.html:17
+msgid "Reload"
+msgstr ""
+
+#: vixipy/templates/discovery/index.html:15
+msgid "Recommended illustrations"
+msgstr ""
+
+#: vixipy/templates/discovery/index.html:21
+msgid "Recommended users"
+msgstr ""
+
+#: vixipy/templates/novels/index.html:26
+msgid "Popular original novels"
+msgstr ""
+
+#: vixipy/templates/novels/index.html:46
+msgid "Daily ranking"
+msgstr ""
+
+#: vixipy/templates/novels/index.html:47 vixipy/templates/novels/index.html:60
+#: vixipy/templates/novels/index.html:73
+#, python-format
+msgid "%(date)s ranking"
+msgstr ""
+
+#: vixipy/templates/novels/index.html:59
+msgid "Popularity ranking among male users"
+msgstr ""
+
+#: vixipy/templates/novels/index.html:72
+msgid "Popularity ranking among female users"
+msgstr ""
+
+#: vixipy/templates/novels/novel.html:32 vixipy/templates/novels/series.html:25
+msgid "No description"
+msgstr ""
+
+#: vixipy/templates/novels/series.html:32
+#, python-format
+msgid "%(ep)s Episode(s)"
+msgstr ""
+
+#: vixipy/templates/novels/series.html:33
+#, python-format
+msgid "Updated on %(date)s"
+msgstr ""
+
+#: vixipy/templates/novels/series.html:34
+#, python-format
+msgid "%(cc)s Character(s)"
+msgstr ""
+
+#: vixipy/templates/novels/series.html:35
+#, python-format
+msgid "%(cc)s Word(s)"
+msgstr ""
+
+#: vixipy/templates/search/dashboard.html:12
+msgid "Search works..."
+msgstr ""
+
+#: vixipy/templates/search/dashboard.html:22
+msgid "Popular illust tags"
+msgstr ""
+
+#: vixipy/templates/search/dashboard.html:29
+#, python-format
+msgid "#%(tag)s recommended works"
+msgstr ""
+
+#: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
+#: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
+msgid "Top"
+msgstr ""
+
+#: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
+#: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
+#: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
+#: vixipy/templates/users/illust.html:9
+msgid "Illustrations"
+msgstr ""
+
+#: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
+#: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
+#: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
+#: vixipy/templates/users/manga.html:9
+msgid "Manga"
+msgstr ""
+
+#: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
+#: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
+msgid "User"
+msgstr ""
+
+#: vixipy/templates/search/illust.html:24 vixipy/templates/search/main.html:57
+#: vixipy/templates/search/manga.html:23 vixipy/templates/search/novel.html:25
+msgid "No matching results found."
+msgstr ""
+
+#: vixipy/templates/search/index.html:2
+#, python-format
+msgid "Results for %(tag)s"
+msgstr ""
+
+#: vixipy/templates/search/index.html:24
+#, python-format
+msgid "<b>%(total)s</b> Works"
+msgstr ""
+
+#: vixipy/templates/search/main.html:15
+msgid "Popular Works"
+msgstr ""
+
+#: vixipy/templates/search/main.html:17
+msgid "Recent"
+msgstr ""
+
+#: vixipy/templates/search/main.html:25
+msgid "All Time"
+msgstr ""
+
+#: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:6
+msgid "Illustrations and Manga"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:2
+#: vixipy/templates/settings/display.html:5
+#: vixipy/templates/settings/index.html:17
+msgid "Display settings"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:8
+msgid "Work content"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:20
+msgid "Hide AI-generated work"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:24
+msgid "Hide works that may contain sensitive content"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:29
+msgid "Hide explicit content (R-18)"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:34
+msgid "Hide ero-guro content (R-18G)"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:39
+msgid "Save preferences"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:44
+msgid "Ad display settings"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:47
+msgid "Display"
+msgstr ""
+
+#: vixipy/templates/settings/index.html:15
+#: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
+msgid "Vixipy settings"
+msgstr ""
+
+#: vixipy/templates/settings/index.html:16
+msgid "Account"
+msgstr ""
+
+#: vixipy/templates/settings/index.html:18
+msgid "Language and location"
+msgstr ""
+
+#: vixipy/templates/settings/index.html:19
+msgid "About"
+msgstr ""
+
+#: vixipy/templates/settings/main.html:9
+msgid "Image Proxy Server"
+msgstr ""
+
+#: vixipy/templates/settings/main.html:15
+msgid "Use proxy specified by instance"
+msgstr ""
+
+#: vixipy/templates/settings/main.html:16
+#: vixipy/templates/settings/main.html:18
+msgid "Use built-in proxy"
+msgstr ""
+
+#: vixipy/templates/settings/main.html:26
+msgid ""
+"An image proxy allows retrieving images from pixiv without making any "
+"connection to pixiv servers."
+msgstr ""
+
+#: vixipy/templates/settings/main.html:28
+msgid "Use selected proxy"
+msgstr ""
+
+#: vixipy/templates/settings/main.html:34
+msgid "Color Scheme"
+msgstr ""
+
+#: vixipy/templates/settings/main.html:43
+msgid "Set color scheme"
+msgstr ""
+
+#: vixipy/templates/users/base.html:5
+#, python-format
+msgid "%(user)s's background"
+msgstr ""
+
+#: vixipy/templates/users/base.html:6
+#, python-format
+msgid "Click to open %(user)s's banner in a new tab."
+msgstr ""
+
+#: vixipy/templates/users/base.html:7
+#, python-format
+msgid "%(user)s's profile picture"
+msgstr ""
+
+#: vixipy/templates/users/base.html:8
+#, python-format
+msgid "Click to open %(user)s's profile picture in a new tab."
+msgstr ""
+
+#: vixipy/templates/users/base.html:25
+msgid "Following"
+msgstr ""
+
+#: vixipy/templates/users/base.html:30
+msgid "Edit Profile"
+msgstr ""
+
