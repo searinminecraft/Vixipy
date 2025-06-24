@@ -28,6 +28,8 @@ async def user_illusts(user: int):
         get_user(user, True), get_user_illusts(user, page=int(request.args.get("p", 1)))
     )
 
+    il.illusts = ff(il.illusts)
+
     return await render_template("users/illust.html", data=data, il=il)
 
 

@@ -68,7 +68,7 @@ async def index():
                 if il := illusts.get(__id):
                     __illusts.append(il)
 
-            recommend_by_tag.append(RecommendByTag(__illusts, __tag, __translation))
+            recommend_by_tag.append(RecommendByTag(ff(__illusts), __tag, __translation))
 
         return await render_template(
             "index.html",

@@ -39,6 +39,8 @@ async def search_main(query: str):
 
     data.results = ff(data.results)
     data.novels = ff(data.novels)
+    data.popular_recent = ff(data.popular_recent)
+    data.popular_permanent = ff(data.popular_permanent)
 
     return await render_template("search/main.html", data=data, tag_info=tag_info)
 
