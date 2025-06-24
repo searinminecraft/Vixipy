@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-24 10:11+0800\n"
-"PO-Revision-Date: 2025-06-24 09:16+0000\n"
+"PO-Revision-Date: 2025-06-24 11:05+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/ja/>\n"
@@ -604,7 +604,7 @@ msgstr "おすすめ作品"
 
 #: vixipy/templates/discovery/index.html:21
 msgid "Recommended users"
-msgstr ""
+msgstr "おすすめユーザー"
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"
