@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-24 10:11+0800\n"
-"PO-Revision-Date: 2025-06-24 03:44+0000\n"
+"PO-Revision-Date: 2025-06-24 07:23+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/ja/>\n"
@@ -171,11 +171,11 @@ msgstr "変更を保存"
 
 #: vixipy/templates/error.html:2
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: vixipy/templates/error.html:7
 msgid "An error occurred."
-msgstr ""
+msgstr "エラーが発生しました。"
 
 #: vixipy/templates/error.html:8
 #, python-format
@@ -191,7 +191,7 @@ msgstr ""
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
 #: vixipy/templates/users/base.html:55
 msgid "Home"
-msgstr ""
+msgstr "ホーム"
 
 #: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
@@ -224,7 +224,7 @@ msgstr "すべて見る"
 
 #: vixipy/templates/login.html:6
 msgid "Sign in"
-msgstr ""
+msgstr "サインイン"
 
 #: vixipy/templates/login.html:18
 msgid ""
@@ -265,7 +265,7 @@ msgstr ""
 
 #: vixipy/templates/upload.html:14
 msgid "Title"
-msgstr ""
+msgstr "タイトル"
 
 #: vixipy/templates/upload.html:17
 msgid "Caption"
@@ -273,7 +273,7 @@ msgstr ""
 
 #: vixipy/templates/upload.html:20
 msgid "Tags"
-msgstr ""
+msgstr "タグ"
 
 #: vixipy/templates/upload.html:22
 msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
@@ -658,12 +658,12 @@ msgstr ""
 
 #: vixipy/templates/search/dashboard.html:22
 msgid "Popular illust tags"
-msgstr ""
+msgstr "人気のイラストタグ"
 
 #: vixipy/templates/search/dashboard.html:29
 #, python-format
 msgid "#%(tag)s recommended works"
-msgstr ""
+msgstr "#%(tag)sのおすすめ作品"
 
 #: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
 #: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
@@ -773,7 +773,7 @@ msgstr "使用する言語"
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
-msgstr ""
+msgstr "について"
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
