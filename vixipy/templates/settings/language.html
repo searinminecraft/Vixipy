@@ -16,6 +16,8 @@
 		<option value="{{l}}" {%if request.cookies.get("Vixipy-Language") == l%}selected{%endif%}>{{langs[l]}}</option>
 		{% endfor %}
             </select>
+	    <br><br>
+	    <a href="https://translate.codeberg.org/engage/vixipy/">{{_("Help translate Vixipy to your language!")}}</a>
             <br><br>
             <button class="button smaller neutral" type="submit">{{_("Set language")}}</button>
         </form>

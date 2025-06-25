@@ -16,25 +16,21 @@
 
             <label class="toggle-switch">
                 <input type="checkbox" name="hide-ai"
-                    {% if ai %}{% if ai_enabled %}checked{% endif %}{% else %}disabled checked{% endif %}
-                > {{_("Hide AI-generated work")}}
+                    {% if ai %}{% if not ai_enabled %}checked{% endif %}{% else %}disabled{% endif %}
+                > {{_("Show AI-generated work")}}
             </label>
             <label class="toggle-switch">
                 <input type="checkbox" name="hide-sensitive" 
-                    {% if sensitive %}{% if sensitive_enabled %}checked{% endif %}{% else %}disabled checked{% endif %}> {{_("Hide works that may contain sensitive content")}}
+                    {% if sensitive %}{% if not sensitive_enabled %}checked{% endif %}{% else %}disabled{% endif %}> {{_("Display works that may contain sensitive content")}}
             </label>
-            {% if not sensitive_enabled %}
             <label class="toggle-switch">
                 <input type="checkbox" name="hide-r18"
-                    {% if r18 %}{% if r18_enabled %}checked{% endif %}{% else %}disabled checked{% endif %}> {{_("Hide explicit content (R-18)")}}
+                    {% if r18 %}{% if not r18_enabled %}checked{% endif %}{% else %}disabled{% endif %}> {{_("Show explicit content (R-18)")}}
             </label>
-            {% if not r18_enabled %}
             <label class="toggle-switch">
                 <input type="checkbox" name="hide-r18g"
-                    {% if r18g %}{% if r18g_enabled %}checked{% endif %}{% else %}disabled checked{% endif %}> {{_("Hide ero-guro content (R-18G)")}}
+                    {% if r18g %}{% if not r18g_enabled %}checked{% endif %}{% else %}disabled{% endif %}> {{_("Show ero-guro content (R-18G)")}}
             </label>
-            {% endif %}
-            {% endif %}
             <br>
             <button class="button smaller neutral" type="submit">{{_("Save preferences")}}</button>
         </form>

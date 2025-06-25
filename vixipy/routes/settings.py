@@ -11,8 +11,10 @@ from quart import (
 
 from ..api import pixiv_request
 import babel
+import logging
 
 bp = Blueprint("settings", __name__)
+log = logging.getLogger("vixipy.routes.settings")
 
 MAX_AGE = 60 * 60 * 24 * 30 * 6
 
@@ -68,7 +70,7 @@ async def viewing():
         )
     else:
         can_view_sensitive = not current_app.config["NO_SENSITIVE"]
-        can_view_r18 = can_view_r18g = False
+        can_view_r18 = can_view_r18g = not current_app.config["NO_R18"]
         can_view_ai = True
 
     return await render_template(
@@ -87,25 +89,34 @@ async def set_content_filter():
     r = await make_response(redirect(url_for("settings.viewing"), code=303))
     r.set_cookie(
         "Vixipy-No-AI",
-        str(int(f.get("hide-ai") == "on")),
+        str(int(not f.get("hide-ai") == "on")),
         max_age=MAX_AGE,
         httponly=True,
     )
+
+    r18g = not f.get("hide-r18g") == "on"
+
+    r18 = not f.get("hide-r18") == "on"
+
+    sensitive = not f.get("hide-sensitive") == "on"
+
+    log.debug((sensitive, r18, r18g))
+
     r.set_cookie(
         "Vixipy-No-R18",
-        str(int(f.get("hide-r18") == "on")),
+        str(int(r18)),
         max_age=MAX_AGE,
         httponly=True,
     )
     r.set_cookie(
         "Vixipy-No-R18G",
-        str(int(f.get("hide-r18g") == "on")),
+        str(int(r18g)),
         max_age=MAX_AGE,
         httponly=True,
     )
     r.set_cookie(
         "Vixipy-No-Sensitive",
-        str(int(f.get("hide-sensitive") == "on")),
+        str(int(sensitive)),
         max_age=MAX_AGE,
         httponly=True,
     )
