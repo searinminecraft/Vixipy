@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/instance.css">
+    <script src="/static/jquery-3.7.1.min.js"></script>
+    <script src="/static/htmx.min.js"></script>
+    <title>{{_("Connection Error")}} {{config["INSTANCE_NAME"]}}</title>
+</head>
+<body hx-swap="innerHTML" hx-boost="true" hx-indicator="#loading">
+    <div id="loading"></div>
+    <div id="no-connection-wrapper">
+	<main>
+	<h2>{{_("Connection Error")}}</h2>
+	<p>{{_("Unable to connect to pixiv servers. Check your connection and try again.")}}</p>
+	<p><code>{{exc}}</code></p>
+	<a href="." class="label-button">{{_("Try Again")}}</a>
+	</main>
+    </div>
+</body>
+</html>
