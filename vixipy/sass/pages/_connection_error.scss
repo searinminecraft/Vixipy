@@ -8,6 +8,12 @@
   justify-content: center;
 
   main {
+    svg {
+      fill: var(--md-sys-color-outline);
+      width: 96px;
+      height: 96px;
+    }
+    padding: 1em;
     text-align: center;
     max-width: 1600px;
     word-wrap: always
