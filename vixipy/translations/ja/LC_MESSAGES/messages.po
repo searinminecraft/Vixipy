@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-25 10:26+0800\n"
-"PO-Revision-Date: 2025-06-24 15:14+0000\n"
+"PO-Revision-Date: 2025-06-25 09:21+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ja/>\n"
 "Language: ja\n"
-"Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ja/>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:46
@@ -744,19 +745,19 @@ msgstr ""
 
 #: vixipy/templates/settings/display.html:20
 msgid "Show AI-generated work"
-msgstr ""
+msgstr "AI生成作品を表示"
 
 #: vixipy/templates/settings/display.html:24
 msgid "Display works that may contain sensitive content"
-msgstr ""
+msgstr "センシティブな内容を含む可能性のある作品を表示"
 
 #: vixipy/templates/settings/display.html:28
 msgid "Show explicit content (R-18)"
-msgstr ""
+msgstr "性的な表現を含む作品（R-18）を表示"
 
 #: vixipy/templates/settings/display.html:32
 msgid "Show ero-guro content (R-18G)"
-msgstr ""
+msgstr "グロテスクな表現を含む作品（R-18G）を表示"
 
 #: vixipy/templates/settings/display.html:35
 msgid "Save preferences"
@@ -790,13 +791,12 @@ msgid "About"
 msgstr "について"
 
 #: vixipy/templates/settings/language.html:9
-#, fuzzy
 msgid "Language"
-msgstr "マンガ"
+msgstr "言語"
 
 #: vixipy/templates/settings/language.html:20
 msgid "Help translate Vixipy to your language!"
-msgstr ""
+msgstr "Vixipy をあなたの言語に翻訳するのを手伝ってください!"
 
 #: vixipy/templates/settings/language.html:22
 msgid "Set language"
@@ -872,4 +872,3 @@ msgstr "プロフィール編集"
 
 #~ msgid "Hide ero-guro content (R-18G)"
 #~ msgstr ""
-
