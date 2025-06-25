@@ -1,4 +1,4 @@
-# Translations template for PROJECT.
+# Ukrainian translations for PROJECT.
 # Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-24 19:01+0800\n"
+"POT-Creation-Date: 2025-06-25 10:26+0800\n"
 "PO-Revision-Date: 2025-06-24 20:05+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:46
@@ -236,13 +235,12 @@ msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
 msgstr ""
-"Увійдіть у свій обліковий запис pixiv, щоб отримати доступ до функцій, які "
-"потребують облікового запису, а саме:"
+"Увійдіть у свій обліковий запис pixiv, щоб отримати доступ до функцій, "
+"які потребують облікового запису, а саме:"
 
 #: vixipy/templates/login.html:20
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
-msgstr ""
-"Взаємодія, як-от уподобання робіт, коментування, додавання в закладки тощо"
+msgstr "Взаємодія, як-от уподобання робіт, коментування, додавання в закладки тощо"
 
 #: vixipy/templates/login.html:21
 msgid "Personalized landing"
@@ -259,8 +257,21 @@ msgid ""
 " attestation requirement."
 msgstr ""
 "Щоб увійти, вам знадобиться файл cookie <code>PHPSESSID</code> вашого "
-"облікового запису. Вхід за допомогою імені користувача та пароля неможливий "
-"через обов'язкову перевірку reCAPTCHA."
+"облікового запису. Вхід за допомогою імені користувача та пароля "
+"неможливий через обов'язкову перевірку reCAPTCHA."
+
+#: vixipy/templates/no_connection.html:10
+#: vixipy/templates/no_connection.html:16
+msgid "Connection Error"
+msgstr ""
+
+#: vixipy/templates/no_connection.html:17
+msgid "Unable to connect to pixiv servers. Check your connection and try again."
+msgstr ""
+
+#: vixipy/templates/no_connection.html:19
+msgid "Try Again"
+msgstr ""
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
@@ -745,30 +756,34 @@ msgid "Work content"
 msgstr "Вміст робіт"
 
 #: vixipy/templates/settings/display.html:20
-msgid "Hide AI-generated work"
-msgstr "Приховати роботи, створені ШІ"
+#, fuzzy
+msgid "Show AI-generated work"
+msgstr "Створено ШІ"
 
 #: vixipy/templates/settings/display.html:24
-msgid "Hide works that may contain sensitive content"
+#, fuzzy
+msgid "Display works that may contain sensitive content"
 msgstr "Приховати роботи, які можуть містити делікатний вміст"
 
-#: vixipy/templates/settings/display.html:29
-msgid "Hide explicit content (R-18)"
+#: vixipy/templates/settings/display.html:28
+#, fuzzy
+msgid "Show explicit content (R-18)"
 msgstr "Приховати відвертий вміст (R-18)"
 
-#: vixipy/templates/settings/display.html:34
-msgid "Hide ero-guro content (R-18G)"
+#: vixipy/templates/settings/display.html:32
+#, fuzzy
+msgid "Show ero-guro content (R-18G)"
 msgstr "Приховати вміст ероґуро (R-18G)"
 
-#: vixipy/templates/settings/display.html:39
+#: vixipy/templates/settings/display.html:35
 msgid "Save preferences"
 msgstr "Зберегти налаштування"
 
-#: vixipy/templates/settings/display.html:44
+#: vixipy/templates/settings/display.html:40
 msgid "Ad display settings"
 msgstr "Налаштування показу реклами"
 
-#: vixipy/templates/settings/display.html:47
+#: vixipy/templates/settings/display.html:43
 msgid "Display"
 msgstr "Відображення"
 
@@ -796,6 +811,10 @@ msgid "Language"
 msgstr "Мова"
 
 #: vixipy/templates/settings/language.html:20
+msgid "Help translate Vixipy to your language!"
+msgstr ""
+
+#: vixipy/templates/settings/language.html:22
 msgid "Set language"
 msgstr "Змінити мову"
 
@@ -859,3 +878,7 @@ msgstr "Відстежувані"
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
 msgstr "Редагувати профіль"
+
+#~ msgid "Hide AI-generated work"
+#~ msgstr "Приховати роботи, створені ШІ"
+

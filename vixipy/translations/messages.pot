@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-24 19:01+0800\n"
+"POT-Creation-Date: 2025-06-25 10:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -246,6 +246,19 @@ msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
 "Username and password logins are not possible due to reCAPTCHA enterprise"
 " attestation requirement."
+msgstr ""
+
+#: vixipy/templates/no_connection.html:10
+#: vixipy/templates/no_connection.html:16
+msgid "Connection Error"
+msgstr ""
+
+#: vixipy/templates/no_connection.html:17
+msgid "Unable to connect to pixiv servers. Check your connection and try again."
+msgstr ""
+
+#: vixipy/templates/no_connection.html:19
+msgid "Try Again"
 msgstr ""
 
 #: vixipy/templates/upload.html:2
@@ -728,30 +741,30 @@ msgid "Work content"
 msgstr ""
 
 #: vixipy/templates/settings/display.html:20
-msgid "Hide AI-generated work"
+msgid "Show AI-generated work"
 msgstr ""
 
 #: vixipy/templates/settings/display.html:24
-msgid "Hide works that may contain sensitive content"
+msgid "Display works that may contain sensitive content"
 msgstr ""
 
-#: vixipy/templates/settings/display.html:29
-msgid "Hide explicit content (R-18)"
+#: vixipy/templates/settings/display.html:28
+msgid "Show explicit content (R-18)"
 msgstr ""
 
-#: vixipy/templates/settings/display.html:34
-msgid "Hide ero-guro content (R-18G)"
+#: vixipy/templates/settings/display.html:32
+msgid "Show ero-guro content (R-18G)"
 msgstr ""
 
-#: vixipy/templates/settings/display.html:39
+#: vixipy/templates/settings/display.html:35
 msgid "Save preferences"
 msgstr ""
 
-#: vixipy/templates/settings/display.html:44
+#: vixipy/templates/settings/display.html:40
 msgid "Ad display settings"
 msgstr ""
 
-#: vixipy/templates/settings/display.html:47
+#: vixipy/templates/settings/display.html:43
 msgid "Display"
 msgstr ""
 
@@ -779,6 +792,10 @@ msgid "Language"
 msgstr ""
 
 #: vixipy/templates/settings/language.html:20
+msgid "Help translate Vixipy to your language!"
+msgstr ""
+
+#: vixipy/templates/settings/language.html:22
 msgid "Set language"
 msgstr ""
 

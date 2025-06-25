@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pybabel extract -F babel.cfg -o pyxiv/translations/messages.pot .
+pybabel extract -F babel.cfg -o vixipy/translations/messages.pot .

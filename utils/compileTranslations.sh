@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pybabel compile -d pyxiv/translations
+pybabel compile -d vixipy/translations

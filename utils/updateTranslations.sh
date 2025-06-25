@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pybabel update -i pyxiv/translations/messages.pot -d pyxiv/translations
+pybabel update -i vixipy/translations/messages.pot -d vixipy/translations

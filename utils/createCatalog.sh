@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pybabel init -i pyxiv/translations/messages.pot -d pyxiv/translations -l $1
+pybabel init -i vixipy/translations/messages.pot -d vixipy/translations -l $1

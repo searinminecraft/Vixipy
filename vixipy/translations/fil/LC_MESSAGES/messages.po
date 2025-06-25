@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-24 19:01+0800\n"
+"POT-Creation-Date: 2025-06-25 10:26+0800\n"
 "PO-Revision-Date: 2025-06-24 07:23+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language: fil\n"
@@ -259,6 +259,19 @@ msgstr ""
 "Upang mag-sign in, kakailanganin mo ang <code>PHPSESSID</code> cookie ng "
 "iyong account. Hindi posible ang mga login gamit username at password "
 "dahil sa kinakailangan sa pagpapatunay ng reCAPTCHA enterprise."
+
+#: vixipy/templates/no_connection.html:10
+#: vixipy/templates/no_connection.html:16
+msgid "Connection Error"
+msgstr ""
+
+#: vixipy/templates/no_connection.html:17
+msgid "Unable to connect to pixiv servers. Check your connection and try again."
+msgstr ""
+
+#: vixipy/templates/no_connection.html:19
+msgid "Try Again"
+msgstr ""
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
@@ -744,30 +757,34 @@ msgid "Work content"
 msgstr "Nilalaman ng gawa"
 
 #: vixipy/templates/settings/display.html:20
-msgid "Hide AI-generated work"
-msgstr "Itago ang mga gawang binuo ng AI"
+#, fuzzy
+msgid "Show AI-generated work"
+msgstr "Gawang binuo ng AI"
 
 #: vixipy/templates/settings/display.html:24
-msgid "Hide works that may contain sensitive content"
+#, fuzzy
+msgid "Display works that may contain sensitive content"
 msgstr "Itago ang mga gawa na maaaring maglaman ng mga sensitibong nilalaman"
 
-#: vixipy/templates/settings/display.html:29
-msgid "Hide explicit content (R-18)"
+#: vixipy/templates/settings/display.html:28
+#, fuzzy
+msgid "Show explicit content (R-18)"
 msgstr "Itago ang tahasang nilalaman (R-18)"
 
-#: vixipy/templates/settings/display.html:34
-msgid "Hide ero-guro content (R-18G)"
+#: vixipy/templates/settings/display.html:32
+#, fuzzy
+msgid "Show ero-guro content (R-18G)"
 msgstr "Itago ang ero-guro na nilalaman (R-18G)"
 
-#: vixipy/templates/settings/display.html:39
+#: vixipy/templates/settings/display.html:35
 msgid "Save preferences"
 msgstr "I-save ang mga kagustuhan"
 
-#: vixipy/templates/settings/display.html:44
+#: vixipy/templates/settings/display.html:40
 msgid "Ad display settings"
 msgstr "Mga setting sa pagpakita ng mga ad"
 
-#: vixipy/templates/settings/display.html:47
+#: vixipy/templates/settings/display.html:43
 msgid "Display"
 msgstr "Ipakita"
 
@@ -796,6 +813,10 @@ msgid "Language"
 msgstr "Mga Manga"
 
 #: vixipy/templates/settings/language.html:20
+msgid "Help translate Vixipy to your language!"
+msgstr ""
+
+#: vixipy/templates/settings/language.html:22
 msgid "Set language"
 msgstr ""
 
@@ -859,4 +880,7 @@ msgstr "Sinusundan"
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
 msgstr "I-edit ang Profile"
+
+#~ msgid "Hide AI-generated work"
+#~ msgstr "Itago ang mga gawang binuo ng AI"
 
