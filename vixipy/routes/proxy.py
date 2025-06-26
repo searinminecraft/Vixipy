@@ -3,6 +3,7 @@ from __future__ import annotations
 from quart import Blueprint, abort, current_app, request
 
 import logging
+import traceback
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -12,12 +13,22 @@ bp = Blueprint("proxy", __name__)
 log = logging.getLogger("vixipy.routes.proxy")
 
 
+@bp.errorhandler(Exception)
+async def handle_exception(e: Exception):
+    err = traceback.format_exc()
+    return f"""
+Unable to proxy because an exception occurred:
+
+{err}
+""", 500, {"Content-Type": "text/plain"}
+
+
 @bp.get("/proxy/<path:url>")
 async def perform_proxy_request(url: str):
     permitted = ("i.pximg.net", "s.pximg.net")
 
     if url.split("/")[0] not in permitted:
-        abort(400)
+        return "Nice try :3", 400, {"Content-Type": "text/plain"}
 
     response_headers = {"Cache-Control": "max-age=31536000"}
 

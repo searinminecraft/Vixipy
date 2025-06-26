@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from quart import Blueprint, render_template, redirect, request, url_for
+from quart import Blueprint, current_app, abort, render_template, redirect, request, url_for
 
 
 from ..api import (
@@ -12,6 +12,7 @@ from ..api import (
     pixiv_request,
 )
 from ..filters import filter_from_prefs as ff
+from ..filters import check_blacklisted_tag
 from ..types import NovelEntry, NovelSeriesEntry
 from asyncio import gather
 from datetime import datetime
@@ -112,6 +113,10 @@ async def novel_root():
 @bp.route("/novel/show/<int:id>")
 async def novel_main(id: int):
     data = await get_novel(id)
+
+    if any([check_blacklisted_tag(x) for x in data.tags]):
+        abort(403)
+
     user, recommend = await gather(
         get_user(data.user_id),
         get_recommended_novels(id),
@@ -129,6 +134,9 @@ async def novel_series_main(id: int):
     )
 
     data: NovelSeries
+
+    if any([check_blacklisted_tag(x) for x in data.tags]):
+        abort(403)
 
     pages, _ = divmod(data.published_content_count, 30)
     if _ > 0:

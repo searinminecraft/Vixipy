@@ -11,6 +11,7 @@ Vixipy can be configured by creating `config.py` in the `instance` folder (recom
 | Name | Description | Type | Default Value |
 |-|-|-|-|
 | ACCEPT_LANGUAGE | Defines the [`Accept-Language`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Language) header. | string | `en_US,en;q=0.9` |
+| BLACKLISTED_TAGS | Defines the tags that are blacklisted. Any works with a tag containing that term will be hidden. | list | [] |
 | ACQUIRE_SESSION | Whether to retrieve tokens and certain cookies from pixiv during initialization.<br><br>If disabled, random ones will be generated, but may result in some unforseen issues. | bool | False |
 | SECRET_KEY | Defines the secret key used for Flask's flash notifications. Recommended to change for production use. | string | Vyxie |
 | INSTANCE_NAME | Defines the instance name. It should be short and memorable. | string | Vixipy |

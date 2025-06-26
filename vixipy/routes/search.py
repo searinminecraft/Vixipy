@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING
 from urllib.parse import quote
 from ..api import pixiv_request, search, get_tag_info
 from ..filters import filter_from_prefs as ff
+from ..filters import check_blacklisted_tag
 from ..types import ArtworkEntry, RecommendByTag, TagTranslation
 
 if TYPE_CHECKING:
@@ -26,9 +27,14 @@ bp = Blueprint("search", __name__)
 log = logging.getLogger("vixipy.routes.search")
 
 
+
+
 @bp.route("/tags/<path:query>")
 async def search_main(query: str):
     args: ImmutableMultiDict = request.args
+    if check_blacklisted_tag(query):
+        abort(403)
+
     data, tag_info = await gather(
         search("top", query, **args),
         get_tag_info(query),

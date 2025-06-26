@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from .api import PixivError
 from quart import render_template, make_response, request
 from http import HTTPStatus
-from aiohttp.client_exceptions import ClientOSError
+from aiohttp.client_exceptions import ClientError
 
 if TYPE_CHECKING:
     from quart import Quart
@@ -22,11 +22,11 @@ async def on_pixiv_error(e: PixivError):
     return res, 500
 
 
-async def on_client_os_error(e: ClientOSError):
+async def on_client_error(e: ClientError):
 
     return await render_template("no_connection.html", exc=str(e))
 
 
 def init_app(app: Quart):
     app.register_error_handler(PixivError, on_pixiv_error)
-    app.register_error_handler(ClientOSError, on_client_os_error)
+    app.register_error_handler(ClientError, on_client_error)

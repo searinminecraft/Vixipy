@@ -13,6 +13,10 @@ if TYPE_CHECKING:
 log = logging.getLogger("vixipy.filters")
 
 
+def check_blacklisted_tag(key: str):
+    return any([key.__contains__(x) for x in current_app.config["BLACKLISTED_TAGS"]])
+
+
 def filter_from_prefs(works: list[Union[ArtworkEntry, NovelEntry, NovelSeriesEntry]]):
     hide_r18_instancewide = current_app.config["NO_R18"]
     hide_r18 = bool(int(request.cookies.get("Vixipy-No-R18", 0)))
@@ -25,6 +29,10 @@ def filter_from_prefs(works: list[Union[ArtworkEntry, NovelEntry, NovelSeriesEnt
     new_works = works.copy()
 
     for x in works:
+        if any([check_blacklisted_tag(y) for y in x.tags]):
+            log.debug("Removing %s because one of tags contain blacklisted tag")
+            new_works.remove(x)
+            continue
 
         if isinstance(x, ArtworkEntry) and x.sensitive and hide_sensitive:
             log.debug("Removing %s because sensitive = %s", x, x.sensitive)

@@ -15,6 +15,7 @@ from ..api import (
     get_user_illusts_from_ids,
 )
 from ..filters import filter_from_prefs as ff
+from ..filters import check_blacklisted_tag
 from ..types import ArtworkPage
 
 if TYPE_CHECKING:
@@ -93,6 +94,9 @@ async def __attempt_work_extraction(
 @bp.get("/artworks/<int:id>")
 async def _get_artwork(id: int):
     work: Artwork = await get_artwork(id)
+
+    if any([check_blacklisted_tag(x.name) for x in work.tags]):
+        abort(403)
 
     if work.ai and bool(int(request.cookies.get("Vixipy-No-AI", 0))):
         abort(404)

@@ -54,3 +54,10 @@ def convert_config(app: Quart):
         app.config["TOKEN"] = app.config["TOKEN"].split(",")
         if app.config["TOKEN"][0] == "":
             app.config["TOKEN"] = []
+
+    if not isinstance(app.config["BLACKLISTED_TAGS"], (list, tuple, set)):
+        app.config["BLACKLISTED_TAGS"] = app.config["BLACKLISTED_TAGS"].split(",")
+        if app.config["BLACKLISTED_TAGS"][0] == "":
+            app.config["BLACKLISTED_TAGS"] = []
+
+

@@ -46,6 +46,7 @@ def create_app():
     app.config.from_mapping(
         VIXIPY_VERSION="3",
         ACCEPT_LANGUAGE="en_US,en;q=0.9",
+        BLACKLISTED_TAGS=[],
         SECRET_KEY="Vyxie",
         INSTANCE_NAME="Vixipy",
         LANGUAGES=["en", "ja", "fil", "ru", "uk"],
