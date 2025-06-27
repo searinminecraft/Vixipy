@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from quart import Blueprint, abort, current_app, render_template, request
+from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
 from asyncio import gather
 import datetime
 import logging
@@ -27,6 +28,8 @@ log = logging.getLogger("vixipy.routes.artworks")
 thumb_reg = re.compile(
     r"https?:\/\/i.pximg.net\/c\/.+\/img\/(\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2})\/(\d+)_p(\d+)_.+\.(jpg|png)"
 )
+
+limit_blueprint(bp, limits=[RateLimit(3, timedelta(seconds=1)), RateLimit(30, timedelta(minutes=1))])
 
 
 async def __attempt_work_extraction(

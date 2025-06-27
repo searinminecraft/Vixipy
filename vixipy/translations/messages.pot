@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-25 10:26+0800\n"
+"POT-Creation-Date: 2025-06-27 21:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -219,6 +219,18 @@ msgstr ""
 msgid "View All"
 msgstr ""
 
+#: vixipy/templates/internal_server_error.html:2
+#: vixipy/templates/internal_server_error.html:5
+msgid "Internal Server Error"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:6
+#, python-format
+msgid ""
+"An unhandled exception has occurred. If you believe this is a bug, file a"
+" report <a href=\"%(link)s\">here</a>"
+msgstr ""
+
 #: vixipy/templates/login.html:6
 msgid "Sign in"
 msgstr ""
@@ -248,17 +260,28 @@ msgid ""
 " attestation requirement."
 msgstr ""
 
-#: vixipy/templates/no_connection.html:10
-#: vixipy/templates/no_connection.html:16
+#: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
 msgstr ""
 
-#: vixipy/templates/no_connection.html:17
-msgid "Unable to connect to pixiv servers. Check your connection and try again."
+#: vixipy/templates/no_connection.html:7
+msgid ""
+"Unable to connect to pixiv servers. Check your connection or contact the "
+"instance administrator."
 msgstr ""
 
-#: vixipy/templates/no_connection.html:19
+#: vixipy/templates/no_connection.html:9
 msgid "Try Again"
+msgstr ""
+
+#: vixipy/templates/ratelimited.html:4
+msgid "Too Many Requests"
+msgstr ""
+
+#: vixipy/templates/ratelimited.html:5
+msgid ""
+"You are sending too many requests. Please slow down and try again. Don't "
+"use scripts or crawlers on this site."
 msgstr ""
 
 #: vixipy/templates/upload.html:2

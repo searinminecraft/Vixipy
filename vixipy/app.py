@@ -1,9 +1,11 @@
 from __future__ import annotations
 
-from quart import Quart, Response, g, make_response, request, redirect
+from quart import Quart, Response, current_app, g, make_response, request, redirect
 from quart_babel import Babel
+from quart_rate_limiter import RateLimiter, RateLimiterStoreABC, remote_addr_key
 
 from aiohttp import ClientSession, DummyCookieJar
+from datetime import datetime
 import logging
 import mimetypes
 import os
@@ -27,10 +29,11 @@ from .routes import (
     api,
     settings,
 )
-from . import config as cfg, csp, error_handler, session as pixiv_session_handler
+from . import cache_client, config as cfg, csp, error_handler, session as pixiv_session_handler
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
+    from aiomcache import Client
 
 
 class Token(TypedDict):
@@ -41,11 +44,52 @@ class Token(TypedDict):
     yuid_b: str
 
 
+class MemcacheStore(RateLimiterStoreABC):
+    """
+    A rate limiter store that uses memcached
+
+    address: The address to connect to a memcached instance
+    kwargs: Any arguments to pass to the pymemcache.Client
+    """
+
+    def __init__(self, client: Client):
+        self._client: Client = client
+
+    async def get(self, key: str, default: datetime) -> datetime:
+        result = await self._client.get(bytes(key, "utf-8"))
+        if result is None:
+            return default
+        else:
+            return datetime.fromtimestamp(float(result.decode()))
+
+    async def set(self, key: str, tat: datetime) -> None:
+        ts = tat.timestamp()
+        await self._client.set(
+            bytes(key, "utf-8"), bytes(str(ts), "utf-8"))
+
+    @staticmethod
+    async def before_serving():
+        pass
+
+    @staticmethod
+    async def after_serving():
+        pass
+
+async def limiter_key_func():
+    if g.authorized:
+        return g.token
+
+    if current_app.config["BEHIND_REVERSE_PROXY"]:
+        return request.headers["X-Forwarded-For"] or request.remote_addr
+
+    return await remote_addr_key()
+
 def create_app():
     app = Quart(__name__, instance_relative_config=True, static_folder=None)
     app.config.from_mapping(
         VIXIPY_VERSION="3",
         ACCEPT_LANGUAGE="en_US,en;q=0.9",
+        BEHIND_REVERSE_PROXY=False,
         BLACKLISTED_TAGS=[],
         SECRET_KEY="Vyxie",
         INSTANCE_NAME="Vixipy",
@@ -61,6 +105,7 @@ def create_app():
         IMG_PROXY="/proxy/i.pximg.net",
         PIXIV_DIRECT_CONNECTION="0",
         ACQUIRE_SESSION="0",
+        QUART_RATE_LIMITER_ENABLED=False,
     )
     app.config.from_prefixed_env("VIXIPY")
     app.config.from_pyfile(app.instance_path + "/config.py", silent=True)
@@ -143,10 +188,9 @@ def create_app():
 
     pixiv_session_handler.init_app(app)
     error_handler.init_app(app)
-    if app.config["CACHE_PIXIV_REQUESTS"]:
-        from . import cache_client
+    cache_client.init_app(app)
 
-        cache_client.init_app(app)
+    limiter = RateLimiter(app, store=MemcacheStore(app.cache_client), key_function=limiter_key_func)
 
     # =================================
     @app.before_serving
@@ -186,6 +230,7 @@ def create_app():
         log.info("")
         log.info("Configuration:")
         log.info("  * Accept Language: %s", app.config["ACCEPT_LANGUAGE"])
+        log.info("  * Acquire Session: %s", app.config["ACQUIRE_SESSION"])
         log.info("  * Instance Name: %s", app.config["INSTANCE_NAME"])
         log.info("  * Log HTTP Requests: %s", app.config["LOG_HTTP"])
         log.info("  * Log pixiv Requests: %s", app.config["LOG_PIXIV"])
@@ -197,6 +242,7 @@ def create_app():
         log.info("  * No Sensitive Works: %s", app.config["NO_SENSITIVE"])
         log.info("  * Image Proxy: %s", app.config["IMG_PROXY"])
         log.info("  * Bypass Cloudflare: %s", app.config["PIXIV_DIRECT_CONNECTION"])
+        log.info("  * Rate Limit Enabled: %s", app.config["QUART_RATE_LIMITER_ENABLED"])
         log.info("  * Debug: %s", app.config["DEBUG"])
 
         with open(os.path.join(app.instance_path, ".running"), "w") as f:

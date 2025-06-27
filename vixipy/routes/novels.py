@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from quart import Blueprint, current_app, abort, render_template, redirect, request, url_for
-
+from quart_rate_limiter import limit_blueprint, timedelta, RateLimit, rate_limit
 
 from ..api import (
     get_novel,
@@ -22,6 +22,7 @@ if TYPE_CHECKING:
     from ..types import NovelSeries
 
 bp = Blueprint("novels", __name__)
+limit_blueprint(bp, limits=[RateLimit(1, timedelta(seconds=1)), RateLimit(15, timedelta(minutes=1))])
 
 
 class NovelRanking:
@@ -37,6 +38,7 @@ class EditorRecommend:
 
 
 @bp.route("/novel")
+@rate_limit(1, timedelta(seconds=5))
 async def novel_root():
     mode = request.args.get("mode", "all")
     data = await pixiv_request(

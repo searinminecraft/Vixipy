@@ -1,4 +1,5 @@
 from quart import Blueprint, redirect, render_template, request, url_for
+from quart_rate_limiter import timedelta, rate_limit
 
 from asyncio import gather
 from ..api import (
@@ -16,6 +17,7 @@ bp = Blueprint("users", __name__)
 
 
 @bp.get("/users/<int:user>")
+@rate_limit(1, timedelta(seconds=5))
 async def user_profile(user: int):
     data, top = await gather(get_user(user, True), get_user_profile_top(user))
 
@@ -23,6 +25,7 @@ async def user_profile(user: int):
 
 
 @bp.get("/users/<int:user>/illustrations")
+@rate_limit(1, timedelta(seconds=1))
 async def user_illusts(user: int):
     data, il = await gather(
         get_user(user, True), get_user_illusts(user, page=int(request.args.get("p", 1)))
@@ -34,6 +37,7 @@ async def user_illusts(user: int):
 
 
 @bp.get("/users/<int:user>/manga")
+@rate_limit(2, timedelta(seconds=3))
 async def user_manga(user: int):
     data, il = await gather(
         get_user(user, True),
@@ -48,6 +52,7 @@ async def user_manga(user: int):
 
 
 @bp.get("/users/<int:user>/bookmarks")
+@rate_limit(2, timedelta(seconds=3))
 @tokenless_require_login
 async def user_bookmarks(user: int):
     data, bkdata = await gather(
@@ -67,6 +72,7 @@ async def user_bookmarks(user: int):
 
 
 @bp.get("/users/<int:user>/novels")
+@rate_limit(2, timedelta(seconds=3))
 async def user_novels(user: int):
     data, cts = await gather(
         get_user(user, True), pixiv_request(f"/ajax/user/{user}/profile/all")

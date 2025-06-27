@@ -127,7 +127,7 @@ class ArtworkEntry(ArtworkBase):
         self.unproxied_thumb = d["url"]
         self.thumb = proxy(self.unproxied_thumb)
         self.profileimg = proxy(d.get("profileImageUrl"))
-        self.tags: list[str] = d["tags"]
+        self.tags: list[str] = d.get("tags", [])
 
     def __repr__(self):
         return f"<ArtworkEntry {self.id}>"

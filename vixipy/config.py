@@ -50,6 +50,17 @@ def convert_config(app: Quart):
     except Exception:
         app.config["NO_SENSITIVE"] = False
 
+    try:
+        app.config["QUART_RATE_LIMITER_ENABLED"] = bool(int(app.config["QUART_RATE_LIMITER_ENABLED"]))
+    except Exception:
+        app.config["QUART_RATE_LIMITER_ENABLED"] = False
+
+    try:
+        app.config["BEHIND_REVERSE_PROXY"] = bool(int(app.config["BEHIND_REVERSE_PROXY"]))
+    except Exception:
+        app.config["BEHIND_REVERSE_PROXY"] = False
+
+
     if not isinstance(app.config["TOKEN"], (list, tuple, set)):
         app.config["TOKEN"] = app.config["TOKEN"].split(",")
         if app.config["TOKEN"][0] == "":

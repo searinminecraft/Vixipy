@@ -1,4 +1,5 @@
 from quart import Blueprint, abort, current_app, g, request, render_template
+from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
 
 from ..api import pixiv_request, get_ranking
 from ..filters import filter_from_prefs as ff
@@ -7,6 +8,7 @@ from ..types import Tag, ArtworkEntry, TagTranslation, RecommendByTag
 from typing import Dict
 
 bp = Blueprint("index", __name__)
+limit_blueprint(bp, 1, timedelta(seconds=10))
 
 
 @bp.get("/")

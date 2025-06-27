@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/instance.css">
+    <script src="/static/jquery-3.7.1.min.js"></script>
+    <script src="/static/htmx.min.js"></script>
+    {% if title %}
+    <title>{{title}} | {{config["INSTANCE_NAME"]}}</title>
+    {% else %}
+    <title>{{config["INSTANCE_NAME"]}}</title>
+    {% endif %}
+</head>
+<body hx-swap="innerHTML" hx-boost="true" hx-indicator="#loading">
+    <div id="loading"></div>
+    <div id="no-connection-wrapper">
+	<main>
+	{% block content %}
+	{% endblock %}
+	</main> 
+    </div>
+</body>
+</html>

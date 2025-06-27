@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-25 10:26+0800\n"
+"POT-Creation-Date: 2025-06-27 21:38+0800\n"
 "PO-Revision-Date: 2025-06-25 09:21+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:46
@@ -227,6 +226,20 @@ msgstr "Рейтинг за %(date)s"
 msgid "View All"
 msgstr "Переглянути всі"
 
+#: vixipy/templates/internal_server_error.html:2
+#: vixipy/templates/internal_server_error.html:5
+msgid "Internal Server Error"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:6
+#, fuzzy, python-format
+msgid ""
+"An unhandled exception has occurred. If you believe this is a bug, file a"
+" report <a href=\"%(link)s\">here</a>"
+msgstr ""
+"Щось пішло не так. Якщо ви гадаєте, що це недолік, надішліть звіт про "
+"помилку <a href='%(link)s'>сюди</a>"
+
 #: vixipy/templates/login.html:6
 msgid "Sign in"
 msgstr "Увійти"
@@ -236,8 +249,8 @@ msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
 msgstr ""
-"Увійдіть у свій обліковий запис pixiv, щоб отримати доступ до функцій, які "
-"потребують входу, а саме:"
+"Увійдіть у свій обліковий запис pixiv, щоб отримати доступ до функцій, "
+"які потребують входу, а саме:"
 
 #: vixipy/templates/login.html:20
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
@@ -261,20 +274,32 @@ msgstr ""
 "облікового запису. Вхід за допомогою імені користувача та пароля "
 "неможливий через обов'язкову перевірку reCAPTCHA."
 
-#: vixipy/templates/no_connection.html:10
-#: vixipy/templates/no_connection.html:16
+#: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
 msgstr "Помилка з'єднання"
 
-#: vixipy/templates/no_connection.html:17
-msgid "Unable to connect to pixiv servers. Check your connection and try again."
+#: vixipy/templates/no_connection.html:7
+#, fuzzy
+msgid ""
+"Unable to connect to pixiv servers. Check your connection or contact the "
+"instance administrator."
 msgstr ""
-"Не вдалося підключитися до серверів pixiv. Перевірте з'єднання і спробуйте "
-"ще раз."
+"Не вдалося підключитися до серверів pixiv. Перевірте з'єднання і "
+"спробуйте ще раз."
 
-#: vixipy/templates/no_connection.html:19
+#: vixipy/templates/no_connection.html:9
 msgid "Try Again"
 msgstr "Повторити спробу"
+
+#: vixipy/templates/ratelimited.html:4
+msgid "Too Many Requests"
+msgstr ""
+
+#: vixipy/templates/ratelimited.html:5
+msgid ""
+"You are sending too many requests. Please slow down and try again. Don't "
+"use scripts or crawlers on this site."
+msgstr ""
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
@@ -880,3 +905,4 @@ msgstr "Редагувати профіль"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Приховати роботи, створені ШІ"
+
