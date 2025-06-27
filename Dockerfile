@@ -17,4 +17,4 @@ EXPOSE ${PYXIV_PORT}
 
 USER vixipy
 
-CMD PYXIV_SECRET=$(base64 /dev/urandom | head -c 50) hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers ${PYXIV_WORKERS} vixipy:app
+CMD VIXIPY_SECRET_KEY=$(base64 /dev/urandom | head -c 50) hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers ${PYXIV_WORKERS} vixipy:app
