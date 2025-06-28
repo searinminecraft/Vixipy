@@ -2,7 +2,7 @@ FROM python:3.13-alpine
 
 WORKDIR /vixipy
 
-COPY . .
+COPY requirements.txt requirements.txt
 
 RUN apk --update --no-cache add git 
 
@@ -13,8 +13,10 @@ RUN addgroup -S vixipy && \
 
 RUN chown -R vixipy:vixipy /vixipy
 
-EXPOSE ${PYXIV_PORT}
+EXPOSE ${VIXIPY_PORT}
 
 USER vixipy
 
-CMD VIXIPY_SECRET_KEY=$(base64 /dev/urandom | head -c 50) hypercorn --log-level FATAL --bind 0.0.0.0:${PYXIV_PORT} --workers ${PYXIV_WORKERS} vixipy:app
+COPY . .
+
+CMD VIXIPY_SECRET_KEY=$(base64 /dev/urandom | head -c 50) hypercorn --log-level FATAL --bind 0.0.0.0:${VIXIPY_PORT} --workers ${VIXIPY_WORKERS} vixipy:app

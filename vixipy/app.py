@@ -5,7 +5,7 @@ from quart_babel import Babel
 from quart_rate_limiter import RateLimiter, RateLimiterStoreABC, remote_addr_key
 
 from aiohttp import ClientSession, DummyCookieJar
-from datetime import datetime
+from datetime import datetime, timezone
 import logging
 import mimetypes
 import os
@@ -60,7 +60,7 @@ class MemcacheStore(RateLimiterStoreABC):
         if result is None:
             return default
         else:
-            return datetime.fromtimestamp(float(result.decode()))
+            return datetime.fromtimestamp(float(result.decode())).replace(tzinfo=timezone.utc)
 
     async def set(self, key: str, tat: datetime) -> None:
         ts = tat.timestamp()

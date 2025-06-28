@@ -10,19 +10,37 @@ services:
     security_opt:
       - no-new-privileges:true
     environment:
-      #PYXIV_TOKEN: ""
-      #PYXIV_TOKEN_BALANCER: "random"
-      PYXIV_PORT: 8000
-      PYXIV_NOR18: 0
-      PYXIV_LIMITING: 0
-      #PYXIV_ACCEPTLANG: ""
-      #PYXIV_INSTANCENAME: ""
-      #PYXIV_ACQUIRE_SESSION: 0
-      #PYXIV_DEFAULT_PROXY: ""
-      #PYXIV_DEFAULT_THEME: ""
-      #PYXIV_ADDITIONAL_THEMES: ""
-      PYXIV_WORKERS: 5
-      #PYXIV_UGOIRA_SERVER: ""
-      #PYXIV_UGOIRA_SERVER_REFERER: ""
-      #PYXIV_UGOIRA_SERVER_TRUSTED: 0
-      #PYXIV_UGOIRA_SERVER_NEEDS_DATE: 0
+      VIXIPY_PORT: 8000
+      VIXIPY_WORKERS: 1
+      VIXIPY_INSTANCE_NAME: "My awesome Vixipy instance"
+
+      # by default, logging is enabled, but you can disable it like this
+      #VIXIPY_LOG_HTTP: "0"
+      #VIXIPY_LOG_PIXIV: "0"
+
+      # disable r18 works viewing
+      #VIXIPY_NO_R18: "0"
+
+      # try this if you have issues connecting to cloudflare
+      #VIXIPY_PIXIV_DIRECT_CONNECTION: "1"
+
+      # getting attacked by bots? ratelimiting can slow them down
+      #VIXIPY_QUART_RATE_LIMITER_ENABLED: "1"
+      #VIXIPY_BEHIND_REVERSE_PROXY: "1" # only enable this if you are behind reverse proxy (caddy, nginx, etc)
+
+      # caching can speed up your instance, but will require memcached
+      #VIXIPY_CACHE_PIXIV_REQUESTS: "1"
+      #VIXIPY_CACHE_TTL: "300"
+
+      # Uncomment this line if using caching or ratelimiting
+      #VIXIPY_MEMCACHED_HOST: "memcached"
+  
+  # You must have memcached running to use caching/ratelimiting. Configure it to your liking
+  #memcached:
+  #  image: memcached
+  #  restart: unless-stopped
+  #  command:
+  #    - --max-item-size=4m
+  #    - --conn-limit=1024
+  #    - --memory-limit=128
+  #    - --threads=1
