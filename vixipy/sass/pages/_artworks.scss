@@ -10,6 +10,11 @@
         background-color: var(--md-sys-color-surface-container);
         overflow: hidden;
 
+        video {
+            width: 100%;
+            height: auto;
+        }
+
         .works {
             .work {
                 position: relative;

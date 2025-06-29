@@ -1,0 +1,28 @@
+{%- macro comment(data) %}
+<div class="comment" id="commentid-{{data.id}}">
+    {%- if data.is_deleted_user %}
+    {% set link = "#" %}
+    {% set username = _("Deleted User") %}
+    {% else %}
+    {% set link = url_for('users.user_profile', user=data.user_id) %}
+    {% set username = data.username %}
+    {% endif -%}
+    <a class="profile" href="{{link}}">
+        <img src="{{data.img}}" alt="{{username}}">
+    </a>
+    <main>
+        <a class="user" href="{{link}}">{{username}}</a>
+        {% if data.stamp_id %}
+        <img class="stamp" src="{{data.stamp_image}}" alt="{{_('Stamp')}}">
+        {% else %}
+        <p>{{data.comment}}</p>
+        {% endif %}
+        <ul class="actions">
+            <li>{{data.date|dateformat}}</li>
+            {% if data.has_replies %}
+            <li><a target="_blank" href="{{url_for('artworks.get_replies', id=data.id)}}">{{_("View replies")}}</a></li>
+            {% endif %}
+        </ul>
+    </main>
+</div>
+{% endmacro -%}

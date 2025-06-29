@@ -67,7 +67,7 @@ async def search_artworks(query: str):
     }
 
     data, tag_info = await gather(
-        search("artworks", query, **args, p=page), get_tag_info(query)
+        search("illustrations", query, **args, p=page), get_tag_info(query)
     )
 
     data.results = ff(data.results)

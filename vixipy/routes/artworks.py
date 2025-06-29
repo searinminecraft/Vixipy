@@ -11,6 +11,8 @@ from typing import TYPE_CHECKING
 from ..api import (
     get_artwork,
     get_artwork_pages,
+    get_artwork_comments,
+    get_artwork_replies,
     get_recommended_works,
     get_user,
     get_user_illusts_from_ids,
@@ -146,3 +148,15 @@ async def _get_artwork(id: int):
         user=user,
         user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id))),
     )
+
+
+@bp.get("/artworks/<int:id>/comments")
+async def get_comments(id: int):
+    data = await get_artwork_comments(id, int(request.args.get("p", 1)))
+    return await render_template("comments.html", data=data, id=id)
+
+
+@bp.get("/artworks/replies/<int:id>")
+async def get_replies(id: int):
+    data = await get_artwork_replies(id, int(request.args.get("p", 1)))
+    return await render_template("replies.html", data=data, id=id)

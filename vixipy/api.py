@@ -272,8 +272,8 @@ async def search(type_: str, query: str, **kwargs):
     match type_:
         case "top":
             return SearchResultsTop(data)
-        case "artworks":
-            return SearchResultsIllustManga(data)
+        case "illustrations":
+            return SearchResultsIllust(data)
         case "manga":
             return SearchResultsManga(data)
         case "novels":
@@ -367,3 +367,27 @@ async def get_novel_series_contents(id: int, page: int = 1) -> NovelEntry:
         __entries[x["id"]].title = f"#{x['series']['contentOrder']} {x['title']}"
 
     return list(__entries.values())
+
+
+async def get_artwork_comments(id: int, page: int = 1):
+    data = await pixiv_request(
+        "/ajax/illusts/comments/roots",
+        params=[("illust_id", id), ("offset", (10*page)-10), ("limit", 10)]
+    )
+
+    return CommentBaseResponse(
+        [Comment(x) for x in data["comments"]],
+        data["hasNext"]
+    )
+
+
+async def get_artwork_replies(id: int, page: int = 1):
+    data = await pixiv_request(
+        "/ajax/illusts/comments/replies",
+        params=[("comment_id", id), ("page", page)]
+    )
+
+    return CommentBaseResponse(
+        [CommentBase(x) for x in data["comments"]],
+        data["hasNext"]
+    )
