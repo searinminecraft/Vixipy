@@ -19,7 +19,7 @@ services:
       #VIXIPY_LOG_PIXIV: "0"
 
       # disable r18 works viewing
-      #VIXIPY_NO_R18: "0"
+      #VIXIPY_NO_R18: "1"
 
       # try this if you have issues connecting to cloudflare
       #VIXIPY_PIXIV_DIRECT_CONNECTION: "1"

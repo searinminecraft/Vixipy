@@ -60,7 +60,7 @@ class MemcacheStore(RateLimiterStoreABC):
         if result is None:
             return default
         else:
-            return datetime.fromtimestamp(float(result.decode())).replace(tzinfo=timezone.utc)
+            return datetime.utcfromtimestamp(float(result.decode())).replace(tzinfo=timezone.utc)
 
     async def set(self, key: str, tat: datetime) -> None:
         ts = tat.timestamp()
