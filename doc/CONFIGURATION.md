@@ -28,6 +28,8 @@ Vixipy can be configured by creating `config.py` in the `instance` folder (recom
 | MEMCACHED_PORT | Port for Memcached | 1023-65535 | 11211 |
 | QUART_RATE_LIMITER_ENABLED | Whether to enable the rate limiter (requires Memcached | bool | False |
 | BEHIND_REVERSE_PROXY | Gives a hint to Vixipy whether it's behind a reverse proxy (e.g. Nginx, Caddy) | bool | False |
+| UGOIRA_ENDPOINT | Determines the Ugoira proxy to use. `%s` denotes where the ID will be placed <br><br>When using [simple-webm-ugoira](https://gitlab.com/pixivfe/simple-webm-ugoira), **make sure** to set the format to a video format! (Example: `http://localhost:8080/ugoira/%s?format=webm`) | string | `https://t-hk.ugoira.com/ugoira/%s.mp4` |
+| UGOIRA_REFERER | Determines the `Referer` header for Ugoira proxy. Useful if for example the endpoint is only limited to certain referrers (like ugoira.com) | string | `https://ugoira.com` |
 
 
 ###### Parts of this documentation are derived from the [PixivFE Documentation](https://pixivfe-docs.pages.dev) and are licensed under the GFDL-1.3-or-later.
