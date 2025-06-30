@@ -368,6 +368,7 @@ async def get_artwork_comments(id: int, page: int = 1):
     data = await pixiv_request(
         "/ajax/illusts/comments/roots",
         params=[("illust_id", id), ("offset", (10 * page) - 10), ("limit", 10)],
+        ignore_cache=True,
     )
 
     return CommentBaseResponse([Comment(x) for x in data["comments"]], data["hasNext"])
@@ -375,7 +376,9 @@ async def get_artwork_comments(id: int, page: int = 1):
 
 async def get_artwork_replies(id: int, page: int = 1):
     data = await pixiv_request(
-        "/ajax/illusts/comments/replies", params=[("comment_id", id), ("page", page)]
+        "/ajax/illusts/comments/replies",
+        params=[("comment_id", id), ("page", page)],
+        ignore_cache=True,
     )
 
     return CommentBaseResponse(
