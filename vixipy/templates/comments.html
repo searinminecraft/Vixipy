@@ -6,6 +6,80 @@
 <main class="no-transition">
     <h2>{{_("Comments")}}</h2>
     <div id="comment-area">
+        <div id="poster">
+            {% if g.authorized %}
+            <form action="/self/post_comment" method="post">
+                <input type="hidden" name="target", value="{{id}}">
+                <input type="hidden" name="user" value="{{work.authorId}}">
+                <div class="container">
+                    <img class="profile" src="{{g.current_user.imageBig}}">
+                    <main>
+                        <textarea required name="comment" placeholder="{{_('Post your comment')}}" rows="3" maxlength="140"></textarea>
+                        <label for="expression-picker-t">
+                            <a class="icon-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M616.24-527.69q21.84 0 37.03-15.29 15.19-15.28 15.19-37.11t-15.28-37.02q-15.28-15.2-37.12-15.2-21.83 0-37.02 15.29-15.19 15.28-15.19 37.11t15.28 37.02q15.28 15.2 37.11 15.2Zm-272.3 0q21.83 0 37.02-15.29 15.19-15.28 15.19-37.11t-15.28-37.02q-15.28-15.2-37.11-15.2-21.84 0-37.03 15.29-15.19 15.28-15.19 37.11t15.28 37.02q15.28 15.2 37.12 15.2ZM480-272.31q62.61 0 114.46-35.04 51.85-35.04 76.46-92.65H289.08q24.61 57.61 76.46 92.65 51.85 35.04 114.46 35.04Zm.07 172.31q-78.84 0-148.21-29.92t-120.68-81.21q-51.31-51.29-81.25-120.63Q100-401.1 100-479.93q0-78.84 29.92-148.21t81.21-120.68q51.29-51.31 120.63-81.25Q401.1-860 479.93-860q78.84 0 148.21 29.92t120.68 81.21q51.31 51.29 81.25 120.63Q860-558.9 860-480.07q0 78.84-29.92 148.21t-81.21 120.68q-51.29 51.31-120.63 81.25Q558.9-100 480.07-100ZM480-480Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg>
+                            </a>
+                        </label>
+                        <button class="button primary" type="submit">{{_("Send")}}</button>
+                    </main>
+                </div>
+            </form>
+            <input type="checkbox" id="expression-picker-t">
+            <div id="expression-picker">
+                <h3>{{_("Emojis and Stickers")}}</h3>
+                {%- macro stamp_button(x) %}
+                <li><button type="submit" name="id" value="{{x}}"><img loading="lazy" src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{x}}_s.jpg"></button></li>
+                {% endmacro -%}
+
+                <div class="require-js" id="emojis">
+                    <h4>{{_("Emojis")}}</h4>
+                    <ul>
+                    {% for x in emojis %}
+                    <li><button value="{{x['name']}}"><img loading="lazy" src="/proxy/s.pximg.net/common/images/emoji/{{x['id']}}.png" id></button></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <script src="/static/emoji.js"></script>
+
+                <h4>{{_("Stickers")}}</h4>
+                <form action="/self/post_stamp" method="post">
+                    <input type="hidden" name="target", value="{{id}}">
+                    <input type="hidden" name="user" value="{{work.authorId}}">
+                    <ul id="stamps">
+                        {%- for x in (range(301, 311)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                        {%- for x in (range(401, 411)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                        {%- for x in (range(101, 111)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                        {%- for x in (range(201, 211)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                        {%- for x in (range(701, 711)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                    </ul>
+                </form>
+            </div>
+            {% else %}
+            <div class="container">
+                <img class="profile" src="/proxy/s.pximg.net/common/images/no_profile.png">
+                <main>
+                    <textarea disabled required name="comment" placeholder="{{_('Sign in to post comments')}}" rows="3" maxlength="140"></textarea>
+                    <label for="expression-picker-t">
+                        <a class="icon-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M616.24-527.69q21.84 0 37.03-15.29 15.19-15.28 15.19-37.11t-15.28-37.02q-15.28-15.2-37.12-15.2-21.83 0-37.02 15.29-15.19 15.28-15.19 37.11t15.28 37.02q15.28 15.2 37.11 15.2Zm-272.3 0q21.83 0 37.02-15.29 15.19-15.28 15.19-37.11t-15.28-37.02q-15.28-15.2-37.11-15.2-21.84 0-37.03 15.29-15.19 15.28-15.19 37.11t15.28 37.02q15.28 15.2 37.12 15.2ZM480-272.31q62.61 0 114.46-35.04 51.85-35.04 76.46-92.65H289.08q24.61 57.61 76.46 92.65 51.85 35.04 114.46 35.04Zm.07 172.31q-78.84 0-148.21-29.92t-120.68-81.21q-51.31-51.29-81.25-120.63Q100-401.1 100-479.93q0-78.84 29.92-148.21t81.21-120.68q51.29-51.31 120.63-81.25Q401.1-860 479.93-860q78.84 0 148.21 29.92t120.68 81.21q51.31 51.29 81.25 120.63Q860-558.9 860-480.07q0 78.84-29.92 148.21t-81.21 120.68q-51.29 51.31-120.63 81.25Q558.9-100 480.07-100ZM480-480Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg>
+                        </a>
+                    </label>
+                    <button class="button primary" type="submit" disabled>{{_("Send")}}</button>
+                </main>
+            </div>
+            {% endif %}
+        </div>
+
         <div class="comments">
             {% for x in data.comments %}
             {{ comment(x) }}
@@ -15,7 +89,6 @@
         </div>
     </div>
 
-    {% if data.has_next %}
     <div class="paginator">
         {%- set page = request.args.get("p", 1)|int -%}
         <a {% if page > 1 %}href="{{url_for('artworks.get_comments', id=id, p=page-1)}}"{% endif %}>
@@ -26,6 +99,5 @@
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"/></svg>
         </a>
     </div>
-    {% endif %}
 </main>
 {% endblock %}

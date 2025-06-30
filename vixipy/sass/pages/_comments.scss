@@ -1,6 +1,95 @@
 @use '../mixins' as *;
 
 #comment-area {
+    #poster {
+        margin-bottom: 1.5em;
+
+        #expression-picker {
+            display: none;
+        }
+
+        #expression-picker-t {
+            display: none;
+
+            &:checked + #expression-picker {
+                display: block !important;
+            }
+        }
+
+        #expression-picker {
+            ul {
+                margin: 0 auto;
+                padding: unset;
+                list-style: none;
+                width: 90%;
+
+                li {
+                    display: inline-block;
+                    
+                    button {
+                        background: unset;
+                        border: unset;
+                        padding: unset;
+                        cursor: pointer;
+                        padding: .25em;
+                    }
+                }
+            }
+
+            #stamps li button {
+                img {
+                    width: 96px;
+                    height: 96px;
+                    border-radius: 12px;
+                    transition: .2s ease;
+                }
+
+                &:hover img {
+                    transform: scale(115%);
+                    box-shadow: 0 0 6px rgba(0,0,0,.3)
+                }
+
+                &:active img {
+                    transform: scale(105%);
+                    border-radius: 16px;
+                }
+            }
+
+            #emojis img {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        .container {
+            display: flex;
+            gap: 1em;
+
+            .profile {
+                @include profile-img(48px);
+            }
+
+            main {
+                display: flex;
+                align-items: flex-end;
+                gap: .5em;
+                flex: 1;
+
+                textarea {
+                    resize: none;
+                    flex: 1;
+                    border-bottom: unset;
+                    background-color: var(--md-sys-color-surface-container);
+                    border-radius: 8px;
+                }
+
+                button {
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+
     .comment {
         display: flex;
         align-items: flex-start;

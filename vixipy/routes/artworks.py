@@ -17,6 +17,7 @@ from ..api import (
     get_user,
     get_user_illusts_from_ids,
 )
+from ..constants import EMOJI_SERIES
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
 from ..types import ArtworkPage
@@ -152,8 +153,11 @@ async def _get_artwork(id: int):
 
 @bp.get("/artworks/<int:id>/comments")
 async def get_comments(id: int):
-    data = await get_artwork_comments(id, int(request.args.get("p", 1)))
-    return await render_template("comments.html", data=data, id=id)
+    work, data = await gather(
+        get_artwork(id),
+        get_artwork_comments(id, int(request.args.get("p", 1)))
+    )
+    return await render_template("comments.html", work=work, data=data, id=id, emojis=EMOJI_SERIES)
 
 
 @bp.get("/artworks/replies/<int:id>")

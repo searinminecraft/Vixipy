@@ -4,6 +4,7 @@ from quart import Blueprint, request, redirect, url_for, g, abort
 
 from ..api import pixiv_request
 from typing import TYPE_CHECKING
+from urllib.parse import quote
 from quart_babel import lazy_gettext as _l
 
 if TYPE_CHECKING:
@@ -19,6 +20,8 @@ async def ensure_authorized():
     isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
     if not g.get("authorized"):
         if isQuickAction:
+            abort(401)
+        if request.method == "POST":
             abort(401)
         return redirect(url_for("login.login_page"))
 
@@ -152,3 +155,53 @@ hx-headers='{HX_HEADER}'>
 """
     else:
         return redirect(rt, code=303)
+
+
+@bp.post("/self/post_comment")
+async def post_comment():
+    f = await request.form
+
+    illust_id: str = f["target"]
+    user: str = f["user"]
+    comment: str = f["comment"]
+
+    # Validate for pixiv restrictions
+    if len(comment) > 140:
+        abort(400)
+    if comment.rstrip() == "":
+        abort(400)
+
+    await pixiv_request(
+        "/rpc/post_comment.php",
+        "post",
+        raw_payload=f"type=comment&illust_id={illust_id}&author_user_id={user}&comment={quote(comment)}",
+        headers={
+            "Accept": "application/json",
+            "Origin": "https://www.pixiv.net",
+            "Referer": "https://www.pixiv.net/artworks/" + illust_id
+        }
+    )
+
+    return redirect(url_for("artworks.get_comments", id=int(illust_id)))
+
+
+@bp.post("/self/post_stamp")
+async def post_stamp():
+    f = await request.form
+
+    illust_id: str = f["target"]
+    user: str = f["user"]
+    stamp: str = f["id"]
+
+    await pixiv_request(
+        "/rpc/post_comment.php",
+        "post",
+        raw_payload=f"type=stamp&illust_id={illust_id}&author_user_id={user}&stamp_id={stamp}",
+        headers={
+            "Accept": "application/json",
+            "Origin": "https://www.pixiv.net",
+            "Referer": "https://www.pixiv.net/artworks/" + illust_id
+        }
+    )
+
+    return redirect(url_for("artworks.get_comments", id=int(illust_id)))
