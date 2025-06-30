@@ -7,61 +7,101 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-27 21:38+0800\n"
+"POT-Creation-Date: 2025-06-30 21:34+0800\n"
 "PO-Revision-Date: 2025-06-28 13:58+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
-#: vixipy/routes/login.py:46
+#: vixipy/routes/login.py:49
 msgid "Invalid token"
 msgstr "Недійсний токен"
 
-#: vixipy/routes/login.py:73
+#: vixipy/routes/login.py:76
 msgid "Unable to extract CSRF"
 msgstr "Не вдається витягти CSRF"
 
-#: vixipy/templates/artworks.html:20
+#: vixipy/templates/artworks.html:23
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "Сторінка %(page)d з %(total)d"
 
-#: vixipy/templates/artworks.html:38
+#: vixipy/templates/artworks.html:42
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
 msgstr "Стежити"
 
-#: vixipy/templates/artworks.html:38
+#: vixipy/templates/artworks.html:42
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
 msgstr "Не стежити"
 
-#: vixipy/templates/artworks.html:43
+#: vixipy/templates/artworks.html:47
 msgid "View all works"
 msgstr "Усі роботи"
 
-#: vixipy/templates/artworks.html:68
+#: vixipy/templates/artworks.html:72
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Рівень чутливості: %(sl)d"
 
-#: vixipy/templates/artworks.html:130 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:136 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "Пов'язані роботи"
 
-#: vixipy/templates/artworks.html:138
+#: vixipy/templates/artworks.html:144
 msgid "No recommended works to show."
 msgstr "Немає рекомендованих робіт для показу."
+
+#: vixipy/templates/comments.html:2 vixipy/templates/comments.html:7
+#: vixipy/templates/replies.html:2
+#, fuzzy
+msgid "Comments"
+msgstr "Дозволити коментарі"
+
+#: vixipy/templates/comments.html:17
+msgid "Post your comment"
+msgstr ""
+
+#: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
+#, fuzzy
+msgid "Send"
+msgstr "Стать"
+
+#: vixipy/templates/comments.html:29
+msgid "Emojis and Stickers"
+msgstr ""
+
+#: vixipy/templates/comments.html:35
+msgid "Emojis"
+msgstr ""
+
+#: vixipy/templates/comments.html:44
+msgid "Stickers"
+msgstr ""
+
+#: vixipy/templates/comments.html:71
+msgid "Sign in to post comments"
+msgstr ""
+
+#: vixipy/templates/comments.html:87
+#, fuzzy
+msgid "No comments"
+msgstr "Дозволити коментарі"
+
+#: vixipy/templates/comments.html:97 vixipy/templates/replies.html:23
+#, fuzzy, python-format
+msgid "Page %(page)d"
+msgstr "Сторінка %(page)d з %(total)d"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
@@ -238,14 +278,14 @@ msgid ""
 "An unhandled exception has occurred. If you believe this is a bug, file a"
 " report <a href=\"%(link)s\">here</a>"
 msgstr ""
-"Виникла невідома помилка. Якщо ви гадаєте, що це недолік, надішліть звіт про "
-"помилку <a href='%(link)s'>сюди</a>"
+"Виникла невідома помилка. Якщо ви гадаєте, що це недолік, надішліть звіт "
+"про помилку <a href='%(link)s'>сюди</a>"
 
-#: vixipy/templates/login.html:6
+#: vixipy/templates/login.html:7
 msgid "Sign in"
 msgstr "Увійти"
 
-#: vixipy/templates/login.html:18
+#: vixipy/templates/login.html:23
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
@@ -253,23 +293,25 @@ msgstr ""
 "Увійдіть у свій обліковий запис pixiv, щоб отримати доступ до функцій, "
 "які потребують входу, а саме:"
 
-#: vixipy/templates/login.html:20
+#: vixipy/templates/login.html:25
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
 msgstr "Взаємодія, як-от уподобання робіт, коментування, додавання в закладки тощо"
 
-#: vixipy/templates/login.html:21
+#: vixipy/templates/login.html:26
 msgid "Personalized landing"
 msgstr "Персоналізована цільова сторінка"
 
-#: vixipy/templates/login.html:22
+#: vixipy/templates/login.html:27
 msgid "<b>Coming soon:</b> work uploads"
 msgstr "<b>Уже скоро:</b> публікація робіт"
 
-#: vixipy/templates/login.html:24
+#: vixipy/templates/login.html:29
+#, fuzzy
 msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
-"Username and password logins are not possible due to reCAPTCHA enterprise"
-" attestation requirement."
+"Username and password\n"
+"                    logins are not possible due to reCAPTCHA enterprise "
+"attestation requirement."
 msgstr ""
 "Щоб увійти, вам знадобиться файл cookie <code>PHPSESSID</code> вашого "
 "облікового запису. Вхід за допомогою імені користувача та пароля "
@@ -300,8 +342,18 @@ msgid ""
 "You are sending too many requests. Please slow down and try again. Don't "
 "use scripts or crawlers on this site."
 msgstr ""
-"Ви надсилаєте занадто багато запитів. Будь ласка, зачекайте і спробуйте ще "
-"раз пізніше. Не використовуйте на цьому сайті скрипти чи роботів."
+"Ви надсилаєте занадто багато запитів. Будь ласка, зачекайте і спробуйте "
+"ще раз пізніше. Не використовуйте на цьому сайті скрипти чи роботів."
+
+#: vixipy/templates/replies.html:7
+#, fuzzy
+msgid "Replies"
+msgstr "Серії"
+
+#: vixipy/templates/replies.html:13
+#, fuzzy
+msgid "No replies"
+msgstr "Романи"
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
@@ -413,6 +465,20 @@ msgstr ""
 #: vixipy/templates/upload.html:66
 msgid "Post"
 msgstr "Опублікувати"
+
+#: vixipy/templates/components/comment.html:5
+#, fuzzy
+msgid "Deleted User"
+msgstr "Рекомендовані користувачі"
+
+#: vixipy/templates/components/comment.html:16
+msgid "Stamp"
+msgstr ""
+
+#: vixipy/templates/components/comment.html:23
+#, fuzzy
+msgid "View replies"
+msgstr "Переглянути всі"
 
 #: vixipy/templates/components/header.html:4
 msgid "Debug"
@@ -907,3 +973,4 @@ msgstr "Редагувати профіль"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Приховати роботи, створені ШІ"
+

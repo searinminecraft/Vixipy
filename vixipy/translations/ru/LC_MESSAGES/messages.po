@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-27 21:38+0800\n"
+"POT-Creation-Date: 2025-06-30 21:34+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language: ru\n"
@@ -17,48 +17,86 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
-#: vixipy/routes/login.py:46
+#: vixipy/routes/login.py:49
 msgid "Invalid token"
 msgstr ""
 
-#: vixipy/routes/login.py:73
+#: vixipy/routes/login.py:76
 msgid "Unable to extract CSRF"
 msgstr ""
 
-#: vixipy/templates/artworks.html:20
+#: vixipy/templates/artworks.html:23
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:38
+#: vixipy/templates/artworks.html:42
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
 msgstr ""
 
-#: vixipy/templates/artworks.html:38
+#: vixipy/templates/artworks.html:42
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
 msgstr ""
 
-#: vixipy/templates/artworks.html:43
+#: vixipy/templates/artworks.html:47
 msgid "View all works"
 msgstr ""
 
-#: vixipy/templates/artworks.html:68
+#: vixipy/templates/artworks.html:72
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:130 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:136 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr ""
 
-#: vixipy/templates/artworks.html:138
+#: vixipy/templates/artworks.html:144
 msgid "No recommended works to show."
+msgstr ""
+
+#: vixipy/templates/comments.html:2 vixipy/templates/comments.html:7
+#: vixipy/templates/replies.html:2
+msgid "Comments"
+msgstr ""
+
+#: vixipy/templates/comments.html:17
+msgid "Post your comment"
+msgstr ""
+
+#: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
+msgid "Send"
+msgstr ""
+
+#: vixipy/templates/comments.html:29
+msgid "Emojis and Stickers"
+msgstr ""
+
+#: vixipy/templates/comments.html:35
+msgid "Emojis"
+msgstr ""
+
+#: vixipy/templates/comments.html:44
+msgid "Stickers"
+msgstr ""
+
+#: vixipy/templates/comments.html:71
+msgid "Sign in to post comments"
+msgstr ""
+
+#: vixipy/templates/comments.html:87
+msgid "No comments"
+msgstr ""
+
+#: vixipy/templates/comments.html:97 vixipy/templates/replies.html:23
+#, python-format
+msgid "Page %(page)d"
 msgstr ""
 
 #: vixipy/templates/edit_profile.html:6
@@ -233,33 +271,34 @@ msgid ""
 " report <a href=\"%(link)s\">here</a>"
 msgstr ""
 
-#: vixipy/templates/login.html:6
+#: vixipy/templates/login.html:7
 msgid "Sign in"
 msgstr ""
 
-#: vixipy/templates/login.html:18
+#: vixipy/templates/login.html:23
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
 msgstr ""
 
-#: vixipy/templates/login.html:20
+#: vixipy/templates/login.html:25
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
 msgstr ""
 
-#: vixipy/templates/login.html:21
+#: vixipy/templates/login.html:26
 msgid "Personalized landing"
 msgstr ""
 
-#: vixipy/templates/login.html:22
+#: vixipy/templates/login.html:27
 msgid "<b>Coming soon:</b> work uploads"
 msgstr ""
 
-#: vixipy/templates/login.html:24
+#: vixipy/templates/login.html:29
 msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
-"Username and password logins are not possible due to reCAPTCHA enterprise"
-" attestation requirement."
+"Username and password\n"
+"                    logins are not possible due to reCAPTCHA enterprise "
+"attestation requirement."
 msgstr ""
 
 #: vixipy/templates/no_connection.html:6
@@ -284,6 +323,14 @@ msgstr ""
 msgid ""
 "You are sending too many requests. Please slow down and try again. Don't "
 "use scripts or crawlers on this site."
+msgstr ""
+
+#: vixipy/templates/replies.html:7
+msgid "Replies"
+msgstr ""
+
+#: vixipy/templates/replies.html:13
+msgid "No replies"
 msgstr ""
 
 #: vixipy/templates/upload.html:2
@@ -392,6 +439,18 @@ msgstr ""
 
 #: vixipy/templates/upload.html:66
 msgid "Post"
+msgstr ""
+
+#: vixipy/templates/components/comment.html:5
+msgid "Deleted User"
+msgstr ""
+
+#: vixipy/templates/components/comment.html:16
+msgid "Stamp"
+msgstr ""
+
+#: vixipy/templates/components/comment.html:23
+msgid "View replies"
 msgstr ""
 
 #: vixipy/templates/components/header.html:4
@@ -898,5 +957,13 @@ msgstr ""
 #~ msgid ""
 #~ "Unable to connect to pixiv servers. "
 #~ "Check your connection and try again."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To sign in, you will need your "
+#~ "account's <code>PHPSESSID</code> cookie. Username"
+#~ " and password logins are not possible"
+#~ " due to reCAPTCHA enterprise attestation"
+#~ " requirement."
 #~ msgstr ""
 
