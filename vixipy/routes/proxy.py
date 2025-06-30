@@ -75,3 +75,9 @@ async def perform_proxy_request(url: str):
             yield chunk
 
     return stream(), response_headers
+
+
+@bp.get("/proxy/ffmpeg-core.wasm")
+async def ffmpegwasm_proxy():
+    r: ClientResponse = await current_app.content_proxy.get("https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm/ffmpeg-core.wasm")
+    
