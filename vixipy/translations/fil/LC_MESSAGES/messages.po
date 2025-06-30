@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-30 21:34+0800\n"
-"PO-Revision-Date: 2025-06-28 13:58+0000\n"
+"PO-Revision-Date: 2025-06-30 13:38+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -64,44 +65,41 @@ msgstr "Walang mga inirerekomendang gawa na papakita."
 
 #: vixipy/templates/comments.html:2 vixipy/templates/comments.html:7
 #: vixipy/templates/replies.html:2
-#, fuzzy
 msgid "Comments"
-msgstr "Payagan ang mga komento"
+msgstr "Mga Komento"
 
 #: vixipy/templates/comments.html:17
 msgid "Post your comment"
-msgstr ""
+msgstr "I-post ang iyong komento"
 
 #: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
-#, fuzzy
 msgid "Send"
-msgstr "Kasarian"
+msgstr "Ipadala"
 
 #: vixipy/templates/comments.html:29
 msgid "Emojis and Stickers"
-msgstr ""
+msgstr "Mga Emoji at Sticker"
 
 #: vixipy/templates/comments.html:35
 msgid "Emojis"
-msgstr ""
+msgstr "Mga emoji"
 
 #: vixipy/templates/comments.html:44
 msgid "Stickers"
-msgstr ""
+msgstr "Mga sticker"
 
 #: vixipy/templates/comments.html:71
 msgid "Sign in to post comments"
-msgstr ""
+msgstr "Mag-sign in para mag-post ng mga komento"
 
 #: vixipy/templates/comments.html:87
-#, fuzzy
 msgid "No comments"
-msgstr "Payagan ang mga komento"
+msgstr "Walang mga komento"
 
 #: vixipy/templates/comments.html:97 vixipy/templates/replies.html:23
-#, fuzzy, python-format
+#, python-format
 msgid "Page %(page)d"
-msgstr "Pahina %(page)d/%(total)d"
+msgstr "Pahina %(page)d"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
@@ -975,4 +973,3 @@ msgstr "I-edit ang Profile"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Itago ang mga gawang binuo ng AI"
-
