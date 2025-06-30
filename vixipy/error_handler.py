@@ -13,6 +13,7 @@ if TYPE_CHECKING:
 
 log = logging.getLogger("vixipy")
 
+
 async def on_pixiv_error(e: PixivError):
 
     if request.headers.get("X-Vixipy-Quick-Action") == "true":
@@ -44,4 +45,6 @@ def init_app(app: Quart):
     app.register_error_handler(PixivError, on_pixiv_error)
     app.register_error_handler(ClientError, on_client_error)
     app.register_error_handler(429, handle_ratelimit_error)
+
+
 #    app.register_error_handler(Exception, handle_internal_error)

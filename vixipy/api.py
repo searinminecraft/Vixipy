@@ -51,18 +51,13 @@ async def pixiv_request(
     cookie_header = ""
 
     try:
-        lang = request.cookies.get("Vixipy-Language") 
+        lang = request.cookies.get("Vixipy-Language")
     except Exception:
         lang = "en"
 
     params = params.copy()
 
-    params.append((
-        "lang", {
-            "en": "en",
-            "ja": "ja"
-        }.get(lang, "en"))
-    )
+    params.append(("lang", {"en": "en", "ja": "ja"}.get(lang, "en")))
 
     for i, v in enumerate(params):
         if i == 0:
@@ -372,22 +367,17 @@ async def get_novel_series_contents(id: int, page: int = 1) -> NovelEntry:
 async def get_artwork_comments(id: int, page: int = 1):
     data = await pixiv_request(
         "/ajax/illusts/comments/roots",
-        params=[("illust_id", id), ("offset", (10*page)-10), ("limit", 10)]
+        params=[("illust_id", id), ("offset", (10 * page) - 10), ("limit", 10)],
     )
 
-    return CommentBaseResponse(
-        [Comment(x) for x in data["comments"]],
-        data["hasNext"]
-    )
+    return CommentBaseResponse([Comment(x) for x in data["comments"]], data["hasNext"])
 
 
 async def get_artwork_replies(id: int, page: int = 1):
     data = await pixiv_request(
-        "/ajax/illusts/comments/replies",
-        params=[("comment_id", id), ("page", page)]
+        "/ajax/illusts/comments/replies", params=[("comment_id", id), ("page", page)]
     )
 
     return CommentBaseResponse(
-        [CommentBase(x) for x in data["comments"]],
-        data["hasNext"]
+        [CommentBase(x) for x in data["comments"]], data["hasNext"]
     )

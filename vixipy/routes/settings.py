@@ -135,4 +135,3 @@ async def set_language():
     r = await make_response(redirect(url_for("settings.language_location"), code=303))
     r.set_cookie("Vixipy-Language", f["lang"], max_age=MAX_AGE, httponly=True)
     return r
-

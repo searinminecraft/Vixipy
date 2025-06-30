@@ -178,8 +178,8 @@ async def post_comment():
         headers={
             "Accept": "application/json",
             "Origin": "https://www.pixiv.net",
-            "Referer": "https://www.pixiv.net/artworks/" + illust_id
-        }
+            "Referer": "https://www.pixiv.net/artworks/" + illust_id,
+        },
     )
 
     return redirect(url_for("artworks.get_comments", id=int(illust_id)))
@@ -200,8 +200,8 @@ async def post_stamp():
         headers={
             "Accept": "application/json",
             "Origin": "https://www.pixiv.net",
-            "Referer": "https://www.pixiv.net/artworks/" + illust_id
-        }
+            "Referer": "https://www.pixiv.net/artworks/" + illust_id,
+        },
     )
 
     return redirect(url_for("artworks.get_comments", id=int(illust_id)))

@@ -365,7 +365,8 @@ class SearchResultsBase:
             self.related_tags = [Tag(x, None) for x in _related_tags]
         else:
             self.related_tags = [
-                Tag(x, _tag_translation.get(x, {"en": None})["en"]) for x in _related_tags
+                Tag(x, _tag_translation.get(x, {"en": None})["en"])
+                for x in _related_tags
             ]
 
 
@@ -422,7 +423,6 @@ class SearchResultsManga(SearchResultsBase):
             if x.get("isAdContainer"):
                 continue
             self.results.append(ArtworkEntry(x))
-
 
 
 class SearchResultsNovel(SearchResultsBase):
@@ -499,7 +499,12 @@ class CommentBase:
 
     @property
     def stamp_image(self):
-        return f"/proxy/s.pximg.net/common/images/stamp/generated-stamps/{self.stamp_id}_s.jpg" if self.stamp_id else None
+        return (
+            f"/proxy/s.pximg.net/common/images/stamp/generated-stamps/{self.stamp_id}_s.jpg"
+            if self.stamp_id
+            else None
+        )
+
 
 class Comment(CommentBase):
     def __init__(self, d):

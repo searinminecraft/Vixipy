@@ -34,9 +34,7 @@ async def handle_errors(e: Exception):
 
 @bp.errorhandler(NotFound)
 async def handle_not_found(e: Exception):
-    return make_error(
-        "Couldn't find requested page", code=404
-    )
+    return make_error("Couldn't find requested page", code=404)
 
 
 @bp.route("/api/search/autocomplete")
@@ -83,7 +81,10 @@ async def node_info():
 
     try:
         git_p = await asyncio.create_subprocess_exec(
-            "git", "rev-parse", "--short", "HEAD",
+            "git",
+            "rev-parse",
+            "--short",
+            "HEAD",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
@@ -101,7 +102,8 @@ async def node_info():
             "acceptLanguage": current_app.config["ACCEPT_LANGUAGE"],
             "commit": rev,
             "instanceName": current_app.config["INSTANCE_NAME"],
-            "r18": not current_app.config["NO_SENSITIVE"] and not current_app.config["NO_R18"],
+            "r18": not current_app.config["NO_SENSITIVE"]
+            and not current_app.config["NO_R18"],
             "sensitiveWorks": not current_app.config["NO_SENSITIVE"],
             "ratelimiting": False,
             "repo": "https://codeberg.org/vixipy/Vixipy",
@@ -110,6 +112,6 @@ async def node_info():
             "logPixiv": current_app.config["LOG_PIXIV"],
             "version": current_app.config["VIXIPY_VERSION"],
             "bypassCloudflare": current_app.config["PIXIV_DIRECT_CONNECTION"],
-            "imageProxy": current_app.config["IMG_PROXY"]
+            "imageProxy": current_app.config["IMG_PROXY"],
         }
     )

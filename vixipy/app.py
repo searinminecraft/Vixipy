@@ -29,7 +29,13 @@ from .routes import (
     api,
     settings,
 )
-from . import cache_client, config as cfg, csp, error_handler, session as pixiv_session_handler
+from . import (
+    cache_client,
+    config as cfg,
+    csp,
+    error_handler,
+    session as pixiv_session_handler,
+)
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
@@ -60,12 +66,13 @@ class MemcacheStore(RateLimiterStoreABC):
         if result is None:
             return default
         else:
-            return datetime.utcfromtimestamp(float(result.decode())).replace(tzinfo=timezone.utc)
+            return datetime.utcfromtimestamp(float(result.decode())).replace(
+                tzinfo=timezone.utc
+            )
 
     async def set(self, key: str, tat: datetime) -> None:
         ts = tat.timestamp()
-        await self._client.set(
-            bytes(key, "utf-8"), bytes(str(ts), "utf-8"))
+        await self._client.set(bytes(key, "utf-8"), bytes(str(ts), "utf-8"))
 
     @staticmethod
     async def before_serving():
@@ -75,6 +82,7 @@ class MemcacheStore(RateLimiterStoreABC):
     async def after_serving():
         pass
 
+
 async def limiter_key_func():
     if g.authorized:
         return g.token
@@ -83,6 +91,7 @@ async def limiter_key_func():
         return request.headers["X-Forwarded-For"] or request.remote_addr
 
     return await remote_addr_key()
+
 
 def create_app():
     app = Quart(__name__, instance_relative_config=True, static_folder=None)
@@ -190,7 +199,9 @@ def create_app():
     error_handler.init_app(app)
     cache_client.init_app(app)
 
-    limiter = RateLimiter(app, store=MemcacheStore(app.cache_client), key_function=limiter_key_func)
+    limiter = RateLimiter(
+        app, store=MemcacheStore(app.cache_client), key_function=limiter_key_func
+    )
 
     # =================================
     @app.before_serving

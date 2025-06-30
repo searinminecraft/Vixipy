@@ -32,7 +32,9 @@ thumb_reg = re.compile(
     r"https?:\/\/i.pximg.net\/c\/.+\/img\/(\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2})\/(\d+)_p(\d+)_.+\.(jpg|png)"
 )
 
-limit_blueprint(bp, limits=[RateLimit(3, timedelta(seconds=1)), RateLimit(30, timedelta(minutes=1))])
+limit_blueprint(
+    bp, limits=[RateLimit(3, timedelta(seconds=1)), RateLimit(30, timedelta(minutes=1))]
+)
 
 
 async def __attempt_work_extraction(
@@ -154,10 +156,11 @@ async def _get_artwork(id: int):
 @bp.get("/artworks/<int:id>/comments")
 async def get_comments(id: int):
     work, data = await gather(
-        get_artwork(id),
-        get_artwork_comments(id, int(request.args.get("p", 1)))
+        get_artwork(id), get_artwork_comments(id, int(request.args.get("p", 1)))
     )
-    return await render_template("comments.html", work=work, data=data, id=id, emojis=EMOJI_SERIES)
+    return await render_template(
+        "comments.html", work=work, data=data, id=id, emojis=EMOJI_SERIES
+    )
 
 
 @bp.get("/artworks/replies/<int:id>")

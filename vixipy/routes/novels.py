@@ -1,6 +1,14 @@
 from __future__ import annotations
 
-from quart import Blueprint, current_app, abort, render_template, redirect, request, url_for
+from quart import (
+    Blueprint,
+    current_app,
+    abort,
+    render_template,
+    redirect,
+    request,
+    url_for,
+)
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit, rate_limit
 
 from ..api import (
@@ -22,7 +30,9 @@ if TYPE_CHECKING:
     from ..types import NovelSeries
 
 bp = Blueprint("novels", __name__)
-limit_blueprint(bp, limits=[RateLimit(1, timedelta(seconds=1)), RateLimit(15, timedelta(minutes=1))])
+limit_blueprint(
+    bp, limits=[RateLimit(1, timedelta(seconds=1)), RateLimit(15, timedelta(minutes=1))]
+)
 
 
 class NovelRanking:

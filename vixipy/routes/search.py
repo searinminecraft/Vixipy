@@ -27,8 +27,6 @@ bp = Blueprint("search", __name__)
 log = logging.getLogger("vixipy.routes.search")
 
 
-
-
 @bp.route("/tags/<path:query>")
 async def search_main(query: str):
     args: ImmutableMultiDict = request.args

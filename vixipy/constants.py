@@ -1,8 +1,10 @@
 from typing import TypedDict
 
+
 class EmojiSeries(TypedDict):
     id: int
     name: str
+
 
 LOGIN_PAGE_BACKGROUNDS: list[str] = [
     "https://i.pximg.net/img-master/img/2025/03/09/22/45/22/79330739_p0_master1200.jpg",
