@@ -14,7 +14,10 @@ from quart import (
 from quart_babel import _
 
 from ..api import pixiv_request, PixivError
+from ..constants import LOGIN_PAGE_BACKGROUNDS
+from ..converters import proxy
 import logging
+import random
 import re
 from typing import TYPE_CHECKING
 
@@ -96,4 +99,5 @@ async def login_page():
         )
         return res
 
-    return await render_template("login.html")
+    background = proxy(random.choice(LOGIN_PAGE_BACKGROUNDS))
+    return await render_template("login.html", bg=background)
