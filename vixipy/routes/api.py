@@ -105,7 +105,7 @@ async def node_info():
             "r18": not current_app.config["NO_SENSITIVE"]
             and not current_app.config["NO_R18"],
             "sensitiveWorks": not current_app.config["NO_SENSITIVE"],
-            "ratelimiting": False,
+            "ratelimiting": current_app.config["QUART_RATE_LIMITER_ENABLED"],
             "repo": "https://codeberg.org/vixipy/Vixipy",
             "usesAccount": account,
             "logHttp": current_app.config["LOG_HTTP"],
