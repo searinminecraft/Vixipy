@@ -1,6 +1,6 @@
 from quart import Blueprint, abort, current_app, request
 
-from ..api import pixiv_request
+from ..api import pixiv_request, get_artwork
 import asyncio
 import traceback
 import logging
@@ -115,3 +115,13 @@ async def node_info():
             "imageProxy": current_app.config["IMG_PROXY"],
         }
     )
+
+
+@bp.get("/api/illust/<int:id>/ugoira_meta")
+async def ugoira_meta(id: int):
+    work = await get_artwork(id)
+    if not work.isUgoira:
+        return make_error("Work is not ugoira", 400)
+    
+    data = await pixiv_request(f"/ajax/illust/{id}/ugoira_meta")
+    return make_json_response(body=data)
