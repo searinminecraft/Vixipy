@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from quart import Blueprint, abort, current_app, request
+from quart import Blueprint, abort, current_app, request, make_response
 
 import logging
 import traceback
@@ -51,7 +51,10 @@ async def ugoira_proxy(id: int):
         async for chunk in r.content.iter_chunked(10 * 1024):
             yield chunk
 
-    return stream(), response_headers
+    res = await make_response(stream())
+    res.timeout = None
+
+    return res, response_headers
 
 
 @bp.get("/proxy/<path:url>")
@@ -74,7 +77,10 @@ async def perform_proxy_request(url: str):
         async for chunk in r.content.iter_chunked(10 * 1024):
             yield chunk
 
-    return stream(), response_headers
+    res = await make_response(stream())
+    res.timeout = None
+
+    return res, response_headers
 
 
 @bp.get("/proxy/ffmpeg-core.wasm")
