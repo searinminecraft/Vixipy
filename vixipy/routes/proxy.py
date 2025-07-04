@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
+    from quart import Response
 
 bp = Blueprint("proxy", __name__)
 log = logging.getLogger("vixipy.routes.proxy")
@@ -25,6 +26,12 @@ Unable to proxy because an exception occurred:
         500,
         {"Content-Type": "text/plain"},
     )
+
+
+@bp.after_request
+async def set_header_common(r: Response):
+    r.headers["Access-Control-Allow-Origin"] = "*"
+    return r
 
 
 @bp.get("/proxy/ugoira/<int:id>")
@@ -82,8 +89,3 @@ async def perform_proxy_request(url: str):
 
     return res, response_headers
 
-
-@bp.get("/proxy/ffmpeg-core.wasm")
-async def ffmpegwasm_proxy():
-    r: ClientResponse = await current_app.content_proxy.get("https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm/ffmpeg-core.wasm")
-    

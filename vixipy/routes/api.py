@@ -1,12 +1,16 @@
+from __future__ import annotations
 from quart import Blueprint, abort, current_app, request
 
 from ..api import pixiv_request, get_artwork
 import asyncio
 import traceback
 import logging
-from typing import Union
+from typing import Union, TYPE_CHECKING
 from urllib.parse import quote
 from werkzeug.exceptions import HTTPException, BadRequest, NotFound
+
+if TYPE_CHECKING:
+    from quart import Response
 
 bp = Blueprint("api", __name__)
 log = logging.getLogger("vixipy.routes.api")
@@ -35,6 +39,12 @@ async def handle_errors(e: Exception):
 @bp.errorhandler(NotFound)
 async def handle_not_found(e: Exception):
     return make_error("Couldn't find requested page", code=404)
+
+
+@bp.after_request
+async def set_header_common(r: Response):
+    r.headers["Access-Control-Allow-Origin"] = "*"
+    return r
 
 
 @bp.route("/api/search/autocomplete")
