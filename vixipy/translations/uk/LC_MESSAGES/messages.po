@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-30 21:39+0800\n"
-"PO-Revision-Date: 2025-06-28 13:58+0000\n"
+"PO-Revision-Date: 2025-07-02 02:58+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -64,44 +65,41 @@ msgstr "Немає рекомендованих робіт для показу."
 
 #: vixipy/templates/comments.html:2 vixipy/templates/comments.html:7
 #: vixipy/templates/replies.html:2
-#, fuzzy
 msgid "Comments"
-msgstr "Дозволити коментарі"
+msgstr "Коментарі"
 
 #: vixipy/templates/comments.html:17
 msgid "Post your comment"
-msgstr ""
+msgstr "Опублікувати коментар"
 
 #: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
-#, fuzzy
 msgid "Send"
-msgstr "Стать"
+msgstr "Надіслати"
 
 #: vixipy/templates/comments.html:29
 msgid "Emojis and Stickers"
-msgstr ""
+msgstr "Емоджі та наклейки"
 
 #: vixipy/templates/comments.html:35
 msgid "Emojis"
-msgstr ""
+msgstr "Емоджі"
 
 #: vixipy/templates/comments.html:44
 msgid "Stickers"
-msgstr ""
+msgstr "Наклейки"
 
 #: vixipy/templates/comments.html:71
 msgid "Sign in to post comments"
-msgstr ""
+msgstr "Увійдіть, щоб коментувати"
 
 #: vixipy/templates/comments.html:87
-#, fuzzy
 msgid "No comments"
-msgstr "Дозволити коментарі"
+msgstr "Немає коментарів"
 
 #: vixipy/templates/comments.html:97 vixipy/templates/replies.html:23
-#, fuzzy, python-format
+#, python-format
 msgid "Page %(page)d"
-msgstr "Сторінка %(page)d з %(total)d"
+msgstr "Сторінка %(page)d"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
@@ -306,15 +304,14 @@ msgid "<b>Coming soon:</b> work uploads"
 msgstr "<b>Уже скоро:</b> публікація робіт"
 
 #: vixipy/templates/login.html:29
-#, fuzzy
 msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
 "Username and password logins are not possible due to reCAPTCHA enterprise"
 " attestation requirement."
 msgstr ""
 "Щоб увійти, вам знадобиться файл cookie <code>PHPSESSID</code> вашого "
-"облікового запису. Вхід за допомогою імені користувача та пароля "
-"неможливий через обов'язкову перевірку reCAPTCHA."
+"облікового запису. Вхід за допомогою імені користувача та пароля неможливий "
+"через обов'язкову перевірку reCAPTCHA."
 
 #: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
@@ -345,14 +342,12 @@ msgstr ""
 "ще раз пізніше. Не використовуйте на цьому сайті скрипти чи роботів."
 
 #: vixipy/templates/replies.html:7
-#, fuzzy
 msgid "Replies"
-msgstr "Серії"
+msgstr "Відповіді"
 
 #: vixipy/templates/replies.html:13
-#, fuzzy
 msgid "No replies"
-msgstr "Романи"
+msgstr "Немає відповідей"
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
@@ -466,18 +461,16 @@ msgid "Post"
 msgstr "Опублікувати"
 
 #: vixipy/templates/components/comment.html:5
-#, fuzzy
 msgid "Deleted User"
-msgstr "Рекомендовані користувачі"
+msgstr "Видалений користувач"
 
 #: vixipy/templates/components/comment.html:16
 msgid "Stamp"
-msgstr ""
+msgstr "Штамп"
 
 #: vixipy/templates/components/comment.html:23
-#, fuzzy
 msgid "View replies"
-msgstr "Переглянути всі"
+msgstr "Переглянути відповіді"
 
 #: vixipy/templates/components/header.html:4
 msgid "Debug"
@@ -972,4 +965,3 @@ msgstr "Редагувати профіль"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Приховати роботи, створені ШІ"
-

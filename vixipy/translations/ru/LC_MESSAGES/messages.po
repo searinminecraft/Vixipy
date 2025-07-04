@@ -8,24 +8,26 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-06-30 21:39+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-07-03 13:08+0000\n"
+"Last-Translator: divergency <divergency@noreply.codeberg.org>\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ru/>\n"
 "Language: ru\n"
-"Language-Team: none\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
-msgstr ""
+msgstr "Недействительный токен"
 
 #: vixipy/routes/login.py:76
 msgid "Unable to extract CSRF"
-msgstr ""
+msgstr "Не удалось извлечь CSRF"
 
 #: vixipy/templates/artworks.html:23
 #, python-format
@@ -36,7 +38,7 @@ msgstr ""
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
-msgstr ""
+msgstr "Следить"
 
 #: vixipy/templates/artworks.html:42
 #: vixipy/templates/components/user-entry.html:20
@@ -974,4 +976,3 @@ msgstr ""
 #~ " due to reCAPTCHA enterprise attestation"
 #~ " requirement."
 #~ msgstr ""
-
