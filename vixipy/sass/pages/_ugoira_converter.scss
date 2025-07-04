@@ -1,0 +1,33 @@
+#ugoira-converter {
+    #preview {
+        margin-bottom: 1em;
+
+        >* {
+            margin: 0 auto;
+            display: block;
+            border-radius: 16px;
+            transition: .35s cubic-bezier(.18, .89, .32, 1.28);
+            background-color: var(--md-sys-color-surface-container-lowest);
+            max-width: 100%;
+        }
+    }
+
+    #status {
+        display: none;
+        text-align: center;
+
+        progress {
+            width: 100%;
+        }
+
+        small {
+            color: var(--md-sys-color-outline);
+        }
+    }
+    
+    .controls {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+    }
+}

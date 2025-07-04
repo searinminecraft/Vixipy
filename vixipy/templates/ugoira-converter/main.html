@@ -1,0 +1,38 @@
+{% extends "layouts/default.html" %}
+{% set title = _("Ugoira Converter") %}
+
+{% block head_additional %}
+<script src="/static/ugoira-converter/ffmpeg.js"></script>
+<script src="/static/ugoira-converter/ffmpeg-util.js"></script>
+<script src="/static/ugoira-converter/jszip.min.js"></script>
+<script src="/static/ugoira-converter/index.js" defer></script>
+{% endblock %}
+{% block content %}
+<main>
+    <h2>{{_("Ugoira Converter")}}</h2>
+    <div id="ugoira-converter" class="require-js">
+        <div id="preview">
+            <video src="/proxy/ugoira/{{data.id}}" loop playsinline autoplay poster="{{data.thumb}}"></video>
+        </div>
+        <div id="status">
+            <progress value="0" max="100"></progress>
+            <small></small>
+        </div>
+        <div class="controls">
+            <select id="format">
+                <option value="gif">{{_("GIF (Large File Size)")}}</option>
+                <option value="webp">{{_("WebP (Most Efficient)")}}</option>
+                <option value="apng">APNG</option>
+                <option value="mp4">MP4</option>
+                <option value="webm">WebM</option>
+            </select>
+            <input type="hidden" value="{{request.cookies.get('Vixipy-Image-Proxy', '/proxy/i.pximg.net') or '/proxy/i.pximg.net'}}" id="proxy">
+            <input type="hidden" value="{{data.id}}" id="id">
+            <button class="button primary" id="start">{{_("Convert")}}</button>
+        </div>
+    </div>
+    <noscript>
+        <p>{{_("Sorry, the Ugoira Converter requires JavaScript.")}}</p>
+    </noscript>
+</main>
+{% endblock %}

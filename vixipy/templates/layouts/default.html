@@ -13,6 +13,8 @@
     <title>{{config["INSTANCE_NAME"]}}</title>
     {% endif %}
 
+    {% block head_additional %}{% endblock %}
+
     <noscript>
         <style>
             .require-js {

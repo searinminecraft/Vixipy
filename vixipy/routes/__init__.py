@@ -12,3 +12,4 @@ from .profile_edit import bp as profile_edit
 from .novels import bp as novels
 from .api import bp as api
 from .settings import bp as settings
+from .ugoira_converter import bp as ugoira_converter

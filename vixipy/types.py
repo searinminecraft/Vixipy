@@ -98,6 +98,7 @@ class Artwork(ArtworkBase):
 
             self.tags.append(Tag(t["tag"], _en, _romaji))
 
+        self.thumb = proxy(d["urls"]["regular"])
         self.authorHandle = d["userAccount"]
         self.width = d["width"]
         self.height = d["height"]
