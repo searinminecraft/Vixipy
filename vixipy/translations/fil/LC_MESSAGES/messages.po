@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-04 21:45+0800\n"
-"PO-Revision-Date: 2025-07-02 02:58+0000\n"
+"PO-Revision-Date: 2025-07-05 14:08+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -56,7 +57,7 @@ msgstr "Antas ng sensitivity: %(sl)d"
 
 #: vixipy/templates/artworks.html:134
 msgid "Convert Ugoira"
-msgstr ""
+msgstr "I-convert ang Ugoira"
 
 #: vixipy/templates/artworks.html:144 vixipy/templates/novels/novel.html:65
 msgid "Related works"
@@ -943,24 +944,23 @@ msgstr ""
 #: vixipy/templates/ugoira-converter/main.html:2
 #: vixipy/templates/ugoira-converter/main.html:12
 msgid "Ugoira Converter"
-msgstr ""
+msgstr "Converter ng Ugoira"
 
 #: vixipy/templates/ugoira-converter/main.html:23
 msgid "GIF (Large File Size)"
-msgstr ""
+msgstr "GIF (Malaking File Size)"
 
 #: vixipy/templates/ugoira-converter/main.html:24
 msgid "WebP (Most Efficient)"
-msgstr ""
+msgstr "WebP (Pinakamahusay)"
 
 #: vixipy/templates/ugoira-converter/main.html:31
-#, fuzzy
 msgid "Convert"
-msgstr "Pagtuklas"
+msgstr "I-convert"
 
 #: vixipy/templates/ugoira-converter/main.html:35
 msgid "Sorry, the Ugoira Converter requires JavaScript."
-msgstr ""
+msgstr "Paumanhin, nangangailangan ng JavaScript ang Converter ng Ugoira."
 
 #: vixipy/templates/users/base.html:5
 #, python-format
@@ -992,4 +992,3 @@ msgstr "I-edit ang Profile"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Itago ang mga gawang binuo ng AI"
-
