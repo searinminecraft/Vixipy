@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-30 21:39+0800\n"
+"POT-Creation-Date: 2025-07-04 21:45+0800\n"
 "PO-Revision-Date: 2025-07-03 13:08+0000\n"
 "Last-Translator: divergency <divergency@noreply.codeberg.org>\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/ru/>\n"
 "Language: ru\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/ru/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -55,11 +54,15 @@ msgstr ""
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:136 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:134
+msgid "Convert Ugoira"
+msgstr ""
+
+#: vixipy/templates/artworks.html:144 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr ""
 
-#: vixipy/templates/artworks.html:144
+#: vixipy/templates/artworks.html:152
 msgid "No recommended works to show."
 msgstr ""
 
@@ -915,6 +918,27 @@ msgstr ""
 msgid "Set color scheme"
 msgstr ""
 
+#: vixipy/templates/ugoira-converter/main.html:2
+#: vixipy/templates/ugoira-converter/main.html:12
+msgid "Ugoira Converter"
+msgstr ""
+
+#: vixipy/templates/ugoira-converter/main.html:23
+msgid "GIF (Large File Size)"
+msgstr ""
+
+#: vixipy/templates/ugoira-converter/main.html:24
+msgid "WebP (Most Efficient)"
+msgstr ""
+
+#: vixipy/templates/ugoira-converter/main.html:31
+msgid "Convert"
+msgstr ""
+
+#: vixipy/templates/ugoira-converter/main.html:35
+msgid "Sorry, the Ugoira Converter requires JavaScript."
+msgstr ""
+
 #: vixipy/templates/users/base.html:5
 #, python-format
 msgid "%(user)s's background"
@@ -976,3 +1000,4 @@ msgstr ""
 #~ " due to reCAPTCHA enterprise attestation"
 #~ " requirement."
 #~ msgstr ""
+

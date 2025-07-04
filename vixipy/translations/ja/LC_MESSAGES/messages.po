@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-30 21:39+0800\n"
+"POT-Creation-Date: 2025-07-04 21:45+0800\n"
 "PO-Revision-Date: 2025-06-25 09:21+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language: ja\n"
@@ -53,11 +53,15 @@ msgstr "作品一覧を見る"
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:136 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:134
+msgid "Convert Ugoira"
+msgstr ""
+
+#: vixipy/templates/artworks.html:144 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "関連作品"
 
-#: vixipy/templates/artworks.html:144
+#: vixipy/templates/artworks.html:152
 msgid "No recommended works to show."
 msgstr ""
 
@@ -916,6 +920,28 @@ msgstr ""
 
 #: vixipy/templates/settings/main.html:43
 msgid "Set color scheme"
+msgstr ""
+
+#: vixipy/templates/ugoira-converter/main.html:2
+#: vixipy/templates/ugoira-converter/main.html:12
+msgid "Ugoira Converter"
+msgstr ""
+
+#: vixipy/templates/ugoira-converter/main.html:23
+msgid "GIF (Large File Size)"
+msgstr ""
+
+#: vixipy/templates/ugoira-converter/main.html:24
+msgid "WebP (Most Efficient)"
+msgstr ""
+
+#: vixipy/templates/ugoira-converter/main.html:31
+#, fuzzy
+msgid "Convert"
+msgstr "ディスカバリー"
+
+#: vixipy/templates/ugoira-converter/main.html:35
+msgid "Sorry, the Ugoira Converter requires JavaScript."
 msgstr ""
 
 #: vixipy/templates/users/base.html:5
