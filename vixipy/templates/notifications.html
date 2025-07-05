@@ -1,0 +1,21 @@
+{% extends "layouts/default.html" %}
+{% set title = _("Notifications") %}
+
+{% block content %}
+<main>
+    <h2>{{_("Notifications")}}</h2>
+    <div id="notification-list">
+        {% for x in data %}
+        <div class="notification">
+            <img src="{{x.icon}}">
+            <main>
+                <small>{{x.notified_at|dateformat}}</small>
+                <a href="{{x.link}}" {%if x.target_blank%}target="_blank"{%endif%}>
+                    {{x.content|safe}}
+                </a>
+            </main>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

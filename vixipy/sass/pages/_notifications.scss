@@ -1,0 +1,43 @@
+@use '../mixins' as *;
+
+#notification-list {
+    .notification {
+        display: flex;
+        gap: 1em;
+        padding: 0.7em 1em;
+        align-items: flex-start;
+        margin-bottom: .5rem;
+        border-radius: 16px;
+
+        &.unread {
+            background-color: var(--md-sys-color-primary-container);
+        }
+
+        &:last-child {
+            margin-bottom: unset !important;
+        }
+
+        > img {
+            @include profile-img(48px);
+            flex-shrink: 0;
+        }
+
+        main {
+            flex: 1;
+
+            small {
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            a {
+                display: block;
+                color: unset;
+
+                span {
+                    color: var(--md-sys-color-primary);
+                }
+            }
+        }
+    }
+}

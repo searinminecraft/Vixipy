@@ -29,6 +29,7 @@ from .routes import (
     api,
     settings,
     ugoira_converter,
+    notifications,
 )
 from . import (
     cache_client,
@@ -155,6 +156,7 @@ def create_app():
     app.register_blueprint(api)
     app.register_blueprint(settings)
     app.register_blueprint(ugoira_converter)
+    app.register_blueprint(notifications)
 
     # =================================
     if app.config["LOG_HTTP"]:
