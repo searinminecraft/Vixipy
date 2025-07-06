@@ -8,460 +8,465 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-04 21:45+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-07-06 13:25+0000\n"
+"Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.11.4\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
-msgstr ""
+msgstr "无效令牌"
 
 #: vixipy/routes/login.py:76
 msgid "Unable to extract CSRF"
-msgstr ""
+msgstr "无法提取 CSRF 令牌"
 
 #: vixipy/templates/artworks.html:23
 #, python-format
 msgid "Page %(page)d of %(total)d"
-msgstr ""
+msgstr "第 %(page)d 页/共 %(total)d 页"
 
 #: vixipy/templates/artworks.html:42
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
-msgstr ""
+msgstr "关注"
 
 #: vixipy/templates/artworks.html:42
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
-msgstr ""
+msgstr "取消关注"
 
 #: vixipy/templates/artworks.html:47
 msgid "View all works"
-msgstr ""
+msgstr "查看所有作品"
 
 #: vixipy/templates/artworks.html:72
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
-msgstr ""
+msgstr "敏感度等级：%(sl)d"
 
 #: vixipy/templates/artworks.html:134
 msgid "Convert Ugoira"
-msgstr ""
+msgstr "转换动图"
 
 #: vixipy/templates/artworks.html:144 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr ""
+msgstr "相关作品"
 
 #: vixipy/templates/artworks.html:152
 msgid "No recommended works to show."
-msgstr ""
+msgstr "暂无推荐作品。"
 
 #: vixipy/templates/comments.html:2 vixipy/templates/comments.html:7
 #: vixipy/templates/replies.html:2
 msgid "Comments"
-msgstr ""
+msgstr "评论"
 
 #: vixipy/templates/comments.html:17
 msgid "Post your comment"
-msgstr ""
+msgstr "发表评论"
 
 #: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 #: vixipy/templates/comments.html:29
 msgid "Emojis and Stickers"
-msgstr ""
+msgstr "表情与贴纸"
 
 #: vixipy/templates/comments.html:35
 msgid "Emojis"
-msgstr ""
+msgstr "表情"
 
 #: vixipy/templates/comments.html:44
 msgid "Stickers"
-msgstr ""
+msgstr "贴纸"
 
 #: vixipy/templates/comments.html:71
 msgid "Sign in to post comments"
-msgstr ""
+msgstr "登录后评论"
 
 #: vixipy/templates/comments.html:87
 msgid "No comments"
-msgstr ""
+msgstr "暂无评论"
 
 #: vixipy/templates/comments.html:97 vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
-msgstr ""
+msgstr "第 %(page)d 页"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
-msgstr ""
+msgstr "编辑资料"
 
 #: vixipy/templates/edit_profile.html:8
 msgid "Profile images"
-msgstr ""
+msgstr "个人图片"
 
 #: vixipy/templates/edit_profile.html:11
 msgid "Choose profile picture: "
-msgstr ""
+msgstr "选择头像： "
 
 #: vixipy/templates/edit_profile.html:13
 msgid "Choose cover image: "
-msgstr ""
+msgstr "选择封面： "
 
 #: vixipy/templates/edit_profile.html:19
 msgid "Max. 5MB"
-msgstr ""
+msgstr "最大 5MB"
 
 #: vixipy/templates/edit_profile.html:27
 msgid "Max. 8MB"
-msgstr ""
+msgstr "最大 8MB"
 
 #: vixipy/templates/edit_profile.html:32
 msgid "Nickname"
-msgstr ""
+msgstr "昵称"
 
 #: vixipy/templates/edit_profile.html:36
 msgid "Self introduction"
-msgstr ""
+msgstr "个人简介"
 
 #: vixipy/templates/edit_profile.html:40
 msgid "Website"
-msgstr ""
+msgstr "网站"
 
 #: vixipy/templates/edit_profile.html:44
 msgid "Social media"
-msgstr ""
+msgstr "社交媒体"
 
 #: vixipy/templates/edit_profile.html:46
 msgid "Twitter/X ID"
-msgstr ""
+msgstr "Twitter/X ID"
 
 #: vixipy/templates/edit_profile.html:47
 msgid "Instagram ID"
-msgstr ""
+msgstr "Instagram ID"
 
 #: vixipy/templates/edit_profile.html:48
 msgid "Tumblr ID"
-msgstr ""
+msgstr "Tumblr ID"
 
 #: vixipy/templates/edit_profile.html:49
 msgid "Facebook ID"
-msgstr ""
+msgstr "Facebook ID"
 
 #: vixipy/templates/edit_profile.html:50
 msgid "Circle.ms ID"
-msgstr ""
+msgstr "Circle.ms ID"
 
 #: vixipy/templates/edit_profile.html:53
 msgid "Gender"
-msgstr ""
+msgstr "性别"
 
 #: vixipy/templates/edit_profile.html:55
 msgid "Male"
-msgstr ""
+msgstr "男"
 
 #: vixipy/templates/edit_profile.html:56
 msgid "Female"
-msgstr ""
+msgstr "女"
 
 #: vixipy/templates/edit_profile.html:57
 msgid "Rather not say"
-msgstr ""
+msgstr "不愿透露"
 
 #: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
 #: vixipy/templates/edit_profile.html:82 vixipy/templates/upload.html:41
 msgid "Public"
-msgstr ""
+msgstr "公开"
 
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
 #: vixipy/templates/edit_profile.html:83 vixipy/templates/upload.html:43
 msgid "My pixiv only"
-msgstr ""
+msgstr "仅 pixiv 可见"
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
 #: vixipy/templates/edit_profile.html:84 vixipy/templates/upload.html:44
 msgid "Private"
-msgstr ""
+msgstr "私密"
 
 #: vixipy/templates/edit_profile.html:66
 msgid "Birthday"
-msgstr ""
+msgstr "生日"
 
 #: vixipy/templates/edit_profile.html:72
 msgid "Birth year privacy"
-msgstr ""
+msgstr "出生年份隐私"
 
 #: vixipy/templates/edit_profile.html:80
 msgid "Birthday privacy"
-msgstr ""
+msgstr "生日隐私"
 
 #: vixipy/templates/edit_profile.html:88
 msgid "Save Changes"
-msgstr ""
+msgstr "保存更改"
 
 #: vixipy/templates/error.html:2
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: vixipy/templates/error.html:7
 msgid "An error occurred."
-msgstr ""
+msgstr "发生错误。"
 
 #: vixipy/templates/error.html:8
 #, python-format
 msgid ""
 "Looks like something went wrong. If you think this is a bug, file a "
 "report <a href='%(link)s'>here</a>"
-msgstr ""
+msgstr "似乎出错了。若认为是系统问题，请<a href='%(link)s'>在此</a>提交报告"
 
 #: vixipy/templates/error.html:10
 msgid "Back to home"
-msgstr ""
+msgstr "返回首页"
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
 #: vixipy/templates/users/base.html:55
 msgid "Home"
-msgstr ""
+msgstr "首页"
 
 #: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
-msgstr ""
+msgstr "关注用户的作品"
 
 #: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
-msgstr ""
+msgstr "推荐作品"
 
 #: vixipy/templates/index.html:36
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
-msgstr ""
+msgstr "带标签 <a href='%(link)s' title='%(title)s'>#%(tag)s</a> 的推荐插画"
 
 #: vixipy/templates/index.html:59
 msgid "Newest by all"
-msgstr ""
+msgstr "全部最新作品"
 
 #: vixipy/templates/index_logged_out.html:16
 #, python-format
 msgid "Ranking for %(date)s"
-msgstr ""
+msgstr "%(date)s 排行榜"
 
 #: vixipy/templates/index_logged_out.html:24
 #: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
 msgid "View All"
-msgstr ""
+msgstr "查看全部"
 
 #: vixipy/templates/internal_server_error.html:2
 #: vixipy/templates/internal_server_error.html:5
 msgid "Internal Server Error"
-msgstr ""
+msgstr "服务器内部错误"
 
 #: vixipy/templates/internal_server_error.html:6
 #, python-format
 msgid ""
 "An unhandled exception has occurred. If you believe this is a bug, file a"
 " report <a href=\"%(link)s\">here</a>"
-msgstr ""
+msgstr "发生未处理的异常。若认为是系统问题，请<a href='%(link)s'>在此</a>提交报告"
 
 #: vixipy/templates/login.html:7
 msgid "Sign in"
-msgstr ""
+msgstr "登录"
 
 #: vixipy/templates/login.html:23
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
-msgstr ""
+msgstr "登录 pixiv 账号以使用需验证的功能，例如："
 
 #: vixipy/templates/login.html:25
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
-msgstr ""
+msgstr "作品互动（如点赞、收藏、评论等）"
 
 #: vixipy/templates/login.html:26
 msgid "Personalized landing"
-msgstr ""
+msgstr "个性化首页"
 
 #: vixipy/templates/login.html:27
 msgid "<b>Coming soon:</b> work uploads"
-msgstr ""
+msgstr "<b>即将推出：</b>作品上传"
 
 #: vixipy/templates/login.html:29
 msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
 "Username and password logins are not possible due to reCAPTCHA enterprise"
 " attestation requirement."
-msgstr ""
+msgstr "登录需提供账号的 <code>PHPSESSID</code> Cookie。由于 reCAPTCHA "
+"企业验证要求，不支持用户名密码登录。"
 
 #: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
-msgstr ""
+msgstr "连接错误"
 
 #: vixipy/templates/no_connection.html:7
 msgid ""
 "Unable to connect to pixiv servers. Check your connection or contact the "
 "instance administrator."
-msgstr ""
+msgstr "无法连接至 pixiv 服务器。请检查网络或联系实例管理员。"
 
 #: vixipy/templates/no_connection.html:9
 msgid "Try Again"
-msgstr ""
+msgstr "重试"
 
 #: vixipy/templates/ratelimited.html:4
 msgid "Too Many Requests"
-msgstr ""
+msgstr "请求过多"
 
 #: vixipy/templates/ratelimited.html:5
 msgid ""
 "You are sending too many requests. Please slow down and try again. Don't "
 "use scripts or crawlers on this site."
-msgstr ""
+msgstr "请求过于频繁。请稍后再试，勿使用脚本或爬虫访问。"
 
 #: vixipy/templates/replies.html:7
 msgid "Replies"
-msgstr ""
+msgstr "回复"
 
 #: vixipy/templates/replies.html:13
 msgid "No replies"
-msgstr ""
+msgstr "暂无回复"
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
-msgstr ""
+msgstr "提交插画"
 
 #: vixipy/templates/upload.html:9
 msgid "Files"
-msgstr ""
+msgstr "文件"
 
 #: vixipy/templates/upload.html:13
 msgid "Basic Information"
-msgstr ""
+msgstr "基本信息"
 
 #: vixipy/templates/upload.html:14
 msgid "Title"
-msgstr ""
+msgstr "标题"
 
 #: vixipy/templates/upload.html:17
 msgid "Caption"
-msgstr ""
+msgstr "描述"
 
 #: vixipy/templates/upload.html:20
 msgid "Tags"
-msgstr ""
+msgstr "标签"
 
 #: vixipy/templates/upload.html:22
 msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
-msgstr ""
+msgstr "最多 10 个标签，用逗号分隔。空格将被移除。"
 
 #: vixipy/templates/upload.html:24
 msgid "Don't allow users to edit tags"
-msgstr ""
+msgstr "禁止用户编辑标签"
 
 #: vixipy/templates/upload.html:28
 msgid "Content and Privacy"
-msgstr ""
+msgstr "内容与隐私"
 
 #: vixipy/templates/upload.html:29
 msgid "AI-generated work"
-msgstr ""
+msgstr "AI 生成作品"
 
 #: vixipy/templates/upload.html:30
 msgid "Allow comments"
-msgstr ""
+msgstr "允许评论"
 
 #: vixipy/templates/upload.html:31
 msgid "Original work"
-msgstr ""
+msgstr "原创作品"
 
 #: vixipy/templates/upload.html:34
 msgid "Visible to"
-msgstr ""
+msgstr "可见范围"
 
 #: vixipy/templates/upload.html:35
 msgid "All Ages"
-msgstr ""
+msgstr "全年龄"
 
 #: vixipy/templates/upload.html:40
 msgid "Open to"
-msgstr ""
+msgstr "开放对象"
 
 #: vixipy/templates/upload.html:42
 msgid "Logged-in users only"
-msgstr ""
+msgstr "仅登录用户"
 
 #: vixipy/templates/upload.html:47
 msgid "Adult Content"
-msgstr ""
+msgstr "成人内容"
 
 #: vixipy/templates/upload.html:48
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: vixipy/templates/upload.html:49
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: vixipy/templates/upload.html:52
 msgid "Mature Content"
-msgstr ""
+msgstr "成人向内容"
 
 #: vixipy/templates/upload.html:53
 msgid "Minors"
-msgstr ""
+msgstr "未成年人"
 
 #: vixipy/templates/upload.html:54
 msgid "Furry"
-msgstr ""
+msgstr "兽迷"
 
 #: vixipy/templates/upload.html:55
 msgid "BL"
-msgstr ""
+msgstr "耽美"
 
 #: vixipy/templates/components/novel-entry.html:42
 #: vixipy/templates/upload.html:56
 msgid "Yuri"
-msgstr ""
+msgstr "百合"
 
 #: vixipy/templates/upload.html:63
 msgid ""
 "By posting your work, you hereby agree to the pixiv Terms of Service. "
 "Vixipy is provided to you as is, without warranty of any kind and will "
 "not be responsible for any action taken whatsoever."
-msgstr ""
+msgstr "提交作品即表示您同意 pixiv 服务条款。Vixipy "
+"不提供任何担保，对任何行为均不承担责任。"
 
 #: vixipy/templates/upload.html:66
 msgid "Post"
-msgstr ""
+msgstr "发布"
 
 #: vixipy/templates/components/comment.html:5
 msgid "Deleted User"
-msgstr ""
+msgstr "已删除用户"
 
 #: vixipy/templates/components/comment.html:16
 msgid "Stamp"
-msgstr ""
+msgstr "标记"
 
 #: vixipy/templates/components/comment.html:23
 msgid "View replies"
-msgstr ""
+msgstr "查看回复"
 
 #: vixipy/templates/components/header.html:4
 msgid "Debug"
-msgstr ""
+msgstr "调试"
 
 #: vixipy/templates/components/header.html:7
 #: vixipy/templates/search/dashboard.html:2
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: vixipy/templates/components/header.html:10
 #: vixipy/templates/novels/index.html:2 vixipy/templates/search/illust.html:9
@@ -470,496 +475,496 @@ msgstr ""
 #: vixipy/templates/search/novel.html:15 vixipy/templates/users/base.html:73
 #: vixipy/templates/users/novels.html:9
 msgid "Novels"
-msgstr ""
+msgstr "小说"
 
 #: vixipy/templates/components/header.html:11
 #: vixipy/templates/discovery/index.html:3
 #: vixipy/templates/discovery/index.html:9
 msgid "Discovery"
-msgstr ""
+msgstr "发现"
 
 #: vixipy/templates/components/header.html:14
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: vixipy/templates/components/header.html:18
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 msgid "Bookmarks"
-msgstr ""
+msgstr "收藏"
 
 #: vixipy/templates/components/header.html:21
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
-msgstr ""
+msgstr "原创"
 
 #: vixipy/templates/components/novel-entry.html:18
 #: vixipy/templates/novels/novel.html:46
 msgid "Series"
-msgstr ""
+msgstr "系列"
 
 #: vixipy/templates/components/novel-entry.html:19
 msgid "Oneshot"
-msgstr ""
+msgstr "单篇"
 
 #: vixipy/templates/components/novel-entry.html:22
 msgid "Romance"
-msgstr ""
+msgstr "恋爱"
 
 #: vixipy/templates/components/novel-entry.html:24
 msgid "Isekai fantasy"
-msgstr ""
+msgstr "异世界幻想"
 
 #: vixipy/templates/components/novel-entry.html:26
 msgid "Contemporary fantasy"
-msgstr ""
+msgstr "现代幻想"
 
 #: vixipy/templates/components/novel-entry.html:28
 msgid "Mystery"
-msgstr ""
+msgstr "悬疑"
 
 #: vixipy/templates/components/novel-entry.html:30
 msgid "Horror"
-msgstr ""
+msgstr "恐怖"
 
 #: vixipy/templates/components/novel-entry.html:32
 msgid "Sci-fi"
-msgstr ""
+msgstr "科幻"
 
 #: vixipy/templates/components/novel-entry.html:34
 msgid "Literature"
-msgstr ""
+msgstr "文学"
 
 #: vixipy/templates/components/novel-entry.html:36
 msgid "Drama"
-msgstr ""
+msgstr "剧情"
 
 #: vixipy/templates/components/novel-entry.html:38
 msgid "Historical pieces"
-msgstr ""
+msgstr "历史作品"
 
 #: vixipy/templates/components/novel-entry.html:40
 msgid "BL (yaoi)"
-msgstr ""
+msgstr "BL（耽美）"
 
 #: vixipy/templates/components/novel-entry.html:44
 msgid "For kids"
-msgstr ""
+msgstr "儿童向"
 
 #: vixipy/templates/components/novel-entry.html:46
 msgid "Poetry"
-msgstr ""
+msgstr "诗歌"
 
 #: vixipy/templates/components/novel-entry.html:48
 msgid "Essays/non-fiction"
-msgstr ""
+msgstr "随笔/非虚构"
 
 #: vixipy/templates/components/novel-entry.html:50
 msgid "Screenplays/scripts"
-msgstr ""
+msgstr "剧本/脚本"
 
 #: vixipy/templates/components/novel-entry.html:52
 msgid "Reviews/opinion pieces"
-msgstr ""
+msgstr "评论/观点"
 
 #: vixipy/templates/components/novel-entry.html:54
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: vixipy/templates/components/novel-entry.html:75
 #, python-format
 msgid "%(wc)s words(s)"
-msgstr ""
+msgstr "%(wc)s 字"
 
 #: vixipy/templates/components/novel-entry.html:76
 #, python-format
 msgid "%(cc)s character(s)"
-msgstr ""
+msgstr "%(cc)s 字符"
 
 #: vixipy/templates/components/paginator.html:6
 #, python-format
 msgid "Page %(current)d of %(last)d"
-msgstr ""
+msgstr "第 %(current)d 页/共 %(last)d 页"
 
 #: vixipy/templates/components/tag-search-filter.html:4
 #: vixipy/templates/components/tag-search-filter.html:19
 msgid "Search options"
-msgstr ""
+msgstr "搜索选项"
 
 #: vixipy/templates/components/tag-search-filter.html:21
 msgid "Keywords"
-msgstr ""
+msgstr "关键词"
 
 #: vixipy/templates/components/tag-search-filter.html:26
 msgid "Target"
-msgstr ""
+msgstr "目标"
 
 #: vixipy/templates/components/tag-search-filter.html:28
 msgid "Tags (perfect match)"
-msgstr ""
+msgstr "标签（完全匹配）"
 
 #: vixipy/templates/components/tag-search-filter.html:29
 msgid "Tags (partial match)"
-msgstr ""
+msgstr "标签（部分匹配）"
 
 #: vixipy/templates/components/tag-search-filter.html:30
 msgid "Title/caption"
-msgstr ""
+msgstr "标题/说明"
 
 #: vixipy/templates/components/tag-search-filter.html:36
 msgid "Filters"
-msgstr ""
+msgstr "筛选"
 
 #: vixipy/templates/components/tag-search-filter.html:38
 msgid "Mode"
-msgstr ""
+msgstr "模式"
 
 #: vixipy/templates/components/tag-search-filter.html:40
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 #: vixipy/templates/components/tag-search-filter.html:41
 msgid "Safe"
-msgstr ""
+msgstr "安全"
 
 #: vixipy/templates/components/tag-search-filter.html:42
 msgid "R-18"
-msgstr ""
+msgstr "R-18"
 
 #: vixipy/templates/components/tag-search-filter.html:47
 msgid "Width"
-msgstr ""
+msgstr "宽度"
 
 #: vixipy/templates/components/tag-search-filter.html:49
 #: vixipy/templates/components/tag-search-filter.html:56
 msgid "min"
-msgstr ""
+msgstr "最小"
 
 #: vixipy/templates/components/tag-search-filter.html:50
 #: vixipy/templates/components/tag-search-filter.html:57
 msgid "max"
-msgstr ""
+msgstr "最大"
 
 #: vixipy/templates/components/tag-search-filter.html:54
 msgid "Height"
-msgstr ""
+msgstr "高度"
 
 #: vixipy/templates/components/tag-search-filter.html:61
 msgid "Ratio"
-msgstr ""
+msgstr "比例"
 
 #: vixipy/templates/components/tag-search-filter.html:63
 msgid "All ratios"
-msgstr ""
+msgstr "所有比例"
 
 #: vixipy/templates/components/tag-search-filter.html:64
 msgid "Horizontal"
-msgstr ""
+msgstr "横向"
 
 #: vixipy/templates/components/tag-search-filter.html:65
 msgid "Vertical"
-msgstr ""
+msgstr "纵向"
 
 #: vixipy/templates/components/tag-search-filter.html:66
 msgid "Square"
-msgstr ""
+msgstr "方形"
 
 #: vixipy/templates/components/tag-search-filter.html:71
 msgid "Tool"
-msgstr ""
+msgstr "工具"
 
 #: vixipy/templates/components/tag-search-filter.html:72
 msgid "All tools"
-msgstr ""
+msgstr "全部工具"
 
 #: vixipy/templates/components/tag-search-filter.html:182
 msgid "Period"
-msgstr ""
+msgstr "时段"
 
 #: vixipy/templates/components/tag-search-filter.html:190
 msgid "Apply"
-msgstr ""
+msgstr "应用"
 
 #: vixipy/templates/discovery/illustrations.html:14
 msgid "Nothing to recommend. Sorry!"
-msgstr ""
+msgstr "暂无推荐内容，抱歉！"
 
 #: vixipy/templates/discovery/illustrations.html:17
 msgid "Reload"
-msgstr ""
+msgstr "重新加载"
 
 #: vixipy/templates/discovery/index.html:15
 msgid "Recommended illustrations"
-msgstr ""
+msgstr "推荐插画"
 
 #: vixipy/templates/discovery/index.html:21
 msgid "Recommended users"
-msgstr ""
+msgstr "推荐用户"
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"
-msgstr ""
+msgstr "热门原创小说"
 
 #: vixipy/templates/novels/index.html:46
 msgid "Daily ranking"
-msgstr ""
+msgstr "每日排行"
 
 #: vixipy/templates/novels/index.html:47 vixipy/templates/novels/index.html:60
 #: vixipy/templates/novels/index.html:73
 #, python-format
 msgid "%(date)s ranking"
-msgstr ""
+msgstr "%(date)s 排行"
 
 #: vixipy/templates/novels/index.html:59
 msgid "Popularity ranking among male users"
-msgstr ""
+msgstr "男性用户人气排行"
 
 #: vixipy/templates/novels/index.html:72
 msgid "Popularity ranking among female users"
-msgstr ""
+msgstr "女性用户人气排行"
 
 #: vixipy/templates/novels/novel.html:32 vixipy/templates/novels/series.html:25
 msgid "No description"
-msgstr ""
+msgstr "无描述"
 
 #: vixipy/templates/novels/series.html:32
 #, python-format
 msgid "%(ep)s Episode(s)"
-msgstr ""
+msgstr "%(ep)s 话"
 
 #: vixipy/templates/novels/series.html:33
 #, python-format
 msgid "Updated on %(date)s"
-msgstr ""
+msgstr "更新于 %(date)s"
 
 #: vixipy/templates/novels/series.html:34
 #, python-format
 msgid "%(cc)s Character(s)"
-msgstr ""
+msgstr "%(cc)s 字"
 
 #: vixipy/templates/novels/series.html:35
 #, python-format
 msgid "%(cc)s Word(s)"
-msgstr ""
+msgstr "%(cc)s 词"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
-msgstr ""
+msgstr "搜索作品..."
 
 #: vixipy/templates/search/dashboard.html:22
 msgid "Popular illust tags"
-msgstr ""
+msgstr "热门插画标签"
 
 #: vixipy/templates/search/dashboard.html:29
 #, python-format
 msgid "#%(tag)s recommended works"
-msgstr ""
+msgstr "#%(tag)s 推荐作品"
 
 #: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
 #: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
 msgid "Top"
-msgstr ""
+msgstr "首页"
 
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
 #: vixipy/templates/users/illust.html:9
 msgid "Illustrations"
-msgstr ""
+msgstr "插画"
 
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
 #: vixipy/templates/users/manga.html:9
 msgid "Manga"
-msgstr ""
+msgstr "漫画"
 
 #: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
 #: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
 msgid "User"
-msgstr ""
+msgstr "用户"
 
 #: vixipy/templates/search/illust.html:24 vixipy/templates/search/main.html:57
 #: vixipy/templates/search/manga.html:23 vixipy/templates/search/novel.html:25
 msgid "No matching results found."
-msgstr ""
+msgstr "未找到匹配结果。"
 
 #: vixipy/templates/search/index.html:2
 #, python-format
 msgid "Results for %(tag)s"
-msgstr ""
+msgstr "%(tag)s 的搜索结果"
 
 #: vixipy/templates/search/index.html:24
 #, python-format
 msgid "<b>%(total)s</b> Works"
-msgstr ""
+msgstr "<b>%(total)s</b> 件作品"
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
-msgstr ""
+msgstr "热门作品"
 
 #: vixipy/templates/search/main.html:17
 msgid "Recent"
-msgstr ""
+msgstr "最新"
 
 #: vixipy/templates/search/main.html:25
 msgid "All Time"
-msgstr ""
+msgstr "全部时间"
 
 #: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:6
 msgid "Illustrations and Manga"
-msgstr ""
+msgstr "插画与漫画"
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
 #: vixipy/templates/settings/index.html:17
 msgid "Display settings"
-msgstr ""
+msgstr "显示设置"
 
 #: vixipy/templates/settings/display.html:8
 msgid "Work content"
-msgstr ""
+msgstr "作品内容"
 
 #: vixipy/templates/settings/display.html:20
 msgid "Show AI-generated work"
-msgstr ""
+msgstr "显示 AI 生成作品"
 
 #: vixipy/templates/settings/display.html:24
 msgid "Display works that may contain sensitive content"
-msgstr ""
+msgstr "显示可能含敏感内容作品"
 
 #: vixipy/templates/settings/display.html:28
 msgid "Show explicit content (R-18)"
-msgstr ""
+msgstr "显示成人内容（R-18）"
 
 #: vixipy/templates/settings/display.html:32
 msgid "Show ero-guro content (R-18G)"
-msgstr ""
+msgstr "显示猎奇内容（R-18G）"
 
 #: vixipy/templates/settings/display.html:35
 msgid "Save preferences"
-msgstr ""
+msgstr "保存偏好"
 
 #: vixipy/templates/settings/display.html:40
 msgid "Ad display settings"
-msgstr ""
+msgstr "广告显示设置"
 
 #: vixipy/templates/settings/display.html:43
 msgid "Display"
-msgstr ""
+msgstr "显示"
 
 #: vixipy/templates/settings/index.html:15
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
-msgstr ""
+msgstr "Vixipy 设置"
 
 #: vixipy/templates/settings/index.html:16
 msgid "Account"
-msgstr ""
+msgstr "账户"
 
 #: vixipy/templates/settings/index.html:18
 #: vixipy/templates/settings/language.html:3
 #: vixipy/templates/settings/language.html:6
 msgid "Language and location"
-msgstr ""
+msgstr "语言与地区"
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: vixipy/templates/settings/language.html:9
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 #: vixipy/templates/settings/language.html:20
 msgid "Help translate Vixipy to your language!"
-msgstr ""
+msgstr "帮助将 Vixipy 翻译成您的语言！"
 
 #: vixipy/templates/settings/language.html:22
 msgid "Set language"
-msgstr ""
+msgstr "设置语言"
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
-msgstr ""
+msgstr "图片代理服务器"
 
 #: vixipy/templates/settings/main.html:15
 msgid "Use proxy specified by instance"
-msgstr ""
+msgstr "使用实例指定的代理"
 
 #: vixipy/templates/settings/main.html:16
 #: vixipy/templates/settings/main.html:18
 msgid "Use built-in proxy"
-msgstr ""
+msgstr "使用内置代理"
 
 #: vixipy/templates/settings/main.html:26
 msgid ""
 "An image proxy allows retrieving images from pixiv without making any "
 "connection to pixiv servers."
-msgstr ""
+msgstr "图片代理允许从 pixiv 获取图像而无需直接连接 pixiv 服务器。"
 
 #: vixipy/templates/settings/main.html:28
 msgid "Use selected proxy"
-msgstr ""
+msgstr "使用选定代理"
 
 #: vixipy/templates/settings/main.html:34
 msgid "Color Scheme"
-msgstr ""
+msgstr "配色方案"
 
 #: vixipy/templates/settings/main.html:43
 msgid "Set color scheme"
-msgstr ""
+msgstr "设置配色方案"
 
 #: vixipy/templates/ugoira-converter/main.html:2
 #: vixipy/templates/ugoira-converter/main.html:12
 msgid "Ugoira Converter"
-msgstr ""
+msgstr "动图转换器"
 
 #: vixipy/templates/ugoira-converter/main.html:23
 msgid "GIF (Large File Size)"
-msgstr ""
+msgstr "GIF（大文件）"
 
 #: vixipy/templates/ugoira-converter/main.html:24
 msgid "WebP (Most Efficient)"
-msgstr ""
+msgstr "WebP（最高效）"
 
 #: vixipy/templates/ugoira-converter/main.html:31
 msgid "Convert"
-msgstr ""
+msgstr "转换"
 
 #: vixipy/templates/ugoira-converter/main.html:35
 msgid "Sorry, the Ugoira Converter requires JavaScript."
-msgstr ""
+msgstr "抱歉，动图转换器需要 JavaScript 支持。"
 
 #: vixipy/templates/users/base.html:5
 #, python-format
 msgid "%(user)s's background"
-msgstr ""
+msgstr "%(user)s 的背景"
 
 #: vixipy/templates/users/base.html:6
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
-msgstr ""
+msgstr "点击在新标签页打开 %(user)s 的横幅。"
 
 #: vixipy/templates/users/base.html:7
 #, python-format
 msgid "%(user)s's profile picture"
-msgstr ""
+msgstr "%(user)s 的头像"
 
 #: vixipy/templates/users/base.html:8
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
-msgstr ""
+msgstr "点击在新标签页打开 %(user)s 的头像。"
 
 #: vixipy/templates/users/base.html:25
 msgid "Following"
-msgstr ""
+msgstr "正在关注"
 
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
-msgstr ""
+msgstr "编辑资料"
