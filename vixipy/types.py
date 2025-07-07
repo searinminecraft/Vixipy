@@ -1,5 +1,6 @@
 from .converters import proxy
 from datetime import datetime
+from quart import request
 
 from typing import Optional
 
@@ -339,12 +340,27 @@ class TagTranslation:
     def __init__(self, orig: str, d):
         self.orig: str = orig
         self.en: Optional[str] = blank_to_none(d.get("en"))
-        self.ja: Optional[str] = blank_to_none(d.get("ja"))
         self.ko: Optional[str] = blank_to_none(d.get("ko"))
         self.zh: Optional[str] = blank_to_none(d.get("zh"))
         self.zh_tw: Optional[str] = blank_to_none(d.get("zh_tw"))
         self.romaji: Optional[str] = blank_to_none(d.get("romaji"))
-
+    
+    @property
+    def default(self):
+        pref = request.cookies.get("Vixipy-Language", "en") or "en"
+        if all([not self.en, not self.ko, not self.zh, not self.zh_tw]):
+            return self.orig
+        if pref == "en":
+            return self.en or self.romaji or self.orig
+        if pref == "ko":
+            return self.ko or self.romaji or self.orig
+        if pref == "ja":
+            return self.orig
+        if pref == "zh_Hans":
+            return self.zh or self.orig
+        if pref == "zh_Hant":
+            return self.zh_tw or self.orig
+        return self.en or self.romaji or self.orig
 
 class RecommendByTag:
     def __init__(
@@ -365,10 +381,13 @@ class SearchResultsBase:
         if isinstance(_tag_translation, list):
             self.related_tags = [Tag(x, None) for x in _related_tags]
         else:
-            self.related_tags = [
-                Tag(x, _tag_translation.get(x, {"en": None})["en"])
-                for x in _related_tags
-            ]
+            if isinstance(_related_tags, list):
+                self.related_tags = _related_tags
+            else:
+                self.related_tags = [
+                    Tag(x, _tag_translation.get(x, {"en": None})["en"])
+                    for x in _related_tags
+                ]
 
 
 class SearchResultsTop(SearchResultsBase):

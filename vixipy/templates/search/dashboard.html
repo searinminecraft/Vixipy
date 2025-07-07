@@ -26,7 +26,7 @@
         </div>
 
         {% for x in recommend %}
-        <h3>{{_("#%(tag)s recommended works", tag=x.translation.en or x.translation.romaji or x.translation.orig or x.name) }}</h3>
+        <h3>{{_("#%(tag)s recommended works", tag=x.translation.default) }}</h3>
         <div class="scrolling-container">
             {% for il in x.illusts %}
             {{ entry(il, false, false) }}

@@ -57,7 +57,7 @@ async def pixiv_request(
 
     params = params.copy()
 
-    params.append(("lang", {"en": "en", "ja": "ja"}.get(lang, "en")))
+    params.append(("lang", {"en": "en", "ja": "ja", "zh_Hans": "zh"}.get(lang, "en")))
 
     for i, v in enumerate(params):
         if i == 0:
