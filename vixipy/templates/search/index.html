@@ -16,7 +16,7 @@
             <img src="{{tag_info.pixpedia.image}}" alt="{{tag_info.tag}}">
             {% endif %}
             <article>
-                {% if tag_info.translation %}
+                {% if tag_info.translation and tag_info.translation.default != tag_info.tag %}
                 <h3>#{{tag_info.tag}} <small>{{ tag_info.translation.default }}</small></h3>
                 {% else %}
                 <h3>#{{tag_info.tag}}</h3>
