@@ -1,8 +1,7 @@
 quart
 quart-babel
 quart-rate-limiter
-aiohttp[speedups]
-beautifulsoup4
-hypercorn
+aiohttp
 aiomcache
-git+https://codeberg.org/vixipy/pyxivision@v2
+materialyoucolor
+pillow

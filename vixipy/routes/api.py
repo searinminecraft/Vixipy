@@ -2,6 +2,7 @@ from __future__ import annotations
 from quart import Blueprint, abort, current_app, request
 
 from ..api import pixiv_request, get_artwork
+from ..lib.monet import get_color_scheme
 import asyncio
 import traceback
 import logging
@@ -135,3 +136,25 @@ async def ugoira_meta(id: int):
     
     data = await pixiv_request(f"/ajax/illust/{id}/ugoira_meta")
     return make_json_response(body=data)
+
+@bp.get("/api/illust/<int:id>/material-you")
+async def generate_material_theme_from_artwork(id: int):
+    try:
+        work = await pixiv_request(f"/ajax/illust/{id}")
+        img = work["urls"]["small"]
+        if not img:
+            raise Exception
+        req = await current_app.content_proxy.get(img)
+        c = await req.read()
+
+        result = await asyncio.get_running_loop().run_in_executor(
+            None,
+            get_color_scheme,
+            c
+        )
+
+        return result, {"Content-Type": "text/css"}
+    except Exception:
+        log.exception("Failure generating color scheme for ID %d" , id)
+        return "", {"Content-Type": "text/css"}
+
