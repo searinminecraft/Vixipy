@@ -128,6 +128,7 @@ async def _get_artwork(id: int):
             get_user(work.authorId),
             get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
         )
+        mt = ("", "")
     else:
         pages, recommend, user, works, mt = await gather(
             get_artwork_pages(id),

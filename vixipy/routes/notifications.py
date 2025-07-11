@@ -18,6 +18,7 @@ class Notification:
         self.icon: str = proxy(d["iconUrl"])
         self.target_blank: bool = d["targetBlank"]
         self.content: str = d["content"]
+        self.unread: bool = bool(d["unread"])
 
 @bp.route("/self/notifications")
 @require_login

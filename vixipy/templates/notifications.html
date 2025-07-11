@@ -6,7 +6,7 @@
     <h2>{{_("Notifications")}}</h2>
     <div id="notification-list">
         {% for x in data %}
-        <div class="notification">
+	<div class="notification" {% if x.unread %}class="unread"{%endif%}>
             <img src="{{x.icon}}">
             <main>
                 <small>{{x.notified_at|dateformat}}</small>
