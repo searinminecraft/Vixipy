@@ -18,9 +18,9 @@ from ..api import (
     get_user_illusts_from_ids,
 )
 from ..constants import EMOJI_SERIES
+from ..lib.monet import scheme_from_url
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
-from ..routes.api import generate_material_theme_from_artwork
 from ..types import ArtworkPage
 
 if TYPE_CHECKING:
@@ -128,14 +128,14 @@ async def _get_artwork(id: int):
             get_user(work.authorId),
             get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
         )
-        mt = ("", "")
+        mt = ""
     else:
         pages, recommend, user, works, mt = await gather(
             get_artwork_pages(id),
             get_recommended_works(id),
             get_user(work.authorId),
             get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
-            generate_material_theme_from_artwork(id),
+            scheme_from_url(work.json["urls"]["thumb"]),
         )
 
     pages: list[ArtworkPage]
@@ -153,7 +153,7 @@ async def _get_artwork(id: int):
         recommend=ff(recommend),
         user=user,
         user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id))),
-        mt=mt[0]
+        mt=mt
     )
 
 

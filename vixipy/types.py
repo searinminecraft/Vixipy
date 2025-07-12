@@ -76,6 +76,8 @@ class ArtworkBase:
         self.ai = int(d["aiType"]) == 2
         self.isUgoira: bool = self.type == 2
 
+        self.json: dict = d
+
     @property
     def xrestrict_friendlyname(self):
         names = {1: "R-18", 2: "R-18G"}
