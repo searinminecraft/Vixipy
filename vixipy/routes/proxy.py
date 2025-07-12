@@ -67,6 +67,8 @@ async def ugoira_proxy(id: int):
 @bp.get("/proxy/<path:url>")
 async def perform_proxy_request(url: str):
     permitted = ("i.pximg.net", "s.pximg.net")
+    url = url.removeprefix("https://")
+    url = url.removeprefix("http://")
 
     if url.split("/")[0] not in permitted:
         return "Nice try :3", 400, {"Content-Type": "text/plain"}
@@ -83,6 +85,7 @@ async def perform_proxy_request(url: str):
     async def stream():
         async for chunk in r.content.iter_chunked(10 * 1024):
             yield chunk
+        r.close()
 
     res = await make_response(stream())
     res.timeout = None
