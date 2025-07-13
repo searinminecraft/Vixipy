@@ -1,6 +1,13 @@
 {% macro entry(data, title=true, author=true, small=false) -%}
 <div class="artwork-entry {%if small%}small{%endif%}">
+    {%- set is_preview_mode = request.cookies.get("Vixipy-Preview-Mode", 0)|int -%}
+    {%- set blur = request.cookies.get("Vixipy-Blur-Sensitive", 0)|int and data.sl >= 4 -%}
     <div class="img-container">
+        <div class="blocker-overlay">
+            {% if blur %}
+            <div class="blur"></div>
+            {% endif %}
+        </div>
         <div class="meta">
             {#
                 first div - left
@@ -25,7 +32,11 @@
             </div>
         </div>
         <a href="{{url_for('artworks._get_artwork', id=data.id)}}">
+            {%- if is_preview_mode -%}
+            <img src="/static/blank.png" alt="{{data.alt}}" loading="lazy">
+            {%- else -%}
             <img src="{{data.thumb}}" alt="{{data.alt}}" loading="lazy">
+            {%- endif -%}
         </a>
     </div>
 

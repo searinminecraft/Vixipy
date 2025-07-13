@@ -11,6 +11,8 @@
 
     .img-container {
         position: relative;
+        overflow: hidden;
+        border-radius: 8px;
 
         a {
             line-height: 0px;
@@ -25,6 +27,7 @@
             justify-content: space-between;
             padding: .5em .5em 0;
             width: 100%;
+            pointer-events: none;
 
             > div {
                 display: flex;
@@ -59,13 +62,27 @@
             }
         }
 
+        .blocker-overlay {
+            position: absolute;
+            top: 0;
+            width: var(--size);
+            height: var(--size);
+            pointer-events: none;
+
+            .blur {
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(1.5rem);
+                -webkit-backdrop-filter: blur(1.5rem);
+            }
+        }
+
         img {
             width: var(--size);
             height: var(--size);
             object-fit: cover;
             object-position: top;
             background-color: var(--md-sys-color-surface-container-low);
-            border-radius: 8px;
         }
     }
 

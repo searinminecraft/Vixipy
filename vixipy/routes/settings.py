@@ -95,10 +95,10 @@ async def set_content_filter():
     )
 
     r18g = not f.get("hide-r18g") == "on"
-
     r18 = not f.get("hide-r18") == "on"
-
     sensitive = not f.get("hide-sensitive") == "on"
+    preview = f.get("preview-mode") == "on"
+    blur = f.get("blur") == "on"
 
     log.debug((sensitive, r18, r18g))
 
@@ -120,6 +120,19 @@ async def set_content_filter():
         max_age=MAX_AGE,
         httponly=True,
     )
+    r.set_cookie(
+        "Vixipy-Preview-Mode",
+        str(int(preview)),
+        max_age=MAX_AGE,
+        httponly=True,
+    )
+    r.set_cookie(
+        "Vixipy-Blur-Sensitive",
+        str(int(blur)),
+        max_age=MAX_AGE,
+        httponly=True
+    )
+
     return r
 
 

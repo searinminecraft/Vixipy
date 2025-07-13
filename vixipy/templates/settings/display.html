@@ -13,6 +13,8 @@
             {%- set r18_enabled = c.get("Vixipy-No-R18", 0)|int == 1 -%}
             {%- set r18g_enabled = c.get("Vixipy-No-R18G", 0)|int == 1 -%}
             {%- set sensitive_enabled = c.get("Vixipy-No-Sensitive", 0)|int == 1 -%}
+            {%- set preview_enabled = c.get("Vixipy-Preview-Mode", 0)|int == 1 -%}
+            {%- set blur_enabled = c.get("Vixipy-Blur-Sensitive", 0)|int == 1 -%}
 
             <label class="toggle-switch">
                 <input type="checkbox" name="hide-ai"
@@ -30,6 +32,14 @@
             <label class="toggle-switch">
                 <input type="checkbox" name="hide-r18g"
                     {% if r18g %}{% if not r18g_enabled %}checked{% endif %}{% else %}disabled{% endif %}> {{_("Show ero-guro content (R-18G)")}}
+            </label>
+            <label class="toggle-switch">
+                <input type="checkbox" name="preview-mode"
+                    {% if preview_enabled %}checked{% endif %}> {{_("Hide artwork thumbnails (preview mode)")}}
+            </label>
+            <label class="toggle-switch">
+                <input type="checkbox" name="blur"
+                    {% if blur_enabled %}checked{% endif %}> {{_("Blur sensitive works (may cause performance issues!)")}}
             </label>
             <br>
             <button class="button smaller neutral" type="submit">{{_("Save preferences")}}</button>
