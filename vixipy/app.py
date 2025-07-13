@@ -30,6 +30,7 @@ from .routes import (
     settings,
     ugoira_converter,
     notifications,
+    monet,
 )
 from . import (
     cache_client,
@@ -157,6 +158,7 @@ def create_app():
     app.register_blueprint(settings)
     app.register_blueprint(ugoira_converter)
     app.register_blueprint(notifications)
+    app.register_blueprint(monet)
 
     # =================================
     if app.config["LOG_HTTP"]:

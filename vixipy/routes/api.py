@@ -2,7 +2,7 @@ from __future__ import annotations
 from quart import Blueprint, abort, current_app, request
 
 from ..api import pixiv_request, get_artwork
-from ..lib.monet import get_color_scheme
+from ..lib.monet import get_scheme_css
 import asyncio
 import traceback
 import logging
@@ -149,7 +149,7 @@ async def generate_material_theme_from_artwork(id: int):
 
         result = await asyncio.get_running_loop().run_in_executor(
             None,
-            get_color_scheme,
+            get_scheme_css,
             c
         )
 

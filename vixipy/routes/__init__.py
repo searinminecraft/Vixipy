@@ -14,3 +14,4 @@ from .api import bp as api
 from .settings import bp as settings
 from .ugoira_converter import bp as ugoira_converter
 from .notifications import bp as notifications
+from .monet import bp as monet
