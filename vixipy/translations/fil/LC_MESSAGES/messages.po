@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-14 12:31+0800\n"
-"PO-Revision-Date: 2025-07-05 14:08+0000\n"
+"PO-Revision-Date: 2025-07-14 11:08+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:49
@@ -318,27 +319,27 @@ msgstr ""
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
 msgid "Material You Generator"
-msgstr ""
+msgstr "Material You Generator"
 
 #: vixipy/templates/monet.html:13 vixipy/templates/monet.html:29
 msgid "Artwork ID"
-msgstr ""
+msgstr "iD ng Artwork"
 
 #: vixipy/templates/monet.html:14
 msgid "Color"
-msgstr ""
+msgstr "Kulay"
 
 #: vixipy/templates/monet.html:32
 msgid "Submit"
-msgstr ""
+msgstr "I-submit"
 
 #: vixipy/templates/monet.html:35
 msgid "Dark Colors"
-msgstr ""
+msgstr "Mga Madilim na Kulay"
 
 #: vixipy/templates/monet.html:45
 msgid "Light Colors"
-msgstr ""
+msgstr "Mga Maliwanag na Kulay"
 
 #: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
@@ -959,11 +960,11 @@ msgstr "Gamitin ang piniling proxy"
 
 #: vixipy/templates/settings/main.html:34
 msgid "Color Scheme"
-msgstr ""
+msgstr "Scheme ng Kulay"
 
 #: vixipy/templates/settings/main.html:43
 msgid "Set color scheme"
-msgstr ""
+msgstr "Itakda ang scheme ng kulay"
 
 #: vixipy/templates/ugoira-converter/main.html:2
 #: vixipy/templates/ugoira-converter/main.html:12
@@ -1016,4 +1017,3 @@ msgstr "I-edit ang Profile"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Itago ang mga gawang binuo ng AI"
-
