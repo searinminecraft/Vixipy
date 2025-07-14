@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-04 21:45+0800\n"
+"POT-Creation-Date: 2025-07-14 12:31+0800\n"
 "PO-Revision-Date: 2025-07-03 13:08+0000\n"
 "Last-Translator: divergency <divergency@noreply.codeberg.org>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
@@ -28,41 +28,41 @@ msgstr "Недействительный токен"
 msgid "Unable to extract CSRF"
 msgstr "Не удалось извлечь CSRF"
 
-#: vixipy/templates/artworks.html:23
+#: vixipy/templates/artworks.html:24
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:42
+#: vixipy/templates/artworks.html:43
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
 msgstr "Следить"
 
-#: vixipy/templates/artworks.html:42
+#: vixipy/templates/artworks.html:43
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
 msgstr ""
 
-#: vixipy/templates/artworks.html:47
+#: vixipy/templates/artworks.html:48
 msgid "View all works"
 msgstr ""
 
-#: vixipy/templates/artworks.html:72
+#: vixipy/templates/artworks.html:73
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:134
+#: vixipy/templates/artworks.html:135
 msgid "Convert Ugoira"
 msgstr ""
 
-#: vixipy/templates/artworks.html:144 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:145 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr ""
 
-#: vixipy/templates/artworks.html:152
+#: vixipy/templates/artworks.html:153
 msgid "No recommended works to show."
 msgstr ""
 
@@ -243,14 +243,14 @@ msgstr ""
 msgid "Recommended works"
 msgstr ""
 
-#: vixipy/templates/index.html:36
+#: vixipy/templates/index.html:31
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
 
-#: vixipy/templates/index.html:59
+#: vixipy/templates/index.html:54
 msgid "Newest by all"
 msgstr ""
 
@@ -305,6 +305,30 @@ msgid ""
 " attestation requirement."
 msgstr ""
 
+#: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
+msgid "Material You Generator"
+msgstr ""
+
+#: vixipy/templates/monet.html:13 vixipy/templates/monet.html:29
+msgid "Artwork ID"
+msgstr ""
+
+#: vixipy/templates/monet.html:14
+msgid "Color"
+msgstr ""
+
+#: vixipy/templates/monet.html:32
+msgid "Submit"
+msgstr ""
+
+#: vixipy/templates/monet.html:35
+msgid "Dark Colors"
+msgstr ""
+
+#: vixipy/templates/monet.html:45
+msgid "Light Colors"
+msgstr ""
+
 #: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
 msgstr ""
@@ -317,6 +341,11 @@ msgstr ""
 
 #: vixipy/templates/no_connection.html:9
 msgid "Try Again"
+msgstr ""
+
+#: vixipy/templates/components/header.html:21
+#: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
+msgid "Notifications"
 msgstr ""
 
 #: vixipy/templates/ratelimited.html:4
@@ -491,10 +520,6 @@ msgstr ""
 #: vixipy/templates/components/header.html:18
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 msgid "Bookmarks"
-msgstr ""
-
-#: vixipy/templates/components/header.html:21
-msgid "Notifications"
 msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:17

@@ -1,4 +1,4 @@
-# Translations template for PROJECT.
+# Chinese (Simplified) translations for PROJECT.
 # Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-04 21:45+0800\n"
+"POT-Creation-Date: 2025-07-14 12:31+0800\n"
 "PO-Revision-Date: 2025-07-06 13:25+0000\n"
 "Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://"
-"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
+"Language-Team: Chinese (Simplified Han script) "
+"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
+"\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
@@ -28,41 +28,41 @@ msgstr "无效令牌"
 msgid "Unable to extract CSRF"
 msgstr "无法提取 CSRF 令牌"
 
-#: vixipy/templates/artworks.html:23
+#: vixipy/templates/artworks.html:24
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "第 %(page)d 页/共 %(total)d 页"
 
-#: vixipy/templates/artworks.html:42
+#: vixipy/templates/artworks.html:43
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
 msgstr "关注"
 
-#: vixipy/templates/artworks.html:42
+#: vixipy/templates/artworks.html:43
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
 msgstr "取消关注"
 
-#: vixipy/templates/artworks.html:47
+#: vixipy/templates/artworks.html:48
 msgid "View all works"
 msgstr "查看所有作品"
 
-#: vixipy/templates/artworks.html:72
+#: vixipy/templates/artworks.html:73
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "敏感度等级：%(sl)d"
 
-#: vixipy/templates/artworks.html:134
+#: vixipy/templates/artworks.html:135
 msgid "Convert Ugoira"
 msgstr "转换动图"
 
-#: vixipy/templates/artworks.html:144 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:145 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "相关作品"
 
-#: vixipy/templates/artworks.html:152
+#: vixipy/templates/artworks.html:153
 msgid "No recommended works to show."
 msgstr "暂无推荐作品。"
 
@@ -243,14 +243,14 @@ msgstr "关注用户的作品"
 msgid "Recommended works"
 msgstr "推荐作品"
 
-#: vixipy/templates/index.html:36
+#: vixipy/templates/index.html:31
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr "带标签 <a href='%(link)s' title='%(title)s'>#%(tag)s</a> 的推荐插画"
 
-#: vixipy/templates/index.html:59
+#: vixipy/templates/index.html:54
 msgid "Newest by all"
 msgstr "全部最新作品"
 
@@ -303,8 +303,31 @@ msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
 "Username and password logins are not possible due to reCAPTCHA enterprise"
 " attestation requirement."
-msgstr "登录需提供账号的 <code>PHPSESSID</code> Cookie。由于 reCAPTCHA "
-"企业验证要求，不支持用户名密码登录。"
+msgstr "登录需提供账号的 <code>PHPSESSID</code> Cookie。由于 reCAPTCHA 企业验证要求，不支持用户名密码登录。"
+
+#: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
+msgid "Material You Generator"
+msgstr ""
+
+#: vixipy/templates/monet.html:13 vixipy/templates/monet.html:29
+msgid "Artwork ID"
+msgstr ""
+
+#: vixipy/templates/monet.html:14
+msgid "Color"
+msgstr ""
+
+#: vixipy/templates/monet.html:32
+msgid "Submit"
+msgstr ""
+
+#: vixipy/templates/monet.html:35
+msgid "Dark Colors"
+msgstr ""
+
+#: vixipy/templates/monet.html:45
+msgid "Light Colors"
+msgstr ""
 
 #: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
@@ -319,6 +342,11 @@ msgstr "无法连接至 pixiv 服务器。请检查网络或联系实例管理�
 #: vixipy/templates/no_connection.html:9
 msgid "Try Again"
 msgstr "重试"
+
+#: vixipy/templates/components/header.html:21
+#: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
+msgid "Notifications"
+msgstr "通知"
 
 #: vixipy/templates/ratelimited.html:4
 msgid "Too Many Requests"
@@ -440,8 +468,7 @@ msgid ""
 "By posting your work, you hereby agree to the pixiv Terms of Service. "
 "Vixipy is provided to you as is, without warranty of any kind and will "
 "not be responsible for any action taken whatsoever."
-msgstr "提交作品即表示您同意 pixiv 服务条款。Vixipy "
-"不提供任何担保，对任何行为均不承担责任。"
+msgstr "提交作品即表示您同意 pixiv 服务条款。Vixipy 不提供任何担保，对任何行为均不承担责任。"
 
 #: vixipy/templates/upload.html:66
 msgid "Post"
@@ -494,10 +521,6 @@ msgstr "设置"
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 msgid "Bookmarks"
 msgstr "收藏"
-
-#: vixipy/templates/components/header.html:21
-msgid "Notifications"
-msgstr "通知"
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
@@ -968,3 +991,4 @@ msgstr "正在关注"
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
 msgstr "编辑资料"
+

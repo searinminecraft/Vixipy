@@ -7,19 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-04 21:45+0800\n"
+"POT-Creation-Date: 2025-07-14 12:31+0800\n"
 "PO-Revision-Date: 2025-07-05 14:08+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
@@ -29,41 +28,41 @@ msgstr "Недійсний токен"
 msgid "Unable to extract CSRF"
 msgstr "Не вдається витягти CSRF"
 
-#: vixipy/templates/artworks.html:23
+#: vixipy/templates/artworks.html:24
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "Сторінка %(page)d з %(total)d"
 
-#: vixipy/templates/artworks.html:42
+#: vixipy/templates/artworks.html:43
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
 msgstr "Стежити"
 
-#: vixipy/templates/artworks.html:42
+#: vixipy/templates/artworks.html:43
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
 msgstr "Не стежити"
 
-#: vixipy/templates/artworks.html:47
+#: vixipy/templates/artworks.html:48
 msgid "View all works"
 msgstr "Усі роботи"
 
-#: vixipy/templates/artworks.html:72
+#: vixipy/templates/artworks.html:73
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Рівень чутливості: %(sl)d"
 
-#: vixipy/templates/artworks.html:134
+#: vixipy/templates/artworks.html:135
 msgid "Convert Ugoira"
 msgstr "Конвертувати анімацію"
 
-#: vixipy/templates/artworks.html:144 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:145 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "Пов'язані роботи"
 
-#: vixipy/templates/artworks.html:152
+#: vixipy/templates/artworks.html:153
 msgid "No recommended works to show."
 msgstr "Немає рекомендованих робіт для показу."
 
@@ -246,7 +245,7 @@ msgstr "Роботи користувачів, за якими ви стежит
 msgid "Recommended works"
 msgstr "Рекомендовані роботи"
 
-#: vixipy/templates/index.html:36
+#: vixipy/templates/index.html:31
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
@@ -255,7 +254,7 @@ msgstr ""
 "Рекомендовані ілюстрації з тегом <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:59
+#: vixipy/templates/index.html:54
 msgid "Newest by all"
 msgstr "Нове від усіх"
 
@@ -317,6 +316,30 @@ msgstr ""
 "облікового запису. Вхід за допомогою імені користувача та пароля "
 "неможливий через обов'язкову перевірку reCAPTCHA."
 
+#: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
+msgid "Material You Generator"
+msgstr ""
+
+#: vixipy/templates/monet.html:13 vixipy/templates/monet.html:29
+msgid "Artwork ID"
+msgstr ""
+
+#: vixipy/templates/monet.html:14
+msgid "Color"
+msgstr ""
+
+#: vixipy/templates/monet.html:32
+msgid "Submit"
+msgstr ""
+
+#: vixipy/templates/monet.html:35
+msgid "Dark Colors"
+msgstr ""
+
+#: vixipy/templates/monet.html:45
+msgid "Light Colors"
+msgstr ""
+
 #: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
 msgstr "Помилка з'єднання"
@@ -332,6 +355,11 @@ msgstr ""
 #: vixipy/templates/no_connection.html:9
 msgid "Try Again"
 msgstr "Повторити спробу"
+
+#: vixipy/templates/components/header.html:21
+#: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
+msgid "Notifications"
+msgstr "Сповіщення"
 
 #: vixipy/templates/ratelimited.html:4
 msgid "Too Many Requests"
@@ -511,10 +539,6 @@ msgstr "Налаштування"
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 msgid "Bookmarks"
 msgstr "Закладки"
-
-#: vixipy/templates/components/header.html:21
-msgid "Notifications"
-msgstr "Сповіщення"
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
@@ -990,3 +1014,4 @@ msgstr "Редагувати профіль"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Приховати роботи, створені ШІ"
+
