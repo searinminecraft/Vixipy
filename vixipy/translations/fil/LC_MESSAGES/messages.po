@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-14 12:31+0800\n"
-"PO-Revision-Date: 2025-07-14 11:08+0000\n"
+"PO-Revision-Date: 2025-07-16 17:08+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/fil/>\n"
@@ -807,7 +807,7 @@ msgstr "Mga popular na tag ng larawan"
 #: vixipy/templates/search/dashboard.html:29
 #, python-format
 msgid "#%(tag)s recommended works"
-msgstr "Mga inirerekomendang gawa ng #%(tag)s"
+msgstr "Mga inirerekomendang #%(tag)s na gawa"
 
 #: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
 #: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
