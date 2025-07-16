@@ -26,7 +26,18 @@
         </div>
 
         {% for x in recommend %}
-        <h3>{{_("#%(tag)s recommended works", tag=x.translation.default) }}</h3>
+        <h3>{{_("#%(tag)s recommended works", tag=x.translation.default or x.name) }}</h3>
+        {% if config["DEBUG"] %}
+        <pre>translation: {{x.translation}}
+en: {{x.translation.en}}
+ko: {{x.translation.ko}}
+zh: {{x.translation.zh}}
+zh_tw: {{x.translation.zh_tw}}
+romaji: {{x.translation.romaji}}
+orig: {{x.translation.orig}}
+illusts: {{x}}</pre>
+	{%endif%}
+
         <div class="scrolling-container">
             {% for il in x.illusts %}
             {{ entry(il, false, false) }}

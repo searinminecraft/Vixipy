@@ -20,14 +20,14 @@ bp = Blueprint("monet", __name__)
 @bp.route("/material-you", methods=("GET", "POST"))
 async def color_preview():
     _method = request.args.get("method", "color")
+    _scheme = request.args.get("scheme", "tonal_spot")
 
     if _method == "artwork":
         _id = request.args["id"]
         data = await get_artwork(_id)
-        res = await scheme_from_url(data.json["urls"]["thumb"], False)
+        res = await scheme_from_url(data.json["urls"]["thumb"], False, _scheme)
     elif _method == "color":
         _color = request.args.get("color", "#0096fa")
-        _scheme = request.args.get("scheme", "tonal_spot")
         res = get_scheme_from_color(_color, _scheme)
     else:
         abort(400)
