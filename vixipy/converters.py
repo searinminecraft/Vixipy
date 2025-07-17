@@ -16,7 +16,7 @@ def proxy(url: str) -> str:
         proxy = proxy_cookie
 
     if url.netloc == "i.pximg.net":
-        return proxy + "/" + url.path
+        return proxy + url.path
     return "/proxy/" + str(url.netloc + url.path)
 
 def convert_pixiv_link(url: str) -> str:

@@ -16,6 +16,7 @@ log = logging.getLogger("vixipy.routes.proxy")
 
 @bp.errorhandler(Exception)
 async def handle_exception(e: Exception):
+    log.exception("Exception occurred while proxying %s", request.path.removeprefix("/proxy"))
     err = traceback.format_exc()
     return (
         f"""
