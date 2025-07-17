@@ -299,7 +299,7 @@ def create_app():
     @app.before_serving
     async def prepare_clientsession():
         header_common = {
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0",
             "Accept-Language": app.config["ACCEPT_LANGUAGE"],
         }
 

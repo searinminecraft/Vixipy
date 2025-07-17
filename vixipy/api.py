@@ -77,7 +77,7 @@ async def pixiv_request(
 
     if touch or endpoint.startswith("/touch/ajax"):
         _headers["User-Agent"] = (
-            "Mozilla/5.0 (Android 10; Mobile; rv:138.0) Gecko/138.0 Firefox/138.0"
+            "Mozilla/5.0 (Android 10; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0"
         )
 
     if raw_payload and not isinstance(raw_payload, MultipartWriter):
