@@ -1,11 +1,18 @@
 @use '../mixins';
 
+* {
+    transition-property: background-color, color, fill;
+    transition-duration: .15s;
+    transition-timing-function: ease;
+}
+
 .bg-wrapper {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     object-fit: cover;
+    background-color: var(--md-sys-color-surface-container-lowest);
 }
 
 #login-wrapper {
@@ -13,10 +20,12 @@
     width: 100%;
     height: 100%;
     top: 0;
-    backdrop-filter: blur(.25rem);
+    backdrop-filter: blur(4rem);
+    -webkit-backdrop-filter: blur(4rem);
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0,0,0,.2);
 
     main {
         background-color: var(--md-sys-color-surface);
@@ -29,6 +38,7 @@
         max-height: 1200px;
         min-height: 500px;
         gap: 4em;
+        box-shadow: 0 6px 24px rgba(0,0,0,.3);
 
         >* {
             flex: 50%
@@ -50,5 +60,18 @@
                 width: 100%;
             }
         }
+    }
+}
+
+@media (max-width: 800px) {
+    #login-wrapper main {
+        width: 95%;
+        height: 95%;
+        display: block;
+        overflow-y: auto;
+        scrollbar-width: none;
+        border-radius: 48px;
+        min-height: unset !important;
+        min-width: unset !important;
     }
 }

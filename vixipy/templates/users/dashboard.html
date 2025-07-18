@@ -1,0 +1,57 @@
+{% extends "layouts/default.html" %}
+{% set title = _("Menu") %}
+
+{% block content %}
+<main id="user-dash">
+    {%- set user = g.current_user -%}
+    {%- set ext = g.current_user_extra -%}
+    <input type="hidden" id="i18n-logout-string" value="Do you wish to log out?">
+    <div class="user-card">
+        <img src="{{user.imageBig}}" alt="{{user.name}}">
+        <main>
+            <h2>{{user.name}}</h2>
+            <small><b>{{ext.following}}</b> {{_("Following")}} - <b>{{ext.followers}}</b> {{_("Followers")}}</small>
+        </main>
+    </div>
+    <br><br>
+    <ul class="links">
+        <li>
+            <a href="{{url_for('users.user_profile', user=user.id)}}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" fill="currentColor"/><path d="M5 18.857A6.857 6.857 0 0111.857 12h.286A6.857 6.857 0 0119 18.857c0 .631-.512 1.143-1.143 1.143H6.143A1.143 1.143 0 015 18.857z" fill="currentColor"/></svg>
+                {{_("Your profile")}}
+            </a>
+        </li>
+        <li>
+            <a href="{{url_for('users.user_bookmarks', user=user.id)}}">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 27.24V9a3 3 0 013-3h12a3 3 0 013 3v18.24l-9-4.5-9 4.5z" fill="currentColor"/></svg>
+                {{_("Bookmarks")}}
+            </a>
+        </li>
+        <li>
+            <a href="{{url_for('settings.main')}}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.645 7a3.502 3.502 0 016.71 0H20a1 1 0 110 2h-8.645a3.502 3.502 0 01-6.71 0H4a1 1 0 010-2h.645zM8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM12.645 15a3.502 3.502 0 016.71 0H20a1 1 0 110 2h-.645a3.502 3.502 0 01-6.71 0H4a1 1 0 110-2h8.645zm4.855 1a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" fill="currentColor"/></svg>
+                {{_("Settings")}}
+            </a>
+        </li>
+        <li>
+            <a href="https://codeberg.org/vixipy/Vixipy/issues/new">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 8a6 6 0 016-6h8a6 6 0 016 6v13a1 1 0 01-1 1H8a6 6 0 01-6-6V8zm11.125 8.875a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zM10 9.75a2 2 0 114 0c0 .568-.137.87-.277 1.064-.16.22-.39.393-.753.62l-.136.083c-.312.19-.748.458-1.087.81-.454.473-.747 1.094-.747 1.923a1 1 0 102 0c0-.296.082-.425.19-.538.146-.152.333-.268.66-.47l.18-.113c.388-.242.907-.585 1.31-1.138.422-.58.66-1.31.66-2.241a4 4 0 00-8 0 1 1 0 102 0z" fill="currentColor"/></svg>
+                {{_("Send Feedback")}}
+            </a>
+        </li>
+        <li>
+            <a href="https://codeberg.org/vixipy/Vixipy">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.707 6.293a1 1 0 010 1.414L3.414 12l4.293 4.293a1 1 0 11-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0zM16.293 6.293a1 1 0 000 1.414L20.586 12l-4.293 4.293a1 1 0 001.414 1.414l5-5a1 1 0 000-1.414l-5-5a1 1 0 00-1.414 0z" fill="currentColor"/></svg>
+                {{_("Source Code")}}
+            </a>
+        </li>
+        <li>
+            <a hx-boost="false" href="/self/logout" style="color: var(--md-sys-color-error)" id="logout">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 11-2 0V5H7.236l2.211 1.106A1 1 0 0110 7v10h4v-2a1 1 0 012 0v3a1 1 0 01-1 1h-5v2a1 1 0 01-1.447.894l-6-3A1 1 0 012 18V4zm2 1.618v11.764l4 2V7.618l-4-2zm13.293 1.675a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L18.586 12H13a1 1 0 110-2h5.586l-1.293-1.293a1 1 0 010-1.414z"/></svg>
+                {{_("Log out")}}
+            </a>
+        </li>
+    </ul>
+    <script src="/static/js/user-dashboard.js"></script>
+</main>
+{% endblock %}

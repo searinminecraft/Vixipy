@@ -1,0 +1,46 @@
+@use "../mixins" as *;
+
+#user-dash {
+    .user-card {
+        display: flex;
+        gap: 2em;
+        align-items: flex-start;
+
+        > img {
+            @include profile-img(112px);
+        }
+
+        main {
+            h2 {
+                margin: unset;
+                margin: .75rem 0;
+            }
+        }
+    }
+
+    .links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            &:last-child {
+                border-bottom: unset !important;
+            }
+
+            a {
+                display: flex;
+                gap: .5em;
+                padding: 12px 1em;
+                color: unset;
+
+                svg {
+                    fill: currentColor;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+}

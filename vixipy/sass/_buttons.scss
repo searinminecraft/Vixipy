@@ -69,7 +69,8 @@ a.icon-button, button.icon-button {
     padding: 6px;
 
     svg {
-        fill: currentColor
+        fill: currentColor;
+        pointer-events: none;
     }
 
     &:hover {

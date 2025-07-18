@@ -9,7 +9,7 @@ from ..api import (
     get_user_bookmarks,
     pixiv_request,
 )
-from ..decorators import tokenless_require_login
+from ..decorators import tokenless_require_login, require_login
 from ..filters import filter_from_prefs as ff
 from ..types import NovelEntry
 
@@ -104,3 +104,9 @@ async def user_novels(user: int):
 @bp.get("/u/<int:user>")
 async def pixivcompat_user(user: int):
     return redirect(url_for("users.user_profile", user=user))
+
+
+@bp.get("/self/actions")
+@require_login
+async def user_dashboard():
+    return await render_template("users/dashboard.html")

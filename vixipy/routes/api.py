@@ -141,7 +141,8 @@ async def ugoira_meta(id: int):
 async def generate_material_theme_from_artwork(id: int):
     try:
         work = await pixiv_request(f"/ajax/illust/{id}")
-        img = work["urls"]["small"]
+        scheme = request.args.get("scheme", "tonal_spot")
+        img = work["urls"]["thumb"]
         if not img:
             raise Exception
         req = await current_app.content_proxy.get(img)
@@ -150,10 +151,11 @@ async def generate_material_theme_from_artwork(id: int):
         result = await asyncio.get_running_loop().run_in_executor(
             None,
             get_scheme_css,
-            c
+            c,
+            scheme,
         )
 
-        return result, {"Content-Type": "text/css"}
+        return result, {"Content-Type": "text/css", "Cache-Control": "max-age=31536000"}
     except Exception:
         log.exception("Failure generating color scheme for ID %d" , id)
         return "", {"Content-Type": "text/css"}
