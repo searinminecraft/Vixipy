@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-14 12:31+0800\n"
+"POT-Creation-Date: 2025-07-18 21:16+0800\n"
 "PO-Revision-Date: 2025-06-25 09:21+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
@@ -276,29 +276,29 @@ msgid ""
 " report <a href=\"%(link)s\">here</a>"
 msgstr ""
 
-#: vixipy/templates/login.html:7
+#: vixipy/templates/login.html:7 vixipy/templates/login.html:25
 msgid "Sign in"
 msgstr "サインイン"
 
-#: vixipy/templates/login.html:23
+#: vixipy/templates/login.html:26
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
 msgstr ""
 
-#: vixipy/templates/login.html:25
+#: vixipy/templates/login.html:28
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
 msgstr ""
 
-#: vixipy/templates/login.html:26
+#: vixipy/templates/login.html:29
 msgid "Personalized landing"
 msgstr ""
 
-#: vixipy/templates/login.html:27
+#: vixipy/templates/login.html:30
 msgid "<b>Coming soon:</b> work uploads"
 msgstr ""
 
-#: vixipy/templates/login.html:29
+#: vixipy/templates/login.html:32
 msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
 "Username and password logins are not possible due to reCAPTCHA enterprise"
@@ -343,7 +343,7 @@ msgstr ""
 msgid "Try Again"
 msgstr ""
 
-#: vixipy/templates/components/header.html:21
+#: vixipy/templates/components/header.html:23
 #: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
 msgid "Notifications"
 msgstr "通知"
@@ -508,21 +508,23 @@ msgstr ""
 msgid "Novels"
 msgstr "小説"
 
-#: vixipy/templates/components/header.html:11
+#: vixipy/templates/components/header.html:13
 #: vixipy/templates/discovery/index.html:3
 #: vixipy/templates/discovery/index.html:9
 msgid "Discovery"
 msgstr "ディスカバリー"
 
-#: vixipy/templates/components/header.html:14
+#: vixipy/templates/components/header.html:16
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
+#: vixipy/templates/users/dashboard.html:33
 msgid "Settings"
 msgstr "設定"
 
-#: vixipy/templates/components/header.html:18
+#: vixipy/templates/components/header.html:20
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
+#: vixipy/templates/users/dashboard.html:27
 msgid "Bookmarks"
 msgstr "ブックマーク"
 
@@ -787,7 +789,7 @@ msgstr "作品を検…"
 msgid "Popular illust tags"
 msgstr "人気のイラストタグ"
 
-#: vixipy/templates/search/dashboard.html:29
+#: vixipy/templates/search/dashboard.html:42
 #, python-format
 msgid "#%(tag)s recommended works"
 msgstr "#%(tag)sのおすすめ作品"
@@ -857,31 +859,39 @@ msgstr "閲覧と表示"
 msgid "Work content"
 msgstr ""
 
-#: vixipy/templates/settings/display.html:20
+#: vixipy/templates/settings/display.html:22
 msgid "Show AI-generated work"
 msgstr "AI生成作品を表示"
 
-#: vixipy/templates/settings/display.html:24
+#: vixipy/templates/settings/display.html:26
 msgid "Display works that may contain sensitive content"
 msgstr "センシティブな内容を含む可能性のある作品を表示"
 
-#: vixipy/templates/settings/display.html:28
+#: vixipy/templates/settings/display.html:30
 msgid "Show explicit content (R-18)"
 msgstr "性的な表現を含む作品（R-18）を表示"
 
-#: vixipy/templates/settings/display.html:32
+#: vixipy/templates/settings/display.html:34
 msgid "Show ero-guro content (R-18G)"
 msgstr "グロテスクな表現を含む作品（R-18G）を表示"
 
-#: vixipy/templates/settings/display.html:35
+#: vixipy/templates/settings/display.html:38
+msgid "Hide artwork thumbnails (preview mode)"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:42
+msgid "Blur sensitive works (may cause performance issues!)"
+msgstr ""
+
+#: vixipy/templates/settings/display.html:45
 msgid "Save preferences"
 msgstr ""
 
-#: vixipy/templates/settings/display.html:40
+#: vixipy/templates/settings/display.html:50
 msgid "Ad display settings"
 msgstr "広告表示"
 
-#: vixipy/templates/settings/display.html:43
+#: vixipy/templates/settings/display.html:53
 msgid "Display"
 msgstr "表示する"
 
@@ -989,13 +999,39 @@ msgstr ""
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr ""
 
-#: vixipy/templates/users/base.html:25
+#: vixipy/templates/users/base.html:25 vixipy/templates/users/dashboard.html:13
 msgid "Following"
 msgstr "フォロー中"
 
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
 msgstr "プロフィール編集"
+
+#: vixipy/templates/users/dashboard.html:2
+msgid "Menu"
+msgstr ""
+
+#: vixipy/templates/users/dashboard.html:13
+#, fuzzy
+msgid "Followers"
+msgstr "フォローする"
+
+#: vixipy/templates/users/dashboard.html:21
+#, fuzzy
+msgid "Your profile"
+msgstr "プロフィール編集"
+
+#: vixipy/templates/users/dashboard.html:39
+msgid "Send Feedback"
+msgstr ""
+
+#: vixipy/templates/users/dashboard.html:45
+msgid "Source Code"
+msgstr ""
+
+#: vixipy/templates/users/dashboard.html:51
+msgid "Log out"
+msgstr ""
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr ""
