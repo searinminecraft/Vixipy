@@ -55,7 +55,7 @@ async def search_artworks(query: str):
 
     page = int(args.pop("p", 1))
     args = {
-        "word": quote(query, safe=""),
+        "word": query,
         "order": "date_d",
         "mode": "safe",
         "csw": 0,
@@ -157,7 +157,7 @@ async def search_dashboard():
     for _pit in data["recommendTags"]["illust"]:
         recommend_tags.append(
             RecommendTag(
-                _pit, _illusts[int(_pit["ids"][0])], _translations.get(_pit["tag"])
+                _pit, _illusts[int(random.choice(_pit["ids"]))], _translations.get(_pit["tag"])
             )
         )
 
