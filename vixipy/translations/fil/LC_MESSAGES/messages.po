@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-18 21:16+0800\n"
-"PO-Revision-Date: 2025-07-18 20:08+0000\n"
+"PO-Revision-Date: 2025-07-19 08:08+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/fil/>\n"
@@ -1031,26 +1031,24 @@ msgid "Menu"
 msgstr "Menu"
 
 #: vixipy/templates/users/dashboard.html:13
-#, fuzzy
 msgid "Followers"
-msgstr "Sundan"
+msgstr "Mga Follower"
 
 #: vixipy/templates/users/dashboard.html:21
-#, fuzzy
 msgid "Your profile"
-msgstr "I-edit ang Profile"
+msgstr "Iyong profile"
 
 #: vixipy/templates/users/dashboard.html:39
 msgid "Send Feedback"
-msgstr ""
+msgstr "Magpadala ng Feedback"
 
 #: vixipy/templates/users/dashboard.html:45
 msgid "Source Code"
-msgstr ""
+msgstr "Source Code"
 
 #: vixipy/templates/users/dashboard.html:51
 msgid "Log out"
-msgstr ""
+msgstr "Mag-log out"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Itago ang mga gawang binuo ng AI"
