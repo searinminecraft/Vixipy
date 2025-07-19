@@ -18,7 +18,6 @@ from ..api import (
     get_user_illusts_from_ids,
 )
 from ..constants import EMOJI_SERIES
-from ..lib.monet import scheme_from_url
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
 from ..types import ArtworkPage
@@ -128,14 +127,12 @@ async def _get_artwork(id: int):
             get_user(work.authorId),
             get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
         )
-        mt = ""
     else:
-        pages, recommend, user, works, mt = await gather(
+        pages, recommend, user, works = await gather(
             get_artwork_pages(id),
             get_recommended_works(id),
             get_user(work.authorId),
             get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
-            scheme_from_url(work.json["urls"]["thumb"]),
         )
 
     pages: list[ArtworkPage]
@@ -153,7 +150,6 @@ async def _get_artwork(id: int):
         recommend=ff(recommend),
         user=user,
         user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id))),
-        mt=mt
     )
 
 

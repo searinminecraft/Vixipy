@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="/static/jquery-3.7.1.min.js"></script>
     <script src="/static/htmx.min.js"></script>
+    <script src="/static/js/common.js"></script>
 </head>
 
 <body>
@@ -44,7 +45,9 @@
             </div>
         </main>
     </div>
-    <script src="/static/js/login-monet.js"></script>
+    <script>
+        getSchemeFromArtwork(document.getElementById("illust_id").value)
+    </script>
 </body>
 
 </html>

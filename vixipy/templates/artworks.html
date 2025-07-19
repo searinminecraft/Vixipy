@@ -4,8 +4,9 @@
 {% import "components/artwork-entry.html" as artwork_entry %}
 
 {% block content %}
+<input type="hidden" id="illust_id" value="{{work.id}}">
+<script>getSchemeFromArtwork(document.getElementById("illust_id").value)</script>
 <main>
-    <style>{{mt}}</style>
     <section id="artwork-main">
         <main>
             {% if work.isUgoira %}

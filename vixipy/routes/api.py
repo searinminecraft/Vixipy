@@ -2,7 +2,7 @@ from __future__ import annotations
 from quart import Blueprint, abort, current_app, request
 
 from ..api import pixiv_request, get_artwork
-from ..lib.monet import get_scheme_css
+from ..lib.monet import scheme_from_url
 import asyncio
 import traceback
 import logging
@@ -138,25 +138,36 @@ async def ugoira_meta(id: int):
     return make_json_response(body=data)
 
 @bp.get("/api/illust/<int:id>/material-you")
-async def generate_material_theme_from_artwork(id: int):
+async def gen_scheme_from_artwork(id: int):
     try:
         work = await pixiv_request(f"/ajax/illust/{id}")
         scheme = request.args.get("scheme", "tonal_spot")
         img = work["urls"]["thumb"]
         if not img:
             raise Exception
-        req = await current_app.content_proxy.get(img)
-        c = await req.read()
-
-        result = await asyncio.get_running_loop().run_in_executor(
-            None,
-            get_scheme_css,
-            c,
-            scheme,
-        )
+        
+        result = await scheme_from_url(img, True, scheme)
 
         return result, {"Content-Type": "text/css", "Cache-Control": "max-age=31536000"}
     except Exception:
         log.exception("Failure generating color scheme for ID %d" , id)
         return "", {"Content-Type": "text/css"}
+
+@bp.get("/api/user/<int:id>/material-you")
+async def gen_scheme_from_user(id: int):
+    try:
+        data = await pixiv_request(f"/ajax/user/{id}")
+        scheme = request.args.get("scheme", "tonal_spot")
+        if background := data["background"]:
+
+            img = background["url"]
+            result = await scheme_from_url(img, True, scheme)
+            return result, {"Content-Type": "text/css", "Cache-Control": "max-age=31536000"}
+
+        return "", {"Content-Type": "text/css"}
+    except Exception:
+        log.exception("Failure generating color scheme for ID %d" , id)
+        return "", {"Content-Type": "text/css"}
+
+
 

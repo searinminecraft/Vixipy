@@ -3,6 +3,8 @@
 {% set current = 'home' %}
 
 {% block c %}
+<input type="hidden" id="id" value="{{data.id}}">
+<script>getSchemeFromUser(document.getElementById("id").value)</script>
 <h2>{{_("Illustrations and Manga")}}</h2>
 <div class="artwork-container">
     {% for x in top %}
