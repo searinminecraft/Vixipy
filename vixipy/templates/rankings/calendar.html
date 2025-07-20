@@ -1,0 +1,42 @@
+{% extends "layouts/default.html" %}
+{% set title = _("Ranking Calendar") %}
+
+{% block content %}
+<main id="ranking-calendar">
+    <h2>{{_("Ranking Calendar")}}</h2>
+    <div class="calendar-area">
+        <table class="main">
+            <tbody>
+            {% for x in data %}
+            <tr>
+                {% for y in x %}
+                <!-- {{y}} -->
+                {% if y.active %}
+                <td class="active">
+                    <a href="#">
+                        <main>
+                            {% if y.img %}
+                            <img src="{{y.img}}" alt="{{_('Day %(day)s', day=y.date)}}">
+                            <div class="meta">
+                                {% if y.day %}
+                                <span class="day">{{y.day}}</span>
+                                {% endif %}
+                                <span class="date">{{y.date}}</span>
+                            </div>
+                            {% elif y.locked %}
+                            <div class="locked"></div>
+                            {% endif %}
+                        </main>
+                    </a>
+                </td>
+                {% else %}
+                <td></td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

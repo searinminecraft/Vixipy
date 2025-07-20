@@ -41,6 +41,7 @@ async def pixiv_request(
     raw_payload=None,
     touch=False,
     ignore_cache=False,
+    expect_json=True,
 ):
     ignore_cache = method == "post" or ignore_cache == True
     cache_enabled = current_app.config["CACHE_PIXIV_REQUESTS"]
@@ -60,6 +61,8 @@ async def pixiv_request(
     params.append(("lang", {"en": "en", "ja": "ja", "zh_Hans": "zh"}.get(lang, "en")))
 
     for i, v in enumerate(params):
+        if v[1] is None:
+            continue
         if i == 0:
             _params += f"?{v[0]}={v[1]}"
         else:
@@ -152,7 +155,10 @@ async def pixiv_request(
         if res.get("body"):
             res = res["body"]
     except ContentTypeError:
-        raise PixivError(await r.text(), r.status, endpoint)
+        if expect_json:
+            raise PixivError(await r.text(), r.status, endpoint)
+        res = await r.text()
+        pass
 
     if cache_enabled and not ignore_cache:
         await current_app.cache_client.set(
