@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-18 21:16+0800\n"
+"POT-Creation-Date: 2025-07-20 20:49+0800\n"
 "PO-Revision-Date: 2025-06-25 09:21+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language: ja\n"
@@ -27,41 +27,41 @@ msgstr ""
 msgid "Unable to extract CSRF"
 msgstr ""
 
-#: vixipy/templates/artworks.html:24
+#: vixipy/templates/artworks.html:25
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:43
+#: vixipy/templates/artworks.html:44
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
 msgstr "フォローする"
 
-#: vixipy/templates/artworks.html:43
+#: vixipy/templates/artworks.html:44
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
 msgstr ""
 
-#: vixipy/templates/artworks.html:48
+#: vixipy/templates/artworks.html:49
 msgid "View all works"
 msgstr "作品一覧を見る"
 
-#: vixipy/templates/artworks.html:73
+#: vixipy/templates/artworks.html:74
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:135
+#: vixipy/templates/artworks.html:136
 msgid "Convert Ugoira"
 msgstr ""
 
-#: vixipy/templates/artworks.html:145 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:146 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "関連作品"
 
-#: vixipy/templates/artworks.html:153
+#: vixipy/templates/artworks.html:154
 msgid "No recommended works to show."
 msgstr ""
 
@@ -276,29 +276,29 @@ msgid ""
 " report <a href=\"%(link)s\">here</a>"
 msgstr ""
 
-#: vixipy/templates/login.html:7 vixipy/templates/login.html:25
+#: vixipy/templates/login.html:7 vixipy/templates/login.html:26
 msgid "Sign in"
 msgstr "サインイン"
 
-#: vixipy/templates/login.html:26
+#: vixipy/templates/login.html:27
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
 msgstr ""
 
-#: vixipy/templates/login.html:28
+#: vixipy/templates/login.html:29
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
 msgstr ""
 
-#: vixipy/templates/login.html:29
+#: vixipy/templates/login.html:30
 msgid "Personalized landing"
 msgstr ""
 
-#: vixipy/templates/login.html:30
+#: vixipy/templates/login.html:31
 msgid "<b>Coming soon:</b> work uploads"
 msgstr ""
 
-#: vixipy/templates/login.html:32
+#: vixipy/templates/login.html:33
 msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
 "Username and password logins are not possible due to reCAPTCHA enterprise"
@@ -781,6 +781,16 @@ msgstr "%(cc)s文字"
 msgid "%(cc)s Word(s)"
 msgstr ""
 
+#: vixipy/templates/rankings/calendar.html:2
+#: vixipy/templates/rankings/calendar.html:6
+msgid "Ranking Calendar"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:19
+#, python-format
+msgid "Day %(day)s"
+msgstr ""
+
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
 msgstr "作品を検…"
@@ -845,7 +855,7 @@ msgstr ""
 msgid "All Time"
 msgstr ""
 
-#: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:6
+#: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:8
 msgid "Illustrations and Manga"
 msgstr "イラスト・マンガ"
 
@@ -1009,6 +1019,10 @@ msgstr "プロフィール編集"
 
 #: vixipy/templates/users/dashboard.html:2
 msgid "Menu"
+msgstr ""
+
+#: vixipy/templates/users/dashboard.html:8
+msgid "Do you wish to log out?"
 msgstr ""
 
 #: vixipy/templates/users/dashboard.html:13

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-18 21:16+0800\n"
-"PO-Revision-Date: 2025-07-18 20:08+0000\n"
+"POT-Creation-Date: 2025-07-20 20:49+0800\n"
+"PO-Revision-Date: 2025-07-14 11:08+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
@@ -29,41 +29,41 @@ msgstr "Недійсний токен"
 msgid "Unable to extract CSRF"
 msgstr "Не вдається витягти CSRF"
 
-#: vixipy/templates/artworks.html:24
+#: vixipy/templates/artworks.html:25
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "Сторінка %(page)d з %(total)d"
 
-#: vixipy/templates/artworks.html:43
+#: vixipy/templates/artworks.html:44
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
 msgstr "Стежити"
 
-#: vixipy/templates/artworks.html:43
+#: vixipy/templates/artworks.html:44
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
 msgstr "Не стежити"
 
-#: vixipy/templates/artworks.html:48
+#: vixipy/templates/artworks.html:49
 msgid "View all works"
 msgstr "Усі роботи"
 
-#: vixipy/templates/artworks.html:73
+#: vixipy/templates/artworks.html:74
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Рівень чутливості: %(sl)d"
 
-#: vixipy/templates/artworks.html:135
+#: vixipy/templates/artworks.html:136
 msgid "Convert Ugoira"
 msgstr "Конвертувати анімацію"
 
-#: vixipy/templates/artworks.html:145 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:146 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "Пов'язані роботи"
 
-#: vixipy/templates/artworks.html:153
+#: vixipy/templates/artworks.html:154
 msgid "No recommended works to show."
 msgstr "Немає рекомендованих робіт для показу."
 
@@ -283,11 +283,11 @@ msgstr ""
 "Виникла невідома помилка. Якщо ви гадаєте, що це недолік, надішліть звіт "
 "про помилку <a href='%(link)s'>сюди</a>"
 
-#: vixipy/templates/login.html:7 vixipy/templates/login.html:25
+#: vixipy/templates/login.html:7 vixipy/templates/login.html:26
 msgid "Sign in"
 msgstr "Увійти"
 
-#: vixipy/templates/login.html:26
+#: vixipy/templates/login.html:27
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
@@ -295,19 +295,19 @@ msgstr ""
 "Увійдіть у свій обліковий запис pixiv, щоб отримати доступ до функцій, "
 "які потребують входу, а саме:"
 
-#: vixipy/templates/login.html:28
+#: vixipy/templates/login.html:29
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
 msgstr "Взаємодія, як-от уподобання робіт, коментування, додавання в закладки тощо"
 
-#: vixipy/templates/login.html:29
+#: vixipy/templates/login.html:30
 msgid "Personalized landing"
 msgstr "Персоналізована цільова сторінка"
 
-#: vixipy/templates/login.html:30
+#: vixipy/templates/login.html:31
 msgid "<b>Coming soon:</b> work uploads"
 msgstr "<b>Уже скоро:</b> публікація робіт"
 
-#: vixipy/templates/login.html:32
+#: vixipy/templates/login.html:33
 msgid ""
 "To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
 "Username and password logins are not possible due to reCAPTCHA enterprise"
@@ -796,6 +796,16 @@ msgstr "%(cc)s знаків"
 msgid "%(cc)s Word(s)"
 msgstr "%(cc)s слів"
 
+#: vixipy/templates/rankings/calendar.html:2
+#: vixipy/templates/rankings/calendar.html:6
+msgid "Ranking Calendar"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:19
+#, fuzzy, python-format
+msgid "Day %(day)s"
+msgstr "Оновлено %(date)s"
+
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
 msgstr "Шукати роботи..."
@@ -860,7 +870,7 @@ msgstr "Нещодавні"
 msgid "All Time"
 msgstr "За весь час"
 
-#: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:6
+#: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:8
 msgid "Illustrations and Manga"
 msgstr "Ілюстрації і манґа"
 
@@ -1025,7 +1035,11 @@ msgstr "Редагувати профіль"
 
 #: vixipy/templates/users/dashboard.html:2
 msgid "Menu"
-msgstr "Меню"
+msgstr ""
+
+#: vixipy/templates/users/dashboard.html:8
+msgid "Do you wish to log out?"
+msgstr ""
 
 #: vixipy/templates/users/dashboard.html:13
 msgid "Followers"
