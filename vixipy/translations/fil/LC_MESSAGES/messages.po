@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-20 20:49+0800\n"
-"PO-Revision-Date: 2025-07-16 17:08+0000\n"
+"PO-Revision-Date: 2025-07-20 19:08+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/fil/>\n"
@@ -801,12 +801,12 @@ msgstr "%(cc)s (mga) Salita"
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
 msgid "Ranking Calendar"
-msgstr ""
+msgstr "Kalendaryo ng Ranggo"
 
 #: vixipy/templates/rankings/calendar.html:19
-#, fuzzy, python-format
+#, python-format
 msgid "Day %(day)s"
-msgstr "Na-update noong %(date)s"
+msgstr "Araw %(day)s"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
@@ -1038,11 +1038,11 @@ msgstr "I-edit ang Profile"
 
 #: vixipy/templates/users/dashboard.html:2
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: vixipy/templates/users/dashboard.html:8
 msgid "Do you wish to log out?"
-msgstr ""
+msgstr "Gusto mo bang mag-log out?"
 
 #: vixipy/templates/users/dashboard.html:13
 msgid "Followers"
