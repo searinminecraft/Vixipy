@@ -5,7 +5,7 @@
 <main id="user-dash">
     {%- set user = g.current_user -%}
     {%- set ext = g.current_user_extra -%}
-    <input type="hidden" id="i18n-logout-string" value="Do you wish to log out?">
+    <input type="hidden" id="i18n-logout-string" value="{{_('Do you wish to log out?')}}">
     <div class="user-card">
         <img src="{{user.imageBig}}" alt="{{user.name}}">
         <main>
