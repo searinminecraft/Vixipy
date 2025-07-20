@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-20 20:49+0800\n"
-"PO-Revision-Date: 2025-06-25 09:21+0000\n"
+"PO-Revision-Date: 2025-07-20 19:08+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ja/>\n"
 "Language: ja\n"
-"Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ja/>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -784,7 +785,7 @@ msgstr ""
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
 msgid "Ranking Calendar"
-msgstr ""
+msgstr "ランキングカレンダー"
 
 #: vixipy/templates/rankings/calendar.html:19
 #, python-format
@@ -1023,7 +1024,7 @@ msgstr ""
 
 #: vixipy/templates/users/dashboard.html:8
 msgid "Do you wish to log out?"
-msgstr ""
+msgstr "ログアウトしますか？"
 
 #: vixipy/templates/users/dashboard.html:13
 #, fuzzy
@@ -1037,7 +1038,7 @@ msgstr "プロフィール編集"
 
 #: vixipy/templates/users/dashboard.html:39
 msgid "Send Feedback"
-msgstr ""
+msgstr "フィードバックを送る"
 
 #: vixipy/templates/users/dashboard.html:45
 msgid "Source Code"
@@ -1080,4 +1081,3 @@ msgstr ""
 #~ " due to reCAPTCHA enterprise attestation"
 #~ " requirement."
 #~ msgstr ""
-
