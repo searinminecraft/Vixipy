@@ -13,13 +13,7 @@
             <a class="icon-button" title='{{_("Discovery")}}' href="/discovery">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zM6 18l4-8 8-4-4 8-8 4zm6-5a1 1 0 100-2 1 1 0 000 2z" /></svg>
             </a>
-            <a href="/settings" class="icon-button" title="{{_('Settings')}}">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.645 7a3.502 3.502 0 016.71 0H20a1 1 0 110 2h-8.645a3.502 3.502 0 01-6.71 0H4a1 1 0 010-2h.645zM8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM12.645 15a3.502 3.502 0 016.71 0H20a1 1 0 110 2h-.645a3.502 3.502 0 01-6.71 0H4a1 1 0 110-2h8.645zm4.855 1a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" /></svg>
-            </a>
             {% if g.authorized %}
-            <a class="icon-button" title="{{_('Bookmarks')}}" href="{{url_for('users.user_bookmarks', user=g.current_user.id)}}">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9a.5.5 0 010 1h-1a.5.5 0 110-1h1zM14 7a.5.5 0 010 1h-3a.5.5 0 110-1h3z" /><path fill-rule="evenodd" clip-rule="evenodd" d="M16 3.5l.204.01A2 2 0 0118 5.5v1.835c.226.097.437.239.621.423l2.121 2.12a2 2 0 010 2.829l-.452.451.765.51.082.06a1 1 0 01-1.104 1.657l-.033-.02V18.5a2 2 0 01-2 2H6a2 2 0 01-2-2v-3.136a.999.999 0 01-1.055-1.696l1.01-.674-.669-1.159a2 2 0 01.732-2.732L7 7.38V5.5a2 2 0 012-2h7zM5.018 10.835l.96 1.665H7V9.69l-1.982 1.145zM9 5.5v7h2.05l4.743-4.742c.066-.066.135-.127.207-.182V5.5H9zm4.879 7h4.242l1.207-1.207-2.121-2.121-3.328 3.328z" /></svg>
-            </a>
             <a id="notifications" class="icon-button" title='{{_("Notifications")}}' href="/self/notifications">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 9.25V12l1.561 4.684A1 1 0 0118.613 18H5.387a1 1 0 01-.948-1.316L6 12V9.25C6 5.798 8.686 3 12 3s6 2.798 6 6.25zM12 21a3.001 3.001 0 01-2.83-2h5.66A3.001 3.001 0 0112 21z" /></svg>
                 {% if g.notification_count > 0 %}
@@ -30,7 +24,9 @@
                 <img src="{{g.current_user.image}}" alt="{{g.current_user.name}}" loading="lazy">
             </a>
             {% else %}
-            <a class="sign-in-button" href="/self/login">Sign in</a>
+	    <a id="user" title="{{_('User')}}" href="/self/actions">
+                <img src="/proxy/s.pximg.net/common/images/no_profile.png" alt="User" loading="lazy">
+            </a>
             {% endif %}
         </div>
     </div>

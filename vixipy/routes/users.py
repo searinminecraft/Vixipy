@@ -107,6 +107,5 @@ async def pixivcompat_user(user: int):
 
 
 @bp.get("/self/actions")
-@require_login
 async def user_dashboard():
     return await render_template("users/dashboard.html")

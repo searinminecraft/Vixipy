@@ -3,6 +3,7 @@
 
 {% block content %}
 <main id="user-dash">
+    {%- if g.authorized -%}
     {%- set user = g.current_user -%}
     {%- set ext = g.current_user_extra -%}
     <input type="hidden" id="i18n-logout-string" value="{{_('Do you wish to log out?')}}">
@@ -14,7 +15,14 @@
         </main>
     </div>
     <br><br>
+    {%- else -%}
+    <div class="notice primary">
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.5 9a1 1 0 011-1H12a1 1 0 011 1v5h1a1 1 0 110 2h-4a1 1 0 110-2h1v-4h-.5a1 1 0 01-1-1zM12 5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" fill="currentColor"/></svg>
+	{{_("<b>You are not logged in. Sign in to your pixiv account to experience Vixipy in its full potential.")}}
+    </div>
+    {%- endif -%}
     <ul class="links">
+	{%- if g.authorized -%}
         <li>
             <a href="{{url_for('users.user_profile', user=user.id)}}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" fill="currentColor"/><path d="M5 18.857A6.857 6.857 0 0111.857 12h.286A6.857 6.857 0 0119 18.857c0 .631-.512 1.143-1.143 1.143H6.143A1.143 1.143 0 015 18.857z" fill="currentColor"/></svg>
@@ -27,10 +35,24 @@
                 {{_("Bookmarks")}}
             </a>
         </li>
+	{%- else -%}
+	<li>
+	    <a href="/self/login">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" fill="currentColor"/><path d="M5 18.857A6.857 6.857 0 0111.857 12h.286A6.857 6.857 0 0119 18.857c0 .631-.512 1.143-1.143 1.143H6.143A1.143 1.143 0 015 18.857z" fill="currentColor"/></svg>
+		{{_("Sign in")}}
+	    </a>
+	</li>
+	{%- endif -%}
 	<li>
 	    <a href="{{url_for('search.popular_tags')}}">
 	        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.241 5.16a1.5 1.5 0 10-2.983-.32L7.974 7.5H6.32a1.5 1.5 0 100 3h1.331l-.321 3H5.679a1.5 1.5 0 000 3h1.33l-.25 2.34a1.5 1.5 0 002.982.32l.285-2.66h2.983l-.25 2.34a1.5 1.5 0 102.982.32l.285-2.66h1.653a1.5 1.5 0 000-3h-1.331l.321-3h1.652a1.5 1.5 0 000-3h-1.33l.25-2.34a1.5 1.5 0 10-2.982-.32l-.286 2.66h-2.982l.25-2.34zm2.09 8.34l.321-3H10.67l-.321 3h2.983z" fill="currentColor"/></svg>
 		{{_("Popular Tags")}}
+	    </a>
+	</li>
+	<li>
+	    <a href="/material-you">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.56 8.94L8.32.7a.996.996 0 10-1.41 1.41l1.68 1.68-5.15 5.15a1.49 1.49 0 000 2.12l5.5 5.5c.29.29.68.44 1.06.44s.77-.15 1.06-.44l5.5-5.5c.59-.58.59-1.53 0-2.12zM5.21 10L10 5.21 14.79 10H5.21zM19 11.5s-2 2.17-2 3.5c0 1.1.9 2 2 2s2-.9 2-2c0-1.33-2-3.5-2-3.5z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 20h20c1.1 0 2 .9 2 2s-.9 2-2 2H2c-1.1 0-2-.9-2-2s.9-2 2-2z" fill="#0096FA"/><path d="M2 20.25h20c.962 0 1.75.788 1.75 1.75s-.788 1.75-1.75 1.75H2c-.962 0-1.75-.788-1.75-1.75s.788-1.75 1.75-1.75z"/></svg>
+		{{_("Material You Generator")}}
 	    </a>
 	</li>
         <li>
@@ -51,13 +73,16 @@
                 {{_("Source Code")}}
             </a>
         </li>
+	{%- if g.authorized -%}
         <li>
             <a hx-boost="false" href="/self/logout" style="color: var(--md-sys-color-error)" id="logout">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 11-2 0V5H7.236l2.211 1.106A1 1 0 0110 7v10h4v-2a1 1 0 012 0v3a1 1 0 01-1 1h-5v2a1 1 0 01-1.447.894l-6-3A1 1 0 012 18V4zm2 1.618v11.764l4 2V7.618l-4-2zm13.293 1.675a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L18.586 12H13a1 1 0 110-2h5.586l-1.293-1.293a1 1 0 010-1.414z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 11-2 0V5H7.236l2.211 1.106A1 1 0 0110 7v10h4v-2a1 1 0 012 0v3a1 1 0 01-1 1h-5v2a1 1 0 01-1.447.894l-6-3A1 1 0 012 18V4zm2 1.618v11.764l4 2V7.618l-4-2zm13.293 1.675a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L18.586 12H13a1 1 0 110-2h5.586l-1.293-1.293a1 1 0 010-1.414z" fill="currentColor"/></svg>
                 {{_("Log out")}}
             </a>
+
+    	    <script src="/static/js/user-dashboard.js"></script>
         </li>
+	{%- endif -%}
     </ul>
-    <script src="/static/js/user-dashboard.js"></script>
 </main>
 {% endblock %}
