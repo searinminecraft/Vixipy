@@ -42,6 +42,7 @@ async def pixiv_request(
     touch=False,
     ignore_cache=False,
     expect_json=True,
+    ignore_language=False,
 ):
     ignore_cache = method == "post" or ignore_cache == True
     cache_enabled = current_app.config["CACHE_PIXIV_REQUESTS"]
@@ -51,14 +52,15 @@ async def pixiv_request(
     _params = ""
     cookie_header = ""
 
-    try:
-        lang = request.cookies.get("Vixipy-Language")
-    except Exception:
-        lang = "en"
+    if not ignore_language:
+        try:
+            lang = request.cookies.get("Vixipy-Language")
+        except Exception:
+            lang = "en"
 
-    params = params.copy()
+        params = params.copy()
 
-    params.append(("lang", {"en": "en", "ja": "ja", "zh_Hans": "zh"}.get(lang, "en")))
+        params.append(("lang", {"en": "en", "ja": "ja", "zh_Hans": "zh"}.get(lang, "en")))
 
     for i, v in enumerate(params):
         if v[1] is None:

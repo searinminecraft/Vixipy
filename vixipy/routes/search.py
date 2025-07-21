@@ -10,6 +10,7 @@ from urllib.parse import quote
 from ..api import pixiv_request, search, get_tag_info
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
+from ..lib.scrapes import get_popular_tags
 from ..types import ArtworkEntry, RecommendByTag, TagTranslation
 
 if TYPE_CHECKING:
@@ -25,6 +26,14 @@ if TYPE_CHECKING:
 
 bp = Blueprint("search", __name__)
 log = logging.getLogger("vixipy.routes.search")
+
+
+@bp.route("/tags")
+async def popular_tags():
+    args: ImmutableMultiDict = request.args
+    novel = True if args.get("type") == "novel" else False
+    data = await get_popular_tags(novel)
+    return await render_template("search/popular_tags.html", data=data)
 
 
 @bp.route("/tags/<path:query>")

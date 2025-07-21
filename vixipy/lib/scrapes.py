@@ -35,7 +35,14 @@ class CalendarEntry:
         )
 
 
-def parse_ranking_calendar(response: str):
+class PopularTag:
+    def __init__(self, name, link, count):
+        self.name = name
+        self.link = link
+        self.count = int(count)
+
+
+def parse_ranking_calendar(response: str) -> list[list[CalendarEntry]]:
     s = BeautifulSoup(response, "html.parser")
 
     #  can't you fucking learn basic spelling, pixiv?
@@ -106,7 +113,7 @@ def parse_ranking_calendar(response: str):
 
 async def get_ranking_calendar(
     date: int = None, mode: str = "daily"
-) -> list[CalendarEntry]:
+) -> list[list[CalendarEntry]]:
     d = await pixiv_request(
         "/ranking_log.php", expect_json=False, params=[("mode", mode), ("date", date)]
     )
@@ -126,3 +133,24 @@ async def get_ranking_calendar(
                 c.img = proxy(img)
     log.debug(res)
     return res
+
+def parse_tags_page(response: str):
+    s = BeautifulSoup(response, "html.parser")
+    res: list[PopularTag] = []
+    __links: list[Tag] = s.find_all("a", class_="tag-item")
+
+    for x in __links:
+        __name = x.find("div", class_="tag").text
+        __link = x.attrs["href"].removeprefix("/en")
+        __count = x.find("div", class_="count").text
+
+        res.append(PopularTag(__name, __link, __count))
+    return res
+
+
+async def get_popular_tags(novel = False):
+    params = [("type", "novel")] if novel else []
+    res = await pixiv_request("/tags", expect_json=False, touch=True, params=params, ignore_language=True)
+    data: list[PopularTag] = await asyncio.get_running_loop().run_in_executor(None, parse_tags_page, res)
+    return data
+

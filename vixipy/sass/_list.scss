@@ -1,0 +1,42 @@
+ul.list {
+    list-style: none;
+    margin: unset;
+    padding: unset;
+
+    li {
+        border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        &:last-child {
+            border-bottom: unset !important;
+        }
+
+        a {
+            display: flex;
+            gap: .5em;
+            padding: 12px 1em;
+            color: unset;
+            align-items: center;
+
+            svg {
+                fill: currentColor;
+                width: 24px;
+                height: 24px;
+                flex-shrink: 0;
+            }
+
+            .main {
+                flex: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .subtext {
+                color: var(--md-sys-color-outline);
+                flex-shrink: 0;
+            }
+
+            .end {
+                flex-shrink: 0;
+            }
+        }
+    }
+}
