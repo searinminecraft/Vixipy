@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-22 16:13+0800\n"
-"PO-Revision-Date: 2025-07-20 19:08+0000\n"
+"PO-Revision-Date: 2025-07-22 15:08+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -805,7 +806,7 @@ msgstr "Шукати роботи..."
 
 #: vixipy/templates/search/dashboard.html:22
 msgid "Popular illust tags"
-msgstr "Популярні теги"
+msgstr "Популярні теги ілюстрацій"
 
 #: vixipy/templates/search/dashboard.html:42
 #, python-format
@@ -865,7 +866,6 @@ msgstr "Ілюстрації і манґа"
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
 #: vixipy/templates/users/dashboard.html:49
-#, fuzzy
 msgid "Popular Tags"
 msgstr "Популярні теги"
 
@@ -1057,6 +1057,8 @@ msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
 msgstr ""
+"<b>Ви не ввійшли в систему.</b> Увійдіть у свій обліковий запис pixiv, щоб "
+"скористатися всіма можливостями Vixipy."
 
 #: vixipy/templates/users/dashboard.html:29
 msgid "Your profile"
@@ -1082,4 +1084,3 @@ msgstr "Вийти"
 #~ " to your pixiv account to experience"
 #~ " Vixipy in its full potential."
 #~ msgstr ""
-
