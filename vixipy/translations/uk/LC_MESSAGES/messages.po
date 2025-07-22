@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-20 20:49+0800\n"
-"PO-Revision-Date: 2025-07-14 11:08+0000\n"
+"PO-Revision-Date: 2025-07-20 19:08+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
@@ -799,12 +799,12 @@ msgstr "%(cc)s слів"
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
 msgid "Ranking Calendar"
-msgstr ""
+msgstr "Календар рейтингів"
 
 #: vixipy/templates/rankings/calendar.html:19
-#, fuzzy, python-format
+#, python-format
 msgid "Day %(day)s"
-msgstr "Оновлено %(date)s"
+msgstr "День %(day)s"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
@@ -1035,11 +1035,11 @@ msgstr "Редагувати профіль"
 
 #: vixipy/templates/users/dashboard.html:2
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 #: vixipy/templates/users/dashboard.html:8
 msgid "Do you wish to log out?"
-msgstr ""
+msgstr "Бажаєте вийти?"
 
 #: vixipy/templates/users/dashboard.html:13
 msgid "Followers"
