@@ -31,7 +31,11 @@ async def on_client_error(e: ClientError):
 
 
 async def handle_ratelimit_error(e):
-    return await render_template("ratelimited.html")
+    if request.headers.get("hx-request") == "true":
+        code = 200
+    else:
+        code = 429
+    return await render_template("ratelimited.html"), code
 
 
 async def handle_internal_error(e):

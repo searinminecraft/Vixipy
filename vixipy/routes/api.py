@@ -13,7 +13,7 @@ from werkzeug.exceptions import HTTPException, BadRequest, NotFound
 if TYPE_CHECKING:
     from quart import Response
 
-bp = Blueprint("api", __name__)
+bp = Blueprint("api", __name__, url_prefix="/api")
 log = logging.getLogger("vixipy.routes.api")
 
 
@@ -48,11 +48,9 @@ async def set_header_common(r: Response):
     return r
 
 
-@bp.route("/api/search/autocomplete")
+@bp.route("/search/autocomplete")
 async def autocomplete_handler():
-    keyword = request.args.get("keyword")
-    if not keyword:
-        abort(400)
+    keyword = request.args["keyword"]
 
     data = await pixiv_request(
         "/rpc/cps.php",
@@ -86,7 +84,7 @@ async def autocomplete_handler():
     )
 
 
-@bp.route("/api/configuration")
+@bp.route("/configuration")
 async def node_info():
     account = not current_app.no_token
 
@@ -101,12 +99,12 @@ async def node_info():
         )
         git_o, err = await git_p.communicate()
         if err:
-            raise Exception
+            raise RuntimeError(err.decode("utf-8"))
     except Exception:
         log.exception("Failure retrieving commit")
-        git_o = "unknown"
-
-    rev = str(git_o.decode("utf-8")).rstrip()
+        rev = None
+    else:
+        rev = str(git_o.decode("utf-8")).rstrip()
 
     return make_json_response(
         body={
@@ -128,7 +126,7 @@ async def node_info():
     )
 
 
-@bp.get("/api/illust/<int:id>/ugoira_meta")
+@bp.get("/illust/<int:id>/ugoira_meta")
 async def ugoira_meta(id: int):
     work = await get_artwork(id)
     if not work.isUgoira:
@@ -137,7 +135,7 @@ async def ugoira_meta(id: int):
     data = await pixiv_request(f"/ajax/illust/{id}/ugoira_meta")
     return make_json_response(body=data)
 
-@bp.get("/api/illust/<int:id>/material-you")
+@bp.get("/illust/<int:id>/material-you")
 async def gen_scheme_from_artwork(id: int):
     try:
         work = await pixiv_request(f"/ajax/illust/{id}")
@@ -153,7 +151,7 @@ async def gen_scheme_from_artwork(id: int):
         log.exception("Failure generating color scheme for ID %d" , id)
         return "", {"Content-Type": "text/css"}
 
-@bp.get("/api/user/<int:id>/material-you")
+@bp.get("/user/<int:id>/material-you")
 async def gen_scheme_from_user(id: int):
     try:
         data = await pixiv_request(f"/ajax/user/{id}")

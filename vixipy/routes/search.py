@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from quart import Blueprint, abort, redirect, request, render_template, url_for
+from quart_rate_limiter import limit_blueprint, timedelta, RateLimit, rate_limit
 
 from asyncio import gather
 import logging
@@ -26,9 +27,22 @@ if TYPE_CHECKING:
 
 bp = Blueprint("search", __name__)
 log = logging.getLogger("vixipy.routes.search")
+limit_blueprint(
+    bp,
+    limits=[
+        RateLimit(1, timedelta(seconds=1)),
+        RateLimit(10, timedelta(seconds=30))
+    ]
+)
 
 
 @bp.route("/tags")
+@rate_limit(
+    limits=[
+        RateLimit(1, timedelta(seconds=5)),
+        RateLimit(5, timedelta(seconds=30)),
+    ]
+)
 async def popular_tags():
     args: ImmutableMultiDict = request.args
     novel = True if args.get("type") == "novel" else False
