@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-20 20:49+0800\n"
+"POT-Creation-Date: 2025-07-22 16:11+0800\n"
 "PO-Revision-Date: 2025-07-20 19:08+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -284,6 +283,7 @@ msgstr ""
 "bug, mag-file ng ulat <a href='%(link)s'>dito</a>"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:26
+#: vixipy/templates/users/dashboard.html:42
 msgid "Sign in"
 msgstr "Mag-sign in"
 
@@ -318,6 +318,7 @@ msgstr ""
 "dahil sa kinakailangan sa pagpapatunay ng reCAPTCHA enterprise."
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
+#: vixipy/templates/users/dashboard.html:55
 msgid "Material You Generator"
 msgstr "Material You Generator"
 
@@ -357,7 +358,7 @@ msgstr ""
 msgid "Try Again"
 msgstr "Subukan Muli"
 
-#: vixipy/templates/components/header.html:23
+#: vixipy/templates/components/header.html:17
 #: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
 msgid "Notifications"
 msgstr "Mga Abiso"
@@ -531,19 +532,11 @@ msgstr "Mga Nobela"
 msgid "Discovery"
 msgstr "Pagtuklas"
 
-#: vixipy/templates/components/header.html:16
-#: vixipy/templates/settings/index.html:3
-#: vixipy/templates/settings/index.html:5
-#: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:33
-msgid "Settings"
-msgstr "Mga Setting"
-
-#: vixipy/templates/components/header.html:20
-#: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
-#: vixipy/templates/users/dashboard.html:27
-msgid "Bookmarks"
-msgstr "Mga Bookmark"
+#: vixipy/templates/components/header.html:27
+#: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
+#: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
+msgid "User"
+msgstr "Mga User"
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
@@ -840,11 +833,6 @@ msgstr "Mga Larawan"
 msgid "Manga"
 msgstr "Mga Manga"
 
-#: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
-#: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
-msgid "User"
-msgstr "Mga User"
-
 #: vixipy/templates/search/illust.html:24 vixipy/templates/search/main.html:57
 #: vixipy/templates/search/manga.html:23 vixipy/templates/search/novel.html:25
 msgid "No matching results found."
@@ -875,6 +863,13 @@ msgstr "Lahat ng Oras"
 #: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:8
 msgid "Illustrations and Manga"
 msgstr "Mga Larawan at Manga"
+
+#: vixipy/templates/search/popular_tags.html:3
+#: vixipy/templates/search/popular_tags.html:7
+#: vixipy/templates/users/dashboard.html:49
+#, fuzzy
+msgid "Popular Tags"
+msgstr "Mga popular na tag ng larawan"
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
@@ -909,7 +904,8 @@ msgstr "Itago ang mga thumbnail ng larawan (preview mode)"
 #: vixipy/templates/settings/display.html:42
 msgid "Blur sensitive works (may cause performance issues!)"
 msgstr ""
-"I-blur ang mga sensitibong gawa (maaaring magdulot ng mga isyu sa pagganap!)"
+"I-blur ang mga sensitibong gawa (maaaring magdulot ng mga isyu sa "
+"pagganap!)"
 
 #: vixipy/templates/settings/display.html:45
 msgid "Save preferences"
@@ -922,6 +918,13 @@ msgstr "Mga setting sa pagpakita ng mga ad"
 #: vixipy/templates/settings/display.html:53
 msgid "Display"
 msgstr "Ipakita"
+
+#: vixipy/templates/settings/index.html:3
+#: vixipy/templates/settings/index.html:5
+#: vixipy/templates/settings/index.html:13
+#: vixipy/templates/users/dashboard.html:61
+msgid "Settings"
+msgstr "Mga Setting"
 
 #: vixipy/templates/settings/index.html:15
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
@@ -1028,7 +1031,7 @@ msgstr "Larawan ng profile ni %(user)s"
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr "I-click para buksan ang larawan ng profile ni %(user)s sa bagong tab."
 
-#: vixipy/templates/users/base.html:25 vixipy/templates/users/dashboard.html:13
+#: vixipy/templates/users/base.html:25 vixipy/templates/users/dashboard.html:14
 msgid "Following"
 msgstr "Sinusundan"
 
@@ -1036,33 +1039,45 @@ msgstr "Sinusundan"
 msgid "Edit Profile"
 msgstr "I-edit ang Profile"
 
+#: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
+#: vixipy/templates/users/dashboard.html:35
+msgid "Bookmarks"
+msgstr "Mga Bookmark"
+
 #: vixipy/templates/users/dashboard.html:2
 msgid "Menu"
 msgstr "Menu"
 
-#: vixipy/templates/users/dashboard.html:8
+#: vixipy/templates/users/dashboard.html:9
 msgid "Do you wish to log out?"
 msgstr "Gusto mo bang mag-log out?"
 
-#: vixipy/templates/users/dashboard.html:13
+#: vixipy/templates/users/dashboard.html:14
 msgid "Followers"
 msgstr "Mga Follower"
 
 #: vixipy/templates/users/dashboard.html:21
+msgid ""
+"<b>You are not logged in. Sign in to your pixiv account to experience "
+"Vixipy in its full potential."
+msgstr ""
+
+#: vixipy/templates/users/dashboard.html:29
 msgid "Your profile"
 msgstr "Iyong profile"
 
-#: vixipy/templates/users/dashboard.html:39
+#: vixipy/templates/users/dashboard.html:67
 msgid "Send Feedback"
 msgstr "Magpadala ng Feedback"
 
-#: vixipy/templates/users/dashboard.html:45
+#: vixipy/templates/users/dashboard.html:73
 msgid "Source Code"
 msgstr "Source Code"
 
-#: vixipy/templates/users/dashboard.html:51
+#: vixipy/templates/users/dashboard.html:80
 msgid "Log out"
 msgstr "Mag-log out"
 
 #~ msgid "Hide AI-generated work"
 #~ msgstr "Itago ang mga gawang binuo ng AI"
+
