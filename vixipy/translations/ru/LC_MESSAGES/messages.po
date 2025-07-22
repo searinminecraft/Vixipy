@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-22 16:11+0800\n"
+"POT-Creation-Date: 2025-07-22 16:13+0800\n"
 "PO-Revision-Date: 2025-07-03 13:08+0000\n"
 "Last-Translator: divergency <divergency@noreply.codeberg.org>\n"
 "Language: ru\n"
@@ -1034,8 +1034,8 @@ msgstr "Следить"
 
 #: vixipy/templates/users/dashboard.html:21
 msgid ""
-"<b>You are not logged in. Sign in to your pixiv account to experience "
-"Vixipy in its full potential."
+"<b>You are not logged in.</b> Sign in to your pixiv account to experience"
+" Vixipy in its full potential."
 msgstr ""
 
 #: vixipy/templates/users/dashboard.html:29
@@ -1086,5 +1086,11 @@ msgstr ""
 #~ "                    logins are not possible"
 #~ " due to reCAPTCHA enterprise attestation"
 #~ " requirement."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<b>You are not logged in. Sign in"
+#~ " to your pixiv account to experience"
+#~ " Vixipy in its full potential."
 #~ msgstr ""
 
