@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-22 16:13+0800\n"
-"PO-Revision-Date: 2025-07-23 06:17+0000\n"
+"PO-Revision-Date: 2025-07-24 18:09+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Japanese <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/ja/>\n"
@@ -73,7 +73,7 @@ msgstr "コメント"
 
 #: vixipy/templates/comments.html:17
 msgid "Post your comment"
-msgstr ""
+msgstr "コメントする"
 
 #: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
 msgid "Send"
@@ -81,15 +81,15 @@ msgstr "送信"
 
 #: vixipy/templates/comments.html:29
 msgid "Emojis and Stickers"
-msgstr ""
+msgstr "絵文字とスタンプ"
 
 #: vixipy/templates/comments.html:35
 msgid "Emojis"
-msgstr ""
+msgstr "絵文字"
 
 #: vixipy/templates/comments.html:44
 msgid "Stickers"
-msgstr ""
+msgstr "スタンプ"
 
 #: vixipy/templates/comments.html:71
 msgid "Sign in to post comments"
