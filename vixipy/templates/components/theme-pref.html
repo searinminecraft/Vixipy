@@ -1,0 +1,4 @@
+{%- set theme = request.cookies.get("Vixipy-Theme") or config["DEFAULT_THEME"] -%}
+{%- if theme -%}
+<link rel="stylesheet" href="/static/themes/{{theme}}.css">
+{%- endif -%}

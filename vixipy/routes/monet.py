@@ -48,6 +48,7 @@ async def color_preview():
         ":root {\n"
         + res_d +
         "}\n"
+        "}\n"
         "\n"
     )
 

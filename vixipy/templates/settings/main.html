@@ -34,9 +34,13 @@
         {{_("Color Scheme")}}
     </div>
     <main>
-        <form action="/settings/set_color">
+        <form action="/settings/set_color" method="post"  hx-boost="false">
+            {%- set ct = request.cookies.get("Vixipy-Theme") -%}
             <select class="width-100" name="color" id="">
-
+                <option value="" {% if not ct %}selected{%endif%}>{{_("Default")}}</option>
+                {% for x in themes %}
+                <option value="{{x}}" {% if x == ct %}selected{% endif %}>{{x}}</option>
+                {% endfor %}
             </select>
             <br><br>
             

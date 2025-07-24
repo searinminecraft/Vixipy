@@ -119,6 +119,19 @@ def create_app():
         PIXIV_DIRECT_CONNECTION="0",
         ACQUIRE_SESSION="0",
         QUART_RATE_LIMITER_ENABLED=False,
+        DEFAULT_THEMES=[
+            "red",
+            "orange",
+            "yellow",
+            "green",
+            "sea-green",
+            "purple",
+            "pink",
+            "pixiv-cyan",
+            "monochrome",
+        ],
+        ADDITIONAL_THEMES=[],
+        DEFAULT_THEME="",
     )
     app.config.from_prefixed_env("VIXIPY")
     app.config.from_pyfile(app.instance_path + "/config.py", silent=True)

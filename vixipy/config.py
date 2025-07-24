@@ -69,6 +69,11 @@ def convert_config(app: Quart):
         if app.config["TOKEN"][0] == "":
             app.config["TOKEN"] = []
 
+    if not isinstance(app.config["ADDITIONAL_THEMES"], (list, tuple, set)):
+        app.config["ADDITIONAL_THEMES"] = app.config["ADDITIONAL_THEMES"].split(",")
+        if app.config["ADDITIONAL_THEMES"][0] == "":
+            app.config["ADDITIONAL_THEMES"] = []
+
     if not isinstance(app.config["BLACKLISTED_TAGS"], (list, tuple, set)):
         app.config["BLACKLISTED_TAGS"] = app.config["BLACKLISTED_TAGS"].split(",")
         if app.config["BLACKLISTED_TAGS"][0] == "":

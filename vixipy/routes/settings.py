@@ -38,6 +38,7 @@ async def main():
         is_instance_custom_proxy_server=not current_app.config["IMG_PROXY"].startswith(
             "/proxy/i.pximg.net"
         ),
+        themes=current_app.config["ADDITIONAL_THEMES"] + current_app.config["DEFAULT_THEMES"]
     )
 
 
@@ -46,6 +47,14 @@ async def set_proxy_server():
     f = await request.form
     r = await make_response(redirect(url_for("settings.main"), code=303))
     r.set_cookie("Vixipy-Image-Proxy", f["proxy"], max_age=MAX_AGE, httponly=True)
+    return r
+
+
+@bp.post("/settings/set_color")
+async def set_color():
+    f = await request.form
+    r = await make_response(redirect(url_for("settings.main"), code=303))
+    r.set_cookie("Vixipy-Theme", f["color"], max_age=MAX_AGE, httponly=True)
     return r
 
 
