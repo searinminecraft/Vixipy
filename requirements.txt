@@ -5,3 +5,4 @@ aiohttp
 aiomcache
 materialyoucolor
 pillow
+beautifulsoup4
