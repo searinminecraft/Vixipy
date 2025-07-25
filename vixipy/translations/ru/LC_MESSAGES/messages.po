@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-22 16:13+0800\n"
+"POT-Creation-Date: 2025-07-25 22:36+0800\n"
 "PO-Revision-Date: 2025-07-03 13:08+0000\n"
 "Last-Translator: divergency <divergency@noreply.codeberg.org>\n"
 "Language: ru\n"
@@ -95,11 +95,11 @@ msgstr ""
 msgid "Sign in to post comments"
 msgstr ""
 
-#: vixipy/templates/comments.html:87
-msgid "No comments"
+#: vixipy/templates/comments.html:89
+msgid "There is no comment yet"
 msgstr ""
 
-#: vixipy/templates/comments.html:97 vixipy/templates/replies.html:23
+#: vixipy/templates/comments.html:100 vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
 msgstr ""
@@ -254,12 +254,12 @@ msgstr ""
 msgid "Newest by all"
 msgstr ""
 
-#: vixipy/templates/index_logged_out.html:16
+#: vixipy/templates/index_logged_out.html:9
 #, python-format
 msgid "Ranking for %(date)s"
 msgstr ""
 
-#: vixipy/templates/index_logged_out.html:24
+#: vixipy/templates/index_logged_out.html:17
 #: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
 msgid "View All"
 msgstr ""
@@ -348,6 +348,10 @@ msgstr ""
 #: vixipy/templates/components/header.html:17
 #: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
 msgid "Notifications"
+msgstr ""
+
+#: vixipy/templates/notifications.html:24
+msgid "No notifications"
 msgstr ""
 
 #: vixipy/templates/ratelimited.html:4
@@ -802,7 +806,7 @@ msgstr ""
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
-#: vixipy/templates/users/illust.html:9
+#: vixipy/templates/users/illust.html:10
 msgid "Illustrations"
 msgstr ""
 
@@ -813,8 +817,8 @@ msgstr ""
 msgid "Manga"
 msgstr ""
 
-#: vixipy/templates/search/illust.html:24 vixipy/templates/search/main.html:57
-#: vixipy/templates/search/manga.html:23 vixipy/templates/search/novel.html:25
+#: vixipy/templates/search/illust.html:26 vixipy/templates/search/main.html:59
+#: vixipy/templates/search/manga.html:25 vixipy/templates/search/novel.html:27
 msgid "No matching results found."
 msgstr ""
 
@@ -848,6 +852,10 @@ msgstr ""
 #: vixipy/templates/search/popular_tags.html:7
 #: vixipy/templates/users/dashboard.html:49
 msgid "Popular Tags"
+msgstr ""
+
+#: vixipy/templates/search/popular_tags.html:28
+msgid "Unable to load popular tags."
 msgstr ""
 
 #: vixipy/templates/settings/display.html:2
@@ -961,7 +969,11 @@ msgstr ""
 msgid "Color Scheme"
 msgstr ""
 
-#: vixipy/templates/settings/main.html:43
+#: vixipy/templates/settings/main.html:40
+msgid "Default"
+msgstr ""
+
+#: vixipy/templates/settings/main.html:47
 msgid "Set color scheme"
 msgstr ""
 
@@ -1017,6 +1029,12 @@ msgstr ""
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:35
 msgid "Bookmarks"
+msgstr ""
+
+#: vixipy/templates/users/bookmarks.html:27
+#: vixipy/templates/users/illust.html:27 vixipy/templates/users/manga.html:27
+#: vixipy/templates/users/novels.html:27 vixipy/templates/users/top.html:18
+msgid "No works found."
 msgstr ""
 
 #: vixipy/templates/users/dashboard.html:2
@@ -1092,5 +1110,8 @@ msgstr ""
 #~ "<b>You are not logged in. Sign in"
 #~ " to your pixiv account to experience"
 #~ " Vixipy in its full potential."
+#~ msgstr ""
+
+#~ msgid "No comments"
 #~ msgstr ""
 
