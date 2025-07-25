@@ -15,6 +15,7 @@ nav.tabs {
         display: block;
         transition: color .15s ease;
         text-align: center;
+        flex-shrink: 0;
 
         &.active {
             border-top-color: var(--md-sys-color-primary);
