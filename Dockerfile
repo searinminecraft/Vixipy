@@ -19,4 +19,4 @@ RUN chown -R vixipy:vixipy /vixipy
 
 USER vixipy
 
-CMD VIXIPY_SECRET_KEY=$(base64 /dev/urandom | head -c 50) hypercorn --log-level FATAL --bind 0.0.0.0:${VIXIPY_PORT} --workers ${VIXIPY_WORKERS} vixipy:app
+CMD VIXIPY_SECRET_KEY=$(base64 /dev/urandom | head -c 50) python3 -m vixipy --bind :${VIXIPY_PORT}

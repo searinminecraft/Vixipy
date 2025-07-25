@@ -1,5 +1,8 @@
 screenshots
 utils
+doc
+.forgejo
+.vscode
 
 .dockerignore
 .gitignore
@@ -7,8 +10,9 @@ utils
 babel.cfg
 *.yaml
 Dockerfile
+requirements.txt
 
 LICENSE
 README.md
 
-run.sh
+run_devel.sh

@@ -11,8 +11,9 @@ services:
       - no-new-privileges:true
     environment:
       VIXIPY_PORT: 8000
-      VIXIPY_WORKERS: 1
-      VIXIPY_INSTANCE_NAME: "My awesome Vixipy instance"
+      # making the name too long could overflow the navigation header.
+      # make the name short, awesome and memorable.
+      #VIXIPY_INSTANCE_NAME: "My awesome Vixipy instance"
 
       # by default, logging is enabled, but you can disable it like this
       #VIXIPY_LOG_HTTP: "0"
@@ -40,7 +41,6 @@ services:
   #  image: memcached
   #  restart: unless-stopped
   #  command:
-  #    - --max-item-size=4m
   #    - --conn-limit=1024
   #    - --memory-limit=128
   #    - --threads=1
