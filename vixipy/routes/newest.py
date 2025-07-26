@@ -10,7 +10,7 @@ from quart import (
 from quart_rate_limiter import limit_blueprint, timedelta
 
 from ..api import get_newest_works
-from ..decorators import require_login
+from ..decorators import tokenless_require_login
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -20,7 +20,7 @@ bp = Blueprint("newest", __name__)
 limit_blueprint(bp, 2, timedelta(seconds=6))
 
 @bp.route("/newest")
-@require_login
+@tokenless_require_login
 async def newest_main():
     args: ImmutableDict = request.args
 

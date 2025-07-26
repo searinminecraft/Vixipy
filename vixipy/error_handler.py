@@ -27,6 +27,7 @@ async def on_pixiv_error(e: PixivError):
 
 
 async def on_client_error(e: ClientError):
+    log.exception("Network error")
     return await render_template("no_connection.html", exc=str(e))
 
 
