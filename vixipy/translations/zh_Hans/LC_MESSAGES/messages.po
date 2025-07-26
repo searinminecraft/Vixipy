@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-25 22:36+0800\n"
+"POT-Creation-Date: 2025-07-26 18:25+0800\n"
 "PO-Revision-Date: 2025-07-06 13:25+0000\n"
 "Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
 "Language: zh_Hans\n"
@@ -181,17 +181,17 @@ msgid "Rather not say"
 msgstr "不愿透露"
 
 #: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
-#: vixipy/templates/edit_profile.html:82 vixipy/templates/upload.html:41
+#: vixipy/templates/edit_profile.html:82
 msgid "Public"
 msgstr "公开"
 
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
-#: vixipy/templates/edit_profile.html:83 vixipy/templates/upload.html:43
+#: vixipy/templates/edit_profile.html:83
 msgid "My pixiv only"
 msgstr "仅 pixiv 可见"
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
-#: vixipy/templates/edit_profile.html:84 vixipy/templates/upload.html:44
+#: vixipy/templates/edit_profile.html:84
 msgid "Private"
 msgstr "私密"
 
@@ -250,7 +250,7 @@ msgid ""
 "title='%(title)s'>#%(tag)s</a>"
 msgstr "带标签 <a href='%(link)s' title='%(title)s'>#%(tag)s</a> 的推荐插画"
 
-#: vixipy/templates/index.html:54
+#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:41
 msgid "Newest by all"
 msgstr "全部最新作品"
 
@@ -277,7 +277,7 @@ msgid ""
 msgstr "发生未处理的异常。若认为是系统问题，请<a href='%(link)s'>在此</a>提交报告"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:26
-#: vixipy/templates/users/dashboard.html:42
+#: vixipy/templates/users/dashboard.html:48
 msgid "Sign in"
 msgstr "登录"
 
@@ -307,7 +307,7 @@ msgid ""
 msgstr "登录需提供账号的 <code>PHPSESSID</code> Cookie。由于 reCAPTCHA 企业验证要求，不支持用户名密码登录。"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:55
+#: vixipy/templates/users/dashboard.html:61
 msgid "Material You Generator"
 msgstr ""
 
@@ -373,114 +373,6 @@ msgstr "回复"
 msgid "No replies"
 msgstr "暂无回复"
 
-#: vixipy/templates/upload.html:2
-msgid "Submit Illustration"
-msgstr "提交插画"
-
-#: vixipy/templates/upload.html:9
-msgid "Files"
-msgstr "文件"
-
-#: vixipy/templates/upload.html:13
-msgid "Basic Information"
-msgstr "基本信息"
-
-#: vixipy/templates/upload.html:14
-msgid "Title"
-msgstr "标题"
-
-#: vixipy/templates/upload.html:17
-msgid "Caption"
-msgstr "描述"
-
-#: vixipy/templates/upload.html:20
-msgid "Tags"
-msgstr "标签"
-
-#: vixipy/templates/upload.html:22
-msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
-msgstr "最多 10 个标签，用逗号分隔。空格将被移除。"
-
-#: vixipy/templates/upload.html:24
-msgid "Don't allow users to edit tags"
-msgstr "禁止用户编辑标签"
-
-#: vixipy/templates/upload.html:28
-msgid "Content and Privacy"
-msgstr "内容与隐私"
-
-#: vixipy/templates/upload.html:29
-msgid "AI-generated work"
-msgstr "AI 生成作品"
-
-#: vixipy/templates/upload.html:30
-msgid "Allow comments"
-msgstr "允许评论"
-
-#: vixipy/templates/upload.html:31
-msgid "Original work"
-msgstr "原创作品"
-
-#: vixipy/templates/upload.html:34
-msgid "Visible to"
-msgstr "可见范围"
-
-#: vixipy/templates/upload.html:35
-msgid "All Ages"
-msgstr "全年龄"
-
-#: vixipy/templates/upload.html:40
-msgid "Open to"
-msgstr "开放对象"
-
-#: vixipy/templates/upload.html:42
-msgid "Logged-in users only"
-msgstr "仅登录用户"
-
-#: vixipy/templates/upload.html:47
-msgid "Adult Content"
-msgstr "成人内容"
-
-#: vixipy/templates/upload.html:48
-msgid "Yes"
-msgstr "是"
-
-#: vixipy/templates/upload.html:49
-msgid "No"
-msgstr "否"
-
-#: vixipy/templates/upload.html:52
-msgid "Mature Content"
-msgstr "成人向内容"
-
-#: vixipy/templates/upload.html:53
-msgid "Minors"
-msgstr "未成年人"
-
-#: vixipy/templates/upload.html:54
-msgid "Furry"
-msgstr "兽迷"
-
-#: vixipy/templates/upload.html:55
-msgid "BL"
-msgstr "耽美"
-
-#: vixipy/templates/components/novel-entry.html:42
-#: vixipy/templates/upload.html:56
-msgid "Yuri"
-msgstr "百合"
-
-#: vixipy/templates/upload.html:63
-msgid ""
-"By posting your work, you hereby agree to the pixiv Terms of Service. "
-"Vixipy is provided to you as is, without warranty of any kind and will "
-"not be responsible for any action taken whatsoever."
-msgstr "提交作品即表示您同意 pixiv 服务条款。Vixipy 不提供任何担保，对任何行为均不承担责任。"
-
-#: vixipy/templates/upload.html:66
-msgid "Post"
-msgstr "发布"
-
 #: vixipy/templates/components/comment.html:5
 msgid "Deleted User"
 msgstr "已删除用户"
@@ -503,11 +395,11 @@ msgid "Search"
 msgstr "搜索"
 
 #: vixipy/templates/components/header.html:10
-#: vixipy/templates/novels/index.html:2 vixipy/templates/search/illust.html:9
-#: vixipy/templates/search/main.html:10 vixipy/templates/search/main.html:46
-#: vixipy/templates/search/manga.html:9 vixipy/templates/search/novel.html:10
-#: vixipy/templates/search/novel.html:15 vixipy/templates/users/base.html:73
-#: vixipy/templates/users/novels.html:9
+#: vixipy/templates/newest/index.html:28 vixipy/templates/novels/index.html:2
+#: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
+#: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
+#: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
+#: vixipy/templates/users/base.html:73 vixipy/templates/users/novels.html:9
 msgid "Novels"
 msgstr "小说"
 
@@ -575,6 +467,10 @@ msgstr "历史作品"
 #: vixipy/templates/components/novel-entry.html:40
 msgid "BL (yaoi)"
 msgstr "BL（耽美）"
+
+#: vixipy/templates/components/novel-entry.html:42
+msgid "Yuri"
+msgstr "百合"
 
 #: vixipy/templates/components/novel-entry.html:44
 msgid "For kids"
@@ -657,6 +553,7 @@ msgid "Safe"
 msgstr "安全"
 
 #: vixipy/templates/components/tag-search-filter.html:42
+#: vixipy/templates/newest/index.html:32
 msgid "R-18"
 msgstr "R-18"
 
@@ -729,6 +626,38 @@ msgstr "推荐插画"
 #: vixipy/templates/discovery/index.html:21
 msgid "Recommended users"
 msgstr "推荐用户"
+
+#: vixipy/templates/newest/index.html:6
+msgid "Newest illustrations by all users"
+msgstr ""
+
+#: vixipy/templates/newest/index.html:8
+#, fuzzy
+msgid "Newest manga by all users"
+msgstr "全部最新作品"
+
+#: vixipy/templates/newest/index.html:14
+msgid "New from All users"
+msgstr ""
+
+#: vixipy/templates/newest/index.html:22 vixipy/templates/search/illust.html:7
+#: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
+#: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
+#: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:10
+msgid "Illustrations"
+msgstr "插画"
+
+#: vixipy/templates/newest/index.html:27 vixipy/templates/search/illust.html:8
+#: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
+#: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
+#: vixipy/templates/users/base.html:67 vixipy/templates/users/manga.html:9
+msgid "Manga"
+msgstr "漫画"
+
+#: vixipy/templates/newest/index.html:31
+#, fuzzy
+msgid "General"
+msgstr "性别"
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"
@@ -804,20 +733,6 @@ msgstr "#%(tag)s 推荐作品"
 msgid "Top"
 msgstr "首页"
 
-#: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
-#: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
-#: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
-#: vixipy/templates/users/illust.html:10
-msgid "Illustrations"
-msgstr "插画"
-
-#: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
-#: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
-#: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
-#: vixipy/templates/users/manga.html:9
-msgid "Manga"
-msgstr "漫画"
-
 #: vixipy/templates/search/illust.html:26 vixipy/templates/search/main.html:59
 #: vixipy/templates/search/manga.html:25 vixipy/templates/search/novel.html:27
 msgid "No matching results found."
@@ -851,7 +766,7 @@ msgstr "插画与漫画"
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:49
+#: vixipy/templates/users/dashboard.html:55
 #, fuzzy
 msgid "Popular Tags"
 msgstr "热门插画标签"
@@ -910,7 +825,7 @@ msgstr "显示"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:61
+#: vixipy/templates/users/dashboard.html:67
 msgid "Settings"
 msgstr "设置"
 
@@ -1064,15 +979,15 @@ msgstr ""
 msgid "Your profile"
 msgstr "编辑资料"
 
-#: vixipy/templates/users/dashboard.html:67
+#: vixipy/templates/users/dashboard.html:73
 msgid "Send Feedback"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:73
+#: vixipy/templates/users/dashboard.html:79
 msgid "Source Code"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:80
+#: vixipy/templates/users/dashboard.html:86
 msgid "Log out"
 msgstr ""
 
@@ -1084,4 +999,85 @@ msgstr ""
 
 #~ msgid "No comments"
 #~ msgstr "暂无评论"
+
+#~ msgid "Submit Illustration"
+#~ msgstr "提交插画"
+
+#~ msgid "Files"
+#~ msgstr "文件"
+
+#~ msgid "Basic Information"
+#~ msgstr "基本信息"
+
+#~ msgid "Title"
+#~ msgstr "标题"
+
+#~ msgid "Caption"
+#~ msgstr "描述"
+
+#~ msgid "Tags"
+#~ msgstr "标签"
+
+#~ msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
+#~ msgstr "最多 10 个标签，用逗号分隔。空格将被移除。"
+
+#~ msgid "Don't allow users to edit tags"
+#~ msgstr "禁止用户编辑标签"
+
+#~ msgid "Content and Privacy"
+#~ msgstr "内容与隐私"
+
+#~ msgid "AI-generated work"
+#~ msgstr "AI 生成作品"
+
+#~ msgid "Allow comments"
+#~ msgstr "允许评论"
+
+#~ msgid "Original work"
+#~ msgstr "原创作品"
+
+#~ msgid "Visible to"
+#~ msgstr "可见范围"
+
+#~ msgid "All Ages"
+#~ msgstr "全年龄"
+
+#~ msgid "Open to"
+#~ msgstr "开放对象"
+
+#~ msgid "Logged-in users only"
+#~ msgstr "仅登录用户"
+
+#~ msgid "Adult Content"
+#~ msgstr "成人内容"
+
+#~ msgid "Yes"
+#~ msgstr "是"
+
+#~ msgid "No"
+#~ msgstr "否"
+
+#~ msgid "Mature Content"
+#~ msgstr "成人向内容"
+
+#~ msgid "Minors"
+#~ msgstr "未成年人"
+
+#~ msgid "Furry"
+#~ msgstr "兽迷"
+
+#~ msgid "BL"
+#~ msgstr "耽美"
+
+#~ msgid ""
+#~ "By posting your work, you hereby "
+#~ "agree to the pixiv Terms of "
+#~ "Service. Vixipy is provided to you "
+#~ "as is, without warranty of any "
+#~ "kind and will not be responsible "
+#~ "for any action taken whatsoever."
+#~ msgstr "提交作品即表示您同意 pixiv 服务条款。Vixipy 不提供任何担保，对任何行为均不承担责任。"
+
+#~ msgid "Post"
+#~ msgstr "发布"
 
