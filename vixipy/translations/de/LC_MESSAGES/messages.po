@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-26 18:30+0800\n"
-"PO-Revision-Date: 2025-07-26 12:36+0000\n"
+"PO-Revision-Date: 2025-07-26 19:09+0000\n"
 "Last-Translator: cutekita <cutekita@noreply.codeberg.org>\n"
 "Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/de/>\n"
@@ -334,7 +334,7 @@ msgstr "Farbe"
 
 #: vixipy/templates/monet.html:32
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "Anwenden"
 
 #: vixipy/templates/monet.html:35
 msgid "Dark Colors"
