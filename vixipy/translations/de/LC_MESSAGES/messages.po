@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-26 18:30+0800\n"
-"PO-Revision-Date: 2025-07-26 10:26+0000\n"
+"PO-Revision-Date: 2025-07-26 11:37+0000\n"
 "Last-Translator: cutekita <cutekita@noreply.codeberg.org>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/de/>\n"
 "Language: de\n"
-"Language-Team: German <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/de/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -384,28 +385,28 @@ msgstr "Antworten"
 
 #: vixipy/templates/replies.html:13
 msgid "No replies"
-msgstr "Antworten Ansehen"
+msgstr "Keine Antworten"
 
 #: vixipy/templates/components/comment.html:5
 msgid "Deleted User"
-msgstr ""
+msgstr "Gelöschter Nutzer"
 
 #: vixipy/templates/components/comment.html:16
 msgid "Stamp"
-msgstr ""
+msgstr "Stempel"
 
 #: vixipy/templates/components/comment.html:23
 msgid "View replies"
-msgstr ""
+msgstr "Antworten Ansehen"
 
 #: vixipy/templates/components/header.html:4
 msgid "Debug"
-msgstr ""
+msgstr "Debug"
 
 #: vixipy/templates/components/header.html:7
 #: vixipy/templates/search/dashboard.html:2
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: vixipy/templates/components/header.html:10
 #: vixipy/templates/newest/index.html:28 vixipy/templates/novels/index.html:2
@@ -414,507 +415,507 @@ msgstr ""
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
 #: vixipy/templates/users/base.html:73 vixipy/templates/users/novels.html:9
 msgid "Novels"
-msgstr ""
+msgstr "Romane"
 
 #: vixipy/templates/components/header.html:13
 #: vixipy/templates/discovery/index.html:3
 #: vixipy/templates/discovery/index.html:9
 msgid "Discovery"
-msgstr ""
+msgstr "Entdecken"
 
 #: vixipy/templates/components/header.html:27
 #: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
 #: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
 msgid "User"
-msgstr ""
+msgstr "Nutzer"
 
 #: vixipy/templates/components/novel-entry.html:17
 msgid "Original"
-msgstr ""
+msgstr "Original"
 
 #: vixipy/templates/components/novel-entry.html:18
 #: vixipy/templates/novels/novel.html:46
 msgid "Series"
-msgstr ""
+msgstr "Serie"
 
 #: vixipy/templates/components/novel-entry.html:19
 msgid "Oneshot"
-msgstr ""
+msgstr "Oneshot"
 
 #: vixipy/templates/components/novel-entry.html:22
 msgid "Romance"
-msgstr ""
+msgstr "Romantik"
 
 #: vixipy/templates/components/novel-entry.html:24
 msgid "Isekai fantasy"
-msgstr ""
+msgstr "Isekai Fantasy"
 
 #: vixipy/templates/components/novel-entry.html:26
 msgid "Contemporary fantasy"
-msgstr ""
+msgstr "Zeitgleiche Fantasy"
 
 #: vixipy/templates/components/novel-entry.html:28
 msgid "Mystery"
-msgstr ""
+msgstr "Geheimnis"
 
 #: vixipy/templates/components/novel-entry.html:30
 msgid "Horror"
-msgstr ""
+msgstr "Horror"
 
 #: vixipy/templates/components/novel-entry.html:32
 msgid "Sci-fi"
-msgstr ""
+msgstr "Sci-Fi"
 
 #: vixipy/templates/components/novel-entry.html:34
 msgid "Literature"
-msgstr ""
+msgstr "Literatur"
 
 #: vixipy/templates/components/novel-entry.html:36
 msgid "Drama"
-msgstr ""
+msgstr "Drama"
 
 #: vixipy/templates/components/novel-entry.html:38
 msgid "Historical pieces"
-msgstr ""
+msgstr "Historisch"
 
 #: vixipy/templates/components/novel-entry.html:40
 msgid "BL (yaoi)"
-msgstr ""
+msgstr "BL (yaoi)"
 
 #: vixipy/templates/components/novel-entry.html:42
 msgid "Yuri"
-msgstr ""
+msgstr "Yuri"
 
 #: vixipy/templates/components/novel-entry.html:44
 msgid "For kids"
-msgstr ""
+msgstr "Für Kinder"
 
 #: vixipy/templates/components/novel-entry.html:46
 msgid "Poetry"
-msgstr ""
+msgstr "Gedicht"
 
 #: vixipy/templates/components/novel-entry.html:48
 msgid "Essays/non-fiction"
-msgstr ""
+msgstr "Aufsatz"
 
 #: vixipy/templates/components/novel-entry.html:50
 msgid "Screenplays/scripts"
-msgstr ""
+msgstr "Drehbuch/Skript"
 
 #: vixipy/templates/components/novel-entry.html:52
 msgid "Reviews/opinion pieces"
-msgstr ""
+msgstr "Review/Meinung"
 
 #: vixipy/templates/components/novel-entry.html:54
 msgid "Other"
-msgstr ""
+msgstr "Andere"
 
 #: vixipy/templates/components/novel-entry.html:75
 #, python-format
 msgid "%(wc)s words(s)"
-msgstr ""
+msgstr "%(wc)s Wort(e)"
 
 #: vixipy/templates/components/novel-entry.html:76
 #, python-format
 msgid "%(cc)s character(s)"
-msgstr ""
+msgstr "%(cc)s Zeichen"
 
 #: vixipy/templates/components/paginator.html:6
 #, python-format
 msgid "Page %(current)d of %(last)d"
-msgstr ""
+msgstr "Seite %(current)d von %(last)d"
 
 #: vixipy/templates/components/tag-search-filter.html:4
 #: vixipy/templates/components/tag-search-filter.html:19
 msgid "Search options"
-msgstr ""
+msgstr "Suchoptionen"
 
 #: vixipy/templates/components/tag-search-filter.html:21
 msgid "Keywords"
-msgstr ""
+msgstr "Stichworte"
 
 #: vixipy/templates/components/tag-search-filter.html:26
 msgid "Target"
-msgstr ""
+msgstr "Ziel"
 
 #: vixipy/templates/components/tag-search-filter.html:28
 msgid "Tags (perfect match)"
-msgstr ""
+msgstr "Tags (Vollständig)"
 
 #: vixipy/templates/components/tag-search-filter.html:29
 msgid "Tags (partial match)"
-msgstr ""
+msgstr "Tags (Teilweise)"
 
 #: vixipy/templates/components/tag-search-filter.html:30
 msgid "Title/caption"
-msgstr ""
+msgstr "Titel/Untertitel"
 
 #: vixipy/templates/components/tag-search-filter.html:36
 msgid "Filters"
-msgstr ""
+msgstr "Filter"
 
 #: vixipy/templates/components/tag-search-filter.html:38
 msgid "Mode"
-msgstr ""
+msgstr "Modus"
 
 #: vixipy/templates/components/tag-search-filter.html:40
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: vixipy/templates/components/tag-search-filter.html:41
 msgid "Safe"
-msgstr ""
+msgstr "Jugendfrei"
 
 #: vixipy/templates/components/tag-search-filter.html:42
 #: vixipy/templates/newest/index.html:32
 msgid "R-18"
-msgstr ""
+msgstr "18+"
 
 #: vixipy/templates/components/tag-search-filter.html:47
 msgid "Width"
-msgstr ""
+msgstr "Weite"
 
 #: vixipy/templates/components/tag-search-filter.html:49
 #: vixipy/templates/components/tag-search-filter.html:56
 msgid "min"
-msgstr ""
+msgstr "Min."
 
 #: vixipy/templates/components/tag-search-filter.html:50
 #: vixipy/templates/components/tag-search-filter.html:57
 msgid "max"
-msgstr ""
+msgstr "Max."
 
 #: vixipy/templates/components/tag-search-filter.html:54
 msgid "Height"
-msgstr ""
+msgstr "Höhe"
 
 #: vixipy/templates/components/tag-search-filter.html:61
 msgid "Ratio"
-msgstr ""
+msgstr "Verhältnis"
 
 #: vixipy/templates/components/tag-search-filter.html:63
 msgid "All ratios"
-msgstr ""
+msgstr "Alle Verhältnisse"
 
 #: vixipy/templates/components/tag-search-filter.html:64
 msgid "Horizontal"
-msgstr ""
+msgstr "Horizontal"
 
 #: vixipy/templates/components/tag-search-filter.html:65
 msgid "Vertical"
-msgstr ""
+msgstr "Vertikal"
 
 #: vixipy/templates/components/tag-search-filter.html:66
 msgid "Square"
-msgstr ""
+msgstr "Quadrat"
 
 #: vixipy/templates/components/tag-search-filter.html:71
 msgid "Tool"
-msgstr ""
+msgstr "Werkzeug"
 
 #: vixipy/templates/components/tag-search-filter.html:72
 msgid "All tools"
-msgstr ""
+msgstr "Alle Werkzeuge"
 
 #: vixipy/templates/components/tag-search-filter.html:182
 msgid "Period"
-msgstr ""
+msgstr "Periode"
 
 #: vixipy/templates/components/tag-search-filter.html:190
 msgid "Apply"
-msgstr ""
+msgstr "Fertig"
 
 #: vixipy/templates/discovery/illustrations.html:14
 msgid "Nothing to recommend. Sorry!"
-msgstr ""
+msgstr "Keine Empfehlungen verfügbar. Sorry!"
 
 #: vixipy/templates/discovery/illustrations.html:17
 msgid "Reload"
-msgstr ""
+msgstr "Neu laden"
 
 #: vixipy/templates/discovery/index.html:15
 msgid "Recommended illustrations"
-msgstr ""
+msgstr "Empfohlene Illustrationen"
 
 #: vixipy/templates/discovery/index.html:21
 msgid "Recommended users"
-msgstr ""
+msgstr "Empfohlene Nutzer"
 
 #: vixipy/templates/newest/index.html:6
 msgid "Newest illustrations by all users"
-msgstr ""
+msgstr "Neueste Illustrationen von allen Nutzern"
 
 #: vixipy/templates/newest/index.html:8
-#, fuzzy
 msgid "Newest manga by all users"
-msgstr "Neueste Werke von Allen"
+msgstr "Neueste manga von allen Nutzern"
 
 #: vixipy/templates/newest/index.html:14
 msgid "New from All users"
-msgstr ""
+msgstr "Neueste von allen Nutzern"
 
 #: vixipy/templates/newest/index.html:22 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
 #: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:10
 msgid "Illustrations"
-msgstr ""
+msgstr "Illustrationen"
 
 #: vixipy/templates/newest/index.html:27 vixipy/templates/search/illust.html:8
 #: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
 #: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
 #: vixipy/templates/users/base.html:67 vixipy/templates/users/manga.html:9
 msgid "Manga"
-msgstr ""
+msgstr "Manga"
 
 #: vixipy/templates/newest/index.html:31
-#, fuzzy
 msgid "General"
-msgstr "Geschlecht"
+msgstr "Generell"
 
 #: vixipy/templates/newest/novel.html:2
-#, fuzzy
 msgid "Newest novels by all users"
-msgstr "Neueste Werke von Allen"
+msgstr "Neueste Romane von allen Nutzern"
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"
-msgstr ""
+msgstr "Beliebte originale Romane"
 
 #: vixipy/templates/novels/index.html:46
 msgid "Daily ranking"
-msgstr ""
+msgstr "Tägliche Rangliste"
 
 #: vixipy/templates/novels/index.html:47 vixipy/templates/novels/index.html:60
 #: vixipy/templates/novels/index.html:73
 #, python-format
 msgid "%(date)s ranking"
-msgstr ""
+msgstr "%(date)s Rangliste"
 
 #: vixipy/templates/novels/index.html:59
 msgid "Popularity ranking among male users"
-msgstr ""
+msgstr "Rangliste unter männlichen Nutzern"
 
 #: vixipy/templates/novels/index.html:72
 msgid "Popularity ranking among female users"
-msgstr ""
+msgstr "Rangliste unter weiblichen Nutzern"
 
 #: vixipy/templates/novels/novel.html:32 vixipy/templates/novels/series.html:25
 msgid "No description"
-msgstr ""
+msgstr "Keine Beschreibung"
 
 #: vixipy/templates/novels/series.html:32
 #, python-format
 msgid "%(ep)s Episode(s)"
-msgstr ""
+msgstr "%(ep)s Episode(n)"
 
 #: vixipy/templates/novels/series.html:33
 #, python-format
 msgid "Updated on %(date)s"
-msgstr ""
+msgstr "Aktualisiert am %(date)s"
 
 #: vixipy/templates/novels/series.html:34
 #, python-format
 msgid "%(cc)s Character(s)"
-msgstr ""
+msgstr "%(cc)s Zeichen"
 
 #: vixipy/templates/novels/series.html:35
 #, python-format
 msgid "%(cc)s Word(s)"
-msgstr ""
+msgstr "%(cc)s Wort(e)"
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
 msgid "Ranking Calendar"
-msgstr ""
+msgstr "Ranglisten Kalender"
 
 #: vixipy/templates/rankings/calendar.html:19
 #, python-format
 msgid "Day %(day)s"
-msgstr ""
+msgstr "Tag %(day)s"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
-msgstr ""
+msgstr "Suche nach Werken..."
 
 #: vixipy/templates/search/dashboard.html:22
 msgid "Popular illust tags"
-msgstr ""
+msgstr "Beliebte Tags für Illustrationen"
 
 #: vixipy/templates/search/dashboard.html:42
 #, python-format
 msgid "#%(tag)s recommended works"
-msgstr ""
+msgstr "#%(tag)s empfohlene Werke"
 
 #: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
 #: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
 msgid "Top"
-msgstr ""
+msgstr "Beste"
 
 #: vixipy/templates/search/illust.html:26 vixipy/templates/search/main.html:59
 #: vixipy/templates/search/manga.html:25 vixipy/templates/search/novel.html:27
 msgid "No matching results found."
-msgstr ""
+msgstr "Keine passenden Ergebnisse gefunden."
 
 #: vixipy/templates/search/index.html:2
 #, python-format
 msgid "Results for %(tag)s"
-msgstr ""
+msgstr "Ergebnisse für %(tag)s"
 
 #: vixipy/templates/search/index.html:24
 #, python-format
 msgid "<b>%(total)s</b> Works"
-msgstr ""
+msgstr "<b>%(total)s</b> Werke"
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
-msgstr ""
+msgstr "Beliebte Werke"
 
 #: vixipy/templates/search/main.html:17
 msgid "Recent"
-msgstr ""
+msgstr "Neueste"
 
 #: vixipy/templates/search/main.html:25
 msgid "All Time"
-msgstr ""
+msgstr "Allerzeit"
 
 #: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:8
 msgid "Illustrations and Manga"
-msgstr ""
+msgstr "Illustrationen und Manga"
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
 #: vixipy/templates/users/dashboard.html:55
 msgid "Popular Tags"
-msgstr ""
+msgstr "Beliebte Tags"
 
 #: vixipy/templates/search/popular_tags.html:28
 msgid "Unable to load popular tags."
-msgstr ""
+msgstr "Laden der beliebten Tags nicht möglich."
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
 #: vixipy/templates/settings/index.html:17
 msgid "Display settings"
-msgstr ""
+msgstr "Anzeigeeinstellungen"
 
 #: vixipy/templates/settings/display.html:8
 msgid "Work content"
-msgstr ""
+msgstr "Werkinhalte"
 
 #: vixipy/templates/settings/display.html:22
 msgid "Show AI-generated work"
-msgstr ""
+msgstr "Zeige KI-generierte Werke"
 
 #: vixipy/templates/settings/display.html:26
 msgid "Display works that may contain sensitive content"
-msgstr ""
+msgstr "Zeige Werke mit möglicherweise sensitiven Inhalten"
 
 #: vixipy/templates/settings/display.html:30
 msgid "Show explicit content (R-18)"
-msgstr ""
+msgstr "Zeige explizite Inhalte (18+)"
 
 #: vixipy/templates/settings/display.html:34
 msgid "Show ero-guro content (R-18G)"
-msgstr ""
+msgstr "Zeige Ero-Guro content (18+)"
 
 #: vixipy/templates/settings/display.html:38
 msgid "Hide artwork thumbnails (preview mode)"
-msgstr ""
+msgstr "Verstecke Vorschaubilder"
 
 #: vixipy/templates/settings/display.html:42
 msgid "Blur sensitive works (may cause performance issues!)"
 msgstr ""
+"Zeige sensitive Werke verschwommen an (Kann zu schlechter Leistung führen)"
 
 #: vixipy/templates/settings/display.html:45
 msgid "Save preferences"
-msgstr ""
+msgstr "Einstellungen Speichern"
 
 #: vixipy/templates/settings/display.html:50
 msgid "Ad display settings"
-msgstr ""
+msgstr "Zeige Werbung an"
 
 #: vixipy/templates/settings/display.html:53
 msgid "Display"
-msgstr ""
+msgstr "Anzeigen"
 
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
 #: vixipy/templates/users/dashboard.html:67
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: vixipy/templates/settings/index.html:15
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
-msgstr ""
+msgstr "Vixipy Einstellungen"
 
 #: vixipy/templates/settings/index.html:16
 msgid "Account"
-msgstr ""
+msgstr "Account"
 
 #: vixipy/templates/settings/index.html:18
 #: vixipy/templates/settings/language.html:3
 #: vixipy/templates/settings/language.html:6
 msgid "Language and location"
-msgstr ""
+msgstr "Sprache und Standort"
 
 #: vixipy/templates/settings/index.html:19
 msgid "About"
-msgstr ""
+msgstr "Über Vixipy"
 
 #: vixipy/templates/settings/language.html:9
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 #: vixipy/templates/settings/language.html:20
 msgid "Help translate Vixipy to your language!"
-msgstr ""
+msgstr "Helfe Vixipy in deine Sprache zu übersetzen!"
 
 #: vixipy/templates/settings/language.html:22
 msgid "Set language"
-msgstr ""
+msgstr "Sprache übernehmen"
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
-msgstr ""
+msgstr "Proxy Server für Bilder"
 
 #: vixipy/templates/settings/main.html:15
 msgid "Use proxy specified by instance"
-msgstr ""
+msgstr "Nutze den Proxy der von der Instanz gegeben ist"
 
 #: vixipy/templates/settings/main.html:16
 #: vixipy/templates/settings/main.html:18
 msgid "Use built-in proxy"
-msgstr ""
+msgstr "Nutze eingebauten Proxy"
 
 #: vixipy/templates/settings/main.html:26
 msgid ""
 "An image proxy allows retrieving images from pixiv without making any "
 "connection to pixiv servers."
 msgstr ""
+"Ein Proxy ermöglicht es Bilder von Pixiv zu erreichen, ohne eine direkte "
+"Verbindung zu Pixiv's Servern zu erstellen."
 
 #: vixipy/templates/settings/main.html:28
 msgid "Use selected proxy"
-msgstr ""
+msgstr "Ausgewählten Proxy übernehmen"
 
 #: vixipy/templates/settings/main.html:34
 msgid "Color Scheme"
-msgstr ""
+msgstr "Farbschema"
 
 #: vixipy/templates/settings/main.html:40
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: vixipy/templates/settings/main.html:47
 msgid "Set color scheme"
-msgstr ""
+msgstr "Farbschema übernehmen"
 
 #: vixipy/templates/ugoira-converter/main.html:2
 #: vixipy/templates/ugoira-converter/main.html:12
 msgid "Ugoira Converter"
-msgstr ""
+msgstr "Ugoira Konvertierer"
 
 #: vixipy/templates/ugoira-converter/main.html:23
 msgid "GIF (Large File Size)"
@@ -1085,4 +1086,3 @@ msgstr ""
 
 #~ msgid "Post"
 #~ msgstr ""
-
