@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-25 22:36+0800\n"
-"PO-Revision-Date: 2025-07-22 15:08+0000\n"
+"PO-Revision-Date: 2025-07-25 21:09+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -97,7 +98,7 @@ msgstr "Mag-sign in para mag-post ng mga komento"
 
 #: vixipy/templates/comments.html:89
 msgid "There is no comment yet"
-msgstr ""
+msgstr "Wala pang mga komento"
 
 #: vixipy/templates/comments.html:100 vixipy/templates/replies.html:23
 #, python-format
@@ -364,9 +365,8 @@ msgid "Notifications"
 msgstr "Mga Abiso"
 
 #: vixipy/templates/notifications.html:24
-#, fuzzy
 msgid "No notifications"
-msgstr "Mga Abiso"
+msgstr "Walang mga abiso"
 
 #: vixipy/templates/ratelimited.html:4
 msgid "Too Many Requests"
@@ -876,9 +876,8 @@ msgid "Popular Tags"
 msgstr "Mga Popular na Tag"
 
 #: vixipy/templates/search/popular_tags.html:28
-#, fuzzy
 msgid "Unable to load popular tags."
-msgstr "Mga Popular na Tag"
+msgstr "Hindi ma-load ang mga sikat na tag."
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
@@ -997,7 +996,7 @@ msgstr "Scheme ng Kulay"
 
 #: vixipy/templates/settings/main.html:40
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
 #: vixipy/templates/settings/main.html:47
 msgid "Set color scheme"
@@ -1061,7 +1060,7 @@ msgstr "Mga Bookmark"
 #: vixipy/templates/users/illust.html:27 vixipy/templates/users/manga.html:27
 #: vixipy/templates/users/novels.html:27 vixipy/templates/users/top.html:18
 msgid "No works found."
-msgstr ""
+msgstr "Walang mga nahanap na gawa."
 
 #: vixipy/templates/users/dashboard.html:2
 msgid "Menu"
@@ -1108,4 +1107,3 @@ msgstr "Mag-log out"
 
 #~ msgid "No comments"
 #~ msgstr "Walang mga komento"
-
