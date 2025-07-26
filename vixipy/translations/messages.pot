@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-26 18:25+0800\n"
+"POT-Creation-Date: 2025-07-26 18:30+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -651,6 +651,10 @@ msgstr ""
 
 #: vixipy/templates/newest/index.html:31
 msgid "General"
+msgstr ""
+
+#: vixipy/templates/newest/novel.html:2
+msgid "Newest novels by all users"
 msgstr ""
 
 #: vixipy/templates/novels/index.html:26

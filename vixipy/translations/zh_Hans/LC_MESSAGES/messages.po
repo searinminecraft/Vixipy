@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-26 18:25+0800\n"
+"POT-Creation-Date: 2025-07-26 18:30+0800\n"
 "PO-Revision-Date: 2025-07-06 13:25+0000\n"
 "Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
 "Language: zh_Hans\n"
@@ -658,6 +658,11 @@ msgstr "漫画"
 #, fuzzy
 msgid "General"
 msgstr "性别"
+
+#: vixipy/templates/newest/novel.html:2
+#, fuzzy
+msgid "Newest novels by all users"
+msgstr "全部最新作品"
 
 #: vixipy/templates/novels/index.html:26
 msgid "Popular original novels"

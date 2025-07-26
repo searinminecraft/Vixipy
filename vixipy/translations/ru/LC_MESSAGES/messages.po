@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-26 18:25+0800\n"
+"POT-Creation-Date: 2025-07-26 18:30+0800\n"
 "PO-Revision-Date: 2025-07-03 13:08+0000\n"
 "Last-Translator: divergency <divergency@noreply.codeberg.org>\n"
 "Language: ru\n"
@@ -654,6 +654,10 @@ msgstr ""
 
 #: vixipy/templates/newest/index.html:31
 msgid "General"
+msgstr ""
+
+#: vixipy/templates/newest/novel.html:2
+msgid "Newest novels by all users"
 msgstr ""
 
 #: vixipy/templates/novels/index.html:26
