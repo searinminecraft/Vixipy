@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-26 18:30+0800\n"
-"PO-Revision-Date: 2025-07-26 11:48+0000\n"
+"PO-Revision-Date: 2025-07-26 12:36+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/de/>\n"
@@ -93,7 +93,7 @@ msgstr "Sticker"
 
 #: vixipy/templates/comments.html:71
 msgid "Sign in to post comments"
-msgstr "Einloggen um Kommentare zu Posten"
+msgstr "Einloggen, um Kommentare zu posten"
 
 #: vixipy/templates/comments.html:89
 msgid "There is no comment yet"
@@ -334,7 +334,7 @@ msgstr "Farbe"
 
 #: vixipy/templates/monet.html:32
 msgid "Submit"
-msgstr "Fertig"
+msgstr "Bestätigen"
 
 #: vixipy/templates/monet.html:35
 msgid "Dark Colors"
@@ -625,7 +625,7 @@ msgstr "Periode"
 
 #: vixipy/templates/components/tag-search-filter.html:190
 msgid "Apply"
-msgstr "Fertig"
+msgstr "Anwenden"
 
 #: vixipy/templates/discovery/illustrations.html:14
 msgid "Nothing to recommend. Sorry!"
@@ -943,7 +943,7 @@ msgstr "%(user)s's Banner"
 #: vixipy/templates/users/base.html:6
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
-msgstr "Klicke um %(user)s's Banner in einem neuen Tab zu öffnen."
+msgstr "Klicke, um %(user)s's Banner in einem neuen Tab zu öffnen."
 
 #: vixipy/templates/users/base.html:7
 #, python-format
@@ -953,7 +953,7 @@ msgstr "%(user)s's Profilbild"
 #: vixipy/templates/users/base.html:8
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
-msgstr "Klicke um %(user)s's Profilbild in einem neuen Tab zu öffnen."
+msgstr "Klicke, um %(user)s's Profilbild in einem neuen Tab zu öffnen."
 
 #: vixipy/templates/users/base.html:25 vixipy/templates/users/dashboard.html:14
 msgid "Following"
@@ -991,7 +991,7 @@ msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
 msgstr ""
-"<b>Du bist nicht eingeloggt.</b> Logge dich in deinen Pixiv Account ein um "
+"<b>Du bist nicht eingeloggt.</b> Logge dich in deinen Pixiv Account ein, um "
 "Vixipy's volles Potential zu erfahren."
 
 #: vixipy/templates/users/dashboard.html:29
