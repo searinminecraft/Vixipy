@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-26 18:30+0800\n"
-"PO-Revision-Date: 2025-07-26 11:37+0000\n"
+"PO-Revision-Date: 2025-07-26 11:48+0000\n"
 "Last-Translator: cutekita <cutekita@noreply.codeberg.org>\n"
 "Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/de/>\n"
@@ -279,6 +279,8 @@ msgid ""
 "An unhandled exception has occurred. If you believe this is a bug, file a"
 " report <a href=\"%(link)s\">here</a>"
 msgstr ""
+"Eine unbehandelte Ausnahme ist aufgetreten. Sollte dies ein Fehler sein, "
+"melde dies <a href='%(link)s'>hier</a>"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:26
 #: vixipy/templates/users/dashboard.html:48
@@ -919,58 +921,58 @@ msgstr "Ugoira Konvertierer"
 
 #: vixipy/templates/ugoira-converter/main.html:23
 msgid "GIF (Large File Size)"
-msgstr ""
+msgstr "GIF (Große Datei)"
 
 #: vixipy/templates/ugoira-converter/main.html:24
 msgid "WebP (Most Efficient)"
-msgstr ""
+msgstr "WebP (Effizienteste)"
 
 #: vixipy/templates/ugoira-converter/main.html:31
 msgid "Convert"
-msgstr ""
+msgstr "Konvertieren"
 
 #: vixipy/templates/ugoira-converter/main.html:35
 msgid "Sorry, the Ugoira Converter requires JavaScript."
-msgstr ""
+msgstr "Der Ugoira Konvertierer benötigt JavaScript."
 
 #: vixipy/templates/users/base.html:5
 #, python-format
 msgid "%(user)s's background"
-msgstr ""
+msgstr "%(user)s's Banner"
 
 #: vixipy/templates/users/base.html:6
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
-msgstr ""
+msgstr "Klicke um %(user)s's Banner in einem neuen Tab zu öffnen."
 
 #: vixipy/templates/users/base.html:7
 #, python-format
 msgid "%(user)s's profile picture"
-msgstr ""
+msgstr "%(user)s's Profilbild"
 
 #: vixipy/templates/users/base.html:8
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
-msgstr ""
+msgstr "Klicke um %(user)s's Profilbild in einem neuen Tab zu öffnen."
 
 #: vixipy/templates/users/base.html:25 vixipy/templates/users/dashboard.html:14
 msgid "Following"
-msgstr ""
+msgstr "Gefolgt"
 
 #: vixipy/templates/users/base.html:30
 msgid "Edit Profile"
-msgstr ""
+msgstr "Profil bearbeiten"
 
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:35
 msgid "Bookmarks"
-msgstr ""
+msgstr "Lesezeichen"
 
 #: vixipy/templates/users/bookmarks.html:27
 #: vixipy/templates/users/illust.html:27 vixipy/templates/users/manga.html:27
 #: vixipy/templates/users/novels.html:27 vixipy/templates/users/top.html:18
 msgid "No works found."
-msgstr ""
+msgstr "Keine Werke gefunden."
 
 #: vixipy/templates/users/dashboard.html:2
 msgid "Menu"
@@ -978,33 +980,35 @@ msgstr ""
 
 #: vixipy/templates/users/dashboard.html:9
 msgid "Do you wish to log out?"
-msgstr ""
+msgstr "Möchtest du dich ausloggen?"
 
 #: vixipy/templates/users/dashboard.html:14
 msgid "Followers"
-msgstr ""
+msgstr "Folgen dir"
 
 #: vixipy/templates/users/dashboard.html:21
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
 msgstr ""
+"<b>Du bist nicht eingeloggt.</b> Logge dich in deinen Pixiv Account ein um "
+"Vixipy's volles Potential zu erfahren."
 
 #: vixipy/templates/users/dashboard.html:29
 msgid "Your profile"
-msgstr ""
+msgstr "Dein Profil"
 
 #: vixipy/templates/users/dashboard.html:73
 msgid "Send Feedback"
-msgstr ""
+msgstr "Feedback senden"
 
 #: vixipy/templates/users/dashboard.html:79
 msgid "Source Code"
-msgstr ""
+msgstr "Quellcode"
 
 #: vixipy/templates/users/dashboard.html:86
 msgid "Log out"
-msgstr ""
+msgstr "Ausloggen"
 
 #~ msgid "Submit Illustration"
 #~ msgstr "Illustration hochladen"
