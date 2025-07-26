@@ -4,7 +4,6 @@ from .vanity import bp as vanity
 from .artworks import bp as artworks
 from .login import bp as login
 from .search import bp as search
-from .upload import bp as upload
 from .discovery import bp as discovery
 from .users import bp as users
 from .user_action import bp as user_action
@@ -16,3 +15,4 @@ from .ugoira_converter import bp as ugoira_converter
 from .notifications import bp as notifications
 from .monet import bp as monet
 from .rankings import bp as rankings
+from .newest import bp as newest

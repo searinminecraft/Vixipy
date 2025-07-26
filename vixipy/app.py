@@ -20,7 +20,6 @@ from .routes import (
     artworks,
     login,
     search,
-    upload,
     discovery,
     users,
     user_action,
@@ -32,6 +31,7 @@ from .routes import (
     notifications,
     monet,
     rankings,
+    newest,
 )
 from . import (
     cache_client,
@@ -162,7 +162,6 @@ def create_app():
     app.register_blueprint(artworks)
     app.register_blueprint(login)
     app.register_blueprint(search)
-    app.register_blueprint(upload)
     app.register_blueprint(discovery)
     app.register_blueprint(users)
     app.register_blueprint(user_action)
@@ -174,6 +173,7 @@ def create_app():
     app.register_blueprint(notifications)
     app.register_blueprint(monet)
     app.register_blueprint(rankings)
+    app.register_blueprint(newest)
 
     # =================================
     if app.config["LOG_HTTP"]:
