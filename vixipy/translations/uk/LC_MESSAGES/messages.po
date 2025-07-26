@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-26 18:30+0800\n"
-"PO-Revision-Date: 2025-07-26 11:37+0000\n"
+"PO-Revision-Date: 2025-07-26 11:48+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
@@ -669,9 +669,8 @@ msgid "Manga"
 msgstr "Манґа"
 
 #: vixipy/templates/newest/index.html:31
-#, fuzzy
 msgid "General"
-msgstr "Стать"
+msgstr "Загальне"
 
 #: vixipy/templates/newest/novel.html:2
 msgid "Newest novels by all users"
