@@ -10,7 +10,6 @@ doc
 babel.cfg
 *.yaml
 Dockerfile
-requirements.txt
 
 LICENSE
 README.md
