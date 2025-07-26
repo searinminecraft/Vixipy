@@ -8,214 +8,216 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-25 22:36+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-07-26 10:26+0000\n"
+"Last-Translator: cutekita <cutekita@noreply.codeberg.org>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
-msgstr ""
+msgstr "Ungültiger Token"
 
 #: vixipy/routes/login.py:76
 msgid "Unable to extract CSRF"
-msgstr ""
+msgstr "CSRF kann nicht extrahiert werden"
 
 #: vixipy/templates/artworks.html:25
 #, python-format
 msgid "Page %(page)d of %(total)d"
-msgstr ""
+msgstr "Seite %(page)d von %(total)d"
 
 #: vixipy/templates/artworks.html:44
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
-msgstr ""
+msgstr "Folgen"
 
 #: vixipy/templates/artworks.html:44
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
-msgstr ""
+msgstr "Entfolgen"
 
 #: vixipy/templates/artworks.html:49
 msgid "View all works"
-msgstr ""
+msgstr "Alle Werke ansehen"
 
 #: vixipy/templates/artworks.html:74
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
-msgstr ""
+msgstr "Sensitivitäts Level: %(sl)d"
 
 #: vixipy/templates/artworks.html:136
 msgid "Convert Ugoira"
-msgstr ""
+msgstr "Ugoira konvertieren"
 
 #: vixipy/templates/artworks.html:146 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr ""
+msgstr "Ähnliche Werke"
 
 #: vixipy/templates/artworks.html:154
 msgid "No recommended works to show."
-msgstr ""
+msgstr "Keine empfohlenen Werke verfügbar."
 
 #: vixipy/templates/comments.html:2 vixipy/templates/comments.html:7
 #: vixipy/templates/replies.html:2
 msgid "Comments"
-msgstr ""
+msgstr "Kommentare"
 
 #: vixipy/templates/comments.html:17
 msgid "Post your comment"
-msgstr ""
+msgstr "Poste deinen Kommentar"
 
 #: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
 msgid "Send"
-msgstr ""
+msgstr "Senden"
 
 #: vixipy/templates/comments.html:29
 msgid "Emojis and Stickers"
-msgstr ""
+msgstr "Emojis und Sticker"
 
 #: vixipy/templates/comments.html:35
 msgid "Emojis"
-msgstr ""
+msgstr "Emojis"
 
 #: vixipy/templates/comments.html:44
 msgid "Stickers"
-msgstr ""
+msgstr "Sticker"
 
 #: vixipy/templates/comments.html:71
 msgid "Sign in to post comments"
-msgstr ""
+msgstr "Einloggen um Kommentare zu Posten"
 
 #: vixipy/templates/comments.html:89
 msgid "There is no comment yet"
-msgstr ""
+msgstr "Keine Kommentare verfügbar"
 
 #: vixipy/templates/comments.html:100 vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
-msgstr ""
+msgstr "Seite %(page)d"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
-msgstr ""
+msgstr "Profil bearbeiten"
 
 #: vixipy/templates/edit_profile.html:8
 msgid "Profile images"
-msgstr ""
+msgstr "Profil Bilder"
 
 #: vixipy/templates/edit_profile.html:11
 msgid "Choose profile picture: "
-msgstr ""
+msgstr "Profilbild Auswählen "
 
 #: vixipy/templates/edit_profile.html:13
 msgid "Choose cover image: "
-msgstr ""
+msgstr "Banner auswählen "
 
 #: vixipy/templates/edit_profile.html:19
 msgid "Max. 5MB"
-msgstr ""
+msgstr "Max. 5MB"
 
 #: vixipy/templates/edit_profile.html:27
 msgid "Max. 8MB"
-msgstr ""
+msgstr "Max. 8MB"
 
 #: vixipy/templates/edit_profile.html:32
 msgid "Nickname"
-msgstr ""
+msgstr "Nutzername"
 
 #: vixipy/templates/edit_profile.html:36
 msgid "Self introduction"
-msgstr ""
+msgstr "Selbstbeschreibung"
 
 #: vixipy/templates/edit_profile.html:40
 msgid "Website"
-msgstr ""
+msgstr "Webseite"
 
 #: vixipy/templates/edit_profile.html:44
 msgid "Social media"
-msgstr ""
+msgstr "Social Media"
 
 #: vixipy/templates/edit_profile.html:46
 msgid "Twitter/X ID"
-msgstr ""
+msgstr "Twitter/X ID"
 
 #: vixipy/templates/edit_profile.html:47
 msgid "Instagram ID"
-msgstr ""
+msgstr "Instagram ID"
 
 #: vixipy/templates/edit_profile.html:48
 msgid "Tumblr ID"
-msgstr ""
+msgstr "Tumblr ID"
 
 #: vixipy/templates/edit_profile.html:49
 msgid "Facebook ID"
-msgstr ""
+msgstr "Facebook ID"
 
 #: vixipy/templates/edit_profile.html:50
 msgid "Circle.ms ID"
-msgstr ""
+msgstr "Circle.ms ID"
 
 #: vixipy/templates/edit_profile.html:53
 msgid "Gender"
-msgstr ""
+msgstr "Geschlecht"
 
 #: vixipy/templates/edit_profile.html:55
 msgid "Male"
-msgstr ""
+msgstr "Männlich"
 
 #: vixipy/templates/edit_profile.html:56
 msgid "Female"
-msgstr ""
+msgstr "Weiblich"
 
 #: vixipy/templates/edit_profile.html:57
 msgid "Rather not say"
-msgstr ""
+msgstr "Lieber nicht sagen"
 
 #: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
 #: vixipy/templates/edit_profile.html:82 vixipy/templates/upload.html:41
 msgid "Public"
-msgstr ""
+msgstr "Öffentlich"
 
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
 #: vixipy/templates/edit_profile.html:83 vixipy/templates/upload.html:43
 msgid "My pixiv only"
-msgstr ""
+msgstr "Nur My Pixiv"
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
 #: vixipy/templates/edit_profile.html:84 vixipy/templates/upload.html:44
 msgid "Private"
-msgstr ""
+msgstr "Privat"
 
 #: vixipy/templates/edit_profile.html:66
 msgid "Birthday"
-msgstr ""
+msgstr "Geburtstag"
 
 #: vixipy/templates/edit_profile.html:72
 msgid "Birth year privacy"
-msgstr ""
+msgstr "Geburtsjahr Privatsphäre"
 
 #: vixipy/templates/edit_profile.html:80
 msgid "Birthday privacy"
-msgstr ""
+msgstr "Geburtstag Privatsphäre"
 
 #: vixipy/templates/edit_profile.html:88
 msgid "Save Changes"
-msgstr ""
+msgstr "Änderungen speichern"
 
 #: vixipy/templates/error.html:2
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: vixipy/templates/error.html:7
 msgid "An error occurred."
-msgstr ""
+msgstr "Ein Fehler ist aufgetreten."
 
 #: vixipy/templates/error.html:8
 #, python-format
@@ -223,23 +225,25 @@ msgid ""
 "Looks like something went wrong. If you think this is a bug, file a "
 "report <a href='%(link)s'>here</a>"
 msgstr ""
+"Sieht so aus als ob etwas schiefgelaufen ist. Sollte dies ein Fehler sein, "
+"melde dies <a href='%(link)s'>hier</a>"
 
 #: vixipy/templates/error.html:10
 msgid "Back to home"
-msgstr ""
+msgstr "Zurück zur Startseite"
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
 #: vixipy/templates/users/base.html:55
 msgid "Home"
-msgstr ""
+msgstr "Startseite"
 
 #: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
-msgstr ""
+msgstr "Werke von Nutzern denen du folgst"
 
 #: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
-msgstr ""
+msgstr "Empfohlene Werke"
 
 #: vixipy/templates/index.html:31
 #, python-format
@@ -247,25 +251,27 @@ msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
+"Empfohlene Illustrationen mit dem Tag <a href='%(link)s' "
+"title='%(title)s'>#%(tag)s</a>"
 
 #: vixipy/templates/index.html:54
 msgid "Newest by all"
-msgstr ""
+msgstr "Neueste Werke von Allen"
 
 #: vixipy/templates/index_logged_out.html:9
 #, python-format
 msgid "Ranking for %(date)s"
-msgstr ""
+msgstr "Rangliste für %(date)s"
 
 #: vixipy/templates/index_logged_out.html:17
 #: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
 msgid "View All"
-msgstr ""
+msgstr "Alle Ansehen"
 
 #: vixipy/templates/internal_server_error.html:2
 #: vixipy/templates/internal_server_error.html:5
 msgid "Internal Server Error"
-msgstr ""
+msgstr "Interner Server Fehler"
 
 #: vixipy/templates/internal_server_error.html:6
 #, python-format
@@ -277,25 +283,29 @@ msgstr ""
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:26
 #: vixipy/templates/users/dashboard.html:42
 msgid "Sign in"
-msgstr ""
+msgstr "Einloggen"
 
 #: vixipy/templates/login.html:27
 msgid ""
 "Sign in to your pixiv account to access features that normally require "
 "it, such as:"
 msgstr ""
+"Logge in deinen Pixiv Account ein, um Zugang auf Features zu erhalten, die "
+"dies benötigen, wie zum Beispiel:"
 
 #: vixipy/templates/login.html:29
 msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
 msgstr ""
+"Mit Werken interagieren (Liken, als Lesezeichen speichern, kommentieren, "
+"etc.)"
 
 #: vixipy/templates/login.html:30
 msgid "Personalized landing"
-msgstr ""
+msgstr "Personalisierte Startseite"
 
 #: vixipy/templates/login.html:31
 msgid "<b>Coming soon:</b> work uploads"
-msgstr ""
+msgstr "<b>Demnächst Verfügbar:</b> Werke Hochladen"
 
 #: vixipy/templates/login.html:33
 msgid ""
@@ -303,96 +313,103 @@ msgid ""
 "Username and password logins are not possible due to reCAPTCHA enterprise"
 " attestation requirement."
 msgstr ""
+"Um einzuloggen brauchst du den <code>PHPSESSID</code> cookie von deinem "
+"Account. Nutzername und Passwort logins sind aufgrund von reCAPTCHA "
+"Enterprise Bedingungen nicht verfügbar."
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
 #: vixipy/templates/users/dashboard.html:55
 msgid "Material You Generator"
-msgstr ""
+msgstr "Material You Generator"
 
 #: vixipy/templates/monet.html:13 vixipy/templates/monet.html:29
 msgid "Artwork ID"
-msgstr ""
+msgstr "Illustrations ID"
 
 #: vixipy/templates/monet.html:14
 msgid "Color"
-msgstr ""
+msgstr "Farbe"
 
 #: vixipy/templates/monet.html:32
 msgid "Submit"
-msgstr ""
+msgstr "Fertig"
 
 #: vixipy/templates/monet.html:35
 msgid "Dark Colors"
-msgstr ""
+msgstr "Dunkle Farben"
 
 #: vixipy/templates/monet.html:45
 msgid "Light Colors"
-msgstr ""
+msgstr "Helle Farben"
 
 #: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
-msgstr ""
+msgstr "Verbindungsfehler"
 
 #: vixipy/templates/no_connection.html:7
 msgid ""
 "Unable to connect to pixiv servers. Check your connection or contact the "
 "instance administrator."
 msgstr ""
+"Verbindung zu Pixiv kann nicht hergestellt werden. Überprüfe deine "
+"Verbindung oder kontaktiere deinen Instanz administrator."
 
 #: vixipy/templates/no_connection.html:9
 msgid "Try Again"
-msgstr ""
+msgstr "Erneut Versuchen"
 
 #: vixipy/templates/components/header.html:17
 #: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
 msgid "Notifications"
-msgstr ""
+msgstr "Benachrichtigungen"
 
 #: vixipy/templates/notifications.html:24
 msgid "No notifications"
-msgstr ""
+msgstr "Keine Benachrichtigungen"
 
 #: vixipy/templates/ratelimited.html:4
 msgid "Too Many Requests"
-msgstr ""
+msgstr "Zu viele Anfragen"
 
 #: vixipy/templates/ratelimited.html:5
 msgid ""
 "You are sending too many requests. Please slow down and try again. Don't "
 "use scripts or crawlers on this site."
 msgstr ""
+"Du sendest zu viele Anfragen. Bitte frage langsamer an und versuche nochmal. "
+"Nutze keine Skripts oder Crawler auf dieser Seite."
 
 #: vixipy/templates/replies.html:7
 msgid "Replies"
-msgstr ""
+msgstr "Antworten"
 
 #: vixipy/templates/replies.html:13
 msgid "No replies"
-msgstr ""
+msgstr "Antworten Ansehen"
 
 #: vixipy/templates/upload.html:2
 msgid "Submit Illustration"
-msgstr ""
+msgstr "Illustration hochladen"
 
 #: vixipy/templates/upload.html:9
 msgid "Files"
-msgstr ""
+msgstr "Dateien"
 
 #: vixipy/templates/upload.html:13
 msgid "Basic Information"
-msgstr ""
+msgstr "Basisinformation"
 
 #: vixipy/templates/upload.html:14
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: vixipy/templates/upload.html:17
 msgid "Caption"
-msgstr ""
+msgstr "Untertitel"
 
 #: vixipy/templates/upload.html:20
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: vixipy/templates/upload.html:22
 msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
