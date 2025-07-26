@@ -138,6 +138,39 @@ class ArtworkEntry(ArtworkBase):
         return f"<ArtworkEntry {self.id}>"
 
 
+class RankingEntry(ArtworkEntry):
+    def __init__(self, d):
+        _cd = datetime.strptime(d["date"], "%Y年%m月%d日 %H:%M")
+        super().__init__(
+            {
+                "id": d["illust_id"],
+                "title": d["title"],
+                "description": None,
+                "illustType": d["illust_type"],
+                "createDate": _cd.isoformat(),
+                "xRestrict": 0,
+                "sl": 2,
+                "alt": "",
+                "userId": d["user_id"],
+                "userName": d["user_name"],
+                "pageCount": d["illust_page_count"],
+                "aiType": 0,
+                "url": d["url"],
+                "profileImageUrl": d["profile_img"],
+                "bookmarkData": (
+                    {
+                        "id": int(d["bookmark_id"]),
+                        "private": int(d["bookmark_illust_restrict"]) == 1,
+                    }
+                    if d.get("is_bookmarked")
+                    else None
+                ),
+                "tags": "",
+            }
+        )
+        self.rank: int = int(d["rank"])
+
+
 class RankingData:
     def __init__(self, d):
         self.page: int = d["page"]
@@ -159,38 +192,11 @@ class RankingData:
         )
         self.mode: str = d["mode"]
         self.content: str = d["content"]
-        self.contents: list[ArtworkEntry] = []
+        self.contents: list[RankingEntry] = []
 
         for x in d["contents"]:
-            _cd = datetime.strptime(x["date"], "%Y年%m月%d日 %H:%M")
             self.contents.append(
-                ArtworkEntry(
-                    {
-                        "id": x["illust_id"],
-                        "title": x["title"],
-                        "description": None,
-                        "illustType": x["illust_type"],
-                        "createDate": _cd.isoformat(),
-                        "xRestrict": 0,
-                        "sl": 2,
-                        "alt": "",
-                        "userId": x["user_id"],
-                        "userName": x["user_name"],
-                        "pageCount": x["illust_page_count"],
-                        "aiType": 0,
-                        "url": x["url"],
-                        "profileImageUrl": x["profile_img"],
-                        "bookmarkData": (
-                            {
-                                "id": int(x["bookmark_id"]),
-                                "private": int(x["bookmark_illust_restrict"]) == 1,
-                            }
-                            if x.get("is_bookmarked")
-                            else None
-                        ),
-                        "tags": "",
-                    }
-                )
+                RankingEntry(x)
             )
 
 
@@ -539,3 +545,8 @@ class CommentBaseResponse:
     def __init__(self, comments: list[Comment], has_next: bool):
         self.comments: list[Comment] = comments
         self.has_next: bool = has_next
+
+class NewIllustResponse:
+    def __init__(self, d):
+        self.last_id: int = int(d["lastId"])
+        self.illusts: list[ArtworkEntry] = [ArtworkEntry(x) for x in d["illusts"]]

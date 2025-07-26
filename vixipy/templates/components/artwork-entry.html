@@ -14,6 +14,9 @@
                 second - right
             #}
             <div>
+                {% if data.rank %}
+                <div class="tag">{{data.rank}}</div>
+                {% endif %}
                 {% if data.ai %}
                 <div class="tag ai">AI</div>
                 {% endif %}

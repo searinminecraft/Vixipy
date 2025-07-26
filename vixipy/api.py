@@ -16,7 +16,7 @@ from .types import *
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
-    from typing import Any
+    from typing import Any, Union
 
 log = logging.getLogger("vixipy.api")
 
@@ -44,6 +44,24 @@ async def pixiv_request(
     expect_json=True,
     ignore_language=False,
 ):
+    """
+    Send a request to pixiv
+
+    Params:
+
+    endpoint: endpoint to use
+    method: method to use (default: get)
+    params: parameters in a list[tuple[key, value]] format
+    cookies: additional cookies to pass
+    headers: additional headers to pass
+    json_payload: json to send (POST request only)
+    raw_payload: raw payload or multipart payload to send (POST request only)
+    touch: whether to use mobile user agent (default true for /touch/* endpoints)
+    ignore_cache: whether to not retrieve from/store to cache
+    expect_json: whether to expect a json response (useful for webscraping)
+    ignore_language: whether to not pass the `lang` parameter
+    """
+
     ignore_cache = method == "post" or ignore_cache == True
     cache_enabled = current_app.config["CACHE_PIXIV_REQUESTS"]
 
@@ -60,7 +78,9 @@ async def pixiv_request(
 
         params = params.copy()
 
-        params.append(("lang", {"en": "en", "ja": "ja", "zh_Hans": "zh"}.get(lang, "en")))
+        params.append(
+            ("lang", {"en": "en", "ja": "ja", "zh_Hans": "zh"}.get(lang, "en"))
+        )
 
     for i, v in enumerate(params):
         if v[1] is None:
@@ -392,3 +412,24 @@ async def get_artwork_replies(id: int, page: int = 1):
     return CommentBaseResponse(
         [CommentBase(x) for x in data["comments"]], data["hasNext"]
     )
+
+
+async def get_newest_works(
+    type_: Union["illust", "manga"] = "illust",
+    r18: bool = False,
+    last_id: int = 0,
+    limit: int = 20,
+):
+    data = await pixiv_request(
+        "/ajax/illust/new",
+        params=[
+            ("last_id", last_id),
+            ("limit", limit),
+            ("type", type_),
+            ("r18", str(r18).lower()),
+        ],
+        ignore_cache=True,
+    )
+    log.debug(data["lastId"])
+
+    return NewIllustResponse(data)

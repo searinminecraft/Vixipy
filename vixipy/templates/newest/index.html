@@ -1,0 +1,42 @@
+{% extends "layouts/default.html" %}
+{% set type = request.args.get("type", "illust") %}
+{% from "components/artwork-entry.html" import entry %}
+
+{% if type == "illust" %}
+{% set title=_("Newest illustrations by all users") %}
+{% elif type == "manga" %}
+{% set title=_("Newest manga by all users") %}
+{% endif %}
+
+{% block content %}
+<input type="hidden" id="last_id" value="{{data.last_id}}">
+<main>
+    <h2>{{_("New from All users")}}</h2>
+    <div class="nav-controller">
+        {%- set r18 = request.args.get("r18", "false") -%}
+        <nav class="tabs">
+            <a {% if type == 'illust' -%}
+                href="#" class="active"
+                {% else %}
+                href="{{url_for('newest.newest_main', type='illust', r18=r18)}}"
+                {% endif -%}>{{_("Illustrations")}}</a>
+            <a {% if type == 'manga' -%}
+                href="#" class="active"
+                {%- else -%}
+                href="{{url_for('newest.newest_main', type='manga', r18=r18)}}"
+                {%- endif -%}>{{_("Manga")}}</a>
+            <a href="#">{{_("Novels")}}</a>
+        </nav>
+        <div class="chip-toggle">
+            <a href="{{url_for('newest.newest_main', type=type)}}" {% if not r18 == 'true' %}class="active"{% endif %}>{{_("General")}}</a>
+            <a href="{{url_for('newest.newest_main', type=type, r18='true')}}" {% if r18 == 'true' %}class="active"{% endif %}>{{_("R-18")}}</a>
+        </div>
+    </div>
+    <br>
+    <div class="artwork-container">
+        {% for x in data.illusts %}
+        {{entry(x)}}
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

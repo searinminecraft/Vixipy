@@ -1,17 +1,24 @@
 from __future__ import annotations
 from quart import Blueprint, abort, current_app, request
 
-from ..api import pixiv_request, get_artwork
+from ..api import pixiv_request, get_artwork, get_newest_works
 from ..lib.monet import scheme_from_url
 import asyncio
 import traceback
 import logging
 from typing import Union, TYPE_CHECKING
 from urllib.parse import quote
-from werkzeug.exceptions import HTTPException, BadRequest, NotFound
+from werkzeug.exceptions import (
+    HTTPException,
+    BadRequest,
+    NotFound,
+    TooManyRequests,
+    Unauthorized,
+)
 
 if TYPE_CHECKING:
     from quart import Response
+    from werkzeug.datastructures import ImmutableDict
 
 bp = Blueprint("api", __name__, url_prefix="/api")
 log = logging.getLogger("vixipy.routes.api")
@@ -26,8 +33,9 @@ def make_json_response(message: str = "", body: Union[dict, list] = []):
 
 
 @bp.errorhandler(BadRequest)
+@bp.errorhandler(Unauthorized)
 async def handle_bad_request(e: BadRequest):
-    return make_error("Invalid request", 400)
+    return make_error("Invalid request.", 400)
 
 
 @bp.errorhandler(Exception)
@@ -131,9 +139,10 @@ async def ugoira_meta(id: int):
     work = await get_artwork(id)
     if not work.isUgoira:
         return make_error("Work is not ugoira", 400)
-    
+
     data = await pixiv_request(f"/ajax/illust/{id}/ugoira_meta")
     return make_json_response(body=data)
+
 
 @bp.get("/illust/<int:id>/material-you")
 async def gen_scheme_from_artwork(id: int):
@@ -143,13 +152,14 @@ async def gen_scheme_from_artwork(id: int):
         img = work["urls"]["thumb"]
         if not img:
             raise Exception
-        
+
         result = await scheme_from_url(img, True, scheme)
 
         return result, {"Content-Type": "text/css", "Cache-Control": "max-age=31536000"}
     except Exception:
-        log.exception("Failure generating color scheme for ID %d" , id)
+        log.exception("Failure generating color scheme for ID %d", id)
         return "", {"Content-Type": "text/css"}
+
 
 @bp.get("/user/<int:id>/material-you")
 async def gen_scheme_from_user(id: int):
@@ -160,12 +170,42 @@ async def gen_scheme_from_user(id: int):
 
             img = background["url"]
             result = await scheme_from_url(img, True, scheme)
-            return result, {"Content-Type": "text/css", "Cache-Control": "max-age=31536000"}
+            return result, {
+                "Content-Type": "text/css",
+                "Cache-Control": "max-age=31536000",
+            }
 
         return "", {"Content-Type": "text/css"}
     except Exception:
-        log.exception("Failure generating color scheme for ID %d" , id)
+        log.exception("Failure generating color scheme for ID %d", id)
         return "", {"Content-Type": "text/css"}
 
 
-
+@bp.route("/illust/new")
+async def _get_new_works():
+    args: ImmutableDict = request.args
+    data = await get_newest_works(
+        type_=args.get("type", "illust"),
+        r18=args.get("r18") == "true",
+        last_id=args.get("last_id", 0),
+    )
+    illusts = []
+    for x in data.illusts:
+        illusts.append(
+            {
+                "id": x.id,
+                "title": x.title,
+                "thumb": x.thumb,
+                "r18": x.r18,
+                "ai": x.ai,
+                "user_id": x.authorId,
+                "user_name": x.authorName,
+                "profile_image": x.profileimg,
+                "page_count": x.pages,
+                "alt": x.alt,
+            }
+        )
+    return make_json_response(body={
+        "last_id": data.last_id,
+        "illusts": illusts
+    })
