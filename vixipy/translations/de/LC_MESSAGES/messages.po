@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-26 18:30+0800\n"
 "PO-Revision-Date: 2025-07-26 12:36+0000\n"
-"Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Last-Translator: cutekita <cutekita@noreply.codeberg.org>\n"
 "Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/de/>\n"
 "Language: de\n"
@@ -849,7 +849,7 @@ msgstr "Einstellungen"
 #: vixipy/templates/settings/index.html:15
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
-msgstr "Vixipy Einstellungen"
+msgstr "Vixipy Optionen"
 
 #: vixipy/templates/settings/index.html:16
 msgid "Account"
@@ -895,7 +895,7 @@ msgid ""
 "An image proxy allows retrieving images from pixiv without making any "
 "connection to pixiv servers."
 msgstr ""
-"Ein Proxy ermöglicht es Bilder von Pixiv zu erreichen, ohne eine direkte "
+"Ein Proxy ermöglicht es Bilder von Pixiv zu erhalten, ohne eine direkte "
 "Verbindung zu Pixiv's Servern zu erstellen."
 
 #: vixipy/templates/settings/main.html:28
