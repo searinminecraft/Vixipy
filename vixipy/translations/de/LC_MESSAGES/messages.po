@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-26 18:30+0800\n"
 "PO-Revision-Date: 2025-07-26 11:48+0000\n"
-"Last-Translator: cutekita <cutekita@noreply.codeberg.org>\n"
+"Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/de/>\n"
 "Language: de\n"
@@ -399,7 +399,7 @@ msgstr "Stempel"
 
 #: vixipy/templates/components/comment.html:23
 msgid "View replies"
-msgstr "Antworten Ansehen"
+msgstr "Antworten ansehen"
 
 #: vixipy/templates/components/header.html:4
 msgid "Debug"
@@ -976,7 +976,7 @@ msgstr "Keine Werke gefunden."
 
 #: vixipy/templates/users/dashboard.html:2
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 #: vixipy/templates/users/dashboard.html:9
 msgid "Do you wish to log out?"
