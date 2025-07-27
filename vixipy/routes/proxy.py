@@ -93,3 +93,32 @@ async def perform_proxy_request(url: str):
 
     return res, response_headers
 
+
+@bp.get("/proxy/3rd_party/profile_image/<platform>/<username>")
+async def get_3rdparty_profile_image(platform, username):
+    platform_mapping = {
+        "github": "https://github.com/%s.png",
+        "codeberg": "https://codeberg.org/%s.png"
+    }
+
+    if platform not in platform_mapping:
+        abort(400)
+
+    response_headers = {"Cache-Control": "max-age=31536000"}
+
+    r: ClientResponse = await current_app.content_proxy.get(platform_mapping[platform] % username)
+    r.raise_for_status()
+
+    response_headers["Content-Type"] = r.headers["Content-Type"]
+    if content_length := r.headers.get("content-length"):
+        response_headers["Content-Length"] = content_length
+
+    async def stream():
+        async for chunk in r.content.iter_chunked(10 * 1024):
+            yield chunk
+        r.close()
+
+    res = await make_response(stream())
+    res.timeout = None
+
+    return res, response_headers

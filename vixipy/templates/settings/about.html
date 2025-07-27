@@ -1,0 +1,27 @@
+{% extends "settings/index.html" %}
+{% set settings_title = _("About Vixipy") %}
+
+{% block settings_content %}
+<h3>{{_("About Vixipy")}}</h3>
+<p>{{_("Vixipy is a free and open source alternative <a href='%(link)s'>pixiv</a> frontend, allowing you to view and enjoy works from pixiv distraction-free without unnecessary bloat and tracking.", link="https://en.wikipedia.org/wiki/pixiv")}}</p>
+<p>{{_("If you like our work, please consider <a href='%(link)s'>giving us a star</a> on Codeberg!", link="https://codeberg.org/vixipy/Vixipy")}}</p>
+
+<h3>{{_("Why use it?")}}</h3>
+<ul>
+    <li>{{_("Vixipy allows you to browse pixiv anonymously with all restrictions removed (including the ability to view original resolution artworks). No pixiv account required to access content.")}}</li>
+    <li>{{_("Vixipy does all the work for you: no connection to pixiv or any third-party server is made and all processing occurs server-side. No more Google Analytics tracking for every action!")}}</li>
+    <li>{{_("Vixipy offers a lightweight and fast experience without any distraction.")}}</li>
+    <li>{{_("Vixipy is free and open source, meaning anyone can audit, contribute, modify, or use it without restriction (as long as you follow its <a href='%(license_link)s'>license</a>).", license_link="https://codeberg.org/vixipy/Vixipy/src/branch/v3/LICENSE")}}</li>
+</ul>
+
+<h3>{{_("How does it work?")}}</h3>
+<p>{{_("Vixipy retrieves content using pixiv's API, parses it, and displays the results through own user interface. You remain completely anonymous if you use public instances as all requests are handled server side, and blends in with other activities in the instance.")}}</p>
+<p>{{_("Even if you log in, pixiv will only see you as if you are using their official UI, but without any tracking (the same behaviour if you use a content blocker such as uBlock Origin)")}}</p>
+
+<h3>{{_("How do I make it my own?")}}</h3>
+<p>{{_("If you want to host your own for personal (if you are concerned about logs) or public use, you can self-host your own instance, fully within your control.")}}</p>
+<p>{{_("Vixipy can essentially run on almost any platform and operating system (such as Windows, Linux, FreeBSD, Haiku, Android, and many more), as long as it can run Python 3.11 and above, and can compile Vixipy's native dependencies.")}}</p>
+
+<p><i><a href="{{url_for('settings.acknowledgements')}}">{{_("Acknowledgements")}}</a></i></p>
+
+{% endblock %}

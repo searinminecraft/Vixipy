@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 #settings {
     display: flex;
     gap: 1em;
@@ -64,6 +66,39 @@
 
                 .tip {
                     color: var(--md-sys-color-outline)
+                }
+            }
+        }
+    }
+}
+
+.translators-list {
+    list-style: none;
+    margin: unset;
+    padding: unset;
+
+    li {
+        padding: .5em;
+        
+        > a {
+            display: flex;
+            gap: 1em;
+            color: unset;
+            align-items: center;
+
+            > img {
+                @include profile-img(48px);
+            }
+
+            > main {
+                > * {
+                    display: block
+                }
+                strong {
+                    margin-bottom: .2rem;
+                }
+                small {
+                    color: var(--md-sys-color-outline);
                 }
             }
         }

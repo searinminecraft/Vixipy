@@ -1,0 +1,38 @@
+{% extends "settings/index.html" %}
+{% set settings_title = _("Acknowledgements") %}
+
+{% block settings_content %}
+<h3>{{_("Acknowledgements")}}</h3>
+
+<h4>{{_("Projects")}}</h4>
+<p>{{_("These projects and libraries help shape Vixipy:")}}</p>
+<ul>
+    <li><a href="https://github.com/pallets/quart">Quart</a></li>
+    <li><a href="https://github.com/Quart-Addons/quart-babel">Quart-Babel</a></li>
+    <li><a href="https://github.com/pgjones/quart-rate-limiter">Quart-Rate-Limiter</a></li>
+    <li><a href="https://github.com/T-Dynamos/materialyoucolor-python">materialyoucolor-python</a></li>
+    <li><a href="https://github.com/pixiv/charcoal">Charcoal Design and Icons</a></li>
+    <li><a href="https://fonts.google.com/icons">Material Design Icons</a></li>
+    <li><a href="https://github.com/pgjones/hypercorn/">Hypercorn</a></li>
+    <li><a href="https://github.com/aio-libs/aiohttp">AIOHTTP</a></li>
+    <li><a href="https://github.com/aio-libs/aiomcache">aiomcache</a></li>
+    <li><a href="https://memcached.org">Memcached</a></li>
+</ul>
+
+<h4>{{_("Translations")}}</h4>
+<p>{{_("These lovely people helped translate Vixipy (thank you so much &lt;3):")}}</p>
+<ul class="translators-list">
+    {% for x in i18n_cred %}
+    <li>
+        <a {% if x.link %}href="{{x.link}}"{% endif %}>
+            <img src="{{ x.profile_img or '/proxy/s.pximg.net/common/images/no_profile.png' }}" alt="{{x.name}}">
+            <main>
+                <strong>{{x.name}}</strong>
+                <small>{{x.languages|join(', ')}}</small>
+            </main>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

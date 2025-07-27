@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from quart import (
     Blueprint,
     g,
@@ -12,11 +14,34 @@ from quart import (
 from ..api import pixiv_request
 import babel
 import logging
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from typing import Optional
 
 bp = Blueprint("settings", __name__)
 log = logging.getLogger("vixipy.routes.settings")
 
 MAX_AGE = 60 * 60 * 24 * 30 * 6
+
+class TranslationCredit:
+    def __init__(self, name: str, languages: list[str], link: Optional[str] = None, profile_img: Optional[str] = None):
+        self.name: str = name
+        self.languages: list[str] = languages
+        self.link: Optional[str] = link
+        self.profile_img: Optional[str] = profile_img
+
+    def __repr__(self):
+        return (
+            "<TranslationCredit "
+            f"name={self.name} "
+            f"languages={self.languages} "
+            f"link={self.link} "
+            f"profile_img={self.profile_img}>"
+        )
+    
+    def translate_languages(self, language_code):
+        self.languages = [babel.Locale(x).get_display_name(language_code) for x in self.languages]
 
 
 @bp.route("/settings")
@@ -157,3 +182,24 @@ async def set_language():
     r = await make_response(redirect(url_for("settings.language_location"), code=303))
     r.set_cookie("Vixipy-Language", f["lang"], max_age=MAX_AGE, httponly=True)
     return r
+
+@bp.get("/settings/about")
+async def about_page():
+    return await render_template("settings/about.html")
+
+@bp.get("/settings/acknowledgements")
+async def acknowledgements():
+    language = request.cookies.get("Vixipy-Language", "en") or "en"
+    TRANSLATION_CREDITS: list[TranslationCredit] = {
+        TranslationCredit("Vyxie", ["fil", "ja"], "https://codeberg.org/kita", "/proxy/3rd_party/profile_image/codeberg/kita"),
+        TranslationCredit("cutekita", ["de"], "https://github.com/coolesding", "/proxy/3rd_party/profile_image/github/coolesding"),
+        TranslationCredit("SomeTr", ["uk", "de"], "https://codeberg.org/SomeTr"),
+        TranslationCredit("Poesty Li", ["zh_Hans"], "https://codeberg.org/poesty"),
+        TranslationCredit("Hayden", ["zh_Hans"], "https://codeberg.org/haydenwu", "/proxy/3rd_party/profile_image/codeberg/haydenwu"),
+        TranslationCredit("lainie", ["ru"], "https://laincorp.tech")
+    }
+
+    for x in TRANSLATION_CREDITS:
+        x.translate_languages(language)
+    
+    return await render_template("settings/acknowledgements.html", i18n_cred=sorted(TRANSLATION_CREDITS, key=lambda _: _.name))
