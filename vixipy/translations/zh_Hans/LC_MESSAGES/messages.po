@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-27 18:09+0800\n"
-"PO-Revision-Date: 2025-07-26 19:09+0000\n"
+"PO-Revision-Date: 2025-07-27 15:35+0000\n"
 "Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -779,7 +779,7 @@ msgstr "无法加载热门标签。"
 #: vixipy/templates/settings/about.html:5
 #: vixipy/templates/settings/index.html:19
 msgid "About Vixipy"
-msgstr ""
+msgstr "关于 Vixipy"
 
 #: vixipy/templates/settings/about.html:6
 #, python-format
@@ -788,24 +788,27 @@ msgid ""
 " frontend, allowing you to view and enjoy works from pixiv distraction-"
 "free without unnecessary bloat and tracking."
 msgstr ""
+"Vixipy 是一个自由开源的 <a href='%(link)s'>pixiv</a> 前端替代方案，"
+"让您无干扰地浏览和欣赏 pixiv 作品，摆脱不必要的臃肿功能和追踪。"
 
 #: vixipy/templates/settings/about.html:7
 #, python-format
 msgid ""
 "If you like our work, please consider <a href='%(link)s'>giving us a "
 "star</a> on Codeberg!"
-msgstr ""
+msgstr "如果您喜欢我们的作品，请考虑在 Codeberg 上<a href='%(link)s'>给我们点赞</a>！"
 
 #: vixipy/templates/settings/about.html:9
 msgid "Why use it?"
-msgstr ""
+msgstr "为什么使用它？"
 
 #: vixipy/templates/settings/about.html:11
 msgid ""
 "Vixipy allows you to browse pixiv anonymously with all restrictions "
 "removed (including the ability to view original resolution artworks). No "
 "pixiv account required to access content."
-msgstr ""
+msgstr "Vixipy 允许您匿名浏览 pixiv 并解除所有限制（包括查看原分辨率作品）。无需 "
+"pixiv 账号即可访问内容。"
 
 #: vixipy/templates/settings/about.html:12
 msgid ""
@@ -813,10 +816,13 @@ msgid ""
 "party server is made and all processing occurs server-side. No more "
 "Google Analytics tracking for every action!"
 msgstr ""
+"Vixipy 为您完成所有工作：不与 pixiv "
+"或任何第三方服务器建立连接，所有处理都在服务端进行。不再有 Google Analytics "
+"对每个操作的追踪！"
 
 #: vixipy/templates/settings/about.html:13
 msgid "Vixipy offers a lightweight and fast experience without any distraction."
-msgstr ""
+msgstr "Vixipy 提供轻量快速的体验，没有任何干扰。"
 
 #: vixipy/templates/settings/about.html:14
 #, python-format
@@ -825,10 +831,12 @@ msgid ""
 "modify, or use it without restriction (as long as you follow its <a "
 "href='%(license_link)s'>license</a>)."
 msgstr ""
+"Vixipy 是自由开源的，意味着任何人都可以审计、贡献、修改或不受限制地使用它（"
+"只要您遵守其<a href='%(license_link)s'>许可协议</a>）。"
 
 #: vixipy/templates/settings/about.html:17
 msgid "How does it work?"
-msgstr ""
+msgstr "它是如何工作的？"
 
 #: vixipy/templates/settings/about.html:18
 msgid ""
@@ -837,24 +845,29 @@ msgid ""
 "you use public instances as all requests are handled server side, and "
 "blends in with other activities in the instance."
 msgstr ""
+"Vixipy 通过 pixiv 的 API "
+"获取内容，解析后通过自己的用户界面展示结果。如果您使用公共实例，您将完全匿名"
+"，因为所有请求都由服务端处理，并与实例中的其他活动融为一体。"
 
 #: vixipy/templates/settings/about.html:19
 msgid ""
 "Even if you log in, pixiv will only see you as if you are using their "
 "official UI, but without any tracking (the same behaviour if you use a "
 "content blocker such as uBlock Origin)"
-msgstr ""
+msgstr "即使您登录，pixiv 也只会认为您在使用他们的官方界面，但没有任何追踪（与使用 "
+"uBlock Origin 等内容拦截器时的行为相同）"
 
 #: vixipy/templates/settings/about.html:21
 msgid "How do I make it my own?"
-msgstr ""
+msgstr "如何创建自己的实例？"
 
 #: vixipy/templates/settings/about.html:22
 msgid ""
 "If you want to host your own for personal (if you are concerned about "
 "logs) or public use, you can self-host your own instance, fully within "
 "your control."
-msgstr ""
+msgstr "如果您出于个人（担心日志记录）或公共用途想要托管自己的实例，您可以自托管完全"
+"由您控制的实例。"
 
 #: vixipy/templates/settings/about.html:23
 msgid ""
@@ -863,25 +876,27 @@ msgid ""
 " as it can run Python 3.11 and above, and can compile Vixipy's native "
 "dependencies."
 msgstr ""
+"Vixipy 基本上可以在几乎所有平台和操作系统上运行（如 "
+"Windows、Linux、FreeBSD、Haiku、Android 等），只要它能运行 Python 3.11 "
+"及以上版本，并能编译 Vixipy 的本地依赖项。"
 
 #: vixipy/templates/settings/about.html:25
 #: vixipy/templates/settings/acknowledgements.html:2
 #: vixipy/templates/settings/acknowledgements.html:5
 msgid "Acknowledgements"
-msgstr ""
+msgstr "致谢"
 
 #: vixipy/templates/settings/acknowledgements.html:7
 msgid "Projects"
-msgstr ""
+msgstr "项目"
 
 #: vixipy/templates/settings/acknowledgements.html:8
 msgid "These projects and libraries help shape Vixipy:"
-msgstr ""
+msgstr "这些项目和库帮助塑造了 Vixipy："
 
 #: vixipy/templates/settings/acknowledgements.html:22
-#, fuzzy
 msgid "Translations"
-msgstr "插画"
+msgstr "翻译"
 
 #: vixipy/templates/settings/acknowledgements.html:23
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
@@ -1188,4 +1203,3 @@ msgstr "退出登录"
 
 #~ msgid "About"
 #~ msgstr "关于"
-
