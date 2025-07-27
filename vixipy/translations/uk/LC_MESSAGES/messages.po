@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-27 18:09+0800\n"
 "PO-Revision-Date: 2025-07-27 15:35+0000\n"
-"Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
 "Language: uk\n"
@@ -912,7 +912,7 @@ msgstr "Переклад"
 
 #: vixipy/templates/settings/acknowledgements.html:23
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
-msgstr ""
+msgstr "Перекласти Vixipy допомогли такі чудові люди (щиро дякуємо &lt;3):"
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
