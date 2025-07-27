@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-27 18:09+0800\n"
 "PO-Revision-Date: 2025-07-27 15:35+0000\n"
-"Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -900,7 +900,7 @@ msgstr "翻译"
 
 #: vixipy/templates/settings/acknowledgements.html:23
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
-msgstr ""
+msgstr "这些可爱的人帮助翻译了 Vixipy（非常感谢你们 &lt;3）："
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
