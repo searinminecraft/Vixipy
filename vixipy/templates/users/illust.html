@@ -6,8 +6,8 @@
 {% set page = request.args.get("p", 1)|int %}
 
 {% block c %}
-{% if il.illusts|length > 0 %}
 <h2>{{_("Illustrations")}}</h2>
+{% if il.illusts|length > 0 %}
 <div class="artwork-container">
     {% for x in il.illusts %}
     {{entry(x, true, false)}}
