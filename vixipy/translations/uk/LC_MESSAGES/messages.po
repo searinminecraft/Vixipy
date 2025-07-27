@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-27 18:09+0800\n"
-"PO-Revision-Date: 2025-07-27 15:35+0000\n"
-"Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"PO-Revision-Date: 2025-07-27 22:09+0000\n"
+"Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
 "Language: uk\n"
@@ -853,6 +853,10 @@ msgid ""
 "modify, or use it without restriction (as long as you follow its <a "
 "href='%(license_link)s'>license</a>)."
 msgstr ""
+"Vixipy — вільне програмне забезпечення з відкритим вихідним кодом, тобто "
+"будь-хто може його перевіряти, вносити зміни, модифікувати або "
+"використовувати без обмежень (за умови дотримання <a "
+"href='%(license_link)s'>ліцензії</a>)."
 
 #: vixipy/templates/settings/about.html:17
 msgid "How does it work?"
@@ -865,6 +869,10 @@ msgid ""
 "you use public instances as all requests are handled server side, and "
 "blends in with other activities in the instance."
 msgstr ""
+"Vixipy отримує контент за допомогою API pixiv, аналізує його та відображає "
+"результати через власний інтерфейс користувача. Ви залишаєтеся повністю "
+"анонімним, якщо використовуєте публічні екземпляри, оскільки всі запити "
+"обробляються на стороні сервера і змішуються з іншими діями на екземплярі."
 
 #: vixipy/templates/settings/about.html:19
 msgid ""
@@ -872,6 +880,9 @@ msgid ""
 "official UI, but without any tracking (the same behaviour if you use a "
 "content blocker such as uBlock Origin)"
 msgstr ""
+"Навіть якщо ввійти в систему, pixiv бачитиме вас так, ніби ви використовуєте "
+"їхній офіційний інтерфейс, але без будь-якого відстеження (така ж поведінка, "
+"як і при використанні блокувальників контенту, таких як uBlock Origin)"
 
 #: vixipy/templates/settings/about.html:21
 msgid "How do I make it my own?"
@@ -883,6 +894,9 @@ msgid ""
 "logs) or public use, you can self-host your own instance, fully within "
 "your control."
 msgstr ""
+"Якщо хочете власний екземпляр для особистого (якщо вас турбують журнали) або "
+"публічного користування, ви можете самостійно розгорнути його під повним "
+"своїм контролем."
 
 #: vixipy/templates/settings/about.html:23
 msgid ""
@@ -891,6 +905,10 @@ msgid ""
 " as it can run Python 3.11 and above, and can compile Vixipy's native "
 "dependencies."
 msgstr ""
+"Vixipy може працювати практично на будь-якій платформі та операційній "
+"системі (Windows, Linux, FreeBSD, Haiku, Android і багатьох інших) за умови, "
+"що вона може запускати Python 3.11 і вище, а також може скомпілювати власні "
+"залежності Vixipy."
 
 #: vixipy/templates/settings/about.html:25
 #: vixipy/templates/settings/acknowledgements.html:2
@@ -904,7 +922,7 @@ msgstr "Проєкти"
 
 #: vixipy/templates/settings/acknowledgements.html:8
 msgid "These projects and libraries help shape Vixipy:"
-msgstr "Vixipy створено завдяки використанню таких проєктів та бібліотек:"
+msgstr "Ці проєкти та бібліотеки допомагають формувати Vixipy:"
 
 #: vixipy/templates/settings/acknowledgements.html:22
 msgid "Translations"
@@ -912,7 +930,7 @@ msgstr "Переклад"
 
 #: vixipy/templates/settings/acknowledgements.html:23
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
-msgstr "Перекласти Vixipy допомогли такі чудові люди (щиро дякуємо &lt;3):"
+msgstr "Ці люди допомогли перекласти Vixipy (щиро дякуємо &lt;3):"
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
