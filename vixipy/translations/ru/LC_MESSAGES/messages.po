@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-26 18:30+0800\n"
-"PO-Revision-Date: 2025-07-03 13:08+0000\n"
-"Last-Translator: divergency <divergency@noreply.codeberg.org>\n"
+"PO-Revision-Date: 2025-07-27 07:32+0000\n"
+"Last-Translator: lainie <lainie@noreply.codeberg.org>\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/ru/>\n"
 "Language: ru\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/ru/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -37,76 +38,76 @@ msgstr ""
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
-msgstr "Следить"
+msgstr "Подписаться"
 
 #: vixipy/templates/artworks.html:44
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
-msgstr ""
+msgstr "Отписаться"
 
 #: vixipy/templates/artworks.html:49
 msgid "View all works"
-msgstr ""
+msgstr "Посмотреть все работы"
 
 #: vixipy/templates/artworks.html:74
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
-msgstr ""
+msgstr "Уровень Деликатности: %(sl)d"
 
 #: vixipy/templates/artworks.html:136
 msgid "Convert Ugoira"
-msgstr ""
+msgstr "Конвертировать Ugoira"
 
 #: vixipy/templates/artworks.html:146 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr ""
+msgstr "Связанные работы"
 
 #: vixipy/templates/artworks.html:154
 msgid "No recommended works to show."
-msgstr ""
+msgstr "Нет рекомендуемых работ."
 
 #: vixipy/templates/comments.html:2 vixipy/templates/comments.html:7
 #: vixipy/templates/replies.html:2
 msgid "Comments"
-msgstr ""
+msgstr "Комментарии"
 
 #: vixipy/templates/comments.html:17
 msgid "Post your comment"
-msgstr ""
+msgstr "Опубликовать ваш комментарий"
 
 #: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
 msgid "Send"
-msgstr ""
+msgstr "Отправить"
 
 #: vixipy/templates/comments.html:29
 msgid "Emojis and Stickers"
-msgstr ""
+msgstr "Эмодзи и Стикеры"
 
 #: vixipy/templates/comments.html:35
 msgid "Emojis"
-msgstr ""
+msgstr "Эмодзи"
 
 #: vixipy/templates/comments.html:44
 msgid "Stickers"
-msgstr ""
+msgstr "Стикеры"
 
 #: vixipy/templates/comments.html:71
 msgid "Sign in to post comments"
-msgstr ""
+msgstr "Войдите, чтобы публиковать комментарии"
 
 #: vixipy/templates/comments.html:89
 msgid "There is no comment yet"
-msgstr ""
+msgstr "Здесь пока нет комментариев"
 
 #: vixipy/templates/comments.html:100 vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
-msgstr ""
+msgstr "Странница%(page)d"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
-msgstr ""
+msgstr "Отредактировать профиль"
 
 #: vixipy/templates/edit_profile.html:8
 msgid "Profile images"
@@ -114,94 +115,94 @@ msgstr ""
 
 #: vixipy/templates/edit_profile.html:11
 msgid "Choose profile picture: "
-msgstr ""
+msgstr "Выберите аватар: "
 
 #: vixipy/templates/edit_profile.html:13
 msgid "Choose cover image: "
-msgstr ""
+msgstr "Выберите обложку для картинки: "
 
 #: vixipy/templates/edit_profile.html:19
 msgid "Max. 5MB"
-msgstr ""
+msgstr "Макс. 5MB"
 
 #: vixipy/templates/edit_profile.html:27
 msgid "Max. 8MB"
-msgstr ""
+msgstr "Макс. 8MB"
 
 #: vixipy/templates/edit_profile.html:32
 msgid "Nickname"
-msgstr ""
+msgstr "Псевдоним"
 
 #: vixipy/templates/edit_profile.html:36
 msgid "Self introduction"
-msgstr ""
+msgstr "О себе"
 
 #: vixipy/templates/edit_profile.html:40
 msgid "Website"
-msgstr ""
+msgstr "Вебсайт"
 
 #: vixipy/templates/edit_profile.html:44
 msgid "Social media"
-msgstr ""
+msgstr "Соц. сети"
 
 #: vixipy/templates/edit_profile.html:46
 msgid "Twitter/X ID"
-msgstr ""
+msgstr "Twitter/X ID"
 
 #: vixipy/templates/edit_profile.html:47
 msgid "Instagram ID"
-msgstr ""
+msgstr "Instagram ID"
 
 #: vixipy/templates/edit_profile.html:48
 msgid "Tumblr ID"
-msgstr ""
+msgstr "Tumblr ID"
 
 #: vixipy/templates/edit_profile.html:49
 msgid "Facebook ID"
-msgstr ""
+msgstr "Facebook ID"
 
 #: vixipy/templates/edit_profile.html:50
 msgid "Circle.ms ID"
-msgstr ""
+msgstr "Circle.ms ID"
 
 #: vixipy/templates/edit_profile.html:53
 msgid "Gender"
-msgstr ""
+msgstr "Пол"
 
 #: vixipy/templates/edit_profile.html:55
 msgid "Male"
-msgstr ""
+msgstr "Мужчина"
 
 #: vixipy/templates/edit_profile.html:56
 msgid "Female"
-msgstr ""
+msgstr "Женщина"
 
 #: vixipy/templates/edit_profile.html:57
 msgid "Rather not say"
-msgstr ""
+msgstr "Не хочу говорить"
 
 #: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
 #: vixipy/templates/edit_profile.html:82
 msgid "Public"
-msgstr ""
+msgstr "Публичный"
 
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
 #: vixipy/templates/edit_profile.html:83
 msgid "My pixiv only"
-msgstr ""
+msgstr "Только мой pixiv"
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
 #: vixipy/templates/edit_profile.html:84
 msgid "Private"
-msgstr ""
+msgstr "Приватный"
 
 #: vixipy/templates/edit_profile.html:66
 msgid "Birthday"
-msgstr ""
+msgstr "День рождения"
 
 #: vixipy/templates/edit_profile.html:72
 msgid "Birth year privacy"
-msgstr ""
+msgstr "Приватность года рождения"
 
 #: vixipy/templates/edit_profile.html:80
 msgid "Birthday privacy"
@@ -1112,4 +1113,3 @@ msgstr ""
 
 #~ msgid "Post"
 #~ msgstr ""
-
