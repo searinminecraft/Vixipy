@@ -33,7 +33,9 @@
                     img {
                         width: 100%;
                         object-fit: contain;
-                        min-width: 48px;
+                        min-height: 48px;
+                        max-height: 1200px;
+                        background-color: var(--md-sys-color-surface-container-low);
                     }
                 }
 

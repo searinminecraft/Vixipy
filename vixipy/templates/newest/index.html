@@ -10,7 +10,7 @@
 
 {% block content %}
 <input type="hidden" id="last_id" value="{{data.last_id}}">
-<main>
+<main class="large">
     <h2>{{_("New from All users")}}</h2>
     <div class="nav-controller">
         {%- set r18 = request.args.get("r18", "false") -%}

@@ -52,6 +52,6 @@ if __name__ == "__main__":
 
     if args.debug:
         app.before_serving(__bootstrapper)
-        app.run(debug=True)
+        app.run(debug=True, host="0.0.0.0")
     else:
         asyncio.run(main(args.binds))

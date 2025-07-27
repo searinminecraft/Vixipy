@@ -1,13 +1,22 @@
 @use 'mixins';
 
+:root {
+    --work-size: 170px
+}
+
+@media (min-width: 1920px) {
+    :root {
+        --work-size: 10vw;
+    }
+}
+
 .artwork-entry {
-    --size: 170px;
     &.small {
-        --size: 150px;
+        --work-size: 150px;
     }
 
-    max-width: var(--size);
-    min-width: var(--size);
+    max-width: var(--work-size);
+    min-width: var(--work-size);
 
     .img-container {
         position: relative;
@@ -65,8 +74,8 @@
         .blocker-overlay {
             position: absolute;
             top: 0;
-            width: var(--size);
-            height: var(--size);
+            width: var(--work-size);
+            height: var(--work-size);
             pointer-events: none;
 
             .blur {
@@ -78,8 +87,8 @@
         }
 
         img {
-            width: var(--size);
-            height: var(--size);
+            width: var(--work-size);
+            height: var(--work-size);
             object-fit: cover;
             object-position: top;
             background-color: var(--md-sys-color-surface-container-low);

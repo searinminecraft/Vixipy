@@ -5,7 +5,7 @@
 {% block content %}
 {% set mode = request.args.get("mode", "all") %}
 
-<main>
+<main class="large">
     <h2>{{_("Discovery")}}</h2>
     <nav class="tabs">
         <a {% if current == 'root' -%}

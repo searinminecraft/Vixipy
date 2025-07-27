@@ -108,3 +108,9 @@ hgroup {
         margin: unset;
     }
 }
+
+@media (min-width: 1920px) {
+    body > main.large {
+        max-width: 80vw !important;
+    }
+}
