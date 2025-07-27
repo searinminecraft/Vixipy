@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-27 18:09+0800\n"
-"PO-Revision-Date: 2025-07-26 11:48+0000\n"
+"PO-Revision-Date: 2025-07-27 15:35+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -794,7 +795,7 @@ msgstr "Не вдалося завантажити популярні теги."
 #: vixipy/templates/settings/about.html:5
 #: vixipy/templates/settings/index.html:19
 msgid "About Vixipy"
-msgstr ""
+msgstr "Про Vixipy"
 
 #: vixipy/templates/settings/about.html:6
 #, python-format
@@ -803,6 +804,10 @@ msgid ""
 " frontend, allowing you to view and enjoy works from pixiv distraction-"
 "free without unnecessary bloat and tracking."
 msgstr ""
+"Vixipy — вільний і відкритий альтернативний фронтенд для <a "
+"href='%(link)s'>pixiv</a>, який дає змогу переглядати і насолоджуватися "
+"роботами з pixiv без відстеження, відволікаючих факторів, без надмірного "
+"функціоналу."
 
 #: vixipy/templates/settings/about.html:7
 #, python-format
@@ -810,10 +815,12 @@ msgid ""
 "If you like our work, please consider <a href='%(link)s'>giving us a "
 "star</a> on Codeberg!"
 msgstr ""
+"Якщо вам подобається наша робота, будь ласка, <a href='%(link)s'>поставте "
+"нам зірку</a> на Codeberg!"
 
 #: vixipy/templates/settings/about.html:9
 msgid "Why use it?"
-msgstr ""
+msgstr "Чому варто його використовувати?"
 
 #: vixipy/templates/settings/about.html:11
 msgid ""
@@ -821,6 +828,9 @@ msgid ""
 "removed (including the ability to view original resolution artworks). No "
 "pixiv account required to access content."
 msgstr ""
+"Vixipy дозволяє анонімно переглядати pixiv без будь-яких обмежень (включно з "
+"можливістю перегляду ілюстрацій в оригінальній роздільності). Для доступу до "
+"контенту не потрібно мати обліковий запис pixiv."
 
 #: vixipy/templates/settings/about.html:12
 msgid ""
@@ -828,10 +838,13 @@ msgid ""
 "party server is made and all processing occurs server-side. No more "
 "Google Analytics tracking for every action!"
 msgstr ""
+"Vixipy виконує за вас усю роботу: не встановлюється підключення до pixiv чи "
+"будь-якого стороннього сервера, а вся обробка відбувається на стороні "
+"сервера. Жодного відстеження кожної дії в Google Analytics!"
 
 #: vixipy/templates/settings/about.html:13
 msgid "Vixipy offers a lightweight and fast experience without any distraction."
-msgstr ""
+msgstr "Vixipy надає легкий та швидкий інтерфейс, що не відвертає увагу."
 
 #: vixipy/templates/settings/about.html:14
 #, python-format
@@ -843,7 +856,7 @@ msgstr ""
 
 #: vixipy/templates/settings/about.html:17
 msgid "How does it work?"
-msgstr ""
+msgstr "Як це працює?"
 
 #: vixipy/templates/settings/about.html:18
 msgid ""
@@ -862,7 +875,7 @@ msgstr ""
 
 #: vixipy/templates/settings/about.html:21
 msgid "How do I make it my own?"
-msgstr ""
+msgstr "Як зробити це своїм?"
 
 #: vixipy/templates/settings/about.html:22
 msgid ""
@@ -883,20 +896,19 @@ msgstr ""
 #: vixipy/templates/settings/acknowledgements.html:2
 #: vixipy/templates/settings/acknowledgements.html:5
 msgid "Acknowledgements"
-msgstr ""
+msgstr "Подяка"
 
 #: vixipy/templates/settings/acknowledgements.html:7
 msgid "Projects"
-msgstr ""
+msgstr "Проєкти"
 
 #: vixipy/templates/settings/acknowledgements.html:8
 msgid "These projects and libraries help shape Vixipy:"
-msgstr ""
+msgstr "Vixipy створено завдяки використанню таких проєктів та бібліотек:"
 
 #: vixipy/templates/settings/acknowledgements.html:22
-#, fuzzy
 msgid "Translations"
-msgstr "Ілюстрації"
+msgstr "Переклад"
 
 #: vixipy/templates/settings/acknowledgements.html:23
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
@@ -1215,4 +1227,3 @@ msgstr "Вийти"
 
 #~ msgid "About"
 #~ msgstr "Про Vixipy"
-
