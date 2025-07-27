@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-26 18:30+0800\n"
+"POT-Creation-Date: 2025-07-27 18:09+0800\n"
 "PO-Revision-Date: 2025-07-26 19:09+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:49
@@ -792,6 +791,118 @@ msgstr "Mga Popular na Tag"
 msgid "Unable to load popular tags."
 msgstr "Hindi ma-load ang mga sikat na tag."
 
+#: vixipy/templates/settings/about.html:2
+#: vixipy/templates/settings/about.html:5
+#: vixipy/templates/settings/index.html:19
+msgid "About Vixipy"
+msgstr ""
+
+#: vixipy/templates/settings/about.html:6
+#, python-format
+msgid ""
+"Vixipy is a free and open source alternative <a href='%(link)s'>pixiv</a>"
+" frontend, allowing you to view and enjoy works from pixiv distraction-"
+"free without unnecessary bloat and tracking."
+msgstr ""
+
+#: vixipy/templates/settings/about.html:7
+#, python-format
+msgid ""
+"If you like our work, please consider <a href='%(link)s'>giving us a "
+"star</a> on Codeberg!"
+msgstr ""
+
+#: vixipy/templates/settings/about.html:9
+msgid "Why use it?"
+msgstr ""
+
+#: vixipy/templates/settings/about.html:11
+msgid ""
+"Vixipy allows you to browse pixiv anonymously with all restrictions "
+"removed (including the ability to view original resolution artworks). No "
+"pixiv account required to access content."
+msgstr ""
+
+#: vixipy/templates/settings/about.html:12
+msgid ""
+"Vixipy does all the work for you: no connection to pixiv or any third-"
+"party server is made and all processing occurs server-side. No more "
+"Google Analytics tracking for every action!"
+msgstr ""
+
+#: vixipy/templates/settings/about.html:13
+msgid "Vixipy offers a lightweight and fast experience without any distraction."
+msgstr ""
+
+#: vixipy/templates/settings/about.html:14
+#, python-format
+msgid ""
+"Vixipy is free and open source, meaning anyone can audit, contribute, "
+"modify, or use it without restriction (as long as you follow its <a "
+"href='%(license_link)s'>license</a>)."
+msgstr ""
+
+#: vixipy/templates/settings/about.html:17
+msgid "How does it work?"
+msgstr ""
+
+#: vixipy/templates/settings/about.html:18
+msgid ""
+"Vixipy retrieves content using pixiv's API, parses it, and displays the "
+"results through own user interface. You remain completely anonymous if "
+"you use public instances as all requests are handled server side, and "
+"blends in with other activities in the instance."
+msgstr ""
+
+#: vixipy/templates/settings/about.html:19
+msgid ""
+"Even if you log in, pixiv will only see you as if you are using their "
+"official UI, but without any tracking (the same behaviour if you use a "
+"content blocker such as uBlock Origin)"
+msgstr ""
+
+#: vixipy/templates/settings/about.html:21
+msgid "How do I make it my own?"
+msgstr ""
+
+#: vixipy/templates/settings/about.html:22
+msgid ""
+"If you want to host your own for personal (if you are concerned about "
+"logs) or public use, you can self-host your own instance, fully within "
+"your control."
+msgstr ""
+
+#: vixipy/templates/settings/about.html:23
+msgid ""
+"Vixipy can essentially run on almost any platform and operating system "
+"(such as Windows, Linux, FreeBSD, Haiku, Android, and many more), as long"
+" as it can run Python 3.11 and above, and can compile Vixipy's native "
+"dependencies."
+msgstr ""
+
+#: vixipy/templates/settings/about.html:25
+#: vixipy/templates/settings/acknowledgements.html:2
+#: vixipy/templates/settings/acknowledgements.html:5
+msgid "Acknowledgements"
+msgstr ""
+
+#: vixipy/templates/settings/acknowledgements.html:7
+msgid "Projects"
+msgstr ""
+
+#: vixipy/templates/settings/acknowledgements.html:8
+msgid "These projects and libraries help shape Vixipy:"
+msgstr ""
+
+#: vixipy/templates/settings/acknowledgements.html:22
+#, fuzzy
+msgid "Translations"
+msgstr "Mga Larawan"
+
+#: vixipy/templates/settings/acknowledgements.html:23
+msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
+msgstr ""
+
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
 #: vixipy/templates/settings/index.html:17
@@ -861,10 +972,6 @@ msgstr "Account"
 #: vixipy/templates/settings/language.html:6
 msgid "Language and location"
 msgstr "Wika at lokasyon"
-
-#: vixipy/templates/settings/index.html:19
-msgid "About"
-msgstr "Tungkol sa"
 
 #: vixipy/templates/settings/language.html:9
 msgid "Language"
@@ -1111,3 +1218,7 @@ msgstr "Mag-log out"
 
 #~ msgid "Post"
 #~ msgstr "I-post"
+
+#~ msgid "About"
+#~ msgstr "Tungkol sa"
+
