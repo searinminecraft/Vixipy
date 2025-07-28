@@ -8,6 +8,9 @@ Vixipy can be configured by creating `config.py` in the `instance` folder (recom
 >
 > If using environment variables, boolean values should be their integer counterparts (`0 = False`, `1 = True`) and list values should be a string separated with a `,` without a space (example: `Monika,Natsuki,Sayori,Yuri`).
 
+> [!WARN]
+> When using multiple tokens, make sure their settings (region, display settings, etc.) are the same! Otherwise, some issues may occur.
+
 | Name | Description | Type | Default Value |
 |-|-|-|-|
 | ACCEPT_LANGUAGE | Defines the [`Accept-Language`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Language) header. | string | `en_US,en;q=0.9` |
