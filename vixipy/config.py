@@ -34,6 +34,12 @@ def convert_config(app: Quart):
         app.config["LOG_HTTP"] = False
 
     try:
+        app.config["COMPRESS_RESPONSE"] = bool(int(app.config["COMPRESS_RESPONSE"]))
+    except Exception:
+        app.config["COMPRESS_RESPONSE"] = False
+
+
+    try:
         app.config["CACHE_PIXIV_REQUESTS"] = bool(
             int(app.config["CACHE_PIXIV_REQUESTS"])
         )

@@ -119,6 +119,7 @@ def create_app():
         PIXIV_DIRECT_CONNECTION="0",
         ACQUIRE_SESSION="0",
         QUART_RATE_LIMITER_ENABLED=False,
+        COMPRESS_RESPONSE=True,
         DEFAULT_THEMES=[
             "red",
             "orange",
@@ -154,7 +155,10 @@ def create_app():
 
         return request.accept_languages.best_match(app.config["LANGUAGES"])
 
-    babel = Babel(app, locale_selector=get_user_language)
+    Babel(app, locale_selector=get_user_language)
+    if app.config["COMPRESS_RESPONSE"]:
+        from quart_compress import Compress
+        Compress(app)
 
     app.register_blueprint(index)
     app.register_blueprint(proxy)
