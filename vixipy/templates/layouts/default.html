@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html{% if request.cookies["Vixipy-Language"] %} lang="{{request.cookies["Vixipy-Language"]}}"{% endif %}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

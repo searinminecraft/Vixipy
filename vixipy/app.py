@@ -32,6 +32,7 @@ from .routes import (
     monet,
     rankings,
     newest,
+    jump,
 )
 from . import (
     cache_client,
@@ -178,6 +179,7 @@ def create_app():
     app.register_blueprint(monet)
     app.register_blueprint(rankings)
     app.register_blueprint(newest)
+    app.register_blueprint(jump)
 
     # =================================
     if app.config["LOG_HTTP"]:
