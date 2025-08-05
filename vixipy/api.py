@@ -189,6 +189,10 @@ async def pixiv_request(
             int(current_app.config["CACHE_TTL"]),
         )
 
+    done_time = (time.perf_counter() - req_start) * 1000
+
+    log.info("[done] [%dms] [%s]", done_time, endpoint)
+
     return res
 
 
