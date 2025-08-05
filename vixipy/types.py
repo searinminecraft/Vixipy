@@ -195,9 +195,7 @@ class RankingData:
         self.contents: list[RankingEntry] = []
 
         for x in d["contents"]:
-            self.contents.append(
-                RankingEntry(x)
-            )
+            self.contents.append(RankingEntry(x))
 
 
 class NovelBase:
@@ -352,7 +350,7 @@ class TagTranslation:
         self.zh: Optional[str] = blank_to_none(d.get("zh"))
         self.zh_tw: Optional[str] = blank_to_none(d.get("zh_tw"))
         self.romaji: Optional[str] = blank_to_none(d.get("romaji"))
-    
+
     @property
     def default(self):
         pref = request.cookies.get("Vixipy-Language", "en") or "en"
@@ -369,6 +367,7 @@ class TagTranslation:
         if pref == "zh_Hant":
             return self.zh_tw or self.orig
         return self.en or self.romaji or self.orig
+
 
 class RecommendByTag:
     def __init__(
@@ -545,6 +544,7 @@ class CommentBaseResponse:
     def __init__(self, comments: list[Comment], has_next: bool):
         self.comments: list[Comment] = comments
         self.has_next: bool = has_next
+
 
 class NewIllustResponse:
     def __init__(self, d):

@@ -6,28 +6,31 @@ from hypercorn.asyncio import serve
 from . import app, __copyright__
 from .bootstrap import bootstrap
 
+
 class _Arguments:
     debug: bool
     binds: list[str]
     version: bool
 
+
 async def __bootstrapper():
     await bootstrap(app)
 
+
 async def main(bind: list[str]):
-    config = Config.from_mapping(
-        include_server_header=False,
-        bind=bind
-    )
+    config = Config.from_mapping(include_server_header=False, bind=bind)
 
     await bootstrap(app)
     await serve(app, config)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Yet another feature rich pixiv frontend"
     )
-    parser.add_argument("--debug", action="store_true", help="Run quart application in debug mode")
+    parser.add_argument(
+        "--debug", action="store_true", help="Run quart application in debug mode"
+    )
     parser.add_argument(
         "-b",
         "--bind",

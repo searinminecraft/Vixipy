@@ -10,6 +10,7 @@ from datetime import datetime
 
 bp = Blueprint("notifications", __name__)
 
+
 class Notification:
     def __init__(self, d):
         self.type: str = d["type"]
@@ -19,6 +20,7 @@ class Notification:
         self.target_blank: bool = d["targetBlank"]
         self.content: str = d["content"]
         self.unread: bool = bool(d["unread"])
+
 
 @bp.route("/self/notifications")
 @require_login

@@ -36,7 +36,7 @@ SCMAPPING = {
     "monochrome": SchemeMonochrome,
     "neutral": SchemeNeutral,
     "rainbow": SchemeRainbow,
-    "vibrant": SchemeVibrant
+    "vibrant": SchemeVibrant,
 }
 CMAPPING = {
     "background": "background",
@@ -90,6 +90,7 @@ CMAPPING = {
     "on-tertiary-fixed-variant": "onTertiaryFixedVariant",
 }
 
+
 def get(p: str, s: SchemeTonalSpot):
     pr = getattr(MaterialDynamicColors, p)
     res = pr.get_hct(s).to_rgba()
@@ -116,11 +117,11 @@ def get_scheme(data: bytes, scheme: str = "tonal_spot"):
 
     end = start = time.perf_counter()
 
-    log.debug("Color generation took %dms", (end-start)*1000)
+    log.debug("Color generation took %dms", (end - start) * 1000)
 
     return {
         "dark": {x: get(y, dark) for x, y in CMAPPING.items()},
-        "light": {x: get(y, light) for x, y in CMAPPING.items()}
+        "light": {x: get(y, light) for x, y in CMAPPING.items()},
     }
 
 
@@ -132,7 +133,7 @@ def get_scheme_from_color(color: str, scheme: str = "tonal_spot"):
 
     return {
         "dark": {x: get(y, dark) for x, y in CMAPPING.items()},
-        "light": {x: get(y, light) for x, y in CMAPPING.items()}
+        "light": {x: get(y, light) for x, y in CMAPPING.items()},
     }
 
 
@@ -147,19 +148,15 @@ def get_scheme_css(data: bytes, scheme: str = "tonal_spot"):
         res_l += f"  --md-sys-color-{x}: {y};\n"
 
     return (
-        ":root {\n"
-        + res_l +
-        "}\n"
+        ":root {\n" + res_l + "}\n"
         "\n"
         "@media (prefers-color-scheme: dark) {\n"
-        ":root {\n"
-        + res_d +
-        "}\n"
+        ":root {\n" + res_d + "}\n"
         "\n"
     )
 
 
-async def scheme_from_url(url: str, css=True, scheme: str="tonal_spot"):
+async def scheme_from_url(url: str, css=True, scheme: str = "tonal_spot"):
     """Generates a color scheme from an image URL"""
 
     log.debug("Generate color scheme from URL: %s", url)
@@ -172,13 +169,8 @@ async def scheme_from_url(url: str, css=True, scheme: str="tonal_spot"):
     r.close()
     end = time.perf_counter()
 
-    log.debug("Image retrieval took %dms", (end-start)*1000)
+    log.debug("Image retrieval took %dms", (end - start) * 1000)
 
     fn = get_scheme_css if css else get_scheme
 
-    return await asyncio.get_running_loop().run_in_executor(
-        None,
-        fn,
-        data,
-        scheme
-    )
+    return await asyncio.get_running_loop().run_in_executor(None, fn, data, scheme)

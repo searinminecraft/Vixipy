@@ -205,7 +205,4 @@ async def _get_new_works():
                 "alt": x.alt,
             }
         )
-    return make_json_response(body={
-        "last_id": data.last_id,
-        "illusts": illusts
-    })
+    return make_json_response(body={"last_id": data.last_id, "illusts": illusts})

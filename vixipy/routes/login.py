@@ -100,5 +100,8 @@ async def login_page():
         return res
 
     background = random.choice(LOGIN_PAGE_BACKGROUNDS)
-    id = re.search(r"https:\/\/i\.pximg\.net\/c\/540x540_70\/img-master\/img\/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/(\d+)_p\d+_master1200\.jpg", background).group(1)
+    id = re.search(
+        r"https:\/\/i\.pximg\.net\/c\/540x540_70\/img-master\/img\/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/(\d+)_p\d+_master1200\.jpg",
+        background,
+    ).group(1)
     return await render_template("login.html", bg=proxy(background), id=id)

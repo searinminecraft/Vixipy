@@ -16,4 +16,3 @@ async def main():
         abort(400)
 
     return await render_template("leave.html", url=dest)
-

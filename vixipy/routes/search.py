@@ -29,10 +29,7 @@ bp = Blueprint("search", __name__)
 log = logging.getLogger("vixipy.routes.search")
 limit_blueprint(
     bp,
-    limits=[
-        RateLimit(1, timedelta(seconds=1)),
-        RateLimit(10, timedelta(seconds=30))
-    ]
+    limits=[RateLimit(1, timedelta(seconds=1)), RateLimit(10, timedelta(seconds=30))],
 )
 
 
@@ -180,7 +177,9 @@ async def search_dashboard():
     for _pit in data["recommendTags"]["illust"]:
         recommend_tags.append(
             RecommendTag(
-                _pit, _illusts[int(random.choice(_pit["ids"]))], _translations.get(_pit["tag"])
+                _pit,
+                _illusts[int(random.choice(_pit["ids"]))],
+                _translations.get(_pit["tag"]),
             )
         )
 

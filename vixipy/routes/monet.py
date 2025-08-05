@@ -17,6 +17,7 @@ if TYPE_CHECKING:
 
 bp = Blueprint("monet", __name__)
 
+
 @bp.route("/material-you", methods=("GET", "POST"))
 async def color_preview():
     _method = request.args.get("method", "color")
@@ -40,14 +41,10 @@ async def color_preview():
         res_l += f"  --md-sys-color-{x}: {y};\n"
 
     css = (
-        ":root {\n"
-        + res_l +
-        "}\n"
+        ":root {\n" + res_l + "}\n"
         "\n"
         "@media (prefers-color-scheme: dark) {\n"
-        ":root {\n"
-        + res_d +
-        "}\n"
+        ":root {\n" + res_d + "}\n"
         "}\n"
         "\n"
     )

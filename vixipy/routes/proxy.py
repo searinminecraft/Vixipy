@@ -16,7 +16,9 @@ log = logging.getLogger("vixipy.routes.proxy")
 
 @bp.errorhandler(Exception)
 async def handle_exception(e: Exception):
-    log.exception("Exception occurred while proxying %s", request.path.removeprefix("/proxy"))
+    log.exception(
+        "Exception occurred while proxying %s", request.path.removeprefix("/proxy")
+    )
     err = traceback.format_exc()
     return (
         f"""
@@ -98,7 +100,7 @@ async def perform_proxy_request(url: str):
 async def get_3rdparty_profile_image(platform, username):
     platform_mapping = {
         "github": "https://github.com/%s.png",
-        "codeberg": "https://codeberg.org/%s.png"
+        "codeberg": "https://codeberg.org/%s.png",
     }
 
     if platform not in platform_mapping:
@@ -106,7 +108,9 @@ async def get_3rdparty_profile_image(platform, username):
 
     response_headers = {"Cache-Control": "max-age=31536000"}
 
-    r: ClientResponse = await current_app.content_proxy.get(platform_mapping[platform] % username)
+    r: ClientResponse = await current_app.content_proxy.get(
+        platform_mapping[platform] % username
+    )
     r.raise_for_status()
 
     response_headers["Content-Type"] = r.headers["Content-Type"]

@@ -11,6 +11,7 @@ if TYPE_CHECKING:
 
 log = logging.getLogger("vixipy.bootstrap")
 
+
 def init_logger(app: Quart):
     if app.config["DEBUG"]:
         loglevel = logging.DEBUG
@@ -122,18 +123,14 @@ async def credential_init(app: Quart):
                         "", allow_redirects=True, server_hostname="www.pixiv.net"
                     )
                 else:
-                    r: ClientResponse = await app.pixiv.head(
-                        "", allow_redirects=True
-                    )
+                    r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
                 r.raise_for_status()
                 if phpsessid := r.cookies.get("PHPSESSID"):
                     log.info("Got initial PHPSESSID: %s", phpsessid.value)
                     t_res = phpsessid.value
                 else:
                     log.warn("Failed to get PHPSESSID from pixiv. Using random.")
-                    t_res = "".join(
-                        [chr(random.randint(97, 122)) for _ in range(33)]
-                    )
+                    t_res = "".join([chr(random.randint(97, 122)) for _ in range(33)])
                 app.tokens.append(
                     {
                         "token": t_res,
@@ -207,9 +204,9 @@ async def credential_init(app: Quart):
         if len(app.tokens) == 0:
             raise RuntimeError("No tokens to use.")
 
+
 async def bootstrap(app: Quart):
     init_logger(app)
     await init_clientsession(app)
     await credential_init(app)
     init_msg(app)
-

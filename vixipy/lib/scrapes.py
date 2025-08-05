@@ -14,6 +14,7 @@ if TYPE_CHECKING:
 
 log = logging.getLogger("vixipy.lib.scrapes")
 
+
 class CalendarEntry:
     def __init__(self, active, day, date, img, args, locked):
         self.active = active
@@ -22,7 +23,7 @@ class CalendarEntry:
         self.img = img
         self.args = args
         self.locked = locked
-    
+
     def __repr__(self):
         return (
             "<CalendarEntry "
@@ -81,7 +82,7 @@ def parse_ranking_calendar(response: str) -> list[list[CalendarEntry]]:
                 __img = None
 
             __locked = True if x.find("svg") else False
-            
+
             if __url_elem := x.find("a"):
                 __url_elem: Tag
 
@@ -134,6 +135,7 @@ async def get_ranking_calendar(
     log.debug(res)
     return res
 
+
 def parse_tags_page(response: str):
     s = BeautifulSoup(response, "html.parser")
     res: list[PopularTag] = []
@@ -148,9 +150,12 @@ def parse_tags_page(response: str):
     return res
 
 
-async def get_popular_tags(novel = False):
+async def get_popular_tags(novel=False):
     params = [("type", "novel")] if novel else []
-    res = await pixiv_request("/tags", expect_json=False, touch=True, params=params, ignore_language=True)
-    data: list[PopularTag] = await asyncio.get_running_loop().run_in_executor(None, parse_tags_page, res)
+    res = await pixiv_request(
+        "/tags", expect_json=False, touch=True, params=params, ignore_language=True
+    )
+    data: list[PopularTag] = await asyncio.get_running_loop().run_in_executor(
+        None, parse_tags_page, res
+    )
     return data
-

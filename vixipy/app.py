@@ -159,6 +159,7 @@ def create_app():
     Babel(app, locale_selector=get_user_language)
     if app.config["COMPRESS_RESPONSE"]:
         from quart_compress import Compress
+
         Compress(app)
 
     app.register_blueprint(index)

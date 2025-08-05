@@ -206,6 +206,7 @@ async def post_stamp():
 
     return redirect(url_for("artworks.get_comments", id=int(illust_id)))
 
+
 @bp.get("/self/logout")
 async def logout():
     r = await make_response(redirect("/"))
