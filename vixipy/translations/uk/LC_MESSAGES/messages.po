@@ -7,19 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-27 18:09+0800\n"
+"POT-Creation-Date: 2025-07-31 14:57+0800\n"
 "PO-Revision-Date: 2025-07-27 22:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.12.2\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
@@ -255,7 +254,7 @@ msgstr ""
 "Рекомендовані ілюстрації з тегом <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:41
+#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:43
 msgid "Newest by all"
 msgstr "Нове від усіх"
 
@@ -283,8 +282,25 @@ msgstr ""
 "Виникла невідома помилка. Якщо ви гадаєте, що це недолік, надішліть звіт "
 "про помилку <a href='%(link)s'>сюди</a>"
 
+#: vixipy/templates/leave.html:4
+msgid "You are about to leave Vixipy."
+msgstr ""
+
+#: vixipy/templates/leave.html:5
+#, python-format
+msgid "Continuing will direct you to %(url)s"
+msgstr ""
+
+#: vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr ""
+
+#: vixipy/templates/leave.html:8
+msgid "Continue to site"
+msgstr ""
+
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:26
-#: vixipy/templates/users/dashboard.html:48
+#: vixipy/templates/users/dashboard.html:50
 msgid "Sign in"
 msgstr "Увійти"
 
@@ -319,7 +335,7 @@ msgstr ""
 "неможливий через обов'язкову перевірку reCAPTCHA."
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:61
+#: vixipy/templates/users/dashboard.html:63
 msgid "Material You Generator"
 msgstr "Генератор Material You"
 
@@ -657,7 +673,7 @@ msgstr "Нове від усіх користувачів"
 #: vixipy/templates/newest/index.html:22 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:10
+#: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr "Ілюстрації"
 
@@ -783,7 +799,7 @@ msgstr "Ілюстрації і манґа"
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:55
+#: vixipy/templates/users/dashboard.html:57
 msgid "Popular Tags"
 msgstr "Популярні теги"
 
@@ -815,8 +831,8 @@ msgid ""
 "If you like our work, please consider <a href='%(link)s'>giving us a "
 "star</a> on Codeberg!"
 msgstr ""
-"Якщо вам подобається наша робота, будь ласка, <a href='%(link)s'>поставте "
-"нам зірку</a> на Codeberg!"
+"Якщо вам подобається наша робота, будь ласка, <a href='%(link)s'>поставте"
+" нам зірку</a> на Codeberg!"
 
 #: vixipy/templates/settings/about.html:9
 msgid "Why use it?"
@@ -828,9 +844,9 @@ msgid ""
 "removed (including the ability to view original resolution artworks). No "
 "pixiv account required to access content."
 msgstr ""
-"Vixipy дозволяє анонімно переглядати pixiv без будь-яких обмежень (включно з "
-"можливістю перегляду ілюстрацій в оригінальній роздільності). Для доступу до "
-"контенту не потрібно мати обліковий запис pixiv."
+"Vixipy дозволяє анонімно переглядати pixiv без будь-яких обмежень "
+"(включно з можливістю перегляду ілюстрацій в оригінальній роздільності). "
+"Для доступу до контенту не потрібно мати обліковий запис pixiv."
 
 #: vixipy/templates/settings/about.html:12
 msgid ""
@@ -838,8 +854,8 @@ msgid ""
 "party server is made and all processing occurs server-side. No more "
 "Google Analytics tracking for every action!"
 msgstr ""
-"Vixipy виконує за вас усю роботу: не встановлюється підключення до pixiv чи "
-"будь-якого стороннього сервера, а вся обробка відбувається на стороні "
+"Vixipy виконує за вас усю роботу: не встановлюється підключення до pixiv "
+"чи будь-якого стороннього сервера, а вся обробка відбувається на стороні "
 "сервера. Жодного відстеження кожної дії в Google Analytics!"
 
 #: vixipy/templates/settings/about.html:13
@@ -869,10 +885,11 @@ msgid ""
 "you use public instances as all requests are handled server side, and "
 "blends in with other activities in the instance."
 msgstr ""
-"Vixipy отримує контент за допомогою API pixiv, аналізує його та відображає "
-"результати через власний інтерфейс користувача. Ви залишаєтеся повністю "
-"анонімним, якщо використовуєте публічні екземпляри, оскільки всі запити "
-"обробляються на стороні сервера і змішуються з іншими діями на екземплярі."
+"Vixipy отримує контент за допомогою API pixiv, аналізує його та "
+"відображає результати через власний інтерфейс користувача. Ви залишаєтеся"
+" повністю анонімним, якщо використовуєте публічні екземпляри, оскільки "
+"всі запити обробляються на стороні сервера і змішуються з іншими діями на"
+" екземплярі."
 
 #: vixipy/templates/settings/about.html:19
 msgid ""
@@ -880,9 +897,10 @@ msgid ""
 "official UI, but without any tracking (the same behaviour if you use a "
 "content blocker such as uBlock Origin)"
 msgstr ""
-"Навіть якщо ввійти в систему, pixiv бачитиме вас так, ніби ви використовуєте "
-"їхній офіційний інтерфейс, але без будь-якого відстеження (така ж поведінка, "
-"як і при використанні блокувальників контенту, таких як uBlock Origin)"
+"Навіть якщо ввійти в систему, pixiv бачитиме вас так, ніби ви "
+"використовуєте їхній офіційний інтерфейс, але без будь-якого відстеження "
+"(така ж поведінка, як і при використанні блокувальників контенту, таких "
+"як uBlock Origin)"
 
 #: vixipy/templates/settings/about.html:21
 msgid "How do I make it my own?"
@@ -894,9 +912,9 @@ msgid ""
 "logs) or public use, you can self-host your own instance, fully within "
 "your control."
 msgstr ""
-"Якщо хочете власний екземпляр для особистого (якщо вас турбують журнали) або "
-"публічного користування, ви можете самостійно розгорнути його під повним "
-"своїм контролем."
+"Якщо хочете власний екземпляр для особистого (якщо вас турбують журнали) "
+"або публічного користування, ви можете самостійно розгорнути його під "
+"повним своїм контролем."
 
 #: vixipy/templates/settings/about.html:23
 msgid ""
@@ -906,9 +924,9 @@ msgid ""
 "dependencies."
 msgstr ""
 "Vixipy може працювати практично на будь-якій платформі та операційній "
-"системі (Windows, Linux, FreeBSD, Haiku, Android і багатьох інших) за умови, "
-"що вона може запускати Python 3.11 і вище, а також може скомпілювати власні "
-"залежності Vixipy."
+"системі (Windows, Linux, FreeBSD, Haiku, Android і багатьох інших) за "
+"умови, що вона може запускати Python 3.11 і вище, а також може "
+"скомпілювати власні залежності Vixipy."
 
 #: vixipy/templates/settings/about.html:25
 #: vixipy/templates/settings/acknowledgements.html:2
@@ -981,7 +999,7 @@ msgstr "Відображення"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:67
+#: vixipy/templates/users/dashboard.html:69
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -1099,7 +1117,7 @@ msgid "Edit Profile"
 msgstr "Редагувати профіль"
 
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
-#: vixipy/templates/users/dashboard.html:35
+#: vixipy/templates/users/dashboard.html:37
 msgid "Bookmarks"
 msgstr "Закладки"
 
@@ -1121,7 +1139,7 @@ msgstr "Бажаєте вийти?"
 msgid "Followers"
 msgstr "Cтежать"
 
-#: vixipy/templates/users/dashboard.html:21
+#: vixipy/templates/users/dashboard.html:22
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
@@ -1129,19 +1147,19 @@ msgstr ""
 "<b>Ви не ввійшли в систему.</b> Увійдіть у свій обліковий запис pixiv, "
 "щоб скористатися всіма можливостями Vixipy."
 
-#: vixipy/templates/users/dashboard.html:29
+#: vixipy/templates/users/dashboard.html:31
 msgid "Your profile"
 msgstr "Ваш профіль"
 
-#: vixipy/templates/users/dashboard.html:73
+#: vixipy/templates/users/dashboard.html:75
 msgid "Send Feedback"
 msgstr "Зворотний зв'язок"
 
-#: vixipy/templates/users/dashboard.html:79
+#: vixipy/templates/users/dashboard.html:81
 msgid "Source Code"
 msgstr "Вихідний код"
 
-#: vixipy/templates/users/dashboard.html:86
+#: vixipy/templates/users/dashboard.html:88
 msgid "Log out"
 msgstr "Вийти"
 
@@ -1245,3 +1263,4 @@ msgstr "Вийти"
 
 #~ msgid "About"
 #~ msgstr "Про Vixipy"
+

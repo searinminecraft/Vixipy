@@ -7,19 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-27 18:09+0800\n"
+"POT-Creation-Date: 2025-07-31 14:57+0800\n"
 "PO-Revision-Date: 2025-07-27 15:35+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
+" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 5.12.2\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
@@ -255,7 +254,7 @@ msgstr ""
 "Mga inirerekomendang illustration na naka-tag na <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:41
+#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:43
 msgid "Newest by all"
 msgstr "Pinakabago mula sa lahat"
 
@@ -283,8 +282,25 @@ msgstr ""
 "May unhandled na exception na nangyari. Kung sa tingin mo ay isa itong "
 "bug, mag-file ng ulat <a href='%(link)s'>dito</a>"
 
+#: vixipy/templates/leave.html:4
+msgid "You are about to leave Vixipy."
+msgstr ""
+
+#: vixipy/templates/leave.html:5
+#, python-format
+msgid "Continuing will direct you to %(url)s"
+msgstr ""
+
+#: vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr ""
+
+#: vixipy/templates/leave.html:8
+msgid "Continue to site"
+msgstr ""
+
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:26
-#: vixipy/templates/users/dashboard.html:48
+#: vixipy/templates/users/dashboard.html:50
 msgid "Sign in"
 msgstr "Mag-sign in"
 
@@ -319,7 +335,7 @@ msgstr ""
 "dahil sa kinakailangan sa pagpapatunay ng reCAPTCHA enterprise."
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:61
+#: vixipy/templates/users/dashboard.html:63
 msgid "Material You Generator"
 msgstr "Material You Generator"
 
@@ -658,7 +674,7 @@ msgstr "Pinakabago mula sa lahat ng mga user"
 #: vixipy/templates/newest/index.html:22 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:10
+#: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr "Mga Larawan"
 
@@ -784,7 +800,7 @@ msgstr "Mga Larawan at Manga"
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:55
+#: vixipy/templates/users/dashboard.html:57
 msgid "Popular Tags"
 msgstr "Mga Popular na Tag"
 
@@ -816,8 +832,8 @@ msgid ""
 "If you like our work, please consider <a href='%(link)s'>giving us a "
 "star</a> on Codeberg!"
 msgstr ""
-"Kung gusto mo ang aming gawa, mangyaring isaalang-alang na <a href='%(link)"
-"s'>bigyan kami ng isang bitwin</a> sa Codeberg!"
+"Kung gusto mo ang aming gawa, mangyaring isaalang-alang na <a "
+"href='%(link)s'>bigyan kami ng isang bitwin</a> sa Codeberg!"
 
 #: vixipy/templates/settings/about.html:9
 msgid "Why use it?"
@@ -831,8 +847,8 @@ msgid ""
 msgstr ""
 "Binibigyang-daan ka ng Vixipy na mag-browse ng pixiv nang hindi "
 "nagpapakilala sa lahat at inalis ang mga paghihigpit (kabilang ang "
-"kakayahang tingnan ang orihinal na resolution ng mga likhang sining). Walang "
-"kinakailangang pixiv account para ma-access ang content."
+"kakayahang tingnan ang orihinal na resolution ng mga likhang sining). "
+"Walang kinakailangang pixiv account para ma-access ang content."
 
 #: vixipy/templates/settings/about.html:12
 msgid ""
@@ -841,9 +857,9 @@ msgid ""
 "Google Analytics tracking for every action!"
 msgstr ""
 "Ginagawa ng Vixipy ang lahat ng trabaho para sa iyo: walang koneksyon sa "
-"pixiv o anumang third-party na server ang ginawa at lahat ng pagproseso ay "
-"nangyayari sa panig ng server. Wala nang pagsubaybay ng Google Analytics "
-"para sa bawat pagkilos!"
+"pixiv o anumang third-party na server ang ginawa at lahat ng pagproseso "
+"ay nangyayari sa panig ng server. Wala nang pagsubaybay ng Google "
+"Analytics para sa bawat pagkilos!"
 
 #: vixipy/templates/settings/about.html:13
 msgid "Vixipy offers a lightweight and fast experience without any distraction."
@@ -858,9 +874,9 @@ msgid ""
 "modify, or use it without restriction (as long as you follow its <a "
 "href='%(license_link)s'>license</a>)."
 msgstr ""
-"Ang Vixipy ay libre at open source, ibig sabihin, kahit sino ay maaaring mag-"
-"audit, mag-ambag, magbago, o gumamit nito nang walang paghihigpit (<a "
-"href='%(license_link)s'>hangga't sinusunod mo ang lisensya nito</a>)."
+"Ang Vixipy ay libre at open source, ibig sabihin, kahit sino ay maaaring "
+"mag-audit, mag-ambag, magbago, o gumamit nito nang walang paghihigpit (<a"
+" href='%(license_link)s'>hangga't sinusunod mo ang lisensya nito</a>)."
 
 #: vixipy/templates/settings/about.html:17
 msgid "How does it work?"
@@ -873,11 +889,12 @@ msgid ""
 "you use public instances as all requests are handled server side, and "
 "blends in with other activities in the instance."
 msgstr ""
-"Kinukuha ng Vixipy ang nilalaman gamit ang API ng pixiv, pinapa-parse ito, "
-"at ipinapakita ang mga resulta sa pamamagitan ng sariling user interface. "
-"Mananatili kang ganap na anonymous kung gagamit ka ng mga pampublikong "
-"instance dahil ang lahat ng mga kahilingan ay pinangangasiwaan sa panig ng "
-"server, at sumasama sa iba pang mga aktibidad sa instance."
+"Kinukuha ng Vixipy ang nilalaman gamit ang API ng pixiv, pinapa-parse "
+"ito, at ipinapakita ang mga resulta sa pamamagitan ng sariling user "
+"interface. Mananatili kang ganap na anonymous kung gagamit ka ng mga "
+"pampublikong instance dahil ang lahat ng mga kahilingan ay "
+"pinangangasiwaan sa panig ng server, at sumasama sa iba pang mga "
+"aktibidad sa instance."
 
 #: vixipy/templates/settings/about.html:19
 msgid ""
@@ -885,9 +902,9 @@ msgid ""
 "official UI, but without any tracking (the same behaviour if you use a "
 "content blocker such as uBlock Origin)"
 msgstr ""
-"Kahit na mag-log in ka, makikita ka lang ng pixiv na parang ginagamit mo ang "
-"kanilang opisyal na UI, ngunit walang anumang pagsubaybay (kaparehong gawi "
-"kung gumagamit ka ng content blocker gaya ng uBlock Origin)"
+"Kahit na mag-log in ka, makikita ka lang ng pixiv na parang ginagamit mo "
+"ang kanilang opisyal na UI, ngunit walang anumang pagsubaybay (kaparehong"
+" gawi kung gumagamit ka ng content blocker gaya ng uBlock Origin)"
 
 #: vixipy/templates/settings/about.html:21
 msgid "How do I make it my own?"
@@ -899,9 +916,9 @@ msgid ""
 "logs) or public use, you can self-host your own instance, fully within "
 "your control."
 msgstr ""
-"Kung gusto mong mag-host ng iyong sarili para sa personal (kung nag-aalala "
-"ka tungkol sa mga log) o pampublikong paggamit, maaari mong i-host ang "
-"sarili mong instance, ganap na nasa iyong kontrol."
+"Kung gusto mong mag-host ng iyong sarili para sa personal (kung nag-"
+"aalala ka tungkol sa mga log) o pampublikong paggamit, maaari mong i-host"
+" ang sarili mong instance, ganap na nasa iyong kontrol."
 
 #: vixipy/templates/settings/about.html:23
 msgid ""
@@ -910,8 +927,8 @@ msgid ""
 " as it can run Python 3.11 and above, and can compile Vixipy's native "
 "dependencies."
 msgstr ""
-"Maaaring tumakbo ang Vixipy sa halos anumang platform at operating system ("
-"tulad ng Windows, Linux, FreeBSD, Haiku, Android, at marami pang iba), "
+"Maaaring tumakbo ang Vixipy sa halos anumang platform at operating system"
+" (tulad ng Windows, Linux, FreeBSD, Haiku, Android, at marami pang iba), "
 "hangga't maaari nitong patakbuhin ang Python 3.11 at mas bago, at mai-"
 "compile ang mga native na dependency ng Vixipy."
 
@@ -935,8 +952,7 @@ msgstr "Mga pagsasalin"
 
 #: vixipy/templates/settings/acknowledgements.html:23
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
-msgstr ""
-"Tumulong ang mga taong ito sa pagsalin ng Vixipy (maraming salamat &lt;3):"
+msgstr "Tumulong ang mga taong ito sa pagsalin ng Vixipy (maraming salamat &lt;3):"
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
@@ -989,7 +1005,7 @@ msgstr "Ipakita"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:67
+#: vixipy/templates/users/dashboard.html:69
 msgid "Settings"
 msgstr "Mga Setting"
 
@@ -1107,7 +1123,7 @@ msgid "Edit Profile"
 msgstr "I-edit ang Profile"
 
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
-#: vixipy/templates/users/dashboard.html:35
+#: vixipy/templates/users/dashboard.html:37
 msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
@@ -1129,7 +1145,7 @@ msgstr "Gusto mo bang mag-log out?"
 msgid "Followers"
 msgstr "Mga Follower"
 
-#: vixipy/templates/users/dashboard.html:21
+#: vixipy/templates/users/dashboard.html:22
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
@@ -1137,19 +1153,19 @@ msgstr ""
 "<b>Hindi ka naka-log in.</b> Mag-sign in sa iyong pixiv account para "
 "maranasan ang Vixipy sa buong potensyal."
 
-#: vixipy/templates/users/dashboard.html:29
+#: vixipy/templates/users/dashboard.html:31
 msgid "Your profile"
 msgstr "Iyong profile"
 
-#: vixipy/templates/users/dashboard.html:73
+#: vixipy/templates/users/dashboard.html:75
 msgid "Send Feedback"
 msgstr "Magpadala ng Feedback"
 
-#: vixipy/templates/users/dashboard.html:79
+#: vixipy/templates/users/dashboard.html:81
 msgid "Source Code"
 msgstr "Source Code"
 
-#: vixipy/templates/users/dashboard.html:86
+#: vixipy/templates/users/dashboard.html:88
 msgid "Log out"
 msgstr "Mag-log out"
 
@@ -1256,3 +1272,4 @@ msgstr "Mag-log out"
 
 #~ msgid "About"
 #~ msgstr "Tungkol sa"
+

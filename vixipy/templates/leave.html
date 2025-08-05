@@ -4,10 +4,14 @@
 <h1>{{_("You are about to leave Vixipy.")}}</h1>
 <p>{{_("Continuing will direct you to %(url)s", url=url)}}</p>
 
-<a href="/" id="back" class="label-button">{{_("Go back")}}</a>
+<a id="back" class="label-button">{{_("Go back")}}</a>
 <a href="{{url}}" class="button primary">{{_("Continue to site")}}</a>
 
 <script>
-  document.getElementById("back").onclick = ()=>(history.back() || window.close())
+    document.getElementById("back").onclick = (e)=>{
+        e.preventDefault();
+        history.back();
+        window.close();
+    }
 </script>
 {% endblock %}

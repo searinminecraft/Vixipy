@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-27 18:09+0800\n"
+"POT-Creation-Date: 2025-07-31 14:57+0800\n"
 "PO-Revision-Date: 2025-07-27 07:32+0000\n"
 "Last-Translator: lainie <lainie@noreply.codeberg.org>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:49
 msgid "Invalid token"
@@ -250,7 +250,7 @@ msgid ""
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
 
-#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:41
+#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:43
 msgid "Newest by all"
 msgstr ""
 
@@ -276,8 +276,25 @@ msgid ""
 " report <a href=\"%(link)s\">here</a>"
 msgstr ""
 
+#: vixipy/templates/leave.html:4
+msgid "You are about to leave Vixipy."
+msgstr ""
+
+#: vixipy/templates/leave.html:5
+#, python-format
+msgid "Continuing will direct you to %(url)s"
+msgstr ""
+
+#: vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr ""
+
+#: vixipy/templates/leave.html:8
+msgid "Continue to site"
+msgstr ""
+
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:26
-#: vixipy/templates/users/dashboard.html:48
+#: vixipy/templates/users/dashboard.html:50
 msgid "Sign in"
 msgstr ""
 
@@ -307,7 +324,7 @@ msgid ""
 msgstr ""
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:61
+#: vixipy/templates/users/dashboard.html:63
 msgid "Material You Generator"
 msgstr ""
 
@@ -641,7 +658,7 @@ msgstr ""
 #: vixipy/templates/newest/index.html:22 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:10
+#: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr ""
 
@@ -767,7 +784,7 @@ msgstr ""
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:55
+#: vixipy/templates/users/dashboard.html:57
 msgid "Popular Tags"
 msgstr ""
 
@@ -935,7 +952,7 @@ msgstr ""
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:67
+#: vixipy/templates/users/dashboard.html:69
 msgid "Settings"
 msgstr ""
 
@@ -1051,7 +1068,7 @@ msgid "Edit Profile"
 msgstr ""
 
 #: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
-#: vixipy/templates/users/dashboard.html:35
+#: vixipy/templates/users/dashboard.html:37
 msgid "Bookmarks"
 msgstr ""
 
@@ -1074,25 +1091,25 @@ msgstr ""
 msgid "Followers"
 msgstr "Следить"
 
-#: vixipy/templates/users/dashboard.html:21
+#: vixipy/templates/users/dashboard.html:22
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:29
+#: vixipy/templates/users/dashboard.html:31
 msgid "Your profile"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:73
+#: vixipy/templates/users/dashboard.html:75
 msgid "Send Feedback"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:79
+#: vixipy/templates/users/dashboard.html:81
 msgid "Source Code"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:86
+#: vixipy/templates/users/dashboard.html:88
 msgid "Log out"
 msgstr ""
 
