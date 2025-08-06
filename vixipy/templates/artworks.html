@@ -9,15 +9,20 @@
 <meta property="og:description" content="
 👍 {{work.likeCount|numberformat}} ❤️ {{work.bookmarkCount|numberformat}} 💬 {{work.commentCount|numberformat}}
 
-{% for tag in work.tags %}#{{tag.name}}{% endfor %}
+{% for tag in work.tags %}#{{tag.name}} {% endfor %}
 
 {{work.description_stripped[:64]}}{% if work.description_stripped|length > 64%}...{% endif %}
 " />
 
+<!-- Twitter Mosaic -->
 {%- for page in pages if not page.page > 3 %}
-<meta property="og:image" content="{{page.reg}}"/>
+<meta property="twitter:image" content="{{page.reg}}"/>
 {% endfor -%}
-<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:card" content="summary_large_image"/>
+
+<!-- Open Graph Image -->
+<meta property="og:image" content="{{pages[0].reg}}" />
+
 {% endblock %}
 
 {% block content %}
