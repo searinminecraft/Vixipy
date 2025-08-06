@@ -19,11 +19,11 @@
 {%- for page in pages if not page.page > 3 %}
 <meta property="twitter:image" content="{{page.reg}}"/>
 {% endfor -%}
-<meta property="twitter:card" content="summary_large_image"/>
 #}
 
-<!-- Open Graph Image -->
+{# Open Graph Image #}
 <meta property="og:image" content="{{pages[0].reg}}" />
+<meta property="twitter:card" content="summary_large_image"/>
 
 {% endblock %}
 
