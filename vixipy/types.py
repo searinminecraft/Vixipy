@@ -1,6 +1,7 @@
 from .converters import proxy
 from datetime import datetime
 from quart import request
+import markupsafe
 
 from typing import Optional
 
@@ -115,6 +116,8 @@ class Artwork(ArtworkBase):
         self.original = d["isOriginal"]
         self.loginonly = d["isLoginOnly"]
         self.ai = d["aiType"] == 2
+        self.description = d["illustComment"]
+        self.description_stripped = markupsafe.Markup(self.description).striptags()
 
         self.other_works: list[ArtworkEntry] = []
         self.works_missing: list[int] = []

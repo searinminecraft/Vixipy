@@ -3,6 +3,23 @@
 
 {% import "components/artwork-entry.html" as artwork_entry %}
 
+{% block head_additional %}
+<meta property="og:title" content="{{work.title}}">
+<meta property="og:site_name" content="{{config['INSTANCE_NAME']}}" />
+<meta property="og:description" content="
+👍 {{work.likeCount|numberformat}} ❤️ {{work.bookmarkCount|numberformat}} 💬 {{work.commentCount|numberformat}}
+
+{% for tag in work.tags %}#{{tag.name}}{% endfor %}
+
+{{work.description_stripped[:64]}}{% if work.description_stripped|length > 64%}...{% endif %}
+" />
+
+{%- for page in pages if not page.page > 3 %}
+<meta property="og:image" content="{{page.reg}}"/>
+{% endfor -%}
+<meta property="twitter:card" content="summary_large_image">
+{% endblock %}
+
 {% block content %}
 <input type="hidden" id="illust_id" value="{{work.id}}">
 <script>getSchemeFromArtwork(document.getElementById("illust_id").value)</script>
