@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-07-31 14:57+0800\n"
-"PO-Revision-Date: 2025-07-27 15:35+0000\n"
+"PO-Revision-Date: 2025-08-05 12:09+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: vixipy/routes/login.py:49
@@ -284,20 +285,20 @@ msgstr ""
 
 #: vixipy/templates/leave.html:4
 msgid "You are about to leave Vixipy."
-msgstr ""
+msgstr "Malapit ka nang umalis sa Vixipy."
 
 #: vixipy/templates/leave.html:5
 #, python-format
 msgid "Continuing will direct you to %(url)s"
-msgstr ""
+msgstr "Ididirekta ka sa %(url)s kapag magpatuloy ka"
 
 #: vixipy/templates/leave.html:7
 msgid "Go back"
-msgstr ""
+msgstr "Bumalik"
 
 #: vixipy/templates/leave.html:8
 msgid "Continue to site"
-msgstr ""
+msgstr "Magpatuloy sa site"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:26
 #: vixipy/templates/users/dashboard.html:50
@@ -1272,4 +1273,3 @@ msgstr "Mag-log out"
 
 #~ msgid "About"
 #~ msgstr "Tungkol sa"
-
