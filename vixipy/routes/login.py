@@ -36,6 +36,12 @@ async def login_page():
     return_path = request.args.get("return_to", "/")
     if g.authorized:
         return redirect(return_path)
+    
+    background = random.choice(LOGIN_PAGE_BACKGROUNDS)
+    id = re.search(
+        r"https:\/\/i\.pximg\.net\/c\/540x540_70\/img-master\/img\/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/(\d+)_p\d+_master1200\.jpg",
+        background,
+    ).group(1)
 
     if request.method == "POST":
         f = await request.form
@@ -47,7 +53,7 @@ async def login_page():
             log.debug("Login success, get CSRF next...")
         except PixivError:
             await flash(_("Invalid token"), "error")
-            return await render_template("login.html")
+            return await render_template("login.html", bg=proxy(background), id=id)
 
         if current_app.config["PIXIV_DIRECT_CONNECTION"]:
             r: ClientResponse = await current_app.pixiv.get(
@@ -74,7 +80,7 @@ async def login_page():
             csrf = re.search(r'\\"token\\":\\"([0-9a-f]+)\\"', t).group(1)
         except IndexError:
             await flash(_("Unable to extract CSRF"))
-            return await render_template("login.html")
+            return await render_template("login.html", bg=proxy(background), id=id)
 
         p_ab_id = r.cookies["p_ab_id"].value
         p_ab_id_2 = r.cookies["p_ab_id_2"].value
@@ -99,9 +105,4 @@ async def login_page():
         )
         return res
 
-    background = random.choice(LOGIN_PAGE_BACKGROUNDS)
-    id = re.search(
-        r"https:\/\/i\.pximg\.net\/c\/540x540_70\/img-master\/img\/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/(\d+)_p\d+_master1200\.jpg",
-        background,
-    ).group(1)
     return await render_template("login.html", bg=proxy(background), id=id)
