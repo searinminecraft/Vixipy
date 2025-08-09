@@ -24,7 +24,7 @@
     </div>
     {%- endif -%}
     <ul class="links">
-	{%- if g.authorized -%}
+        {%- if g.authorized -%}
     <li>
         <a href="{{url_for('users.user_profile', user=user.id)}}">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" fill="currentColor"/><path d="M5 18.857A6.857 6.857 0 0111.857 12h.286A6.857 6.857 0 0119 18.857c0 .631-.512 1.143-1.143 1.143H6.143A1.143 1.143 0 015 18.857z" fill="currentColor"/></svg>
@@ -37,12 +37,6 @@
             {{_("Bookmarks")}}
         </a>
     </li>
-    <li>
-        <a href="{{url_for('newest.newest_main')}}">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5L5.5 8 2 10zM11 14l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5-1.991 5-3.5 2z" fill="currentColor"/></svg>
-            {{_("Newest by all")}}
-        </a>
-    </li>
 	{%- else -%}
 	<li>
 	    <a href="/self/login">
@@ -51,6 +45,24 @@
 	    </a>
 	</li>
 	{%- endif -%}
+    <li>
+        <a href="{{url_for('newest.newest_main')}}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5L5.5 8 2 10zM11 14l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5-1.991 5-3.5 2z" fill="currentColor"/></svg>
+            {{_("Newest by all")}}
+        </a>
+    </li>
+    <li>
+        <a href="{{url_for('rankings.main')}}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 6a2 2 0 01-1.023 1.745c.678 1.008 1.657 2.106 2.773 2.255.851.114 1.836-.317 2.644-.808a2 2 0 111.277.78l-.892 5.357A2 2 0 0116.806 17H7.194a2 2 0 01-1.973-1.671L4.33 9.973a2 2 0 111.277-.78c.808.49 1.793.92 2.644.807 1.116-.15 2.095-1.247 2.773-2.255A2 2 0 1114 6zM7 18a1 1 0 100 2h10a1 1 0 100-2H7z" fill="currentColor"/></svg>
+            {{_("Rankings")}}
+        </a>
+    </li>
+    <li>
+        <a href="{{url_for('rankings.ranking_calendar')}}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3a1 1 0 00-2 0v1.126C4.275 4.57 3 6.136 3 8v10a4 4 0 004 4h10a4 4 0 004-4V8a4.002 4.002 0 00-3-3.874V3a1 1 0 10-2 0v1H8V3zm-3 7v8a2 2 0 002 2h10a2 2 0 002-2v-8H5z" fill="currentColor"/></svg>
+            {{_("Ranking Calendar")}}
+        </a>
+    </li>
 	<li>
 	    <a href="{{url_for('search.popular_tags')}}">
 	        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.241 5.16a1.5 1.5 0 10-2.983-.32L7.974 7.5H6.32a1.5 1.5 0 100 3h1.331l-.321 3H5.679a1.5 1.5 0 000 3h1.33l-.25 2.34a1.5 1.5 0 002.982.32l.285-2.66h2.983l-.25 2.34a1.5 1.5 0 102.982.32l.285-2.66h1.653a1.5 1.5 0 000-3h-1.331l.321-3h1.652a1.5 1.5 0 000-3h-1.33l.25-2.34a1.5 1.5 0 10-2.982-.32l-.286 2.66h-2.982l.25-2.34zm2.09 8.34l.321-3H10.67l-.321 3h2.983z" fill="currentColor"/></svg>
