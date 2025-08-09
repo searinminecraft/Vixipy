@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-31 14:57+0800\n"
+"POT-Creation-Date: 2025-08-09 22:22+0800\n"
 "PO-Revision-Date: 2025-07-27 07:32+0000\n"
 "Last-Translator: lainie <lainie@noreply.codeberg.org>\n"
 "Language: ru\n"
@@ -18,51 +18,51 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
-#: vixipy/routes/login.py:49
+#: vixipy/routes/login.py:55
 msgid "Invalid token"
 msgstr "Недействительный токен"
 
-#: vixipy/routes/login.py:76
+#: vixipy/routes/login.py:82
 msgid "Unable to extract CSRF"
 msgstr "Не удалось извлечь CSRF"
 
-#: vixipy/templates/artworks.html:25
+#: vixipy/templates/artworks.html:49
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:44
+#: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Follow"
 msgstr "Подписаться"
 
-#: vixipy/templates/artworks.html:44
+#: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
 #: vixipy/templates/users/base.html:38
 msgid "Unfollow"
 msgstr "Отписаться"
 
-#: vixipy/templates/artworks.html:49
+#: vixipy/templates/artworks.html:74
 msgid "View all works"
 msgstr "Посмотреть все работы"
 
-#: vixipy/templates/artworks.html:74
+#: vixipy/templates/artworks.html:99
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Уровень Деликатности: %(sl)d"
 
-#: vixipy/templates/artworks.html:136
+#: vixipy/templates/artworks.html:161
 msgid "Convert Ugoira"
 msgstr "Конвертировать Ugoira"
 
-#: vixipy/templates/artworks.html:146 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:171 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "Связанные работы"
 
-#: vixipy/templates/artworks.html:154
+#: vixipy/templates/artworks.html:179
 msgid "No recommended works to show."
 msgstr "Нет рекомендуемых работ."
 
@@ -99,7 +99,8 @@ msgstr "Войдите, чтобы публиковать комментарии
 msgid "There is no comment yet"
 msgstr "Здесь пока нет комментариев"
 
-#: vixipy/templates/comments.html:100 vixipy/templates/replies.html:23
+#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:71
+#: vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
 msgstr "Странница%(page)d"
@@ -255,6 +256,7 @@ msgid "Newest by all"
 msgstr ""
 
 #: vixipy/templates/index_logged_out.html:9
+#: vixipy/templates/rankings/main.html:7
 #, python-format
 msgid "Ranking for %(date)s"
 msgstr ""
@@ -293,34 +295,96 @@ msgstr ""
 msgid "Continue to site"
 msgstr ""
 
-#: vixipy/templates/login.html:7 vixipy/templates/login.html:26
-#: vixipy/templates/users/dashboard.html:50
+#: vixipy/templates/login.html:7 vixipy/templates/login.html:57
+#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:50
 msgid "Sign in"
 msgstr ""
 
-#: vixipy/templates/login.html:27
-msgid ""
-"Sign in to your pixiv account to access features that normally require "
-"it, such as:"
+#: vixipy/templates/login.html:28
+msgid "How do I sign in?"
 msgstr ""
 
 #: vixipy/templates/login.html:29
-msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
+msgid ""
+"To sign in with your pixiv account, you will need your "
+"<code>PHPSESSID</code> cookie, which can be found by opening your "
+"browser's developer tools:"
 msgstr ""
 
 #: vixipy/templates/login.html:30
-msgid "Personalized landing"
+msgid "For Firefox based browsers:"
 msgstr ""
 
-#: vixipy/templates/login.html:31
-msgid "<b>Coming soon:</b> work uploads"
+#: vixipy/templates/login.html:32 vixipy/templates/login.html:39
+#, python-format
+msgid "Go to <a href='%(pixiv)s'>pixiv</a> and login/register if not already."
 msgstr ""
 
-#: vixipy/templates/login.html:33
+#: vixipy/templates/login.html:33 vixipy/templates/login.html:40
+msgid "Press CTRL+SHIFT+I to open the developer tools"
+msgstr ""
+
+#: vixipy/templates/login.html:34
+msgid "Go to the Storage tab and then Cookies and then www.pixiv.net"
+msgstr ""
+
+#: vixipy/templates/login.html:35 vixipy/templates/login.html:42
+msgid "Find the cookie named <code>PHPSESSID</code> and copy the contents."
+msgstr ""
+
+#: vixipy/templates/login.html:37
+msgid "For Chromium based browsers:"
+msgstr ""
+
+#: vixipy/templates/login.html:41
 msgid ""
-"To sign in, you will need your account's <code>PHPSESSID</code> cookie. "
-"Username and password logins are not possible due to reCAPTCHA enterprise"
-" attestation requirement."
+"Go to the Application tab, on the left side, click Cookies then "
+"www.pixiv.net"
+msgstr ""
+
+#: vixipy/templates/login.html:44
+msgid ""
+"After obtaining the token, you can paste it in here and login. Note: "
+"logging out of that session will destroy the token as well!"
+msgstr ""
+
+#: vixipy/templates/login.html:45
+msgid "Is it safe for me to log in here?"
+msgstr ""
+
+#: vixipy/templates/login.html:46
+msgid ""
+"Vixipy will never steal session tokens or personal information. Your "
+"token is stored in your browser as a cookie for 6 months and not the "
+"server. The chances of your account getting in trouble or suspended are "
+"highly unlikely as well."
+msgstr ""
+
+#: vixipy/templates/login.html:47
+msgid "What are the advantages of logging in?"
+msgstr ""
+
+#: vixipy/templates/login.html:48
+msgid ""
+"Logging in to your pixiv account allows for personalized recommendations,"
+" work interaction (like, bookmark, etc.) and following users. It also "
+"allows accessing login only and R-18 (if allowed by instance) works."
+msgstr ""
+
+#: vixipy/templates/login.html:58
+msgid "with your pixiv account."
+msgstr ""
+
+#: vixipy/templates/login.html:59
+msgid "Help"
+msgstr ""
+
+#: vixipy/templates/login.html:63
+msgid "Token"
+msgstr ""
+
+#: vixipy/templates/login.html:72
+msgid "Return"
 msgstr ""
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
@@ -432,6 +496,8 @@ msgid "User"
 msgstr ""
 
 #: vixipy/templates/components/novel-entry.html:17
+#: vixipy/templates/rankings/calendar.html:24
+#: vixipy/templates/rankings/main.html:25
 msgid "Original"
 msgstr ""
 
@@ -557,6 +623,8 @@ msgid "Filters"
 msgstr ""
 
 #: vixipy/templates/components/tag-search-filter.html:38
+#: vixipy/templates/rankings/calendar.html:14
+#: vixipy/templates/rankings/main.html:14
 msgid "Mode"
 msgstr ""
 
@@ -624,6 +692,8 @@ msgid "Period"
 msgstr ""
 
 #: vixipy/templates/components/tag-search-filter.html:190
+#: vixipy/templates/rankings/calendar.html:42
+#: vixipy/templates/rankings/main.html:52
 msgid "Apply"
 msgstr ""
 
@@ -655,17 +725,19 @@ msgstr ""
 msgid "New from All users"
 msgstr ""
 
-#: vixipy/templates/newest/index.html:22 vixipy/templates/search/illust.html:7
-#: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
-#: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:61 vixipy/templates/users/illust.html:9
+#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:42
+#: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
+#: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
+#: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
+#: vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr ""
 
-#: vixipy/templates/newest/index.html:27 vixipy/templates/search/illust.html:8
-#: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
-#: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
-#: vixipy/templates/users/base.html:67 vixipy/templates/users/manga.html:9
+#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:43
+#: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
+#: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
+#: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
+#: vixipy/templates/users/manga.html:9
 msgid "Manga"
 msgstr ""
 
@@ -728,10 +800,99 @@ msgstr ""
 msgid "Ranking Calendar"
 msgstr ""
 
+#: vixipy/templates/rankings/calendar.html:9
+#: vixipy/templates/rankings/main.html:9
+msgid "Show options"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:12
+#: vixipy/templates/rankings/main.html:12
+msgid "Options"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:16
+#: vixipy/templates/rankings/main.html:17
+msgid "Daily"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:17
+#: vixipy/templates/rankings/main.html:18
+msgid "Weekly"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:18
+#: vixipy/templates/rankings/main.html:19
+msgid "Monthly"
+msgstr ""
+
 #: vixipy/templates/rankings/calendar.html:19
+#: vixipy/templates/rankings/main.html:20
+msgid "Rookie"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:21
+#: vixipy/templates/rankings/main.html:22
+msgid "Popular among male users"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:22
+#: vixipy/templates/rankings/main.html:23
+msgid "Popular among female users"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:25
+#: vixipy/templates/rankings/main.html:26
+msgid "Daily (AI)"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:27
+#: vixipy/templates/rankings/main.html:28
+msgid "Daily R-18"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:28
+#: vixipy/templates/rankings/main.html:29
+msgid "Daily R-18 (AI)"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:29
+#: vixipy/templates/rankings/main.html:30
+msgid "Weekly R-18"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:31
+#: vixipy/templates/rankings/main.html:32
+msgid "Popular among male users (R-18)"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:32
+#: vixipy/templates/rankings/main.html:33
+msgid "Popular among female users (R-18)"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:38
+#: vixipy/templates/rankings/main.html:48
+msgid "Date"
+msgstr ""
+
+#: vixipy/templates/rankings/calendar.html:72
 #, python-format
 msgid "Day %(day)s"
 msgstr ""
+
+#: vixipy/templates/rankings/main.html:2
+msgid "Rankings"
+msgstr ""
+
+#: vixipy/templates/rankings/main.html:39
+#, fuzzy
+msgid "Content"
+msgstr "Комментарии"
+
+#: vixipy/templates/rankings/main.html:44
+#, fuzzy
+msgid "Ugoira"
+msgstr "Конвертировать Ugoira"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
@@ -1238,5 +1399,20 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "About"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Sign in to your pixiv account to"
+#~ " access features that normally require "
+#~ "it, such as:"
+#~ msgstr ""
+
+#~ msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
+#~ msgstr ""
+
+#~ msgid "Personalized landing"
+#~ msgstr ""
+
+#~ msgid "<b>Coming soon:</b> work uploads"
 #~ msgstr ""
 
