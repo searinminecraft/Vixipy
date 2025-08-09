@@ -1,0 +1,82 @@
+{% extends "layouts/default.html" %}
+{% set title = _("Rankings") %}
+{% from "components/artwork-entry.html" import entry %}
+
+{% block content %}
+<main>
+    <h2>{{_("Ranking for %(date)s", date=data.date|dateformat)}}</h2>
+    <details>
+        <summary>{{_("Show options")}}</summary>
+        <form action="">
+            <fieldset>
+                <legend>{{_("Options")}}</legend>
+
+                <label for="mode" class="block heading">{{_("Mode")}}</label>
+                <select name="mode" id="mode">
+                    {% set mode = request.args["mode"] %}
+                    <option value="daily" {% if mode=="daily" %}selected{% endif %}>{{_("Daily")}}</option>
+                    <option value="weekly" {% if mode=="weekly" %}selected{% endif %}>{{_("Weekly")}}</option>
+                    <option value="monthly" {% if mode=="monthly" %}selected{% endif %}>{{_("Monthly")}}</option>
+                    <option value="rookie" {% if mode=="rookie" %}selected{% endif %}>{{_("Rookie")}}</option>
+                    {% if g.authorized and g.current_user.premium %}
+                    <option value="male" {% if mode=="male" %}selected{% endif %}>{{_("Popular among male users")}}</option>
+                    <option value="female" {% if mode=="female" %}selected{% endif %}>{{_("Popular among female users")}}</option>
+                    {% endif %}
+                    <option value="original" {% if mode=="original" %}selected{% endif %}>{{_("Original")}}</option>
+                    <option value="daily_ai" {% if mode=="daily_ai" %}selected{% endif %}>{{_("Daily (AI)")}}</option>
+                    {% if g.authorized and (not config["NO_SENSITIVE"] or not config["NO_R18"])%}
+                    <option value="daily_r18" {% if mode=="daily_r18" %}selected{% endif %}>{{_("Daily R-18")}}</option>
+                    <option value="daily_r18_ai" {% if mode=="daily_r18_ai" %}selected{% endif %}>{{_("Daily R-18 (AI)")}}</option>
+                    <option value="weekly_r18" {% if mode=="weekly_r18" %}selected{% endif %}>{{_("Weekly R-18")}}</option>
+                    {% if g.authorized and g.current_user.premium %}
+                    <option value="male_r18" {% if mode=="male_r18" %}selected{% endif %}>{{_("Popular among male users (R-18)")}}</option>
+                    <option value="female_r18" {% if mode=="female_r18" %}selected{% endif %}>{{_("Popular among female users (R-18)")}}</option>
+                    {% endif %}
+                    {% endif %}
+                </select>
+
+                <br><br>
+                <label for="content" class="block heading">{{_("Content")}}</label>
+                <select name="content" id="content">
+                    {% set content=request.args["content"]%}
+                    <option value="illust" {% if content=="illust" %}selected{% endif %}>{{_("Illustrations")}}</option>
+                    <option value="manga" {% if content=="manga" %}selected{% endif %}>{{_("Manga")}}</option>
+                    <option value="ugoira" {% if content=="ugoira" %}selected{% endif %}>{{_("Ugoira")}}</option>
+                </select>
+
+                <br><br>
+                <label for="date" class="block heading">{{_("Date")}}</label>
+                <input type="date" name="date" id="date" value="{{data.date.strftime('%Y-%m-%d')}}">
+
+                <br><br>
+                <button type="submit" class="button primary">{{_("Apply")}}</button>
+            </fieldset>
+        </form>
+    </details>
+    <br>
+    <div class="artwork-container">
+        {% for x in data.contents %}
+        {{ entry(x) }}
+        {% endfor %}
+    </div>
+    <div class="paginator">
+        <a {% if data.prev
+            %}href="{{url_for('rankings.main', mode=request.args['mode'], content=request.args['content'], date=request.args['date'], p=data.prev)}}"
+            {% endif %}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path
+                    d="m432-480 156 156q11 11 11 28t-11 28q-11 11-28 11t-28-11L348-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 28-11t28 11q11 11 11 28t-11 28L432-480Z" />
+            </svg>
+        </a>
+        <span>{{_("Page %(page)d", page=data.page)}}</span>
+        <a {% if data.next
+            %}href="{{url_for('rankings.main', mode=request.args['mode'], content=request.args['content'], date=request.args['date'], p=data.next)}}"
+            {% endif %}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path
+                    d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z" />
+            </svg>
+        </a>
+    </div>
+</main>
+{% endblock %}

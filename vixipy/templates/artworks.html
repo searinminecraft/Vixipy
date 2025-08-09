@@ -64,13 +64,14 @@
                             hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
                             hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
                             <input type="hidden" name="return_to" value="{{request.path}}">
-                            <button type="submit" class="button {%if not user.followed%}primary{%else%}neutral{%endif%}">
+                            <input type="hidden" name="small">
+                            <button type="submit" class="button smaller {%if not user.followed%}primary{%else%}neutral{%endif%}">
                                 {%if not user.followed%}{{_("Follow")}}{%else%}{{_("Unfollow")}}{% endif %}
                             </button>
                         </form>
                         {% endif %}
                     </div>
-                    <a href="/users/{{work.authorId}}">{{_("View all works")}}</a>
+                    <a class="view-all" href="/users/{{work.authorId}}">{{_("View all works")}}</a>
                 </div>
                 <div class="scrolling-container">
                     {% for w in user_works %}

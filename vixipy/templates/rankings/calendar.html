@@ -4,39 +4,78 @@
 {% block content %}
 <main id="ranking-calendar">
     <h2>{{_("Ranking Calendar")}}</h2>
-    <div class="calendar-area">
-        <table class="main">
-            <tbody>
-            {% for x in data %}
-            <tr>
-                {% for y in x %}
-                <!-- {{y}} -->
-                {% if y.active %}
-                <td class="active">
-                    <a href="#">
-                        <main>
-                            {% if y.img %}
-                            <img src="{{y.img}}" alt="{{_('Day %(day)s', day=y.date)}}">
-                            <div class="meta">
-                                {% if y.day %}
-                                <span class="day">{{y.day}}</span>
-                                {% endif %}
-                                <span class="date">{{y.date}}</span>
-                            </div>
-                            {% elif y.locked %}
-                            <div class="locked"></div>
-                            {% endif %}
-                        </main>
-                    </a>
-                </td>
+
+    <details>
+        <summary>{{_("Show options")}}</summary>
+        <form action="">
+            <fieldset>
+                <legend>{{_("Options")}}</legend>
+
+                <label for="mode" class="block heading">{{_("Mode")}}</label>
+                <select name="mode" id="mode">
+                    <option value="daily">{{_("Daily")}}</option>
+                    <option value="weekly">{{_("Weekly")}}</option>
+                    <option value="monthly">{{_("Monthly")}}</option>
+                    <option value="rookie">{{_("Rookie")}}</option>
+                    {% if g.authorized and g.current_user.premium %}
+                    <option value="male">{{_("Popular among male users")}}</option>
+                    <option value="female">{{_("Popular among female users")}}</option>
+                    {% endif %}
+                    <option value="original">{{_("Original")}}</option>
+                    <option value="daily_ai">{{_("Daily (AI)")}}</option>
+                    {% if g.authorized and (not config["NO_SENSITIVE"] or not config["NO_R18"])%}
+                    <option value="daily_r18">{{_("Daily R-18")}}</option>
+                    <option value="daily_r18_ai">{{_("Daily R-18 (AI)")}}</option>
+                    <option value="weekly_r18">{{_("Weekly R-18")}}</option>
+                    {% if g.authorized and g.current_user.premium %}
+                    <option value="male_r18">{{_("Popular among male users (R-18)")}}</option>
+                    <option value="female_r18">{{_("Popular among female users (R-18)")}}</option>
+                    {% endif %}
+                    {% endif %}
+                </select>
+
+                <br><br>
+                <label for="date" class="block heading">{{_("Date")}}</label>
+                <input type="date" name="date" id="date" value="{{current.strftime('%Y-%m-%d')}}">
+
+                <br><br>
+                <button type="submit" class="button primary">{{_("Apply")}}</button>
+            </fieldset>
+        </form>
+    </details>
+    <br>
+
+    <nav>
+        <a href="{{prevUrl}}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M15.913 16.586a2 2 0 01-2.829 2.828L5.67 12l7.414-7.414a2 2 0 012.829 2.828L11.327 12l4.586 4.586z"
+                    fill="currentColor" />
+            </svg>
+        </a>
+        <span>{{current|dateformat("MMMM YYYY")}}</span>
+        <a href="{{nextUrl}}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M8.086 16.586a2 2 0 102.828 2.828L18.328 12l-7.414-7.414a2 2 0 10-2.828 2.828L12.672 12l-4.586 4.586z"
+                    fill="currentColor" />
+            </svg>
+        </a>
+    </nav>
+
+    <main>
+        {% for x in data if x.active%}
+        <a {% if x.args %}href="{{url_for('rankings.main', mode=x.args['mode'], date=x.args['date'])}}" {% endif %}>
+            <div class="entry">
+                {% if x.args %}
+                <span>{{x.date}}</span>
+                <img src="{{x.img}}" alt="{{_('Day %(day)s', day=x.date)}}">
                 {% else %}
-                <td></td>
+                <div class="placeholder">{{x.date}}</div>
                 {% endif %}
-                {% endfor %}
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+            </div>
+        </a>
+        {% endfor %}
+    </main>
 </main>
 {% endblock %}

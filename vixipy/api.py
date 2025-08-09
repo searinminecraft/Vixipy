@@ -314,9 +314,11 @@ async def get_tag_info(tag: str):
     return TagInfo(data)
 
 
-async def get_ranking(mode: str = "daily", date: str = None, content: str = None):
+async def get_ranking(
+    mode: str = "daily", date: str = None, content: str = None, page: int = 1
+):
 
-    params = [("format", "json"), ("mode", mode)]
+    params = [("format", "json"), ("mode", mode), ("p", page)]
 
     if date:
         params.append(("date", date))

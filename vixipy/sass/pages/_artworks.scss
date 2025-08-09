@@ -20,7 +20,8 @@
                 position: relative;
                 overflow: hidden;
 
-                &:only-child, &:last-child img {
+                &:only-child,
+                &:last-child img {
                     border-radius: 0 0 12px 12px;
                 }
 
@@ -49,7 +50,7 @@
                     pointer-events: none;
                     column-gap: .5em;
 
-                    > div {
+                    >div {
                         font-size: 12px;
                         font-weight: bold;
                         color: var(--md-sys-color-on-primary-container);
@@ -71,7 +72,7 @@
                 justify-content: space-between;
                 padding: 1em .5em;
 
-                > a {
+                >a {
                     color: var(--md-sys-color-outline);
                     font-size: 12px;
                 }
@@ -86,11 +87,17 @@
                         color: unset;
                         font-weight: bold;
                         margin-right: 1em;
+                        font-size: 14px;
 
                         img {
                             @include profile-img(36px);
                             margin-right: .5em;
+                            flex-shrink: 0;
                         }
+                    }
+
+                    form {
+                        flex-shrink: 0;
                     }
                 }
             }
@@ -109,7 +116,7 @@
             display: flex;
             align-items: center;
             color: var(--md-sys-color-error);
-            
+
             svg {
                 fill: currentColor;
                 margin-right: .5em;
@@ -120,6 +127,7 @@
             list-style: none;
             margin: unset;
             padding: unset;
+
             li {
                 display: inline-block;
             }
@@ -158,7 +166,9 @@
                 }
             }
 
-            li, a, button {
+            li,
+            a,
+            button {
                 color: var(--md-sys-color-outline);
                 display: inline-flex;
                 align-items: center;
@@ -184,8 +194,17 @@
     #artwork-main {
         flex-direction: column;
 
-        > * {
+        >* {
             flex: unset !important
+        }
+
+        .view-all {
+            display: none !important;
+        }
+
+        .author-main {
+            justify-content: space-between;
+            width: 100%;
         }
     }
 }

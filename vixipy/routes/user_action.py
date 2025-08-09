@@ -48,7 +48,8 @@ async def follow_unfollow(id: int, action: Union["follow", "unfollow"]):
     hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
     hx-headers='{HX_HEADER}' method="post">
     <input type="hidden" name="return_to" value="{rt}">
-    <button type="submit" class="button neutral">
+    {"<input type='hidden' name='small'>" if 'small' in f else ''}
+    <button type="submit" class="button {'smaller' if 'small' in f else ''} neutral">
         {_l("Unfollow")}
     </button>
 </form>
@@ -71,7 +72,8 @@ async def follow_unfollow(id: int, action: Union["follow", "unfollow"]):
     hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
     hx-headers='{HX_HEADER}' method="post">
     <input type="hidden" name="return_to" value="{rt}">
-    <button type="submit" class="button primary">
+    {"<input type='hidden' name='small'>" if 'small' in f else ''}
+    <button type="submit" class="button {'smaller' if 'small' in f else ''} primary">
         {_l("Follow")}
     </button>
 </form>

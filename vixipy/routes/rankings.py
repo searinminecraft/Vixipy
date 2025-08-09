@@ -1,10 +1,59 @@
-from quart import Blueprint, abort, request, render_template, url_for
+from __future__ import annotations
+
+from quart import Blueprint, current_app, abort, request, render_template, url_for
 
 from ..lib.scrapes import get_ranking_calendar
+from ..api import get_ranking
 
 from datetime import datetime, timedelta
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from werkzeug.datastructures import MultiDict
 
 bp = Blueprint("rankings", __name__)
+
+
+@bp.route("/rankings")
+async def main():
+
+    mode: str = request.args.get("mode", "daily") or "daily"
+    date: str = request.args.get("date")
+    content: str = request.args.get("content", "illust") or "illust"
+    page: int = int(request.args.get("p", 1)) or 1
+
+    if date:
+        # For specified date in options
+        date = date.replace("-", "")
+
+    if mode not in (
+        "daily",
+        "weekly",
+        "monthly",
+        "rookie",
+        "male",
+        "female",
+        "original",
+        "daily_ai",
+        "daily_r18_ai",
+        "daily_r18",
+        "weekly_r18",
+        "male_r18",
+        "female_r18",
+    ):
+        abort(400)
+
+    if content not in ("illust", "manga", "ugoira"):
+        abort(400)
+
+    if (
+        current_app.config["NO_SENSITIVE"] or current_app.config["NO_R18"]
+    ) and mode in ("daily_r18", "daily_r18_ai", "weekly_r18", "male_r18", "female_r18"):
+        abort(403)
+
+    data = await get_ranking(mode, date, content, page)
+
+    return await render_template("rankings/main.html", data=data)
 
 
 @bp.route("/rankings/calendar")
@@ -13,7 +62,7 @@ async def ranking_calendar():
     mode = request.args.get("mode", "daily")
 
     if date:
-        date = date.replace("-", "")
+        date = date.replace("-", "")[:6]
         sel = datetime.strptime(date, "%Y%m")
     else:
         date = datetime.now()
@@ -35,6 +84,11 @@ async def ranking_calendar():
         "female_r18",
     ):
         abort(400)
+
+    if (
+        current_app.config["NO_SENSITIVE"] or current_app.config["NO_R18"]
+    ) and mode in ("daily_r18", "daily_r18_ai", "weekly_r18", "male_r18", "female_r18"):
+        abort(403)
 
     data = await get_ranking_calendar(date, mode)
 
@@ -63,7 +117,7 @@ async def ranking_calendar():
     return await render_template(
         "rankings/calendar.html",
         data=data,
-        current=current,
+        current=sel,
         nextUrl=nextUrl,
         prevUrl=prevUrl,
     )
