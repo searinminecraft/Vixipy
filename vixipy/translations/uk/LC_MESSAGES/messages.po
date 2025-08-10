@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-08-09 22:26+0800\n"
-"PO-Revision-Date: 2025-07-27 22:09+0000\n"
+"PO-Revision-Date: 2025-08-09 21:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -307,9 +308,8 @@ msgid "Sign in"
 msgstr "Увійти"
 
 #: vixipy/templates/login.html:28
-#, fuzzy
 msgid "How do I sign in?"
-msgstr "Як зробити це своїм?"
+msgstr "Як увійти в систему?"
 
 #: vixipy/templates/login.html:29
 msgid ""
@@ -317,47 +317,59 @@ msgid ""
 "<code>PHPSESSID</code> cookie, which can be found by opening your "
 "browser's developer tools:"
 msgstr ""
+"Щоб увійти за допомогою облікового запису pixiv, вам знадобиться токен "
+"<code>PHPSESSID</code>, який можна знайти, відкривши інструменти розробника "
+"у своєму браузері:"
 
 #: vixipy/templates/login.html:30
 msgid "For Firefox based browsers:"
-msgstr ""
+msgstr "Для браузерів на основі Firefox:"
 
 #: vixipy/templates/login.html:32 vixipy/templates/login.html:39
 #, python-format
 msgid "Go to <a href='%(pixiv)s'>pixiv</a> and login/register if not already."
 msgstr ""
+"Перейдіть на <a href='%(pixiv)s'>pixiv</a> та ввійдіть або зареєструйтеся, "
+"якщо ви ще цього не зробили."
 
 #: vixipy/templates/login.html:33 vixipy/templates/login.html:40
 msgid "Press CTRL+SHIFT+I to open the developer tools"
-msgstr ""
+msgstr "Натисніть Ctrl+Shift+I, щоб відкрити інструменти розробника"
 
 #: vixipy/templates/login.html:34
 msgid "Go to the Storage tab and then Cookies and then www.pixiv.net"
 msgstr ""
+"Перейдіть на вкладку «Сховище», потім ліворуч виберіть «Файли cookie», а "
+"далі «www.pixiv.net»"
 
 #: vixipy/templates/login.html:35 vixipy/templates/login.html:42
 msgid "Find the cookie named <code>PHPSESSID</code> and copy the contents."
 msgstr ""
+"Знайдіть файл cookie з назвою <code>PHPSESSID</code> і скопіюйте його вміст."
 
 #: vixipy/templates/login.html:37
 msgid "For Chromium based browsers:"
-msgstr ""
+msgstr "Для браузерів на основі Chromium:"
 
 #: vixipy/templates/login.html:41
 msgid ""
 "Go to the Application tab, on the left side, click Cookies then "
 "www.pixiv.net"
 msgstr ""
+"Перейдіть на вкладку «Програма», потім ліворуч виберіть «Файли cookie», а "
+"далі «www.pixiv.net»"
 
 #: vixipy/templates/login.html:44
 msgid ""
 "After obtaining the token, you can paste it in here and login. Note: "
 "logging out of that session will destroy the token as well!"
 msgstr ""
+"Отримавши токен, ви можете вставити його сюди та ввійти в систему. Увага: "
+"вихід із цього сеансу зробить токен недійсним!"
 
 #: vixipy/templates/login.html:45
 msgid "Is it safe for me to log in here?"
-msgstr ""
+msgstr "Чи безпечно вводити тут дані для входу?"
 
 #: vixipy/templates/login.html:46
 msgid ""
@@ -366,10 +378,14 @@ msgid ""
 "server. The chances of your account getting in trouble or suspended are "
 "highly unlikely as well."
 msgstr ""
+"Vixipy не краде токени сеансу чи особисту інформацію. Ваш токен зберігається "
+"протягом 6 місяців як файл cookie у вашому браузері, а не на сервері. "
+"Ймовірність виникнення проблем із вашим обліковим записом або його "
+"блокування також дуже низька."
 
 #: vixipy/templates/login.html:47
 msgid "What are the advantages of logging in?"
-msgstr ""
+msgstr "Які переваги дає вхід?"
 
 #: vixipy/templates/login.html:48
 msgid ""
@@ -377,22 +393,26 @@ msgid ""
 " work interaction (like, bookmark, etc.) and following users. It also "
 "allows accessing login only and R-18 (if allowed by instance) works."
 msgstr ""
+"Вхід в обліковий запис pixiv дозволяє отримувати персоналізовані "
+"рекомендації, взаємодіяти з роботами (уподобання, додавання в закладки тощо) "
+"і стежити за користувачами. Він також дає змогу переглядати роботи, доступні "
+"лише після входу, та роботи з рейтингом R-18 (якщо ввімкнено на екземплярі)."
 
 #: vixipy/templates/login.html:58
 msgid "with your pixiv account."
-msgstr ""
+msgstr "за допомогою облікового запису pixiv."
 
 #: vixipy/templates/login.html:59
 msgid "Help"
-msgstr ""
+msgstr "Довідка"
 
 #: vixipy/templates/login.html:63
 msgid "Token"
-msgstr ""
+msgstr "Токен"
 
 #: vixipy/templates/login.html:72
 msgid "Return"
-msgstr ""
+msgstr "Назад"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
 #: vixipy/templates/users/dashboard.html:63
@@ -813,88 +833,78 @@ msgstr "Календар рейтингів"
 
 #: vixipy/templates/rankings/calendar.html:9
 #: vixipy/templates/rankings/main.html:9
-#, fuzzy
 msgid "Show options"
-msgstr "Параметри пошуку"
+msgstr "Показати параметри"
 
 #: vixipy/templates/rankings/calendar.html:12
 #: vixipy/templates/rankings/main.html:12
-#, fuzzy
 msgid "Options"
-msgstr "Параметри пошуку"
+msgstr "Параметри"
 
 #: vixipy/templates/rankings/calendar.html:16
 #: vixipy/templates/rankings/main.html:17
-#, fuzzy
 msgid "Daily"
-msgstr "Відображення"
+msgstr "Щоденні"
 
 #: vixipy/templates/rankings/calendar.html:17
 #: vixipy/templates/rankings/main.html:18
 msgid "Weekly"
-msgstr ""
+msgstr "Щотижневі"
 
 #: vixipy/templates/rankings/calendar.html:18
 #: vixipy/templates/rankings/main.html:19
 msgid "Monthly"
-msgstr ""
+msgstr "Щомісячні"
 
 #: vixipy/templates/rankings/calendar.html:19
 #: vixipy/templates/rankings/main.html:20
 msgid "Rookie"
-msgstr ""
+msgstr "Новачки"
 
 #: vixipy/templates/rankings/calendar.html:21
 #: vixipy/templates/rankings/main.html:22
-#, fuzzy
 msgid "Popular among male users"
-msgstr "Рейтинг популярності серед чоловіків"
+msgstr "Популярне серед чоловіків"
 
 #: vixipy/templates/rankings/calendar.html:22
 #: vixipy/templates/rankings/main.html:23
-#, fuzzy
 msgid "Popular among female users"
-msgstr "Рейтинг популярності серед жінок"
+msgstr "Популярне серед жінок"
 
 #: vixipy/templates/rankings/calendar.html:25
 #: vixipy/templates/rankings/main.html:26
-#, fuzzy
 msgid "Daily (AI)"
-msgstr "Щоденний рейтинг"
+msgstr "Щоденні (ШІ)"
 
 #: vixipy/templates/rankings/calendar.html:27
 #: vixipy/templates/rankings/main.html:28
-#, fuzzy
 msgid "Daily R-18"
-msgstr "Щоденний рейтинг"
+msgstr "Щоденні R-18"
 
 #: vixipy/templates/rankings/calendar.html:28
 #: vixipy/templates/rankings/main.html:29
-#, fuzzy
 msgid "Daily R-18 (AI)"
-msgstr "Щоденний рейтинг"
+msgstr "Щоденні R-18 (ШІ)"
 
 #: vixipy/templates/rankings/calendar.html:29
 #: vixipy/templates/rankings/main.html:30
 msgid "Weekly R-18"
-msgstr ""
+msgstr "Щотижневі R-18"
 
 #: vixipy/templates/rankings/calendar.html:31
 #: vixipy/templates/rankings/main.html:32
-#, fuzzy
 msgid "Popular among male users (R-18)"
-msgstr "Рейтинг популярності серед чоловіків"
+msgstr "Популярне серед чоловіків (R-18)"
 
 #: vixipy/templates/rankings/calendar.html:32
 #: vixipy/templates/rankings/main.html:33
-#, fuzzy
 msgid "Popular among female users (R-18)"
-msgstr "Рейтинг популярності серед жінок"
+msgstr "Популярне серед жінок (R-18)"
 
 #: vixipy/templates/rankings/calendar.html:38
 #: vixipy/templates/rankings/main.html:48
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: vixipy/templates/rankings/calendar.html:72
 #, python-format
@@ -902,19 +912,16 @@ msgid "Day %(day)s"
 msgstr "День %(day)s"
 
 #: vixipy/templates/rankings/main.html:2
-#, fuzzy
 msgid "Rankings"
-msgstr "Щоденний рейтинг"
+msgstr "Рейтинги"
 
 #: vixipy/templates/rankings/main.html:39
-#, fuzzy
 msgid "Content"
-msgstr "Вміст робіт"
+msgstr "Вміст"
 
 #: vixipy/templates/rankings/main.html:44
-#, fuzzy
 msgid "Ugoira"
-msgstr "Конвертувати анімацію"
+msgstr "Анімація"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
@@ -1130,19 +1137,19 @@ msgstr "Вміст робіт"
 
 #: vixipy/templates/settings/display.html:22
 msgid "Show AI-generated work"
-msgstr "Проказати роботи, створені ШІ"
+msgstr "Показати роботи, створені ШІ"
 
 #: vixipy/templates/settings/display.html:26
 msgid "Display works that may contain sensitive content"
-msgstr "Проказати роботи, які можуть містити делікатний вміст"
+msgstr "Показати роботи, які можуть містити делікатний вміст"
 
 #: vixipy/templates/settings/display.html:30
 msgid "Show explicit content (R-18)"
-msgstr "Проказати відвертий вміст (R-18)"
+msgstr "Показати відвертий вміст (R-18)"
 
 #: vixipy/templates/settings/display.html:34
 msgid "Show ero-guro content (R-18G)"
-msgstr "Проказати вміст ероґуро (R-18G)"
+msgstr "Показати вміст ероґуро (R-18G)"
 
 #: vixipy/templates/settings/display.html:38
 msgid "Hide artwork thumbnails (preview mode)"
@@ -1162,7 +1169,7 @@ msgstr "Налаштування показу реклами"
 
 #: vixipy/templates/settings/display.html:53
 msgid "Display"
-msgstr "Відображення"
+msgstr "Показувати"
 
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
@@ -1464,4 +1471,3 @@ msgstr "Вийти"
 #~ " Вхід за допомогою імені користувача "
 #~ "та пароля неможливий через обов'язкову "
 #~ "перевірку reCAPTCHA."
-

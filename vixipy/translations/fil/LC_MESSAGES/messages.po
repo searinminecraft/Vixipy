@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-08-09 22:26+0800\n"
-"PO-Revision-Date: 2025-07-27 15:35+0000\n"
-"Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"PO-Revision-Date: 2025-08-10 07:09+0000\n"
+"Last-Translator: Ikuyo <searinminecraft@outlook.ph>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -306,9 +307,8 @@ msgid "Sign in"
 msgstr "Mag-sign in"
 
 #: vixipy/templates/login.html:28
-#, fuzzy
 msgid "How do I sign in?"
-msgstr "Paano ko ito gagawing sarili ko?"
+msgstr "Paano ako mag-sign in?"
 
 #: vixipy/templates/login.html:29
 msgid ""
@@ -316,47 +316,58 @@ msgid ""
 "<code>PHPSESSID</code> cookie, which can be found by opening your "
 "browser's developer tools:"
 msgstr ""
+"Para mag-sign in gamit ng iyong pixiv account, kailangan mo ang iyong "
+"<code>PHPSESSID</code> cookie, na mahahanap sa pamamagitan ng pagbukas ng "
+"iyong mga kagamitan ng developer sa browser:"
 
 #: vixipy/templates/login.html:30
 msgid "For Firefox based browsers:"
-msgstr ""
+msgstr "Para sa mga browser na nakabase sa Firefox:"
 
 #: vixipy/templates/login.html:32 vixipy/templates/login.html:39
 #, python-format
 msgid "Go to <a href='%(pixiv)s'>pixiv</a> and login/register if not already."
 msgstr ""
+"Pumunta sa <a href='%(pixiv)s'>pixiv</a> at mag-login/magrehistro kung hindi "
+"pa."
 
 #: vixipy/templates/login.html:33 vixipy/templates/login.html:40
 msgid "Press CTRL+SHIFT+I to open the developer tools"
-msgstr ""
+msgstr "Pindutin ang CTRL+SHIFT+I para buksan ang mga kagamitan ng developer"
 
 #: vixipy/templates/login.html:34
 msgid "Go to the Storage tab and then Cookies and then www.pixiv.net"
-msgstr ""
+msgstr "Pumunta sa Storage tab, at Cookies, at www.pixiv.net"
 
 #: vixipy/templates/login.html:35 vixipy/templates/login.html:42
 msgid "Find the cookie named <code>PHPSESSID</code> and copy the contents."
 msgstr ""
+"Hanapin ang cookie na tawag na <code>PHPSESSID</code> at kopyahin ang "
+"nilalaman nito."
 
 #: vixipy/templates/login.html:37
 msgid "For Chromium based browsers:"
-msgstr ""
+msgstr "Para sa mga browser na nakabase sa Chromium:"
 
 #: vixipy/templates/login.html:41
 msgid ""
 "Go to the Application tab, on the left side, click Cookies then "
 "www.pixiv.net"
 msgstr ""
+"Pumunta sa Application tab, sa kaliwang banda, i-click ang Cookies, at "
+"www.pixiv.net"
 
 #: vixipy/templates/login.html:44
 msgid ""
 "After obtaining the token, you can paste it in here and login. Note: "
 "logging out of that session will destroy the token as well!"
 msgstr ""
+"Pagkatapos makuha ang token, maaari mong i-paste dito at mag-login. Tandaan: "
+"ang pag-log out sa session na iyan ay tatanggalin rin ang token!"
 
 #: vixipy/templates/login.html:45
 msgid "Is it safe for me to log in here?"
-msgstr ""
+msgstr "Ligtas ba na mag-log in ako dito?"
 
 #: vixipy/templates/login.html:46
 msgid ""
@@ -365,10 +376,14 @@ msgid ""
 "server. The chances of your account getting in trouble or suspended are "
 "highly unlikely as well."
 msgstr ""
+"Hindi kailanman nanakawin ng Vixipy ang mga session token at mga personal na "
+"impormasyon. Naka-imbak ang iyong token sa browser bilang cookie hanggang 6 "
+"buwan at hindi sa server. Ang mga pagkakataong magkaroon ng problema o "
+"masuspinde ang iyong account ay hindi rin malamang."
 
 #: vixipy/templates/login.html:47
 msgid "What are the advantages of logging in?"
-msgstr ""
+msgstr "Ano ang mga pakinabang ng pag-log in?"
 
 #: vixipy/templates/login.html:48
 msgid ""
@@ -376,22 +391,27 @@ msgid ""
 " work interaction (like, bookmark, etc.) and following users. It also "
 "allows accessing login only and R-18 (if allowed by instance) works."
 msgstr ""
+"Ang pag-log in sa iyong pixiv account ay nagbibigay-daan para sa mga "
+"personalized na rekomendasyon, pakikipag-ugnayan sa trabaho (tulad ng, "
+"bookmark, atbp.) at pagsunod sa mga user. Pinapayagan din nito ang pag-"
+"access sa pag-login lamang ang mga R-18 (kung pinapayagan ng instansya) na "
+"gawa."
 
 #: vixipy/templates/login.html:58
 msgid "with your pixiv account."
-msgstr ""
+msgstr "gamit ang iyong pixiv account."
 
 #: vixipy/templates/login.html:59
 msgid "Help"
-msgstr ""
+msgstr "Tulong"
 
 #: vixipy/templates/login.html:63
 msgid "Token"
-msgstr ""
+msgstr "Token"
 
 #: vixipy/templates/login.html:72
 msgid "Return"
-msgstr ""
+msgstr "Bumalik"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
 #: vixipy/templates/users/dashboard.html:63
@@ -813,88 +833,78 @@ msgstr "Kalendaryo ng Ranggo"
 
 #: vixipy/templates/rankings/calendar.html:9
 #: vixipy/templates/rankings/main.html:9
-#, fuzzy
 msgid "Show options"
-msgstr "Mga opsyon sa paghahanap"
+msgstr "Ipakita ang mga opsyon"
 
 #: vixipy/templates/rankings/calendar.html:12
 #: vixipy/templates/rankings/main.html:12
-#, fuzzy
 msgid "Options"
-msgstr "Mga opsyon sa paghahanap"
+msgstr "Mga opsyon"
 
 #: vixipy/templates/rankings/calendar.html:16
 #: vixipy/templates/rankings/main.html:17
-#, fuzzy
 msgid "Daily"
-msgstr "Ipakita"
+msgstr "Araw-araw"
 
 #: vixipy/templates/rankings/calendar.html:17
 #: vixipy/templates/rankings/main.html:18
 msgid "Weekly"
-msgstr ""
+msgstr "Lingguhan"
 
 #: vixipy/templates/rankings/calendar.html:18
 #: vixipy/templates/rankings/main.html:19
 msgid "Monthly"
-msgstr ""
+msgstr "Buwanan"
 
 #: vixipy/templates/rankings/calendar.html:19
 #: vixipy/templates/rankings/main.html:20
 msgid "Rookie"
-msgstr ""
+msgstr "Bagito"
 
 #: vixipy/templates/rankings/calendar.html:21
 #: vixipy/templates/rankings/main.html:22
-#, fuzzy
 msgid "Popular among male users"
-msgstr "Ranggo ng katanyagan sa mga lalaking gumagamit"
+msgstr "Popular sa mga lalaking gumagamit"
 
 #: vixipy/templates/rankings/calendar.html:22
 #: vixipy/templates/rankings/main.html:23
-#, fuzzy
 msgid "Popular among female users"
-msgstr "Ranggo ng katanyagan sa mga babaeng gumagamit"
+msgstr "Popular sa mga babaeng gumagamit"
 
 #: vixipy/templates/rankings/calendar.html:25
 #: vixipy/templates/rankings/main.html:26
-#, fuzzy
 msgid "Daily (AI)"
-msgstr "Araw-araw na ranggo"
+msgstr "Araw-araw (AI)"
 
 #: vixipy/templates/rankings/calendar.html:27
 #: vixipy/templates/rankings/main.html:28
-#, fuzzy
 msgid "Daily R-18"
-msgstr "Araw-araw na ranggo"
+msgstr "Araw-araw na R-18"
 
 #: vixipy/templates/rankings/calendar.html:28
 #: vixipy/templates/rankings/main.html:29
-#, fuzzy
 msgid "Daily R-18 (AI)"
-msgstr "Araw-araw na ranggo"
+msgstr "Araw-araw na R-18 (AI)"
 
 #: vixipy/templates/rankings/calendar.html:29
 #: vixipy/templates/rankings/main.html:30
 msgid "Weekly R-18"
-msgstr ""
+msgstr "Lingguhang R-18"
 
 #: vixipy/templates/rankings/calendar.html:31
 #: vixipy/templates/rankings/main.html:32
-#, fuzzy
 msgid "Popular among male users (R-18)"
-msgstr "Ranggo ng katanyagan sa mga lalaking gumagamit"
+msgstr "Popular sa mga lalaking gumagamit (R-18)"
 
 #: vixipy/templates/rankings/calendar.html:32
 #: vixipy/templates/rankings/main.html:33
-#, fuzzy
 msgid "Popular among female users (R-18)"
-msgstr "Ranggo ng katanyagan sa mga babaeng gumagamit"
+msgstr "Popular sa mga babaeng gumagamit (R-18)"
 
 #: vixipy/templates/rankings/calendar.html:38
 #: vixipy/templates/rankings/main.html:48
 msgid "Date"
-msgstr ""
+msgstr "Petsa"
 
 #: vixipy/templates/rankings/calendar.html:72
 #, python-format
@@ -902,19 +912,16 @@ msgid "Day %(day)s"
 msgstr "Araw %(day)s"
 
 #: vixipy/templates/rankings/main.html:2
-#, fuzzy
 msgid "Rankings"
-msgstr "Araw-araw na ranggo"
+msgstr "Mga Ranggo"
 
 #: vixipy/templates/rankings/main.html:39
-#, fuzzy
 msgid "Content"
-msgstr "Nilalaman ng gawa"
+msgstr "Nilalaman"
 
 #: vixipy/templates/rankings/main.html:44
-#, fuzzy
 msgid "Ugoira"
-msgstr "I-convert ang Ugoira"
+msgstr "Ugoira"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
@@ -1474,4 +1481,3 @@ msgstr "Mag-log out"
 #~ "gamit username at password dahil sa "
 #~ "kinakailangan sa pagpapatunay ng reCAPTCHA "
 #~ "enterprise."
-

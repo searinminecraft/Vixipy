@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-08-09 22:26+0800\n"
-"PO-Revision-Date: 2025-07-27 15:35+0000\n"
-"Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"PO-Revision-Date: 2025-08-10 07:09+0000\n"
+"Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -280,20 +280,20 @@ msgstr "发生未处理的异常。若认为是系统问题，请<a href='%(link
 
 #: vixipy/templates/leave.html:4
 msgid "You are about to leave Vixipy."
-msgstr ""
+msgstr "您即将离开 Vixipy。"
 
 #: vixipy/templates/leave.html:5
 #, python-format
 msgid "Continuing will direct you to %(url)s"
-msgstr ""
+msgstr "继续操作将跳转至 %(url)s"
 
 #: vixipy/templates/leave.html:7
 msgid "Go back"
-msgstr ""
+msgstr "返回"
 
 #: vixipy/templates/leave.html:8
 msgid "Continue to site"
-msgstr ""
+msgstr "继续访问"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
 #: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:50
@@ -301,57 +301,57 @@ msgid "Sign in"
 msgstr "登录"
 
 #: vixipy/templates/login.html:28
-#, fuzzy
 msgid "How do I sign in?"
-msgstr "如何创建自己的实例？"
+msgstr "如何登录？"
 
 #: vixipy/templates/login.html:29
 msgid ""
 "To sign in with your pixiv account, you will need your "
 "<code>PHPSESSID</code> cookie, which can be found by opening your "
 "browser's developer tools:"
-msgstr ""
+msgstr "使用 pixiv 账号登录需要获取 <code>PHPSESSID</code> "
+"cookie，可通过浏览器开发者工具找到："
 
 #: vixipy/templates/login.html:30
 msgid "For Firefox based browsers:"
-msgstr ""
+msgstr "Firefox 浏览器："
 
 #: vixipy/templates/login.html:32 vixipy/templates/login.html:39
 #, python-format
 msgid "Go to <a href='%(pixiv)s'>pixiv</a> and login/register if not already."
-msgstr ""
+msgstr "访问 <a href='%(pixiv)s'>pixiv</a> 并登录/注册（若尚未完成）。"
 
 #: vixipy/templates/login.html:33 vixipy/templates/login.html:40
 msgid "Press CTRL+SHIFT+I to open the developer tools"
-msgstr ""
+msgstr "按 CTRL+SHIFT+I 打开开发者工具"
 
 #: vixipy/templates/login.html:34
 msgid "Go to the Storage tab and then Cookies and then www.pixiv.net"
-msgstr ""
+msgstr "进入存储标签页→Cookie→www.pixiv.net"
 
 #: vixipy/templates/login.html:35 vixipy/templates/login.html:42
 msgid "Find the cookie named <code>PHPSESSID</code> and copy the contents."
-msgstr ""
+msgstr "找到名为 <code>PHPSESSID</code> 的 cookie 并复制内容。"
 
 #: vixipy/templates/login.html:37
 msgid "For Chromium based browsers:"
-msgstr ""
+msgstr "Chromium 浏览器："
 
 #: vixipy/templates/login.html:41
 msgid ""
 "Go to the Application tab, on the left side, click Cookies then "
 "www.pixiv.net"
-msgstr ""
+msgstr "进入应用标签页→左侧 Cookie→www.pixiv.net"
 
 #: vixipy/templates/login.html:44
 msgid ""
 "After obtaining the token, you can paste it in here and login. Note: "
 "logging out of that session will destroy the token as well!"
-msgstr ""
+msgstr "获取令牌后，可在此粘贴登录。注意：登出会话会使令牌失效！"
 
 #: vixipy/templates/login.html:45
 msgid "Is it safe for me to log in here?"
-msgstr ""
+msgstr "在此登录是否安全？"
 
 #: vixipy/templates/login.html:46
 msgid ""
@@ -359,34 +359,36 @@ msgid ""
 "token is stored in your browser as a cookie for 6 months and not the "
 "server. The chances of your account getting in trouble or suspended are "
 "highly unlikely as well."
-msgstr ""
+msgstr "Vixipy 绝不会窃取会话令牌或个人信息。令牌仅作为浏览器 cookie 存储 6 "
+"个月（不经过服务器），您的账号几乎不存在被封禁风险。"
 
 #: vixipy/templates/login.html:47
 msgid "What are the advantages of logging in?"
-msgstr ""
+msgstr "登录有哪些优势？"
 
 #: vixipy/templates/login.html:48
 msgid ""
 "Logging in to your pixiv account allows for personalized recommendations,"
 " work interaction (like, bookmark, etc.) and following users. It also "
 "allows accessing login only and R-18 (if allowed by instance) works."
-msgstr ""
+msgstr "登录 pixiv 账号可获取个性化推荐、作品互动（点赞/收藏等）、关注用户，"
+"并访问登录限定内容及 R-18 作品（若实例允许）。"
 
 #: vixipy/templates/login.html:58
 msgid "with your pixiv account."
-msgstr ""
+msgstr "使用您的 pixiv 账号。"
 
 #: vixipy/templates/login.html:59
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #: vixipy/templates/login.html:63
 msgid "Token"
-msgstr ""
+msgstr "令牌"
 
 #: vixipy/templates/login.html:72
 msgid "Return"
-msgstr ""
+msgstr "返回"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
 #: vixipy/templates/users/dashboard.html:63
@@ -756,7 +758,7 @@ msgstr "热门原创小说"
 
 #: vixipy/templates/novels/index.html:46
 msgid "Daily ranking"
-msgstr "每日排行"
+msgstr "今日排行"
 
 #: vixipy/templates/novels/index.html:47 vixipy/templates/novels/index.html:60
 #: vixipy/templates/novels/index.html:73
@@ -803,88 +805,78 @@ msgstr "排行榜日历"
 
 #: vixipy/templates/rankings/calendar.html:9
 #: vixipy/templates/rankings/main.html:9
-#, fuzzy
 msgid "Show options"
-msgstr "搜索选项"
+msgstr "显示选项"
 
 #: vixipy/templates/rankings/calendar.html:12
 #: vixipy/templates/rankings/main.html:12
-#, fuzzy
 msgid "Options"
-msgstr "搜索选项"
+msgstr "选项"
 
 #: vixipy/templates/rankings/calendar.html:16
 #: vixipy/templates/rankings/main.html:17
-#, fuzzy
 msgid "Daily"
-msgstr "显示"
+msgstr "今日"
 
 #: vixipy/templates/rankings/calendar.html:17
 #: vixipy/templates/rankings/main.html:18
 msgid "Weekly"
-msgstr ""
+msgstr "本周"
 
 #: vixipy/templates/rankings/calendar.html:18
 #: vixipy/templates/rankings/main.html:19
 msgid "Monthly"
-msgstr ""
+msgstr "本月"
 
 #: vixipy/templates/rankings/calendar.html:19
 #: vixipy/templates/rankings/main.html:20
 msgid "Rookie"
-msgstr ""
+msgstr "新人"
 
 #: vixipy/templates/rankings/calendar.html:21
 #: vixipy/templates/rankings/main.html:22
-#, fuzzy
 msgid "Popular among male users"
-msgstr "男性用户人气排行"
+msgstr "男性向热门"
 
 #: vixipy/templates/rankings/calendar.html:22
 #: vixipy/templates/rankings/main.html:23
-#, fuzzy
 msgid "Popular among female users"
-msgstr "女性用户人气排行"
+msgstr "女性向热门"
 
 #: vixipy/templates/rankings/calendar.html:25
 #: vixipy/templates/rankings/main.html:26
-#, fuzzy
 msgid "Daily (AI)"
-msgstr "每日排行"
+msgstr "今日（AI）"
 
 #: vixipy/templates/rankings/calendar.html:27
 #: vixipy/templates/rankings/main.html:28
-#, fuzzy
 msgid "Daily R-18"
-msgstr "每日排行"
+msgstr "今日 R-18"
 
 #: vixipy/templates/rankings/calendar.html:28
 #: vixipy/templates/rankings/main.html:29
-#, fuzzy
 msgid "Daily R-18 (AI)"
-msgstr "每日排行"
+msgstr "今日 R-18（AI）"
 
 #: vixipy/templates/rankings/calendar.html:29
 #: vixipy/templates/rankings/main.html:30
 msgid "Weekly R-18"
-msgstr ""
+msgstr "本周 R-18"
 
 #: vixipy/templates/rankings/calendar.html:31
 #: vixipy/templates/rankings/main.html:32
-#, fuzzy
 msgid "Popular among male users (R-18)"
-msgstr "男性用户人气排行"
+msgstr "男性向热门（R-18）"
 
 #: vixipy/templates/rankings/calendar.html:32
 #: vixipy/templates/rankings/main.html:33
-#, fuzzy
 msgid "Popular among female users (R-18)"
-msgstr "女性用户人气排行"
+msgstr "女性向热门（R-18）"
 
 #: vixipy/templates/rankings/calendar.html:38
 #: vixipy/templates/rankings/main.html:48
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: vixipy/templates/rankings/calendar.html:72
 #, python-format
@@ -892,19 +884,16 @@ msgid "Day %(day)s"
 msgstr "第 %(day)s 天"
 
 #: vixipy/templates/rankings/main.html:2
-#, fuzzy
 msgid "Rankings"
-msgstr "每日排行"
+msgstr "排行榜"
 
 #: vixipy/templates/rankings/main.html:39
-#, fuzzy
 msgid "Content"
-msgstr "作品内容"
+msgstr "内容"
 
 #: vixipy/templates/rankings/main.html:44
-#, fuzzy
 msgid "Ugoira"
-msgstr "转换动图"
+msgstr "动图"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
@@ -1410,4 +1399,3 @@ msgstr "退出登录"
 #~ " due to reCAPTCHA enterprise attestation"
 #~ " requirement."
 #~ msgstr "登录需提供账号的 <code>PHPSESSID</code> Cookie。由于 reCAPTCHA 企业验证要求，不支持用户名密码登录。"
-
