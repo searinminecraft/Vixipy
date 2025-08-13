@@ -51,6 +51,11 @@ async def main():
     ) and mode in ("daily_r18", "daily_r18_ai", "weekly_r18", "male_r18", "female_r18"):
         abort(403)
 
+
+    #  content param is incompatible with some modes
+    if mode in ("daily_ai", "daily_r18_ai", "original"):
+        content = None
+
     data = await get_ranking(mode, date, content, page)
 
     return await render_template("rankings/main.html", data=data)

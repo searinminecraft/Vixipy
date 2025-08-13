@@ -11,9 +11,9 @@
             <fieldset>
                 <legend>{{_("Options")}}</legend>
 
+                {% set mode = request.args["mode"] %}
                 <label for="mode" class="block heading">{{_("Mode")}}</label>
                 <select name="mode" id="mode">
-                    {% set mode = request.args["mode"] %}
                     <option value="daily" {% if mode=="daily" %}selected{% endif %}>{{_("Daily")}}</option>
                     <option value="weekly" {% if mode=="weekly" %}selected{% endif %}>{{_("Weekly")}}</option>
                     <option value="monthly" {% if mode=="monthly" %}selected{% endif %}>{{_("Monthly")}}</option>
@@ -35,6 +35,7 @@
                     {% endif %}
                 </select>
 
+                {% if mode not in ("daily_r18_ai", "daily_ai", "original") %}
                 <br><br>
                 <label for="content" class="block heading">{{_("Content")}}</label>
                 <select name="content" id="content">
@@ -43,6 +44,7 @@
                     <option value="manga" {% if content=="manga" %}selected{% endif %}>{{_("Manga")}}</option>
                     <option value="ugoira" {% if content=="ugoira" %}selected{% endif %}>{{_("Ugoira")}}</option>
                 </select>
+                {% endif %}
 
                 <br><br>
                 <label for="date" class="block heading">{{_("Date")}}</label>
