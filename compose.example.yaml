@@ -5,6 +5,8 @@ services:
     build: .
     ports:
       - "127.0.0.1:8000:8000"
+    volumes:
+      - ./instance:/vixipy/instance
     cap_drop:
       - ALL
     security_opt:
@@ -35,7 +37,7 @@ services:
 
       # Uncomment this line if using caching or ratelimiting
       #VIXIPY_MEMCACHED_HOST: "memcached"
-  
+
   # You must have memcached running to use caching/ratelimiting. Configure it to your liking
   #memcached:
   #  image: memcached
