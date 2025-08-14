@@ -2,9 +2,11 @@
 {% set title = _("Home") %}
 
 {% import "components/artwork-entry.html" as ae %}
+{% import "components/tag.html" as t %}
 
 {% block content %}
 <main class="large">
+    {{ t.tag_list_large(tags) }}
     {% if following | length > 0 %}
     <section id="following">
         <h2>{{_("Works by users you are following")}}</h2>

@@ -1,0 +1,14 @@
+{%- macro tag_list_large(tags) %}
+<ul class="tag-list-large">
+  {% for x in tags %}
+  <li>
+    <a href="/tags/{{x.orig}}">
+    <span>{{x.orig}}</span>
+    {%- if x.default != x.orig %}
+    <small>{{x.default}}</small>
+    {% endif -%}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endmacro -%}

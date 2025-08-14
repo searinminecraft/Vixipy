@@ -40,3 +40,54 @@ ul.list {
         }
     }
 }
+
+
+ul.tag-list-large {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  overflow: hidden;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0px
+  }
+
+  li {
+    flex-shrink: 0;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0px 18px;
+      border-radius: 8px;
+      background-color: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-surface);
+      gap: 4px;
+      height: 50px;
+
+      &:has(small) {
+        span {
+          margin-bottom: unset;
+          font-size: 14px;
+        }
+      }
+
+      span {
+        font-weight: bold;
+        display: block;
+      }
+
+      small {
+        font-size: 10px;
+        display: block;
+      }
+    }
+  }
+}
+

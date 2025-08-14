@@ -29,6 +29,7 @@ async def index():
         recommend: list[ArtworkEntry] = []
         recommend_by_tag: list[RecommendBytag] = []
         new: list[ArtworkEntry] = []
+        tags: list[TagTranslation] = []
 
         data = await pixiv_request(
             "/ajax/top/illust", params=[("mode", mode)], ignore_cache=True
@@ -36,6 +37,7 @@ async def index():
 
         _page = data["page"]
         _tag_translations = data["tagTranslation"]
+        _tags = _page["tags"]
         _recommend = [int(x) for x in _page["recommend"]["ids"]]
         _illusts = data["thumbnails"]["illust"]
         _following = _page["follow"]
@@ -72,12 +74,17 @@ async def index():
 
             recommend_by_tag.append(RecommendByTag(ff(__illusts), __tag, __translation))
 
+        for t in _tags:
+            tags.append(tag_translations.get(t["tag"], TagTranslation(t["tag"], {x: None for x in ("en", "ko", "zh", "zh_tw", "romaji")})))
+        print(tags)
+
         return await render_template(
             "index.html",
             following=ff(following),
             recommend=ff(recommend),
             rec_tag=recommend_by_tag,
             new=ff(new),
+            tags=tags
         )
     else:
         data = await get_ranking()

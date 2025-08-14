@@ -348,11 +348,11 @@ class ArtworkPage:
 class TagTranslation:
     def __init__(self, orig: str, d):
         self.orig: str = orig
-        self.en: Optional[str] = blank_to_none(d.get("en"))
-        self.ko: Optional[str] = blank_to_none(d.get("ko"))
-        self.zh: Optional[str] = blank_to_none(d.get("zh"))
-        self.zh_tw: Optional[str] = blank_to_none(d.get("zh_tw"))
-        self.romaji: Optional[str] = blank_to_none(d.get("romaji"))
+        self.en: Optional[str] = d.get("en") or None
+        self.ko: Optional[str] = d.get("ko") or None
+        self.zh: Optional[str] = d.get("zh") or None
+        self.zh_tw: Optional[str] = d.get("zh_tw") or None
+        self.romaji: Optional[str] = d.get("romaji") or None
 
     @property
     def default(self):
@@ -370,7 +370,9 @@ class TagTranslation:
         if pref == "zh_Hant":
             return self.zh_tw or self.orig
         return self.en or self.romaji or self.orig
-
+    
+    def __repr__(self):
+        return f"<TagTranslation {self.orig} default={self.default}>"
 
 class RecommendByTag:
     def __init__(
