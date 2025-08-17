@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-09 22:26+0800\n"
+"POT-Creation-Date: 2025-08-17 17:12+0800\n"
 "PO-Revision-Date: 2025-08-14 13:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/de/>\n"
 "Language: de\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/de/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -99,7 +98,7 @@ msgstr "Melde dich an, um Kommentare zu posten"
 msgid "There is no comment yet"
 msgstr "Keine Kommentare verfügbar"
 
-#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:71
+#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:73
 #: vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
@@ -238,15 +237,15 @@ msgstr "Zurück zur Startseite"
 msgid "Home"
 msgstr "Startseite"
 
-#: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
+#: vixipy/templates/index.html:12 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
 msgstr "Werke von Nutzern denen du folgst"
 
-#: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
+#: vixipy/templates/index.html:22 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
 msgstr "Empfohlene Werke"
 
-#: vixipy/templates/index.html:31
+#: vixipy/templates/index.html:33
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
@@ -255,7 +254,7 @@ msgstr ""
 "Empfohlene Illustrationen mit dem Tag <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:43
+#: vixipy/templates/index.html:56 vixipy/templates/users/dashboard.html:51
 msgid "Newest by all"
 msgstr "Neueste Werke von Allen"
 
@@ -270,19 +269,30 @@ msgstr "Rangliste für %(date)s"
 msgid "View All"
 msgstr "Alle Ansehen"
 
-#: vixipy/templates/internal_server_error.html:2
-#: vixipy/templates/internal_server_error.html:5
+#: vixipy/templates/internal_server_error.html:8
 msgid "Internal Server Error"
 msgstr "Interner Server Fehler"
 
-#: vixipy/templates/internal_server_error.html:6
-#, python-format
-msgid ""
-"An unhandled exception has occurred. If you believe this is a bug, file a"
-" report <a href=\"%(link)s\">here</a>"
+#: vixipy/templates/internal_server_error.html:21
+msgid "Looks like Vixipy broke unexpectedly..."
 msgstr ""
-"Eine unbehandelte Ausnahme ist aufgetreten. Sollte dies ein Fehler sein, "
-"melde dies <a href='%(link)s'>hier</a>"
+
+#: vixipy/templates/internal_server_error.html:23
+msgid "An internal error has occurred and Vixipy cannot continue."
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr "Zurück"
+
+#: vixipy/templates/internal_server_error.html:27
+msgid "Report Issue"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:28
+#: vixipy/templates/no_connection.html:9
+msgid "Try Again"
+msgstr "Erneut versuchen"
 
 #: vixipy/templates/leave.html:4
 msgid "You are about to leave Vixipy."
@@ -293,16 +303,12 @@ msgstr "Du bist dabei, Vixipy zu verlassen."
 msgid "Continuing will direct you to %(url)s"
 msgstr "Wenn du fortfährst, wirst du zu %(url)s weitergeleitet"
 
-#: vixipy/templates/leave.html:7
-msgid "Go back"
-msgstr "Zurück"
-
 #: vixipy/templates/leave.html:8
 msgid "Continue to site"
 msgstr "Weiter zur Website"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:50
+#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:44
 msgid "Sign in"
 msgstr "Anmelden"
 
@@ -394,7 +400,7 @@ msgid "Return"
 msgstr "Zurück"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:63
+#: vixipy/templates/users/dashboard.html:75
 msgid "Material You Generator"
 msgstr "Material You Generator"
 
@@ -429,10 +435,6 @@ msgid ""
 msgstr ""
 "Verbindung zu Pixiv kann nicht hergestellt werden. Überprüfe deine "
 "Verbindung oder kontaktiere den Instanz-Administrator."
-
-#: vixipy/templates/no_connection.html:9
-msgid "Try Again"
-msgstr "Erneut versuchen"
 
 #: vixipy/templates/components/header.html:17
 #: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
@@ -634,7 +636,7 @@ msgstr "Filter"
 
 #: vixipy/templates/components/tag-search-filter.html:38
 #: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:14
+#: vixipy/templates/rankings/main.html:15
 msgid "Mode"
 msgstr "Modus"
 
@@ -703,7 +705,7 @@ msgstr "Periode"
 
 #: vixipy/templates/components/tag-search-filter.html:190
 #: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:52
+#: vixipy/templates/rankings/main.html:54
 msgid "Apply"
 msgstr "Anwenden"
 
@@ -735,7 +737,7 @@ msgstr "Neueste manga von allen Nutzern"
 msgid "New from All users"
 msgstr "Neueste von allen Nutzern"
 
-#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:42
+#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:43
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
@@ -743,7 +745,7 @@ msgstr "Neueste von allen Nutzern"
 msgid "Illustrations"
 msgstr "Illustrationen"
 
-#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:43
+#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:44
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
@@ -807,6 +809,7 @@ msgstr "%(cc)s Wort(e)"
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
+#: vixipy/templates/users/dashboard.html:63
 msgid "Ranking Calendar"
 msgstr "Ranglisten Kalender"
 
@@ -885,7 +888,7 @@ msgid "Popular among female users (R-18)"
 msgstr "Rangliste unter weiblichen Nutzern"
 
 #: vixipy/templates/rankings/calendar.html:38
-#: vixipy/templates/rankings/main.html:48
+#: vixipy/templates/rankings/main.html:50
 msgid "Date"
 msgstr "Datum"
 
@@ -895,14 +898,15 @@ msgid "Day %(day)s"
 msgstr "Tag %(day)s"
 
 #: vixipy/templates/rankings/main.html:2
+#: vixipy/templates/users/dashboard.html:57
 msgid "Rankings"
 msgstr "Ranglisten"
 
-#: vixipy/templates/rankings/main.html:39
+#: vixipy/templates/rankings/main.html:40
 msgid "Content"
 msgstr "Inhalt"
 
-#: vixipy/templates/rankings/main.html:44
+#: vixipy/templates/rankings/main.html:45
 msgid "Ugoira"
 msgstr "Ugoira"
 
@@ -957,7 +961,7 @@ msgstr "Illustrationen und Manga"
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:57
+#: vixipy/templates/users/dashboard.html:69
 msgid "Popular Tags"
 msgstr "Beliebte Tags"
 
@@ -1067,7 +1071,8 @@ msgstr "Projekte"
 #: vixipy/templates/settings/acknowledgements.html:8
 msgid "These projects and libraries help shape Vixipy:"
 msgstr ""
-"Diese Projekte und Bibliotheken werden zur Entwicklung von Vixipy verwendet:"
+"Diese Projekte und Bibliotheken werden zur Entwicklung von Vixipy "
+"verwendet:"
 
 #: vixipy/templates/settings/acknowledgements.html:22
 msgid "Translations"
@@ -1076,8 +1081,8 @@ msgstr "Übersetzungen"
 #: vixipy/templates/settings/acknowledgements.html:23
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
 msgstr ""
-"Diese Menschen haben bei der Übersetzung von Vixipy geholfen (vielen Dank "
-"&lt;3):"
+"Diese Menschen haben bei der Übersetzung von Vixipy geholfen (vielen Dank"
+" &lt;3):"
 
 #: vixipy/templates/settings/display.html:2
 #: vixipy/templates/settings/display.html:5
@@ -1128,7 +1133,7 @@ msgstr "Anzeigen"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:69
+#: vixipy/templates/users/dashboard.html:81
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -1273,138 +1278,22 @@ msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
 msgstr ""
-"<b>Du bist nicht angemeldet.</b> Melde dich bei deinem Pixiv-Konto an, um "
-"Vixipy's volles Potential zu erfahren."
+"<b>Du bist nicht angemeldet.</b> Melde dich bei deinem Pixiv-Konto an, um"
+" Vixipy's volles Potential zu erfahren."
 
 #: vixipy/templates/users/dashboard.html:31
 msgid "Your profile"
 msgstr "Dein Profil"
 
-#: vixipy/templates/users/dashboard.html:75
+#: vixipy/templates/users/dashboard.html:87
 msgid "Send Feedback"
 msgstr "Feedback senden"
 
-#: vixipy/templates/users/dashboard.html:81
+#: vixipy/templates/users/dashboard.html:93
 msgid "Source Code"
 msgstr "Quellcode"
 
-#: vixipy/templates/users/dashboard.html:88
+#: vixipy/templates/users/dashboard.html:100
 msgid "Log out"
 msgstr "Abmelden"
 
-#~ msgid "Submit Illustration"
-#~ msgstr "Illustration hochladen"
-
-#~ msgid "Files"
-#~ msgstr "Dateien"
-
-#~ msgid "Basic Information"
-#~ msgstr "Basisinformation"
-
-#~ msgid "Title"
-#~ msgstr "Titel"
-
-#~ msgid "Caption"
-#~ msgstr "Untertitel"
-
-#~ msgid "Tags"
-#~ msgstr "Tags"
-
-#~ msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
-#~ msgstr ""
-
-#~ msgid "Don't allow users to edit tags"
-#~ msgstr ""
-
-#~ msgid "Content and Privacy"
-#~ msgstr ""
-
-#~ msgid "AI-generated work"
-#~ msgstr ""
-
-#~ msgid "Allow comments"
-#~ msgstr ""
-
-#~ msgid "Original work"
-#~ msgstr ""
-
-#~ msgid "Visible to"
-#~ msgstr ""
-
-#~ msgid "All Ages"
-#~ msgstr ""
-
-#~ msgid "Open to"
-#~ msgstr ""
-
-#~ msgid "Logged-in users only"
-#~ msgstr ""
-
-#~ msgid "Adult Content"
-#~ msgstr ""
-
-#~ msgid "Yes"
-#~ msgstr ""
-
-#~ msgid "No"
-#~ msgstr ""
-
-#~ msgid "Mature Content"
-#~ msgstr ""
-
-#~ msgid "Minors"
-#~ msgstr ""
-
-#~ msgid "Furry"
-#~ msgstr ""
-
-#~ msgid "BL"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "By posting your work, you hereby "
-#~ "agree to the pixiv Terms of "
-#~ "Service. Vixipy is provided to you "
-#~ "as is, without warranty of any "
-#~ "kind and will not be responsible "
-#~ "for any action taken whatsoever."
-#~ msgstr ""
-
-#~ msgid "Post"
-#~ msgstr ""
-
-#~ msgid "About"
-#~ msgstr "Über Vixipy"
-
-#~ msgid ""
-#~ "Sign in to your pixiv account to"
-#~ " access features that normally require "
-#~ "it, such as:"
-#~ msgstr ""
-#~ "Logge in deinen Pixiv Account ein, "
-#~ "um Zugang auf Features zu erhalten, "
-#~ "die dies benötigen, wie zum Beispiel:"
-
-#~ msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
-#~ msgstr ""
-#~ "Mit Werken interagieren (Liken, als "
-#~ "Lesezeichen speichern, kommentieren, etc.)"
-
-#~ msgid "Personalized landing"
-#~ msgstr "Personalisierte Startseite"
-
-#~ msgid "<b>Coming soon:</b> work uploads"
-#~ msgstr "<b>Demnächst Verfügbar:</b> Werke Hochladen"
-
-#~ msgid ""
-#~ "To sign in, you will need your "
-#~ "account's <code>PHPSESSID</code> cookie. Username"
-#~ " and password logins are not possible"
-#~ " due to reCAPTCHA enterprise attestation"
-#~ " requirement."
-#~ msgstr ""
-#~ "Um einzuloggen brauchst du den "
-#~ "<code>PHPSESSID</code> cookie von deinem "
-#~ "Account. Nutzername und Passwort logins "
-#~ "sind aufgrund von reCAPTCHA Enterprise "
-#~ "Bedingungen nicht verfügbar."

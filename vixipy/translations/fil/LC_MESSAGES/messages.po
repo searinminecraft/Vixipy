@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-09 22:26+0800\n"
+"POT-Creation-Date: 2025-08-17 17:12+0800\n"
 "PO-Revision-Date: 2025-08-10 07:09+0000\n"
 "Last-Translator: Ikuyo <searinminecraft@outlook.ph>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -99,7 +98,7 @@ msgstr "Mag-sign in para mag-post ng mga komento"
 msgid "There is no comment yet"
 msgstr "Wala pang mga komento"
 
-#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:71
+#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:73
 #: vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
@@ -238,15 +237,15 @@ msgstr "Bumalik sa panimula"
 msgid "Home"
 msgstr "Home"
 
-#: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
+#: vixipy/templates/index.html:12 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
 msgstr "Mga gawa mula sa mga sinusundang user"
 
-#: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
+#: vixipy/templates/index.html:22 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
 msgstr "Mga inirerekomendang gawa"
 
-#: vixipy/templates/index.html:31
+#: vixipy/templates/index.html:33
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
@@ -255,7 +254,7 @@ msgstr ""
 "Mga inirerekomendang illustration na naka-tag na <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:43
+#: vixipy/templates/index.html:56 vixipy/templates/users/dashboard.html:51
 msgid "Newest by all"
 msgstr "Pinakabago mula sa lahat"
 
@@ -270,19 +269,30 @@ msgstr "Ranking para sa %(date)s"
 msgid "View All"
 msgstr "Tignan Lahat"
 
-#: vixipy/templates/internal_server_error.html:2
-#: vixipy/templates/internal_server_error.html:5
+#: vixipy/templates/internal_server_error.html:8
 msgid "Internal Server Error"
 msgstr "Panloob na Error sa Server"
 
-#: vixipy/templates/internal_server_error.html:6
-#, python-format
-msgid ""
-"An unhandled exception has occurred. If you believe this is a bug, file a"
-" report <a href=\"%(link)s\">here</a>"
+#: vixipy/templates/internal_server_error.html:21
+msgid "Looks like Vixipy broke unexpectedly..."
 msgstr ""
-"May unhandled na exception na nangyari. Kung sa tingin mo ay isa itong "
-"bug, mag-file ng ulat <a href='%(link)s'>dito</a>"
+
+#: vixipy/templates/internal_server_error.html:23
+msgid "An internal error has occurred and Vixipy cannot continue."
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr "Bumalik"
+
+#: vixipy/templates/internal_server_error.html:27
+msgid "Report Issue"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:28
+#: vixipy/templates/no_connection.html:9
+msgid "Try Again"
+msgstr "Subukan Muli"
 
 #: vixipy/templates/leave.html:4
 msgid "You are about to leave Vixipy."
@@ -293,16 +303,12 @@ msgstr "Malapit ka nang umalis sa Vixipy."
 msgid "Continuing will direct you to %(url)s"
 msgstr "Ididirekta ka sa %(url)s kapag magpatuloy ka"
 
-#: vixipy/templates/leave.html:7
-msgid "Go back"
-msgstr "Bumalik"
-
 #: vixipy/templates/leave.html:8
 msgid "Continue to site"
 msgstr "Magpatuloy sa site"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:50
+#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:44
 msgid "Sign in"
 msgstr "Mag-sign in"
 
@@ -317,8 +323,8 @@ msgid ""
 "browser's developer tools:"
 msgstr ""
 "Para mag-sign in gamit ng iyong pixiv account, kailangan mo ang iyong "
-"<code>PHPSESSID</code> cookie, na mahahanap sa pamamagitan ng pagbukas ng "
-"iyong mga kagamitan ng developer sa browser:"
+"<code>PHPSESSID</code> cookie, na mahahanap sa pamamagitan ng pagbukas ng"
+" iyong mga kagamitan ng developer sa browser:"
 
 #: vixipy/templates/login.html:30
 msgid "For Firefox based browsers:"
@@ -328,8 +334,8 @@ msgstr "Para sa mga browser na nakabase sa Firefox:"
 #, python-format
 msgid "Go to <a href='%(pixiv)s'>pixiv</a> and login/register if not already."
 msgstr ""
-"Pumunta sa <a href='%(pixiv)s'>pixiv</a> at mag-login/magrehistro kung hindi "
-"pa."
+"Pumunta sa <a href='%(pixiv)s'>pixiv</a> at mag-login/magrehistro kung "
+"hindi pa."
 
 #: vixipy/templates/login.html:33 vixipy/templates/login.html:40
 msgid "Press CTRL+SHIFT+I to open the developer tools"
@@ -362,8 +368,8 @@ msgid ""
 "After obtaining the token, you can paste it in here and login. Note: "
 "logging out of that session will destroy the token as well!"
 msgstr ""
-"Pagkatapos makuha ang token, maaari mong i-paste dito at mag-login. Tandaan: "
-"ang pag-log out sa session na iyan ay tatanggalin rin ang token!"
+"Pagkatapos makuha ang token, maaari mong i-paste dito at mag-login. "
+"Tandaan: ang pag-log out sa session na iyan ay tatanggalin rin ang token!"
 
 #: vixipy/templates/login.html:45
 msgid "Is it safe for me to log in here?"
@@ -376,10 +382,10 @@ msgid ""
 "server. The chances of your account getting in trouble or suspended are "
 "highly unlikely as well."
 msgstr ""
-"Hindi kailanman nanakawin ng Vixipy ang mga session token at mga personal na "
-"impormasyon. Naka-imbak ang iyong token sa browser bilang cookie hanggang 6 "
-"buwan at hindi sa server. Ang mga pagkakataong magkaroon ng problema o "
-"masuspinde ang iyong account ay hindi rin malamang."
+"Hindi kailanman nanakawin ng Vixipy ang mga session token at mga personal"
+" na impormasyon. Naka-imbak ang iyong token sa browser bilang cookie "
+"hanggang 6 buwan at hindi sa server. Ang mga pagkakataong magkaroon ng "
+"problema o masuspinde ang iyong account ay hindi rin malamang."
 
 #: vixipy/templates/login.html:47
 msgid "What are the advantages of logging in?"
@@ -394,8 +400,8 @@ msgstr ""
 "Ang pag-log in sa iyong pixiv account ay nagbibigay-daan para sa mga "
 "personalized na rekomendasyon, pakikipag-ugnayan sa trabaho (tulad ng, "
 "bookmark, atbp.) at pagsunod sa mga user. Pinapayagan din nito ang pag-"
-"access sa pag-login lamang ang mga R-18 (kung pinapayagan ng instansya) na "
-"gawa."
+"access sa pag-login lamang ang mga R-18 (kung pinapayagan ng instansya) "
+"na gawa."
 
 #: vixipy/templates/login.html:58
 msgid "with your pixiv account."
@@ -414,7 +420,7 @@ msgid "Return"
 msgstr "Bumalik"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:63
+#: vixipy/templates/users/dashboard.html:75
 msgid "Material You Generator"
 msgstr "Material You Generator"
 
@@ -449,10 +455,6 @@ msgid ""
 msgstr ""
 "Hindi makakonekta sa mga server ng pixiv. Suriin ang iyong koneksyon o "
 "makipag-ugnayan sa tagapangasiwa ng instansya."
-
-#: vixipy/templates/no_connection.html:9
-msgid "Try Again"
-msgstr "Subukan Muli"
 
 #: vixipy/templates/components/header.html:17
 #: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
@@ -655,7 +657,7 @@ msgstr "Mga Filter"
 
 #: vixipy/templates/components/tag-search-filter.html:38
 #: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:14
+#: vixipy/templates/rankings/main.html:15
 msgid "Mode"
 msgstr "Mode"
 
@@ -724,7 +726,7 @@ msgstr "Panahon"
 
 #: vixipy/templates/components/tag-search-filter.html:190
 #: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:52
+#: vixipy/templates/rankings/main.html:54
 msgid "Apply"
 msgstr "I-apply"
 
@@ -756,7 +758,7 @@ msgstr "Mga pinakabagong manga mula sa lahat ng mga user"
 msgid "New from All users"
 msgstr "Pinakabago mula sa lahat ng mga user"
 
-#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:42
+#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:43
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
@@ -764,7 +766,7 @@ msgstr "Pinakabago mula sa lahat ng mga user"
 msgid "Illustrations"
 msgstr "Mga Larawan"
 
-#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:43
+#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:44
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
@@ -828,6 +830,7 @@ msgstr "%(cc)s (mga) Salita"
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
+#: vixipy/templates/users/dashboard.html:63
 msgid "Ranking Calendar"
 msgstr "Kalendaryo ng Ranggo"
 
@@ -902,7 +905,7 @@ msgid "Popular among female users (R-18)"
 msgstr "Popular sa mga babaeng gumagamit (R-18)"
 
 #: vixipy/templates/rankings/calendar.html:38
-#: vixipy/templates/rankings/main.html:48
+#: vixipy/templates/rankings/main.html:50
 msgid "Date"
 msgstr "Petsa"
 
@@ -912,14 +915,15 @@ msgid "Day %(day)s"
 msgstr "Araw %(day)s"
 
 #: vixipy/templates/rankings/main.html:2
+#: vixipy/templates/users/dashboard.html:57
 msgid "Rankings"
 msgstr "Mga Ranggo"
 
-#: vixipy/templates/rankings/main.html:39
+#: vixipy/templates/rankings/main.html:40
 msgid "Content"
 msgstr "Nilalaman"
 
-#: vixipy/templates/rankings/main.html:44
+#: vixipy/templates/rankings/main.html:45
 msgid "Ugoira"
 msgstr "Ugoira"
 
@@ -974,7 +978,7 @@ msgstr "Mga Larawan at Manga"
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:57
+#: vixipy/templates/users/dashboard.html:69
 msgid "Popular Tags"
 msgstr "Mga Popular na Tag"
 
@@ -1179,7 +1183,7 @@ msgstr "Ipakita"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:69
+#: vixipy/templates/users/dashboard.html:81
 msgid "Settings"
 msgstr "Mga Setting"
 
@@ -1331,153 +1335,15 @@ msgstr ""
 msgid "Your profile"
 msgstr "Iyong profile"
 
-#: vixipy/templates/users/dashboard.html:75
+#: vixipy/templates/users/dashboard.html:87
 msgid "Send Feedback"
 msgstr "Magpadala ng Feedback"
 
-#: vixipy/templates/users/dashboard.html:81
+#: vixipy/templates/users/dashboard.html:93
 msgid "Source Code"
 msgstr "Source Code"
 
-#: vixipy/templates/users/dashboard.html:88
+#: vixipy/templates/users/dashboard.html:100
 msgid "Log out"
 msgstr "Mag-log out"
 
-#~ msgid "Hide AI-generated work"
-#~ msgstr "Itago ang mga gawang binuo ng AI"
-
-#~ msgid ""
-#~ "<b>You are not logged in. Sign in"
-#~ " to your pixiv account to experience"
-#~ " Vixipy in its full potential."
-#~ msgstr ""
-
-#~ msgid "No comments"
-#~ msgstr "Walang mga komento"
-
-#~ msgid "Submit Illustration"
-#~ msgstr "I-submit ang Illustration"
-
-#~ msgid "Files"
-#~ msgstr "Mga File"
-
-#~ msgid "Basic Information"
-#~ msgstr "Pangunahing Impormasyon"
-
-#~ msgid "Title"
-#~ msgstr "Paksa"
-
-#~ msgid "Caption"
-#~ msgstr "Caption"
-
-#~ msgid "Tags"
-#~ msgstr "Mga Tag"
-
-#~ msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
-#~ msgstr "Max. 10 tag, ihiwalay gamit ang kuwit. Tinatanggal ang whitespace."
-
-#~ msgid "Don't allow users to edit tags"
-#~ msgstr "Huwag payagan ang mga user na baguhin ang mga tag"
-
-#~ msgid "Content and Privacy"
-#~ msgstr "Nilalaman at Pagkapribado"
-
-#~ msgid "AI-generated work"
-#~ msgstr "Gawang binuo ng AI"
-
-#~ msgid "Allow comments"
-#~ msgstr "Payagan ang mga komento"
-
-#~ msgid "Original work"
-#~ msgstr "Orihinal na gawa"
-
-#~ msgid "Visible to"
-#~ msgstr "Nakikita ng"
-
-#~ msgid "All Ages"
-#~ msgstr "Lahat ng Mga Edad"
-
-#~ msgid "Open to"
-#~ msgstr "Bukas sa"
-
-#~ msgid "Logged-in users only"
-#~ msgstr "Naka-log in na user lamang"
-
-#~ msgid "Adult Content"
-#~ msgstr "Pang-adultong Nilalaman"
-
-#~ msgid "Yes"
-#~ msgstr "Oo"
-
-#~ msgid "No"
-#~ msgstr "Hindi"
-
-#~ msgid "Mature Content"
-#~ msgstr "Mature na Nilalaman"
-
-#~ msgid "Minors"
-#~ msgstr "Mga menor de edad"
-
-#~ msgid "Furry"
-#~ msgstr "Furry"
-
-#~ msgid "BL"
-#~ msgstr "BL"
-
-#~ msgid ""
-#~ "By posting your work, you hereby "
-#~ "agree to the pixiv Terms of "
-#~ "Service. Vixipy is provided to you "
-#~ "as is, without warranty of any "
-#~ "kind and will not be responsible "
-#~ "for any action taken whatsoever."
-#~ msgstr ""
-#~ "Sa pamamagitan ng pag-post ng "
-#~ "iyong gawa, sumasang-ayon ka sa "
-#~ "Mga Tuntunin ng Serbisyo ng pixiv. "
-#~ "Ang Vixipy ay ibinibigay sa iyo "
-#~ "gaya ng dati, nang walang anumang "
-#~ "uri ng warranty at hindi mananagot "
-#~ "para sa anumang aksyon na ginawa "
-#~ "kahit ano pa man."
-
-#~ msgid "Post"
-#~ msgstr "I-post"
-
-#~ msgid "About"
-#~ msgstr "Tungkol sa"
-
-#~ msgid ""
-#~ "Sign in to your pixiv account to"
-#~ " access features that normally require "
-#~ "it, such as:"
-#~ msgstr ""
-#~ "Mag-sign in sa iyong pixiv account"
-#~ " para ma-access ang mga feature "
-#~ "na karaniwang nangangailangan nito, gaya "
-#~ "ng:"
-
-#~ msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
-#~ msgstr ""
-#~ "Pakikipag-ugnayan sa gawa (tulad ng "
-#~ "pag-like, bookmark, pagkomento, atbp.)"
-
-#~ msgid "Personalized landing"
-#~ msgstr "Naka-personalize na landing"
-
-#~ msgid "<b>Coming soon:</b> work uploads"
-#~ msgstr "<b>Paparating na:</b> pag-upload ng mga gawa"
-
-#~ msgid ""
-#~ "To sign in, you will need your "
-#~ "account's <code>PHPSESSID</code> cookie. Username"
-#~ " and password logins are not possible"
-#~ " due to reCAPTCHA enterprise attestation"
-#~ " requirement."
-#~ msgstr ""
-#~ "Upang mag-sign in, kakailanganin mo "
-#~ "ang <code>PHPSESSID</code> cookie ng iyong "
-#~ "account. Hindi posible ang mga login "
-#~ "gamit username at password dahil sa "
-#~ "kinakailangan sa pagpapatunay ng reCAPTCHA "
-#~ "enterprise."

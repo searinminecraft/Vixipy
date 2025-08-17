@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-09 22:26+0800\n"
+"POT-Creation-Date: 2025-08-17 17:12+0800\n"
 "PO-Revision-Date: 2025-08-09 21:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -100,7 +99,7 @@ msgstr "Увійдіть, щоб коментувати"
 msgid "There is no comment yet"
 msgstr "Коментарів ще немає"
 
-#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:71
+#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:73
 #: vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
@@ -239,15 +238,15 @@ msgstr "Повернутися додому"
 msgid "Home"
 msgstr "Домівка"
 
-#: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
+#: vixipy/templates/index.html:12 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
 msgstr "Роботи користувачів, за якими ви стежите"
 
-#: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
+#: vixipy/templates/index.html:22 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
 msgstr "Рекомендовані роботи"
 
-#: vixipy/templates/index.html:31
+#: vixipy/templates/index.html:33
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
@@ -256,7 +255,7 @@ msgstr ""
 "Рекомендовані ілюстрації з тегом <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:43
+#: vixipy/templates/index.html:56 vixipy/templates/users/dashboard.html:51
 msgid "Newest by all"
 msgstr "Нове від усіх"
 
@@ -271,19 +270,30 @@ msgstr "Рейтинг за %(date)s"
 msgid "View All"
 msgstr "Переглянути всі"
 
-#: vixipy/templates/internal_server_error.html:2
-#: vixipy/templates/internal_server_error.html:5
+#: vixipy/templates/internal_server_error.html:8
 msgid "Internal Server Error"
 msgstr "Внутрішня помилка сервера"
 
-#: vixipy/templates/internal_server_error.html:6
-#, python-format
-msgid ""
-"An unhandled exception has occurred. If you believe this is a bug, file a"
-" report <a href=\"%(link)s\">here</a>"
+#: vixipy/templates/internal_server_error.html:21
+msgid "Looks like Vixipy broke unexpectedly..."
 msgstr ""
-"Виникла невідома помилка. Якщо ви гадаєте, що це недолік, надішліть звіт "
-"про помилку <a href='%(link)s'>сюди</a>"
+
+#: vixipy/templates/internal_server_error.html:23
+msgid "An internal error has occurred and Vixipy cannot continue."
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr "Повернутися"
+
+#: vixipy/templates/internal_server_error.html:27
+msgid "Report Issue"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:28
+#: vixipy/templates/no_connection.html:9
+msgid "Try Again"
+msgstr "Повторити спробу"
 
 #: vixipy/templates/leave.html:4
 msgid "You are about to leave Vixipy."
@@ -294,16 +304,12 @@ msgstr "Ви покидаєте Vixipy."
 msgid "Continuing will direct you to %(url)s"
 msgstr "Продовживши, ви перейдете на %(url)s"
 
-#: vixipy/templates/leave.html:7
-msgid "Go back"
-msgstr "Повернутися"
-
 #: vixipy/templates/leave.html:8
 msgid "Continue to site"
 msgstr "Перейти на сайт"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:50
+#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:44
 msgid "Sign in"
 msgstr "Увійти"
 
@@ -318,8 +324,8 @@ msgid ""
 "browser's developer tools:"
 msgstr ""
 "Щоб увійти за допомогою облікового запису pixiv, вам знадобиться токен "
-"<code>PHPSESSID</code>, який можна знайти, відкривши інструменти розробника "
-"у своєму браузері:"
+"<code>PHPSESSID</code>, який можна знайти, відкривши інструменти "
+"розробника у своєму браузері:"
 
 #: vixipy/templates/login.html:30
 msgid "For Firefox based browsers:"
@@ -329,8 +335,8 @@ msgstr "Для браузерів на основі Firefox:"
 #, python-format
 msgid "Go to <a href='%(pixiv)s'>pixiv</a> and login/register if not already."
 msgstr ""
-"Перейдіть на <a href='%(pixiv)s'>pixiv</a> та ввійдіть або зареєструйтеся, "
-"якщо ви ще цього не зробили."
+"Перейдіть на <a href='%(pixiv)s'>pixiv</a> та ввійдіть або "
+"зареєструйтеся, якщо ви ще цього не зробили."
 
 #: vixipy/templates/login.html:33 vixipy/templates/login.html:40
 msgid "Press CTRL+SHIFT+I to open the developer tools"
@@ -345,7 +351,8 @@ msgstr ""
 #: vixipy/templates/login.html:35 vixipy/templates/login.html:42
 msgid "Find the cookie named <code>PHPSESSID</code> and copy the contents."
 msgstr ""
-"Знайдіть файл cookie з назвою <code>PHPSESSID</code> і скопіюйте його вміст."
+"Знайдіть файл cookie з назвою <code>PHPSESSID</code> і скопіюйте його "
+"вміст."
 
 #: vixipy/templates/login.html:37
 msgid "For Chromium based browsers:"
@@ -356,16 +363,16 @@ msgid ""
 "Go to the Application tab, on the left side, click Cookies then "
 "www.pixiv.net"
 msgstr ""
-"Перейдіть на вкладку «Програма», потім ліворуч виберіть «Файли cookie», а "
-"далі «www.pixiv.net»"
+"Перейдіть на вкладку «Програма», потім ліворуч виберіть «Файли cookie», а"
+" далі «www.pixiv.net»"
 
 #: vixipy/templates/login.html:44
 msgid ""
 "After obtaining the token, you can paste it in here and login. Note: "
 "logging out of that session will destroy the token as well!"
 msgstr ""
-"Отримавши токен, ви можете вставити його сюди та ввійти в систему. Увага: "
-"вихід із цього сеансу зробить токен недійсним!"
+"Отримавши токен, ви можете вставити його сюди та ввійти в систему. Увага:"
+" вихід із цього сеансу зробить токен недійсним!"
 
 #: vixipy/templates/login.html:45
 msgid "Is it safe for me to log in here?"
@@ -378,10 +385,10 @@ msgid ""
 "server. The chances of your account getting in trouble or suspended are "
 "highly unlikely as well."
 msgstr ""
-"Vixipy не краде токени сеансу чи особисту інформацію. Ваш токен зберігається "
-"протягом 6 місяців як файл cookie у вашому браузері, а не на сервері. "
-"Ймовірність виникнення проблем із вашим обліковим записом або його "
-"блокування також дуже низька."
+"Vixipy не краде токени сеансу чи особисту інформацію. Ваш токен "
+"зберігається протягом 6 місяців як файл cookie у вашому браузері, а не на"
+" сервері. Ймовірність виникнення проблем із вашим обліковим записом або "
+"його блокування також дуже низька."
 
 #: vixipy/templates/login.html:47
 msgid "What are the advantages of logging in?"
@@ -394,9 +401,10 @@ msgid ""
 "allows accessing login only and R-18 (if allowed by instance) works."
 msgstr ""
 "Вхід в обліковий запис pixiv дозволяє отримувати персоналізовані "
-"рекомендації, взаємодіяти з роботами (уподобання, додавання в закладки тощо) "
-"і стежити за користувачами. Він також дає змогу переглядати роботи, доступні "
-"лише після входу, та роботи з рейтингом R-18 (якщо ввімкнено на екземплярі)."
+"рекомендації, взаємодіяти з роботами (уподобання, додавання в закладки "
+"тощо) і стежити за користувачами. Він також дає змогу переглядати роботи,"
+" доступні лише після входу, та роботи з рейтингом R-18 (якщо ввімкнено на"
+" екземплярі)."
 
 #: vixipy/templates/login.html:58
 msgid "with your pixiv account."
@@ -415,7 +423,7 @@ msgid "Return"
 msgstr "Назад"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:63
+#: vixipy/templates/users/dashboard.html:75
 msgid "Material You Generator"
 msgstr "Генератор Material You"
 
@@ -450,10 +458,6 @@ msgid ""
 msgstr ""
 "Не вдалося підключитися до серверів pixiv. Перевірте з'єднання або "
 "зверніться до адміністрації екземпляра."
-
-#: vixipy/templates/no_connection.html:9
-msgid "Try Again"
-msgstr "Повторити спробу"
 
 #: vixipy/templates/components/header.html:17
 #: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
@@ -655,7 +659,7 @@ msgstr "Фільтри"
 
 #: vixipy/templates/components/tag-search-filter.html:38
 #: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:14
+#: vixipy/templates/rankings/main.html:15
 msgid "Mode"
 msgstr "Режим"
 
@@ -724,7 +728,7 @@ msgstr "Період"
 
 #: vixipy/templates/components/tag-search-filter.html:190
 #: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:52
+#: vixipy/templates/rankings/main.html:54
 msgid "Apply"
 msgstr "Застосувати"
 
@@ -756,7 +760,7 @@ msgstr "Нова манґа від усіх"
 msgid "New from All users"
 msgstr "Нове від усіх користувачів"
 
-#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:42
+#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:43
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
@@ -764,7 +768,7 @@ msgstr "Нове від усіх користувачів"
 msgid "Illustrations"
 msgstr "Ілюстрації"
 
-#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:43
+#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:44
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
@@ -828,6 +832,7 @@ msgstr "%(cc)s слів"
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
+#: vixipy/templates/users/dashboard.html:63
 msgid "Ranking Calendar"
 msgstr "Календар рейтингів"
 
@@ -902,7 +907,7 @@ msgid "Popular among female users (R-18)"
 msgstr "Популярне серед жінок (R-18)"
 
 #: vixipy/templates/rankings/calendar.html:38
-#: vixipy/templates/rankings/main.html:48
+#: vixipy/templates/rankings/main.html:50
 msgid "Date"
 msgstr "Дата"
 
@@ -912,14 +917,15 @@ msgid "Day %(day)s"
 msgstr "День %(day)s"
 
 #: vixipy/templates/rankings/main.html:2
+#: vixipy/templates/users/dashboard.html:57
 msgid "Rankings"
 msgstr "Рейтинги"
 
-#: vixipy/templates/rankings/main.html:39
+#: vixipy/templates/rankings/main.html:40
 msgid "Content"
 msgstr "Вміст"
 
-#: vixipy/templates/rankings/main.html:44
+#: vixipy/templates/rankings/main.html:45
 msgid "Ugoira"
 msgstr "Анімація"
 
@@ -974,7 +980,7 @@ msgstr "Ілюстрації і манґа"
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:57
+#: vixipy/templates/users/dashboard.html:69
 msgid "Popular Tags"
 msgstr "Популярні теги"
 
@@ -1174,7 +1180,7 @@ msgstr "Показувати"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:69
+#: vixipy/templates/users/dashboard.html:81
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -1326,148 +1332,15 @@ msgstr ""
 msgid "Your profile"
 msgstr "Ваш профіль"
 
-#: vixipy/templates/users/dashboard.html:75
+#: vixipy/templates/users/dashboard.html:87
 msgid "Send Feedback"
 msgstr "Зворотний зв'язок"
 
-#: vixipy/templates/users/dashboard.html:81
+#: vixipy/templates/users/dashboard.html:93
 msgid "Source Code"
 msgstr "Вихідний код"
 
-#: vixipy/templates/users/dashboard.html:88
+#: vixipy/templates/users/dashboard.html:100
 msgid "Log out"
 msgstr "Вийти"
 
-#~ msgid "Hide AI-generated work"
-#~ msgstr "Приховати роботи, створені ШІ"
-
-#~ msgid ""
-#~ "<b>You are not logged in. Sign in"
-#~ " to your pixiv account to experience"
-#~ " Vixipy in its full potential."
-#~ msgstr ""
-
-#~ msgid "No comments"
-#~ msgstr "Немає коментарів"
-
-#~ msgid "Submit Illustration"
-#~ msgstr "Опублікувати ілюстрацію"
-
-#~ msgid "Files"
-#~ msgstr "Файли"
-
-#~ msgid "Basic Information"
-#~ msgstr "Основні відомості"
-
-#~ msgid "Title"
-#~ msgstr "Назва"
-
-#~ msgid "Caption"
-#~ msgstr "Опис"
-
-#~ msgid "Tags"
-#~ msgstr "Теги"
-
-#~ msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
-#~ msgstr "Максимум 10 тегів, розділених комою. Пробіли видаляються."
-
-#~ msgid "Don't allow users to edit tags"
-#~ msgstr "Не дозволяти користувачам редагувати теги"
-
-#~ msgid "Content and Privacy"
-#~ msgstr "Вміст і конфіденційність"
-
-#~ msgid "AI-generated work"
-#~ msgstr "Створено ШІ"
-
-#~ msgid "Allow comments"
-#~ msgstr "Дозволити коментарі"
-
-#~ msgid "Original work"
-#~ msgstr "Оригінальна робота"
-
-#~ msgid "Visible to"
-#~ msgstr "Видимість для"
-
-#~ msgid "All Ages"
-#~ msgstr "Будь-який вік"
-
-#~ msgid "Open to"
-#~ msgstr "Відкрити для"
-
-#~ msgid "Logged-in users only"
-#~ msgstr "Тільки авторизовані користувачі"
-
-#~ msgid "Adult Content"
-#~ msgstr "Вміст для дорослих (Adult)"
-
-#~ msgid "Yes"
-#~ msgstr "Так"
-
-#~ msgid "No"
-#~ msgstr "Ні"
-
-#~ msgid "Mature Content"
-#~ msgstr "Відвертий вміст (Mature)"
-
-#~ msgid "Minors"
-#~ msgstr "Неповнолітні"
-
-#~ msgid "Furry"
-#~ msgstr "Фурі"
-
-#~ msgid "BL"
-#~ msgstr "BL"
-
-#~ msgid ""
-#~ "By posting your work, you hereby "
-#~ "agree to the pixiv Terms of "
-#~ "Service. Vixipy is provided to you "
-#~ "as is, without warranty of any "
-#~ "kind and will not be responsible "
-#~ "for any action taken whatsoever."
-#~ msgstr ""
-#~ "Публікуючи свою роботу, ви погоджуєтеся "
-#~ "з Умовами використання сервісу pixiv. "
-#~ "Vixipy надано вам як є, без жодних"
-#~ " гарантій; ми не несемо відповідальності"
-#~ " за будь-які дії."
-
-#~ msgid "Post"
-#~ msgstr "Опублікувати"
-
-#~ msgid "About"
-#~ msgstr "Про Vixipy"
-
-#~ msgid ""
-#~ "Sign in to your pixiv account to"
-#~ " access features that normally require "
-#~ "it, such as:"
-#~ msgstr ""
-#~ "Увійдіть у свій обліковий запис pixiv,"
-#~ " щоб отримати доступ до функцій, які"
-#~ " потребують входу, а саме:"
-
-#~ msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
-#~ msgstr ""
-#~ "Взаємодія, як-от уподобання робіт, "
-#~ "коментування, додавання в закладки тощо"
-
-#~ msgid "Personalized landing"
-#~ msgstr "Персоналізована цільова сторінка"
-
-#~ msgid "<b>Coming soon:</b> work uploads"
-#~ msgstr "<b>Уже скоро:</b> публікація робіт"
-
-#~ msgid ""
-#~ "To sign in, you will need your "
-#~ "account's <code>PHPSESSID</code> cookie. Username"
-#~ " and password logins are not possible"
-#~ " due to reCAPTCHA enterprise attestation"
-#~ " requirement."
-#~ msgstr ""
-#~ "Щоб увійти, вам знадобиться файл cookie"
-#~ " <code>PHPSESSID</code> вашого облікового запису."
-#~ " Вхід за допомогою імені користувача "
-#~ "та пароля неможливий через обов'язкову "
-#~ "перевірку reCAPTCHA."

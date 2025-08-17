@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-09 22:26+0800\n"
+"POT-Creation-Date: 2025-08-17 17:12+0800\n"
 "PO-Revision-Date: 2025-07-27 10:08+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language: ja\n"
@@ -98,7 +98,7 @@ msgstr ""
 msgid "There is no comment yet"
 msgstr ""
 
-#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:71
+#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:73
 #: vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
@@ -235,22 +235,22 @@ msgstr ""
 msgid "Home"
 msgstr "ホーム"
 
-#: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
+#: vixipy/templates/index.html:12 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
 msgstr "フォローユーザーの作品"
 
-#: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
+#: vixipy/templates/index.html:22 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
 msgstr "おすすめ作品"
 
-#: vixipy/templates/index.html:31
+#: vixipy/templates/index.html:33
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr "<a href='%(link)s' title='%(title)s'>#%(tag)s</a>のおすすめイラスト作品"
 
-#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:43
+#: vixipy/templates/index.html:56 vixipy/templates/users/dashboard.html:51
 msgid "Newest by all"
 msgstr "みんなの新着"
 
@@ -265,16 +265,29 @@ msgstr ""
 msgid "View All"
 msgstr "すべて見る"
 
-#: vixipy/templates/internal_server_error.html:2
-#: vixipy/templates/internal_server_error.html:5
+#: vixipy/templates/internal_server_error.html:8
 msgid "Internal Server Error"
 msgstr ""
 
-#: vixipy/templates/internal_server_error.html:6
-#, python-format
-msgid ""
-"An unhandled exception has occurred. If you believe this is a bug, file a"
-" report <a href=\"%(link)s\">here</a>"
+#: vixipy/templates/internal_server_error.html:21
+msgid "Looks like Vixipy broke unexpectedly..."
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:23
+msgid "An internal error has occurred and Vixipy cannot continue."
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:27
+msgid "Report Issue"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:28
+#: vixipy/templates/no_connection.html:9
+msgid "Try Again"
 msgstr ""
 
 #: vixipy/templates/leave.html:4
@@ -286,16 +299,12 @@ msgstr ""
 msgid "Continuing will direct you to %(url)s"
 msgstr ""
 
-#: vixipy/templates/leave.html:7
-msgid "Go back"
-msgstr ""
-
 #: vixipy/templates/leave.html:8
 msgid "Continue to site"
 msgstr ""
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:50
+#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:44
 msgid "Sign in"
 msgstr "サインイン"
 
@@ -387,7 +396,7 @@ msgid "Return"
 msgstr ""
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:63
+#: vixipy/templates/users/dashboard.html:75
 msgid "Material You Generator"
 msgstr ""
 
@@ -419,10 +428,6 @@ msgstr ""
 msgid ""
 "Unable to connect to pixiv servers. Check your connection or contact the "
 "instance administrator."
-msgstr ""
-
-#: vixipy/templates/no_connection.html:9
-msgid "Try Again"
 msgstr ""
 
 #: vixipy/templates/components/header.html:17
@@ -628,7 +633,7 @@ msgstr ""
 
 #: vixipy/templates/components/tag-search-filter.html:38
 #: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:14
+#: vixipy/templates/rankings/main.html:15
 msgid "Mode"
 msgstr ""
 
@@ -697,7 +702,7 @@ msgstr ""
 
 #: vixipy/templates/components/tag-search-filter.html:190
 #: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:52
+#: vixipy/templates/rankings/main.html:54
 msgid "Apply"
 msgstr ""
 
@@ -730,7 +735,7 @@ msgstr "みんなの新着"
 msgid "New from All users"
 msgstr ""
 
-#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:42
+#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:43
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
@@ -738,7 +743,7 @@ msgstr ""
 msgid "Illustrations"
 msgstr "イラスト"
 
-#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:43
+#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:44
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
@@ -804,6 +809,7 @@ msgstr ""
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
+#: vixipy/templates/users/dashboard.html:63
 msgid "Ranking Calendar"
 msgstr "ランキングカレンダー"
 
@@ -887,7 +893,7 @@ msgid "Popular among female users (R-18)"
 msgstr "女性に人気ランキング"
 
 #: vixipy/templates/rankings/calendar.html:38
-#: vixipy/templates/rankings/main.html:48
+#: vixipy/templates/rankings/main.html:50
 msgid "Date"
 msgstr ""
 
@@ -897,16 +903,17 @@ msgid "Day %(day)s"
 msgstr ""
 
 #: vixipy/templates/rankings/main.html:2
+#: vixipy/templates/users/dashboard.html:57
 #, fuzzy
 msgid "Rankings"
 msgstr "デイリーランキング"
 
-#: vixipy/templates/rankings/main.html:39
+#: vixipy/templates/rankings/main.html:40
 #, fuzzy
 msgid "Content"
 msgstr "ディスカバリー"
 
-#: vixipy/templates/rankings/main.html:44
+#: vixipy/templates/rankings/main.html:45
 msgid "Ugoira"
 msgstr ""
 
@@ -961,7 +968,7 @@ msgstr "イラスト・マンガ"
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:57
+#: vixipy/templates/users/dashboard.html:69
 #, fuzzy
 msgid "Popular Tags"
 msgstr "人気のイラストタグ"
@@ -1132,7 +1139,7 @@ msgstr "表示する"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:69
+#: vixipy/templates/users/dashboard.html:81
 msgid "Settings"
 msgstr "設定"
 
@@ -1283,157 +1290,15 @@ msgstr ""
 msgid "Your profile"
 msgstr "プロフィール編集"
 
-#: vixipy/templates/users/dashboard.html:75
+#: vixipy/templates/users/dashboard.html:87
 msgid "Send Feedback"
 msgstr "フィードバックを送る"
 
-#: vixipy/templates/users/dashboard.html:81
+#: vixipy/templates/users/dashboard.html:93
 msgid "Source Code"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:88
+#: vixipy/templates/users/dashboard.html:100
 msgid "Log out"
 msgstr "ログアウト"
-
-#~ msgid "Hide AI-generated work"
-#~ msgstr ""
-
-#~ msgid "Hide works that may contain sensitive content"
-#~ msgstr ""
-
-#~ msgid "Hide explicit content (R-18)"
-#~ msgstr ""
-
-#~ msgid "Hide ero-guro content (R-18G)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Unable to connect to pixiv servers. "
-#~ "Check your connection and try again."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "To sign in, you will need your "
-#~ "account's <code>PHPSESSID</code> cookie. Username"
-#~ " and password logins are not possible"
-#~ " due to reCAPTCHA enterprise attestation"
-#~ " requirement."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "To sign in, you will need your "
-#~ "account's <code>PHPSESSID</code> cookie. Username"
-#~ " and password\n"
-#~ "                    logins are not possible"
-#~ " due to reCAPTCHA enterprise attestation"
-#~ " requirement."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "<b>You are not logged in. Sign in"
-#~ " to your pixiv account to experience"
-#~ " Vixipy in its full potential."
-#~ msgstr ""
-
-#~ msgid "No comments"
-#~ msgstr ""
-
-#~ msgid "Submit Illustration"
-#~ msgstr ""
-
-#~ msgid "Files"
-#~ msgstr ""
-
-#~ msgid "Basic Information"
-#~ msgstr ""
-
-#~ msgid "Title"
-#~ msgstr "タイトル"
-
-#~ msgid "Caption"
-#~ msgstr ""
-
-#~ msgid "Tags"
-#~ msgstr "タグ"
-
-#~ msgid "Max. 10 tags, separate with a comma. Whitespace is stripped."
-#~ msgstr ""
-
-#~ msgid "Don't allow users to edit tags"
-#~ msgstr ""
-
-#~ msgid "Content and Privacy"
-#~ msgstr ""
-
-#~ msgid "AI-generated work"
-#~ msgstr ""
-
-#~ msgid "Allow comments"
-#~ msgstr ""
-
-#~ msgid "Original work"
-#~ msgstr ""
-
-#~ msgid "Visible to"
-#~ msgstr ""
-
-#~ msgid "All Ages"
-#~ msgstr ""
-
-#~ msgid "Open to"
-#~ msgstr ""
-
-#~ msgid "Logged-in users only"
-#~ msgstr ""
-
-#~ msgid "Adult Content"
-#~ msgstr ""
-
-#~ msgid "Yes"
-#~ msgstr ""
-
-#~ msgid "No"
-#~ msgstr ""
-
-#~ msgid "Mature Content"
-#~ msgstr ""
-
-#~ msgid "Minors"
-#~ msgstr ""
-
-#~ msgid "Furry"
-#~ msgstr ""
-
-#~ msgid "BL"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "By posting your work, you hereby "
-#~ "agree to the pixiv Terms of "
-#~ "Service. Vixipy is provided to you "
-#~ "as is, without warranty of any "
-#~ "kind and will not be responsible "
-#~ "for any action taken whatsoever."
-#~ msgstr ""
-
-#~ msgid "Post"
-#~ msgstr ""
-
-#~ msgid "About"
-#~ msgstr "について"
-
-#~ msgid ""
-#~ "Sign in to your pixiv account to"
-#~ " access features that normally require "
-#~ "it, such as:"
-#~ msgstr ""
-
-#~ msgid "Work interaction (such as liking, bookmarking, commenting, etc.)"
-#~ msgstr ""
-
-#~ msgid "Personalized landing"
-#~ msgstr ""
-
-#~ msgid "<b>Coming soon:</b> work uploads"
-#~ msgstr ""
 

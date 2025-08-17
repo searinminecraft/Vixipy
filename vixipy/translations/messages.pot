@@ -1,14 +1,14 @@
-# Translations template for PROJECT.
-# Copyright (C) 2025 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# Translations template for Vixipy.
+# Copyright (C) 2025 Vyxie and contributors
+# This file is distributed under the same license as the Vixipy project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
+"Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-09 22:26+0800\n"
+"POT-Creation-Date: 2025-08-17 17:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "There is no comment yet"
 msgstr ""
 
-#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:71
+#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:73
 #: vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
@@ -233,22 +233,22 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: vixipy/templates/index.html:10 vixipy/templates/novels/index.html:12
+#: vixipy/templates/index.html:12 vixipy/templates/novels/index.html:12
 msgid "Works by users you are following"
 msgstr ""
 
-#: vixipy/templates/index.html:20 vixipy/templates/novels/index.html:35
+#: vixipy/templates/index.html:22 vixipy/templates/novels/index.html:35
 msgid "Recommended works"
 msgstr ""
 
-#: vixipy/templates/index.html:31
+#: vixipy/templates/index.html:33
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
 
-#: vixipy/templates/index.html:54 vixipy/templates/users/dashboard.html:43
+#: vixipy/templates/index.html:56 vixipy/templates/users/dashboard.html:51
 msgid "Newest by all"
 msgstr ""
 
@@ -263,16 +263,29 @@ msgstr ""
 msgid "View All"
 msgstr ""
 
-#: vixipy/templates/internal_server_error.html:2
-#: vixipy/templates/internal_server_error.html:5
+#: vixipy/templates/internal_server_error.html:8
 msgid "Internal Server Error"
 msgstr ""
 
-#: vixipy/templates/internal_server_error.html:6
-#, python-format
-msgid ""
-"An unhandled exception has occurred. If you believe this is a bug, file a"
-" report <a href=\"%(link)s\">here</a>"
+#: vixipy/templates/internal_server_error.html:21
+msgid "Looks like Vixipy broke unexpectedly..."
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:23
+msgid "An internal error has occurred and Vixipy cannot continue."
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:27
+msgid "Report Issue"
+msgstr ""
+
+#: vixipy/templates/internal_server_error.html:28
+#: vixipy/templates/no_connection.html:9
+msgid "Try Again"
 msgstr ""
 
 #: vixipy/templates/leave.html:4
@@ -284,16 +297,12 @@ msgstr ""
 msgid "Continuing will direct you to %(url)s"
 msgstr ""
 
-#: vixipy/templates/leave.html:7
-msgid "Go back"
-msgstr ""
-
 #: vixipy/templates/leave.html:8
 msgid "Continue to site"
 msgstr ""
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:50
+#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:44
 msgid "Sign in"
 msgstr ""
 
@@ -385,7 +394,7 @@ msgid "Return"
 msgstr ""
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:63
+#: vixipy/templates/users/dashboard.html:75
 msgid "Material You Generator"
 msgstr ""
 
@@ -417,10 +426,6 @@ msgstr ""
 msgid ""
 "Unable to connect to pixiv servers. Check your connection or contact the "
 "instance administrator."
-msgstr ""
-
-#: vixipy/templates/no_connection.html:9
-msgid "Try Again"
 msgstr ""
 
 #: vixipy/templates/components/header.html:17
@@ -621,7 +626,7 @@ msgstr ""
 
 #: vixipy/templates/components/tag-search-filter.html:38
 #: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:14
+#: vixipy/templates/rankings/main.html:15
 msgid "Mode"
 msgstr ""
 
@@ -690,7 +695,7 @@ msgstr ""
 
 #: vixipy/templates/components/tag-search-filter.html:190
 #: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:52
+#: vixipy/templates/rankings/main.html:54
 msgid "Apply"
 msgstr ""
 
@@ -722,7 +727,7 @@ msgstr ""
 msgid "New from All users"
 msgstr ""
 
-#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:42
+#: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:43
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
 #: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
@@ -730,7 +735,7 @@ msgstr ""
 msgid "Illustrations"
 msgstr ""
 
-#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:43
+#: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:44
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
 #: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
@@ -794,6 +799,7 @@ msgstr ""
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
+#: vixipy/templates/users/dashboard.html:63
 msgid "Ranking Calendar"
 msgstr ""
 
@@ -868,7 +874,7 @@ msgid "Popular among female users (R-18)"
 msgstr ""
 
 #: vixipy/templates/rankings/calendar.html:38
-#: vixipy/templates/rankings/main.html:48
+#: vixipy/templates/rankings/main.html:50
 msgid "Date"
 msgstr ""
 
@@ -878,14 +884,15 @@ msgid "Day %(day)s"
 msgstr ""
 
 #: vixipy/templates/rankings/main.html:2
+#: vixipy/templates/users/dashboard.html:57
 msgid "Rankings"
 msgstr ""
 
-#: vixipy/templates/rankings/main.html:39
+#: vixipy/templates/rankings/main.html:40
 msgid "Content"
 msgstr ""
 
-#: vixipy/templates/rankings/main.html:44
+#: vixipy/templates/rankings/main.html:45
 msgid "Ugoira"
 msgstr ""
 
@@ -940,7 +947,7 @@ msgstr ""
 
 #: vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:57
+#: vixipy/templates/users/dashboard.html:69
 msgid "Popular Tags"
 msgstr ""
 
@@ -1108,7 +1115,7 @@ msgstr ""
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:69
+#: vixipy/templates/users/dashboard.html:81
 msgid "Settings"
 msgstr ""
 
@@ -1256,15 +1263,15 @@ msgstr ""
 msgid "Your profile"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:75
+#: vixipy/templates/users/dashboard.html:87
 msgid "Send Feedback"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:81
+#: vixipy/templates/users/dashboard.html:93
 msgid "Source Code"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:88
+#: vixipy/templates/users/dashboard.html:100
 msgid "Log out"
 msgstr ""
 
