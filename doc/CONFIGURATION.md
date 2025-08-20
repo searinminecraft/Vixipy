@@ -29,7 +29,7 @@ Vixipy can be configured by creating `config.py` in the `instance` folder (recom
 | CACHE_TTL | This is the duration in seconds for which an item remains valid in the cache before it's considered stale and needs to be fetched again from the pixiv API.<br><br>The TTL is applied to most API responses and can safely be set to a high value. Dynamic content such as Discovery and Newest is never cached. | integer | 300 |
 | MEMCACHED_HOST | Host/address for Memcached | string | 127.0.0.1 |
 | MEMCACHED_PORT | Port for Memcached | 1-65535 | 11211 |
-| ADDITIONAL_THEMES | Defines additional themes user can pick in the settings menu.<br><br>They can be placed on the `instance/static/themes` folder. | list | None |
+| ADDITIONAL_THEMES | Defines additional themes user can pick in the settings menu.<br><br>They can be placed on the `instance/custom/themes` folder. | list | None |
 | DEFAULT_THEME | Defines the default theme if user has not set a theme yet. If a custom theme, it must be available in the `ADDITIONAL_THEMES` | string | None |
 | QUART_RATE_LIMITER_ENABLED | Whether to enable the rate limiter (requires Memcached) | bool | False |
 | BEHIND_REVERSE_PROXY | Gives a hint to Vixipy whether it's behind a reverse proxy (e.g. Nginx, Caddy) | bool | False |

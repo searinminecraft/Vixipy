@@ -2,7 +2,8 @@ services:
   vixipy:
     container_name: vixipy
     restart: unless-stopped
-    build: .
+    build: . # build image from local sourcecode
+    #image: codeberg.org/vixipy/vixipy:main # load prebuilt image
     ports:
       - "127.0.0.1:8000:8000"
     volumes:
