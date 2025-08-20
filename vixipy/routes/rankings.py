@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from quart import Blueprint, current_app, abort, request, render_template, url_for
+from quart_rate_limiter import RateLimit, rate_limit, timedelta
 
 from ..lib.scrapes import get_ranking_calendar
 from ..api import get_ranking
@@ -15,6 +16,12 @@ bp = Blueprint("rankings", __name__)
 
 
 @bp.route("/rankings")
+@rate_limit(
+    limits=[
+        RateLimit(2, timedelta(seconds=1)),
+        RateLimit(10, timedelta(seconds=30))
+    ]
+)
 async def main():
 
     mode: str = request.args.get("mode", "daily") or "daily"
@@ -51,7 +58,6 @@ async def main():
     ) and mode in ("daily_r18", "daily_r18_ai", "weekly_r18", "male_r18", "female_r18"):
         abort(403)
 
-
     #  content param is incompatible with some modes
     if mode in ("daily_ai", "daily_r18_ai", "original"):
         content = None
@@ -62,6 +68,7 @@ async def main():
 
 
 @bp.route("/rankings/calendar")
+@rate_limit(1, timedelta(seconds=2))
 async def ranking_calendar():
     date = request.args.get("date", None)
     mode = request.args.get("mode", "daily")

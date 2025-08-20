@@ -139,6 +139,7 @@ async def novel_main(id: int):
 
 
 @bp.route("/novel/series/<int:id>")
+@rate_limit(1, timedelta(seconds=3))
 async def novel_series_main(id: int):
     data, contents = await gather(
         get_novel_series(id),
