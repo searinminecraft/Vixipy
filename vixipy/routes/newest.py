@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from quart import (
     Blueprint,
+    abort,
+    current_app,
     redirect,
     render_template,
     request,
@@ -24,10 +26,14 @@ limit_blueprint(bp, 2, timedelta(seconds=6))
 @tokenless_require_login
 async def newest_main():
     args: ImmutableDict = request.args
+    r18 = args.get("r18") == "true"
+
+    if r18 and (current_app.config["NO_SENSITIVE"] or current_app.config["NO_R18"]):
+        abort(403)
 
     data = await get_newest_works(
         args.get("type", "illust"),
-        r18=args.get("r18") == "true",
+        r18=r18
     )
     return await render_template("newest/index.html", data=data)
 
@@ -35,3 +41,11 @@ async def newest_main():
 @bp.route("/new_illust.php")
 async def pixiv_compat_redirect():
     return redirect(url_for("newest.newest_main", **request.args), code=308)
+
+
+@bp.route("/new_illust_r18.php")
+async def pixiv_compat_redirect_r18():
+    if (current_app.config["NO_SENSITIVE"] or current_app.config["NO_R18"]):
+        abort(403)
+
+    return redirect(url_for("newest.newest_main", r18="true"), code=308)

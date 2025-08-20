@@ -23,7 +23,7 @@
                     {% endif %}
                     <option value="original">{{_("Original")}}</option>
                     <option value="daily_ai">{{_("Daily (AI)")}}</option>
-                    {% if g.authorized and (not config["NO_SENSITIVE"] or not config["NO_R18"])%}
+                    {% if g.authorized and not (config["NO_SENSITIVE"] or config["NO_R18"]) %}
                     <option value="daily_r18">{{_("Daily R-18")}}</option>
                     <option value="daily_r18_ai">{{_("Daily R-18 (AI)")}}</option>
                     <option value="weekly_r18">{{_("Weekly R-18")}}</option>

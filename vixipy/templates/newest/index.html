@@ -27,10 +27,12 @@
                 {%- endif -%}>{{_("Manga")}}</a>
             <a href="#">{{_("Novels")}}</a>
         </nav>
+	{% if not (config["NO_SENSITIVE"] or config["NO_R18"]) %}
         <div class="chip-toggle">
             <a href="{{url_for('newest.newest_main', type=type)}}" {% if not r18 == 'true' %}class="active"{% endif %}>{{_("General")}}</a>
             <a href="{{url_for('newest.newest_main', type=type, r18='true')}}" {% if r18 == 'true' %}class="active"{% endif %}>{{_("R-18")}}</a>
         </div>
+	{% endif %}
     </div>
     <br>
     <div class="artwork-container">

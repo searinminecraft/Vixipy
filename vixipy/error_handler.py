@@ -29,10 +29,13 @@ async def handle_ratelimit_error(e):
 
 
 async def handle_internal_error(e):
+    hx = request.headers.get("hx-request") == "true"
+
     if isinstance(e, HTTPException):
-        return e
+        return await render_template("http_error.html", error=e), 200 if hx else e.code
+
     log.exception("Exception occurred here:")
-    return await render_template("internal_server_error.html", traceback=traceback.format_exc())
+    return await render_template("internal_server_error.html", traceback=traceback.format_exc()), 200 if hx else 500
 
 
 def init_app(app: Quart):

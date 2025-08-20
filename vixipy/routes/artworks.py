@@ -107,7 +107,10 @@ async def _get_artwork(id: int):
         abort(403)
 
     if work.ai and bool(int(request.cookies.get("Vixipy-No-AI", 0))):
-        abort(404)
+        abort(403)
+
+    if current_app.config["NO_SENSITIVE"] and work.sl >= 4:
+        abort(403)
 
     if (
         (
@@ -117,7 +120,7 @@ async def _get_artwork(id: int):
         or (bool(int(request.cookies.get("Vixipy-No-R18", 0))) and work.xrestrict >= 1)
         or (bool(int(request.cookies.get("Vixipy-No-R18G", 1))) and work.xrestrict == 2)
     ):
-        abort(404)
+        abort(403)
 
     if work.deficient:
         log.info("Work is deficient, trying to extract pages...")

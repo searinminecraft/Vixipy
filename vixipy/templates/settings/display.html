@@ -23,7 +23,7 @@
             </label>
             <label class="toggle-switch">
                 <input type="checkbox" name="hide-sensitive" 
-                    {% if sensitive %}{% if not sensitive_enabled %}checked{% endif %}{% else %}disabled{% endif %}> {{_("Display works that may contain sensitive content")}}
+                    {% if not config["NO_SENSITIVE"] %}{% if not sensitive_enabled %}checked{% endif %}{% else %}disabled{% endif %}> {{_("Display works that may contain sensitive content")}}
             </label>
             <label class="toggle-switch">
                 <input type="checkbox" name="hide-r18"
