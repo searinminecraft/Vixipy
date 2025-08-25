@@ -209,8 +209,8 @@ async def acknowledgements():
         TranslationCredit(
             "cutekita",
             ["de"],
-            "https://github.com/coolesding",
-            "/proxy/3rd_party/profile_image/github/coolesding",
+            "https://github.com/cutekita",
+            "/proxy/3rd_party/profile_image/github/cutekita",
         ),
         TranslationCredit("SomeTr", ["uk", "de"], "https://codeberg.org/SomeTr"),
         TranslationCredit("Poesty Li", ["zh_Hans"], "https://codeberg.org/poesty"),
