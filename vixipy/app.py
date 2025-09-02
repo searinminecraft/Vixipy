@@ -40,6 +40,7 @@ from . import (
     csp,
     error_handler,
     session as pixiv_session_handler,
+    blacklist,
 )
 
 if TYPE_CHECKING:
@@ -183,6 +184,7 @@ def create_app():
     app.register_blueprint(jump)
 
     # =================================
+
     if app.config["LOG_HTTP"]:
 
         @app.before_request
@@ -197,7 +199,9 @@ def create_app():
             log.info(
                 "%s %s - %s %dms", request.method, request.url, r.status, g.time_taken
             )
-            return r
+            return r 
+
+    blacklist.init_app(app)
 
     @app.before_request
     async def check_path():
