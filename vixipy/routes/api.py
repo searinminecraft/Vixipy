@@ -1,7 +1,7 @@
 from __future__ import annotations
 from quart import Blueprint, abort, current_app, request
 
-from ..api import pixiv_request, get_artwork, get_newest_works
+from ..api import PixivError, pixiv_request, get_artwork, get_newest_works
 from ..lib.monet import scheme_from_url
 import asyncio
 import traceback
@@ -14,6 +14,7 @@ from werkzeug.exceptions import (
     NotFound,
     TooManyRequests,
     Unauthorized,
+    Forbidden,
 )
 
 if TYPE_CHECKING:
@@ -34,8 +35,9 @@ def make_json_response(message: str = "", body: Union[dict, list] = []):
 
 @bp.errorhandler(BadRequest)
 @bp.errorhandler(Unauthorized)
-async def handle_bad_request(e: BadRequest):
-    return make_error("Invalid request.", 400)
+@bp.errorhandler(Forbidden)
+async def handle_bad_request(e: HTTPException):
+    return make_error("Invalid request.", e.code)
 
 
 @bp.errorhandler(Exception)
@@ -184,11 +186,23 @@ async def gen_scheme_from_user(id: int):
 @bp.route("/illust/new")
 async def _get_new_works():
     args: ImmutableDict = request.args
-    data = await get_newest_works(
-        type_=args.get("type", "illust"),
-        r18=args.get("r18") == "true",
-        last_id=args.get("last_id", 0),
-    )
+
+    no_r18 = current_app.config["NO_SENSITIVE"] or current_app.config["NO_R18"]
+
+    if no_r18 and request.args.get("r18") == "true":
+        abort(403)
+
+    try:
+        data = await get_newest_works(
+            type_=args.get("type", "illust"),
+            r18=args.get("r18") == "true",
+            last_id=args.get("last_id", 0),
+        )
+    except PixivError:
+        abort(403)
+    except Exception:
+        raise
+
     illusts = []
     for x in data.illusts:
         illusts.append(
