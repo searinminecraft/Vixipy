@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-08-17 17:12+0800\n"
-"PO-Revision-Date: 2025-08-10 07:09+0000\n"
-"Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"PO-Revision-Date: 2025-09-04 17:09+0000\n"
+"Last-Translator: Hayden <hayden@haydenwu.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -272,11 +272,11 @@ msgstr "服务器内部错误"
 
 #: vixipy/templates/internal_server_error.html:21
 msgid "Looks like Vixipy broke unexpectedly..."
-msgstr ""
+msgstr "Vixipy 似乎出问题了..."
 
 #: vixipy/templates/internal_server_error.html:23
 msgid "An internal error has occurred and Vixipy cannot continue."
-msgstr ""
+msgstr "Vixipy 内部出错，无法继续。"
 
 #: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
 msgid "Go back"
@@ -284,7 +284,7 @@ msgstr "返回"
 
 #: vixipy/templates/internal_server_error.html:27
 msgid "Report Issue"
-msgstr ""
+msgstr "报告问题"
 
 #: vixipy/templates/internal_server_error.html:28
 #: vixipy/templates/no_connection.html:9
@@ -1287,4 +1287,3 @@ msgstr "源代码"
 #: vixipy/templates/users/dashboard.html:100
 msgid "Log out"
 msgstr "退出登录"
-
