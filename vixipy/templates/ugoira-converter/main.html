@@ -5,7 +5,6 @@
 <script src="/static/ugoira-converter/ffmpeg.js"></script>
 <script src="/static/ugoira-converter/ffmpeg-util.js"></script>
 <script src="/static/ugoira-converter/jszip.min.js"></script>
-<script src="/static/ugoira-converter/index.js" defer></script>
 {% endblock %}
 {% block content %}
 <main>
@@ -15,7 +14,8 @@
             <video src="/proxy/ugoira/{{data.id}}" loop playsinline autoplay poster="{{data.thumb}}"></video>
         </div>
         <div id="status">
-            <progress value="0" max="100"></progress>
+	    <div id="busy-ind" aria-busy="false" aria-describedby="progress-main"></div>
+            <progress id="progress-main" value="0" max="100"></progress>
             <small></small>
         </div>
         <div class="controls">
@@ -34,5 +34,6 @@
     <noscript>
         <p>{{_("Sorry, the Ugoira Converter requires JavaScript.")}}</p>
     </noscript>
+    <script src="/static/ugoira-converter/index.js"></script>
 </main>
 {% endblock %}

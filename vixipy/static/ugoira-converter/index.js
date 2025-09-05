@@ -1,5 +1,8 @@
+(function(){
+
 const convert_btn = $("#start")
 const progress = $("progress")
+const busy_ind = $("#busy-ind")
 const s = $("#status small")
 
 const { FFmpeg } = FFmpegWASM
@@ -18,9 +21,18 @@ const download = (blob, name) => {
     link.remove()
 }
 
+const setProgress = (v) => {
+    busy_ind.attr("aria-busy", "false")
+    progress.val(v)
+}
+
+const setBusy = () => {
+    progress.removeAttr("value")
+    busy_ind.attr("aria-busy", "false")
+}
+
 const showProgress = (e) => {
-    progress.removeAttr("aria-busy")
-    progress.val(Math.floor((e.received / e.total) * 100))
+    setProgress(Math.floor((e.received / e.total) * 100))
 }
 
 const get_metadata = async (id) => {
@@ -45,7 +57,7 @@ const convert = async (id, fmt) => {
     if (!loaded) return alert("Load ffmpeg.wasm first!")
 
     s.html("Retrieving metadata")
-    progress.attr("aria-busy", "true")
+    setBusy()
     const { zip, frames } = await get_metadata(id)
     s.html("Retrieving zip file")
     const zip_f = await downloadWithProgress(zip, showProgress)
@@ -53,7 +65,7 @@ const convert = async (id, fmt) => {
     const rate = frames.length / totalMs * 1000
 
     s.html("Preparing...")
-    progress.attr("aria-busy", "true")
+    setBusy()
     const inst = new JSZip()
     const zip_o = await inst.loadAsync(zip_f)
     const blobs = {}
@@ -77,7 +89,8 @@ const convert = async (id, fmt) => {
         webm: `${inputArg} -c:v libvpx-vp9 -lossless 0 -crf 0 ${id}.webm`,
     }
 
-    s.html("Running command...")
+    s.html("Running command... (see console for output)")
+    setBusy()
     const code = await ffmpeg.exec(cmds[fmt].split(/\s+/))
 
     if (code != 0) throw new Error(`ffmpeg exited with code ${code}`)
@@ -97,7 +110,7 @@ const load_ffmpeg = async () => {
     if (loaded) return
     s.html("Loading ffmpeg.wasm...")
     ffmpeg.on('log', ({ message }) => {
-        s.html(`ffmpeg: ${message}`)
+        //s.html(`ffmpeg: ${message}`)
         console.log(message)
     })
 
@@ -115,12 +128,14 @@ convert_btn.click(async () => {
     $(".controls").hide()
     $("#status").show()
     try {
+	setBusy()
         await load_ffmpeg()
         await convert($("#id").val(), $("#format").val())
     } catch (e) {
         s.html(e)
         throw e
     }
+    setProgress(100)
 })
 
 const vid = document.querySelector("video")
@@ -131,3 +146,4 @@ vid.addEventListener("click", ()=>{
         vid.play()
     }
 })
+})()
