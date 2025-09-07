@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-09-07 16:37+0800\n"
-"PO-Revision-Date: 2025-08-18 01:37+0000\n"
+"PO-Revision-Date: 2025-09-07 08:56+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -52,11 +53,11 @@ msgstr "Tignan ang lahat ng mga gawa"
 
 #: vixipy/templates/artworks.html:87
 msgid "Login Only"
-msgstr ""
+msgstr "Login Lamang"
 
 #: vixipy/templates/artworks.html:90
 msgid "AI Generated"
-msgstr ""
+msgstr "Binuo ng AI"
 
 #: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:45
 msgid "Ugoira"
@@ -1357,46 +1358,45 @@ msgstr "Mag-log out"
 
 #: vixipy/templates/users/follow/base.html:41
 msgid "My pixiv"
-msgstr ""
+msgstr "Aking pixiv"
 
 #: vixipy/templates/users/follow/followers.html:3
 #, python-format
 msgid "%(user)s's followers"
-msgstr ""
+msgstr "Mga follower ni %(user)s"
 
 #: vixipy/templates/users/follow/followers.html:8
 #: vixipy/templates/users/follow/following.html:8
 #: vixipy/templates/users/follow/mypixiv.html:8
 #, python-format
 msgid "Users (%(count)d)"
-msgstr ""
+msgstr "Mga user (%(count)d)"
 
 #: vixipy/templates/users/follow/followers.html:24
 #: vixipy/templates/users/follow/following.html:24
 msgid "You don't have any followers."
-msgstr ""
+msgstr "Wala kang anumang mga follower."
 
 #: vixipy/templates/users/follow/following.html:3
 #, python-format
 msgid "%(user)s's followed users"
-msgstr ""
+msgstr "Mga sinusunod na user ni/ng %(user)s"
 
 #: vixipy/templates/users/follow/following.html:26
 #, python-format
 msgid "%(user)s isn't following anyone."
-msgstr ""
+msgstr "Walang anumang sinusunod si/ang %(user)s."
 
 #: vixipy/templates/users/follow/mypixiv.html:3
 #, python-format
 msgid "%(user)s's My pixiv"
-msgstr ""
+msgstr "My pixiv ni/ng %(user)s"
 
 #: vixipy/templates/users/follow/mypixiv.html:24
 msgid "You don't have any My pixiv."
-msgstr ""
+msgstr "Wala kang anumang mga Aking pixiv."
 
 #: vixipy/templates/users/follow/mypixiv.html:26
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
-msgstr ""
-
+msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
