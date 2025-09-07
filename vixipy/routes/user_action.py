@@ -50,7 +50,7 @@ async def follow_unfollow(id: int, action: Union["follow", "unfollow"]):
     <input type="hidden" name="return_to" value="{rt}">
     {"<input type='hidden' name='small'>" if 'small' in f else ''}
     <button type="submit" class="button {'smaller' if 'small' in f else ''} neutral">
-        {_l("Unfollow")}
+        {_l("Following")}
     </button>
 </form>
 """

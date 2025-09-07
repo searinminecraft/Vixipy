@@ -343,7 +343,7 @@ async def get_discovery(
     return [ArtworkEntry(x) for x in data["thumbnails"]["illust"]]
 
 
-async def get_recommended_users() -> list[RecommendedUser]:
+async def get_recommended_users() -> list[UserEntry]:
     data = await pixiv_request(
         "/ajax/discovery/users", params=[("limit", 50)], ignore_cache=True
     )
@@ -355,12 +355,12 @@ async def get_recommended_users() -> list[RecommendedUser]:
         int(x["userId"]): PartialUser(x) for x in data["users"]
     }
 
-    result: list[RecommendedUser] = []
+    result: list[UserEntry] = []
 
     for x in data["recommendedUsers"]:
         user = _users_to_dict[int(x["userId"])]
         illusts = [_illusts_to_dict[int(y)] for y in x["recentIllustIds"]]
-        result.append(RecommendedUser(user, ff(illusts)))
+        result.append(UserEntry(user, ff(illusts)))
 
     return result
 
@@ -439,3 +439,47 @@ async def get_newest_works(
     log.debug(data["lastId"])
 
     return NewIllustResponse(data)
+
+
+async def get_user_following(
+    id: int, page: int = 1, rest: str = "show", acceptingRequests: bool = False
+) -> list[UserEntry]:
+
+    if rest not in ("show", "hide"):
+        raise ValueError("Invalid value for rest")
+
+    data = await pixiv_request(
+        f"/ajax/user/{id}/following",
+        params=[
+            ("offset", (24 * page) - 24),
+            ("limit", 24 * page),
+            ("rest", rest),
+            ("acceptingRequests", int(acceptingRequests)),
+        ],
+    )
+
+    return UserFollowRes(data)
+
+
+async def get_user_followers(id: int, page: int = 1):
+    data = await pixiv_request(
+        f"/ajax/user/{id}/followers",
+        params=[
+            ("offset", (24 * page) - 24),
+            ("limit", 24 * page)
+        ]
+    )
+
+    return UserFollowRes(data)
+
+
+async def get_user_mypixiv(id: int, page: int = 1):
+    data = await pixiv_request(
+        f"/ajax/user/{id}/mypixiv",
+        params=[
+            ("offset", (24 * page) - 24),
+            ("limit", 24 * page),
+        ],
+    )
+
+    return UserFollowRes(data)

@@ -16,8 +16,8 @@
                 hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
                 hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
                 <input type="hidden" name="return_to" value="{{request.path}}">
-                <button type="submit" class="button {%if not user.followed%}primary{%else%}neutral{%endif%}">
-                    {%if not user.followed%}{{_("Follow")}}{%else%}{{_("Unfollow")}}{% endif %}
+                <button type="submit" class="button smaller {%if not user.followed%}primary{%else%}neutral{%endif%}">
+                    {%if not user.followed%}{{_("Follow")}}{%else%}{{_("Following")}}{% endif %}
                 </button>
             </form>
             {% endif %}

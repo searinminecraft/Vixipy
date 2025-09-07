@@ -4,7 +4,7 @@ from functools import wraps
 
 def tokenless_require_login(v):
     @wraps(v)
-    async def wrapped(**kwargs):
+    async def wrapped(*args, **kwargs):
         if current_app.no_token:
             if not g.authorized:
                 return redirect(

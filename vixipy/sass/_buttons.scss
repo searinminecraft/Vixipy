@@ -5,6 +5,7 @@
     display: inline-block;
     font-weight: bold;
     text-align: center;
+    font-size: 14px;
 
     &.icon {
         display: flex;
@@ -17,8 +18,7 @@
     }
 
     &.smaller {
-        padding: 8px 16px;
-        font-size: 14px;
+        padding: 8px 18px;
     }
 }
 

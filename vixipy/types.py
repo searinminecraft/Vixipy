@@ -15,7 +15,7 @@ def blank_to_none(v) -> Optional[str]:
 
 class PartialUser:
     def __init__(self, d):
-        self.id = d["userId"]
+        self.id = int(d["userId"])
         self.name = d["name"]
         self.image = proxy(d["image"])
         self.imageBig = proxy(d["imageBig"])
@@ -480,13 +480,60 @@ class TagInfo:
             self.translation = TagTranslation(self.tag, d["tagTranslation"][self.tag])
 
 
-class RecommendedUser:
-    def __init__(self, user: PartialUser, recent: list[ArtworkEntry]):
-        self.user: PartialUser = user
-        self.recent: list[ArtworkEntry] = recent
+class CommissionInfo:
+    def __init__(self, d: dict):
+        self.accept_request: bool = d["acceptRequest"]
+        self.is_subscribed_reopen_notification: bool = d["isSubscribedReopenNotification"]
+
+
+class UserRecommendObject(PartialUser):
+    def __init__(self, d: dict):
+        super().__init__(d)
+        self.comment: str = d["comment"]
+
+
+class UserEntry:
+    def __init__(self, user: UserRecommendObject, illusts: list[ArtworkEntry]):
+        self.user: UserRecommendObject = user
+        self.illusts: list[ArtworkEntry] = illusts
 
     def __repr__(self):
-        return f"<RecommendedUser user={self.user} recent={self.recent}>"
+        return f"<RecommendedUser user={self.user} recent={self.illusts}>"
+
+
+class UserFollowObject:
+    def __init__(self, d: dict):
+        self.id: int = d["userId"]
+        self.name: str = d["userName"]
+        self.image: str = proxy(d["profileImageSmallUrl"])
+        self.imageBig: str = proxy(d["profileImageUrl"])
+        self.comment: str = d["userComment"]
+        self.followed: bool = d["following"]
+        self.followedBack: bool = d["followed"]
+        self.blocked: bool = d["isBlocking"]
+        self.isMypixiv: bool = d["isMypixiv"]
+        self.commission: Optional[CommissionInfo] = CommissionInfo(d["commission"]) if d.get("commission") else None
+
+
+class UserFollowRes:
+    def __init__(self, d: dict):
+        self.total: int = int(d["total"])
+        self.users: list[UserEntry] = []
+        
+        pages, r = divmod(self.total, 24)
+        if r > 0:
+            pages += 1
+        
+        self.pages = pages
+
+        for x in d["users"]:
+            user: UserFollowObject = UserFollowObject(x)
+            illusts: list[ArtworkEntry] = []
+
+            for y in x["illusts"]:
+                illusts.append(ArtworkEntry(y))
+            
+            self.users.append(UserEntry(user, illusts))
 
 
 class UserPageIllusts:

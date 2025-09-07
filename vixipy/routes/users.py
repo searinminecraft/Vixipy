@@ -1,4 +1,4 @@
-from quart import Blueprint, redirect, render_template, request, url_for
+from quart import Blueprint, abort, g, redirect, render_template, request, url_for
 from quart_rate_limiter import timedelta, rate_limit
 
 from asyncio import gather
@@ -7,6 +7,9 @@ from ..api import (
     get_user_profile_top,
     get_user_illusts,
     get_user_bookmarks,
+    get_user_followers,
+    get_user_following,
+    get_user_mypixiv,
     pixiv_request,
 )
 from ..decorators import tokenless_require_login, require_login
@@ -99,6 +102,53 @@ async def user_novels(user: int):
     return await render_template(
         "users/novels.html", data=data, novels=ff(novels), pages=pages
     )
+
+
+@bp.route("/users/<int:user>/following")
+@tokenless_require_login
+async def following(user: int):
+    user, data = await gather(
+        get_user(user),
+        get_user_following(
+            user,
+            int(request.args.get("p", 1)),
+            request.args.get("rest", "show"),
+            int(request.args.get("acceptingRequests", 0)),
+        ),
+    )
+
+    return await render_template("users/follow/following.html", user=user, data=data)
+
+@bp.route("/users/<int:user>/followers")
+@tokenless_require_login
+async def followers(user: int):
+    if g.current_user.id != user:
+        abort(400)
+ 
+    user, data = await gather(
+        get_user(user),
+        get_user_followers(
+            user,
+            int(request.args.get("p", 1))
+        )
+    )
+
+    return await render_template("users/follow/followers.html", user=user, data=data)
+
+
+@bp.route("/users/<int:user>/mypixiv")
+@tokenless_require_login
+async def mypixiv(user: int):
+
+    user, data = await gather(
+        get_user(user),
+        get_user_mypixiv(
+            user,
+            int(request.args.get("p", 1))
+        )
+    )
+
+    return await render_template("users/follow/mypixiv.html", user=user, data=data)
 
 
 @bp.get("/u/<int:user>")

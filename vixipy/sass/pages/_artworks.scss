@@ -13,6 +13,8 @@
         video {
             width: 100%;
             height: auto;
+            border-radius: 24px;
+            padding: 12px 12px 0;
         }
 
         .works {
@@ -112,17 +114,6 @@
             margin-bottom: .5em
         }
 
-        .sl-warn {
-            display: flex;
-            align-items: center;
-            color: var(--md-sys-color-error);
-
-            svg {
-                fill: currentColor;
-                margin-right: .5em;
-            }
-        }
-
         ul {
             list-style: none;
             margin: unset;
@@ -140,6 +131,16 @@
 
                 a {
                     font-weight: bold;
+
+                    &.content-label {
+                        color: var(--md-sys-color-tertiary);
+                        font-size: 14px;
+                    }
+
+                    &.warning {
+                        color: var(--md-sys-color-error);
+                        font-size: 14px;
+                    }
                 }
             }
         }

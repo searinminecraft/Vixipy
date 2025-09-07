@@ -30,6 +30,7 @@
         max-width: 80%;
         position: relative;
         overflow: hidden;
+        animation: login-popup .45s cubic-bezier(0.22, 0.61, 0.36, 1);
 
         .sign-in-body {
             text-align: center;
@@ -103,6 +104,13 @@
             transform: translateY(0%);
             pointer-events: visible;
         }
+    }
+}
+
+@keyframes login-popup {
+    from {
+        scale: 85%;
+        opacity: 0
     }
 }
 

@@ -22,7 +22,13 @@
                 <div class="info">
                     <h3>{{data.name}}</h3>
                     <div class="user-stats">
+                        {% if g.authorized %}
+                        <a href="{{url_for('users.following', user=data.id)}}">
+                            <b>{{data.following}}</b> {{_("Following")}}
+                        </a>
+                        {% else %}
                         <b>{{data.following}}</b> {{_("Following")}}
+                        {% endif %}
                     </div>
                 </div>
                 <div class="actions">
@@ -35,7 +41,7 @@
                         hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
                         <input type="hidden" name="return_to" value="{{request.path}}">
                         <button type="submit" class="button {%if not data.followed%}primary{%else%}neutral{%endif%}">
-                            {%if not data.followed%}{{_("Follow")}}{%else%}{{_("Unfollow")}}{% endif %}
+                            {%if not data.followed%}{{_("Follow")}}{%else%}{{_("Following")}}{% endif %}
                         </button>
                     </form>
                     {% endif %}

@@ -1,5 +1,49 @@
 @use '../mixins' as *;
 
+#prof-user-info-min {
+    > img {
+        width: 100%;
+        max-height: 25vh;
+        object-fit: cover;
+        display: block;
+    }
+
+    > main {
+        width: 100%;
+        background-color: var(--md-sys-color-surface-container);
+
+        .wrap {
+            max-width: 1000px;
+            padding: .7em;
+            margin: 0 auto;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+
+            .icon-button {
+                color: var(--md-sys-color-outline)
+            }
+
+            main {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+
+                img {
+                    @include profile-img(36px);
+                }
+
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
 #prof-user-info {
     .profile-wrap {
         background-color: var(--md-sys-color-surface-container);
@@ -62,6 +106,10 @@
 
                     .user-stats {
                         color: var(--md-sys-color-outline);
+
+                        a {
+                            color: unset;
+                        }
 
                         b {
                           color: var(--md-sys-color-on-surface);
