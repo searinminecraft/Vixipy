@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-17 17:12+0800\n"
+"POT-Creation-Date: 2025-09-07 16:37+0800\n"
 "PO-Revision-Date: 2025-08-18 01:37+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -35,34 +34,48 @@ msgstr "Pahina %(page)d/%(total)d"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:38
+#: vixipy/templates/users/base.html:44
 msgid "Follow"
 msgstr "Sundan"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:38
-msgid "Unfollow"
-msgstr "I-unfollow"
+#: vixipy/templates/users/base.html:27 vixipy/templates/users/base.html:30
+#: vixipy/templates/users/base.html:44 vixipy/templates/users/dashboard.html:14
+#: vixipy/templates/users/follow/base.html:34
+msgid "Following"
+msgstr "Sinusundan"
 
 #: vixipy/templates/artworks.html:74
 msgid "View all works"
 msgstr "Tignan ang lahat ng mga gawa"
+
+#: vixipy/templates/artworks.html:87
+msgid "Login Only"
+msgstr ""
+
+#: vixipy/templates/artworks.html:90
+msgid "AI Generated"
+msgstr ""
+
+#: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:45
+msgid "Ugoira"
+msgstr "Ugoira"
 
 #: vixipy/templates/artworks.html:99
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Antas ng sensitivity: %(sl)d"
 
-#: vixipy/templates/artworks.html:161
+#: vixipy/templates/artworks.html:164
 msgid "Convert Ugoira"
 msgstr "I-convert ang Ugoira"
 
-#: vixipy/templates/artworks.html:171 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:174 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "Mga kaugnay na gawa"
 
-#: vixipy/templates/artworks.html:179
+#: vixipy/templates/artworks.html:182
 msgid "No recommended works to show."
 msgstr "Walang mga inirerekomendang gawa na papakita."
 
@@ -233,8 +246,13 @@ msgstr ""
 msgid "Back to home"
 msgstr "Bumalik sa panimula"
 
+#: vixipy/templates/http_error.html:9
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr "Bumalik"
+
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
-#: vixipy/templates/users/base.html:55
+#: vixipy/templates/users/base.html:61
 msgid "Home"
 msgstr "Home"
 
@@ -281,10 +299,6 @@ msgstr "Mukhang nasira ang Vixipy nang hindi inaasahan…"
 #: vixipy/templates/internal_server_error.html:23
 msgid "An internal error has occurred and Vixipy cannot continue."
 msgstr "May nangyaring panloob na error at hindi makakapagpatuloy ang Vixipy."
-
-#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
-msgid "Go back"
-msgstr "Bumalik"
 
 #: vixipy/templates/internal_server_error.html:27
 msgid "Report Issue"
@@ -513,7 +527,7 @@ msgstr "Maghanap"
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
-#: vixipy/templates/users/base.html:73 vixipy/templates/users/novels.html:9
+#: vixipy/templates/users/base.html:79 vixipy/templates/users/novels.html:9
 msgid "Novels"
 msgstr "Mga Nobela"
 
@@ -671,7 +685,7 @@ msgid "Safe"
 msgstr "Ligtas"
 
 #: vixipy/templates/components/tag-search-filter.html:42
-#: vixipy/templates/newest/index.html:32
+#: vixipy/templates/newest/index.html:33
 msgid "R-18"
 msgstr "R-18"
 
@@ -762,7 +776,7 @@ msgstr "Pinakabago mula sa lahat ng mga user"
 #: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:43
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
-#: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
+#: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:67
 #: vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr "Mga Larawan"
@@ -770,12 +784,12 @@ msgstr "Mga Larawan"
 #: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:44
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
-#: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
+#: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:73
 #: vixipy/templates/users/manga.html:9
 msgid "Manga"
 msgstr "Mga Manga"
 
-#: vixipy/templates/newest/index.html:31
+#: vixipy/templates/newest/index.html:32
 msgid "General"
 msgstr "General"
 
@@ -923,10 +937,6 @@ msgstr "Mga Ranggo"
 #: vixipy/templates/rankings/main.html:40
 msgid "Content"
 msgstr "Nilalaman"
-
-#: vixipy/templates/rankings/main.html:45
-msgid "Ugoira"
-msgstr "Ugoira"
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
@@ -1253,7 +1263,7 @@ msgid "Set color scheme"
 msgstr "Itakda ang scheme ng kulay"
 
 #: vixipy/templates/ugoira-converter/main.html:2
-#: vixipy/templates/ugoira-converter/main.html:12
+#: vixipy/templates/ugoira-converter/main.html:11
 msgid "Ugoira Converter"
 msgstr "Converter ng Ugoira"
 
@@ -1293,15 +1303,11 @@ msgstr "Larawan ng profile ni %(user)s"
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr "I-click para buksan ang larawan ng profile ni %(user)s sa bagong tab."
 
-#: vixipy/templates/users/base.html:25 vixipy/templates/users/dashboard.html:14
-msgid "Following"
-msgstr "Sinusundan"
-
-#: vixipy/templates/users/base.html:30
+#: vixipy/templates/users/base.html:36
 msgid "Edit Profile"
 msgstr "I-edit ang Profile"
 
-#: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
+#: vixipy/templates/users/base.html:85 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:37
 msgid "Bookmarks"
 msgstr "Mga Bookmark"
@@ -1321,6 +1327,7 @@ msgid "Do you wish to log out?"
 msgstr "Gusto mo bang mag-log out?"
 
 #: vixipy/templates/users/dashboard.html:14
+#: vixipy/templates/users/follow/base.html:49
 msgid "Followers"
 msgstr "Mga Follower"
 
@@ -1347,3 +1354,49 @@ msgstr "Source Code"
 #: vixipy/templates/users/dashboard.html:100
 msgid "Log out"
 msgstr "Mag-log out"
+
+#: vixipy/templates/users/follow/base.html:41
+msgid "My pixiv"
+msgstr ""
+
+#: vixipy/templates/users/follow/followers.html:3
+#, python-format
+msgid "%(user)s's followers"
+msgstr ""
+
+#: vixipy/templates/users/follow/followers.html:8
+#: vixipy/templates/users/follow/following.html:8
+#: vixipy/templates/users/follow/mypixiv.html:8
+#, python-format
+msgid "Users (%(count)d)"
+msgstr ""
+
+#: vixipy/templates/users/follow/followers.html:24
+#: vixipy/templates/users/follow/following.html:24
+msgid "You don't have any followers."
+msgstr ""
+
+#: vixipy/templates/users/follow/following.html:3
+#, python-format
+msgid "%(user)s's followed users"
+msgstr ""
+
+#: vixipy/templates/users/follow/following.html:26
+#, python-format
+msgid "%(user)s isn't following anyone."
+msgstr ""
+
+#: vixipy/templates/users/follow/mypixiv.html:3
+#, python-format
+msgid "%(user)s's My pixiv"
+msgstr ""
+
+#: vixipy/templates/users/follow/mypixiv.html:24
+msgid "You don't have any My pixiv."
+msgstr ""
+
+#: vixipy/templates/users/follow/mypixiv.html:26
+#, python-format
+msgid "%(user)s doesn't have any My pixiv."
+msgstr ""
+

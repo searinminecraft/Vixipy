@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-17 17:12+0800\n"
+"POT-Creation-Date: 2025-09-07 16:37+0800\n"
 "PO-Revision-Date: 2025-07-27 10:08+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language: ja\n"
@@ -34,34 +34,48 @@ msgstr ""
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:38
+#: vixipy/templates/users/base.html:44
 msgid "Follow"
 msgstr "フォローする"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:38
-msgid "Unfollow"
-msgstr ""
+#: vixipy/templates/users/base.html:27 vixipy/templates/users/base.html:30
+#: vixipy/templates/users/base.html:44 vixipy/templates/users/dashboard.html:14
+#: vixipy/templates/users/follow/base.html:34
+msgid "Following"
+msgstr "フォロー中"
 
 #: vixipy/templates/artworks.html:74
 msgid "View all works"
 msgstr "作品一覧を見る"
+
+#: vixipy/templates/artworks.html:87
+msgid "Login Only"
+msgstr ""
+
+#: vixipy/templates/artworks.html:90
+msgid "AI Generated"
+msgstr ""
+
+#: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:45
+msgid "Ugoira"
+msgstr ""
 
 #: vixipy/templates/artworks.html:99
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html:161
+#: vixipy/templates/artworks.html:164
 msgid "Convert Ugoira"
 msgstr ""
 
-#: vixipy/templates/artworks.html:171 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html:174 vixipy/templates/novels/novel.html:65
 msgid "Related works"
 msgstr "関連作品"
 
-#: vixipy/templates/artworks.html:179
+#: vixipy/templates/artworks.html:182
 msgid "No recommended works to show."
 msgstr ""
 
@@ -230,8 +244,13 @@ msgstr ""
 msgid "Back to home"
 msgstr ""
 
+#: vixipy/templates/http_error.html:9
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr ""
+
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
-#: vixipy/templates/users/base.html:55
+#: vixipy/templates/users/base.html:61
 msgid "Home"
 msgstr "ホーム"
 
@@ -275,10 +294,6 @@ msgstr ""
 
 #: vixipy/templates/internal_server_error.html:23
 msgid "An internal error has occurred and Vixipy cannot continue."
-msgstr ""
-
-#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
-msgid "Go back"
 msgstr ""
 
 #: vixipy/templates/internal_server_error.html:27
@@ -488,7 +503,7 @@ msgstr ""
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
-#: vixipy/templates/users/base.html:73 vixipy/templates/users/novels.html:9
+#: vixipy/templates/users/base.html:79 vixipy/templates/users/novels.html:9
 msgid "Novels"
 msgstr "小説"
 
@@ -646,7 +661,7 @@ msgid "Safe"
 msgstr ""
 
 #: vixipy/templates/components/tag-search-filter.html:42
-#: vixipy/templates/newest/index.html:32
+#: vixipy/templates/newest/index.html:33
 msgid "R-18"
 msgstr ""
 
@@ -738,7 +753,7 @@ msgstr ""
 #: vixipy/templates/newest/index.html:22 vixipy/templates/rankings/main.html:43
 #: vixipy/templates/search/illust.html:7 vixipy/templates/search/illust.html:14
 #: vixipy/templates/search/main.html:8 vixipy/templates/search/manga.html:7
-#: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:61
+#: vixipy/templates/search/novel.html:8 vixipy/templates/users/base.html:67
 #: vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr "イラスト"
@@ -746,12 +761,12 @@ msgstr "イラスト"
 #: vixipy/templates/newest/index.html:27 vixipy/templates/rankings/main.html:44
 #: vixipy/templates/search/illust.html:8 vixipy/templates/search/main.html:9
 #: vixipy/templates/search/manga.html:8 vixipy/templates/search/manga.html:13
-#: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:67
+#: vixipy/templates/search/novel.html:9 vixipy/templates/users/base.html:73
 #: vixipy/templates/users/manga.html:9
 msgid "Manga"
 msgstr "マンガ"
 
-#: vixipy/templates/newest/index.html:31
+#: vixipy/templates/newest/index.html:32
 #, fuzzy
 msgid "General"
 msgstr "性別"
@@ -912,10 +927,6 @@ msgstr "デイリーランキング"
 #, fuzzy
 msgid "Content"
 msgstr "ディスカバリー"
-
-#: vixipy/templates/rankings/main.html:45
-msgid "Ugoira"
-msgstr ""
 
 #: vixipy/templates/search/dashboard.html:12
 msgid "Search works..."
@@ -1206,7 +1217,7 @@ msgid "Set color scheme"
 msgstr ""
 
 #: vixipy/templates/ugoira-converter/main.html:2
-#: vixipy/templates/ugoira-converter/main.html:12
+#: vixipy/templates/ugoira-converter/main.html:11
 msgid "Ugoira Converter"
 msgstr ""
 
@@ -1247,15 +1258,11 @@ msgstr ""
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr ""
 
-#: vixipy/templates/users/base.html:25 vixipy/templates/users/dashboard.html:14
-msgid "Following"
-msgstr "フォロー中"
-
-#: vixipy/templates/users/base.html:30
+#: vixipy/templates/users/base.html:36
 msgid "Edit Profile"
 msgstr "プロフィール編集"
 
-#: vixipy/templates/users/base.html:79 vixipy/templates/users/bookmarks.html:9
+#: vixipy/templates/users/base.html:85 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:37
 msgid "Bookmarks"
 msgstr "ブックマーク"
@@ -1275,6 +1282,7 @@ msgid "Do you wish to log out?"
 msgstr "ログアウトしますか？"
 
 #: vixipy/templates/users/dashboard.html:14
+#: vixipy/templates/users/follow/base.html:49
 #, fuzzy
 msgid "Followers"
 msgstr "フォローする"
@@ -1301,4 +1309,49 @@ msgstr ""
 #: vixipy/templates/users/dashboard.html:100
 msgid "Log out"
 msgstr "ログアウト"
+
+#: vixipy/templates/users/follow/base.html:41
+msgid "My pixiv"
+msgstr ""
+
+#: vixipy/templates/users/follow/followers.html:3
+#, python-format
+msgid "%(user)s's followers"
+msgstr ""
+
+#: vixipy/templates/users/follow/followers.html:8
+#: vixipy/templates/users/follow/following.html:8
+#: vixipy/templates/users/follow/mypixiv.html:8
+#, python-format
+msgid "Users (%(count)d)"
+msgstr ""
+
+#: vixipy/templates/users/follow/followers.html:24
+#: vixipy/templates/users/follow/following.html:24
+msgid "You don't have any followers."
+msgstr ""
+
+#: vixipy/templates/users/follow/following.html:3
+#, python-format
+msgid "%(user)s's followed users"
+msgstr ""
+
+#: vixipy/templates/users/follow/following.html:26
+#, python-format
+msgid "%(user)s isn't following anyone."
+msgstr ""
+
+#: vixipy/templates/users/follow/mypixiv.html:3
+#, python-format
+msgid "%(user)s's My pixiv"
+msgstr ""
+
+#: vixipy/templates/users/follow/mypixiv.html:24
+msgid "You don't have any My pixiv."
+msgstr ""
+
+#: vixipy/templates/users/follow/mypixiv.html:26
+#, python-format
+msgid "%(user)s doesn't have any My pixiv."
+msgstr ""
 
