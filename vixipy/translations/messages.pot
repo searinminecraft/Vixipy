@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-07 16:37+0800\n"
+"POT-Creation-Date: 2025-09-07 16:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1300,13 +1300,16 @@ msgid "Users (%(count)d)"
 msgstr ""
 
 #: vixipy/templates/users/follow/followers.html:24
-#: vixipy/templates/users/follow/following.html:24
 msgid "You don't have any followers."
 msgstr ""
 
 #: vixipy/templates/users/follow/following.html:3
 #, python-format
 msgid "%(user)s's followed users"
+msgstr ""
+
+#: vixipy/templates/users/follow/following.html:24
+msgid "You are not following anyone."
 msgstr ""
 
 #: vixipy/templates/users/follow/following.html:26
