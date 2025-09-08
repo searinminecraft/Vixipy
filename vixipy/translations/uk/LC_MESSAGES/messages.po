@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-09-07 16:57+0800\n"
-"PO-Revision-Date: 2025-08-18 01:37+0000\n"
+"PO-Revision-Date: 2025-09-08 12:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -53,11 +54,11 @@ msgstr "Усі роботи"
 
 #: vixipy/templates/artworks.html:87
 msgid "Login Only"
-msgstr ""
+msgstr "Тільки авторизовані"
 
 #: vixipy/templates/artworks.html:90
 msgid "AI Generated"
-msgstr ""
+msgstr "Створено ШІ"
 
 #: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:45
 msgid "Ugoira"
@@ -203,7 +204,7 @@ msgstr "Загальнодоступний"
 #: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
 #: vixipy/templates/edit_profile.html:83
 msgid "My pixiv only"
-msgstr "Тільки мій pixiv"
+msgstr "Тільки Мій pixiv"
 
 #: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
 #: vixipy/templates/edit_profile.html:84
@@ -1354,49 +1355,48 @@ msgstr "Вийти"
 
 #: vixipy/templates/users/follow/base.html:41
 msgid "My pixiv"
-msgstr ""
+msgstr "Мій pixiv"
 
 #: vixipy/templates/users/follow/followers.html:3
 #, python-format
 msgid "%(user)s's followers"
-msgstr ""
+msgstr "Cтежать за %(user)s"
 
 #: vixipy/templates/users/follow/followers.html:8
 #: vixipy/templates/users/follow/following.html:8
 #: vixipy/templates/users/follow/mypixiv.html:8
 #, python-format
 msgid "Users (%(count)d)"
-msgstr ""
+msgstr "Користувачі (%(count)d)"
 
 #: vixipy/templates/users/follow/followers.html:24
 msgid "You don't have any followers."
-msgstr ""
+msgstr "У вас немає відстежувачів."
 
 #: vixipy/templates/users/follow/following.html:3
 #, python-format
 msgid "%(user)s's followed users"
-msgstr ""
+msgstr "Користувачі, за якими стежить %(user)s"
 
 #: vixipy/templates/users/follow/following.html:24
 msgid "You are not following anyone."
-msgstr ""
+msgstr "Ви ні за ким не стежите."
 
 #: vixipy/templates/users/follow/following.html:26
 #, python-format
 msgid "%(user)s isn't following anyone."
-msgstr ""
+msgstr "%(user)s ні за ким не стежить."
 
 #: vixipy/templates/users/follow/mypixiv.html:3
 #, python-format
 msgid "%(user)s's My pixiv"
-msgstr ""
+msgstr "«Мій pixiv» користувач_ки %(user)s"
 
 #: vixipy/templates/users/follow/mypixiv.html:24
 msgid "You don't have any My pixiv."
-msgstr ""
+msgstr "Ви ще нікого не додали до «Мій pixiv»."
 
 #: vixipy/templates/users/follow/mypixiv.html:26
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
-msgstr ""
-
+msgstr "У %(user)s немає «Мій pixiv»."

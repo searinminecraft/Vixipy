@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-09-07 16:57+0800\n"
-"PO-Revision-Date: 2025-08-18 01:37+0000\n"
+"PO-Revision-Date: 2025-09-08 12:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/de/>\n"
 "Language: de\n"
-"Language-Team: German <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/de/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -1319,11 +1320,11 @@ msgstr ""
 #: vixipy/templates/users/follow/mypixiv.html:8
 #, python-format
 msgid "Users (%(count)d)"
-msgstr ""
+msgstr "Nutzer (%(count)d)"
 
 #: vixipy/templates/users/follow/followers.html:24
 msgid "You don't have any followers."
-msgstr ""
+msgstr "Du hast keine Follower."
 
 #: vixipy/templates/users/follow/following.html:3
 #, python-format
@@ -1332,12 +1333,12 @@ msgstr ""
 
 #: vixipy/templates/users/follow/following.html:24
 msgid "You are not following anyone."
-msgstr ""
+msgstr "Du folgst niemanden."
 
 #: vixipy/templates/users/follow/following.html:26
 #, python-format
 msgid "%(user)s isn't following anyone."
-msgstr ""
+msgstr "%(user)s folgt niemanden."
 
 #: vixipy/templates/users/follow/mypixiv.html:3
 #, python-format
@@ -1352,4 +1353,3 @@ msgstr ""
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr ""
-
