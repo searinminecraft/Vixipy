@@ -4,9 +4,26 @@ from ..api import pixiv_request, get_ranking
 from ..filters import filter_from_prefs as ff
 from ..types import Tag, ArtworkEntry, TagTranslation, RecommendByTag
 
+import random
+import logging
 from typing import Dict
 
 bp = Blueprint("index", __name__)
+log = logging.getLogger("vixipy.routes.index")
+
+
+class TrendingTag:
+    def __init__(self, tag: TagTranslation, rate: int, work: ArtworkEntry):
+        self.tag = tag
+        self.rate = rate
+        self.work = work
+
+    def __repr__(self):
+        return ("<TrendingTag tag=%s" " rate=%d" " work=%s>") % (
+            self.tag,
+            self.rate,
+            self.work,
+        )
 
 
 @bp.get("/")
@@ -28,6 +45,8 @@ async def index():
         recommend_by_tag: list[RecommendBytag] = []
         new: list[ArtworkEntry] = []
         tags: list[TagTranslation] = []
+        trending_tags: list[TrendingTag] = []
+        
 
         data = await pixiv_request(
             "/ajax/top/illust", params=[("mode", mode)], ignore_cache=True
@@ -36,6 +55,7 @@ async def index():
         _page = data["page"]
         _tag_translations = data["tagTranslation"]
         _tags = _page["tags"]
+        _trending_tags = _page["trendingTags"]
         _recommend = [int(x) for x in _page["recommend"]["ids"]]
         _illusts = data["thumbnails"]["illust"]
         _following = _page["follow"]
@@ -60,6 +80,20 @@ async def index():
             if il := illusts.get(n):
                 new.append(il)
 
+        for tr in _trending_tags:
+            il = illusts.get(random.choice(tr["ids"]))
+            rate = tr["trendingRate"]
+            tag = tag_translations.get(
+                tr["tag"],
+                TagTranslation(
+                    tr["tag"],
+                    {x: None for x in ("en", "ko", "zh", "zh_tw", "romaji")},
+                ),
+            )
+            res = TrendingTag(tag, rate, il)
+            trending_tags.append(res)
+            log.debug(res)
+
         for rec in _recommend_by_tag:
             __ids = [int(x) for x in rec["ids"]]
             __tag = rec["tag"]
@@ -73,8 +107,15 @@ async def index():
             recommend_by_tag.append(RecommendByTag(ff(__illusts), __tag, __translation))
 
         for t in _tags:
-            tags.append(tag_translations.get(t["tag"], TagTranslation(t["tag"], {x: None for x in ("en", "ko", "zh", "zh_tw", "romaji")})))
-        print(tags)
+            tags.append(
+                tag_translations.get(
+                    t["tag"],
+                    TagTranslation(
+                        t["tag"],
+                        {x: None for x in ("en", "ko", "zh", "zh_tw", "romaji")},
+                    ),
+                )
+            )
 
         return await render_template(
             "index.html",
@@ -82,8 +123,10 @@ async def index():
             recommend=ff(recommend),
             rec_tag=recommend_by_tag,
             new=ff(new),
-            tags=tags
+            tags=tags,
+            trending_tags=trending_tags,
         )
+
     else:
         data = await get_ranking()
         return await render_template("index_logged_out.html", data=data)

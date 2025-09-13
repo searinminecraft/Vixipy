@@ -29,6 +29,27 @@
     {% endif %}
     {% for rt in rec_tag %}
 
+    <section id="popular-tags">
+        <h2>{{_("Popular Tags")}}</h2>
+        <div class="carousel portrait">
+            {% for x in trending_tags %}
+            <div class="entry">
+                <a href="{{url_for('search.search_main', query=x.tag.orig)}}">
+                    <img src="{{x.work.thumb}}" loading="lazy">
+                    <div class="text">
+                        {% if x.tag.orig != x.tag.default %}
+                        <div class="title">{{x.tag.default}}</div>
+                        <span>#{{x.tag.orig}}</span>
+                        {% else %}
+                        <div class="title">#{{x.tag.default}}</div>
+                        {% endif %}
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
     <section>
         <h2>{{_("Recommended illustrations tagged <a href='%(link)s' title='%(title)s'>#%(tag)s</a>", tag=rt.translation.default or rt.name , title=rt.name, link=url_for("search.search_main", query=rt.name))}}</h2>
         {% if config["DEBUG"] %}
