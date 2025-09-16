@@ -21,6 +21,7 @@ async def on_client_error(e: ClientError):
 
 
 async def handle_ratelimit_error(e):
+    log.warn("[%s] [%s] rate limited on endpoint %s", request.remote_addr, request.user_agent, request.path)
     if request.headers.get("hx-request") == "true":
         code = 200
     else:
