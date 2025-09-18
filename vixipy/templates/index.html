@@ -26,8 +26,6 @@
             {% endfor %}
         </div>
     </section>
-    {% endif %}
-    {% for rt in rec_tag %}
 
     <section id="popular-tags">
         <h2>{{_("Popular Tags")}}</h2>
@@ -49,6 +47,10 @@
             {% endfor %}
         </div>
     </section>
+
+
+    {% endif %}
+    {% for rt in rec_tag %}
 
     <section>
         <h2>{{_("Recommended illustrations tagged <a href='%(link)s' title='%(title)s'>#%(tag)s</a>", tag=rt.translation.default or rt.name , title=rt.name, link=url_for("search.search_main", query=rt.name))}}</h2>
