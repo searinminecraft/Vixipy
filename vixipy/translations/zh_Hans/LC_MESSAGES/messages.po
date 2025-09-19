@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-07 16:57+0800\n"
+"POT-Creation-Date: 2025-09-19 06:05+0000\n"
 "PO-Revision-Date: 2025-09-04 17:09+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
 "Language: zh_Hans\n"
@@ -263,14 +263,20 @@ msgstr "关注用户的作品"
 msgid "Recommended works"
 msgstr "推荐作品"
 
-#: vixipy/templates/index.html:33
+#: vixipy/templates/index.html:31 vixipy/templates/search/popular_tags.html:3
+#: vixipy/templates/search/popular_tags.html:7
+#: vixipy/templates/users/dashboard.html:69
+msgid "Popular Tags"
+msgstr "热门标签"
+
+#: vixipy/templates/index.html:56
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr "带标签 <a href='%(link)s' title='%(title)s'>#%(tag)s</a> 的推荐插画"
 
-#: vixipy/templates/index.html:56 vixipy/templates/users/dashboard.html:51
+#: vixipy/templates/index.html:79 vixipy/templates/users/dashboard.html:51
 msgid "Newest by all"
 msgstr "全部最新作品"
 
@@ -958,12 +964,6 @@ msgstr "全部时间"
 #: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:8
 msgid "Illustrations and Manga"
 msgstr "插画与漫画"
-
-#: vixipy/templates/search/popular_tags.html:3
-#: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:69
-msgid "Popular Tags"
-msgstr "热门标签"
 
 #: vixipy/templates/search/popular_tags.html:28
 msgid "Unable to load popular tags."

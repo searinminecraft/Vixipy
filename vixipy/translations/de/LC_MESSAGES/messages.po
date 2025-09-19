@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-07 16:57+0800\n"
+"POT-Creation-Date: 2025-09-19 06:05+0000\n"
 "PO-Revision-Date: 2025-09-08 12:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/de/>\n"
 "Language: de\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/de/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -265,7 +264,13 @@ msgstr "Werke von Nutzern denen du folgst"
 msgid "Recommended works"
 msgstr "Empfohlene Werke"
 
-#: vixipy/templates/index.html:33
+#: vixipy/templates/index.html:31 vixipy/templates/search/popular_tags.html:3
+#: vixipy/templates/search/popular_tags.html:7
+#: vixipy/templates/users/dashboard.html:69
+msgid "Popular Tags"
+msgstr "Beliebte Tags"
+
+#: vixipy/templates/index.html:56
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
@@ -274,7 +279,7 @@ msgstr ""
 "Empfohlene Illustrationen mit dem Tag <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:56 vixipy/templates/users/dashboard.html:51
+#: vixipy/templates/index.html:79 vixipy/templates/users/dashboard.html:51
 msgid "Newest by all"
 msgstr "Neueste Werke von Allen"
 
@@ -971,12 +976,6 @@ msgstr "Allerzeit"
 msgid "Illustrations and Manga"
 msgstr "Illustrationen und Manga"
 
-#: vixipy/templates/search/popular_tags.html:3
-#: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:69
-msgid "Popular Tags"
-msgstr "Beliebte Tags"
-
 #: vixipy/templates/search/popular_tags.html:28
 msgid "Unable to load popular tags."
 msgstr "Laden der beliebten Tags nicht möglich."
@@ -1353,3 +1352,4 @@ msgstr ""
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr ""
+
