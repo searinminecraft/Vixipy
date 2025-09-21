@@ -1,0 +1,12 @@
+<div class="toc">
+    <details open>
+        <summary>{{_("Index")}}</summary>
+        <ul>
+            {% for x in data.contents %}
+            <li>
+                <a href="{{x.href}}">{{x.name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </details>
+</div>

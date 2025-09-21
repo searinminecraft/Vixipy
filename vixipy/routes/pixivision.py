@@ -17,6 +17,7 @@ async def main():
 @bp.route("/pixivision/a/<int:id>")
 async def article(id: int):
     data = await get_article(id)
+    return await render_template("pixivision/article.html", data=data)
 
 
 @bp.route("/pixivision/t/<int:id>")

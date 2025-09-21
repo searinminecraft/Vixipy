@@ -32,7 +32,6 @@ def parse_spotlight(t: Tag) -> Optional[PixivisionEntry]:
     date = datetime.strptime(main.find("time").text, "%Y.%m.%d")
     title_element = main.find("h2", class_="aec__title")
     id = int(title_element.a.attrs["data-gtm-label"])
-    # Sadly this is truncated server side. Whatever...
     title = title_element.text
     category = main.find("a", attrs={"data-gtm-action": "ClickCategory"}).attrs[
         "data-gtm-label"
@@ -86,7 +85,15 @@ def parse_article(t: Tag):
         "heading": Heading,
         "article_thumbnail": ArticleThumb,
         "image": Image,
+        "article_card": ArticleCard,
+        "table_of_contents": TableOfContents
     }
+
+    category = t.select_one(".am__sub-info .am__categoty-pr").a.attrs["data-gtm-label"]
+    date = datetime.strptime(t.select_one(".am__sub-info time").text, "%Y.%m.%d")
+    title = t.select_one(".am__header h1.am__title").text
+    og_desc = t.find("meta", property="og:description").attrs["content"]
+    og_img = t.find("meta", property="og:image").attrs["content"]
 
     res: list[PixivisionComponent] = []
     total = 0
@@ -106,4 +113,5 @@ def parse_article(t: Tag):
 
     log.debug("Parsed %d of %d components", parsed, total)
     log.debug("Resulting components: %s", res)
-    return res
+
+    return PixivisionArticle(title, category, date, res, og_desc, og_img)

@@ -2,6 +2,7 @@
 {% set title=_("pixivision") %}
 
 {% from "pixivision/category_name.html" import category %}
+{% from "pixivision/entry.html" import pxvs_entry %}
 
 {% block content %}
 <main id="pixivision">
@@ -33,5 +34,10 @@
         </main>
     </div>
     {% endif %}
+    <div class="articles">
+        {% for x in data.articles %}
+        {{pxvs_entry(x)}}
+        {% endfor %}
+    </div>
 </main>
 {% endblock %}

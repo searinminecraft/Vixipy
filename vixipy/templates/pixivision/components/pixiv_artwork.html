@@ -1,0 +1,14 @@
+<div class="pixiv-artwork">
+    <div class="meta">
+        <a class="author-img" href="{{data.author_link}}">
+            <img src="{{data.author_img}}" alt="{{data.author_name}}">
+        </a>
+        <div class="info">
+            <h4><a href="{{data.image_link}}">{{data.title}}</a></h4>
+            <small>{{_("By %(author)s", author=data.author_name)}}</small>
+        </div>
+    </div>
+    <a class="work" href="{{data.image_link}}">
+        <img src="{{data.image}}" alt="{{data.title}}">
+    </a>
+</div>

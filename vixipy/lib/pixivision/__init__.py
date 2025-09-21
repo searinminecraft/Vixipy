@@ -80,7 +80,9 @@ async def get_landing_page(page: int = 1):
         _run_in_ex(parse_article_entries, d),
     )
 
-    spotlight.image = proxy(spotlight.image)
+    if spotlight:
+        spotlight.image = proxy(spotlight.image)
+
     for x in articles:
         x.image = proxy(x.image)
 
@@ -89,4 +91,5 @@ async def get_landing_page(page: int = 1):
 
 async def get_article(id: int):
     d = await _pixivision_request(f"/a/{id}")
-    components = await _run_in_ex(parse_article, d)
+    res = await _run_in_ex(parse_article, d)
+    return res

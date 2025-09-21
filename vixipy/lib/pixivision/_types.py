@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Optional
-from .components import PixivisionComponent
+from typing import TYPE_CHECKING, Optional
+
+if TYPE_CHECKING:
+    from .components import PixivisionComponent
 
 
 class PixivisionCategory(Enum):
@@ -61,11 +63,15 @@ class PixivisionArticle:
         category: str,
         date: datetime,
         contents: list[PixivisionComponent],
+        og_desc: str,
+        og_img: str,
     ):
         self.title: str = title
         self.category: PixivisionCategory = PixivisionCategory(category)
-        self.datetime: datetime = date
+        self.date: datetime = date
         self.contents: list[PixivisionComponent] = contents
+        self.og_desc: str = og_desc
+        self.og_img: str = og_img
 
 
 class PixivisionLanding:
