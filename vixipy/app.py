@@ -33,6 +33,7 @@ from .routes import (
     rankings,
     newest,
     jump,
+    pixivision,
 )
 from . import (
     cache_client,
@@ -182,6 +183,7 @@ def create_app():
     app.register_blueprint(rankings)
     app.register_blueprint(newest)
     app.register_blueprint(jump)
+    app.register_blueprint(pixivision)
 
     # =================================
 

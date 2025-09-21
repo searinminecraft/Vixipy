@@ -17,3 +17,4 @@ from .monet import bp as monet
 from .rankings import bp as rankings
 from .newest import bp as newest
 from .jump import bp as jump
+from .pixivision import bp as pixivision

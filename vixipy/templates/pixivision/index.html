@@ -1,0 +1,37 @@
+{% extends "layouts/default.html" %}
+{% set title=_("pixivision") %}
+
+{% from "pixivision/category_name.html" import category %}
+
+{% block content %}
+<main id="pixivision">
+    <div class="notice">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 16.93l-.001 1.57a2 2 0 01-2.001 2h-.06a2 2 0 01-3.875 0h-.06a2 2 0 01-2-2L8 16.93a8 8 0 117.998 0zM12 3.905a6.095 6.095 0 100 12.19 6.095 6.095 0 000-12.19zM15 13a1 1 0 11-2 0 1 1 0 10-2 0 1 1 0 11-2 0 3 3 0 116 0z" fill="currentColor"/></svg>
+        <div>
+            pixivision support is experimental. expect bugs.
+        </div>
+    </div>
+
+    <br>
+
+    {% if data.spotlight %}
+    <div class="spotlight">
+        <a href="{{url_for('pixivision.article', id=data.spotlight.id)}}">
+            <img src="{{data.spotlight.image}}" alt="{{data.spotlight.title}}">
+        </a>
+        <main>
+            <small class="featured-label">{{_("Spotlight")}}</small>
+            <a href="{{url_for('pixivision.article', id=data.spotlight.id)}}">
+                <h2>{{data.spotlight.title}}</h2>
+            </a>
+            <ul class="tags">
+                <li class="category"><a href="{{url_for('pixivision.category', c=data.spotlight.category.value)}}">{{category(data.spotlight.category)}}</a></li>
+                {% for x in data.spotlight.tags %}
+                <li><a href="{{url_for('pixivision.tag', id=x.id)}}">#{{x.name}}</a></li>
+                {% endfor %}
+            </ul>
+        </main>
+    </div>
+    {% endif %}
+</main>
+{% endblock %}

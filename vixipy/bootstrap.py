@@ -94,12 +94,19 @@ async def init_clientsession(app: Quart):
         cookie_jar=DummyCookieJar(),
         proxy=app.config.get("PROXY"),
     )
+    app.pixivision: ClientSession = ClientSession(
+        "https://www.pixivision.net",
+        headers=header_common,
+        connector_owner=False,
+        cookie_jar=DummyCookieJar(),
+        proxy=app.config.get("PROXY"),
+    )
 
     log.debug("HTTP client sessions initialized.")
 
 
 async def credential_init(app: Quart):
-    if len(app.config["TOKEN"]) == 0:
+    if len(app.config["TOKEN"]) == 0 or app.config["DEBUG"]:
         app.no_token = True
         if not app.config["ACQUIRE_SESSION"]:
             log.info("Skipping session acquisition from pixiv. Using random token.")

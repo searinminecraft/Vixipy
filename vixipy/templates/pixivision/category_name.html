@@ -1,0 +1,41 @@
+{%- macro category(id) %}
+
+{% set i = id.value %}
+
+{% if i == "illustration" %}
+{{_("Illustrations")}}
+{% elif i == "manga" %}
+{{_("Manga")}}
+{% elif i == "novels" %}
+{{_("Novels")}}
+{% elif i == "cosplay" %}
+{{_("Cosplay")}}
+{% elif i == "music" %}
+{{_("Music")}}
+{% elif i == "goods" %}
+{{_("Goods")}}
+{% elif i == "how-to-draw" %}
+{{_("Tutorials")}}
+{% elif i == "draw-step-by-step" %}
+{{_("Behind the Art")}}
+{% elif i == "textures" %}
+{{_("Materials")}}
+{% elif i == "art-references" %}
+{{_("References")}}
+{% elif i == "how-to-make" %}
+{{_("Other Guides")}}
+{% elif i == "recommend" %}
+{{_("Featured")}}
+{% elif i == "interview" %}
+{{_("Interviews")}}
+{% elif i == "column" %}
+{{_("Columns")}}
+{% elif i == "news" %}
+{{_("News")}}
+{% elif i == "deskwatch" %}
+{{_("Deskwatch")}}
+{% elif i == "try-out" %}
+{{_("We Tried It!")}}
+{% endif %}
+
+{% endmacro -%}
