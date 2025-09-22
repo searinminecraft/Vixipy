@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-09-21 07:46+0000\n"
-"PO-Revision-Date: 2025-09-08 12:09+0000\n"
+"PO-Revision-Date: 2025-09-22 02:28+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.13.2\n"
 "Generated-By: Babel 2.10.3\n"
 
 #: vixipy/routes/login.py:55
@@ -74,7 +75,7 @@ msgstr "Конвертувати анімацію"
 
 #: vixipy/templates/artworks.html:174 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr "Пов'язані роботи"
+msgstr "Пов’язані роботи"
 
 #: vixipy/templates/artworks.html:182
 msgid "No recommended works to show."
@@ -470,14 +471,14 @@ msgstr "Світлі кольори"
 
 #: vixipy/templates/no_connection.html:6
 msgid "Connection Error"
-msgstr "Помилка з'єднання"
+msgstr "Помилка з’єднання"
 
 #: vixipy/templates/no_connection.html:7
 msgid ""
 "Unable to connect to pixiv servers. Check your connection or contact the "
 "instance administrator."
 msgstr ""
-"Не вдалося підключитися до серверів pixiv. Перевірте з'єднання або "
+"Не вдалося підключитися до серверів pixiv. Перевірте з’єднання або "
 "зверніться до адміністрації екземпляра."
 
 #: vixipy/templates/components/header.html:17
@@ -856,67 +857,67 @@ msgstr "%(cc)s слів"
 
 #: vixipy/templates/pixivision/category_name.html:12
 msgid "Cosplay"
-msgstr ""
+msgstr "Косплей"
 
 #: vixipy/templates/pixivision/category_name.html:14
 msgid "Music"
-msgstr ""
+msgstr "Музика"
 
 #: vixipy/templates/pixivision/category_name.html:16
 msgid "Goods"
-msgstr ""
+msgstr "Товари"
 
 #: vixipy/templates/pixivision/category_name.html:18
 msgid "Tutorials"
-msgstr ""
+msgstr "Посібники"
 
 #: vixipy/templates/pixivision/category_name.html:20
 msgid "Behind the Art"
-msgstr ""
+msgstr "За лаштунками"
 
 #: vixipy/templates/pixivision/category_name.html:22
 msgid "Materials"
-msgstr ""
+msgstr "Матеріали"
 
 #: vixipy/templates/pixivision/category_name.html:24
 msgid "References"
-msgstr ""
+msgstr "Посилання"
 
 #: vixipy/templates/pixivision/category_name.html:26
 msgid "Other Guides"
-msgstr ""
+msgstr "Інші довідники"
 
 #: vixipy/templates/pixivision/category_name.html:28
 msgid "Featured"
-msgstr ""
+msgstr "Вибране"
 
 #: vixipy/templates/pixivision/category_name.html:30
 msgid "Interviews"
-msgstr ""
+msgstr "Інтерв’ю"
 
 #: vixipy/templates/pixivision/category_name.html:32
 msgid "Columns"
-msgstr ""
+msgstr "Колонки"
 
 #: vixipy/templates/pixivision/category_name.html:34
 msgid "News"
-msgstr ""
+msgstr "Новини"
 
 #: vixipy/templates/pixivision/category_name.html:36
 msgid "Deskwatch"
-msgstr ""
+msgstr "Deskwatch"
 
 #: vixipy/templates/pixivision/category_name.html:38
 msgid "We Tried It!"
-msgstr ""
+msgstr "Ми спробували!"
 
 #: vixipy/templates/pixivision/index.html:2
 msgid "pixivision"
-msgstr ""
+msgstr "pixivision"
 
 #: vixipy/templates/pixivision/index.html:23
 msgid "Spotlight"
-msgstr ""
+msgstr "Spotlight"
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
@@ -1409,7 +1410,7 @@ msgstr "Ваш профіль"
 
 #: vixipy/templates/users/dashboard.html:87
 msgid "Send Feedback"
-msgstr "Зворотний зв'язок"
+msgstr "Зворотний зв’язок"
 
 #: vixipy/templates/users/dashboard.html:93
 msgid "Source Code"
@@ -1466,4 +1467,3 @@ msgstr "Ви ще нікого не додали до «Мій pixiv»."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "У %(user)s немає «Мій pixiv»."
-
