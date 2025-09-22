@@ -86,7 +86,13 @@ def parse_article(t: Tag):
         "article_thumbnail": ArticleThumb,
         "image": Image,
         "article_card": ArticleCard,
-        "table_of_contents": TableOfContents
+        "table_of_contents": TableOfContents,
+        "profile": Profile,
+        "credit": Credit,
+        "subheading": SubHeading,
+        "movie": Movie,
+        "question": Question,
+        "answer": Answer,
     }
 
     category = t.select_one(".am__sub-info .am__categoty-pr").a.attrs["data-gtm-label"]
@@ -102,12 +108,23 @@ def parse_article(t: Tag):
     for x in t.find("div", class_="_feature-article-body"):
         r = COMPONENT_RE.search(x.attrs["class"][1]).group(1)
         if r in mapping:
-            res.append(mapping[r](x))
-            log.debug("Parsed %s", r)
+            try:
+                res.append(mapping[r](x))
+                log.debug("Parsed %s", r)
 
-            parsed += 1
+                parsed += 1
+            except Exception as e:
+                log.exception("Failure rendering the component %s", r)
+                res.append(BrokenComponent(e))
         else:
             log.warn("Component %s unimplemented!", r)
+            log.debug("----------------------------------")
+            log.debug("Component %s:", r)
+            log.debug("----------------------------------")
+            log.debug(x)
+            log.debug("----------------------------------")
+
+            res.append(UnimplementedComponent(r))
 
         total += 1
 

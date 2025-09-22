@@ -240,15 +240,21 @@ def create_app():
 
     @app.route("/static/<path:resource>")
     async def custom_static_folder(resource: str):
+        
+        if app.config["DEBUG"]:
+            h = {"Cache-Control": "no-cache"}
+        else:
+            h = {"Cache-Control": "max-age=86400"}
+
 
         try:
             async with await app.open_instance_resource("custom/" + resource) as f:
                 r = await f.read()
-                return r, {"Content-Type": mimetypes.guess_file_type(resource)[0], "Cache-Control": "max-age=86400"}
+                return r, {"Content-Type": mimetypes.guess_file_type(resource)[0], **h}
         except Exception:
             async with await app.open_resource("static/" + resource) as f:
                 r = await f.read()
-                return r, {"Content-Type": mimetypes.guess_type(resource)[0], "Cache-Control": "max-age=86400"}
+                return r, {"Content-Type": mimetypes.guess_type(resource)[0], **h}
 
     @app.route("/robots.txt")
     async def robots_txt():

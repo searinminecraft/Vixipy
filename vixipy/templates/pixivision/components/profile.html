@@ -1,0 +1,14 @@
+<div class="profile">
+    <img src="{{data.image}}" alt="{{data.image_alt}}">
+    <div class="info">
+	<span>{{data.name}}</span>
+	<p>
+	    {{data.info|safe}}
+	</p>
+        <ul class="links">
+	    {% for x in data.links %}
+	    <li><a href="{{x[0]}}">{{x[1]}}</a></li>
+	    {% endfor %}
+	</ul>
+    </div>
+</div>
