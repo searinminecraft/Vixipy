@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-09-21 07:46+0000\n"
-"PO-Revision-Date: 2025-09-08 12:09+0000\n"
+"PO-Revision-Date: 2025-09-23 07:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/de/>\n"
 "Language: de\n"
-"Language-Team: German <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/de/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13.2\n"
 "Generated-By: Babel 2.10.3\n"
 
 #: vixipy/routes/login.py:55
@@ -833,11 +834,11 @@ msgstr "%(cc)s Wort(e)"
 
 #: vixipy/templates/pixivision/category_name.html:12
 msgid "Cosplay"
-msgstr ""
+msgstr "Cosplay"
 
 #: vixipy/templates/pixivision/category_name.html:14
 msgid "Music"
-msgstr ""
+msgstr "Musik"
 
 #: vixipy/templates/pixivision/category_name.html:16
 msgid "Goods"
@@ -869,7 +870,7 @@ msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:30
 msgid "Interviews"
-msgstr ""
+msgstr "Interviews"
 
 #: vixipy/templates/pixivision/category_name.html:32
 msgid "Columns"
@@ -877,7 +878,7 @@ msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:34
 msgid "News"
-msgstr ""
+msgstr "Neues"
 
 #: vixipy/templates/pixivision/category_name.html:36
 msgid "Deskwatch"
@@ -889,7 +890,7 @@ msgstr ""
 
 #: vixipy/templates/pixivision/index.html:2
 msgid "pixivision"
-msgstr ""
+msgstr "pixivision"
 
 #: vixipy/templates/pixivision/index.html:23
 msgid "Spotlight"
@@ -1419,4 +1420,3 @@ msgstr ""
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr ""
-
