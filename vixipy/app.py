@@ -271,6 +271,7 @@ def create_app():
     async def close_clientsession():
         await app.pixiv.close()
         await app.content_proxy.close()
+        await app.pixivision.close()
 
     # =================================
 

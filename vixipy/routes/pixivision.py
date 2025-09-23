@@ -1,8 +1,10 @@
 from ..lib.pixivision import get_landing_page, get_article
 
 from quart import Blueprint, render_template, request
+from quart_rate_limiter import limit_blueprint, timedelta
 
 bp = Blueprint("pixivision", __name__)
+limit_blueprint(bp, 1, timedelta(seconds=5))
 
 @bp.route("/pixivision")
 async def main():
