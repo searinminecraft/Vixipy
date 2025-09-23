@@ -1,4 +1,5 @@
 venv
+*.swp
 __pycache__
 pyxiv.sock
 pyxiv.running
