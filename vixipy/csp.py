@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 
 async def csp_handler(r: Response):
-    media_src = "media-src 'self' %s blob: data: ; " % (
+    media_common = "'self' %s blob: data: ; " % (
         request.cookies.get("Vixipy-Image-Proxy", "")
         or (
             current_app.config["IMG_PROXY"]
@@ -19,7 +19,8 @@ async def csp_handler(r: Response):
 
     r.headers["Content-Security-Policy"] = (
         "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob: ; "
-        + media_src
+        "img-src " + media_common
+        + "media-src " + media_common
         + "frame-ancestors 'self'; "
         "style-src 'self' 'unsafe-inline'; "
     )
