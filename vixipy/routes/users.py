@@ -119,18 +119,15 @@ async def following(user: int):
 
     return await render_template("users/follow/following.html", user=user, data=data)
 
+
 @bp.route("/users/<int:user>/followers")
 @tokenless_require_login
 async def followers(user: int):
     if g.current_user.id != user:
         abort(400)
- 
+
     user, data = await gather(
-        get_user(user),
-        get_user_followers(
-            user,
-            int(request.args.get("p", 1))
-        )
+        get_user(user), get_user_followers(user, int(request.args.get("p", 1)))
     )
 
     return await render_template("users/follow/followers.html", user=user, data=data)
@@ -141,11 +138,7 @@ async def followers(user: int):
 async def mypixiv(user: int):
 
     user, data = await gather(
-        get_user(user),
-        get_user_mypixiv(
-            user,
-            int(request.args.get("p", 1))
-        )
+        get_user(user), get_user_mypixiv(user, int(request.args.get("p", 1)))
     )
 
     return await render_template("users/follow/mypixiv.html", user=user, data=data)

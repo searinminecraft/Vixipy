@@ -21,7 +21,12 @@ async def on_client_error(e: ClientError):
 
 
 async def handle_ratelimit_error(e):
-    log.warn("[%s] [%s] rate limited on endpoint %s", request.remote_addr, request.user_agent, request.path)
+    log.warn(
+        "[%s] [%s] rate limited on endpoint %s",
+        request.remote_addr,
+        request.user_agent,
+        request.path,
+    )
     if request.headers.get("hx-request") == "true":
         code = 200
     else:
@@ -36,7 +41,9 @@ async def handle_internal_error(e):
         return await render_template("http_error.html", error=e), 200 if hx else e.code
 
     log.exception("Exception occurred here:")
-    return await render_template("internal_server_error.html", traceback=traceback.format_exc()), 200 if hx else 500
+    return await render_template(
+        "internal_server_error.html", traceback=traceback.format_exc()
+    ), (200 if hx else 500)
 
 
 def init_app(app: Quart):

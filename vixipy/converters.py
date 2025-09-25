@@ -19,7 +19,9 @@ def proxy(url: str) -> str:
 
     if url.netloc == "i.pximg.net":
         return proxy + url.path
-    return "/proxy/" + str(f"{url.netloc}{url.path}{f'?{url.query}' if url.query else ''}")
+    return "/proxy/" + str(
+        f"{url.netloc}{url.path}{f'?{url.query}' if url.query else ''}"
+    )
 
 
 def convert_pixiv_link(url: str) -> str:
@@ -28,12 +30,12 @@ def convert_pixiv_link(url: str) -> str:
 
     url = urlparse(url)
     path = url.path
-    
+
     if url.netloc == "www.pixivision.net":
         for l in ("en", "ja", "ko", "zh", "zh-tw"):
             if path.startswith(f"/{l}/"):
                 path = path.replace(f"/{l}/", "/")
-            
+
         if path.startswith("/t/"):
             return url_for("pixivision.tag", id=path.split("/")[2])
         if path.startswith("/a/"):
@@ -55,7 +57,7 @@ def convert_pixiv_link(url: str) -> str:
             return url_for("novels.novel_main", id=res.group(1))
         if res := USERS_M.search(path):
             return url_for("users.user_profile", user=res.group(1))
-    
+
     if url.netloc:
         return f"/jump.php?url={quote(url.geturl())}"
     else:

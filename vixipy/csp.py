@@ -19,8 +19,10 @@ async def csp_handler(r: Response):
 
     r.headers["Content-Security-Policy"] = (
         "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob: ; "
-        "img-src " + media_common
-        + "media-src " + media_common
+        "img-src "
+        + media_common
+        + "media-src "
+        + media_common
         + "frame-ancestors 'self'; "
         "style-src 'self' 'unsafe-inline'; "
     )

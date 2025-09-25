@@ -464,10 +464,7 @@ async def get_user_following(
 async def get_user_followers(id: int, page: int = 1):
     data = await pixiv_request(
         f"/ajax/user/{id}/followers",
-        params=[
-            ("offset", (24 * page) - 24),
-            ("limit", 24 * page)
-        ]
+        params=[("offset", (24 * page) - 24), ("limit", 24 * page)],
     )
 
     return UserFollowRes(data)

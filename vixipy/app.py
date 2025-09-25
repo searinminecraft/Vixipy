@@ -201,7 +201,7 @@ def create_app():
             log.info(
                 "%s %s - %s %dms", request.method, request.url, r.status, g.time_taken
             )
-            return r 
+            return r
 
     blacklist.init_app(app)
 
@@ -240,12 +240,11 @@ def create_app():
 
     @app.route("/static/<path:resource>")
     async def custom_static_folder(resource: str):
-        
+
         if app.config["DEBUG"]:
             h = {"Cache-Control": "no-cache"}
         else:
             h = {"Cache-Control": "max-age=86400"}
-
 
         try:
             async with await app.open_instance_resource("custom/" + resource) as f:

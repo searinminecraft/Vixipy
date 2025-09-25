@@ -36,7 +36,7 @@ async def login_page():
     return_path = request.args.get("return_to", "/")
     if g.authorized:
         return redirect(return_path)
-    
+
     background = random.choice(LOGIN_PAGE_BACKGROUNDS)
     id = re.search(
         r"https:\/\/i\.pximg\.net\/c\/540x540_70\/img-master\/img\/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/(\d+)_p\d+_master1200\.jpg",

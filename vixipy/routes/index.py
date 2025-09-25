@@ -46,7 +46,6 @@ async def index():
         new: list[ArtworkEntry] = []
         tags: list[TagTranslation] = []
         trending_tags: list[TrendingTag] = []
-        
 
         data = await pixiv_request(
             "/ajax/top/illust", params=[("mode", mode)], ignore_cache=True

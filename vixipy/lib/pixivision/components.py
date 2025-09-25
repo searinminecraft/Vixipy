@@ -127,9 +127,7 @@ class ArticleCard(PixivisionComponent):
         main = d.select_one("article._article-card")
 
         image = BG_IMG_RE.search(
-            main.find("div", class_="_thumbnail")
-            .attrs["style"]
-            .replace(" ", "")
+            main.find("div", class_="_thumbnail").attrs["style"].replace(" ", "")
         ).group(1)
         date = datetime.strptime(main.find("time").text, "%Y.%m.%d")
         title_element = main.find("h2", class_="arc__title")
@@ -148,7 +146,7 @@ class ArticleCard(PixivisionComponent):
             tag_list.append(PixivisionTag(tag_id, tag_name))
 
         self.entry = PixivisionEntry(id, title, date, image, category, tag_list)
-    
+
     async def render(self):
         self.entry.image = proxy(self.entry.image)
         return await super().render()
@@ -196,13 +194,13 @@ class Profile(PixivisionComponent):
 
 class Credit(PixivisionComponent):
     def __init__(self, d: Tag):
-        super().__init__('credit')
+        super().__init__("credit")
         self.text = d.select_one("p.fab__credit").text
 
 
 class Movie(PixivisionComponent):
     def __init__(self, d: Tag):
-        super().__init__('movie')
+        super().__init__("movie")
         self.link = d.select_one("iframe").attrs["src"]
 
     async def render(self):
@@ -215,12 +213,14 @@ class BrokenComponent(PixivisionComponent):
         self.error = error
 
     async def render(self):
-        return await render_template("pixivision/components/render_error.html", error=self.error)
+        return await render_template(
+            "pixivision/components/render_error.html", error=self.error
+        )
 
 
 class Question(PixivisionComponent):
     def __init__(self, d: Tag):
-        super().__init__('question')
+        super().__init__("question")
         self._orig = d.select_one(".fab__paragraph")
 
     async def render(self):
@@ -233,10 +233,9 @@ class Question(PixivisionComponent):
 
 class Answer(PixivisionComponent):
     def __init__(self, d: Tag):
-        super().__init__('answer')
+        super().__init__("answer")
         self._orig = d.select_one(".answer-text")
         self.image = d.select_one("img").attrs["src"]
-
 
     async def render(self):
         log.debug("Answer render")
@@ -251,7 +250,7 @@ class Answer(PixivisionComponent):
 
 class Caption(PixivisionComponent):
     def __init__(self, d: Tag):
-        super().__init__('caption')
+        super().__init__("caption")
         self.text = d.select_one(".fab__caption").text
 
 

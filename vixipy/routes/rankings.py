@@ -17,10 +17,7 @@ bp = Blueprint("rankings", __name__)
 
 @bp.route("/rankings")
 @rate_limit(
-    limits=[
-        RateLimit(2, timedelta(seconds=1)),
-        RateLimit(10, timedelta(seconds=30))
-    ]
+    limits=[RateLimit(2, timedelta(seconds=1)), RateLimit(10, timedelta(seconds=30))]
 )
 async def main():
 

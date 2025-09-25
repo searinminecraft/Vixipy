@@ -370,9 +370,10 @@ class TagTranslation:
         if pref == "zh_Hant":
             return self.zh_tw or self.orig
         return self.en or self.romaji or self.orig
-    
+
     def __repr__(self):
         return f"<TagTranslation {self.orig} default={self.default}>"
+
 
 class RecommendByTag:
     def __init__(
@@ -483,7 +484,9 @@ class TagInfo:
 class CommissionInfo:
     def __init__(self, d: dict):
         self.accept_request: bool = d["acceptRequest"]
-        self.is_subscribed_reopen_notification: bool = d["isSubscribedReopenNotification"]
+        self.is_subscribed_reopen_notification: bool = d[
+            "isSubscribedReopenNotification"
+        ]
 
 
 class UserRecommendObject(PartialUser):
@@ -512,18 +515,20 @@ class UserFollowObject:
         self.followedBack: bool = d["followed"]
         self.blocked: bool = d["isBlocking"]
         self.isMypixiv: bool = d["isMypixiv"]
-        self.commission: Optional[CommissionInfo] = CommissionInfo(d["commission"]) if d.get("commission") else None
+        self.commission: Optional[CommissionInfo] = (
+            CommissionInfo(d["commission"]) if d.get("commission") else None
+        )
 
 
 class UserFollowRes:
     def __init__(self, d: dict):
         self.total: int = int(d["total"])
         self.users: list[UserEntry] = []
-        
+
         pages, r = divmod(self.total, 24)
         if r > 0:
             pages += 1
-        
+
         self.pages = pages
 
         for x in d["users"]:
@@ -532,7 +537,7 @@ class UserFollowRes:
 
             for y in x["illusts"]:
                 illusts.append(ArtworkEntry(y))
-            
+
             self.users.append(UserEntry(user, illusts))
 
 

@@ -39,7 +39,9 @@ async def _pixivision_request(endpoint, params: dict[str, str] = {}) -> Beautifu
     start = time.perf_counter()
 
     r = await current_app.pixivision.get(
-            f"/{language}{endpoint}", params=params, headers={"Accept-Language": language, "Cookie": f"user_lang={language};"}
+        f"/{language}{endpoint}",
+        params=params,
+        headers={"Accept-Language": language, "Cookie": f"user_lang={language};"},
     )
 
     req_done = time.perf_counter()
@@ -111,6 +113,3 @@ async def get_tag(id: int, page: int = 1):
         x.image = proxy(x.image)
 
     return res, pg
-
-
-
