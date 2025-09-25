@@ -32,4 +32,4 @@ Third-party libraries used are shown on the "About" page of the program. You can
 * [git.gay](https://git.gay/vixipy/vixipy)
 
 ## Disclaimer
-pixiv is a trademark of pixiv Inc. Vixipy is not affiliated, created, developed, nor affiliated by the company in anyway.
+pixiv is a trademark of pixiv Inc. Vixipy is not affiliated, created, nor developed by the company in anyway.
