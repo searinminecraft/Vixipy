@@ -76,7 +76,8 @@ class PixivisionArticle:
 
 class PixivisionLanding:
     def __init__(
-        self, spotlight: Optional[PixivisionEntry], articles: list[PixivisionEntry]
+        self, spotlight: Optional[PixivisionEntry], articles: list[PixivisionEntry], page_caps: tuple[bool, bool]
     ):
         self.spotlight: Optional[PixivisionEntry] = spotlight
         self.articles: list[PixivisionEntry] = articles
+        self.page_caps: tuple[bool, bool] = page_caps

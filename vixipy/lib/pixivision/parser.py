@@ -48,6 +48,20 @@ def parse_spotlight(t: Tag) -> Optional[PixivisionEntry]:
     return PixivisionEntry(id, title, date, image, category, tag_list)
 
 
+def get_pagination_capabilities(t: Tag) -> tuple[bool, bool]:
+    if not t.select_one("div._pager"):
+        return False, False
+
+    prev = True
+    _next = True
+    if t.select_one("div._pager span.back.disabled"):
+        prev = False
+    if t.select_one("div._pager span.next.disabled"):
+        _next = False
+
+    return prev, _next
+
+
 def parse_article_entries(t: Tag) -> list[PixivisionEntry]:
     result: list[PixivisionEntry] = []
 
@@ -93,6 +107,7 @@ def parse_article(t: Tag):
         "movie": Movie,
         "question": Question,
         "answer": Answer,
+        "caption": Caption,
     }
 
     category = t.select_one(".am__sub-info .am__categoty-pr").a.attrs["data-gtm-label"]

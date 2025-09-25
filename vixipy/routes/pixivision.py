@@ -1,4 +1,4 @@
-from ..lib.pixivision import get_landing_page, get_article
+from ..lib.pixivision import get_landing_page, get_article, get_tag
 
 from quart import Blueprint, render_template, request
 from quart_rate_limiter import limit_blueprint, timedelta
@@ -24,7 +24,11 @@ async def article(id: int):
 
 @bp.route("/pixivision/t/<int:id>")
 async def tag(id: int):
-    ...
+    data, pg = await get_tag(
+        id,
+        int(request.args.get("p", 1))
+    )
+    return await render_template("pixivision/tag.html", data=data, pg=pg, id=id)
 
 
 @bp.route("/pixivision/s/")

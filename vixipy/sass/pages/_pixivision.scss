@@ -98,7 +98,8 @@
             width: 100%;
             object-fit: cover;
             border-radius: 16px;
-            background-color: var(--md-sys-color-surface-container-low)
+            background-color: var(--md-sys-color-surface-container-low);
+            margin-bottom: 1em;
         }
 
         div.pixiv-artwork {
@@ -155,6 +156,7 @@
             a {
                 display: block;
                 margin: 0 auto;
+                width: fit-content;
 
                 img {
                     max-width: 100%;
@@ -272,6 +274,16 @@
             align-items: flex-start;
             gap: 1em;
             margin: 1em 0;
+            
+            p {
+              &:first-child {
+                  margin-top: unset;
+              }
+
+              &:last-child {
+                  margin-bottom: unset;
+              }
+            }
 
             img, svg {
                 flex-shrink: 0;
@@ -298,6 +310,11 @@
                 padding: 8px 12px;
                 border-radius: 8px;
             }
+        }
+
+        > .caption {
+            color: var(--md-sys-color-outline);
+            font-size: 12px;
         }
     }
 }

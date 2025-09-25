@@ -8,7 +8,7 @@ import asyncio
 from bs4 import BeautifulSoup
 from http import HTTPStatus
 import logging
-from quart import current_app, request
+from quart import abort, current_app, request
 import time
 from typing import TYPE_CHECKING, Callable
 
@@ -17,8 +17,12 @@ log = logging.getLogger("vixipy.lib.pixivision")
 
 
 def get_preferred_language():
-    mapping = {"en": "en", "ko": "ko", "zh_Hans": "zh", "zh_Hant": "zh-tw"}
+    mapping = {"en": "en", "ja": "ja", "ko": "ko", "zh_Hans": "zh", "zh_Hant": "zh-tw"}
 
+    if l := request.args.get("lang"):
+        if l not in mapping.values():
+            abort(400)
+        return l
     if c := request.cookies.get("Vixipy-Preferred-Pixivision-Language"):
         return c
     else:
@@ -35,7 +39,7 @@ async def _pixivision_request(endpoint, params: dict[str, str] = {}) -> Beautifu
     start = time.perf_counter()
 
     r = await current_app.pixivision.get(
-        f"/{language}{endpoint}", params=params, headers={"Accept-Language": language}
+            f"/{language}{endpoint}", params=params, headers={"Accept-Language": language, "Cookie": f"user_lang={language};"}
     )
 
     req_done = time.perf_counter()
@@ -75,9 +79,10 @@ async def _pixivision_request(endpoint, params: dict[str, str] = {}) -> Beautifu
 
 async def get_landing_page(page: int = 1):
     d = await _pixivision_request("/", {"p": page})
-    spotlight, articles = await asyncio.gather(
+    spotlight, articles, pg = await asyncio.gather(
         _run_in_ex(parse_spotlight, d),
         _run_in_ex(parse_article_entries, d),
+        _run_in_ex(get_pagination_capabilities, d),
     )
 
     if spotlight:
@@ -86,10 +91,26 @@ async def get_landing_page(page: int = 1):
     for x in articles:
         x.image = proxy(x.image)
 
-    return PixivisionLanding(spotlight, articles)
+    return PixivisionLanding(spotlight, articles, pg)
 
 
 async def get_article(id: int):
     d = await _pixivision_request(f"/a/{id}")
     res = await _run_in_ex(parse_article, d)
     return res
+
+
+async def get_tag(id: int, page: int = 1):
+    d = await _pixivision_request(f"/t/{id}", {"p": page})
+    res, pg = await asyncio.gather(
+        _run_in_ex(parse_article_entries, d),
+        _run_in_ex(get_pagination_capabilities, d),
+    )
+
+    for x in res:
+        x.image = proxy(x.image)
+
+    return res, pg
+
+
+

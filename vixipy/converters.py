@@ -47,6 +47,8 @@ def convert_pixiv_link(url: str) -> str:
 
         if path == "" or path == "/":
             return "/"
+        if path.startswith("/tags/"):
+            return path
         if res := ARTWORKS_M.search(path):
             return res.group(0)
         if res := NOVEL_M.search(path):

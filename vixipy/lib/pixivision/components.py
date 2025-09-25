@@ -221,12 +221,12 @@ class BrokenComponent(PixivisionComponent):
 class Question(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__('question')
-        self._orig = d.select_one(".fab__paragraph").p or d.select_one(".fab__paragraph")
+        self._orig = d.select_one(".fab__paragraph")
 
     async def render(self):
         for x in self._orig.find_all("a"):
             x.attrs["href"] = convert_pixiv_link(x.attrs["href"])
-        self.text = " ".join([str(x) for x in self._orig.contents])
+        self.text = " ".join([str(x) for x in self._orig.contents]).replace("── ", "")
 
         return await super().render()
 
@@ -234,7 +234,7 @@ class Question(PixivisionComponent):
 class Answer(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__('answer')
-        self._orig = d.select_one(".answer-text").p or d.select_one(".answer-text")
+        self._orig = d.select_one(".answer-text")
         self.image = d.select_one("img").attrs["src"]
 
 
@@ -247,6 +247,12 @@ class Answer(PixivisionComponent):
         self.image = proxy(self.image)
 
         return await super().render()
+
+
+class Caption(PixivisionComponent):
+    def __init__(self, d: Tag):
+        super().__init__('caption')
+        self.text = d.select_one(".fab__caption").text
 
 
 class UnimplementedComponent(PixivisionComponent):
