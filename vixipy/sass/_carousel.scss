@@ -10,6 +10,11 @@
         height: 270px;
     }
 
+    &.large a {
+        width: 500px;
+        height: 350px;
+    }
+
     a {
         color: unset;
         position: relative;
@@ -29,7 +34,7 @@
             bottom: 0;
             padding: 1em;
             padding-top: 40%;
-            background: linear-gradient(0deg, rgba(0,0,0,.5), transparent);
+            background: linear-gradient(0deg, rgba(0, 0, 0, .5), transparent);
             width: 100%;
 
             .title {

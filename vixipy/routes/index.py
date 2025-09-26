@@ -1,6 +1,7 @@
 from quart import Blueprint, abort, current_app, g, request, render_template
 
 from ..api import pixiv_request, get_ranking
+from ..converters import proxy
 from ..filters import filter_from_prefs as ff
 from ..types import Tag, ArtworkEntry, TagTranslation, RecommendByTag
 
@@ -26,6 +27,13 @@ class TrendingTag:
         )
 
 
+class _Pixivision:
+    def __init__(self, id: int, title: str, thumb: str):
+        self.id: int = int(id)
+        self.title: str = title
+        self.thumb = proxy(thumb)
+
+
 @bp.get("/")
 async def index():
     if g.authorized:
@@ -46,6 +54,7 @@ async def index():
         new: list[ArtworkEntry] = []
         tags: list[TagTranslation] = []
         trending_tags: list[TrendingTag] = []
+        pixivision: list[_Pixivision] = []
 
         data = await pixiv_request(
             "/ajax/top/illust", params=[("mode", mode)], ignore_cache=True
@@ -60,6 +69,7 @@ async def index():
         _following = _page["follow"]
         _recommend_by_tag = _page["recommendByTag"]
         _new_post = [int(x) for x in _page["newPost"]]
+        _pixivision = _page["pixivision"]
 
         for tag in _tag_translations:
             tag_translations[tag] = TagTranslation(tag, _tag_translations[tag])
@@ -116,6 +126,9 @@ async def index():
                 )
             )
 
+        for px in _pixivision:
+            pixivision.append(_Pixivision(px["id"], px["title"], px["thumbnailUrl"]))
+
         return await render_template(
             "index.html",
             following=ff(following),
@@ -124,6 +137,7 @@ async def index():
             new=ff(new),
             tags=tags,
             trending_tags=trending_tags,
+            pixivision=pixivision,
         )
 
     else:

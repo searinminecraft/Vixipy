@@ -1,88 +1,77 @@
 {% extends "layouts/default.html" %}
+{% set title=data.name %}
 
 {% block content %}
 <section id="prof-user-info">
-{%- set background_alttext = _("%(user)s's background", user=data.name) -%}
-{%- set background_view_hint = _("Click to open %(user)s's banner in a new tab.", user=data.name) -%}
-{%- set pfp_alttext = _("%(user)s's profile picture", user=data.name) -%}
-{%- set pfp_view_hint = _("Click to open %(user)s's profile picture in a new tab.", user=data.name) -%}
+    {%- set background_alttext = _("%(user)s's background", user=data.name) -%}
+    {%- set background_view_hint = _("Click to open %(user)s's banner in a new tab.", user=data.name) -%}
+    {%- set pfp_alttext = _("%(user)s's profile picture", user=data.name) -%}
+    {%- set pfp_view_hint = _("Click to open %(user)s's profile picture in a new tab.", user=data.name) -%}
 
-<div class="profile-wrap">
-    {% if data.background %}
-    <a href="{{data.background}}" target="_blank" title="{{background_view_hint}}">
-        <img {% if banner_collapse %}data-collapsed{% endif %} src="{{data.background}}" alt="{{background_alttext}}">
-    </a>
-    {% endif %}
-    <main>
-        <div class="wrap">
-            <div class="user-area">
-                <a class="profile-img" href="{{data.imageBig}}" target="_blank" title="{{pfp_view_hint}}">
-                    <img src="{{data.imageBig}}" alt="{{pfp_alttext}}">
-                </a>
-                <div class="info">
-                    <h3>{{data.name}}</h3>
-                    <div class="user-stats">
-                        {% if g.authorized %}
-                        <a href="{{url_for('users.following', user=data.id)}}">
+    <div class="profile-wrap">
+        {% if data.background %}
+        <a href="{{data.background}}" target="_blank" title="{{background_view_hint}}">
+            <img {% if banner_collapse %}data-collapsed{% endif %} src="{{data.background}}"
+                alt="{{background_alttext}}">
+        </a>
+        {% endif %}
+        <main>
+            <div class="wrap">
+                <div class="user-area">
+                    <a class="profile-img" href="{{data.imageBig}}" target="_blank" title="{{pfp_view_hint}}">
+                        <img src="{{data.imageBig}}" alt="{{pfp_alttext}}">
+                    </a>
+                    <div class="info">
+                        <h3>{{data.name}}</h3>
+                        <div class="user-stats">
+                            {% if g.authorized %}
+                            <a href="{{url_for('users.following', user=data.id)}}">
+                                <b>{{data.following}}</b> {{_("Following")}}
+                            </a>
+                            {% else %}
                             <b>{{data.following}}</b> {{_("Following")}}
-                        </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="actions">
+                        {% if g.get("current_user") and g.current_user.id == data.id %}
+                        <a href="/self/edit_profile" class="button neutral">{{_("Edit Profile")}}</a>
                         {% else %}
-                        <b>{{data.following}}</b> {{_("Following")}}
+                        {% if g.authorized %}
+                        <form
+                            action="/self/action/user/{{data.id}}/{% if not data.followed %}follow{% else %}unfollow{% endif %}"
+                            hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
+                            hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
+                            <input type="hidden" name="return_to" value="{{request.path}}">
+                            <button type="submit"
+                                class="button {%if not data.followed%}primary{%else%}neutral{%endif%}">
+                                {%if not data.followed%}{{_("Follow")}}{%else%}{{_("Following")}}{% endif %}
+                            </button>
+                        </form>
+                        {% endif %}
                         {% endif %}
                     </div>
                 </div>
-                <div class="actions">
-                    {% if g.get("current_user") and g.current_user.id == data.id %}
-                    <a href="/self/edit_profile" class="button neutral">{{_("Edit Profile")}}</a>
-                    {% else %}
-                    {% if g.authorized %}
-                    <form action="/self/action/user/{{data.id}}/{% if not data.followed %}follow{% else %}unfollow{% endif %}"
-                        hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
-                        hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
-                        <input type="hidden" name="return_to" value="{{request.path}}">
-                        <button type="submit" class="button {%if not data.followed%}primary{%else%}neutral{%endif%}">
-                            {%if not data.followed%}{{_("Follow")}}{%else%}{{_("Following")}}{% endif %}
-                        </button>
-                    </form>
-                    {% endif %}
-                    {% endif %}
-                </div>
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 </section>
 <main class="large">
-        <nav class="tabs">
-        <a {% if current == 'home' -%}
-            href="#" class="active"
-            {% else %}
-            href="{{url_for('users.user_profile', user=data.id)}}"
-            {% endif -%}>{{_("Home")}}</a>
-        
-        <a {% if current == 'illust' -%}
-            href="#" class="active"
-            {%- else -%}
-            href="{{url_for('users.user_illusts', user=data.id)}}"
-            {%- endif -%}>{{_("Illustrations")}}</a>
+    <nav class="tabs">
+        <a {% if current=='home' -%} href="#" class="active" {% else %}
+            href="{{url_for('users.user_profile', user=data.id)}}" {% endif -%}>{{_("Home")}}</a>
 
-        <a {% if current == 'manga' -%}
-            href="#" class="active"
-            {%- else -%}
-            href="{{url_for('users.user_manga', user=data.id)}}"
-            {%- endif -%}>{{_("Manga")}}</a>
+        <a {% if current=='illust' -%} href="#" class="active" {%- else -%}
+            href="{{url_for('users.user_illusts', user=data.id)}}" {%- endif -%}>{{_("Illustrations")}}</a>
 
-        <a {% if current == 'novel' -%}
-            href="#" class="active"
-            {%- else -%}
-            href="{{url_for('users.user_novels', user=data.id)}}"
-            {%- endif -%}>{{_("Novels")}}</a>
+        <a {% if current=='manga' -%} href="#" class="active" {%- else -%}
+            href="{{url_for('users.user_manga', user=data.id)}}" {%- endif -%}>{{_("Manga")}}</a>
 
-        <a {% if current == 'bookmarks' -%}
-            href="#" class="active"
-            {%- else -%}
-            href="{{url_for('users.user_bookmarks', user=data.id)}}"
-            {%- endif -%}>{{_("Bookmarks")}}</a>
+        <a {% if current=='novel' -%} href="#" class="active" {%- else -%}
+            href="{{url_for('users.user_novels', user=data.id)}}" {%- endif -%}>{{_("Novels")}}</a>
+
+        <a {% if current=='bookmarks' -%} href="#" class="active" {%- else -%}
+            href="{{url_for('users.user_bookmarks', user=data.id)}}" {%- endif -%}>{{_("Bookmarks")}}</a>
     </nav>
     {% block c %}{% endblock %}
 </main>

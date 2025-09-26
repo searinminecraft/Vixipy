@@ -36,17 +36,7 @@ class PixivisionComponent:
 class BodyParagraph(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__("body_paragraph")
-
-        self._main = d.div
-        self.body = None
-
-    async def render(self):
-        for y in self._main.find_all("a"):
-            y.attrs["href"] = convert_pixiv_link(y.attrs["href"])
-
-        self.body = "\n".join([str(x) for x in self._main.contents])
-
-        return await super().render()
+        self.body = "\n".join([str(x) for x in d.div.contents])
 
 
 class PixivArtwork(PixivisionComponent):
@@ -60,27 +50,14 @@ class PixivArtwork(PixivisionComponent):
         self.image_link = d.select_one("div.am__work__main a").attrs["href"]
         self.image = d.select_one("div.am__work__main img").attrs["src"]
 
-    async def render(self):
-        self.image_link = convert_pixiv_link(self.image_link)
-        self.image = proxy(self.image)
-        self.author_link = convert_pixiv_link(self.author_link)
-        self.author_img = proxy(self.author_img)
-        return await super().render()
-
 
 class Heading(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__("heading")
 
-        self._main = d
         self.type = d.select_one("h1, h2, h3, h4, h5, h6").name
         self.contents = d.text
         self.id = d.attrs.get("id")
-
-    async def render(self):
-        for x in self._main.find_all("img"):
-            x.attrs["src"] = proxy(x.attrs["src"])
-        return await super().render()
 
 
 class SubHeading(PixivisionComponent):
@@ -100,10 +77,6 @@ class ArticleThumb(PixivisionComponent):
         self.alt = d.select_one(".aie__image").attrs["alt"]
         self.clearfix = d.select_one(".fab__clearfix").text or None
 
-    async def render(self):
-        self.image = proxy(self.image)
-        return await super().render()
-
 
 class Image(PixivisionComponent):
     def __init__(self, d: Tag):
@@ -113,11 +86,6 @@ class Image(PixivisionComponent):
         l = d.select_one("a")
         self.link = l.attrs["href"] if l else None
         self.clearfix = d.select_one(".fab__clearfix").text or None
-
-    async def render(self):
-        self.image = proxy(self.image)
-        self.link = convert_pixiv_link(self.link)
-        return await super().render()
 
 
 class ArticleCard(PixivisionComponent):
@@ -183,14 +151,6 @@ class Profile(PixivisionComponent):
         for x in d.select("li:last-child a"):
             self.links.append([x.attrs["href"], x.text])
 
-    async def render(self):
-        self.image = proxy(self.image)
-
-        for x, y in enumerate(self.links):
-            self.links[x][0] = convert_pixiv_link(y[0])
-
-        return await super().render()
-
 
 class Credit(PixivisionComponent):
     def __init__(self, d: Tag):
@@ -202,10 +162,6 @@ class Movie(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__("movie")
         self.link = d.select_one("iframe").attrs["src"]
-
-    async def render(self):
-        self.link = convert_pixiv_link(self.link)
-        return await super().render()
 
 
 class BrokenComponent(PixivisionComponent):
@@ -221,37 +177,27 @@ class BrokenComponent(PixivisionComponent):
 class Question(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__("question")
-        self._orig = d.select_one(".fab__paragraph")
-
-    async def render(self):
-        for x in self._orig.find_all("a"):
-            x.attrs["href"] = convert_pixiv_link(x.attrs["href"])
-        self.text = " ".join([str(x) for x in self._orig.contents]).replace("── ", "")
-
-        return await super().render()
+        self.text = " ".join([str(x) for x in d.contents]).replace("── ", "")
 
 
 class Answer(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__("answer")
-        self._orig = d.select_one(".answer-text")
         self.image = d.select_one("img").attrs["src"]
-
-    async def render(self):
-        log.debug("Answer render")
-        for x in self._orig.find_all("a"):
-            x.attrs["href"] = convert_pixiv_link(x.attrs["href"])
-
-        self.text = " ".join([str(x) for x in self._orig.contents])
-        self.image = proxy(self.image)
-
-        return await super().render()
+        self.text = " ".join([str(x) for x in d.select_one(".answer-text").contents])
 
 
 class Caption(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__("caption")
         self.text = d.select_one(".fab__caption").text
+
+
+class Quote(PixivisionComponent):
+    def __init__(self, d: Tag):
+        super().__init__("quote")
+        self.body = " ".join(str(x) for x in d.select_one(".fab__quote__body"))
+        self.source = d.select_one(".fab__quote__source").text
 
 
 class UnimplementedComponent(PixivisionComponent):

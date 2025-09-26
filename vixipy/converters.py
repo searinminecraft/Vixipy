@@ -1,13 +1,17 @@
 from quart import current_app, request, url_for
 import re
 from urllib.parse import urlparse, quote
+from typing import Optional
 
 ARTWORKS_M = re.compile(r"\/artworks\/.+")
 NOVEL_M = re.compile(r"\/novel\/show\.php\?id=(\d+).+")
 USERS_M = re.compile(r"\/users\/(\d+)")
 
 
-def proxy(url: str) -> str:
+def proxy(url: str) -> Optional[str]:
+    if not url:
+        return None
+
     url = urlparse(url)
 
     proxy_cookie = request.cookies.get("Vixipy-Image-Proxy")

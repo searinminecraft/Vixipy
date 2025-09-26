@@ -20,7 +20,11 @@ log = logging.getLogger("vixipy.lib.pixivision.parser")
 
 
 def parse_spotlight(t: Tag) -> Optional[PixivisionEntry]:
-    main = t.find("article", class_="_article-eyecatch-card spotlight")
+    main = t.find(
+        "article",
+        class_="_article-eyecatch-card",
+        attrs={"data-gtm-category": "Latest"},
+    )
     if not main:
         return None
 
@@ -108,6 +112,7 @@ def parse_article(t: Tag):
         "question": Question,
         "answer": Answer,
         "caption": Caption,
+        "quote": Quote,
     }
 
     category = t.select_one(".am__sub-info .am__categoty-pr").a.attrs["data-gtm-label"]

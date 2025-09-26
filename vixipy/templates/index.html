@@ -50,10 +50,32 @@
 
 
     {% endif %}
+
+    <section id="pixivision">
+        <hgroup>
+            <small>{{_("pixiv creative media")}}</small>
+            <h2>{{_("Newest articles on pixivision")}}</h2>
+        </hgroup>
+        <div class="carousel large">
+            {% for x in pixivision %}
+            <div class="entry">
+                <a href="{{url_for('pixivision.article', id=x.id)}}">
+                    <img src="{{x.thumb}}" loading="lazy">
+                    <div class="text">
+                        <div class="title">{{x.title}}</div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
     {% for rt in rec_tag %}
 
     <section>
-        <h2>{{_("Recommended illustrations tagged <a href='%(link)s' title='%(title)s'>#%(tag)s</a>", tag=rt.translation.default or rt.name , title=rt.name, link=url_for("search.search_main", query=rt.name))}}</h2>
+        <h2>{{_("Recommended illustrations tagged <a href='%(link)s' title='%(title)s'>#%(tag)s</a>",
+            tag=rt.translation.default or rt.name , title=rt.name, link=url_for("search.search_main", query=rt.name))}}
+        </h2>
         {% if config["DEBUG"] %}
         <pre>
 translation: {{rt.translation}}

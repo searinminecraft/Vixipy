@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from .parser import *
 from ._types import *
-from ...converters import proxy
+from ...converters import proxy, convert_pixiv_link
 
 import asyncio
 from bs4 import BeautifulSoup
@@ -41,7 +41,7 @@ async def _pixivision_request(endpoint, params: dict[str, str] = {}) -> Beautifu
     r = await current_app.pixivision.get(
         f"/{language}{endpoint}",
         params=params,
-        headers={"Accept-Language": language, "Cookie": f"user_lang={language};"},
+        headers={"Cookie": f"user_lang={language};"},
     )
 
     req_done = time.perf_counter()
@@ -67,6 +67,15 @@ async def _pixivision_request(endpoint, params: dict[str, str] = {}) -> Beautifu
     )
 
     s = BeautifulSoup(data, "html.parser")
+
+    for x in s.find_all("a"):
+        x.attrs["href"] = convert_pixiv_link(x.attrs["href"])
+
+    for x in s.find_all("img"):
+        x.attrs["src"] = proxy(x.attrs["src"])
+
+    for x in s.find_all("iframe"):
+        x.attrs["src"] = convert_pixiv_link(x.attrs["src"])
 
     init_parse_finish = time.perf_counter()
 
