@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-21 07:46+0000\n"
+"POT-Creation-Date: 2025-09-26 20:56+0800\n"
 "PO-Revision-Date: 2025-09-04 17:09+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
 "Language: zh_Hans\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
 msgid "Invalid token"
@@ -35,14 +35,14 @@ msgstr "第 %(page)d 页/共 %(total)d 页"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:44
+#: vixipy/templates/users/base.html:48
 msgid "Follow"
 msgstr "关注"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:27 vixipy/templates/users/base.html:30
-#: vixipy/templates/users/base.html:44 vixipy/templates/users/dashboard.html:14
+#: vixipy/templates/users/base.html:29 vixipy/templates/users/base.html:32
+#: vixipy/templates/users/base.html:48 vixipy/templates/users/dashboard.html:14
 #: vixipy/templates/users/follow/base.html:34
 msgid "Following"
 msgstr "正在关注"
@@ -113,8 +113,9 @@ msgstr "登录后评论"
 msgid "There is no comment yet"
 msgstr "暂无评论"
 
-#: vixipy/templates/comments.html:100 vixipy/templates/rankings/main.html:73
-#: vixipy/templates/replies.html:23
+#: vixipy/templates/comments.html:100 vixipy/templates/pixivision/index.html:48
+#: vixipy/templates/pixivision/tag.html:23
+#: vixipy/templates/rankings/main.html:73 vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
 msgstr "第 %(page)d 页"
@@ -251,7 +252,7 @@ msgid "Go back"
 msgstr "返回"
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
-#: vixipy/templates/users/base.html:61
+#: vixipy/templates/users/base.html:62
 msgid "Home"
 msgstr "首页"
 
@@ -270,13 +271,21 @@ msgid "Popular Tags"
 msgstr "热门标签"
 
 #: vixipy/templates/index.html:56
+msgid "pixiv creative media"
+msgstr ""
+
+#: vixipy/templates/index.html:57
+msgid "Newest articles on pixivision"
+msgstr ""
+
+#: vixipy/templates/index.html:76
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr "带标签 <a href='%(link)s' title='%(title)s'>#%(tag)s</a> 的推荐插画"
 
-#: vixipy/templates/index.html:79 vixipy/templates/users/dashboard.html:51
+#: vixipy/templates/index.html:101 vixipy/templates/users/dashboard.html:51
 msgid "Newest by all"
 msgstr "全部最新作品"
 
@@ -418,7 +427,7 @@ msgid "Return"
 msgstr "返回"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:75
+#: vixipy/templates/users/dashboard.html:81
 msgid "Material You Generator"
 msgstr "Material You 生成器"
 
@@ -506,7 +515,7 @@ msgstr "搜索"
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
-#: vixipy/templates/users/base.html:79 vixipy/templates/users/novels.html:9
+#: vixipy/templates/users/base.html:71 vixipy/templates/users/novels.html:9
 msgid "Novels"
 msgstr "小说"
 
@@ -757,7 +766,7 @@ msgstr "所有用户最新内容"
 #: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:67 vixipy/templates/users/illust.html:9
+#: vixipy/templates/users/base.html:65 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr "插画"
 
@@ -766,7 +775,7 @@ msgstr "插画"
 #: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:8
 #: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
 #: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
-#: vixipy/templates/users/base.html:73 vixipy/templates/users/manga.html:9
+#: vixipy/templates/users/base.html:68 vixipy/templates/users/manga.html:9
 msgid "Manga"
 msgstr "漫画"
 
@@ -881,11 +890,34 @@ msgid "We Tried It!"
 msgstr ""
 
 #: vixipy/templates/pixivision/index.html:2
+#: vixipy/templates/users/dashboard.html:75
 msgid "pixivision"
 msgstr ""
 
-#: vixipy/templates/pixivision/index.html:23
+#: vixipy/templates/pixivision/index.html:24
 msgid "Spotlight"
+msgstr ""
+
+#: vixipy/templates/pixivision/tag.html:5
+#: vixipy/templates/pixivision/tag.html:9
+msgid "List of articles with tag"
+msgstr ""
+
+#: vixipy/templates/pixivision/components/movie.html:4
+msgid "To protect your privacy, this embedded video has been blocked."
+msgstr ""
+
+#: vixipy/templates/pixivision/components/movie.html:5
+msgid "Click here to watch the video"
+msgstr ""
+
+#: vixipy/templates/pixivision/components/pixiv_artwork.html:8
+#, python-format
+msgid "By %(author)s"
+msgstr ""
+
+#: vixipy/templates/pixivision/components/table_of_contents.html:3
+msgid "Index"
 msgstr ""
 
 #: vixipy/templates/rankings/calendar.html:2
@@ -1206,7 +1238,7 @@ msgstr "显示"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:81
+#: vixipy/templates/users/dashboard.html:87
 msgid "Settings"
 msgstr "设置"
 
@@ -1293,31 +1325,31 @@ msgstr "转换"
 msgid "Sorry, the Ugoira Converter requires JavaScript."
 msgstr "抱歉，动图转换器需要 JavaScript 支持。"
 
-#: vixipy/templates/users/base.html:5
+#: vixipy/templates/users/base.html:6
 #, python-format
 msgid "%(user)s's background"
 msgstr "%(user)s 的背景"
 
-#: vixipy/templates/users/base.html:6
+#: vixipy/templates/users/base.html:7
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
 msgstr "点击在新标签页打开 %(user)s 的横幅。"
 
-#: vixipy/templates/users/base.html:7
+#: vixipy/templates/users/base.html:8
 #, python-format
 msgid "%(user)s's profile picture"
 msgstr "%(user)s 的头像"
 
-#: vixipy/templates/users/base.html:8
+#: vixipy/templates/users/base.html:9
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr "点击在新标签页打开 %(user)s 的头像。"
 
-#: vixipy/templates/users/base.html:36
+#: vixipy/templates/users/base.html:38
 msgid "Edit Profile"
 msgstr "编辑资料"
 
-#: vixipy/templates/users/base.html:85 vixipy/templates/users/bookmarks.html:9
+#: vixipy/templates/users/base.html:74 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:37
 msgid "Bookmarks"
 msgstr "收藏"
@@ -1351,15 +1383,15 @@ msgstr "<b>您尚未登录。</b> 登录 pixiv 账号以体验 Vixipy 的全部�
 msgid "Your profile"
 msgstr "您的个人资料"
 
-#: vixipy/templates/users/dashboard.html:87
+#: vixipy/templates/users/dashboard.html:93
 msgid "Send Feedback"
 msgstr "发送反馈"
 
-#: vixipy/templates/users/dashboard.html:93
+#: vixipy/templates/users/dashboard.html:99
 msgid "Source Code"
 msgstr "源代码"
 
-#: vixipy/templates/users/dashboard.html:100
+#: vixipy/templates/users/dashboard.html:106
 msgid "Log out"
 msgstr "退出登录"
 
