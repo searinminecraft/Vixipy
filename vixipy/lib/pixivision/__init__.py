@@ -41,7 +41,7 @@ async def _pixivision_request(endpoint, params: dict[str, str] = {}) -> Beautifu
     r = await current_app.pixivision.get(
         f"/{language}{endpoint}",
         params=params,
-        headers={"Cookie": f"user_lang={language};"},
+        headers={"Cookie": f"user_lang={language.replace('-', '_')};"},
     )
 
     req_done = time.perf_counter()
