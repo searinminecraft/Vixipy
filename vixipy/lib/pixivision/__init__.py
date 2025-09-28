@@ -122,3 +122,16 @@ async def get_tag(id: int, page: int = 1):
         x.image = proxy(x.image)
 
     return res, pg
+
+
+async def get_category(id: int, page: int = 1):
+    d = await _pixivision_request(f"/c/{id}", {"p": page})
+    res, pg = await asyncio.gather(
+        _run_in_ex(parse_article_entries, d),
+        _run_in_ex(get_pagination_capabilities, d),
+    )
+
+    for x in res:
+        x.image = proxy(x.image)
+
+    return res, pg

@@ -1,4 +1,4 @@
-from ..lib.pixivision import get_landing_page, get_article, get_tag
+from ..lib.pixivision import get_landing_page, get_article, get_tag, get_category
 
 from quart import Blueprint, render_template, request
 from quart_rate_limiter import limit_blueprint, timedelta
@@ -31,4 +31,6 @@ async def search(): ...
 
 
 @bp.route("/pixivision/c/<c>")
-async def category(c: str): ...
+async def category(c: str):
+    data, pg = await get_category(c, int(request.args.get("p", 1)))
+    return await render_template("pixivision/category.html", data=data, pg=pg, c=c)

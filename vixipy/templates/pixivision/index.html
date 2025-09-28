@@ -7,12 +7,209 @@
 {% block content %}
 <main id="pixivision">
     <div class="notice">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 16.93l-.001 1.57a2 2 0 01-2.001 2h-.06a2 2 0 01-3.875 0h-.06a2 2 0 01-2-2L8 16.93a8 8 0 117.998 0zM12 3.905a6.095 6.095 0 100 12.19 6.095 6.095 0 000-12.19zM15 13a1 1 0 11-2 0 1 1 0 10-2 0 1 1 0 11-2 0 3 3 0 116 0z" fill="currentColor"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M16 16.93l-.001 1.57a2 2 0 01-2.001 2h-.06a2 2 0 01-3.875 0h-.06a2 2 0 01-2-2L8 16.93a8 8 0 117.998 0zM12 3.905a6.095 6.095 0 100 12.19 6.095 6.095 0 000-12.19zM15 13a1 1 0 11-2 0 1 1 0 10-2 0 1 1 0 11-2 0 3 3 0 116 0z"
+                fill="currentColor" />
+        </svg>
         <div>
             pixivision support is experimental. expect bugs.
         </div>
     </div>
 
+    <br>
+    <div class="pxvs-search-area">
+        <form action="/pixivision/s">
+            <div class="searchbox">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M15.461 10.615c0-1.334-.474-2.475-1.422-3.423-.948-.949-2.09-1.423-3.424-1.423s-2.475.474-3.423 1.423c-.949.948-1.423 2.09-1.423 3.423 0 1.335.474 2.476 1.423 3.424.948.948 2.09 1.422 3.423 1.422 1.335 0 2.476-.474 3.424-1.422s1.422-2.09 1.422-3.424zm5.539 9c0 .375-.137.7-.411.974a1.33 1.33 0 01-.974.411c-.389 0-.714-.137-.973-.411l-3.71-3.7a7.407 7.407 0 01-4.317 1.342c-1.03 0-2.017-.2-2.958-.6a7.613 7.613 0 01-2.434-1.623A7.614 7.614 0 013.6 13.574c-.4-.941-.6-1.927-.6-2.959 0-1.03.2-2.017.6-2.958.4-.941.941-1.753 1.623-2.434A7.614 7.614 0 017.657 3.6c.941-.4 1.927-.6 2.958-.6 1.032 0 2.018.2 2.959.6.941.4 1.752.941 2.434 1.623a7.613 7.613 0 011.622 2.434c.4.941.6 1.927.6 2.958a7.407 7.407 0 01-1.34 4.316l3.71 3.71c.267.268.4.592.4.974z" />
+                </svg>
+                <input type="text" name="q" placeholder="{{_('Search pixivision...')}}">
+            </div>
+        </form>
+        <ul class="categories">
+            <li>
+                <a href="{{url_for('pixivision.category', c='illustration')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6 4a3 3 0 00-3 3v10a3 3 0 003 3h12a3 3 0 003-3V7a3 3 0 00-3-3H6zm13 8.5l-4 2-6-3-4 2V17a1 1 0 001 1h12a1 1 0 001-1v-4.5zM18 9a2 2 0 11-4 0 2 2 0 014 0z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("Illustrations")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='manga')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.436 5.184C4 6.04 4 7.16 4 9.4v5.2c0 2.24 0 3.36.436 4.216a4 4 0 001.748 1.748C7.04 21 8.16 21 10.4 21h8.065a1.535 1.535 0 001.277-2.387l-.054-.081a1.86 1.86 0 010-2.064A1.86 1.86 0 0020 15.437V6.2c0-1.12 0-1.68-.218-2.108a2 2 0 00-.874-.874C18.48 3 17.92 3 16.8 3h-6.4c-2.24 0-3.36 0-4.216.436a4 4 0 00-1.748 1.748zM9.5 7a.5.5 0 000 1h6a.5.5 0 000-1h-6zM9 9.5a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5zM7.5 16h10.179a3.862 3.862 0 000 3H8.4c-.363 0-.685 0-.974-.002A1.5 1.5 0 017.5 16z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("Manga")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='novel')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M7 13.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM7.5 15a.5.5 0 000 1h9a.5.5 0 000-1h-9zM7 11.5a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5zM7.5 17a.5.5 0 000 1h9a.5.5 0 000-1h-9z"
+                            fill="currentColor" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17 3a3 3 0 013 3v12a3 3 0 01-3 3H7a3 3 0 01-3-3V6a3 3 0 013-3h10zm1 3a1 1 0 00-1-1H7a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V6z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("Novels")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='cosplay')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18 11l-.316-.949-.684.228V11h1zM6 11h1v-.72l-.684-.229L6 11zm3-7l.894-.447a1 1 0 00-1.058-.54L9 4zm6 0l.164-.986a1 1 0 00-1.058.539L15 4zm.835.14L16 3.152l-.165.986zm-7.67 0L8 3.152l.165.986zm-4.481 6.088L4 9.279l-.316.949zm16.632 0L20 9.279l.316.949zm-.152-5.367L20 5.847l.164-.986zM20 5.847V9.28h2V5.847h-2zm0 3.432l-2.316.772.632 1.898 2.317-.772L20 9.279zM17 11v8h2v-8h-2zM7 19v-8H5v8h2zm-.684-8.949L4 9.28l-.632 1.898 2.316.772.632-1.898zM4 9.28V5.847H2V9.28h2zM9 4l-.894.448.001.002.002.004a2.747 2.747 0 00.07.128 5.558 5.558 0 00.864 1.125C9.652 6.317 10.64 7 12 7V5c-.641 0-1.152-.316-1.543-.707a3.551 3.551 0 01-.565-.744l.001.001v.001l.001.001L9 4zm3 3c1.359 0 2.348-.684 2.957-1.293a5.566 5.566 0 00.914-1.214 2.683 2.683 0 00.02-.039l.002-.004a.043.043 0 01.001-.002L15 4l-.894-.448V3.55l.002-.001v-.002l-.002.005a2.932 2.932 0 01-.126.206 3.551 3.551 0 01-.437.535C13.152 4.683 12.64 5 12 5v2zm2.836-2.014l.835.14L16 3.153l-.836-.14-.328 1.973zm.835.14L20 5.847l.329-1.973-4.33-.721-.328 1.973zM4 5.847l4.329-.721L8 3.153l-4.329.721L4 5.847zm4.329-.721l.835-.14-.328-1.972L8 3.153l.329 1.973zM17 19h-5v2h5v-2zm-5 0H7v2h5v-2zM4 9.28H2a2 2 0 001.368 1.897L4 9.279zM17 19v2a2 2 0 002-2h-2zm3-9.72l.633 1.897A2 2 0 0022 9.279h-2zm2-3.433a2 2 0 00-1.671-1.973L20 5.847h2zM5 19a2 2 0 002 2v-2H5zM4 5.847l-.329-1.973A2 2 0 002 5.847h2z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("Cosplay")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='music')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="currentColor">
+                        <path
+                            d="M400-120q-66 0-113-47t-47-113q0-66 47-113t113-47q23 0 42.5 5.5T480-418v-382q0-17 11.5-28.5T520-840h160q17 0 28.5 11.5T720-800v80q0 17-11.5 28.5T680-680H560v400q0 66-47 113t-113 47Z" />
+                    </svg>
+                    {{_("Music")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='goods')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8 6a4 4 0 118 0h1a3 3 0 013 3v9a3 3 0 01-3 3H7a3 3 0 01-3-3V9a3 3 0 013-3h1zm2 0a2 2 0 114 0h-4zM8 8v2a1 1 0 102 0V8h4v2a1 1 0 102 0V8h1a1 1 0 011 1v9a1 1 0 01-1 1H7a1 1 0 01-1-1V9a1 1 0 011-1h1z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("Goods")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='how-to-draw')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="currentColor">
+                        <path
+                            d="M840-320v-236L518-381q-18 10-38 10t-38-10L104-565q-11-6-15.5-15T84-600q0-11 4.5-20t15.5-15l338-184q9-5 18.5-7.5T480-829q10 0 19.5 2.5T518-819l381 208q10 5 15.5 14.5T920-576v256q0 17-11.5 28.5T880-280q-17 0-28.5-11.5T840-320ZM442-141 242-249q-20-11-31-30t-11-41v-152l242 131q18 10 38 10t38-10l242-131v152q0 22-11 41t-31 30L518-141q-9 5-18.5 7.5T480-131q-10 0-19.5-2.5T442-141Z" />
+                    </svg>
+                    {{_("Tutorials")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='draw-step-by-step')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.44 14.29l-.766 3.833a1 1 0 001.177 1.176l3.832-.766 7.248-7.248-4.242-4.242L4.44 14.29zM13.103 5.628l4.242 4.243 1.415-1.414a2 2 0 000-2.829l-1.415-1.414a2 2 0 00-2.828 0l-1.414 1.414zM11 18a1 1 0 000 2h10a1 1 0 100-2H11z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("Behind the Art")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='textures')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="currentColor">
+                        <path
+                            d="M439-132q-11-11-12.5-26.5T439-188l333-333q14-14 29.5-12.5T828-521q13 13 12 29t-13 28L495-132q-12 12-28 12t-28-12Zm289 12q-14 0-19-12t5-22l92-92q10-10 22-5t12 19v72q0 17-11.5 28.5T800-120h-72Zm-597-11q-11-11-12-27t13-30l641-641q15-15 31-13t27 13q11 11 12 27t-14 30L187-131q-14 14-29.5 12.5T131-131Zm0-308q-11-11-12-27t13-30l332-332q14-14 29.5-12.5T520-828q11 11 12.5 26.5T520-772L187-439q-14 14-29.5 12.5T131-439Zm-11-289v-72q0-17 11.5-28.5T160-840h72q14 0 19 12t-5 22l-92 92q-10 10-22 5t-12-19Z" />
+                    </svg>
+                    {{_("Textures")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='art-references')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="currentColor">
+                        <path
+                            d="M660-200q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29ZM892-68q-11 11-28 11t-28-11l-80-80q-21 14-45.5 21t-50.5 7q-75 0-127.5-52.5T480-300q0-75 52.5-127.5T660-480q75 0 127.5 52.5T840-300q0 26-7 50.5T812-204l80 80q11 11 11 28t-11 28ZM200-80q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h287q16 0 30.5 6t25.5 17l194 194q11 11 17 25.5t6 30.5v18q0 18-14.5 29t-32.5 6q-13-3-26-4.5t-27-1.5q-56 0-104.5 21T472-480H320q-17 0-28.5 11.5T280-440q0 17 11.5 28.5T320-400h100q-8 19-12.5 39t-6.5 41h-81q-17 0-28.5 11.5T280-280q0 17 11.5 28.5T320-240h87q7 31 21 58.5t34 50.5q14 15 6.5 33T443-80H200Zm280-720v160q0 17 11.5 28.5T520-600h160L480-800l200 200-200-200Z" />
+                    </svg>
+                    {{_("References")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='how-to-make')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="currentColor">
+                        <path
+                            d="M760-360q-51 0-85.5-34.5T640-480q0-51 34.5-85.5T760-600q51 0 85.5 34.5T880-480q0 51-34.5 85.5T760-360Zm-353-80H120q-17 0-28.5-11.5T80-480q0-17 11.5-28.5T120-520h287l-75-76q-11-11-11.5-27.5T332-652q11-11 28-11t28 11l144 144q12 12 12 28t-12 28L388-308q-12 12-28 11.5T332-309q-11-12-11.5-28t11.5-28l75-75Z" />
+                    </svg>
+                    {{_("Other Guides")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='recommend')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M2 10l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5L5.5 8 2 10zM11 14l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5-1.991 5-3.5 2z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("Featured")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='interview')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9.283 2.125a7.147 7.147 0 016.72 4.752l.23.65a8.032 8.032 0 00-2.1.063l-.015-.044a5.144 5.144 0 10-9.062 4.675l.252.36-.337 1.537 1.754-.364.306.149c.067.032.193.085.323.138.06.025.116.047.156.062l.046.019.012.004c.002 0 .003.001.003.002l.019.006a7.993 7.993 0 00-.061 2.121c-.31-.12-.62-.236-.927-.36a13.29 13.29 0 01-.116-.048l-4.13.857.815-3.712A7.144 7.144 0 019.283 2.125z"
+                            fill="currentColor" />
+                        <path
+                            d="M11 15.438a4.437 4.437 0 118.067 2.553l-.229.325.17 1.186-1.373-.196-.275.132a4.437 4.437 0 01-6.36-4zm-2 0a6.438 6.438 0 008.94 5.932l3.425.49-.437-3.06A6.438 6.438 0 109 15.438z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("Interviews")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='column')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="currentColor">
+                        <path
+                            d="M120-520q-17 0-28.5-11.5T80-560v-200q0-17 11.5-28.5T120-800h720q17 0 28.5 11.5T880-760v200q0 17-11.5 28.5T840-520H120Zm320 360q-17 0-28.5-11.5T400-200v-200q0-17 11.5-28.5T440-440h400q17 0 28.5 11.5T880-400v200q0 17-11.5 28.5T840-160H440Zm-320 0q-17 0-28.5-11.5T80-200v-200q0-17 11.5-28.5T120-440h160q17 0 28.5 11.5T320-400v200q0 17-11.5 28.5T280-160H120Z" />
+                    </svg>
+                    {{_("Columns")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='news')}}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.366 5.858l7.272-2.828A1 1 0 0120 3.962v3.164a4.002 4.002 0 010 7.748v3.164a1 1 0 01-1.362.932l-7.272-2.828a3.004 3.004 0 00-.756-.185l-.61-.068V6.11l.61-.068a3 3 0 00.756-.185zM21 11a2 2 0 00-1-1.732v3.464A2 2 0 0021 11z"
+                            fill="currentColor" />
+                        <path
+                            d="M8 6.333l-3.331.37A3 3 0 002 9.686v2.63a3 3 0 002.669 2.982l3.331.37V6.333zM4.586 17.286l.902 3.008a2.395 2.395 0 004.587-1.377l-.316-1.055-5.09-.565a3.204 3.204 0 01-.083-.01z"
+                            fill="currentColor" />
+                    </svg>
+                    {{_("News")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='deskwatch')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="currentColor">
+                        <path
+                            d="M80-280v-360q0-33 23.5-56.5T160-720h640q33 0 56.5 23.5T880-640v360q0 17-11.5 28.5T840-240q-17 0-28.5-11.5T800-280v-40H640v40q0 17-11.5 28.5T600-240q-17 0-28.5-11.5T560-280v-360H160v360q0 17-11.5 28.5T120-240q-17 0-28.5-11.5T80-280Zm560-280h160v-80H640v80Zm0 160h160v-80H640v80Z" />
+                    </svg>
+                    {{_("Deskwatch")}}
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('pixivision.category', c='try-out')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="currentColor">
+                        <path
+                            d="M200-120q-51 0-72.5-45.5T138-250l222-270v-240h-40q-17 0-28.5-11.5T280-800q0-17 11.5-28.5T320-840h320q17 0 28.5 11.5T680-800q0 17-11.5 28.5T640-760h-40v240l222 270q32 39 10.5 84.5T760-120H200Zm80-120h400L544-400H416L280-240Z" />
+                    </svg>
+                    {{_("We Tried It!")}}
+                </a>
+            </li>
+        </ul>
+    </div>
     <br>
 
     {% if data.spotlight %}
@@ -26,7 +223,9 @@
                 <h2>{{data.spotlight.title}}</h2>
             </a>
             <ul class="tags">
-                <li class="category"><a href="{{url_for('pixivision.category', c=data.spotlight.category.value)}}">{{category(data.spotlight.category)}}</a></li>
+                <li class="category"><a
+                        href="{{url_for('pixivision.category', c=data.spotlight.category.value)}}">{{category(data.spotlight.category)}}</a>
+                </li>
                 {% for x in data.spotlight.tags %}
                 <li><a href="{{url_for('pixivision.tag', id=x.id)}}">#{{x.name}}</a></li>
                 {% endfor %}
@@ -42,12 +241,18 @@
 
     <div class="paginator">
         {%- set page = request.args.get("p", 1)|int -%}
-        <a {% if data.page_caps[0] %}href="{{url_for('pixivision.main', p=page-1)}}"{% endif %}>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m432-480 156 156q11 11 11 28t-11 28q-11 11-28 11t-28-11L348-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 28-11t28 11q11 11 11 28t-11 28L432-480Z"/></svg>
+        <a {% if data.page_caps[0] %}href="{{url_for('pixivision.main', p=page-1)}}" {% endif %}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path
+                    d="m432-480 156 156q11 11 11 28t-11 28q-11 11-28 11t-28-11L348-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 28-11t28 11q11 11 11 28t-11 28L432-480Z" />
+            </svg>
         </a>
         <span>{{_("Page %(page)d", page=page)}}</span>
-	<a {% if data.page_caps[1] %}href="{{url_for('pixivision.main', p=page+1)}}"{% endif %}>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"/></svg>
+        <a {% if data.page_caps[1] %}href="{{url_for('pixivision.main', p=page+1)}}" {% endif %}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path
+                    d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z" />
+            </svg>
         </a>
     </div>
 </main>

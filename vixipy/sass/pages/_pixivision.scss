@@ -60,6 +60,43 @@
         }
     }
 
+    .pxvs-search-area {
+        ul.categories {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-top: 1em;
+            overflow: hidden;
+            overflow-x: auto;
+            scrollbar-width: none;
+
+            li {
+                flex-shrink: 0;
+
+                a {
+                    display: flex;
+                    gap: .5em;
+                    padding: 10px 16px;
+                    background-color: var(--md-sys-color-surface-container);
+                    color: var(--md-sys-color-on-surface);
+                    border-radius: 999999px;
+                    align-items: center;
+                    transition-property: background-color, color;
+                    transition-duration: .2s;
+                    transition-timing-function: ease;
+
+                    &:hover {
+                        color: var(--md-sys-color-on-primary);
+                        background-color: var(--md-sys-color-primary);
+                    }
+                }
+            }
+        }
+    }
+
     .articles {
         display: flex;
         margin-top: 4rem;

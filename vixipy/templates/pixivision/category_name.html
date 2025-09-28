@@ -1,6 +1,6 @@
 {%- macro category(id) %}
 
-{% set i = id.value %}
+{% set i = id.value or id %}
 
 {% if i == "illustration" %}
 {{_("Illustrations")}}
