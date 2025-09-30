@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-26 20:56+0800\n"
+"POT-Creation-Date: 2025-09-30 13:03+0800\n"
 "PO-Revision-Date: 2025-09-30 05:02+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.13.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -113,7 +112,9 @@ msgstr "Mag-sign in para mag-post ng mga komento"
 msgid "There is no comment yet"
 msgstr "Wala pang mga komento"
 
-#: vixipy/templates/comments.html:100 vixipy/templates/pixivision/index.html:48
+#: vixipy/templates/comments.html:100
+#: vixipy/templates/pixivision/category.html:26
+#: vixipy/templates/pixivision/index.html:250
 #: vixipy/templates/pixivision/tag.html:23
 #: vixipy/templates/rankings/main.html:73 vixipy/templates/replies.html:23
 #, python-format
@@ -541,6 +542,7 @@ msgstr "Maghanap"
 #: vixipy/templates/components/header.html:10
 #: vixipy/templates/newest/index.html:28 vixipy/templates/novels/index.html:2
 #: vixipy/templates/pixivision/category_name.html:10
+#: vixipy/templates/pixivision/index.html:62
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
@@ -792,6 +794,7 @@ msgstr "Pinakabago mula sa lahat ng mga user"
 
 #: vixipy/templates/newest/index.html:22
 #: vixipy/templates/pixivision/category_name.html:6
+#: vixipy/templates/pixivision/index.html:39
 #: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
@@ -801,6 +804,7 @@ msgstr "Mga Larawan"
 
 #: vixipy/templates/newest/index.html:27
 #: vixipy/templates/pixivision/category_name.html:8
+#: vixipy/templates/pixivision/index.html:49
 #: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:8
 #: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
 #: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
@@ -862,23 +866,39 @@ msgstr "%(cc)s (mga) Karakter"
 msgid "%(cc)s Word(s)"
 msgstr "%(cc)s (mga) Salita"
 
+#: vixipy/templates/pixivision/category.html:5
+#: vixipy/templates/pixivision/index.html:2
+#: vixipy/templates/users/dashboard.html:75
+msgid "pixivision"
+msgstr "pixivision"
+
+#: vixipy/templates/pixivision/category.html:9
+#, python-format
+msgid "Articles in category \"%(c)s\""
+msgstr ""
+
 #: vixipy/templates/pixivision/category_name.html:12
+#: vixipy/templates/pixivision/index.html:72
 msgid "Cosplay"
 msgstr "Cosplay"
 
 #: vixipy/templates/pixivision/category_name.html:14
+#: vixipy/templates/pixivision/index.html:82
 msgid "Music"
 msgstr "Musika"
 
 #: vixipy/templates/pixivision/category_name.html:16
+#: vixipy/templates/pixivision/index.html:92
 msgid "Goods"
 msgstr "Mga Bagay"
 
 #: vixipy/templates/pixivision/category_name.html:18
+#: vixipy/templates/pixivision/index.html:102
 msgid "Tutorials"
 msgstr "Mga Tutorial"
 
 #: vixipy/templates/pixivision/category_name.html:20
+#: vixipy/templates/pixivision/index.html:112
 msgid "Behind the Art"
 msgstr "Sa Likod ng Larawan"
 
@@ -887,43 +907,54 @@ msgid "Materials"
 msgstr "Mga Materyal"
 
 #: vixipy/templates/pixivision/category_name.html:24
+#: vixipy/templates/pixivision/index.html:132
 msgid "References"
 msgstr "Mga Sangguni"
 
 #: vixipy/templates/pixivision/category_name.html:26
+#: vixipy/templates/pixivision/index.html:142
 msgid "Other Guides"
 msgstr "Mga Iba Pang Tagubilin"
 
 #: vixipy/templates/pixivision/category_name.html:28
+#: vixipy/templates/pixivision/index.html:152
 msgid "Featured"
 msgstr "Tinatampok"
 
 #: vixipy/templates/pixivision/category_name.html:30
+#: vixipy/templates/pixivision/index.html:165
 msgid "Interviews"
 msgstr "Mga Panayam"
 
 #: vixipy/templates/pixivision/category_name.html:32
+#: vixipy/templates/pixivision/index.html:175
 msgid "Columns"
 msgstr "Mga Column"
 
 #: vixipy/templates/pixivision/category_name.html:34
+#: vixipy/templates/pixivision/index.html:188
 msgid "News"
 msgstr "Balita"
 
 #: vixipy/templates/pixivision/category_name.html:36
+#: vixipy/templates/pixivision/index.html:198
 msgid "Deskwatch"
 msgstr "Deskwatch"
 
 #: vixipy/templates/pixivision/category_name.html:38
+#: vixipy/templates/pixivision/index.html:208
 msgid "We Tried It!"
 msgstr "Sinubukan Namin!"
 
-#: vixipy/templates/pixivision/index.html:2
-#: vixipy/templates/users/dashboard.html:75
-msgid "pixivision"
-msgstr "pixivision"
+#: vixipy/templates/pixivision/index.html:28
+msgid "Search pixivision..."
+msgstr ""
 
-#: vixipy/templates/pixivision/index.html:24
+#: vixipy/templates/pixivision/index.html:122
+msgid "Textures"
+msgstr ""
+
+#: vixipy/templates/pixivision/index.html:221
 msgid "Spotlight"
 msgstr "Spotlight"
 
@@ -934,8 +965,7 @@ msgstr "Listahan ng mga artikulo na may tag"
 
 #: vixipy/templates/pixivision/components/movie.html:4
 msgid "To protect your privacy, this embedded video has been blocked."
-msgstr ""
-"Para protektahan ang iyong privacy, na-block ang embedded na video na ito."
+msgstr "Para protektahan ang iyong privacy, na-block ang embedded na video na ito."
 
 #: vixipy/templates/pixivision/components/movie.html:5
 msgid "Click here to watch the video"
@@ -1503,3 +1533,4 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
+
