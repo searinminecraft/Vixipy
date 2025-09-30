@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-09-26 20:56+0800\n"
-"PO-Revision-Date: 2025-09-04 17:09+0000\n"
-"Last-Translator: Hayden <hayden@haydenwu.org>\n"
+"PO-Revision-Date: 2025-09-30 05:02+0000\n"
+"Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.13.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -53,11 +53,11 @@ msgstr "查看所有作品"
 
 #: vixipy/templates/artworks.html:87
 msgid "Login Only"
-msgstr ""
+msgstr "仅限登录"
 
 #: vixipy/templates/artworks.html:90
 msgid "AI Generated"
-msgstr ""
+msgstr "AI 生成"
 
 #: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:45
 msgid "Ugoira"
@@ -272,11 +272,11 @@ msgstr "热门标签"
 
 #: vixipy/templates/index.html:56
 msgid "pixiv creative media"
-msgstr ""
+msgstr "pixiv 创意媒体"
 
 #: vixipy/templates/index.html:57
 msgid "Newest articles on pixivision"
-msgstr ""
+msgstr "pixivision 最新文章"
 
 #: vixipy/templates/index.html:76
 #, python-format
@@ -835,90 +835,90 @@ msgstr "%(cc)s 词"
 
 #: vixipy/templates/pixivision/category_name.html:12
 msgid "Cosplay"
-msgstr ""
+msgstr "角色扮演"
 
 #: vixipy/templates/pixivision/category_name.html:14
 msgid "Music"
-msgstr ""
+msgstr "音乐"
 
 #: vixipy/templates/pixivision/category_name.html:16
 msgid "Goods"
-msgstr ""
+msgstr "商品"
 
 #: vixipy/templates/pixivision/category_name.html:18
 msgid "Tutorials"
-msgstr ""
+msgstr "教程"
 
 #: vixipy/templates/pixivision/category_name.html:20
 msgid "Behind the Art"
-msgstr ""
+msgstr "创作幕后"
 
 #: vixipy/templates/pixivision/category_name.html:22
 msgid "Materials"
-msgstr ""
+msgstr "素材"
 
 #: vixipy/templates/pixivision/category_name.html:24
 msgid "References"
-msgstr ""
+msgstr "参考资料"
 
 #: vixipy/templates/pixivision/category_name.html:26
 msgid "Other Guides"
-msgstr ""
+msgstr "其他指南"
 
 #: vixipy/templates/pixivision/category_name.html:28
 msgid "Featured"
-msgstr ""
+msgstr "精选"
 
 #: vixipy/templates/pixivision/category_name.html:30
 msgid "Interviews"
-msgstr ""
+msgstr "访谈"
 
 #: vixipy/templates/pixivision/category_name.html:32
 msgid "Columns"
-msgstr ""
+msgstr "专栏"
 
 #: vixipy/templates/pixivision/category_name.html:34
 msgid "News"
-msgstr ""
+msgstr "新闻"
 
 #: vixipy/templates/pixivision/category_name.html:36
 msgid "Deskwatch"
-msgstr ""
+msgstr "桌面观察"
 
 #: vixipy/templates/pixivision/category_name.html:38
 msgid "We Tried It!"
-msgstr ""
+msgstr "我们试过了！"
 
 #: vixipy/templates/pixivision/index.html:2
 #: vixipy/templates/users/dashboard.html:75
 msgid "pixivision"
-msgstr ""
+msgstr "pixivision"
 
 #: vixipy/templates/pixivision/index.html:24
 msgid "Spotlight"
-msgstr ""
+msgstr "聚光灯"
 
 #: vixipy/templates/pixivision/tag.html:5
 #: vixipy/templates/pixivision/tag.html:9
 msgid "List of articles with tag"
-msgstr ""
+msgstr "标签文章列表"
 
 #: vixipy/templates/pixivision/components/movie.html:4
 msgid "To protect your privacy, this embedded video has been blocked."
-msgstr ""
+msgstr "为保护您的隐私，此嵌入视频已被屏蔽。"
 
 #: vixipy/templates/pixivision/components/movie.html:5
 msgid "Click here to watch the video"
-msgstr ""
+msgstr "点击此处观看视频"
 
 #: vixipy/templates/pixivision/components/pixiv_artwork.html:8
 #, python-format
 msgid "By %(author)s"
-msgstr ""
+msgstr "作者：%(author)s"
 
 #: vixipy/templates/pixivision/components/table_of_contents.html:3
 msgid "Index"
-msgstr ""
+msgstr "索引"
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
@@ -1397,49 +1397,48 @@ msgstr "退出登录"
 
 #: vixipy/templates/users/follow/base.html:41
 msgid "My pixiv"
-msgstr ""
+msgstr "我的 pixiv"
 
 #: vixipy/templates/users/follow/followers.html:3
 #, python-format
 msgid "%(user)s's followers"
-msgstr ""
+msgstr "%(user)s 的关注者"
 
 #: vixipy/templates/users/follow/followers.html:8
 #: vixipy/templates/users/follow/following.html:8
 #: vixipy/templates/users/follow/mypixiv.html:8
 #, python-format
 msgid "Users (%(count)d)"
-msgstr ""
+msgstr "用户（%(count)d）"
 
 #: vixipy/templates/users/follow/followers.html:24
 msgid "You don't have any followers."
-msgstr ""
+msgstr "您还没有任何关注者。"
 
 #: vixipy/templates/users/follow/following.html:3
 #, python-format
 msgid "%(user)s's followed users"
-msgstr ""
+msgstr "%(user)s 关注的用户"
 
 #: vixipy/templates/users/follow/following.html:24
 msgid "You are not following anyone."
-msgstr ""
+msgstr "您还没有关注任何人。"
 
 #: vixipy/templates/users/follow/following.html:26
 #, python-format
 msgid "%(user)s isn't following anyone."
-msgstr ""
+msgstr "%(user)s 尚未关注任何人。"
 
 #: vixipy/templates/users/follow/mypixiv.html:3
 #, python-format
 msgid "%(user)s's My pixiv"
-msgstr ""
+msgstr "%(user)s 的我的 pixiv"
 
 #: vixipy/templates/users/follow/mypixiv.html:24
 msgid "You don't have any My pixiv."
-msgstr ""
+msgstr "您还没有任何我的 pixiv。"
 
 #: vixipy/templates/users/follow/mypixiv.html:26
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
-msgstr ""
-
+msgstr "%(user)s 没有任何我的 pixiv。"

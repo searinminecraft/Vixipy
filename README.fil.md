@@ -41,4 +41,5 @@ kani-kanilang mga paunawa at lisensya.
 * [git.gay](https://git.gay/vixipy/vixipy)
 
 ## Disclaimer
-Ang Vixipy ay hindi kaakibat, nilikha, o binuo ng kumpanya sa anumang paraan.
+Ang pixiv ay isang trademark ng pixiv Inc. Ang Vixipy ay hindi kaakibat,
+nilikha, o binuo ng kumpanya sa anumang paraan.
