@@ -1,6 +1,14 @@
 from __future__ import annotations
 
-from quart import Blueprint, abort, redirect, request, render_template, url_for
+from quart import (
+    Blueprint,
+    abort,
+    current_app,
+    redirect,
+    request,
+    render_template,
+    url_for,
+)
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit, rate_limit
 
 from asyncio import gather
@@ -72,6 +80,11 @@ async def search_main(query: str):
 @bp.route("/tags/<path:query>/artworks")
 async def search_artworks(query: str):
     args: ImmutableMultiDict = request.args.copy()
+
+    if args.get("mode") == "r18" and (
+        current_app.config["NO_R18"] or current_app.config["NO_SENSITIVE"]
+    ):
+        abort(403)
 
     page = int(args.pop("p", 1))
     args = {
