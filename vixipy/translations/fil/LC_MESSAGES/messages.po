@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-09-30 13:03+0800\n"
-"PO-Revision-Date: 2025-10-04 02:09+0000\n"
+"PO-Revision-Date: 2025-10-23 04:09+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/fil/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.13.2\n"
+"X-Generator: Weblate 5.13.3\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -459,7 +459,7 @@ msgstr "Material You Generator"
 
 #: vixipy/templates/monet.html:13 vixipy/templates/monet.html:29
 msgid "Artwork ID"
-msgstr "iD ng Artwork"
+msgstr "ID ng Artwork"
 
 #: vixipy/templates/monet.html:14
 msgid "Color"
@@ -1279,7 +1279,7 @@ msgstr "Tumulong ang mga taong ito sa pagsalin ng Vixipy (maraming salamat &lt;3
 #: vixipy/templates/settings/display.html:5
 #: vixipy/templates/settings/index.html:17
 msgid "Display settings"
-msgstr "Mga setting ng pag-display"
+msgstr "Mga setting ng pagpapakita"
 
 #: vixipy/templates/settings/display.html:8
 msgid "Work content"
