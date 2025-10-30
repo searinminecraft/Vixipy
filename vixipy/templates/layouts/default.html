@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html{% if request.cookies["Vixipy-Language"] %} lang="{{request.cookies["Vixipy-Language"]}}"{% endif %}>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
-    {%- include "components/theme-pref.html" -%}
-    <script src="/static/jquery-3.7.1.min.js"></script>
-    <script src="/static/htmx.min.js"></script>
-    <script src="/static/js/common.js"></script>
-    {% if title %}
-    <title>{{title}} | {{config["INSTANCE_NAME"]}}</title>
-    {% else %}
-    <title>{{config["INSTANCE_NAME"]}}</title>
-    {% endif %}
+<html{% if request.cookies["Vixipy-Language"] %} lang="{{request.cookies[" Vixipy-Language"]}}"{% endif %}>
 
-    {% block head_additional %}{% endblock %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">
+        {%- include "components/theme-pref.html" -%}
+        <script src="/static/jquery-3.7.1.min.js"></script>
+        <script src="/static/htmx.min.js"></script>
+        <script src="/static/js/common.js"></script>
+        {% if title %}
+        <title>{{title}} | {{config["INSTANCE_NAME"]}}</title>
+        {% else %}
+        <title>{{config["INSTANCE_NAME"]}}</title>
+        {% endif %}
 
-    <noscript>
-        <style>
-            .require-js {
-                display: none !important
-            }
+        {% block head_additional %}{% endblock %}
 
-            .no-js {
-                display: block !important
-            }
-        </style>
-    </noscript>
-</head>
-<body hx-swap="innerHTML" hx-boost="true" hx-indicator="#loading">
-    <div id="loading"></div>
-    {% include "components/header.html" %}
-    {% block outer %}{% endblock %}
-    {% block content %}{% endblock %}
-</body>
-</html>
+        <noscript>
+            <style>
+                .require-js {
+                    display: none !important
+                }
+
+                .no-js {
+                    display: block !important
+                }
+            </style>
+        </noscript>
+    </head>
+
+    <body hx-swap="innerHTML" hx-boost="true" hx-indicator="#loading">
+        <div id="loading"></div>
+        <div class="modal-popover-backdrop"></div>
+        {% include "components/header.html" %}
+        {% block outer %}{% endblock %}
+        {% block content %}{% endblock %}
+    </body>
+
+    </html>

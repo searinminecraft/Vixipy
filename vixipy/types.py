@@ -1,7 +1,8 @@
-from .converters import proxy
+from .converters import proxy, convert_pixiv_link
 from datetime import datetime
 from quart import request
 import markupsafe
+from bs4 import BeautifulSoup
 
 from typing import Optional
 
@@ -26,6 +27,17 @@ class PartialUser:
         self.background = proxy(d["background"]["url"]) if d["background"] else None
 
 
+class UserSocials:
+    def __init__(self, d):
+        self.twitter_o = d["twitter"]["url"] if "twitter" in d else None
+        self.twitter = convert_pixiv_link(self.twitter_o)
+        self.instagram_o = d["instagram"]["url"] if "instagram" in d else None
+        self.instagram = convert_pixiv_link(self.instagram_o)
+        self.facebook_o = d["facebook"]["url"] if "facebook" in d else None
+        self.facebook = convert_pixiv_link(self.facebook_o)
+        self.pawoo = "pawoo" in d
+
+
 class User(PartialUser):
     def __init__(self, d):
         super().__init__(d)
@@ -35,6 +47,15 @@ class User(PartialUser):
         self.comment = d["comment"]
         self.webpage = d["webpage"]
         self.official = d["official"]
+        self.social = UserSocials(d["social"])
+
+        if d["commentHtml"] != "":
+            self.comment_html = BeautifulSoup(d["commentHtml"])
+
+            for x in self.comment_html.find_all("a"):
+                x.attrs["href"] = convert_pixiv_link(x.attrs["href"])
+        else:
+            self.comment_html = None
 
 
 class UserExtraData:

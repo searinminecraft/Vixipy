@@ -1,9 +1,9 @@
 @use 'mixins' as *;
 
 header {
-    padding: 8px 1em;
+    padding: 10px 1em;
     background-color: var(--md-sys-color-surface-container);
-    box-shadow: 0 -2px 12px rgba(0,0,0,.26);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, .26);
     position: sticky;
     top: 0;
     z-index: 1;
@@ -15,7 +15,8 @@ header {
         justify-content: space-between;
     }
 
-    .left, .right {
+    .left,
+    .right {
         display: flex;
         align-items: center;
     }
@@ -26,7 +27,7 @@ header {
             font-weight: bold;
             margin-left: .5em;
             font-size: 18px;
-            
+
             .debug-label {
                 color: var(--md-sys-color-error);
                 font-weight: unset;
@@ -40,6 +41,7 @@ header {
     .right {
         #notifications {
             position: relative;
+
             .count {
                 position: absolute;
                 top: 0;

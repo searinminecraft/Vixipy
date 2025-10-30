@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from .api import PixivError
+from .routes.api import handle_bad_request
 from quart import render_template, make_response, request
 from werkzeug.exceptions import HTTPException
 from http import HTTPStatus
@@ -38,6 +39,8 @@ async def handle_internal_error(e):
     hx = request.headers.get("hx-request") == "true"
 
     if isinstance(e, HTTPException):
+        if request.path.startswith("/api"):
+            return await handle_bad_request(e)
         return await render_template("http_error.html", error=e), 200 if hx else e.code
 
     log.exception("Exception occurred here:")

@@ -17,98 +17,172 @@
     <br><br>
     {%- else -%}
     <div class="notice primary">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.5 9a1 1 0 011-1H12a1 1 0 011 1v5h1a1 1 0 110 2h-4a1 1 0 110-2h1v-4h-.5a1 1 0 01-1-1zM12 5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" fill="currentColor"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.5 9a1 1 0 011-1H12a1 1 0 011 1v5h1a1 1 0 110 2h-4a1 1 0 110-2h1v-4h-.5a1 1 0 01-1-1zM12 5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
+                fill="currentColor" />
+        </svg>
         <div>
-	        {{_("<b>You are not logged in.</b> Sign in to your pixiv account to experience Vixipy in its full potential.")}}
+            {{_("<b>You are not logged in.</b> Sign in to your pixiv account to experience Vixipy in its full
+            potential.")}}
         </div>
     </div>
     {%- endif -%}
     <ul class="links">
         {%- if g.authorized -%}
-    <li>
-        <a href="{{url_for('users.user_profile', user=user.id)}}">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" fill="currentColor"/><path d="M5 18.857A6.857 6.857 0 0111.857 12h.286A6.857 6.857 0 0119 18.857c0 .631-.512 1.143-1.143 1.143H6.143A1.143 1.143 0 015 18.857z" fill="currentColor"/></svg>
-            {{_("Your profile")}}
-        </a>
-    </li>
-    <li>
-        <a href="{{url_for('users.user_bookmarks', user=user.id)}}">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 27.24V9a3 3 0 013-3h12a3 3 0 013 3v18.24l-9-4.5-9 4.5z" fill="currentColor"/></svg>
-            {{_("Bookmarks")}}
-        </a>
-    </li>
-	{%- else -%}
-	<li>
-	    <a href="/self/login">
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" fill="currentColor"/><path d="M5 18.857A6.857 6.857 0 0111.857 12h.286A6.857 6.857 0 0119 18.857c0 .631-.512 1.143-1.143 1.143H6.143A1.143 1.143 0 015 18.857z" fill="currentColor"/></svg>
-		{{_("Sign in")}}
-	    </a>
-	</li>
-	{%- endif -%}
-    <li>
-        <a href="{{url_for('newest.newest_main')}}">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5L5.5 8 2 10zM11 14l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5-1.991 5-3.5 2z" fill="currentColor"/></svg>
-            {{_("Newest by all")}}
-        </a>
-    </li>
-    <li>
-        <a href="{{url_for('rankings.main')}}">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 6a2 2 0 01-1.023 1.745c.678 1.008 1.657 2.106 2.773 2.255.851.114 1.836-.317 2.644-.808a2 2 0 111.277.78l-.892 5.357A2 2 0 0116.806 17H7.194a2 2 0 01-1.973-1.671L4.33 9.973a2 2 0 111.277-.78c.808.49 1.793.92 2.644.807 1.116-.15 2.095-1.247 2.773-2.255A2 2 0 1114 6zM7 18a1 1 0 100 2h10a1 1 0 100-2H7z" fill="currentColor"/></svg>
-            {{_("Rankings")}}
-        </a>
-    </li>
-    <li>
-        <a href="{{url_for('rankings.ranking_calendar')}}">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3a1 1 0 00-2 0v1.126C4.275 4.57 3 6.136 3 8v10a4 4 0 004 4h10a4 4 0 004-4V8a4.002 4.002 0 00-3-3.874V3a1 1 0 10-2 0v1H8V3zm-3 7v8a2 2 0 002 2h10a2 2 0 002-2v-8H5z" fill="currentColor"/></svg>
-            {{_("Ranking Calendar")}}
-        </a>
-    </li>
-	<li>
-	    <a href="{{url_for('search.popular_tags')}}">
-	        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.241 5.16a1.5 1.5 0 10-2.983-.32L7.974 7.5H6.32a1.5 1.5 0 100 3h1.331l-.321 3H5.679a1.5 1.5 0 000 3h1.33l-.25 2.34a1.5 1.5 0 002.982.32l.285-2.66h2.983l-.25 2.34a1.5 1.5 0 102.982.32l.285-2.66h1.653a1.5 1.5 0 000-3h-1.331l.321-3h1.652a1.5 1.5 0 000-3h-1.33l.25-2.34a1.5 1.5 0 10-2.982-.32l-.286 2.66h-2.982l.25-2.34zm2.09 8.34l.321-3H10.67l-.321 3h2.983z" fill="currentColor"/></svg>
-		{{_("Popular Tags")}}
-	    </a>
-	</li>
-	<li>
-	    <a href="/pixivision">
-		<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-220 40q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120-160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm200 0q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120 160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z"/></svg>
-		{{_("pixivision")}}
-	    </a>
-	</li>
-	<li>
-	    <a href="/material-you">
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.56 8.94L8.32.7a.996.996 0 10-1.41 1.41l1.68 1.68-5.15 5.15a1.49 1.49 0 000 2.12l5.5 5.5c.29.29.68.44 1.06.44s.77-.15 1.06-.44l5.5-5.5c.59-.58.59-1.53 0-2.12zM5.21 10L10 5.21 14.79 10H5.21zM19 11.5s-2 2.17-2 3.5c0 1.1.9 2 2 2s2-.9 2-2c0-1.33-2-3.5-2-3.5z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 20h20c1.1 0 2 .9 2 2s-.9 2-2 2H2c-1.1 0-2-.9-2-2s.9-2 2-2z" fill="#0096FA"/><path d="M2 20.25h20c.962 0 1.75.788 1.75 1.75s-.788 1.75-1.75 1.75H2c-.962 0-1.75-.788-1.75-1.75s.788-1.75 1.75-1.75z"/></svg>
-		{{_("Material You Generator")}}
-	    </a>
-	</li>
+        <li>
+            <a href="{{url_for('users.user_profile', user=user.id)}}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" fill="currentColor" />
+                    <path
+                        d="M5 18.857A6.857 6.857 0 0111.857 12h.286A6.857 6.857 0 0119 18.857c0 .631-.512 1.143-1.143 1.143H6.143A1.143 1.143 0 015 18.857z"
+                        fill="currentColor" />
+                </svg>
+                {{_("Your profile")}}
+            </a>
+        </li>
+        <li>
+            <a href="{{url_for('users.user_bookmarks', user=user.id)}}">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 27.24V9a3 3 0 013-3h12a3 3 0 013 3v18.24l-9-4.5-9 4.5z" fill="currentColor" />
+                </svg>
+                {{_("Bookmarks")}}
+            </a>
+        </li>
+        {%- else -%}
+        <li>
+            <a href="/self/login">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 7.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" fill="currentColor" />
+                    <path
+                        d="M5 18.857A6.857 6.857 0 0111.857 12h.286A6.857 6.857 0 0119 18.857c0 .631-.512 1.143-1.143 1.143H6.143A1.143 1.143 0 015 18.857z"
+                        fill="currentColor" />
+                </svg>
+                {{_("Sign in")}}
+            </a>
+        </li>
+        {%- endif -%}
+        <li>
+            <a href="{{url_for('newest.newest_main')}}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2 10l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5L5.5 8 2 10zM11 14l3.5 2 2 5 2-5 3.5-2-3.5-2-2.009-5-1.991 5-3.5 2z"
+                        fill="currentColor" />
+                </svg>
+                {{_("Newest by all")}}
+            </a>
+        </li>
+        <li>
+            <a href="{{url_for('rankings.main')}}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14 6a2 2 0 01-1.023 1.745c.678 1.008 1.657 2.106 2.773 2.255.851.114 1.836-.317 2.644-.808a2 2 0 111.277.78l-.892 5.357A2 2 0 0116.806 17H7.194a2 2 0 01-1.973-1.671L4.33 9.973a2 2 0 111.277-.78c.808.49 1.793.92 2.644.807 1.116-.15 2.095-1.247 2.773-2.255A2 2 0 1114 6zM7 18a1 1 0 100 2h10a1 1 0 100-2H7z"
+                        fill="currentColor" />
+                </svg>
+                {{_("Rankings")}}
+            </a>
+        </li>
+        <li>
+            <a href="{{url_for('rankings.ranking_calendar')}}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8 3a1 1 0 00-2 0v1.126C4.275 4.57 3 6.136 3 8v10a4 4 0 004 4h10a4 4 0 004-4V8a4.002 4.002 0 00-3-3.874V3a1 1 0 10-2 0v1H8V3zm-3 7v8a2 2 0 002 2h10a2 2 0 002-2v-8H5z"
+                        fill="currentColor" />
+                </svg>
+                {{_("Ranking Calendar")}}
+            </a>
+        </li>
+        <li>
+            <a href="{{url_for('search.popular_tags')}}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M11.241 5.16a1.5 1.5 0 10-2.983-.32L7.974 7.5H6.32a1.5 1.5 0 100 3h1.331l-.321 3H5.679a1.5 1.5 0 000 3h1.33l-.25 2.34a1.5 1.5 0 002.982.32l.285-2.66h2.983l-.25 2.34a1.5 1.5 0 102.982.32l.285-2.66h1.653a1.5 1.5 0 000-3h-1.331l.321-3h1.652a1.5 1.5 0 000-3h-1.33l.25-2.34a1.5 1.5 0 10-2.982-.32l-.286 2.66h-2.982l.25-2.34zm2.09 8.34l.321-3H10.67l-.321 3h2.983z"
+                        fill="currentColor" />
+                </svg>
+                {{_("Popular Tags")}}
+            </a>
+        </li>
+        <li>
+            <a href="/pixivision">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="currentColor">
+                    <path
+                        d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-220 40q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120-160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm200 0q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120 160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z" />
+                </svg>
+                {{_("pixivision")}}
+            </a>
+        </li>
+        <li>
+            <a href="/material-you">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.56 8.94L8.32.7a.996.996 0 10-1.41 1.41l1.68 1.68-5.15 5.15a1.49 1.49 0 000 2.12l5.5 5.5c.29.29.68.44 1.06.44s.77-.15 1.06-.44l5.5-5.5c.59-.58.59-1.53 0-2.12zM5.21 10L10 5.21 14.79 10H5.21zM19 11.5s-2 2.17-2 3.5c0 1.1.9 2 2 2s2-.9 2-2c0-1.33-2-3.5-2-3.5z"
+                        fill="currentColor" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M2 20h20c1.1 0 2 .9 2 2s-.9 2-2 2H2c-1.1 0-2-.9-2-2s.9-2 2-2z" fill="#0096FA" />
+                    <path
+                        d="M2 20.25h20c.962 0 1.75.788 1.75 1.75s-.788 1.75-1.75 1.75H2c-.962 0-1.75-.788-1.75-1.75s.788-1.75 1.75-1.75z" />
+                </svg>
+                {{_("Material You Generator")}}
+            </a>
+        </li>
         <li>
             <a href="{{url_for('settings.main')}}">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.645 7a3.502 3.502 0 016.71 0H20a1 1 0 110 2h-8.645a3.502 3.502 0 01-6.71 0H4a1 1 0 010-2h.645zM8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM12.645 15a3.502 3.502 0 016.71 0H20a1 1 0 110 2h-.645a3.502 3.502 0 01-6.71 0H4a1 1 0 110-2h8.645zm4.855 1a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" fill="currentColor"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M4.645 7a3.502 3.502 0 016.71 0H20a1 1 0 110 2h-8.645a3.502 3.502 0 01-6.71 0H4a1 1 0 010-2h.645zM8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM12.645 15a3.502 3.502 0 016.71 0H20a1 1 0 110 2h-.645a3.502 3.502 0 01-6.71 0H4a1 1 0 110-2h8.645zm4.855 1a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                        fill="currentColor" />
+                </svg>
                 {{_("Settings")}}
             </a>
         </li>
         <li>
             <a href="https://codeberg.org/vixipy/Vixipy/issues/new">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 8a6 6 0 016-6h8a6 6 0 016 6v13a1 1 0 01-1 1H8a6 6 0 01-6-6V8zm11.125 8.875a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zM10 9.75a2 2 0 114 0c0 .568-.137.87-.277 1.064-.16.22-.39.393-.753.62l-.136.083c-.312.19-.748.458-1.087.81-.454.473-.747 1.094-.747 1.923a1 1 0 102 0c0-.296.082-.425.19-.538.146-.152.333-.268.66-.47l.18-.113c.388-.242.907-.585 1.31-1.138.422-.58.66-1.31.66-2.241a4 4 0 00-8 0 1 1 0 102 0z" fill="currentColor"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M2 8a6 6 0 016-6h8a6 6 0 016 6v13a1 1 0 01-1 1H8a6 6 0 01-6-6V8zm11.125 8.875a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zM10 9.75a2 2 0 114 0c0 .568-.137.87-.277 1.064-.16.22-.39.393-.753.62l-.136.083c-.312.19-.748.458-1.087.81-.454.473-.747 1.094-.747 1.923a1 1 0 102 0c0-.296.082-.425.19-.538.146-.152.333-.268.66-.47l.18-.113c.388-.242.907-.585 1.31-1.138.422-.58.66-1.31.66-2.241a4 4 0 00-8 0 1 1 0 102 0z"
+                        fill="currentColor" />
+                </svg>
                 {{_("Send Feedback")}}
             </a>
         </li>
         <li>
             <a href="https://codeberg.org/vixipy/Vixipy">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.707 6.293a1 1 0 010 1.414L3.414 12l4.293 4.293a1 1 0 11-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0zM16.293 6.293a1 1 0 000 1.414L20.586 12l-4.293 4.293a1 1 0 001.414 1.414l5-5a1 1 0 000-1.414l-5-5a1 1 0 00-1.414 0z" fill="currentColor"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M7.707 6.293a1 1 0 010 1.414L3.414 12l4.293 4.293a1 1 0 11-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0zM16.293 6.293a1 1 0 000 1.414L20.586 12l-4.293 4.293a1 1 0 001.414 1.414l5-5a1 1 0 000-1.414l-5-5a1 1 0 00-1.414 0z"
+                        fill="currentColor" />
+                </svg>
                 {{_("Source Code")}}
             </a>
         </li>
-	{%- if g.authorized -%}
+        {%- if g.authorized -%}
         <li>
-            <a hx-boost="false" href="/self/logout" style="color: var(--md-sys-color-error)" id="logout">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 11-2 0V5H7.236l2.211 1.106A1 1 0 0110 7v10h4v-2a1 1 0 012 0v3a1 1 0 01-1 1h-5v2a1 1 0 01-1.447.894l-6-3A1 1 0 012 18V4zm2 1.618v11.764l4 2V7.618l-4-2zm13.293 1.675a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L18.586 12H13a1 1 0 110-2h5.586l-1.293-1.293a1 1 0 010-1.414z" fill="currentColor"/></svg>
+            <a hx-boost="false" href="/self/logout" style="color: var(--md-sys-color-error)" id="logout-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M2 4a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 11-2 0V5H7.236l2.211 1.106A1 1 0 0110 7v10h4v-2a1 1 0 012 0v3a1 1 0 01-1 1h-5v2a1 1 0 01-1.447.894l-6-3A1 1 0 012 18V4zm2 1.618v11.764l4 2V7.618l-4-2zm13.293 1.675a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L18.586 12H13a1 1 0 110-2h5.586l-1.293-1.293a1 1 0 010-1.414z"
+                        fill="currentColor" />
+                </svg>
                 {{_("Log out")}}
             </a>
 
-    	    <script src="/static/js/user-dashboard.js"></script>
+            <script src="/static/js/user-dashboard.js"></script>
         </li>
-	{%- endif -%}
+        {%- endif -%}
     </ul>
 </main>
+<div popover tabindex="-1" id="logout" class="modal-popover">
+    <div class="title">
+        <span>{{_("Log out")}}</span>
+    </div>
+    <main>
+        <p>{{_("Do you wish to log out?")}}</p>
+    </main>
+    <div class="actions">
+        <button popovertarget="logout" popovertargetaction="hide">{{_("Cancel")}}</button>
+        <a href="/self/logout">{{_("OK")}}</a>
+    </div>
+</div>
 {% endblock %}

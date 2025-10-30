@@ -1,7 +1,9 @@
 from __future__ import annotations
 from quart import Blueprint, abort, current_app, request
+from quart_rate_limiter import rate_limit, timedelta
 
 from ..api import PixivError, pixiv_request, get_artwork, get_newest_works
+from ..decorators import tokenless_require_login
 from ..lib.monet import scheme_from_url
 import asyncio
 import traceback
@@ -33,11 +35,17 @@ def make_json_response(message: str = "", body: Union[dict, list] = []):
     return {"error": False, "message": message, "body": body}
 
 
-@bp.errorhandler(BadRequest)
-@bp.errorhandler(Unauthorized)
-@bp.errorhandler(Forbidden)
+@bp.errorhandler(HTTPException)
 async def handle_bad_request(e: HTTPException):
-    return make_error("Invalid request.", e.code)
+    code_map = {
+        400: "Invalid request",
+        401: "Authorization required to access endpoint",
+        403: "Insufficient permission to access resource",
+        404: "Resource not found or does not exist",
+        405: "Method not allowed",
+        429: "Too many requests. Try again another time"
+    }
+    return make_error(code_map.get(e.code, "Invalid request"), e.code)
 
 
 @bp.errorhandler(Exception)
@@ -45,11 +53,6 @@ async def handle_errors(e: Exception):
     return make_error(
         "Exception error", body={"error": str(e), "traceback": traceback.format_exc()}
     )
-
-
-@bp.errorhandler(NotFound)
-async def handle_not_found(e: Exception):
-    return make_error("Couldn't find requested page", code=404)
 
 
 @bp.after_request
@@ -137,8 +140,16 @@ async def node_info():
 
 
 @bp.get("/illust/<int:id>/ugoira_meta")
+@rate_limit(1, timedelta(seconds=5))
 async def ugoira_meta(id: int):
-    work = await get_artwork(id)
+    try:
+        work = await get_artwork(id)
+    except PixivError as e:
+        if e.code == 404:
+            abort(404)
+        else:
+            abort(e.code)
+
     if not work.isUgoira:
         return make_error("Work is not ugoira", 400)
 
@@ -184,6 +195,7 @@ async def gen_scheme_from_user(id: int):
 
 
 @bp.route("/illust/new")
+@tokenless_require_login
 async def _get_new_works():
     args: ImmutableDict = request.args
 

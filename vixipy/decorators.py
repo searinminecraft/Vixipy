@@ -1,4 +1,4 @@
-from quart import current_app, g, redirect, request, url_for
+from quart import current_app, abort, g, redirect, request, url_for
 from functools import wraps
 
 
@@ -7,6 +7,9 @@ def tokenless_require_login(v):
     async def wrapped(*args, **kwargs):
         if current_app.no_token:
             if not g.authorized:
+                if request.path.startswith("/api"):
+                    abort(401)
+
                 return redirect(
                     url_for("login.login_page", return_to=request.path), code=303
                 )
@@ -20,6 +23,9 @@ def require_login(v):
     @wraps(v)
     async def wrapped(**kwargs):
         if not g.authorized:
+            if request.path.startswith("/api"):
+                abort(401)
+
             return redirect(
                 url_for("login.login_page", return_to=request.path), code=303
             )

@@ -1,6 +1,4 @@
-document.getElementById("logout").addEventListener("click", (e)=>{
-    var c = confirm(document.getElementById("i18n-logout-string").value)
-    if (!c) {
-        e.preventDefault()
-    }
+document.getElementById("logout-btn").addEventListener("click", (e) => {
+    document.querySelector("div[popover]#logout").togglePopover()
+    e.preventDefault()
 })
