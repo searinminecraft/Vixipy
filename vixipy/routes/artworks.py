@@ -9,6 +9,7 @@ import re
 from typing import TYPE_CHECKING
 
 from ..api import (
+    PixivError,
     get_artwork,
     get_artwork_pages,
     get_artwork_comments,
@@ -101,7 +102,10 @@ async def __attempt_work_extraction(
 
 @bp.get("/artworks/<int:id>")
 async def _get_artwork(id: int):
-    work: Artwork = await get_artwork(id)
+    try:
+        work: Artwork = await get_artwork(id)
+    except PixivError as e:
+        abort(e.code)
 
     if any([check_blacklisted_tag(x.name) for x in work.tags]):
         abort(403)
