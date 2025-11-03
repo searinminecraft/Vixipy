@@ -6,7 +6,6 @@
     {%- if g.authorized -%}
     {%- set user = g.current_user -%}
     {%- set ext = g.current_user_extra -%}
-    <input type="hidden" id="i18n-logout-string" value="{{_('Do you wish to log out?')}}">
     <div class="user-card">
         <img src="{{user.imageBig}}" alt="{{user.name}}">
         <main>
@@ -23,8 +22,7 @@
                 fill="currentColor" />
         </svg>
         <div>
-            {{_("<b>You are not logged in.</b> Sign in to your pixiv account to experience Vixipy in its full
-            potential.")}}
+            {{_("<b>You are not logged in.</b> Sign in to your pixiv account to experience Vixipy in its full potential.")}}
         </div>
     </div>
     {%- endif -%}

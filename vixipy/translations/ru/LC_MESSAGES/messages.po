@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-30 13:03+0800\n"
+"POT-Creation-Date: 2025-11-03 10:23+0800\n"
 "PO-Revision-Date: 2025-07-27 07:32+0000\n"
 "Last-Translator: lainie <lainie@noreply.codeberg.org>\n"
 "Language: ru\n"
@@ -35,14 +35,14 @@ msgstr ""
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:48
+#: vixipy/templates/users/base.html:45
 msgid "Follow"
 msgstr "Подписаться"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:29 vixipy/templates/users/base.html:32
-#: vixipy/templates/users/base.html:48 vixipy/templates/users/dashboard.html:14
+#: vixipy/templates/users/base.html:28 vixipy/templates/users/base.html:45
+#: vixipy/templates/users/dashboard.html:13
 #: vixipy/templates/users/follow/base.html:34
 msgid "Following"
 msgstr ""
@@ -155,7 +155,7 @@ msgstr "Псевдоним"
 msgid "Self introduction"
 msgstr "О себе"
 
-#: vixipy/templates/edit_profile.html:40
+#: vixipy/templates/edit_profile.html:40 vixipy/templates/users/base.html:87
 msgid "Website"
 msgstr "Вебсайт"
 
@@ -255,7 +255,7 @@ msgid "Go back"
 msgstr ""
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
-#: vixipy/templates/users/base.html:62
+#: vixipy/templates/users/base.html:154
 msgid "Home"
 msgstr ""
 
@@ -269,7 +269,7 @@ msgstr ""
 
 #: vixipy/templates/index.html:31 vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:69
+#: vixipy/templates/users/dashboard.html:100
 msgid "Popular Tags"
 msgstr ""
 
@@ -288,7 +288,7 @@ msgid ""
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
 
-#: vixipy/templates/index.html:101 vixipy/templates/users/dashboard.html:51
+#: vixipy/templates/index.html:101 vixipy/templates/users/dashboard.html:70
 msgid "Newest by all"
 msgstr ""
 
@@ -338,7 +338,7 @@ msgid "Continue to site"
 msgstr ""
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:44
+#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:59
 msgid "Sign in"
 msgstr ""
 
@@ -430,7 +430,7 @@ msgid "Return"
 msgstr ""
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:81
+#: vixipy/templates/users/dashboard.html:124
 msgid "Material You Generator"
 msgstr ""
 
@@ -519,7 +519,7 @@ msgstr ""
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
-#: vixipy/templates/users/base.html:71 vixipy/templates/users/novels.html:9
+#: vixipy/templates/users/base.html:163 vixipy/templates/users/novels.html:9
 msgid "Novels"
 msgstr ""
 
@@ -771,7 +771,7 @@ msgstr ""
 #: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:65 vixipy/templates/users/illust.html:9
+#: vixipy/templates/users/base.html:157 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr ""
 
@@ -781,7 +781,7 @@ msgstr ""
 #: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:8
 #: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
 #: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
-#: vixipy/templates/users/base.html:68 vixipy/templates/users/manga.html:9
+#: vixipy/templates/users/base.html:160 vixipy/templates/users/manga.html:9
 msgid "Manga"
 msgstr ""
 
@@ -841,7 +841,7 @@ msgstr ""
 
 #: vixipy/templates/pixivision/category.html:5
 #: vixipy/templates/pixivision/index.html:2
-#: vixipy/templates/users/dashboard.html:75
+#: vixipy/templates/users/dashboard.html:110
 msgid "pixivision"
 msgstr ""
 
@@ -955,7 +955,7 @@ msgstr ""
 
 #: vixipy/templates/rankings/calendar.html:2
 #: vixipy/templates/rankings/calendar.html:6
-#: vixipy/templates/users/dashboard.html:63
+#: vixipy/templates/users/dashboard.html:90
 msgid "Ranking Calendar"
 msgstr ""
 
@@ -1040,7 +1040,7 @@ msgid "Day %(day)s"
 msgstr ""
 
 #: vixipy/templates/rankings/main.html:2
-#: vixipy/templates/users/dashboard.html:57
+#: vixipy/templates/users/dashboard.html:80
 msgid "Rankings"
 msgstr ""
 
@@ -1262,7 +1262,7 @@ msgstr ""
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:87
+#: vixipy/templates/users/dashboard.html:134
 msgid "Settings"
 msgstr ""
 
@@ -1328,6 +1328,17 @@ msgstr ""
 msgid "Set color scheme"
 msgstr ""
 
+#: vixipy/templates/test/dialog.html:28
+#: vixipy/templates/users/dashboard.html:166
+#: vixipy/templates/users/dashboard.html:176
+msgid "Log out"
+msgstr ""
+
+#: vixipy/templates/test/dialog.html:31
+#: vixipy/templates/users/dashboard.html:179
+msgid "Do you wish to log out?"
+msgstr ""
+
 #: vixipy/templates/ugoira-converter/main.html:2
 #: vixipy/templates/ugoira-converter/main.html:11
 msgid "Ugoira Converter"
@@ -1369,12 +1380,41 @@ msgstr ""
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr ""
 
-#: vixipy/templates/users/base.html:38
+#: vixipy/templates/users/base.html:35
 msgid "Edit Profile"
 msgstr ""
 
-#: vixipy/templates/users/base.html:74 vixipy/templates/users/bookmarks.html:9
-#: vixipy/templates/users/dashboard.html:37
+#: vixipy/templates/users/base.html:59
+#, fuzzy
+msgid "Profile"
+msgstr "Отредактировать профиль"
+
+#: vixipy/templates/users/base.html:68
+msgid "Description"
+msgstr ""
+
+#: vixipy/templates/users/base.html:72
+msgid "This user has no description set"
+msgstr ""
+
+#: vixipy/templates/users/base.html:75
+#, fuzzy
+msgid "Socials"
+msgstr "Соц. сети"
+
+#: vixipy/templates/users/base.html:140
+msgid ""
+"You should not go to Pawoo, as it contains inappropriate content, "
+"resulting in the instance being added to the federation blacklist and "
+"banned on most federated social media."
+msgstr ""
+
+#: vixipy/templates/users/base.html:146
+msgid "This user did not specify their socials"
+msgstr ""
+
+#: vixipy/templates/users/base.html:166 vixipy/templates/users/bookmarks.html:9
+#: vixipy/templates/users/dashboard.html:47
 msgid "Bookmarks"
 msgstr ""
 
@@ -1388,36 +1428,36 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:9
-msgid "Do you wish to log out?"
-msgstr ""
-
-#: vixipy/templates/users/dashboard.html:14
+#: vixipy/templates/users/dashboard.html:13
 #: vixipy/templates/users/follow/base.html:49
 #, fuzzy
 msgid "Followers"
 msgstr "Следить"
 
-#: vixipy/templates/users/dashboard.html:22
+#: vixipy/templates/users/dashboard.html:25
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:31
+#: vixipy/templates/users/dashboard.html:39
 msgid "Your profile"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:93
+#: vixipy/templates/users/dashboard.html:144
 msgid "Send Feedback"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:99
+#: vixipy/templates/users/dashboard.html:154
 msgid "Source Code"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:106
-msgid "Log out"
+#: vixipy/templates/users/dashboard.html:182
+msgid "Cancel"
+msgstr ""
+
+#: vixipy/templates/users/dashboard.html:183
+msgid "OK"
 msgstr ""
 
 #: vixipy/templates/users/follow/base.html:41

@@ -9,5 +9,4 @@ pybabel extract --project="Vixipy" \
 pybabel update \
         -i vixipy/translations/messages.pot \
         -d vixipy/translations \
-        -N \
         --ignore-obsolete
