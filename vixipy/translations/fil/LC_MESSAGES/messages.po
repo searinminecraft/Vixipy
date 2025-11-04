@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-03 10:23+0800\n"
-"PO-Revision-Date: 2025-10-23 04:09+0000\n"
+"PO-Revision-Date: 2025-11-04 07:09+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.14\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -1450,24 +1451,20 @@ msgid "Edit Profile"
 msgstr "I-edit ang Profile"
 
 #: vixipy/templates/users/base.html:59
-#, fuzzy
 msgid "Profile"
-msgstr "Iyong profile"
+msgstr "Profile"
 
 #: vixipy/templates/users/base.html:68
-#, fuzzy
 msgid "Description"
-msgstr "Walang paglalarawan"
+msgstr "Paglalarawan"
 
 #: vixipy/templates/users/base.html:72
-#, fuzzy
 msgid "This user has no description set"
-msgstr "Walang paglalarawan"
+msgstr "Walang itinakdang deskripsyon ang user na ito"
 
 #: vixipy/templates/users/base.html:75
-#, fuzzy
 msgid "Socials"
-msgstr "Social media"
+msgstr "Mga Socials"
 
 #: vixipy/templates/users/base.html:140
 msgid ""
@@ -1475,10 +1472,13 @@ msgid ""
 "resulting in the instance being added to the federation blacklist and "
 "banned on most federated social media."
 msgstr ""
+"Dapat hindi ka pumunta sa Pawoo, dahil naglalaman ito ng mga hindi naaangkop "
+"na nilalaman, na nagreresulta sa instansya na idagdag sa federation "
+"blacklist at pinagbabawal sa halos lahat ng federated social media."
 
 #: vixipy/templates/users/base.html:146
 msgid "This user did not specify their socials"
-msgstr ""
+msgstr "Hindi ibinigay ng user ang kanilang mga socials"
 
 #: vixipy/templates/users/base.html:166 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:47
@@ -1501,7 +1501,6 @@ msgid "Followers"
 msgstr "Mga Follower"
 
 #: vixipy/templates/users/dashboard.html:25
-#, fuzzy
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
@@ -1522,13 +1521,12 @@ msgid "Source Code"
 msgstr "Source Code"
 
 #: vixipy/templates/users/dashboard.html:182
-#, fuzzy
 msgid "Cancel"
-msgstr "Pagmamahalan"
+msgstr "Kanselahin"
 
 #: vixipy/templates/users/dashboard.html:183
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: vixipy/templates/users/follow/base.html:41
 msgid "My pixiv"
@@ -1577,4 +1575,3 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
-
