@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-03 10:23+0800\n"
-"PO-Revision-Date: 2025-11-04 07:09+0000\n"
+"PO-Revision-Date: 2025-11-06 17:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
@@ -75,7 +75,7 @@ msgstr "Конвертувати анімацію"
 
 #: vixipy/templates/artworks.html:174 vixipy/templates/novels/novel.html:65
 msgid "Related works"
-msgstr "Пов’язані роботи"
+msgstr "Схожі роботи"
 
 #: vixipy/templates/artworks.html:182
 msgid "No recommended works to show."
@@ -276,9 +276,8 @@ msgid "Popular Tags"
 msgstr "Популярні теги"
 
 #: vixipy/templates/index.html:56
-#, fuzzy
 msgid "pixiv creative media"
-msgstr "pixiv creative media"
+msgstr "Креативні медіа pixiv"
 
 #: vixipy/templates/index.html:57
 msgid "Newest articles on pixivision"
