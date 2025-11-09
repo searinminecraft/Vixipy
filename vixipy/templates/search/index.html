@@ -17,11 +17,11 @@
             {% endif %}
             <article>
                 {% if tag_info.translation and tag_info.translation.default != tag_info.tag %}
-                <h3>#{{tag_info.tag}} <small>{{ tag_info.translation.default }}</small></h3>
+                <h2>#{{tag_info.tag}} <small>{{ tag_info.translation.default }}</small></h2>
                 {% else %}
-                <h3>#{{tag_info.tag}}</h3>
+                <h2>#{{tag_info.tag}}</h2>
                 {% endif %}
-                <p>{{_("<b>%(total)s</b> Works", total=data.total|numberformat)}}</p>
+                <p class="work-count">{{_("<b>%(total)s</b> Works", total=data.total|numberformat)}}</p>
                 {% if tag_info.pixpedia.abstract %}
                 <p class="abstract">{{tag_info.pixpedia.abstract}}</p>
                 {% endif %}
@@ -30,6 +30,6 @@
     </main>
 </section>
 <main class="large">
-{% block body %}{% endblock %}
+    {% block body %}{% endblock %}
 </main>
 {% endblock %}
