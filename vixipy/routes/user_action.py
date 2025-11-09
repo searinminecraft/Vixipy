@@ -219,3 +219,10 @@ async def logout():
     r.delete_cookie("Vixipy-yuid_b")
     r.delete_cookie("Vixipy-CSRF")
     return r
+
+
+@bp.get("/self/consent")
+async def consent():
+    r = await make_response(redirect(request.args.get("r", "/")))
+    r.set_cookie("Vixipy-Consented", "1", httponly=True)
+    return r

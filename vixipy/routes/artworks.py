@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from quart import Blueprint, abort, current_app, render_template, request
+from quart import Blueprint, abort, current_app, render_template, request, url_for
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
 from asyncio import gather
 import datetime
@@ -22,6 +22,7 @@ from ..constants import EMOJI_SERIES
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
 from ..types import ArtworkPage
+from ..util import is_consented
 
 if TYPE_CHECKING:
     from ..types import Artwork, ArtworkEntry, PartialUser
@@ -125,6 +126,11 @@ async def _get_artwork(id: int):
         or (bool(int(request.cookies.get("Vixipy-No-R18G", 1))) and work.xrestrict == 2)
     ):
         abort(403)
+
+    if work.r18 and not is_consented():
+        return await render_template(
+            "content_warning.html", url=url_for("artworks._get_artwork", id=id)
+        )
 
     if work.deficient:
         log.info("Work is deficient, trying to extract pages...")
