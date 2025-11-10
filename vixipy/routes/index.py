@@ -62,7 +62,7 @@ async def index():
 
         _page = data["page"]
         _tag_translations = data["tagTranslation"]
-        _tags = _page["tags"]
+        _tags = _page["myFavoriteTags"] + [x["tag"] for x in _page["tags"]]
         _trending_tags = _page["trendingTags"]
         _recommend = [int(x) for x in _page["recommend"]["ids"]]
         _illusts = data["thumbnails"]["illust"]
@@ -118,9 +118,9 @@ async def index():
         for t in _tags:
             tags.append(
                 tag_translations.get(
-                    t["tag"],
+                    t,
                     TagTranslation(
-                        t["tag"],
+                        t,
                         {x: None for x in ("en", "ko", "zh", "zh_tw", "romaji")},
                     ),
                 )

@@ -25,9 +25,15 @@
 button {
     font-size: 16px;
     font-family: inherit;
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
 }
 
-a.button, button.button {
+a.button,
+button.button {
     @extend %button-common;
 
     &.primary {
@@ -39,17 +45,20 @@ a.button, button.button {
         background-color: var(--md-sys-color-surface-variant);
         color: var(--md-sys-color-on-surface);
     }
+
     &.secondary {
         background-color: var(--md-sys-color-secondary);
         color: var(--md-sys-color-on-secondary)
     }
+
     &.tertiary {
         background-color: var(--md-sys-color-tertiary);
         color: var(--md-sys-color-on-tertiary)
     }
 }
 
-a.label-button, button.label-button {
+a.label-button,
+button.label-button {
     @extend %button-common;
 
     background-color: unset;
@@ -58,7 +67,8 @@ a.label-button, button.label-button {
     color: var(--md-sys-color-primary);
 }
 
-a.icon-button, button.icon-button {
+a.icon-button,
+button.icon-button {
     background-color: unset;
     border: unset;
     display: flex;
@@ -75,7 +85,7 @@ a.icon-button, button.icon-button {
     }
 
     &:hover {
-        background-color: rgba(0,0,0,.1);
+        background-color: rgba(0, 0, 0, .1);
     }
 }
 
@@ -83,7 +93,8 @@ div.button-pointer {
     width: 100%;
     margin-top: 1em;
 
-    > button, > .button {
+    >button,
+    >.button {
         width: 80%;
         margin: auto;
         display: block;

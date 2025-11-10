@@ -26,6 +26,31 @@
                 <p class="abstract">{{tag_info.pixpedia.abstract}}</p>
                 {% endif %}
             </article>
+            {% if g.authorized %}
+
+            {%- if tag_info.is_favorite %}
+            {% set action="remove_favorite_tag"%}
+            {% else %}
+            {% set action="add_favorite_tag"%}
+            {% endif -%}
+
+            <form id="favorites-action" action="/self/action/{{action}}" method="post" hx-push-url="false"
+                hx-swap="outerHTML show:none" hx-target="this" hx-headers='{"X-Vixipy-Quick-Action": "true"}'>
+
+                <input type="hidden" name="tag" value="{{tag_info.tag}}">
+                <input type="hidden" name="return_to" value="{{request.path}}">
+
+                {%- if not tag_info.is_favorite %}
+                <button type="submit" class="button primary" {%- if tag_info.favorite_tags|length==10%} disabled
+                    title="{{_('You can only have at most 10 favorite tags. Please remove one and try again.')}}" {%
+                    endif -%}>{{_("Add to your favorites")}}</button>
+                {% else %}
+                <button type="submit" class="button neutral">{{_("Remove from favorites")}}</button>
+                {% endif -%}
+
+            </form>
+
+            {% endif %}
         </div>
     </main>
 </section>

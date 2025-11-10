@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from quart import Blueprint, make_response, request, redirect, url_for, g, abort
 
-from ..api import pixiv_request
+from ..api import pixiv_request, get_tag_info
 from typing import TYPE_CHECKING
 from urllib.parse import quote
 from quart_babel import lazy_gettext as _l
@@ -129,6 +129,76 @@ hx-headers='{HX_HEADER}'>
 """
         else:
             return redirect(rt, code=303)
+
+
+@bp.post("/self/action/remove_favorite_tag")
+async def remove_favorite_tag():
+    f = await request.form
+    isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
+    rt = f.get("return_to", "/")
+    tag = f.get("tag")
+
+    if not tag:
+        abort(400)
+
+    tag_info = await get_tag_info(tag)
+    if not tag_info.is_favorite:
+        abort(400)
+
+    tag_info.favorite_tags.remove(tag)
+
+    await pixiv_request(
+        "/ajax/favorite_tags/save",
+        "post",
+        json_payload={"tags": tag_info.favorite_tags},
+    )
+
+    if isQuickAction:
+        return f"""
+        <form id="favorites-action" action="/self/action/add_favorite_tag" method="post" hx-push-url="false"
+                hx-swap="outerHTML show:none" hx-target="this" hx-headers='{HX_HEADER}'>
+
+                <input type="hidden" name="tag" value="{tag}">
+                <input type="hidden" name="return_to" value="{rt}">
+
+                <button type="submit" class="button primary">{_l("Add to your favorites")}</button>
+        </form>
+        """
+
+
+@bp.post("/self/action/add_favorite_tag")
+async def add_favorite_tag():
+    f = await request.form
+    isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
+    rt = f.get("return_to", "/")
+    tag = f.get("tag")
+
+    if not tag:
+        abort(400)
+
+    tag_info = await get_tag_info(tag)
+    if tag_info.is_favorite:
+        abort(400)
+
+    tag_info.favorite_tags.append(tag)
+
+    await pixiv_request(
+        "/ajax/favorite_tags/save",
+        "post",
+        json_payload={"tags": tag_info.favorite_tags},
+    )
+
+    if isQuickAction:
+        return f"""
+        <form id="favorites-action" action="/self/action/remove_favorite_tag" method="post" hx-push-url="false"
+                hx-swap="outerHTML show:none" hx-target="this" hx-headers='{HX_HEADER}'>
+
+                <input type="hidden" name="tag" value="{tag}">
+                <input type="hidden" name="return_to" value="{rt}">
+
+                <button type="submit" class="button neutral">{_l("Remove from favorites")}</button>
+        </form>
+        """
 
 
 @bp.post("/self/action/delete_bookmark/<int:id>")

@@ -498,6 +498,8 @@ class TagInfo:
         self.tag = d["tag"]
         self.pixpedia: PixpediaInfo = PixpediaInfo(d["pixpedia"])
         self.translation: Optional[TagTranslation] = None
+        self.favorite_tags: list[str] = d["myFavoriteTags"]
+        self.is_favorite: bool = self.tag in self.favorite_tags
         if self.tag in d["tagTranslation"]:
             self.translation = TagTranslation(self.tag, d["tagTranslation"][self.tag])
 

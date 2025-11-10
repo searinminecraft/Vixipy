@@ -35,6 +35,7 @@
             padding: 1.5em;
             display: flex;
             gap: 1.5em;
+            align-items: flex-start;
 
             >img {
                 width: 140px;
@@ -48,6 +49,8 @@
             }
 
             article {
+                flex: 1;
+
                 h2 {
                     margin: 0;
                     margin-bottom: 8px;
@@ -70,6 +73,10 @@
                     margin-bottom: unset;
                     font-size: 14px;
                 }
+            }
+
+            #favorites-action {
+                flex-shrink: 0;
             }
         }
     }
