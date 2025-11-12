@@ -51,7 +51,7 @@ if __name__ == "__main__":
         exit()
 
     if len(args.binds) == 0:
-        args.binds = ["[::1]:8000"]
+        args.binds = ["[::1]:8000", "127.0.0.1:8000"]
 
     if args.debug:
         app.before_serving(__bootstrapper)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-03 10:23+0800\n"
+"POT-Creation-Date: 2025-11-12 10:35+0800\n"
 "PO-Revision-Date: 2025-10-24 14:09+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
 "Language: zh_Hans\n"
@@ -121,6 +121,28 @@ msgstr "暂无评论"
 #, python-format
 msgid "Page %(page)d"
 msgstr "第 %(page)d 页"
+
+#: vixipy/templates/content_warning.html:2
+#, fuzzy
+msgid "Content Warning"
+msgstr "内容"
+
+#: vixipy/templates/content_warning.html:8
+msgid "Warning: Sensitive Content Ahead!"
+msgstr ""
+
+#: vixipy/templates/content_warning.html:9
+msgid "This page contains R-18 content. Do you want to view it anyway?"
+msgstr ""
+
+#: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr "返回"
+
+#: vixipy/templates/content_warning.html:12
+msgid "Proceed"
+msgstr ""
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
@@ -247,11 +269,6 @@ msgstr "似乎出错了。若认为是系统问题，请<a href='%(link)s'>在�
 #: vixipy/templates/error.html:10
 msgid "Back to home"
 msgstr "返回首页"
-
-#: vixipy/templates/http_error.html:9
-#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
-msgid "Go back"
-msgstr "返回"
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
 #: vixipy/templates/users/base.html:154
@@ -1079,6 +1096,20 @@ msgstr "%(tag)s 的搜索结果"
 #, python-format
 msgid "<b>%(total)s</b> Works"
 msgstr "<b>%(total)s</b> 件作品"
+
+#: vixipy/templates/search/index.html:45
+msgid ""
+"You can only have at most 10 favorite tags. Please remove one and try "
+"again."
+msgstr ""
+
+#: vixipy/templates/search/index.html:46
+msgid "Add to your favorites"
+msgstr ""
+
+#: vixipy/templates/search/index.html:48
+msgid "Remove from favorites"
+msgstr ""
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"

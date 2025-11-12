@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-03 10:23+0800\n"
+"POT-Creation-Date: 2025-11-12 10:35+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,6 +117,27 @@ msgstr ""
 #: vixipy/templates/rankings/main.html:73 vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
+msgstr ""
+
+#: vixipy/templates/content_warning.html:2
+msgid "Content Warning"
+msgstr ""
+
+#: vixipy/templates/content_warning.html:8
+msgid "Warning: Sensitive Content Ahead!"
+msgstr ""
+
+#: vixipy/templates/content_warning.html:9
+msgid "This page contains R-18 content. Do you want to view it anyway?"
+msgstr ""
+
+#: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
+#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+msgid "Go back"
+msgstr ""
+
+#: vixipy/templates/content_warning.html:12
+msgid "Proceed"
 msgstr ""
 
 #: vixipy/templates/edit_profile.html:6
@@ -243,11 +264,6 @@ msgstr ""
 
 #: vixipy/templates/error.html:10
 msgid "Back to home"
-msgstr ""
-
-#: vixipy/templates/http_error.html:9
-#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
-msgid "Go back"
 msgstr ""
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
@@ -1075,6 +1091,20 @@ msgstr ""
 #: vixipy/templates/search/index.html:24
 #, python-format
 msgid "<b>%(total)s</b> Works"
+msgstr ""
+
+#: vixipy/templates/search/index.html:45
+msgid ""
+"You can only have at most 10 favorite tags. Please remove one and try "
+"again."
+msgstr ""
+
+#: vixipy/templates/search/index.html:46
+msgid "Add to your favorites"
+msgstr ""
+
+#: vixipy/templates/search/index.html:48
+msgid "Remove from favorites"
 msgstr ""
 
 #: vixipy/templates/search/main.html:15
