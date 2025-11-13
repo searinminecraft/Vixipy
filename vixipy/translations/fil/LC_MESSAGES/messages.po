@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-12 10:35+0800\n"
-"PO-Revision-Date: 2025-11-04 07:09+0000\n"
+"PO-Revision-Date: 2025-11-13 03:09+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.14\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -122,17 +123,16 @@ msgid "Page %(page)d"
 msgstr "Pahina %(page)d"
 
 #: vixipy/templates/content_warning.html:2
-#, fuzzy
 msgid "Content Warning"
-msgstr "Nilalaman"
+msgstr "Babala sa Nilalaman"
 
 #: vixipy/templates/content_warning.html:8
 msgid "Warning: Sensitive Content Ahead!"
-msgstr ""
+msgstr "Babala: Sensitibong Nilalaman sa Unahan!"
 
 #: vixipy/templates/content_warning.html:9
 msgid "This page contains R-18 content. Do you want to view it anyway?"
-msgstr ""
+msgstr "Naglalaman ng R-18 ang pahina na ito. Gusto mo ba itong itignan?"
 
 #: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
 #: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
@@ -141,7 +141,7 @@ msgstr "Bumalik"
 
 #: vixipy/templates/content_warning.html:12
 msgid "Proceed"
-msgstr ""
+msgstr "Magpatuloy"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
@@ -1130,14 +1130,16 @@ msgid ""
 "You can only have at most 10 favorite tags. Please remove one and try "
 "again."
 msgstr ""
+"Maaari ka lamang magkaroon ng hindi tataas sa 10 paboritong tag. Mangyaring "
+"tanggalin ang isa at subukan muli."
 
 #: vixipy/templates/search/index.html:46
 msgid "Add to your favorites"
-msgstr ""
+msgstr "Idagdag sa mga paborito"
 
 #: vixipy/templates/search/index.html:48
 msgid "Remove from favorites"
-msgstr ""
+msgstr "Tanggalin mula sa mga paborito"
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
@@ -1606,4 +1608,3 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
-

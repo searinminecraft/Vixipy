@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-12 10:35+0800\n"
-"PO-Revision-Date: 2025-11-06 17:09+0000\n"
+"PO-Revision-Date: 2025-11-13 03:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.14\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -123,17 +124,18 @@ msgid "Page %(page)d"
 msgstr "Сторінка %(page)d"
 
 #: vixipy/templates/content_warning.html:2
-#, fuzzy
 msgid "Content Warning"
-msgstr "Вміст"
+msgstr "Попередження щодо вмісту"
 
 #: vixipy/templates/content_warning.html:8
 msgid "Warning: Sensitive Content Ahead!"
-msgstr ""
+msgstr "Увага: Далі чутливий вміст!"
 
 #: vixipy/templates/content_warning.html:9
 msgid "This page contains R-18 content. Do you want to view it anyway?"
 msgstr ""
+"Ця сторінка містить відвертий вміст (R-18). Ви все одно хочете її "
+"переглянути?"
 
 #: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
 #: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
@@ -142,7 +144,7 @@ msgstr "Повернутися"
 
 #: vixipy/templates/content_warning.html:12
 msgid "Proceed"
-msgstr ""
+msgstr "Продовжити"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
@@ -1132,14 +1134,16 @@ msgid ""
 "You can only have at most 10 favorite tags. Please remove one and try "
 "again."
 msgstr ""
+"До обраного можна додати щонайбільше 10 тегів. Видаліть один і спробуйте ще "
+"раз."
 
 #: vixipy/templates/search/index.html:46
 msgid "Add to your favorites"
-msgstr ""
+msgstr "Додати до обраного"
 
 #: vixipy/templates/search/index.html:48
 msgid "Remove from favorites"
-msgstr ""
+msgstr "Видалити з обраного"
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
@@ -1602,4 +1606,3 @@ msgstr "Ви ще нікого не додали до «Мій pixiv»."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "У %(user)s немає «Мій pixiv»."
-
