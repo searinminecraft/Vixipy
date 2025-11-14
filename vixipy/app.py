@@ -35,6 +35,7 @@ from .routes import (
     jump,
     pixivision,
     test,
+    collection,
 )
 from . import (
     cache_client,
@@ -186,6 +187,7 @@ def create_app():
     app.register_blueprint(jump)
     app.register_blueprint(pixivision)
     app.register_blueprint(test)
+    app.register_blueprint(collection)
 
     # =================================
 
