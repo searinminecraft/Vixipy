@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-14 21:16+0800\n"
-"PO-Revision-Date: 2025-11-13 03:09+0000\n"
+"PO-Revision-Date: 2025-11-14 14:12+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.14\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -545,9 +546,8 @@ msgstr ""
 
 #: vixipy/templates/collection/index.html:2
 #: vixipy/templates/users/dashboard.html:105
-#, fuzzy
 msgid "Collections"
-msgstr "Параметри"
+msgstr "Колекції"
 
 #: vixipy/templates/collection/index.html:10
 msgid ""
@@ -562,21 +562,21 @@ msgid ""
 "The Collection Feature on Vixipy, just like on pixiv, is currently "
 "experimental. Things may change or break at any time!"
 msgstr ""
+"Колекції у Vixipy, як і на pixiv, наразі є експериментальною функцією. Все "
+"може змінитися або перестати працювати в будь-який момент!"
 
 #: vixipy/templates/collection/index.html:15
-#, fuzzy
 msgid "Recommended collections"
-msgstr "Рекомендовані ілюстрації"
+msgstr "Рекомендовані колекції"
 
 #: vixipy/templates/collection/index.html:22
-#, fuzzy
 msgid "All collections"
-msgstr "Будь-яка пропорція"
+msgstr "Усі колекції"
 
 #: vixipy/templates/collection/index.html:30
 #, python-format
 msgid "Recommended collections tagged #%(tag)s"
-msgstr ""
+msgstr "Рекомендовані колекції з тегом #%(tag)s"
 
 #: vixipy/templates/components/comment.html:5
 msgid "Deleted User"
@@ -1645,4 +1645,3 @@ msgstr "Ви ще нікого не додали до «Мій pixiv»."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "У %(user)s немає «Мій pixiv»."
-

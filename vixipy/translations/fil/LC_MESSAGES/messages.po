@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-14 21:16+0800\n"
-"PO-Revision-Date: 2025-11-13 03:09+0000\n"
+"PO-Revision-Date: 2025-11-14 14:12+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.14\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -537,13 +538,12 @@ msgstr "Walang mga tugon"
 #: vixipy/templates/collection/collection.html:2
 #, python-format
 msgid "%(title)s | Collection by %(author)s"
-msgstr ""
+msgstr "%(title)s | Koleksyon ni/ng %(author)s"
 
 #: vixipy/templates/collection/index.html:2
 #: vixipy/templates/users/dashboard.html:105
-#, fuzzy
 msgid "Collections"
-msgstr "Mga opsyon"
+msgstr "Mga Koleksyon"
 
 #: vixipy/templates/collection/index.html:10
 msgid ""
@@ -552,27 +552,31 @@ msgid ""
 "pixiv Encyclopedia, BOOTH, pixivFANBOX), external links, and text, and "
 "showcase them on a single page."
 msgstr ""
+"Nagbibigay-daan sa iyo ang Koleksyon na Feature (Beta) na ipagsamasama ang "
+"mga larawan, manga, at Ugoira na naka-post sa pixiv, mga link sa iba pang "
+"serbisyo ng pixiv (hal. pixiv Encyclopedia, BOOTH, pixivFANBOX), mga "
+"panlabas na link, at teksto, at ipakita sila sa iisang pahina."
 
 #: vixipy/templates/collection/index.html:12
 msgid ""
 "The Collection Feature on Vixipy, just like on pixiv, is currently "
 "experimental. Things may change or break at any time!"
 msgstr ""
+"Ang Koleksyon na Feature sa Vixipy, tulad sa pixiv, ay kasalukuyang pang-"
+"eksperimento. Maaring magbago o masira ang mga bagay-bagay sa anumang oras!"
 
 #: vixipy/templates/collection/index.html:15
-#, fuzzy
 msgid "Recommended collections"
-msgstr "Mga inirerekomendang larawan"
+msgstr "Mga inirerekomendang koleksyon"
 
 #: vixipy/templates/collection/index.html:22
-#, fuzzy
 msgid "All collections"
-msgstr "Lahat ng mga ratio"
+msgstr "Lahat ng mga koleksyon"
 
 #: vixipy/templates/collection/index.html:30
 #, python-format
 msgid "Recommended collections tagged #%(tag)s"
-msgstr ""
+msgstr "Mga inirerekomendang koleksyon na naka-tag na #%(tag)s"
 
 #: vixipy/templates/components/comment.html:5
 msgid "Deleted User"
@@ -1647,4 +1651,3 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
-
