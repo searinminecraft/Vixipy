@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-12 10:35+0800\n"
+"POT-Creation-Date: 2025-11-14 21:12+0800\n"
 "PO-Revision-Date: 2025-11-13 03:09+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.14\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -286,7 +285,7 @@ msgstr "Mga inirerekomendang gawa"
 
 #: vixipy/templates/index.html:31 vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:100
+#: vixipy/templates/users/dashboard.html:115
 msgid "Popular Tags"
 msgstr "Mga Popular na Tag"
 
@@ -469,7 +468,7 @@ msgid "Return"
 msgstr "Bumalik"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:124
+#: vixipy/templates/users/dashboard.html:139
 msgid "Material You Generator"
 msgstr "Material You Generator"
 
@@ -534,6 +533,50 @@ msgstr "Mga tugon"
 #: vixipy/templates/replies.html:13
 msgid "No replies"
 msgstr "Walang mga tugon"
+
+#: vixipy/templates/collection/collection.html:2
+#, python-format
+msgid "%(title)s | Collection by %(author)s"
+msgstr ""
+
+#: vixipy/templates/collection/index.html:2
+#: vixipy/templates/users/dashboard.html:105
+#, fuzzy
+msgid "Collections"
+msgstr "Mga opsyon"
+
+#: vixipy/templates/collection/index.html:10
+msgid ""
+"The Collection Feature (Beta) allows you to curate illustrations, manga, "
+"novels, and Ugoira posted on\n"
+"            pixiv,\n"
+"            links to other pixiv services (e.g., pixiv Encyclopedia, "
+"BOOTH, pixivFANBOX), external links, and text, and\n"
+"            showcase them on a single page."
+msgstr ""
+
+#: vixipy/templates/collection/index.html:15
+msgid ""
+"The Collection Feature on Vixipy, just like on pixiv, is currently "
+"experimental. Things may change or\n"
+"            break at any\n"
+"            time!"
+msgstr ""
+
+#: vixipy/templates/collection/index.html:20
+#, fuzzy
+msgid "Recommended collections"
+msgstr "Mga inirerekomendang larawan"
+
+#: vixipy/templates/collection/index.html:27
+#, fuzzy
+msgid "All collections"
+msgstr "Lahat ng mga ratio"
+
+#: vixipy/templates/collection/index.html:35
+#, python-format
+msgid "Recommended collections tagged #%(tag)s"
+msgstr ""
 
 #: vixipy/templates/components/comment.html:5
 msgid "Deleted User"
@@ -885,7 +928,7 @@ msgstr "%(cc)s (mga) Salita"
 
 #: vixipy/templates/pixivision/category.html:5
 #: vixipy/templates/pixivision/index.html:2
-#: vixipy/templates/users/dashboard.html:110
+#: vixipy/templates/users/dashboard.html:125
 msgid "pixivision"
 msgstr "pixivision"
 
@@ -1130,8 +1173,8 @@ msgid ""
 "You can only have at most 10 favorite tags. Please remove one and try "
 "again."
 msgstr ""
-"Maaari ka lamang magkaroon ng hindi tataas sa 10 paboritong tag. Mangyaring "
-"tanggalin ang isa at subukan muli."
+"Maaari ka lamang magkaroon ng hindi tataas sa 10 paboritong tag. "
+"Mangyaring tanggalin ang isa at subukan muli."
 
 #: vixipy/templates/search/index.html:46
 msgid "Add to your favorites"
@@ -1358,7 +1401,7 @@ msgstr "Ipakita"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:134
+#: vixipy/templates/users/dashboard.html:149
 msgid "Settings"
 msgstr "Mga Setting"
 
@@ -1427,13 +1470,13 @@ msgid "Set color scheme"
 msgstr "Itakda ang scheme ng kulay"
 
 #: vixipy/templates/test/dialog.html:28
-#: vixipy/templates/users/dashboard.html:166
-#: vixipy/templates/users/dashboard.html:176
+#: vixipy/templates/users/dashboard.html:181
+#: vixipy/templates/users/dashboard.html:191
 msgid "Log out"
 msgstr "Mag-log out"
 
 #: vixipy/templates/test/dialog.html:31
-#: vixipy/templates/users/dashboard.html:179
+#: vixipy/templates/users/dashboard.html:194
 msgid "Do you wish to log out?"
 msgstr "Gusto mo bang mag-log out?"
 
@@ -1545,19 +1588,19 @@ msgstr ""
 msgid "Your profile"
 msgstr "Iyong profile"
 
-#: vixipy/templates/users/dashboard.html:144
+#: vixipy/templates/users/dashboard.html:159
 msgid "Send Feedback"
 msgstr "Magpadala ng Feedback"
 
-#: vixipy/templates/users/dashboard.html:154
+#: vixipy/templates/users/dashboard.html:169
 msgid "Source Code"
 msgstr "Source Code"
 
-#: vixipy/templates/users/dashboard.html:182
+#: vixipy/templates/users/dashboard.html:197
 msgid "Cancel"
 msgstr "Kanselahin"
 
-#: vixipy/templates/users/dashboard.html:183
+#: vixipy/templates/users/dashboard.html:198
 msgid "OK"
 msgstr "OK"
 
@@ -1608,3 +1651,4 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
+

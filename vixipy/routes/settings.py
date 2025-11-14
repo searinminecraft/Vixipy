@@ -56,6 +56,7 @@ class TranslationCredit:
 @bp.route("/settings")
 async def main():
     proxies = [
+        "https://pximg.bloat.cat",
         "https://pixiv.ducks.party",
         "https://pximg.cocomi.eu.org",
         "https://i.suimoe.com",

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-12 10:35+0800\n"
+"POT-Creation-Date: 2025-11-14 21:12+0800\n"
 "PO-Revision-Date: 2025-10-24 14:09+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
 "Language: zh_Hans\n"
@@ -285,7 +285,7 @@ msgstr "推荐作品"
 
 #: vixipy/templates/index.html:31 vixipy/templates/search/popular_tags.html:3
 #: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:100
+#: vixipy/templates/users/dashboard.html:115
 msgid "Popular Tags"
 msgstr "热门标签"
 
@@ -446,7 +446,7 @@ msgid "Return"
 msgstr "返回"
 
 #: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:124
+#: vixipy/templates/users/dashboard.html:139
 msgid "Material You Generator"
 msgstr "Material You 生成器"
 
@@ -506,6 +506,50 @@ msgstr "回复"
 #: vixipy/templates/replies.html:13
 msgid "No replies"
 msgstr "暂无回复"
+
+#: vixipy/templates/collection/collection.html:2
+#, python-format
+msgid "%(title)s | Collection by %(author)s"
+msgstr ""
+
+#: vixipy/templates/collection/index.html:2
+#: vixipy/templates/users/dashboard.html:105
+#, fuzzy
+msgid "Collections"
+msgstr "选项"
+
+#: vixipy/templates/collection/index.html:10
+msgid ""
+"The Collection Feature (Beta) allows you to curate illustrations, manga, "
+"novels, and Ugoira posted on\n"
+"            pixiv,\n"
+"            links to other pixiv services (e.g., pixiv Encyclopedia, "
+"BOOTH, pixivFANBOX), external links, and text, and\n"
+"            showcase them on a single page."
+msgstr ""
+
+#: vixipy/templates/collection/index.html:15
+msgid ""
+"The Collection Feature on Vixipy, just like on pixiv, is currently "
+"experimental. Things may change or\n"
+"            break at any\n"
+"            time!"
+msgstr ""
+
+#: vixipy/templates/collection/index.html:20
+#, fuzzy
+msgid "Recommended collections"
+msgstr "推荐插画"
+
+#: vixipy/templates/collection/index.html:27
+#, fuzzy
+msgid "All collections"
+msgstr "所有比例"
+
+#: vixipy/templates/collection/index.html:35
+#, python-format
+msgid "Recommended collections tagged #%(tag)s"
+msgstr ""
 
 #: vixipy/templates/components/comment.html:5
 msgid "Deleted User"
@@ -857,7 +901,7 @@ msgstr "%(cc)s 词"
 
 #: vixipy/templates/pixivision/category.html:5
 #: vixipy/templates/pixivision/index.html:2
-#: vixipy/templates/users/dashboard.html:110
+#: vixipy/templates/users/dashboard.html:125
 msgid "pixivision"
 msgstr "pixivision"
 
@@ -1301,7 +1345,7 @@ msgstr "显示"
 #: vixipy/templates/settings/index.html:3
 #: vixipy/templates/settings/index.html:5
 #: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:134
+#: vixipy/templates/users/dashboard.html:149
 msgid "Settings"
 msgstr "设置"
 
@@ -1368,13 +1412,13 @@ msgid "Set color scheme"
 msgstr "设置配色方案"
 
 #: vixipy/templates/test/dialog.html:28
-#: vixipy/templates/users/dashboard.html:166
-#: vixipy/templates/users/dashboard.html:176
+#: vixipy/templates/users/dashboard.html:181
+#: vixipy/templates/users/dashboard.html:191
 msgid "Log out"
 msgstr "退出登录"
 
 #: vixipy/templates/test/dialog.html:31
-#: vixipy/templates/users/dashboard.html:179
+#: vixipy/templates/users/dashboard.html:194
 msgid "Do you wish to log out?"
 msgstr "您确定要退出登录吗？"
 
@@ -1485,20 +1529,20 @@ msgstr "<b>您尚未登录。</b> 登录 pixiv 账号以体验 Vixipy 的全部�
 msgid "Your profile"
 msgstr "您的个人资料"
 
-#: vixipy/templates/users/dashboard.html:144
+#: vixipy/templates/users/dashboard.html:159
 msgid "Send Feedback"
 msgstr "发送反馈"
 
-#: vixipy/templates/users/dashboard.html:154
+#: vixipy/templates/users/dashboard.html:169
 msgid "Source Code"
 msgstr "源代码"
 
-#: vixipy/templates/users/dashboard.html:182
+#: vixipy/templates/users/dashboard.html:197
 #, fuzzy
 msgid "Cancel"
 msgstr "恋爱"
 
-#: vixipy/templates/users/dashboard.html:183
+#: vixipy/templates/users/dashboard.html:198
 msgid "OK"
 msgstr ""
 

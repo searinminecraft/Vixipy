@@ -8,7 +8,7 @@
     <div id="comment-area">
         <div id="poster">
             {% if g.authorized %}
-            <form action="/self/post_comment" method="post">
+            <form action="/self/post_comment" method="post" hx-push-url="false">
                 <input type="hidden" name="target", value="{{id}}">
                 <input type="hidden" name="user" value="{{work.authorId}}">
                 <div class="container">

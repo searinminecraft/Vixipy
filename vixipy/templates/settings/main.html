@@ -9,8 +9,8 @@
         {{_("Image Proxy Server")}}
     </div>
     <main>
-        <form action="/settings/set_proxy_server" method="post">
-            <select name="proxy">
+        <form action="/settings/set_proxy_server" method="post" hx-boost="false">
+            <select name="proxy" class="width-100">
                 {% if is_instance_custom_proxy_server %}
                 <option value="" {% if c.get('Vixipy-Image-Proxy') == None or c.get('Vixipy-Image-Proxy') == '' %}selected{%endif%}>{{_("Use proxy specified by instance")}}</option>
                 <option value="/proxy/i.pximg.net" {% if c.get('Vixipy-Image-Proxy') == '/proxy/i.pximg.net' %}selected{%endif%}>{{_("Use built-in proxy")}}</option>
@@ -22,7 +22,7 @@
                 <option value="{{i}}" {% if c.get('Vixipy-Image-Proxy') == i %}selected{% endif %}>{{i}}</option>
                 {% endfor %}
             </select>
-            <br>
+	    <br><br>
             <small class="tip">{{_("An image proxy allows retrieving images from pixiv without making any connection to pixiv servers.")}}</small>
             <br><br>
             <button class="button smaller neutral" type="submit">{{_("Use selected proxy")}}</button>
