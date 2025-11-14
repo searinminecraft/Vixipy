@@ -1,0 +1,76 @@
+@use '../mixins' as *;
+
+#collection-main {
+    >.tile-container {
+        display: grid;
+        grid-auto-rows: minmax(0, 1fr);
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 16px;
+        padding: 1em;
+
+        &::before {
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 1;
+            grid-row-end: 1;
+            aspect-ratio: 1/1;
+            content: "";
+        }
+
+        .tile {
+            border-radius: 12px;
+            background-color: var(--md-sys-color-surface-container);
+            overflow: hidden;
+
+            .container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .illust-container {
+                a.image {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        display: block;
+                    }
+                }
+
+                .meta {
+                    position: absolute;
+                    bottom: 1em;
+                    width: 100%;
+                    margin: 0 auto;
+
+                    .wrapper {
+                        padding: .6em;
+                        border-radius: 8px;
+                        background-color: var(--md-sys-color-surface-container);
+                        width: fit-content;
+                        margin: 0 auto;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        .author img {
+                            @include profile-img(16px);
+                            display: block;
+                        }
+
+                        a {
+                            display: block;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

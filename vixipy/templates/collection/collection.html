@@ -1,0 +1,17 @@
+{% extends "layouts/default.html" %}
+{% set title = _("%(title)s | Collection by %(author)s", title=collection.title, author=collection.user_name) %}
+
+{% block content %}
+<main>
+    <section id="collection-main">
+        <div class="tile-container">
+            {% for x in tiles %}
+            <div class="tile" style="{{x.grid_area}}">
+                {% if x.__class__.__name__ == "IllustTile" %}{% include "collection/types/illust.html"%}{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <aside></aside>
+    </section>
+</main>
+{% endblock %}

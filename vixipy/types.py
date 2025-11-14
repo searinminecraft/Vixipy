@@ -640,7 +640,7 @@ class CollectionEntry:
         self.profile_image: str = proxy(d["profileImageUrl"])
         self.title: str = d["title"]
         self.tags: list[str] = d["tags"]
-        self.caption: Optional[str] = d["caption"] or None
+        self.alt: Optional[str] = d["caption"] or None
         self.language: str = d["language"]
         self.sl: int = d["sl"]
         self.sensitive: bool = self.sl >= 4
@@ -656,7 +656,7 @@ class CollectionEntry:
         self.published: datetime = (
             datetime.strptime(d["publishedDateTime"], "%Y-%m-%d %H:%M:%S"),
         )
-        self.thumb = proxy(d["thumbnailImageUrl"])
+        self.thumb = proxy(d["thumbnailImageUrl"] + "?format=png")
 
     def __repr__(self):
         return f"<CollectionEntry title={self.title} id={self.id} user_id={self.user_id} user_name={self.user_name}>"

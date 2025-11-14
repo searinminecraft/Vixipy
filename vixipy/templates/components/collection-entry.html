@@ -1,0 +1,22 @@
+{%- macro collection_entry(d, title=True, author=True) %}
+
+<div class="collection-entry">
+    <a class="thumb" href="{{url_for('collection.get_collection', id=d.id)}}">
+        <img src="{{d.thumb}}" alt="{{d.alt}}" loading="lazy">
+    </a>
+    {%- if title -%}
+    <a class="title" href="{{url_for('collection.get_collection', id=d.id)}}">{{d.title}}</a>
+    {%- endif -%}
+
+    {%- if author -%}
+    <div class="author">
+        <a class="profile-img" href="{{url_for('users.user_profile', user=d.user_id)}}">
+            <img src="{{d.profile_image}}" alt="{{d.user_name}}">
+        </a>
+        <a class="text" href="{{url_for('users.user_profile', user=d.user_id)}}">{{d.user_name}}</a>
+    </div>
+    {%- endif -%}
+
+</div>
+
+{% endmacro -%}

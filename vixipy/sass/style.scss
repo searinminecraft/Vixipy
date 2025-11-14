@@ -31,9 +31,10 @@
 @use 'pages/notifications';
 @use 'pages/monet';
 @use 'pages/users_dash';
-@use 'pages/rankings'; 
+@use 'pages/rankings';
 @use 'pages/internal_error';
 @use 'pages/pixivision';
+@use 'pages/collection';
 
 * {
     box-sizing: border-box;
@@ -55,7 +56,7 @@ a {
     text-decoration: none;
 }
 
-body > main {
+body>main {
     margin: 0 auto;
     max-width: 1000px;
     padding: 2em 1em;
@@ -107,13 +108,18 @@ hgroup {
         margin-bottom: 4px
     }
 
-    h1,h2,h3,h4,h5,h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         margin: unset;
     }
 }
 
 @media (min-width: 1920px) {
-    body > main.large {
+    body>main.large {
         max-width: 80vw !important;
     }
 }

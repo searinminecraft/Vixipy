@@ -1,0 +1,14 @@
+<div class="container illust-container">
+    <a class="image" href="{{url_for('artworks._get_artwork', id=x.illust_data.id)}}">
+        <img src="{{x.thumb}}" alt="{{x.illust_data.alt}}">
+    </a>
+    <div class="meta">
+        <div class="wrapper">
+            <a class="author" href="{{url_for('users.user_profile', user=x.illust_data.authorId)}}">
+                <img src="{{x.illust_data.profileimg}}" alt="{{x.illust_data.authorName}}">
+            </a>
+            <a class="title"
+                href="{{url_for('artworks._get_artwork', id=x.illust_data.id)}}">{{x.illust_data.title}}</a>
+        </div>
+    </div>
+</div>

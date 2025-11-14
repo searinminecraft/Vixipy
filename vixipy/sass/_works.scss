@@ -38,7 +38,7 @@
             width: 100%;
             pointer-events: none;
 
-            > div {
+            >div {
                 display: flex;
                 flex-wrap: nowrap;
                 gap: .5em;
@@ -95,7 +95,8 @@
         }
     }
 
-    .title, .author {
+    .title,
+    .author {
         display: block;
         width: 100%;
         overflow: hidden;
@@ -120,6 +121,51 @@
     }
 }
 
+.collection-entry {
+    width: 256px;
+
+    .thumb {
+        display: block;
+
+        img {
+            width: 256px;
+            height: 256px;
+            object-fit: cover;
+            object-position: center;
+            background-color: var(--md-sys-color-surface-container-low);
+            display: block;
+            border-radius: 12px;
+        }
+    }
+
+    .title {
+        color: unset;
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: bold;
+        font-size: 18px;
+        text-wrap: nowrap;
+        margin: 6px 0;
+    }
+
+    .author {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        a {
+            display: block;
+        }
+
+        .profile-img img {
+            @include mixins.profile-img(24px);
+            display: block;
+        }
+    }
+}
+
 .artwork-container {
     display: flex;
     flex-wrap: wrap;
@@ -140,7 +186,7 @@
         display: none;
     }
 
-    > * {
+    >* {
         flex-shrink: 0;
     }
 }
