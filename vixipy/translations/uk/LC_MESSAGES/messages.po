@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-14 21:12+0800\n"
+"POT-Creation-Date: 2025-11-14 21:16+0800\n"
 "PO-Revision-Date: 2025-11-13 03:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language: uk\n"
@@ -552,32 +552,28 @@ msgstr "Параметри"
 #: vixipy/templates/collection/index.html:10
 msgid ""
 "The Collection Feature (Beta) allows you to curate illustrations, manga, "
-"novels, and Ugoira posted on\n"
-"            pixiv,\n"
-"            links to other pixiv services (e.g., pixiv Encyclopedia, "
-"BOOTH, pixivFANBOX), external links, and text, and\n"
-"            showcase them on a single page."
+"novels, and Ugoira posted on pixiv, links to other pixiv services (e.g., "
+"pixiv Encyclopedia, BOOTH, pixivFANBOX), external links, and text, and "
+"showcase them on a single page."
+msgstr ""
+
+#: vixipy/templates/collection/index.html:12
+msgid ""
+"The Collection Feature on Vixipy, just like on pixiv, is currently "
+"experimental. Things may change or break at any time!"
 msgstr ""
 
 #: vixipy/templates/collection/index.html:15
-msgid ""
-"The Collection Feature on Vixipy, just like on pixiv, is currently "
-"experimental. Things may change or\n"
-"            break at any\n"
-"            time!"
-msgstr ""
-
-#: vixipy/templates/collection/index.html:20
 #, fuzzy
 msgid "Recommended collections"
 msgstr "Рекомендовані ілюстрації"
 
-#: vixipy/templates/collection/index.html:27
+#: vixipy/templates/collection/index.html:22
 #, fuzzy
 msgid "All collections"
 msgstr "Будь-яка пропорція"
 
-#: vixipy/templates/collection/index.html:35
+#: vixipy/templates/collection/index.html:30
 #, python-format
 msgid "Recommended collections tagged #%(tag)s"
 msgstr ""
