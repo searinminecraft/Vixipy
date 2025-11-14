@@ -66,7 +66,7 @@ async def __attempt_work_extraction(
         for x in range(pagesCount):
             _master = f"/img-master/img/{_date}/{id}_p{x}_master1200.jpg"
             _orig = None
-            for ext in ("jpg", "png"):
+            for ext in ("jpg", "png", "gif"):
                 _orig_uri = f"/img-original/img/{_date}/{id}_p{x}.{ext}"
 
                 log.debug("Trying %s", _orig_uri)
@@ -80,6 +80,10 @@ async def __attempt_work_extraction(
                     log.debug("%s works!", _orig_uri)
                     _orig = _orig_uri
                     break
+            
+            if not _orig:
+                log.error("No URLs found to work. Abort.")
+                continue
 
             result.append(
                 ArtworkPage(
@@ -140,6 +144,10 @@ async def _get_artwork(id: int):
             get_user(work.authorId),
             get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
         )
+
+        if len(pages) == 0:
+            log.fatal("Artwork returned no pages. Bailing out!")
+            abort(404)
     else:
         pages, recommend, user, works = await gather(
             get_artwork_pages(id),
@@ -152,9 +160,6 @@ async def _get_artwork(id: int):
     recommend: list[ArtworkEntry]
     user: PartialUser
     works: list[ArtworkEntry]
-
-    if len(pages) == 0:
-        abort(404)
 
     return await render_template(
         "artworks.html",
