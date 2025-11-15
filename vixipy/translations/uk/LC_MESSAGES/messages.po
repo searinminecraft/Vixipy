@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-14 21:16+0800\n"
-"PO-Revision-Date: 2025-11-14 14:12+0000\n"
+"PO-Revision-Date: 2025-11-15 15:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
@@ -542,7 +542,7 @@ msgstr "Немає відповідей"
 #: vixipy/templates/collection/collection.html:2
 #, python-format
 msgid "%(title)s | Collection by %(author)s"
-msgstr ""
+msgstr "Колекція %(title)s | %(author)s"
 
 #: vixipy/templates/collection/index.html:2
 #: vixipy/templates/users/dashboard.html:105
@@ -556,6 +556,11 @@ msgid ""
 "pixiv Encyclopedia, BOOTH, pixivFANBOX), external links, and text, and "
 "showcase them on a single page."
 msgstr ""
+"Функція «Колекції» (бета-версія) дає змогу збирати і відображати на одній "
+"сторінці ілюстрації, манґу, романи та анімацію, опубліковані на pixiv, "
+"посилання на інші сервіси pixiv "
+"(наприклад, pixiv Encyclopedia, BOOTH, pixivFANBOX), а також зовнішні "
+"посилання і текст."
 
 #: vixipy/templates/collection/index.html:12
 msgid ""

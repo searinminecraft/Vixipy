@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-14 21:16+0800\n"
-"PO-Revision-Date: 2025-11-14 14:12+0000\n"
+"PO-Revision-Date: 2025-11-15 15:09+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: German <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/de/>\n"
@@ -123,9 +123,8 @@ msgid "Page %(page)d"
 msgstr "Seite %(page)d"
 
 #: vixipy/templates/content_warning.html:2
-#, fuzzy
 msgid "Content Warning"
-msgstr "Inhalt"
+msgstr "Inhaltswarnung"
 
 #: vixipy/templates/content_warning.html:8
 msgid "Warning: Sensitive Content Ahead!"
@@ -518,7 +517,7 @@ msgstr "Keine Antworten"
 #: vixipy/templates/collection/collection.html:2
 #, python-format
 msgid "%(title)s | Collection by %(author)s"
-msgstr ""
+msgstr "%(title)s | Sammlung von %(author)s"
 
 #: vixipy/templates/collection/index.html:2
 #: vixipy/templates/users/dashboard.html:105
@@ -1154,11 +1153,11 @@ msgstr ""
 
 #: vixipy/templates/search/index.html:46
 msgid "Add to your favorites"
-msgstr ""
+msgstr "Zu den Favoriten hinzufügen"
 
 #: vixipy/templates/search/index.html:48
 msgid "Remove from favorites"
-msgstr ""
+msgstr "Aus den Favoriten entfernen"
 
 #: vixipy/templates/search/main.html:15
 msgid "Popular Works"
@@ -1481,7 +1480,6 @@ msgid "This user has no description set"
 msgstr "Dieser Nutzer hat keine Beschreibung festgelegt"
 
 #: vixipy/templates/users/base.html:75
-#, fuzzy
 msgid "Socials"
 msgstr "Social Media"
 
@@ -1581,7 +1579,7 @@ msgstr "%(user)s folgt niemanden."
 #: vixipy/templates/users/follow/mypixiv.html:3
 #, python-format
 msgid "%(user)s's My pixiv"
-msgstr ""
+msgstr "My pixiv von %(user)s"
 
 #: vixipy/templates/users/follow/mypixiv.html:24
 msgid "You don't have any My pixiv."
