@@ -111,7 +111,7 @@ def create_app():
         BLACKLISTED_TAGS=[],
         SECRET_KEY="Vyxie",
         INSTANCE_NAME="Vixipy",
-        LANGUAGES=["en", "ja", "zh_Hans", "fil", "de", "ru", "uk"],
+        LANGUAGES=["en", "ja", "zh_Hans", "zh_Hant", "fil", "de", "ru", "uk"],
         LOG_HTTP="1",
         LOG_PIXIV="1",
         CACHE_PIXIV_REQUESTS="0",

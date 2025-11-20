@@ -222,6 +222,11 @@ async def acknowledgements():
             "/proxy/3rd_party/profile_image/codeberg/haydenwu",
         ),
         TranslationCredit("lainie", ["ru"], "https://laincorp.tech"),
+        TranslationCredit(
+            "Oliver Tzeng",
+            ["zh_Hant"],
+            "https://github.com/olivertzeng",
+            "/proxy/3rd_party/profile_image/github/olivertzeng")
     }
 
     for x in TRANSLATION_CREDITS:
