@@ -14,7 +14,7 @@ Vixipy [vick-see-pie] 是一個自由開源的 pixiv 前端。它讓您能夠使
 <img src="https://translate.codeberg.org/widget/vixipy/user-interface/multi-auto.svg" alt="Translation status" />
 </a>
 
-如果您願意，可以[協助翻譯] Visipy 成您的母語。這有助於讓更多使用者接觸到此程式。
+如果您願意，可以[協助翻譯] Vixipy 成您的母語。這有助於讓更多使用者接觸到此程式。
 
 I also want to give a special thanks for those who helped translate Vixipy. You
 guys are awesome.
