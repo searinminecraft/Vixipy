@@ -4,21 +4,17 @@
 
 </div>
 
-Vixipy [vick-see-pie] is a free and open source pixiv frontend. It allows you to
-use pixiv and enjoy works without worrying about prying eyes.
+Vixipy [vick-see-pie] 是一個自由開源的 pixiv 前端。它讓您能夠使用 pixiv 並欣賞作品，無需擔心窺探的目光。
 
-## Installation
-Installing Vixipy is as easy as following these simple
-[instructions](./doc/INSTALL.md)
+## 安裝指南
+安裝 Vixipy 只須遵循這些簡單的[說明](./doc/INSTALL.md)
 
-## Translate Vixipy
+## 翻譯 Vixipy
 <a href="https://translate.codeberg.org/engage/vixipy/">
 <img src="https://translate.codeberg.org/widget/vixipy/user-interface/multi-auto.svg" alt="Translation status" />
 </a>
 
-If you like to, you can [help
-translate](https://translate.codeberg.org/engage/vixipy/) Vixipy to your own
-language. This helps make the program more accessible to a wider audience.
+如果您願意，可以[協助翻譯] Visipy 成您的母語。這有助於讓更多使用者接觸到此程式。
 
 I also want to give a special thanks for those who helped translate Vixipy. You
 guys are awesome.
