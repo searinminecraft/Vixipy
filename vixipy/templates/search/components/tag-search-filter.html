@@ -1,74 +1,68 @@
-<br>
-<br>
-<details>
-<summary>{{_("Search options")}}</summary>
-<div id="tag-search-filter">
-    {%- set word = request.args.get("word", tag_info.tag)-%}
-    {%- set s_mode = request.args.get("s_mode", "s_tag_full") -%}
-    {%- set order = request.args.get("order", "date_d")-%}
-    {%- set mode = request.args.get("mode", "safe")-%}
-    {%- set scd = request.args.get("scd", "")-%}
-    {%- set ecd = request.args.get("ecd", "")-%}
-    {%- set wlt = request.args.get("wlt", "")-%}
-    {%- set wgt = request.args.get("wgt", "")-%}
-    {%- set hlt = request.args.get("hlt", "")-%}
-    {%- set hgt = request.args.get("hgt", "")-%}
-    {%- set ratio = request.args.get("ratio", "")-%}
+{%- set word = request.args.get("word", tag_info.tag)-%}
+{%- set s_mode = request.args.get("s_mode", "s_tag_full") -%}
+{%- set order = request.args.get("order", "date_d")-%}
+{%- set mode = request.args.get("mode", "safe")-%}
+{%- set scd = request.args.get("scd", "")-%}
+{%- set ecd = request.args.get("ecd", "")-%}
+{%- set wlt = request.args.get("wlt", "")-%}
+{%- set wgt = request.args.get("wgt", "")-%}
+{%- set hlt = request.args.get("hlt", "")-%}
+{%- set hgt = request.args.get("hgt", "")-%}
+{%- set ratio = request.args.get("ratio", "")-%}
 
-    <form action="{{request.path}}">
-        <h2>{{_("Search options")}}</h2>
+<div class="modal-popover" id="illust-search-option" popover>
+    <div class="title">
+        <span>{{_("Search options")}}</span>
+        <button popovertarget="illust-search-option" popovertargetaction="hide" class="icon-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+        </button>
+    </div>
+    <main>
+        <form action="{{request.path}}" id="illust-search-option-form">
 
-        <label for="word" class="block heading">{{_("Keywords")}}</label>
-        <input type="text" class="width-100" id="word" name="word" value="{{word}}">
-        <br>
-        <br>
+            <h4>{{_("Keywords")}}</h4>
+            <input type="text" class="width-100" id="word" name="word" value="{{word}}">
 
-        <label for="target" class="block heading">{{_("Target")}}</label>
-        <select name="s_mode" id="target">
-            <option value="s_tag_full" {%if s_mode=="s_tag_full"%}selected{%endif%}>{{_("Tags (perfect match)")}}</option>
-            <option value="s_tag" {%if s_mode=="s_tag"%}selected{%endif%}>{{_("Tags (partial match)")}}</option>
-            <option value="s_tc" {%if s_mode=="s_tc"%}selected{%endif%}>{{_("Title/caption")}}</option>
-        </select>
-        <br>
-        <br>
-
-        <fieldset>
-            <legend>{{_("Filters")}}</legend>
-
-            <label for="mode" class="block heading">{{_("Mode")}}</label>
-            <select name="mode" id="mode" class="width-100">
-                <option value="all" {%if mode=="all"%}selected{%endif%}>{{_("All")}}</option>
-                <option value="safe" {%if mode=="safe"%}selected{%endif%}>{{_("Safe")}}</option>
-                <option value="r18" {%if mode=="r18"%}selected{%endif%}>{{_("R-18")}}</option>
+            <h4>{{_("Target")}}</h4>
+            <select name="s_mode" id="target">
+                <option value="s_tag_full" {%if s_mode=="s_tag_full" %}selected{%endif%}>{{_("Tags (perfect match)")}}
+                </option>
+                <option value="s_tag" {%if s_mode=="s_tag" %}selected{%endif%}>{{_("Tags (partial match)")}}</option>
+                <option value="s_tc" {%if s_mode=="s_tc" %}selected{%endif%}>{{_("Title/caption")}}</option>
             </select>
-            <br>
-            <br>
 
-            <label class="block heading">{{_("Width")}}</label>
+            <h4>{{_("Filters")}}</h4>
+            <h5>{{_("Mode")}}</h5>
+            <select name="mode" id="mode" class="width-100">
+                <option value="all" {%if mode=="all" %}selected{%endif%}>{{_("All")}}</option>
+                <option value="safe" {%if mode=="safe" %}selected{%endif%}>{{_("Safe")}}</option>
+                <option value="r18" {%if mode=="r18" %}selected{%endif%}>{{_("R-18")}}</option>
+            </select>
+
+            <h5>{{_("Width")}}</h5>
             <div class="ranged">
                 <input type="number" name="wlt" value="{{wlt}}" placeholder="{{_('min')}}">
                 <input type="number" name="wgt" value="{{wgt}}" placeholder="{{_('max')}}">
             </div>
-            <br>
 
-            <label class="block heading">{{_("Height")}}</label>
+            <h5>{{_("Height")}}</h5>
             <div class="ranged">
                 <input type="number" name="hlt" value="{{hlt}}" placeholder="{{_('min')}}">
                 <input type="number" name="hgt" value="{{hgt}}" placeholder="{{_('max')}}">
             </div>
-            <br>
 
-            <label for="ratio" class="block heading">{{_("Ratio")}}</label>
+            <h5>{{_("Ratio")}}</h5>
             <select name="ratio" id="ratio" class="width-100">
-                <option value="" {%if ratio==""%}selected{%endif%}>{{_("All ratios")}}</option>
-                <option value="0.5" {%if ratio=="0.5"%}selected{%endif%}>{{_("Horizontal")}}</option>
-                <option value="-0.5" {%if ratio=="-0.5"%}selected{%endif%}>{{_("Vertical")}}</option>
-                <option value="0" {%if ratio=="0"%}selected{%endif%}>{{_("Square")}}</option>
+                <option value="" {%if ratio=="" %}selected{%endif%}>{{_("All ratios")}}</option>
+                <option value="0.5" {%if ratio=="0.5" %}selected{%endif%}>{{_("Horizontal")}}</option>
+                <option value="-0.5" {%if ratio=="-0.5" %}selected{%endif%}>{{_("Vertical")}}</option>
+                <option value="0" {%if ratio=="0" %}selected{%endif%}>{{_("Square")}}</option>
             </select>
-            <br>
-            <br>
 
-            <label for="tool" class="block heading">{{_("Tool")}}</label>
+            <h5>{{_("Tool")}}</h5>
             <input class="width-100" type="text" name="tool" id="tool" list="tools" placeholder="{{_('All tools')}}">
             <datalist id="tools">
                 <option value="SAI"></option>
@@ -175,19 +169,17 @@
                 <option value="Gansai"></option>
                 <option value="Pastel Crayons"></option>
             </datalist>
-        </fieldset>
-        <br>
-        <br>
 
-        <label class="block heading">{{_("Period")}}</label>
-        <div class="ranged">
-            <input type="date" name="scd" value="{{scd}}">
-            <input type="date" name="ecd" value="{{ecd}}">
-        </div>
-        <br>
-        <br>
-
-        <button type="submit" class="label-button">{{_("Apply")}}</button>
-    </form>
+            <h4>{{_("Period")}}</h4>
+            <div class="ranged">
+                <input type="date" name="scd" value="{{scd}}">
+                <input type="date" name="ecd" value="{{ecd}}">
+            </div>
+        </form>
+    </main>
+    <div class="actions">
+        <button popovertarget="illust-search-option" popovertargetaction="hide">{{_("Cancel")}}</button>
+        <button form="illust-search-option-form" type="submit" popovertarget="illust-search-option"
+            popovertargetaction="hide">{{_("Apply")}}</button>
+    </div>
 </div>
-</details>
