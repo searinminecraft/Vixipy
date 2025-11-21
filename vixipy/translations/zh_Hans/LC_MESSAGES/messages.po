@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-14 21:16+0800\n"
-"PO-Revision-Date: 2025-10-24 14:09+0000\n"
+"PO-Revision-Date: 2025-11-21 11:44+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.14\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -123,17 +123,16 @@ msgid "Page %(page)d"
 msgstr "第 %(page)d 页"
 
 #: vixipy/templates/content_warning.html:2
-#, fuzzy
 msgid "Content Warning"
-msgstr "内容"
+msgstr "内容警告"
 
 #: vixipy/templates/content_warning.html:8
 msgid "Warning: Sensitive Content Ahead!"
-msgstr ""
+msgstr "警告：即将访问敏感内容！"
 
 #: vixipy/templates/content_warning.html:9
 msgid "This page contains R-18 content. Do you want to view it anyway?"
-msgstr ""
+msgstr "本页包含 R-18 内容。仍要继续查看？"
 
 #: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
 #: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
@@ -142,7 +141,7 @@ msgstr "返回"
 
 #: vixipy/templates/content_warning.html:12
 msgid "Proceed"
-msgstr ""
+msgstr "继续"
 
 #: vixipy/templates/edit_profile.html:6
 msgid "Edit profile"
@@ -510,13 +509,12 @@ msgstr "暂无回复"
 #: vixipy/templates/collection/collection.html:2
 #, python-format
 msgid "%(title)s | Collection by %(author)s"
-msgstr ""
+msgstr "%(title)s | %(author)s 的珍藏册"
 
 #: vixipy/templates/collection/index.html:2
 #: vixipy/templates/users/dashboard.html:105
-#, fuzzy
 msgid "Collections"
-msgstr "选项"
+msgstr "珍藏册"
 
 #: vixipy/templates/collection/index.html:10
 msgid ""
@@ -533,14 +531,12 @@ msgid ""
 msgstr ""
 
 #: vixipy/templates/collection/index.html:15
-#, fuzzy
 msgid "Recommended collections"
-msgstr "推荐插画"
+msgstr "推荐珍藏册"
 
 #: vixipy/templates/collection/index.html:22
-#, fuzzy
 msgid "All collections"
-msgstr "所有比例"
+msgstr "所有珍藏册"
 
 #: vixipy/templates/collection/index.html:30
 #, python-format
@@ -1464,19 +1460,16 @@ msgid "Edit Profile"
 msgstr "编辑资料"
 
 #: vixipy/templates/users/base.html:59
-#, fuzzy
 msgid "Profile"
-msgstr "您的个人资料"
+msgstr "个人资料"
 
 #: vixipy/templates/users/base.html:68
-#, fuzzy
 msgid "Description"
-msgstr "无描述"
+msgstr "描述"
 
 #: vixipy/templates/users/base.html:72
-#, fuzzy
 msgid "This user has no description set"
-msgstr "无描述"
+msgstr "用户无描述"
 
 #: vixipy/templates/users/base.html:75
 #, fuzzy
@@ -1492,7 +1485,7 @@ msgstr ""
 
 #: vixipy/templates/users/base.html:146
 msgid "This user did not specify their socials"
-msgstr ""
+msgstr "用户未指定社交媒体"
 
 #: vixipy/templates/users/base.html:166 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:47
@@ -1534,13 +1527,12 @@ msgid "Source Code"
 msgstr "源代码"
 
 #: vixipy/templates/users/dashboard.html:197
-#, fuzzy
 msgid "Cancel"
-msgstr "恋爱"
+msgstr "取消"
 
 #: vixipy/templates/users/dashboard.html:198
 msgid "OK"
-msgstr ""
+msgstr "确认"
 
 #: vixipy/templates/users/follow/base.html:41
 msgid "My pixiv"
@@ -1589,4 +1581,3 @@ msgstr "您还没有任何我的 pixiv。"
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "%(user)s 没有任何我的 pixiv。"
-

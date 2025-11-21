@@ -16,17 +16,14 @@ Vixipy [vick-see-pie] 是一個自由開源的 pixiv 前端。它讓您能夠使
 
 如果您願意，可以[協助翻譯] Vixipy 成您的母語。這有助於讓更多使用者接觸到此程式。
 
-I also want to give a special thanks for those who helped translate Vixipy. You
-guys are awesome.
+我還要特別感謝那些幫助翻譯 Vixipy 的貢獻者。你們真是太棒了。
 
-## License
-Copyright © 2024-2025 Vyxie and contributors
+## 許可證
+版權所有 © 2024-2025 Vyxie 及貢獻者
 
-Vixipy is free software. You can modify and redistribute the code under the
-terms of the GNU Affero General Public License version 3.
+Vixipy 是自由軟體。您可以根據 GNU Affero 通用公共許可證第 3 版條款修改和重製程式碼。
 
-Third-party libraries used are shown on the "About" page of the program. You can
-visit those repositories for their respective copyright and license notices.
+程式使用的第三方資料庫位於「關於」頁面。您可前往對應原始碼來源檢視其版權宣告與許可證資訊。
 
 ## Mirrors
 * [Codeberg (primary)](https://codeberg.org/vixipy/Vixipy)
