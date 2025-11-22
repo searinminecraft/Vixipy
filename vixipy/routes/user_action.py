@@ -86,6 +86,7 @@ async def follow_unfollow(id: int, action: Union["follow", "unfollow"]):
 async def perform_work_action(id: int, action: Union["bookmark", "like"]):
     f = await request.form
     isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
+    withinArtwork = f.get("within_illust")
     rt = f.get("return_to", "/")
 
     if action == "bookmark":
@@ -101,6 +102,23 @@ async def perform_work_action(id: int, action: Union["bookmark", "like"]):
         )
 
         if isQuickAction:
+
+            if withinArtwork:
+                return f"""
+                <form action="/self/action/delete_bookmark/{data['last_bookmark_id']}" method="post"
+                    hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false"
+                    hx-headers='{HX_HEADER}'>
+
+                    <input type="hidden" name="return_to" id="{request.path}">
+                    <input type="hidden" name="work_id" value="{id}">
+                    <input type="hidden" name="within_illust" value="1">
+
+                    <button type="submit" class="bookmarked">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-147q-14 0-28.5-5T426-168l-69-63q-106-97-191.5-192.5T80-634q0-94 63-157t157-63q53 0 100 22.5t80 61.5q33-39 80-61.5T660-854q94 0 157 63t63 157q0 115-85 211T602-230l-68 62q-11 11-25.5 16t-28.5 5Z"/></svg>
+                    </button>
+                </form>
+                """
+
             return f"""
 <form action="/self/action/delete_bookmark/{data['last_bookmark_id']}" method="post"
 hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false" hx-indicator="this"
@@ -205,6 +223,7 @@ async def add_favorite_tag():
 async def delete_bookmark(id: int):
     f = await request.form
     isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
+    withinArtwork = f.get("within_illust")
     rt = f.get("return_to", "/")
 
     await pixiv_request(
@@ -212,6 +231,23 @@ async def delete_bookmark(id: int):
     )
 
     if isQuickAction:
+        if withinArtwork:
+            return f"""
+                <form action="/self/action/works/{f['work_id']}/bookmark" method="post"
+                    hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false"
+                    hx-headers='{HX_HEADER}'>
+
+                    <input type="hidden" name="return_to" id="{request.path}">
+                    <input type="hidden" name="work_id" value="{f['work_id']}">
+                    <input type="hidden" name="within_illust" value="1">
+
+
+                    <button type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-147q-14 0-28.5-5T426-168l-69-63q-106-97-191.5-192.5T80-634q0-94 63-157t157-63q53 0 100 22.5t80 61.5q33-39 80-61.5T660-854q94 0 157 63t63 157q0 115-85 211T602-230l-68 62q-11 11-25.5 16t-28.5 5Zm-38-543q-29-41-62-62.5T300-774q-60 0-100 40t-40 100q0 52 37 110.5T285.5-410q51.5 55 106 103t88.5 79q34-31 88.5-79t106-103Q726-465 763-523.5T800-634q0-60-40-100t-100-40q-47 0-80 21.5T518-690q-7 10-17 15t-21 5q-11 0-21-5t-17-15Zm38 189Z"/></svg>
+                    </button>
+                </form>
+                """
+
         return f"""
 <form action="/self/action/works/{f['work_id']}/bookmark" method="post"
 hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false" hx-indicator="this"
