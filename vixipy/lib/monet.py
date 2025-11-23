@@ -21,6 +21,7 @@ from quart import current_app
 import time
 from typing import TYPE_CHECKING
 import asyncio
+from ..util import add_server_timing_metric
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
@@ -170,7 +171,12 @@ async def scheme_from_url(url: str, css=True, scheme: str = "tonal_spot"):
     end = time.perf_counter()
 
     log.debug("Image retrieval took %dms", (end - start) * 1000)
+    add_server_timing_metric("monet_img_download", (end - start) * 1000)
 
     fn = get_scheme_css if css else get_scheme
 
-    return await asyncio.get_running_loop().run_in_executor(None, fn, data, scheme)
+    proc_start = time.perf_counter()
+    res = await asyncio.get_running_loop().run_in_executor(None, fn, data, scheme)
+    proc_end = time.perf_counter()
+    add_server_timing_metric("monet_process_img", (proc_end - proc_start) * 1000)
+    return res

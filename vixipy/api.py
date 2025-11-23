@@ -13,6 +13,7 @@ import hashlib
 
 from .filters import filter_from_prefs as ff
 from .types import *
+from .util import add_server_timing_metric
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
@@ -199,6 +200,7 @@ async def pixiv_request(
     done_time = (time.perf_counter() - req_start) * 1000
 
     log.info("[done] [%dms] [%s]", done_time, endpoint)
+    add_server_timing_metric(f"api_{endpoint}", done_time)
 
     return res
 

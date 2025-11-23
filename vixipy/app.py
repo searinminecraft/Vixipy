@@ -44,6 +44,7 @@ from . import (
     error_handler,
     session as pixiv_session_handler,
     blacklist,
+    util
 )
 
 if TYPE_CHECKING:
@@ -241,6 +242,8 @@ def create_app():
         async def disable_cache(r: Response):
             r.headers["Cache-Control"] = "no-cache"
             return r
+    
+    util.init_app(app)
 
     # =================================
 
