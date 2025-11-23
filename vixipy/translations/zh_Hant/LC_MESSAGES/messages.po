@@ -522,8 +522,7 @@ msgid ""
 "novels, and Ugoira posted on pixiv, links to other pixiv services (e.g., "
 "pixiv Encyclopedia, BOOTH, pixivFANBOX), external links, and text, and "
 "showcase them on a single page."
-msgstr
-"珍藏冊功能（測試版）是能夠將投稿至pixiv的插畫、漫畫、小說、動圖、pixiv相關服務（如pixiv百科全書、BOOTH、pixivFANBOX等）、網站連結等內容，集中於同一個頁面內展示的功能。"
+msgstr "珍藏冊功能（測試版）是能夠將投稿至pixiv的插畫、漫畫、小說、動圖、pixiv相關服務（如pixiv百科全書、BOOTH、pixivFANBOX等）、網站連結等內容，集中於同一個頁面內展示的功能。"
 
 #: vixipy/templates/collection/index.html:12
 msgid ""
