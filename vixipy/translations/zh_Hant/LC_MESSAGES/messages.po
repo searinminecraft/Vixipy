@@ -1263,8 +1263,8 @@ msgid ""
 " as it can run Python 3.11 and above, and can compile Vixipy's native "
 "dependencies."
 msgstr ""
-"只要能執行 Python 3.11 及以上版本，並能編譯 Vixipy 的本地依賴項，Vixipy
-可幾乎在所有平臺和作業系統上執行（如 Windows、Linux、FreeBSD、Haiku、Android 等）"
+"只要能執行 Python 3.11 及以上版本，並能編譯 Vixipy 的本地依賴項，Vixipy, "
+"可幾乎在所有平臺和作業系統上執行（如 Windows、Linux、FreeBSD、Haiku、Android 等）"
 
 #: vixipy/templates/settings/about.html:25
 #: vixipy/templates/settings/acknowledgements.html:2
