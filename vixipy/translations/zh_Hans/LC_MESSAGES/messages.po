@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-14 21:16+0800\n"
-"PO-Revision-Date: 2025-11-21 11:44+0000\n"
+"PO-Revision-Date: 2025-11-23 05:42+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
@@ -608,11 +608,11 @@ msgstr "恋爱"
 
 #: vixipy/templates/components/novel-entry.html:24
 msgid "Isekai fantasy"
-msgstr "异世界幻想"
+msgstr "异世界奇幻"
 
 #: vixipy/templates/components/novel-entry.html:26
 msgid "Contemporary fantasy"
-msgstr "现代幻想"
+msgstr "现代奇幻"
 
 #: vixipy/templates/components/novel-entry.html:28
 msgid "Mystery"
@@ -632,11 +632,11 @@ msgstr "文学"
 
 #: vixipy/templates/components/novel-entry.html:36
 msgid "Drama"
-msgstr "剧情"
+msgstr "生活・情感"
 
 #: vixipy/templates/components/novel-entry.html:38
 msgid "Historical pieces"
-msgstr "历史作品"
+msgstr "历史・时代"
 
 #: vixipy/templates/components/novel-entry.html:40
 msgid "BL (yaoi)"
@@ -652,19 +652,19 @@ msgstr "儿童向"
 
 #: vixipy/templates/components/novel-entry.html:46
 msgid "Poetry"
-msgstr "诗歌"
+msgstr "散文・诗歌"
 
 #: vixipy/templates/components/novel-entry.html:48
 msgid "Essays/non-fiction"
-msgstr "随笔/非虚构"
+msgstr "随笔・纪实"
 
 #: vixipy/templates/components/novel-entry.html:50
 msgid "Screenplays/scripts"
-msgstr "剧本/脚本"
+msgstr "剧本・台本"
 
 #: vixipy/templates/components/novel-entry.html:52
 msgid "Reviews/opinion pieces"
-msgstr "评论/观点"
+msgstr "评论・感想"
 
 #: vixipy/templates/components/novel-entry.html:54
 msgid "Other"
