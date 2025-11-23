@@ -1207,8 +1207,8 @@ msgid ""
 "party server is made and all processing occurs server-side. No more "
 "Google Analytics tracking for every action!"
 msgstr ""
-"Vixipy 為您完成所有工作：不與 pixiv 或任何第三方伺服器建立連線，所有處理都在伺服端進行。不再有
-Google Analytics 的追蹤！"
+"Vixipy 為您完成所有工作：不與 pixiv 或任何第三方伺服器建立連線，所有處理都在伺服端進行。不再有"
+"Google Analytics 的追蹤！"
 
 #: vixipy/templates/settings/about.html:13
 msgid "Vixipy offers a lightweight and fast experience without any distraction."
