@@ -3,7 +3,7 @@ Installing it is pretty straight forward. These should work on most platforms.
 
 
 ## Regular method
-1. Install Python from your distribution or from python.org. At least 3.11 is required (if it works on older Python versions, let me know)
+1. Install Python from your distribution or from python.org. At least version 3.10 is required
 2. Clone the repository:
 ```sh
 daiwa@umamusume:~ $ git clone https://codeberg.org/vixipy/Vixipy
@@ -19,11 +19,15 @@ daiwa@umamusume:~/Vixipy $ python3 -m venv venv
 
 4. Activate the virtual environment:
 
+> [!NOTE]
+> If you are using Haiku, virtual environments are somewhat broken.
+> You can skip this step
+
 Windows:
 
 ```bat
 rem If using PowerShell, use .ps1 instead of .bat
-C:\Users\Daiwa Scarlet\Vixipy> .\venv\Scripts/activate.bat
+C:\Users\Daiwa Scarlet\Vixipy> .\venv\Scripts\activate.bat
 ```
 
 Linux, macOS, BSD:
@@ -34,8 +38,16 @@ daiwa@umamusume:~/Vixipy $ . venv/bin/activate
 
 5. Install the dependencies:
 
+All other platforms:
+
 ```sh
 (venv) daiwa@umamusume:~/Vixipy $ pip install -r requirements.txt
+```
+
+Haiku:
+
+```sh
+~/Vixipy > venv/non-packaged/bin/pip install -r requirements.txt
 ```
 
 6. Create and edit the configuration file. See [CONFIGURATION.md](./CONFIGURATION.md) for details.
@@ -75,6 +87,6 @@ daiwa@umamusume:~/Vixipy $ docker compose up -d
 
 # All set!
 
-Vixipy runs on http://127.0.0.1:8000 by default. To change the binding address, use the `--bind` argument. You may also use UNIX sockets by adding the `--bind unix:<name>.sock` argument.
+Vixipy runs on http://127.0.0.1:8000 and http://[::1]:8000 by default. To change the binding address, use the `--bind` argument. You may also use UNIX sockets by adding the `--bind unix:<name>.sock` argument.
 
 If exposing to the internet, it is recommended to use and configure a reverse proxy. See your reverse proxy documentation for details.
