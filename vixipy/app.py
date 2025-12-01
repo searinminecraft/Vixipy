@@ -267,7 +267,7 @@ def create_app():
         try:
             async with await app.open_instance_resource("custom/" + resource) as f:
                 r = await f.read()
-                return r, {"Content-Type": mimetypes.guess_file_type(resource)[0], **h}
+                return r, {"Content-Type": mimetypes.guess_type(resource)[0], **h}
         except Exception:
             async with await app.open_resource("static/" + resource) as f:
                 r = await f.read()
