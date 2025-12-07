@@ -188,6 +188,10 @@ async def search_dashboard():
     recommend_by_tag: list[RecommendByTag] = []
 
     for _pit in data["recommendTags"]["illust"]:
+        if len(_pit["ids"]) == 0:
+            log.error("ids for tag %s is empty (illustration deleted/private?), skipping", _pit["tag"])
+            continue
+        
         recommend_tags.append(
             RecommendTag(
                 _pit,
