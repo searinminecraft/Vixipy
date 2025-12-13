@@ -53,24 +53,24 @@ body {
 
 @keyframes page-transition-old {
     to {
-        transform: translateX(-20px);
+        transform: translateX(-10px);
         opacity: 0;
     }
 }
 
 @keyframes page-transition-new {
     from {
-        transform: translateX(35px);
+        transform: translateX(30px);
         opacity: 0
     }
 }
 
 ::view-transition-old(page-transition) {
-    animation: .07s linear page-transition-old both
+    animation: .04s linear page-transition-old both
 }
 
 ::view-transition-new(page-transition) {
-    animation: .35s cubic-bezier(.08, .82, .17, 1) page-transition-new both
+    animation: .3s cubic-bezier(.08, .82, .17, 1) page-transition-new both .03s
 }
 
 
