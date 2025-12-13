@@ -2,7 +2,7 @@ from quart import Blueprint, abort, current_app, g, render_template, request
 
 import logging
 
-from ..api import get_discovery, get_recommended_users
+from ..api.discovery import get_discovery, get_recommended_users
 from ..decorators import tokenless_require_login
 from ..filters import filter_from_prefs as ff
 

@@ -1,6 +1,7 @@
 from quart import Blueprint, abort, current_app, g, request, render_template
 
-from ..api import pixiv_request, get_ranking
+from ..api.handler import pixiv_request
+from ..api.ranking import get_ranking
 from ..converters import proxy
 from ..filters import filter_from_prefs as ff
 from ..types import Tag, ArtworkEntry, TagTranslation, RecommendByTag

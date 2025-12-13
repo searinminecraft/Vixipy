@@ -11,7 +11,7 @@ from quart import (
 )
 from quart_rate_limiter import limit_blueprint, timedelta
 
-from ..api import get_newest_works
+from ..api.artworks import get_newest_works
 from ..decorators import tokenless_require_login
 from typing import TYPE_CHECKING
 

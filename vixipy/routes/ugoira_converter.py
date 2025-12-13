@@ -9,7 +9,7 @@ from quart import (
 )
 from typing import TYPE_CHECKING
 
-from ..api import get_artwork
+from ..api.artworks import get_artwork
 
 if TYPE_CHECKING:
     from aiohttp import ClientResponse

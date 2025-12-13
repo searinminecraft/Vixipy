@@ -13,7 +13,7 @@ from quart import (
 )
 from quart_babel import _
 
-from ..api import pixiv_request, PixivError
+from ..api.handler import pixiv_request, PixivError
 from ..constants import LOGIN_PAGE_BACKGROUNDS
 from ..converters import proxy
 import logging

@@ -2,7 +2,7 @@ from quart import Blueprint, abort, g, redirect, render_template, request, url_f
 from quart_rate_limiter import timedelta, rate_limit
 
 from asyncio import gather
-from ..api import (
+from ..api.user import (
     get_user,
     get_user_profile_top,
     get_user_illusts,
@@ -10,8 +10,8 @@ from ..api import (
     get_user_followers,
     get_user_following,
     get_user_mypixiv,
-    pixiv_request,
 )
+from ..api.handler import pixiv_request
 from ..decorators import tokenless_require_login, require_login
 from ..filters import filter_from_prefs as ff
 from ..types import NovelEntry

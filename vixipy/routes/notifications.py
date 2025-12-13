@@ -2,7 +2,7 @@ from quart import (
     Blueprint,
     render_template,
 )
-from ..api import pixiv_request
+from ..api.handler import pixiv_request
 from ..converters import proxy, convert_pixiv_link
 from ..decorators import require_login
 

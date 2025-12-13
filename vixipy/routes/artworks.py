@@ -8,13 +8,15 @@ import logging
 import re
 from typing import TYPE_CHECKING
 
-from ..api import (
-    PixivError,
+from ..api.handler import PixivError
+from ..api.artworks import (
     get_artwork,
     get_artwork_pages,
     get_artwork_comments,
     get_artwork_replies,
     get_recommended_works,
+)
+from ..api.user import (
     get_user,
     get_user_illusts_from_ids,
 )

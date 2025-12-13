@@ -9,7 +9,7 @@ from quart import (
 
 from asyncio import gather
 from typing import TYPE_CHECKING
-from ..api import get_artwork, get_artwork_pages
+from ..api.artworks import get_artwork, get_artwork_pages
 from ..lib.monet import scheme_from_url, get_scheme_from_color
 
 if TYPE_CHECKING:

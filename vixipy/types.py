@@ -1,10 +1,12 @@
 from .converters import proxy, convert_pixiv_link
-from datetime import datetime
-from quart import request
-import markupsafe
-from bs4 import BeautifulSoup
 
+from bs4 import BeautifulSoup
+from enum import Enum
+from datetime import datetime
+import markupsafe
+from quart import request
 from typing import Optional
+
 
 NO_IMAGE = "https://s.pximg.net/common/images/no_profile.png"
 NO_IMAGE_S = "https://s.pximg.net/common/images/no_profile_s.png"
@@ -220,6 +222,42 @@ class RankingData:
 
         for x in d["contents"]:
             self.contents.append(RankingEntry(x))
+
+
+class MaskReason(Enum):
+    R18 = "r18"
+    R18G = "r18g"
+    UNKNOWN = "unknown"
+    SENSITIVITY_LEVEL = "sl"
+    MYPIXIV = "mypixiv"
+    MASKING = "masking"
+    LOGIN_ONLY = "login_only"
+
+
+class RankingCalendarEntry:
+    def __init__(self, d: dict):
+        self.day: int = int(d["day"])
+        self.week: str = d["week"]
+        self.img: Optional[str] = proxy(d.get("img"))
+        self.user_id: Optional[int] = int(d["user_id"]) if d.get("user_id") else None
+        self.tags: Optional[list[str]] = d["tags"] if d.get("tags") else None
+        self.is_masked: bool = d.get("is_masked") or False
+        self.mask_reason: Optional[MaskReason] = (
+            MaskReason(d["mask_reason"]) if d.get("mask_reason") else None
+        )
+
+
+class RankingCalendar:
+    def __init__(self, d: dict):
+        d = d["display_a"]
+        self.mode: str = d["mode"]
+        self.content: str = d["content"]
+        self.date: str = d["date"]
+        self.current_year: int = int(d["year_now"])
+        self.current_month: int = int(d["month_now"])
+        self.max_year: int = int(d["max_year"])
+        self.max_month: int = int(d["max_month"])
+        self.calendar = [RankingCalendarEntry(x) for x in d["calendar"]]
 
 
 class NovelBase:

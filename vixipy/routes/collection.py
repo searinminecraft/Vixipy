@@ -1,6 +1,6 @@
 from quart import abort, render_template, Blueprint
 
-from ..api import pixiv_request
+from ..api.handler import pixiv_request
 from ..converters import proxy
 from ..types import ArtworkEntry, CollectionEntry, TagTranslation
 

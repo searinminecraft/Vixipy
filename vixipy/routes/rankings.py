@@ -4,7 +4,7 @@ from quart import Blueprint, current_app, abort, request, render_template, url_f
 from quart_rate_limiter import RateLimit, rate_limit, timedelta
 
 from ..lib.scrapes import get_ranking_calendar
-from ..api import get_ranking
+from ..api.ranking import get_ranking
 
 from datetime import datetime, timedelta
 from typing import TYPE_CHECKING

@@ -16,7 +16,8 @@ import logging
 import random
 from typing import TYPE_CHECKING
 from urllib.parse import quote
-from ..api import pixiv_request, search, get_tag_info
+from ..api.handler import pixiv_request
+from ..api.search import search, get_tag_info
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
 from ..lib.scrapes import get_popular_tags

@@ -11,7 +11,7 @@ from quart import (
     make_response,
 )
 
-from ..api import pixiv_request
+from ..api.handler import pixiv_request
 import babel
 import logging
 from typing import TYPE_CHECKING

@@ -14,7 +14,7 @@ from datetime import datetime
 import logging
 import json
 from typing import TYPE_CHECKING
-from ..api import pixiv_request
+from ..api.handler import pixiv_request
 from ..converters import proxy
 
 if TYPE_CHECKING:

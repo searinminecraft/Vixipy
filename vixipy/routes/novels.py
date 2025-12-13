@@ -11,14 +11,14 @@ from quart import (
 )
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit, rate_limit
 
-from ..api import (
+from ..api.novels import (
     get_novel,
-    get_user,
     get_recommended_novels,
     get_novel_series,
     get_novel_series_contents,
-    pixiv_request,
 )
+from ..api.handler import pixiv_request
+from ..api.user import get_user
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
 from ..types import NovelEntry, NovelSeriesEntry

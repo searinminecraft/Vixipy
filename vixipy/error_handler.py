@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from .api import PixivError
+from .api.handler import PixivError
 from .routes.api import handle_bad_request as api_handle_bad_request
 from quart import render_template, make_response, request
 from werkzeug.exceptions import HTTPException

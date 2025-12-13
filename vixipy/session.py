@@ -6,7 +6,7 @@ from asyncio import gather
 from quart import g, request
 from typing import TYPE_CHECKING
 
-from .api import get_notification_count, get_self_extra, get_user
+from .api.user import get_notification_count, get_self_extra, get_user
 
 if TYPE_CHECKING:
     from quart import Quart

@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from quart import Blueprint, make_response, request, redirect, url_for, g, abort
 
-from ..api import pixiv_request, get_tag_info
+from ..api.handler import pixiv_request
+from ..api.search import get_tag_info
 from typing import TYPE_CHECKING
 from urllib.parse import quote
 from quart_babel import lazy_gettext as _l
