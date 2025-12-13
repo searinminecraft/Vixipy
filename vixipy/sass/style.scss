@@ -60,17 +60,17 @@ body {
 
 @keyframes page-transition-new {
     from {
-        transform: translateX(30px);
+        transform: translateX(35px);
         opacity: 0
     }
 }
 
 ::view-transition-old(page-transition) {
-    animation: .17s linear page-transition-old
+    animation: .07s linear page-transition-old both
 }
 
 ::view-transition-new(page-transition) {
-    animation: .45s cubic-bezier(.08,.82,.17,1) page-transition-new
+    animation: .35s cubic-bezier(.08, .82, .17, 1) page-transition-new both
 }
 
 
@@ -79,12 +79,14 @@ a {
     text-decoration: none;
 }
 
-body>main {
-    margin: 0 auto;
-    max-width: 1000px;
-    padding: 2em 1em;
-
+body>.root {
     view-transition-name: page-transition;
+
+    >main {
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 2em 1em;
+    }
 }
 
 #loading {

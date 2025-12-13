@@ -1,7 +1,18 @@
 from __future__ import annotations
 
+import logging
+
 from .handler import pixiv_request
-from ..types import Artwork, ArtworkPage, ArtworkEntry, Comment, CommentBaseResponse
+from ..types import (
+    Artwork,
+    ArtworkPage,
+    ArtworkEntry,
+    Comment,
+    CommentBaseResponse,
+    NewIllustResponse,
+)
+
+log = logging.getLogger(__name__)
 
 
 async def get_artwork(id: int) -> Artwork:
