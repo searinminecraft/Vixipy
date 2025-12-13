@@ -51,6 +51,29 @@ body {
     accent-color: var(--md-sys-color-primary);
 }
 
+@keyframes page-transition-old {
+    to {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+}
+
+@keyframes page-transition-new {
+    from {
+        transform: translateX(30px);
+        opacity: 0
+    }
+}
+
+::view-transition-old(page-transition) {
+    animation: .17s linear page-transition-old
+}
+
+::view-transition-new(page-transition) {
+    animation: .45s cubic-bezier(.08,.82,.17,1) page-transition-new
+}
+
+
 a {
     color: var(--md-sys-color-primary);
     text-decoration: none;
@@ -61,9 +84,7 @@ body>main {
     max-width: 1000px;
     padding: 2em 1em;
 
-    &:not(.no-transition) {
-        animation: .15s ease 0s normal appear-transition;
-    }
+    view-transition-name: page-transition;
 }
 
 #loading {
@@ -85,13 +106,6 @@ body>main {
 
 .no-js {
     display: none;
-}
-
-@keyframes appear-transition {
-    from {
-        opacity: 0;
-        transform: translateY(50px)
-    }
 }
 
 @keyframes loading {
