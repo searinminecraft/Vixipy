@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-14 21:16+0800\n"
+"POT-Creation-Date: 2025-12-18 22:46+0800\n"
 "PO-Revision-Date: 2025-11-14 14:12+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.14\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -357,7 +356,8 @@ msgid "Continue to site"
 msgstr "Magpatuloy sa site"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:59
+#: vixipy/templates/login.html:73 vixipy/templates/settings/account.html:87
+#: vixipy/templates/users/dashboard.html:59
 msgid "Sign in"
 msgstr "Mag-sign in"
 
@@ -552,10 +552,10 @@ msgid ""
 "pixiv Encyclopedia, BOOTH, pixivFANBOX), external links, and text, and "
 "showcase them on a single page."
 msgstr ""
-"Nagbibigay-daan sa iyo ang Koleksyon na Feature (Beta) na ipagsamasama ang "
-"mga larawan, manga, at Ugoira na naka-post sa pixiv, mga link sa iba pang "
-"serbisyo ng pixiv (hal. pixiv Encyclopedia, BOOTH, pixivFANBOX), mga "
-"panlabas na link, at teksto, at ipakita sila sa iisang pahina."
+"Nagbibigay-daan sa iyo ang Koleksyon na Feature (Beta) na ipagsamasama "
+"ang mga larawan, manga, at Ugoira na naka-post sa pixiv, mga link sa iba "
+"pang serbisyo ng pixiv (hal. pixiv Encyclopedia, BOOTH, pixivFANBOX), mga"
+" panlabas na link, at teksto, at ipakita sila sa iisang pahina."
 
 #: vixipy/templates/collection/index.html:12
 msgid ""
@@ -563,7 +563,8 @@ msgid ""
 "experimental. Things may change or break at any time!"
 msgstr ""
 "Ang Koleksyon na Feature sa Vixipy, tulad sa pixiv, ay kasalukuyang pang-"
-"eksperimento. Maaring magbago o masira ang mga bagay-bagay sa anumang oras!"
+"eksperimento. Maaring magbago o masira ang mga bagay-bagay sa anumang "
+"oras!"
 
 #: vixipy/templates/collection/index.html:15
 msgid "Recommended collections"
@@ -720,110 +721,6 @@ msgstr "%(cc)s (mga) karakter"
 msgid "Page %(current)d of %(last)d"
 msgstr "Pahina %(current)d/%(last)d"
 
-#: vixipy/templates/components/tag-search-filter.html:4
-#: vixipy/templates/components/tag-search-filter.html:19
-msgid "Search options"
-msgstr "Mga opsyon sa paghahanap"
-
-#: vixipy/templates/components/tag-search-filter.html:21
-msgid "Keywords"
-msgstr "Mga Keyword"
-
-#: vixipy/templates/components/tag-search-filter.html:26
-msgid "Target"
-msgstr "Target"
-
-#: vixipy/templates/components/tag-search-filter.html:28
-msgid "Tags (perfect match)"
-msgstr "Mga Tag (perpektong tugma)"
-
-#: vixipy/templates/components/tag-search-filter.html:29
-msgid "Tags (partial match)"
-msgstr "Mga Tag (bahagyang tugma)"
-
-#: vixipy/templates/components/tag-search-filter.html:30
-msgid "Title/caption"
-msgstr "Paksa/caption"
-
-#: vixipy/templates/components/tag-search-filter.html:36
-msgid "Filters"
-msgstr "Mga Filter"
-
-#: vixipy/templates/components/tag-search-filter.html:38
-#: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:15
-msgid "Mode"
-msgstr "Mode"
-
-#: vixipy/templates/components/tag-search-filter.html:40
-msgid "All"
-msgstr "Lahat"
-
-#: vixipy/templates/components/tag-search-filter.html:41
-msgid "Safe"
-msgstr "Ligtas"
-
-#: vixipy/templates/components/tag-search-filter.html:42
-#: vixipy/templates/newest/index.html:33
-msgid "R-18"
-msgstr "R-18"
-
-#: vixipy/templates/components/tag-search-filter.html:47
-msgid "Width"
-msgstr "Lapad"
-
-#: vixipy/templates/components/tag-search-filter.html:49
-#: vixipy/templates/components/tag-search-filter.html:56
-msgid "min"
-msgstr "min"
-
-#: vixipy/templates/components/tag-search-filter.html:50
-#: vixipy/templates/components/tag-search-filter.html:57
-msgid "max"
-msgstr "max"
-
-#: vixipy/templates/components/tag-search-filter.html:54
-msgid "Height"
-msgstr "Taas"
-
-#: vixipy/templates/components/tag-search-filter.html:61
-msgid "Ratio"
-msgstr "Ratio"
-
-#: vixipy/templates/components/tag-search-filter.html:63
-msgid "All ratios"
-msgstr "Lahat ng mga ratio"
-
-#: vixipy/templates/components/tag-search-filter.html:64
-msgid "Horizontal"
-msgstr "Pahalang"
-
-#: vixipy/templates/components/tag-search-filter.html:65
-msgid "Vertical"
-msgstr "Patayo"
-
-#: vixipy/templates/components/tag-search-filter.html:66
-msgid "Square"
-msgstr "Parisukat"
-
-#: vixipy/templates/components/tag-search-filter.html:71
-msgid "Tool"
-msgstr "Kagamitan"
-
-#: vixipy/templates/components/tag-search-filter.html:72
-msgid "All tools"
-msgstr "Lahat ng mga kagamitan"
-
-#: vixipy/templates/components/tag-search-filter.html:182
-msgid "Period"
-msgstr "Panahon"
-
-#: vixipy/templates/components/tag-search-filter.html:190
-#: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:54
-msgid "Apply"
-msgstr "I-apply"
-
 #: vixipy/templates/discovery/illustrations.html:14
 msgid "Nothing to recommend. Sorry!"
 msgstr "Walang irerekomenda. Paumanhin!"
@@ -856,7 +753,7 @@ msgstr "Pinakabago mula sa lahat ng mga user"
 #: vixipy/templates/pixivision/category_name.html:6
 #: vixipy/templates/pixivision/index.html:39
 #: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
-#: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
+#: vixipy/templates/search/illust.html:15 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
 #: vixipy/templates/users/base.html:157 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
@@ -875,6 +772,11 @@ msgstr "Mga Manga"
 #: vixipy/templates/newest/index.html:32
 msgid "General"
 msgstr "General"
+
+#: vixipy/templates/newest/index.html:33
+#: vixipy/templates/search/components/tag-search-filter.html:42
+msgid "R-18"
+msgstr "R-18"
 
 #: vixipy/templates/newest/novel.html:2
 msgid "Newest novels by all users"
@@ -1056,6 +958,12 @@ msgstr "Ipakita ang mga opsyon"
 msgid "Options"
 msgstr "Mga opsyon"
 
+#: vixipy/templates/rankings/calendar.html:14
+#: vixipy/templates/rankings/main.html:15
+#: vixipy/templates/search/components/tag-search-filter.html:38
+msgid "Mode"
+msgstr "Mode"
+
 #: vixipy/templates/rankings/calendar.html:16
 #: vixipy/templates/rankings/main.html:17
 msgid "Daily"
@@ -1121,6 +1029,12 @@ msgstr "Popular sa mga babaeng gumagamit (R-18)"
 msgid "Date"
 msgstr "Petsa"
 
+#: vixipy/templates/rankings/calendar.html:42
+#: vixipy/templates/rankings/main.html:54
+#: vixipy/templates/search/components/tag-search-filter.html:183
+msgid "Apply"
+msgstr "I-apply"
+
 #: vixipy/templates/rankings/calendar.html:72
 #, python-format
 msgid "Day %(day)s"
@@ -1153,7 +1067,12 @@ msgstr "Mga inirerekomendang #%(tag)s na gawa"
 msgid "Top"
 msgstr "Top"
 
-#: vixipy/templates/search/illust.html:26 vixipy/templates/search/main.html:59
+#: vixipy/templates/search/components/tag-search-filter.html:15
+#: vixipy/templates/search/illust.html:12
+msgid "Search options"
+msgstr "Mga opsyon sa paghahanap"
+
+#: vixipy/templates/search/illust.html:27 vixipy/templates/search/main.html:59
 #: vixipy/templates/search/manga.html:25 vixipy/templates/search/novel.html:27
 msgid "No matching results found."
 msgstr "Walang mga tumutugma na resulta na nahanap."
@@ -1203,6 +1122,93 @@ msgstr "Mga Larawan at Manga"
 #: vixipy/templates/search/popular_tags.html:28
 msgid "Unable to load popular tags."
 msgstr "Hindi ma-load ang mga sikat na tag."
+
+#: vixipy/templates/search/components/tag-search-filter.html:26
+msgid "Keywords"
+msgstr "Mga Keyword"
+
+#: vixipy/templates/search/components/tag-search-filter.html:29
+msgid "Target"
+msgstr "Target"
+
+#: vixipy/templates/search/components/tag-search-filter.html:31
+msgid "Tags (perfect match)"
+msgstr "Mga Tag (perpektong tugma)"
+
+#: vixipy/templates/search/components/tag-search-filter.html:33
+msgid "Tags (partial match)"
+msgstr "Mga Tag (bahagyang tugma)"
+
+#: vixipy/templates/search/components/tag-search-filter.html:34
+msgid "Title/caption"
+msgstr "Paksa/caption"
+
+#: vixipy/templates/search/components/tag-search-filter.html:37
+msgid "Filters"
+msgstr "Mga Filter"
+
+#: vixipy/templates/search/components/tag-search-filter.html:40
+msgid "All"
+msgstr "Lahat"
+
+#: vixipy/templates/search/components/tag-search-filter.html:41
+msgid "Safe"
+msgstr "Ligtas"
+
+#: vixipy/templates/search/components/tag-search-filter.html:45
+msgid "Width"
+msgstr "Lapad"
+
+#: vixipy/templates/search/components/tag-search-filter.html:47
+#: vixipy/templates/search/components/tag-search-filter.html:53
+msgid "min"
+msgstr "min"
+
+#: vixipy/templates/search/components/tag-search-filter.html:48
+#: vixipy/templates/search/components/tag-search-filter.html:54
+msgid "max"
+msgstr "max"
+
+#: vixipy/templates/search/components/tag-search-filter.html:51
+msgid "Height"
+msgstr "Taas"
+
+#: vixipy/templates/search/components/tag-search-filter.html:57
+msgid "Ratio"
+msgstr "Ratio"
+
+#: vixipy/templates/search/components/tag-search-filter.html:59
+msgid "All ratios"
+msgstr "Lahat ng mga ratio"
+
+#: vixipy/templates/search/components/tag-search-filter.html:60
+msgid "Horizontal"
+msgstr "Pahalang"
+
+#: vixipy/templates/search/components/tag-search-filter.html:61
+msgid "Vertical"
+msgstr "Patayo"
+
+#: vixipy/templates/search/components/tag-search-filter.html:62
+msgid "Square"
+msgstr "Parisukat"
+
+#: vixipy/templates/search/components/tag-search-filter.html:65
+msgid "Tool"
+msgstr "Kagamitan"
+
+#: vixipy/templates/search/components/tag-search-filter.html:66
+msgid "All tools"
+msgstr "Lahat ng mga kagamitan"
+
+#: vixipy/templates/search/components/tag-search-filter.html:173
+msgid "Period"
+msgstr "Panahon"
+
+#: vixipy/templates/search/components/tag-search-filter.html:181
+#: vixipy/templates/users/dashboard.html:197
+msgid "Cancel"
+msgstr "Kanselahin"
 
 #: vixipy/templates/settings/about.html:2
 #: vixipy/templates/settings/about.html:5
@@ -1334,6 +1340,90 @@ msgstr ""
 msgid "Acknowledgements"
 msgstr "Mga Pasasalamat"
 
+#: vixipy/templates/settings/account.html:2
+#: vixipy/templates/settings/account.html:5
+#: vixipy/templates/settings/index.html:16
+msgid "Account"
+msgstr "Account"
+
+#: vixipy/templates/settings/account.html:8
+#, fuzzy
+msgid "Manage pixiv account"
+msgstr "gamit ang iyong pixiv account."
+
+#: vixipy/templates/settings/account.html:9
+msgid ""
+"To manage your account information and security settings, go to the "
+"official Account Portal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:11
+msgid "Go to Account Portal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:21
+#, python-format
+msgid ""
+"You change your nickname and customize your profile in the <a "
+"href='%(link)s'>Profile editor</a>."
+msgstr ""
+
+#: vixipy/templates/settings/account.html:25
+#, fuzzy
+msgid "Account Token"
+msgstr "Account"
+
+#: vixipy/templates/settings/account.html:29
+#: vixipy/templates/settings/account.html:42
+#: vixipy/templates/settings/account.html:64
+msgid "Click to reveal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:34
+msgid ""
+"This is the token used to sign into your pixiv account. You may use this "
+"if you forget your token or want to move instances or pixiv frontends."
+msgstr ""
+
+#: vixipy/templates/settings/account.html:38
+#, fuzzy
+msgid "Email"
+msgstr "Babae"
+
+#: vixipy/templates/settings/account.html:55
+#, python-format
+msgid ""
+"The pixiv ID is your \"account handle\", which is served as a short "
+"vanity link to your account. Example: pixiv.me/%(handle)s (or %(example)s"
+" for Vixipy). "
+msgstr ""
+
+#: vixipy/templates/settings/account.html:58
+msgid "Technical information"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:60
+#, fuzzy
+msgid "CSRF Token"
+msgstr "Token"
+
+#: vixipy/templates/settings/account.html:72
+msgid "pixiv A/B test IDs"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:85
+msgid "You're not logged in"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:86
+#, fuzzy
+msgid ""
+"Sign in to your pixiv account to experience Vixipy to it's full "
+"potential. Don't worry, we won't steal your session tokens!"
+msgstr ""
+"<b>Hindi ka naka-log in.</b> Mag-sign in sa iyong pixiv account para "
+"maranasan ang Vixipy sa buong potensyal."
+
 #: vixipy/templates/settings/acknowledgements.html:7
 msgid "Projects"
 msgstr "Mga proyekto"
@@ -1409,10 +1499,6 @@ msgstr "Mga Setting"
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
 msgstr "Mga setting sa Vixipy"
-
-#: vixipy/templates/settings/index.html:16
-msgid "Account"
-msgstr "Account"
 
 #: vixipy/templates/settings/index.html:18
 #: vixipy/templates/settings/language.html:3
@@ -1596,10 +1682,6 @@ msgstr "Magpadala ng Feedback"
 msgid "Source Code"
 msgstr "Source Code"
 
-#: vixipy/templates/users/dashboard.html:197
-msgid "Cancel"
-msgstr "Kanselahin"
-
 #: vixipy/templates/users/dashboard.html:198
 msgid "OK"
 msgstr "OK"
@@ -1651,3 +1733,4 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
+

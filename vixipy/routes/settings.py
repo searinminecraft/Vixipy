@@ -94,6 +94,14 @@ async def set_color():
     return r
 
 
+@bp.route("/settings/account")
+async def account():
+    if g.authorized:
+        account_data = await pixiv_request("/ajax/settings/self")
+        return await render_template("settings/account.html", account_data=account_data)
+    else:
+        return await render_template("settings/account.html")
+
 @bp.route("/settings/viewing")
 async def viewing():
     if not current_app.no_token or g.authorized:

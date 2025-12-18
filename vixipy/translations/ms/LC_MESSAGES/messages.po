@@ -1,4 +1,4 @@
-# Translations template for Vixipy.
+# Malay translations for Vixipy.
 # Copyright (C) 2025 Vyxie and contributors
 # This file is distributed under the same license as the Vixipy project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-14 21:16+0800\n"
+"POT-Creation-Date: 2025-12-18 22:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
 "Language: ms\n"
+"Language-Team: none\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -351,7 +351,8 @@ msgid "Continue to site"
 msgstr ""
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:59
+#: vixipy/templates/login.html:73 vixipy/templates/settings/account.html:87
+#: vixipy/templates/users/dashboard.html:59
 msgid "Sign in"
 msgstr ""
 
@@ -683,110 +684,6 @@ msgstr ""
 msgid "Page %(current)d of %(last)d"
 msgstr ""
 
-#: vixipy/templates/components/tag-search-filter.html:4
-#: vixipy/templates/components/tag-search-filter.html:19
-msgid "Search options"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:21
-msgid "Keywords"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:26
-msgid "Target"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:28
-msgid "Tags (perfect match)"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:29
-msgid "Tags (partial match)"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:30
-msgid "Title/caption"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:36
-msgid "Filters"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:38
-#: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:15
-msgid "Mode"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:40
-msgid "All"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:41
-msgid "Safe"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:42
-#: vixipy/templates/newest/index.html:33
-msgid "R-18"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:47
-msgid "Width"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:49
-#: vixipy/templates/components/tag-search-filter.html:56
-msgid "min"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:50
-#: vixipy/templates/components/tag-search-filter.html:57
-msgid "max"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:54
-msgid "Height"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:61
-msgid "Ratio"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:63
-msgid "All ratios"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:64
-msgid "Horizontal"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:65
-msgid "Vertical"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:66
-msgid "Square"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:71
-msgid "Tool"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:72
-msgid "All tools"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:182
-msgid "Period"
-msgstr ""
-
-#: vixipy/templates/components/tag-search-filter.html:190
-#: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:54
-msgid "Apply"
-msgstr ""
-
 #: vixipy/templates/discovery/illustrations.html:14
 msgid "Nothing to recommend. Sorry!"
 msgstr ""
@@ -819,7 +716,7 @@ msgstr ""
 #: vixipy/templates/pixivision/category_name.html:6
 #: vixipy/templates/pixivision/index.html:39
 #: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
-#: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
+#: vixipy/templates/search/illust.html:15 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
 #: vixipy/templates/users/base.html:157 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
@@ -837,6 +734,11 @@ msgstr ""
 
 #: vixipy/templates/newest/index.html:32
 msgid "General"
+msgstr ""
+
+#: vixipy/templates/newest/index.html:33
+#: vixipy/templates/search/components/tag-search-filter.html:42
+msgid "R-18"
 msgstr ""
 
 #: vixipy/templates/newest/novel.html:2
@@ -1019,6 +921,12 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
+#: vixipy/templates/rankings/calendar.html:14
+#: vixipy/templates/rankings/main.html:15
+#: vixipy/templates/search/components/tag-search-filter.html:38
+msgid "Mode"
+msgstr ""
+
 #: vixipy/templates/rankings/calendar.html:16
 #: vixipy/templates/rankings/main.html:17
 msgid "Daily"
@@ -1084,6 +992,12 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+#: vixipy/templates/rankings/calendar.html:42
+#: vixipy/templates/rankings/main.html:54
+#: vixipy/templates/search/components/tag-search-filter.html:183
+msgid "Apply"
+msgstr ""
+
 #: vixipy/templates/rankings/calendar.html:72
 #, python-format
 msgid "Day %(day)s"
@@ -1116,7 +1030,12 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: vixipy/templates/search/illust.html:26 vixipy/templates/search/main.html:59
+#: vixipy/templates/search/components/tag-search-filter.html:15
+#: vixipy/templates/search/illust.html:12
+msgid "Search options"
+msgstr ""
+
+#: vixipy/templates/search/illust.html:27 vixipy/templates/search/main.html:59
 #: vixipy/templates/search/manga.html:25 vixipy/templates/search/novel.html:27
 msgid "No matching results found."
 msgstr ""
@@ -1163,6 +1082,93 @@ msgstr ""
 
 #: vixipy/templates/search/popular_tags.html:28
 msgid "Unable to load popular tags."
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:26
+msgid "Keywords"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:29
+msgid "Target"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:31
+msgid "Tags (perfect match)"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:33
+msgid "Tags (partial match)"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:34
+msgid "Title/caption"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:37
+msgid "Filters"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:40
+msgid "All"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:41
+msgid "Safe"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:45
+msgid "Width"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:47
+#: vixipy/templates/search/components/tag-search-filter.html:53
+msgid "min"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:48
+#: vixipy/templates/search/components/tag-search-filter.html:54
+msgid "max"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:51
+msgid "Height"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:57
+msgid "Ratio"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:59
+msgid "All ratios"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:60
+msgid "Horizontal"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:61
+msgid "Vertical"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:62
+msgid "Square"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:65
+msgid "Tool"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:66
+msgid "All tools"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:173
+msgid "Period"
+msgstr ""
+
+#: vixipy/templates/search/components/tag-search-filter.html:181
+#: vixipy/templates/users/dashboard.html:197
+msgid "Cancel"
 msgstr ""
 
 #: vixipy/templates/settings/about.html:2
@@ -1260,6 +1266,83 @@ msgstr ""
 msgid "Acknowledgements"
 msgstr ""
 
+#: vixipy/templates/settings/account.html:2
+#: vixipy/templates/settings/account.html:5
+#: vixipy/templates/settings/index.html:16
+msgid "Account"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:8
+msgid "Manage pixiv account"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:9
+msgid ""
+"To manage your account information and security settings, go to the "
+"official Account Portal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:11
+msgid "Go to Account Portal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:21
+#, python-format
+msgid ""
+"You change your nickname and customize your profile in the <a "
+"href='%(link)s'>Profile editor</a>."
+msgstr ""
+
+#: vixipy/templates/settings/account.html:25
+msgid "Account Token"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:29
+#: vixipy/templates/settings/account.html:42
+#: vixipy/templates/settings/account.html:64
+msgid "Click to reveal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:34
+msgid ""
+"This is the token used to sign into your pixiv account. You may use this "
+"if you forget your token or want to move instances or pixiv frontends."
+msgstr ""
+
+#: vixipy/templates/settings/account.html:38
+msgid "Email"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:55
+#, python-format
+msgid ""
+"The pixiv ID is your \"account handle\", which is served as a short "
+"vanity link to your account. Example: pixiv.me/%(handle)s (or %(example)s"
+" for Vixipy). "
+msgstr ""
+
+#: vixipy/templates/settings/account.html:58
+msgid "Technical information"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:60
+msgid "CSRF Token"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:72
+msgid "pixiv A/B test IDs"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:85
+msgid "You're not logged in"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:86
+msgid ""
+"Sign in to your pixiv account to experience Vixipy to it's full "
+"potential. Don't worry, we won't steal your session tokens!"
+msgstr ""
+
 #: vixipy/templates/settings/acknowledgements.html:7
 msgid "Projects"
 msgstr ""
@@ -1332,10 +1415,6 @@ msgstr ""
 #: vixipy/templates/settings/index.html:15
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
-msgstr ""
-
-#: vixipy/templates/settings/index.html:16
-msgid "Account"
 msgstr ""
 
 #: vixipy/templates/settings/index.html:18
@@ -1512,10 +1591,6 @@ msgstr ""
 msgid "Source Code"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html:197
-msgid "Cancel"
-msgstr ""
-
 #: vixipy/templates/users/dashboard.html:198
 msgid "OK"
 msgstr ""
@@ -1567,3 +1642,4 @@ msgstr ""
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr ""
+

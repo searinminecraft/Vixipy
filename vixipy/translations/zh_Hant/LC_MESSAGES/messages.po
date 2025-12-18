@@ -1,4 +1,4 @@
-# Translations template for Vixipy.
+# Chinese (Traditional) translations for Vixipy.
 # Copyright (C) 2025 Vyxie and contributors
 # This file is distributed under the same license as the Vixipy project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-14 21:16+0800\n"
+"POT-Creation-Date: 2025-12-18 22:46+0800\n"
 "PO-Revision-Date: 2025-11-23 05:42+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Chinese (Traditional Han script) <https://"
-"translate.codeberg.org/projects/vixipy/user-interface/zh_Hant/>\n"
 "Language: zh_Hant\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Chinese (Traditional Han script) "
+"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hant/>"
+"\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -353,7 +353,8 @@ msgid "Continue to site"
 msgstr "繼續訪問"
 
 #: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/users/dashboard.html:59
+#: vixipy/templates/login.html:73 vixipy/templates/settings/account.html:87
+#: vixipy/templates/users/dashboard.html:59
 msgid "Sign in"
 msgstr "登入"
 
@@ -685,110 +686,6 @@ msgstr "%(cc)s 字元"
 msgid "Page %(current)d of %(last)d"
 msgstr "第 %(current)d 頁/共 %(last)d 頁"
 
-#: vixipy/templates/components/tag-search-filter.html:4
-#: vixipy/templates/components/tag-search-filter.html:19
-msgid "Search options"
-msgstr "搜尋選項"
-
-#: vixipy/templates/components/tag-search-filter.html:21
-msgid "Keywords"
-msgstr "關鍵字"
-
-#: vixipy/templates/components/tag-search-filter.html:26
-msgid "Target"
-msgstr "目標"
-
-#: vixipy/templates/components/tag-search-filter.html:28
-msgid "Tags (perfect match)"
-msgstr "標籤（完全匹配）"
-
-#: vixipy/templates/components/tag-search-filter.html:29
-msgid "Tags (partial match)"
-msgstr "標籤（部分匹配）"
-
-#: vixipy/templates/components/tag-search-filter.html:30
-msgid "Title/caption"
-msgstr "標題/說明"
-
-#: vixipy/templates/components/tag-search-filter.html:36
-msgid "Filters"
-msgstr "篩選"
-
-#: vixipy/templates/components/tag-search-filter.html:38
-#: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:15
-msgid "Mode"
-msgstr "模式"
-
-#: vixipy/templates/components/tag-search-filter.html:40
-msgid "All"
-msgstr "全部"
-
-#: vixipy/templates/components/tag-search-filter.html:41
-msgid "Safe"
-msgstr "全年齡"
-
-#: vixipy/templates/components/tag-search-filter.html:42
-#: vixipy/templates/newest/index.html:33
-msgid "R-18"
-msgstr "R-18"
-
-#: vixipy/templates/components/tag-search-filter.html:47
-msgid "Width"
-msgstr "寬度"
-
-#: vixipy/templates/components/tag-search-filter.html:49
-#: vixipy/templates/components/tag-search-filter.html:56
-msgid "min"
-msgstr "最小"
-
-#: vixipy/templates/components/tag-search-filter.html:50
-#: vixipy/templates/components/tag-search-filter.html:57
-msgid "max"
-msgstr "最大"
-
-#: vixipy/templates/components/tag-search-filter.html:54
-msgid "Height"
-msgstr "高度"
-
-#: vixipy/templates/components/tag-search-filter.html:61
-msgid "Ratio"
-msgstr "比例"
-
-#: vixipy/templates/components/tag-search-filter.html:63
-msgid "All ratios"
-msgstr "所有比例"
-
-#: vixipy/templates/components/tag-search-filter.html:64
-msgid "Horizontal"
-msgstr "橫向"
-
-#: vixipy/templates/components/tag-search-filter.html:65
-msgid "Vertical"
-msgstr "縱向"
-
-#: vixipy/templates/components/tag-search-filter.html:66
-msgid "Square"
-msgstr "方形"
-
-#: vixipy/templates/components/tag-search-filter.html:71
-msgid "Tool"
-msgstr "工具"
-
-#: vixipy/templates/components/tag-search-filter.html:72
-msgid "All tools"
-msgstr "全部工具"
-
-#: vixipy/templates/components/tag-search-filter.html:182
-msgid "Period"
-msgstr "時段"
-
-#: vixipy/templates/components/tag-search-filter.html:190
-#: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:54
-msgid "Apply"
-msgstr "應用"
-
 #: vixipy/templates/discovery/illustrations.html:14
 msgid "Nothing to recommend. Sorry!"
 msgstr "抱歉，暫無推薦內容！"
@@ -821,7 +718,7 @@ msgstr "所有使用者最新內容"
 #: vixipy/templates/pixivision/category_name.html:6
 #: vixipy/templates/pixivision/index.html:39
 #: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
-#: vixipy/templates/search/illust.html:14 vixipy/templates/search/main.html:8
+#: vixipy/templates/search/illust.html:15 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
 #: vixipy/templates/users/base.html:157 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
@@ -840,6 +737,11 @@ msgstr "漫畫"
 #: vixipy/templates/newest/index.html:32
 msgid "General"
 msgstr "常規"
+
+#: vixipy/templates/newest/index.html:33
+#: vixipy/templates/search/components/tag-search-filter.html:42
+msgid "R-18"
+msgstr "R-18"
 
 #: vixipy/templates/newest/novel.html:2
 msgid "Newest novels by all users"
@@ -1021,6 +923,12 @@ msgstr "顯示選項"
 msgid "Options"
 msgstr "選項"
 
+#: vixipy/templates/rankings/calendar.html:14
+#: vixipy/templates/rankings/main.html:15
+#: vixipy/templates/search/components/tag-search-filter.html:38
+msgid "Mode"
+msgstr "模式"
+
 #: vixipy/templates/rankings/calendar.html:16
 #: vixipy/templates/rankings/main.html:17
 msgid "Daily"
@@ -1086,6 +994,12 @@ msgstr "女性向熱門（R-18）"
 msgid "Date"
 msgstr "日期"
 
+#: vixipy/templates/rankings/calendar.html:42
+#: vixipy/templates/rankings/main.html:54
+#: vixipy/templates/search/components/tag-search-filter.html:183
+msgid "Apply"
+msgstr "應用"
+
 #: vixipy/templates/rankings/calendar.html:72
 #, python-format
 msgid "Day %(day)s"
@@ -1118,7 +1032,12 @@ msgstr "#%(tag)s 推薦作品"
 msgid "Top"
 msgstr "首頁"
 
-#: vixipy/templates/search/illust.html:26 vixipy/templates/search/main.html:59
+#: vixipy/templates/search/components/tag-search-filter.html:15
+#: vixipy/templates/search/illust.html:12
+msgid "Search options"
+msgstr "搜尋選項"
+
+#: vixipy/templates/search/illust.html:27 vixipy/templates/search/main.html:59
 #: vixipy/templates/search/manga.html:25 vixipy/templates/search/novel.html:27
 msgid "No matching results found."
 msgstr "未找到匹配結果。"
@@ -1167,6 +1086,93 @@ msgstr "插畫與漫畫"
 msgid "Unable to load popular tags."
 msgstr "無法載入熱門標籤。"
 
+#: vixipy/templates/search/components/tag-search-filter.html:26
+msgid "Keywords"
+msgstr "關鍵字"
+
+#: vixipy/templates/search/components/tag-search-filter.html:29
+msgid "Target"
+msgstr "目標"
+
+#: vixipy/templates/search/components/tag-search-filter.html:31
+msgid "Tags (perfect match)"
+msgstr "標籤（完全匹配）"
+
+#: vixipy/templates/search/components/tag-search-filter.html:33
+msgid "Tags (partial match)"
+msgstr "標籤（部分匹配）"
+
+#: vixipy/templates/search/components/tag-search-filter.html:34
+msgid "Title/caption"
+msgstr "標題/說明"
+
+#: vixipy/templates/search/components/tag-search-filter.html:37
+msgid "Filters"
+msgstr "篩選"
+
+#: vixipy/templates/search/components/tag-search-filter.html:40
+msgid "All"
+msgstr "全部"
+
+#: vixipy/templates/search/components/tag-search-filter.html:41
+msgid "Safe"
+msgstr "全年齡"
+
+#: vixipy/templates/search/components/tag-search-filter.html:45
+msgid "Width"
+msgstr "寬度"
+
+#: vixipy/templates/search/components/tag-search-filter.html:47
+#: vixipy/templates/search/components/tag-search-filter.html:53
+msgid "min"
+msgstr "最小"
+
+#: vixipy/templates/search/components/tag-search-filter.html:48
+#: vixipy/templates/search/components/tag-search-filter.html:54
+msgid "max"
+msgstr "最大"
+
+#: vixipy/templates/search/components/tag-search-filter.html:51
+msgid "Height"
+msgstr "高度"
+
+#: vixipy/templates/search/components/tag-search-filter.html:57
+msgid "Ratio"
+msgstr "比例"
+
+#: vixipy/templates/search/components/tag-search-filter.html:59
+msgid "All ratios"
+msgstr "所有比例"
+
+#: vixipy/templates/search/components/tag-search-filter.html:60
+msgid "Horizontal"
+msgstr "橫向"
+
+#: vixipy/templates/search/components/tag-search-filter.html:61
+msgid "Vertical"
+msgstr "縱向"
+
+#: vixipy/templates/search/components/tag-search-filter.html:62
+msgid "Square"
+msgstr "方形"
+
+#: vixipy/templates/search/components/tag-search-filter.html:65
+msgid "Tool"
+msgstr "工具"
+
+#: vixipy/templates/search/components/tag-search-filter.html:66
+msgid "All tools"
+msgstr "全部工具"
+
+#: vixipy/templates/search/components/tag-search-filter.html:173
+msgid "Period"
+msgstr "時段"
+
+#: vixipy/templates/search/components/tag-search-filter.html:181
+#: vixipy/templates/users/dashboard.html:197
+msgid "Cancel"
+msgstr "取消"
+
 #: vixipy/templates/settings/about.html:2
 #: vixipy/templates/settings/about.html:5
 #: vixipy/templates/settings/index.html:19
@@ -1207,8 +1213,8 @@ msgid ""
 "party server is made and all processing occurs server-side. No more "
 "Google Analytics tracking for every action!"
 msgstr ""
-"Vixipy 為您完成所有工作：不與 pixiv 或任何第三方伺服器建立連線，所有處理都在伺服端進行。不再有"
-"Google Analytics 的追蹤！"
+"Vixipy 為您完成所有工作：不與 pixiv 或任何第三方伺服器建立連線，所有處理都在伺服端進行。不再有Google Analytics "
+"的追蹤！"
 
 #: vixipy/templates/settings/about.html:13
 msgid "Vixipy offers a lightweight and fast experience without any distraction."
@@ -1263,14 +1269,96 @@ msgid ""
 " as it can run Python 3.11 and above, and can compile Vixipy's native "
 "dependencies."
 msgstr ""
-"只要能執行 Python 3.11 及以上版本，並能編譯 Vixipy 的本地依賴項，Vixipy, "
-"可幾乎在所有平臺和作業系統上執行（如 Windows、Linux、FreeBSD、Haiku、Android 等）"
+"只要能執行 Python 3.11 及以上版本，並能編譯 Vixipy 的本地依賴項，Vixipy, 可幾乎在所有平臺和作業系統上執行（如 "
+"Windows、Linux、FreeBSD、Haiku、Android 等）"
 
 #: vixipy/templates/settings/about.html:25
 #: vixipy/templates/settings/acknowledgements.html:2
 #: vixipy/templates/settings/acknowledgements.html:5
 msgid "Acknowledgements"
 msgstr "致謝"
+
+#: vixipy/templates/settings/account.html:2
+#: vixipy/templates/settings/account.html:5
+#: vixipy/templates/settings/index.html:16
+msgid "Account"
+msgstr "帳號"
+
+#: vixipy/templates/settings/account.html:8
+#, fuzzy
+msgid "Manage pixiv account"
+msgstr "使用您的 pixiv 帳號。"
+
+#: vixipy/templates/settings/account.html:9
+msgid ""
+"To manage your account information and security settings, go to the "
+"official Account Portal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:11
+msgid "Go to Account Portal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:21
+#, python-format
+msgid ""
+"You change your nickname and customize your profile in the <a "
+"href='%(link)s'>Profile editor</a>."
+msgstr ""
+
+#: vixipy/templates/settings/account.html:25
+#, fuzzy
+msgid "Account Token"
+msgstr "帳號"
+
+#: vixipy/templates/settings/account.html:29
+#: vixipy/templates/settings/account.html:42
+#: vixipy/templates/settings/account.html:64
+msgid "Click to reveal"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:34
+msgid ""
+"This is the token used to sign into your pixiv account. You may use this "
+"if you forget your token or want to move instances or pixiv frontends."
+msgstr ""
+
+#: vixipy/templates/settings/account.html:38
+#, fuzzy
+msgid "Email"
+msgstr "女"
+
+#: vixipy/templates/settings/account.html:55
+#, python-format
+msgid ""
+"The pixiv ID is your \"account handle\", which is served as a short "
+"vanity link to your account. Example: pixiv.me/%(handle)s (or %(example)s"
+" for Vixipy). "
+msgstr ""
+
+#: vixipy/templates/settings/account.html:58
+msgid "Technical information"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:60
+#, fuzzy
+msgid "CSRF Token"
+msgstr "令牌"
+
+#: vixipy/templates/settings/account.html:72
+msgid "pixiv A/B test IDs"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:85
+msgid "You're not logged in"
+msgstr ""
+
+#: vixipy/templates/settings/account.html:86
+#, fuzzy
+msgid ""
+"Sign in to your pixiv account to experience Vixipy to it's full "
+"potential. Don't worry, we won't steal your session tokens!"
+msgstr "<b>您尚未登入。</b> 登入 pixiv 帳號以體驗 Vixipy 的全部功能。"
 
 #: vixipy/templates/settings/acknowledgements.html:7
 msgid "Projects"
@@ -1345,10 +1433,6 @@ msgstr "設定"
 #: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
 msgid "Vixipy settings"
 msgstr "Vixipy 設定"
-
-#: vixipy/templates/settings/index.html:16
-msgid "Account"
-msgstr "帳號"
 
 #: vixipy/templates/settings/index.html:18
 #: vixipy/templates/settings/language.html:3
@@ -1481,8 +1565,7 @@ msgid ""
 "You should not go to Pawoo, as it contains inappropriate content, "
 "resulting in the instance being added to the federation blacklist and "
 "banned on most federated social media."
-msgstr "請您不要前往 Pawoo，因其包含不妥內容，使此實例被加入到聯邦的黑名單並且被多數"
-"聯邦社群媒體封鎖。"
+msgstr "請您不要前往 Pawoo，因其包含不妥內容，使此實例被加入到聯邦的黑名單並且被多數聯邦社群媒體封鎖。"
 
 #: vixipy/templates/users/base.html:146
 msgid "This user did not specify their socials"
@@ -1526,10 +1609,6 @@ msgstr "傳送回饋"
 #: vixipy/templates/users/dashboard.html:169
 msgid "Source Code"
 msgstr "原始碼"
-
-#: vixipy/templates/users/dashboard.html:197
-msgid "Cancel"
-msgstr "取消"
 
 #: vixipy/templates/users/dashboard.html:198
 msgid "OK"
@@ -1582,3 +1661,4 @@ msgstr "您還沒有任何好P友。"
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "%(user)s 沒有任何好P友。"
+
