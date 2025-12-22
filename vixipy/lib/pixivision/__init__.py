@@ -105,6 +105,19 @@ async def get_landing_page(page: int = 1):
     return PixivisionLanding(spotlight, articles, pg)
 
 
+async def search(term: str, page: int = 1):
+    d = await _pixivision_request("/s", {"q": term, "p": page})
+    res, pg = await asyncio.gather(
+        _run_in_ex(parse_article_entries, d),
+        _run_in_ex(get_pagination_capabilities, d),
+    )
+
+    for x in res:
+        x.image = proxy(x.image)
+
+    return res, pg
+
+
 async def get_article(id: int):
     d = await _pixivision_request(f"/a/{id}")
     res = await _run_in_ex(parse_article, d)

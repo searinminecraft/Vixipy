@@ -208,3 +208,12 @@ class UnimplementedComponent(PixivisionComponent):
     async def render(self):
         if current_app.config["DEBUG"]:
             return await super().render()
+        return ""
+
+
+class Link(PixivisionComponent):
+    def __init__(self, d: Tag):
+        super().__init__("link")
+        self.title = d.select_one(".comment-content .comment-title")
+        self.contents = "\n".join(str(x) for x in d.select_one(".comment-content .fab__paragraph._medium-editor-text"))
+

@@ -1,10 +1,10 @@
 {% extends "layouts/default.html" %}
-{% set title = work.alt %}
+{% set title = _("%(work_name)s by %(author)s", work_name=work.title, author=work.authorName) %}
 
 {% import "components/artwork-entry.html" as artwork_entry %}
 
 {% block head_additional %}
-<meta property="og:title" content="{{work.title}}">
+<meta property="og:title" content='{{_("%(work_name)s by %(author)s", work_name=work.title, author=work.authorName)}}'>
 <meta property="og:site_name" content="{{config['INSTANCE_NAME']}}" />
 <meta property="og:description" content="
 👍 {{work.likeCount|numberformat}} ❤️ {{work.bookmarkCount|numberformat}} 💬 {{work.commentCount|numberformat}}

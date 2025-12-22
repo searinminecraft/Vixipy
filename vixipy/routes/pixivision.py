@@ -1,4 +1,10 @@
-from ..lib.pixivision import get_landing_page, get_article, get_tag, get_category
+from ..lib.pixivision import (
+    get_landing_page,
+    get_article,
+    get_tag,
+    get_category,
+    search as search_pixivion,
+)
 
 from quart import Blueprint, render_template, request
 from quart_rate_limiter import limit_blueprint, timedelta
@@ -27,7 +33,12 @@ async def tag(id: int):
 
 
 @bp.route("/pixivision/s/")
-async def search(): ...
+async def search():
+    data, pg = await search_pixivion(
+        request.args["q"],
+        int(request.args.get("p", 1))
+    )
+    return await render_template("pixivision/search.html", data=data, pg=pg)
 
 
 @bp.route("/pixivision/c/<c>")

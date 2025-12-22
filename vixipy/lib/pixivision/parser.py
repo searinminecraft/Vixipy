@@ -113,6 +113,7 @@ def parse_article(t: Tag):
         "answer": Answer,
         "caption": Caption,
         "quote": Quote,
+        "link": Link,
     }
 
     category = t.select_one(".am__sub-info .am__categoty-pr").a.attrs["data-gtm-label"]

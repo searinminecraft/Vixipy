@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from .handler import pixiv_request
-from ..types import User, UserExtraData, PartialUser, ArtworkEntry, UserPageIllusts
+from ..types import User, UserExtraData, PartialUser, ArtworkEntry, UserPageIllusts, UserFollowRes
 
 
 async def get_user(id: int, full: bool = False) -> User:
