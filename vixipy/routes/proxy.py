@@ -69,7 +69,7 @@ async def ugoira_proxy(id: int):
 
 @bp.get("/proxy/<path:url>")
 async def perform_proxy_request(url: str):
-    permitted = ("i.pximg.net", "s.pximg.net", "embed.pixiv.net")
+    permitted = ("i.pximg.net", "s.pximg.net", "embed.pixiv.net", "source.pixiv.net")
     url = url.removeprefix("https://")
     url = url.removeprefix("http://")
 
