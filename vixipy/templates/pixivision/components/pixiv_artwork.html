@@ -9,6 +9,9 @@
         </div>
     </div>
     <a class="work" href="{{data.image_link}}">
-        <img src="{{data.image}}" alt="{{data.title}}">
+        {%- if data.decoration -%}
+        <img class="decoration" src="{{data.decoration}}">
+        {%- endif -%}
+        <img class="work-img" src="{{data.image}}" alt="{{data.title}}">
     </a>
 </div>

@@ -48,7 +48,10 @@ class PixivArtwork(PixivisionComponent):
         self.title = d.select_one("h3.am__work__title a").text
         self.author_name = d.select_one("p.am__work__user-name a").text
         self.image_link = d.select_one("div.am__work__main a").attrs["href"]
-        self.image = d.select_one("div.am__work__main img").attrs["src"]
+        #  my CSS skills put to good use :3
+        self.image = d.select_one(".am__work__illust:not(.am__work__illust--seasonal-effect-animation)").attrs["src"]
+        _decoration = d.select_one(".am__work__illust.am__work__illust--seasonal-effect-animation")
+        self.decoration = _decoration.attrs["src"] if _decoration else None
 
 
 class Heading(PixivisionComponent):

@@ -61,7 +61,6 @@ body {
 
 @keyframes page-transition-old {
     to {
-        transform: translateX(-10px);
         opacity: 0;
     }
 }
@@ -74,7 +73,7 @@ body {
 }
 
 ::view-transition-old(page-transition) {
-    animation: .04s linear page-transition-old both
+    animation: .07s linear page-transition-old both
 }
 
 ::view-transition-new(page-transition) {

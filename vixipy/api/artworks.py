@@ -7,6 +7,7 @@ from ..types import (
     Artwork,
     ArtworkPage,
     ArtworkEntry,
+    CommentBase,
     Comment,
     CommentBaseResponse,
     NewIllustResponse,
