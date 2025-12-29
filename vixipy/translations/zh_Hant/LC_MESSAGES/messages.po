@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-18 22:46+0800\n"
+"POT-Creation-Date: 2025-12-29 22:37+0800\n"
 "PO-Revision-Date: 2025-11-23 05:42+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language: zh_Hant\n"
@@ -27,6 +27,11 @@ msgstr "無效令牌"
 #: vixipy/routes/login.py:82
 msgid "Unable to extract CSRF"
 msgstr "無法提取 CSRF 令牌"
+
+#: vixipy/templates/artworks.html:2 vixipy/templates/artworks.html:7
+#, fuzzy, python-format
+msgid "%(work_name)s by %(author)s"
+msgstr "作者：%(author)s"
 
 #: vixipy/templates/artworks.html:49
 #, python-format
@@ -115,7 +120,8 @@ msgstr "暫無評論"
 
 #: vixipy/templates/comments.html:100
 #: vixipy/templates/pixivision/category.html:26
-#: vixipy/templates/pixivision/index.html:250
+#: vixipy/templates/pixivision/index.html:238
+#: vixipy/templates/pixivision/search.html:37
 #: vixipy/templates/pixivision/tag.html:23
 #: vixipy/templates/rankings/main.html:73 vixipy/templates/replies.html:23
 #, python-format
@@ -131,7 +137,10 @@ msgid "Warning: Sensitive Content Ahead!"
 msgstr "警告：即將訪問敏感內容！"
 
 #: vixipy/templates/content_warning.html:9
-msgid "This page contains R-18 content. Do you want to view it anyway?"
+#, fuzzy
+msgid ""
+"This page contains content not suitable for some people. Do you want to "
+"view it anyway?"
 msgstr "本頁包含 R-18 內容。仍要繼續檢視？"
 
 #: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
@@ -517,6 +526,11 @@ msgstr "%(title)s | %(author)s 的珍藏冊"
 msgid "Collections"
 msgstr "珍藏冊"
 
+#: vixipy/templates/collection/index.html:9
+#, fuzzy
+msgid "About Collections"
+msgstr "所有珍藏冊"
+
 #: vixipy/templates/collection/index.html:10
 msgid ""
 "The Collection Feature (Beta) allows you to curate illustrations, manga, "
@@ -568,7 +582,7 @@ msgstr "搜尋"
 #: vixipy/templates/components/header.html:10
 #: vixipy/templates/newest/index.html:28 vixipy/templates/novels/index.html:2
 #: vixipy/templates/pixivision/category_name.html:10
-#: vixipy/templates/pixivision/index.html:62
+#: vixipy/templates/pixivision/index.html:50
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
@@ -716,7 +730,7 @@ msgstr "所有使用者最新內容"
 
 #: vixipy/templates/newest/index.html:22
 #: vixipy/templates/pixivision/category_name.html:6
-#: vixipy/templates/pixivision/index.html:39
+#: vixipy/templates/pixivision/index.html:27
 #: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:15 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
@@ -726,7 +740,7 @@ msgstr "插畫"
 
 #: vixipy/templates/newest/index.html:27
 #: vixipy/templates/pixivision/category_name.html:8
-#: vixipy/templates/pixivision/index.html:49
+#: vixipy/templates/pixivision/index.html:37
 #: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:8
 #: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
 #: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
@@ -795,6 +809,7 @@ msgstr "%(cc)s 詞"
 
 #: vixipy/templates/pixivision/category.html:5
 #: vixipy/templates/pixivision/index.html:2
+#: vixipy/templates/pixivision/search.html:3
 #: vixipy/templates/users/dashboard.html:125
 msgid "pixivision"
 msgstr "pixivision"
@@ -805,27 +820,27 @@ msgid "Articles in category \"%(c)s\""
 msgstr "「%(c)s」類別下的文章"
 
 #: vixipy/templates/pixivision/category_name.html:12
-#: vixipy/templates/pixivision/index.html:72
+#: vixipy/templates/pixivision/index.html:60
 msgid "Cosplay"
 msgstr "Cosplay"
 
 #: vixipy/templates/pixivision/category_name.html:14
-#: vixipy/templates/pixivision/index.html:82
+#: vixipy/templates/pixivision/index.html:70
 msgid "Music"
 msgstr "音樂"
 
 #: vixipy/templates/pixivision/category_name.html:16
-#: vixipy/templates/pixivision/index.html:92
+#: vixipy/templates/pixivision/index.html:80
 msgid "Goods"
 msgstr "商品"
 
 #: vixipy/templates/pixivision/category_name.html:18
-#: vixipy/templates/pixivision/index.html:102
+#: vixipy/templates/pixivision/index.html:90
 msgid "Tutorials"
 msgstr "教學"
 
 #: vixipy/templates/pixivision/category_name.html:20
-#: vixipy/templates/pixivision/index.html:112
+#: vixipy/templates/pixivision/index.html:100
 msgid "Behind the Art"
 msgstr "創作幕後"
 
@@ -834,56 +849,63 @@ msgid "Materials"
 msgstr "素材"
 
 #: vixipy/templates/pixivision/category_name.html:24
-#: vixipy/templates/pixivision/index.html:132
+#: vixipy/templates/pixivision/index.html:120
 msgid "References"
 msgstr "參考資料"
 
 #: vixipy/templates/pixivision/category_name.html:26
-#: vixipy/templates/pixivision/index.html:142
+#: vixipy/templates/pixivision/index.html:130
 msgid "Other Guides"
 msgstr "其他指南"
 
 #: vixipy/templates/pixivision/category_name.html:28
-#: vixipy/templates/pixivision/index.html:152
+#: vixipy/templates/pixivision/index.html:140
 msgid "Featured"
 msgstr "精選"
 
 #: vixipy/templates/pixivision/category_name.html:30
-#: vixipy/templates/pixivision/index.html:165
+#: vixipy/templates/pixivision/index.html:153
 msgid "Interviews"
 msgstr "訪談"
 
 #: vixipy/templates/pixivision/category_name.html:32
-#: vixipy/templates/pixivision/index.html:175
+#: vixipy/templates/pixivision/index.html:163
 msgid "Columns"
 msgstr "專欄"
 
 #: vixipy/templates/pixivision/category_name.html:34
-#: vixipy/templates/pixivision/index.html:188
+#: vixipy/templates/pixivision/index.html:176
 msgid "News"
 msgstr "新聞"
 
 #: vixipy/templates/pixivision/category_name.html:36
-#: vixipy/templates/pixivision/index.html:198
+#: vixipy/templates/pixivision/index.html:186
 msgid "Deskwatch"
 msgstr "桌面觀察"
 
 #: vixipy/templates/pixivision/category_name.html:38
-#: vixipy/templates/pixivision/index.html:208
+#: vixipy/templates/pixivision/index.html:196
 msgid "We Tried It!"
 msgstr "我們試過了！"
 
-#: vixipy/templates/pixivision/index.html:28
+#: vixipy/templates/pixivision/index.html:16
+#: vixipy/templates/pixivision/search.html:16
 msgid "Search pixivision..."
 msgstr "搜尋 pixivision..."
 
-#: vixipy/templates/pixivision/index.html:122
+#: vixipy/templates/pixivision/index.html:110
 msgid "Textures"
 msgstr "材質"
 
-#: vixipy/templates/pixivision/index.html:221
+#: vixipy/templates/pixivision/index.html:209
 msgid "Spotlight"
 msgstr "聚光燈"
+
+#: vixipy/templates/pixivision/search.html:3
+#: vixipy/templates/pixivision/search.html:20
+#, fuzzy, python-format
+msgid "Results for \"%(term)s\""
+msgstr "%(tag)s 的搜尋結果"
 
 #: vixipy/templates/pixivision/tag.html:5
 #: vixipy/templates/pixivision/tag.html:9
@@ -1444,6 +1466,11 @@ msgstr "語言與地區"
 msgid "Language"
 msgstr "語言"
 
+#: vixipy/templates/settings/language.html:14
+#, fuzzy
+msgid "Use system language"
+msgstr "設定語言"
+
 #: vixipy/templates/settings/language.html:20
 msgid "Help translate Vixipy to your language!"
 msgstr "幫助將 Vixipy 翻譯成您的語言！"
@@ -1451,6 +1478,16 @@ msgstr "幫助將 Vixipy 翻譯成您的語言！"
 #: vixipy/templates/settings/language.html:22
 msgid "Set language"
 msgstr "設定語言"
+
+#: vixipy/templates/settings/language.html:28
+#, fuzzy
+msgid "Location"
+msgstr "標題/說明"
+
+#: vixipy/templates/settings/language.html:36
+#, fuzzy
+msgid "Set location"
+msgstr "標題/說明"
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"

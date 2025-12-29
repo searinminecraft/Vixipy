@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-18 22:46+0800\n"
+"POT-Creation-Date: 2025-12-29 22:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,11 @@ msgstr ""
 
 #: vixipy/routes/login.py:82
 msgid "Unable to extract CSRF"
+msgstr ""
+
+#: vixipy/templates/artworks.html:2 vixipy/templates/artworks.html:7
+#, python-format
+msgid "%(work_name)s by %(author)s"
 msgstr ""
 
 #: vixipy/templates/artworks.html:49
@@ -112,7 +117,8 @@ msgstr ""
 
 #: vixipy/templates/comments.html:100
 #: vixipy/templates/pixivision/category.html:26
-#: vixipy/templates/pixivision/index.html:250
+#: vixipy/templates/pixivision/index.html:238
+#: vixipy/templates/pixivision/search.html:37
 #: vixipy/templates/pixivision/tag.html:23
 #: vixipy/templates/rankings/main.html:73 vixipy/templates/replies.html:23
 #, python-format
@@ -128,7 +134,9 @@ msgid "Warning: Sensitive Content Ahead!"
 msgstr ""
 
 #: vixipy/templates/content_warning.html:9
-msgid "This page contains R-18 content. Do you want to view it anyway?"
+msgid ""
+"This page contains content not suitable for some people. Do you want to "
+"view it anyway?"
 msgstr ""
 
 #: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
@@ -514,6 +522,10 @@ msgstr ""
 msgid "Collections"
 msgstr ""
 
+#: vixipy/templates/collection/index.html:9
+msgid "About Collections"
+msgstr ""
+
 #: vixipy/templates/collection/index.html:10
 msgid ""
 "The Collection Feature (Beta) allows you to curate illustrations, manga, "
@@ -565,7 +577,7 @@ msgstr ""
 #: vixipy/templates/components/header.html:10
 #: vixipy/templates/newest/index.html:28 vixipy/templates/novels/index.html:2
 #: vixipy/templates/pixivision/category_name.html:10
-#: vixipy/templates/pixivision/index.html:62
+#: vixipy/templates/pixivision/index.html:50
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
@@ -713,7 +725,7 @@ msgstr ""
 
 #: vixipy/templates/newest/index.html:22
 #: vixipy/templates/pixivision/category_name.html:6
-#: vixipy/templates/pixivision/index.html:39
+#: vixipy/templates/pixivision/index.html:27
 #: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:15 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
@@ -723,7 +735,7 @@ msgstr ""
 
 #: vixipy/templates/newest/index.html:27
 #: vixipy/templates/pixivision/category_name.html:8
-#: vixipy/templates/pixivision/index.html:49
+#: vixipy/templates/pixivision/index.html:37
 #: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:8
 #: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
 #: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
@@ -792,6 +804,7 @@ msgstr ""
 
 #: vixipy/templates/pixivision/category.html:5
 #: vixipy/templates/pixivision/index.html:2
+#: vixipy/templates/pixivision/search.html:3
 #: vixipy/templates/users/dashboard.html:125
 msgid "pixivision"
 msgstr ""
@@ -802,27 +815,27 @@ msgid "Articles in category \"%(c)s\""
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:12
-#: vixipy/templates/pixivision/index.html:72
+#: vixipy/templates/pixivision/index.html:60
 msgid "Cosplay"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:14
-#: vixipy/templates/pixivision/index.html:82
+#: vixipy/templates/pixivision/index.html:70
 msgid "Music"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:16
-#: vixipy/templates/pixivision/index.html:92
+#: vixipy/templates/pixivision/index.html:80
 msgid "Goods"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:18
-#: vixipy/templates/pixivision/index.html:102
+#: vixipy/templates/pixivision/index.html:90
 msgid "Tutorials"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:20
-#: vixipy/templates/pixivision/index.html:112
+#: vixipy/templates/pixivision/index.html:100
 msgid "Behind the Art"
 msgstr ""
 
@@ -831,55 +844,62 @@ msgid "Materials"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:24
-#: vixipy/templates/pixivision/index.html:132
+#: vixipy/templates/pixivision/index.html:120
 msgid "References"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:26
-#: vixipy/templates/pixivision/index.html:142
+#: vixipy/templates/pixivision/index.html:130
 msgid "Other Guides"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:28
-#: vixipy/templates/pixivision/index.html:152
+#: vixipy/templates/pixivision/index.html:140
 msgid "Featured"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:30
-#: vixipy/templates/pixivision/index.html:165
+#: vixipy/templates/pixivision/index.html:153
 msgid "Interviews"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:32
-#: vixipy/templates/pixivision/index.html:175
+#: vixipy/templates/pixivision/index.html:163
 msgid "Columns"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:34
-#: vixipy/templates/pixivision/index.html:188
+#: vixipy/templates/pixivision/index.html:176
 msgid "News"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:36
-#: vixipy/templates/pixivision/index.html:198
+#: vixipy/templates/pixivision/index.html:186
 msgid "Deskwatch"
 msgstr ""
 
 #: vixipy/templates/pixivision/category_name.html:38
-#: vixipy/templates/pixivision/index.html:208
+#: vixipy/templates/pixivision/index.html:196
 msgid "We Tried It!"
 msgstr ""
 
-#: vixipy/templates/pixivision/index.html:28
+#: vixipy/templates/pixivision/index.html:16
+#: vixipy/templates/pixivision/search.html:16
 msgid "Search pixivision..."
 msgstr ""
 
-#: vixipy/templates/pixivision/index.html:122
+#: vixipy/templates/pixivision/index.html:110
 msgid "Textures"
 msgstr ""
 
-#: vixipy/templates/pixivision/index.html:221
+#: vixipy/templates/pixivision/index.html:209
 msgid "Spotlight"
+msgstr ""
+
+#: vixipy/templates/pixivision/search.html:3
+#: vixipy/templates/pixivision/search.html:20
+#, python-format
+msgid "Results for \"%(term)s\""
 msgstr ""
 
 #: vixipy/templates/pixivision/tag.html:5
@@ -1426,12 +1446,24 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+#: vixipy/templates/settings/language.html:14
+msgid "Use system language"
+msgstr ""
+
 #: vixipy/templates/settings/language.html:20
 msgid "Help translate Vixipy to your language!"
 msgstr ""
 
 #: vixipy/templates/settings/language.html:22
 msgid "Set language"
+msgstr ""
+
+#: vixipy/templates/settings/language.html:28
+msgid "Location"
+msgstr ""
+
+#: vixipy/templates/settings/language.html:36
+msgid "Set location"
 msgstr ""
 
 #: vixipy/templates/settings/main.html:9
