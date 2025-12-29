@@ -6,10 +6,10 @@
         d="M12 4a2 2 0 00-2 2v6.5a2 2 0 104 0V6a2 2 0 00-2-2zm2.25 13.75a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
 </svg>
 <h1>{{_("Warning: Sensitive Content Ahead!")}}</h1>
-<p>{{_("This page contains R-18 content. Do you want to view it anyway?")}}</p>
+<p>{{_("This page contains content not suitable for some people. Do you want to view it anyway?")}}</p>
 
 <a id="back" class="label-button">{{_("Go back")}}</a>
-<a href="{{url_for('user_action.consent', r=url or '')}}" class="button primary">{{_("Proceed")}}</a>
+<a hx-push-url="false" href="{{url_for('user_action.consent', r=url or '')}}" class="button primary">{{_("Proceed")}}</a>
 
 <script>
     document.getElementById("back").onclick = (e) => {

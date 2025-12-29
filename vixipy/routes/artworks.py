@@ -133,7 +133,7 @@ async def _get_artwork(id: int):
     ):
         abort(403)
 
-    if work.r18 and not is_consented():
+    if (work.r18 or work.sl >= 4) and not is_consented():
         return await render_template(
             "content_warning.html", url=url_for("artworks._get_artwork", id=id)
         )
