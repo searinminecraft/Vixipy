@@ -1,6 +1,15 @@
 {% extends "layouts/default.html" %}
 {% set title=data.name %}
 
+{% block head_additional %}
+<meta property="og:title" content="{{data.name}}">
+<meta property="og:site_name" content="{{config['INSTANCE_NAME']}}">
+<meta property="og:image" content="{{data.imageBig}}">
+<meta property="og:description" content="{{ data.following|numberformat }} following
+
+{{data.comment[:84]}}{% if data.comment|length > 84%}...{% endif %}">
+{% endblock %}
+
 {% block content %}
 <section id="prof-user-info">
     {%- set background_alttext = _("%(user)s's background", user=data.name) -%}

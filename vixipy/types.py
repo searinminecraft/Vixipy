@@ -50,6 +50,7 @@ class User(PartialUser):
         self.webpage = d["webpage"]
         self.official = d["official"]
         self.social = UserSocials(d["social"])
+        self.comment = d["comment"]
 
         if d["commentHtml"] != "":
             self.comment_html = BeautifulSoup(d["commentHtml"])
