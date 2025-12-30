@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-12-29 22:37+0800\n"
-"PO-Revision-Date: 2025-12-20 09:21+0000\n"
+"PO-Revision-Date: 2025-12-30 02:25+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy/user-"
+"interface/de/>\n"
 "Language: de\n"
-"Language-Team: German <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/de/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.1\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -28,9 +29,9 @@ msgid "Unable to extract CSRF"
 msgstr "CSRF kann nicht extrahiert werden"
 
 #: vixipy/templates/artworks.html:2 vixipy/templates/artworks.html:7
-#, fuzzy, python-format
+#, python-format
 msgid "%(work_name)s by %(author)s"
-msgstr "Von %(author)s"
+msgstr "%(work_name)s von %(author)s"
 
 #: vixipy/templates/artworks.html:49
 #, python-format
@@ -533,9 +534,8 @@ msgid "Collections"
 msgstr "Sammlungen"
 
 #: vixipy/templates/collection/index.html:9
-#, fuzzy
 msgid "About Collections"
-msgstr "Alle Sammlungen"
+msgstr "Über Sammlungen"
 
 #: vixipy/templates/collection/index.html:10
 msgid ""
@@ -909,9 +909,9 @@ msgstr ""
 
 #: vixipy/templates/pixivision/search.html:3
 #: vixipy/templates/pixivision/search.html:20
-#, fuzzy, python-format
+#, python-format
 msgid "Results for \"%(term)s\""
-msgstr "Ergebnisse für %(tag)s"
+msgstr "Ergebnisse für „%(term)s“"
 
 #: vixipy/templates/pixivision/tag.html:5
 #: vixipy/templates/pixivision/tag.html:9
@@ -1468,9 +1468,8 @@ msgid "Language"
 msgstr "Sprache"
 
 #: vixipy/templates/settings/language.html:14
-#, fuzzy
 msgid "Use system language"
-msgstr "Sprache übernehmen"
+msgstr "Systemsprache verwenden"
 
 #: vixipy/templates/settings/language.html:20
 msgid "Help translate Vixipy to your language!"
@@ -1481,14 +1480,12 @@ msgid "Set language"
 msgstr "Sprache übernehmen"
 
 #: vixipy/templates/settings/language.html:28
-#, fuzzy
 msgid "Location"
-msgstr "Titel/Untertitel"
+msgstr "Standort"
 
 #: vixipy/templates/settings/language.html:36
-#, fuzzy
 msgid "Set location"
-msgstr "Titel/Untertitel"
+msgstr "Standort übernehmen"
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
@@ -1501,7 +1498,7 @@ msgstr "Nutze den Proxy der von der Instanz gegeben ist"
 #: vixipy/templates/settings/main.html:16
 #: vixipy/templates/settings/main.html:18
 msgid "Use built-in proxy"
-msgstr "Nutze eingebauten Proxy"
+msgstr "Eingebauten Proxy verwenden"
 
 #: vixipy/templates/settings/main.html:26
 msgid ""
@@ -1701,4 +1698,3 @@ msgstr ""
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr ""
-

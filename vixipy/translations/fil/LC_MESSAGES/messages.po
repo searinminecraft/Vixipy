@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-12-29 22:37+0800\n"
-"PO-Revision-Date: 2025-12-19 02:01+0000\n"
+"PO-Revision-Date: 2025-12-30 02:25+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/user-"
+"interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.15.1\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -28,9 +29,9 @@ msgid "Unable to extract CSRF"
 msgstr "Hindi ma-extract ang CSRF"
 
 #: vixipy/templates/artworks.html:2 vixipy/templates/artworks.html:7
-#, fuzzy, python-format
+#, python-format
 msgid "%(work_name)s by %(author)s"
-msgstr "Ni/ng %(author)s"
+msgstr "%(work_name)s ni/ng %(author)s"
 
 #: vixipy/templates/artworks.html:49
 #, python-format
@@ -136,11 +137,12 @@ msgid "Warning: Sensitive Content Ahead!"
 msgstr "Babala: Sensitibong Nilalaman sa Unahan!"
 
 #: vixipy/templates/content_warning.html:9
-#, fuzzy
 msgid ""
 "This page contains content not suitable for some people. Do you want to "
 "view it anyway?"
-msgstr "Naglalaman ng R-18 ang pahina na ito. Gusto mo ba itong itignan?"
+msgstr ""
+"Naglalaman ng nilalaman na maaaring hindi angkop para sa ibang tao ang "
+"pahina na ito. Gusto mo ba itong itignan?"
 
 #: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
 #: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
@@ -555,9 +557,8 @@ msgid "Collections"
 msgstr "Mga Koleksyon"
 
 #: vixipy/templates/collection/index.html:9
-#, fuzzy
 msgid "About Collections"
-msgstr "Lahat ng mga koleksyon"
+msgstr "Tungkol sa Mga Koleksyon"
 
 #: vixipy/templates/collection/index.html:10
 msgid ""
@@ -938,9 +939,9 @@ msgstr "Spotlight"
 
 #: vixipy/templates/pixivision/search.html:3
 #: vixipy/templates/pixivision/search.html:20
-#, fuzzy, python-format
+#, python-format
 msgid "Results for \"%(term)s\""
-msgstr "Mga resulta para sa %(tag)s"
+msgstr "Mga resulta para sa \"%(term)s\""
 
 #: vixipy/templates/pixivision/tag.html:5
 #: vixipy/templates/pixivision/tag.html:9
@@ -1539,9 +1540,8 @@ msgid "Language"
 msgstr "Wika"
 
 #: vixipy/templates/settings/language.html:14
-#, fuzzy
 msgid "Use system language"
-msgstr "Itakda ang wika"
+msgstr "Gamitin ang wika ng system"
 
 #: vixipy/templates/settings/language.html:20
 msgid "Help translate Vixipy to your language!"
@@ -1552,14 +1552,12 @@ msgid "Set language"
 msgstr "Itakda ang wika"
 
 #: vixipy/templates/settings/language.html:28
-#, fuzzy
 msgid "Location"
-msgstr "Paksa/caption"
+msgstr "Lokasyon"
 
 #: vixipy/templates/settings/language.html:36
-#, fuzzy
 msgid "Set location"
-msgstr "Paksa/caption"
+msgstr "Itakda ang lokasyon"
 
 #: vixipy/templates/settings/main.html:9
 msgid "Image Proxy Server"
@@ -1776,4 +1774,3 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
-
