@@ -18,6 +18,9 @@ HX_HEADER = '{"X-Vixipy-Quick-Action": "true"}'  #  work around for python
 
 @bp.before_request
 async def ensure_authorized():
+    if request.path == "/self/consent":
+        return
+
     isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
     if not g.get("authorized"):
         if isQuickAction:
