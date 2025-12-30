@@ -106,7 +106,7 @@ async def limiter_key_func():
 def create_app():
     app = Quart(__name__, instance_relative_config=True, static_folder=None)
     app.config.from_mapping(
-        VIXIPY_VERSION="3.4.1",
+        VIXIPY_VERSION="3.5",
         ACCEPT_LANGUAGE="en_US,en;q=0.9",
         BEHIND_REVERSE_PROXY=False,
         BLACKLISTED_TAGS=[],
