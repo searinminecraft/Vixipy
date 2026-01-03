@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from quart import (
     Blueprint,
+    abort,
     g,
     request,
     render_template,
@@ -16,6 +17,7 @@ import json
 from typing import TYPE_CHECKING
 from ..api.handler import pixiv_request
 from ..converters import proxy
+from ..decorators import require_login
 
 if TYPE_CHECKING:
     from werkzeug.datastructures import FileStorage, ImmutableDict
@@ -25,6 +27,7 @@ log = logging.getLogger("vixipy.routes.profile_edit")
 
 
 @bp.route("/self/edit_profile", methods=("GET", "POST"))
+@require_login
 async def edit_profile():
     data = await pixiv_request("/ajax/my_profile", ignore_cache=True)
     if request.method == "POST":

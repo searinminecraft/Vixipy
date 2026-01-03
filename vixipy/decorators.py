@@ -7,7 +7,7 @@ def tokenless_require_login(v):
     async def wrapped(*args, **kwargs):
         if current_app.no_token:
             if not g.authorized:
-                if request.path.startswith("/api"):
+                if request.path.startswith("/api") or request.method == "POST":
                     abort(401)
 
                 return redirect(
@@ -23,7 +23,7 @@ def require_login(v):
     @wraps(v)
     async def wrapped(**kwargs):
         if not g.authorized:
-            if request.path.startswith("/api"):
+            if request.path.startswith("/api") or request.method == "POST":
                 abort(401)
 
             return redirect(
