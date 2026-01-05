@@ -20,7 +20,7 @@ If you like to, you can [help translate](https://translate.codeberg.org/engage/v
 I also want to give a special thanks for those who helped translate Vixipy. You guys are awesome.
 
 ## License
-Copyright &copy; 2024-2025 Vyxie and contributors
+Copyright &copy; 2024-2026 Vyxie and contributors
 
 Vixipy is free software. You can modify and redistribute the code under the terms of the GNU Affero General Public License version 3.
 
