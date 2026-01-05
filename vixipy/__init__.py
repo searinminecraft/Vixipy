@@ -1,7 +1,7 @@
 from .app import create_app
 
 __copyright__ = """
-Copyright (C) 2024-2025 Vyxie
+Copyright (C) 2024-2026 Vyxie
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
