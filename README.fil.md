@@ -26,7 +26,7 @@ Gusto ko ring magbigay ng isang espesyal na pasasalamat sa mga taong tumulong sa
 pagsasalin sa Vixipy. Kayo ay kahanga-hanga.
 
 ## Lisensya
-Copyright © 2024-2026 Vyxie at mga kontribyutor
+Copyright © 2024-2026 Vyxie and contributors
 
 Isang libreng software ang Vixipy. Maaari mong baguhin at ipamahagi ang code sa
 ilalim ng mga tuntunin ng GNU Affero General Public License, bersyon 3.

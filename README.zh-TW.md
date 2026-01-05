@@ -19,7 +19,7 @@ Vixipy [vick-see-pie] 是一個自由開源的 pixiv 前端。它讓您能夠使
 我還要特別感謝那些幫助翻譯 Vixipy 的貢獻者。你們真是太棒了。
 
 ## 許可證
-版權所有 © 2024-2026 Vyxie 及貢獻者
+Copyright © 2024-2026 Vyxie and contributors
 
 Vixipy 是自由軟體。您可以根據 GNU Affero 通用公共許可證第 3 版條款修改和重製程式碼。
 
