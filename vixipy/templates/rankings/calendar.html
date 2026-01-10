@@ -12,25 +12,26 @@
                 <legend>{{_("Options")}}</legend>
 
                 <label for="mode" class="block heading">{{_("Mode")}}</label>
+                {% set mode = request.args["mode"] %}
                 <select name="mode" id="mode">
-                    <option value="daily">{{_("Daily")}}</option>
-                    <option value="weekly">{{_("Weekly")}}</option>
-                    <option value="monthly">{{_("Monthly")}}</option>
-                    <option value="rookie">{{_("Rookie")}}</option>
+                    <option value="daily" {% if mode=="daily" %}selected{% endif %}>{{_("Daily")}}</option>
+                    <option value="weekly" {% if mode=="weekly" %}selected{% endif %}>{{_("Weekly")}}</option>
+                    <option value="monthly" {% if mode=="monthly" %}selected{% endif %}>{{_("Monthly")}}</option>
+                    <option value="rookie" {% if mode=="rookie" %}selected{% endif %}>{{_("Rookie")}}</option>
                     {% if g.authorized and g.current_user.premium %}
-                    <option value="male">{{_("Popular among male users")}}</option>
-                    <option value="female">{{_("Popular among female users")}}</option>
+                    <option value="male" {% if mode=="male" %}selected{% endif %}>{{_("Popular among male users")}}</option>
+                    <option value="female" {% if mode=="female" %}selected{% endif %}>{{_("Popular among female users")}}</option>
                     {% endif %}
-                    <option value="original">{{_("Original")}}</option>
-                    <option value="daily_ai">{{_("Daily (AI)")}}</option>
+                    <option value="original" {% if mode=="original" %}selected{% endif %}>{{_("Original")}}</option>
+                    <option value="daily_ai" {% if mode=="daily_ai" %}selected{% endif %}>{{_("AI Generated")}}</option>
                     {% if g.authorized and not (config["NO_SENSITIVE"] or config["NO_R18"]) %}
-                    <option value="daily_r18">{{_("Daily R-18")}}</option>
-                    <option value="daily_r18_ai">{{_("Daily R-18 (AI)")}}</option>
-                    <option value="weekly_r18">{{_("Weekly R-18")}}</option>
-                    <option value="r18g">R-18G</option>
+                    <option value="daily_r18" {% if mode=="daily_r18" %}selected{% endif %}>{{_("Daily R-18")}}</option>
+                    <option value="daily_r18_ai" {% if mode=="daily_r18_ai" %}selected{% endif %}>{{_("R-18 AI Generated")}}</option>
+                    <option value="weekly_r18" {% if mode=="weekly_r18" %}selected{% endif %}>{{_("Weekly R-18")}}</option>
+                    <option value="r18g" {% if mode=="r18g" %}selected{% endif %}>R-18G</option>
                     {% if g.authorized and g.current_user.premium %}
-                    <option value="male_r18">{{_("Popular among male users (R-18)")}}</option>
-                    <option value="female_r18">{{_("Popular among female users (R-18)")}}</option>
+                    <option value="male_r18" {% if mode=="male_r18" %}selected{% endif %}>{{_("Popular among male users (R-18)")}}</option>
+                    <option value="female_r18" {% if mode=="female_r18" %}selected{% endif %}>{{_("Popular among female users (R-18)")}}</option>
                     {% endif %}
                     {% endif %}
                 </select>
@@ -65,13 +66,17 @@
     </nav>
 
     <main>
-        {% for x in data.calendar%}
+        {% for x in data.calendar %}
         <a {% if x.user_id %}href="{{url_for('rankings.main', mode=data.mode, date=data.date|string + x.day_str, content=content)}}" {% endif %}>
             <div class="entry">
-                {% if x.user_id %}
+                {%- if x.user_id -%}
                 <span>{{x.day}}</span>
                 <img src="{{x.img}}" alt="{{_('Day %(day)s', day=x.day)}}">
-                {% endif %}
+                {%- else -%}
+                {%- if x.day != 0 -%}
+                <div class="placeholder">{{x.day}}</div>
+                {%- endif -%}
+                {%- endif -%}
             </div>
         </a>
         {% endfor %}

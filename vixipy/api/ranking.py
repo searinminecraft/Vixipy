@@ -19,7 +19,7 @@ MODES_T = Union[
     "weekly_r18",
     "male_r18",
     "female_r18",
-    "r18g"
+    "r18g",
 ]
 
 VALID_MODES = (
@@ -36,6 +36,7 @@ VALID_MODES = (
     "weekly_r18",
     "male_r18",
     "female_r18",
+    "r18g",
 )
 
 
@@ -69,6 +70,6 @@ async def get_ranking_calendar(mode: MODES_T = None, date: str = None):
         params.append(("mode", mode))
     if date:
         params.append(("date", date))
-    
+
     data = await pixiv_request("/ajax/ranking_log", params=params, ignore_language=True)
     return RankingCalendar(data)

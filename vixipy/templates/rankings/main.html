@@ -23,11 +23,12 @@
                     <option value="female" {% if mode=="female" %}selected{% endif %}>{{_("Popular among female users")}}</option>
                     {% endif %}
                     <option value="original" {% if mode=="original" %}selected{% endif %}>{{_("Original")}}</option>
-                    <option value="daily_ai" {% if mode=="daily_ai" %}selected{% endif %}>{{_("Daily (AI)")}}</option>
+                    <option value="daily_ai" {% if mode=="daily_ai" %}selected{% endif %}>{{_("AI Generated")}}</option>
                     {% if g.authorized and not (config["NO_SENSITIVE"] or config["NO_R18"]) %}
                     <option value="daily_r18" {% if mode=="daily_r18" %}selected{% endif %}>{{_("Daily R-18")}}</option>
-                    <option value="daily_r18_ai" {% if mode=="daily_r18_ai" %}selected{% endif %}>{{_("Daily R-18 (AI)")}}</option>
+                    <option value="daily_r18_ai" {% if mode=="daily_r18_ai" %}selected{% endif %}>{{_("R-18 AI Generated")}}</option>
                     <option value="weekly_r18" {% if mode=="weekly_r18" %}selected{% endif %}>{{_("Weekly R-18")}}</option>
+                    <option value="r18g" {% if mode=="r18g" %}selected{% endif %}>R-18G</option>
                     {% if g.authorized and g.current_user.premium %}
                     <option value="male_r18" {% if mode=="male_r18" %}selected{% endif %}>{{_("Popular among male users (R-18)")}}</option>
                     <option value="female_r18" {% if mode=="female_r18" %}selected{% endif %}>{{_("Popular among female users (R-18)")}}</option>
