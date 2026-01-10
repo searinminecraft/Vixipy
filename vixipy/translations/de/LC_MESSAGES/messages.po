@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-29 22:37+0800\n"
+"POT-Creation-Date: 2026-01-10 13:59+0800\n"
 "PO-Revision-Date: 2025-12-30 02:25+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: German <https://translate.codeberg.org/projects/vixipy/user-"
-"interface/de/>\n"
 "Language: de\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/de/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -40,13 +39,13 @@ msgstr "Seite %(page)d von %(total)d"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:45
+#: vixipy/templates/users/base.html:54
 msgid "Follow"
 msgstr "Folgen"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:28 vixipy/templates/users/base.html:45
+#: vixipy/templates/users/base.html:37 vixipy/templates/users/base.html:54
 #: vixipy/templates/users/dashboard.html:13
 #: vixipy/templates/users/follow/base.html:34
 msgid "Following"
@@ -60,11 +59,12 @@ msgstr "Alle Werke ansehen"
 msgid "Login Only"
 msgstr ""
 
-#: vixipy/templates/artworks.html:90
+#: vixipy/templates/artworks.html:90 vixipy/templates/rankings/calendar.html:26
+#: vixipy/templates/rankings/main.html:26
 msgid "AI Generated"
 msgstr "KI-generiert"
 
-#: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:45
+#: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:46
 msgid "Ugoira"
 msgstr "Ugoira"
 
@@ -123,7 +123,7 @@ msgstr "Keine Kommentare verfügbar"
 #: vixipy/templates/pixivision/index.html:238
 #: vixipy/templates/pixivision/search.html:37
 #: vixipy/templates/pixivision/tag.html:23
-#: vixipy/templates/rankings/main.html:73 vixipy/templates/replies.html:23
+#: vixipy/templates/rankings/main.html:74 vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
 msgstr "Seite %(page)d"
@@ -183,7 +183,7 @@ msgstr "Nutzername"
 msgid "Self introduction"
 msgstr "Selbstbeschreibung"
 
-#: vixipy/templates/edit_profile.html:40 vixipy/templates/users/base.html:87
+#: vixipy/templates/edit_profile.html:40 vixipy/templates/users/base.html:96
 msgid "Website"
 msgstr "Webseite"
 
@@ -280,7 +280,7 @@ msgid "Back to home"
 msgstr "Zurück zur Startseite"
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
-#: vixipy/templates/users/base.html:154
+#: vixipy/templates/users/base.html:163
 msgid "Home"
 msgstr "Startseite"
 
@@ -592,7 +592,7 @@ msgstr "Suche"
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
-#: vixipy/templates/users/base.html:163 vixipy/templates/users/novels.html:9
+#: vixipy/templates/users/base.html:172 vixipy/templates/users/novels.html:9
 msgid "Novels"
 msgstr "Romane"
 
@@ -609,7 +609,7 @@ msgid "User"
 msgstr "Nutzer"
 
 #: vixipy/templates/components/novel-entry.html:17
-#: vixipy/templates/rankings/calendar.html:24
+#: vixipy/templates/rankings/calendar.html:25
 #: vixipy/templates/rankings/main.html:25
 msgid "Original"
 msgstr "Original"
@@ -737,20 +737,20 @@ msgstr "Neueste von allen Nutzern"
 #: vixipy/templates/newest/index.html:22
 #: vixipy/templates/pixivision/category_name.html:6
 #: vixipy/templates/pixivision/index.html:27
-#: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
+#: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:15 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:157 vixipy/templates/users/illust.html:9
+#: vixipy/templates/users/base.html:166 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr "Illustrationen"
 
 #: vixipy/templates/newest/index.html:27
 #: vixipy/templates/pixivision/category_name.html:8
 #: vixipy/templates/pixivision/index.html:37
-#: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:8
+#: vixipy/templates/rankings/main.html:45 vixipy/templates/search/illust.html:8
 #: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
 #: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
-#: vixipy/templates/users/base.html:160 vixipy/templates/users/manga.html:9
+#: vixipy/templates/users/base.html:169 vixipy/templates/users/manga.html:9
 msgid "Manga"
 msgstr "Manga"
 
@@ -957,82 +957,78 @@ msgstr "Optionen"
 msgid "Mode"
 msgstr "Modus"
 
-#: vixipy/templates/rankings/calendar.html:16
+#: vixipy/templates/rankings/calendar.html:17
 #: vixipy/templates/rankings/main.html:17
 msgid "Daily"
 msgstr "Tägliche"
 
-#: vixipy/templates/rankings/calendar.html:17
+#: vixipy/templates/rankings/calendar.html:18
 #: vixipy/templates/rankings/main.html:18
 msgid "Weekly"
 msgstr "Wöchentliche"
 
-#: vixipy/templates/rankings/calendar.html:18
+#: vixipy/templates/rankings/calendar.html:19
 #: vixipy/templates/rankings/main.html:19
 msgid "Monthly"
 msgstr "Monatliche"
 
-#: vixipy/templates/rankings/calendar.html:19
+#: vixipy/templates/rankings/calendar.html:20
 #: vixipy/templates/rankings/main.html:20
 msgid "Rookie"
 msgstr "Anfänger"
 
-#: vixipy/templates/rankings/calendar.html:21
+#: vixipy/templates/rankings/calendar.html:22
 #: vixipy/templates/rankings/main.html:22
 #, fuzzy
 msgid "Popular among male users"
 msgstr "Rangliste unter männlichen Nutzern"
 
-#: vixipy/templates/rankings/calendar.html:22
+#: vixipy/templates/rankings/calendar.html:23
 #: vixipy/templates/rankings/main.html:23
 #, fuzzy
 msgid "Popular among female users"
 msgstr "Rangliste unter weiblichen Nutzern"
 
-#: vixipy/templates/rankings/calendar.html:25
-#: vixipy/templates/rankings/main.html:26
-msgid "Daily (AI)"
-msgstr "Tägliche (KI)"
-
-#: vixipy/templates/rankings/calendar.html:27
+#: vixipy/templates/rankings/calendar.html:28
 #: vixipy/templates/rankings/main.html:28
 msgid "Daily R-18"
 msgstr "Tägliche R-18"
 
-#: vixipy/templates/rankings/calendar.html:28
-#: vixipy/templates/rankings/main.html:29
-msgid "Daily R-18 (AI)"
-msgstr "Tägliche R-18 (KI)"
-
 #: vixipy/templates/rankings/calendar.html:29
+#: vixipy/templates/rankings/main.html:29
+#, fuzzy
+msgid "R-18 AI Generated"
+msgstr "KI-generiert"
+
+#: vixipy/templates/rankings/calendar.html:30
 #: vixipy/templates/rankings/main.html:30
 msgid "Weekly R-18"
 msgstr "Wöchentliche R-18"
 
-#: vixipy/templates/rankings/calendar.html:31
-#: vixipy/templates/rankings/main.html:32
+#: vixipy/templates/rankings/calendar.html:33
+#: vixipy/templates/rankings/main.html:33
 #, fuzzy
 msgid "Popular among male users (R-18)"
 msgstr "Rangliste unter männlichen Nutzern"
 
-#: vixipy/templates/rankings/calendar.html:32
-#: vixipy/templates/rankings/main.html:33
+#: vixipy/templates/rankings/calendar.html:34
+#: vixipy/templates/rankings/main.html:34
 #, fuzzy
 msgid "Popular among female users (R-18)"
 msgstr "Rangliste unter weiblichen Nutzern"
 
-#: vixipy/templates/rankings/calendar.html:38
-#: vixipy/templates/rankings/main.html:50
+#: vixipy/templates/rankings/calendar.html:40
+#: vixipy/templates/rankings/main.html:51
 msgid "Date"
 msgstr "Datum"
 
-#: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:54
+#: vixipy/templates/rankings/calendar.html:44
+#: vixipy/templates/rankings/main.html:55
 #: vixipy/templates/search/components/tag-search-filter.html:183
 msgid "Apply"
 msgstr "Anwenden"
 
-#: vixipy/templates/rankings/calendar.html:72
+#: vixipy/templates/rankings/calendar.html:74
 #, python-format
 msgid "Day %(day)s"
 msgstr "Tag %(day)s"
@@ -1042,7 +1038,7 @@ msgstr "Tag %(day)s"
 msgid "Rankings"
 msgstr "Ranglisten"
 
-#: vixipy/templates/rankings/main.html:40
+#: vixipy/templates/rankings/main.html:41
 msgid "Content"
 msgstr "Inhalt"
 
@@ -1556,58 +1552,58 @@ msgstr "Konvertieren"
 msgid "Sorry, the Ugoira Converter requires JavaScript."
 msgstr "Der Ugoira Konvertierer benötigt JavaScript."
 
-#: vixipy/templates/users/base.html:6
+#: vixipy/templates/users/base.html:15
 #, python-format
 msgid "%(user)s's background"
 msgstr "%(user)s's Banner"
 
-#: vixipy/templates/users/base.html:7
+#: vixipy/templates/users/base.html:16
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
 msgstr "Klicke, um %(user)s's Banner in einem neuen Tab zu öffnen."
 
-#: vixipy/templates/users/base.html:8
+#: vixipy/templates/users/base.html:17
 #, python-format
 msgid "%(user)s's profile picture"
 msgstr "%(user)s's Profilbild"
 
-#: vixipy/templates/users/base.html:9
+#: vixipy/templates/users/base.html:18
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr "Klicke, um %(user)s's Profilbild in einem neuen Tab zu öffnen."
 
-#: vixipy/templates/users/base.html:35
+#: vixipy/templates/users/base.html:44
 msgid "Edit Profile"
 msgstr "Profil bearbeiten"
 
-#: vixipy/templates/users/base.html:59
+#: vixipy/templates/users/base.html:68
 msgid "Profile"
 msgstr "Profil"
 
-#: vixipy/templates/users/base.html:68
+#: vixipy/templates/users/base.html:77
 msgid "Description"
 msgstr "Beschreibung"
 
-#: vixipy/templates/users/base.html:72
+#: vixipy/templates/users/base.html:81
 msgid "This user has no description set"
 msgstr "Dieser Nutzer hat keine Beschreibung festgelegt"
 
-#: vixipy/templates/users/base.html:75
+#: vixipy/templates/users/base.html:84
 msgid "Socials"
 msgstr "Social Media"
 
-#: vixipy/templates/users/base.html:140
+#: vixipy/templates/users/base.html:149
 msgid ""
 "You should not go to Pawoo, as it contains inappropriate content, "
 "resulting in the instance being added to the federation blacklist and "
 "banned on most federated social media."
 msgstr ""
 
-#: vixipy/templates/users/base.html:146
+#: vixipy/templates/users/base.html:155
 msgid "This user did not specify their socials"
 msgstr ""
 
-#: vixipy/templates/users/base.html:166 vixipy/templates/users/bookmarks.html:9
+#: vixipy/templates/users/base.html:175 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:47
 msgid "Bookmarks"
 msgstr "Lesezeichen"
@@ -1698,3 +1694,4 @@ msgstr ""
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr ""
+

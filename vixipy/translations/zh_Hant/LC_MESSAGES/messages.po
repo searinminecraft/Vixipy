@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-29 22:37+0800\n"
+"POT-Creation-Date: 2026-01-10 13:59+0800\n"
 "PO-Revision-Date: 2025-11-23 05:42+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language: zh_Hant\n"
@@ -40,13 +40,13 @@ msgstr "第 %(page)d 頁/共 %(total)d 頁"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:45
+#: vixipy/templates/users/base.html:54
 msgid "Follow"
 msgstr "關注"
 
 #: vixipy/templates/artworks.html:69
 #: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:28 vixipy/templates/users/base.html:45
+#: vixipy/templates/users/base.html:37 vixipy/templates/users/base.html:54
 #: vixipy/templates/users/dashboard.html:13
 #: vixipy/templates/users/follow/base.html:34
 msgid "Following"
@@ -60,11 +60,12 @@ msgstr "檢視所有作品"
 msgid "Login Only"
 msgstr "僅限登入"
 
-#: vixipy/templates/artworks.html:90
+#: vixipy/templates/artworks.html:90 vixipy/templates/rankings/calendar.html:26
+#: vixipy/templates/rankings/main.html:26
 msgid "AI Generated"
 msgstr "AI 生成"
 
-#: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:45
+#: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:46
 msgid "Ugoira"
 msgstr "動圖"
 
@@ -123,7 +124,7 @@ msgstr "暫無評論"
 #: vixipy/templates/pixivision/index.html:238
 #: vixipy/templates/pixivision/search.html:37
 #: vixipy/templates/pixivision/tag.html:23
-#: vixipy/templates/rankings/main.html:73 vixipy/templates/replies.html:23
+#: vixipy/templates/rankings/main.html:74 vixipy/templates/replies.html:23
 #, python-format
 msgid "Page %(page)d"
 msgstr "第 %(page)d 頁"
@@ -184,7 +185,7 @@ msgstr "暱稱"
 msgid "Self introduction"
 msgstr "個人簡介"
 
-#: vixipy/templates/edit_profile.html:40 vixipy/templates/users/base.html:87
+#: vixipy/templates/edit_profile.html:40 vixipy/templates/users/base.html:96
 msgid "Website"
 msgstr "網站"
 
@@ -279,7 +280,7 @@ msgid "Back to home"
 msgstr "返回首頁"
 
 #: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
-#: vixipy/templates/users/base.html:154
+#: vixipy/templates/users/base.html:163
 msgid "Home"
 msgstr "首頁"
 
@@ -586,7 +587,7 @@ msgstr "搜尋"
 #: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
 #: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
 #: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
-#: vixipy/templates/users/base.html:163 vixipy/templates/users/novels.html:9
+#: vixipy/templates/users/base.html:172 vixipy/templates/users/novels.html:9
 msgid "Novels"
 msgstr "小說"
 
@@ -603,7 +604,7 @@ msgid "User"
 msgstr "使用者"
 
 #: vixipy/templates/components/novel-entry.html:17
-#: vixipy/templates/rankings/calendar.html:24
+#: vixipy/templates/rankings/calendar.html:25
 #: vixipy/templates/rankings/main.html:25
 msgid "Original"
 msgstr "原創"
@@ -731,20 +732,20 @@ msgstr "所有使用者最新內容"
 #: vixipy/templates/newest/index.html:22
 #: vixipy/templates/pixivision/category_name.html:6
 #: vixipy/templates/pixivision/index.html:27
-#: vixipy/templates/rankings/main.html:43 vixipy/templates/search/illust.html:7
+#: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:7
 #: vixipy/templates/search/illust.html:15 vixipy/templates/search/main.html:8
 #: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:157 vixipy/templates/users/illust.html:9
+#: vixipy/templates/users/base.html:166 vixipy/templates/users/illust.html:9
 msgid "Illustrations"
 msgstr "插畫"
 
 #: vixipy/templates/newest/index.html:27
 #: vixipy/templates/pixivision/category_name.html:8
 #: vixipy/templates/pixivision/index.html:37
-#: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:8
+#: vixipy/templates/rankings/main.html:45 vixipy/templates/search/illust.html:8
 #: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
 #: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
-#: vixipy/templates/users/base.html:160 vixipy/templates/users/manga.html:9
+#: vixipy/templates/users/base.html:169 vixipy/templates/users/manga.html:9
 msgid "Manga"
 msgstr "漫畫"
 
@@ -951,78 +952,74 @@ msgstr "選項"
 msgid "Mode"
 msgstr "模式"
 
-#: vixipy/templates/rankings/calendar.html:16
+#: vixipy/templates/rankings/calendar.html:17
 #: vixipy/templates/rankings/main.html:17
 msgid "Daily"
 msgstr "今日"
 
-#: vixipy/templates/rankings/calendar.html:17
+#: vixipy/templates/rankings/calendar.html:18
 #: vixipy/templates/rankings/main.html:18
 msgid "Weekly"
 msgstr "本週"
 
-#: vixipy/templates/rankings/calendar.html:18
+#: vixipy/templates/rankings/calendar.html:19
 #: vixipy/templates/rankings/main.html:19
 msgid "Monthly"
 msgstr "本月"
 
-#: vixipy/templates/rankings/calendar.html:19
+#: vixipy/templates/rankings/calendar.html:20
 #: vixipy/templates/rankings/main.html:20
 msgid "Rookie"
 msgstr "新人"
 
-#: vixipy/templates/rankings/calendar.html:21
+#: vixipy/templates/rankings/calendar.html:22
 #: vixipy/templates/rankings/main.html:22
 msgid "Popular among male users"
 msgstr "男性向熱門"
 
-#: vixipy/templates/rankings/calendar.html:22
+#: vixipy/templates/rankings/calendar.html:23
 #: vixipy/templates/rankings/main.html:23
 msgid "Popular among female users"
 msgstr "女性向熱門"
 
-#: vixipy/templates/rankings/calendar.html:25
-#: vixipy/templates/rankings/main.html:26
-msgid "Daily (AI)"
-msgstr "今日（AI）"
-
-#: vixipy/templates/rankings/calendar.html:27
+#: vixipy/templates/rankings/calendar.html:28
 #: vixipy/templates/rankings/main.html:28
 msgid "Daily R-18"
 msgstr "今日 R-18"
 
-#: vixipy/templates/rankings/calendar.html:28
-#: vixipy/templates/rankings/main.html:29
-msgid "Daily R-18 (AI)"
-msgstr "今日 R-18（AI）"
-
 #: vixipy/templates/rankings/calendar.html:29
+#: vixipy/templates/rankings/main.html:29
+#, fuzzy
+msgid "R-18 AI Generated"
+msgstr "AI 生成"
+
+#: vixipy/templates/rankings/calendar.html:30
 #: vixipy/templates/rankings/main.html:30
 msgid "Weekly R-18"
 msgstr "本週 R-18"
 
-#: vixipy/templates/rankings/calendar.html:31
-#: vixipy/templates/rankings/main.html:32
+#: vixipy/templates/rankings/calendar.html:33
+#: vixipy/templates/rankings/main.html:33
 msgid "Popular among male users (R-18)"
 msgstr "男性向熱門（R-18）"
 
-#: vixipy/templates/rankings/calendar.html:32
-#: vixipy/templates/rankings/main.html:33
+#: vixipy/templates/rankings/calendar.html:34
+#: vixipy/templates/rankings/main.html:34
 msgid "Popular among female users (R-18)"
 msgstr "女性向熱門（R-18）"
 
-#: vixipy/templates/rankings/calendar.html:38
-#: vixipy/templates/rankings/main.html:50
+#: vixipy/templates/rankings/calendar.html:40
+#: vixipy/templates/rankings/main.html:51
 msgid "Date"
 msgstr "日期"
 
-#: vixipy/templates/rankings/calendar.html:42
-#: vixipy/templates/rankings/main.html:54
+#: vixipy/templates/rankings/calendar.html:44
+#: vixipy/templates/rankings/main.html:55
 #: vixipy/templates/search/components/tag-search-filter.html:183
 msgid "Apply"
 msgstr "應用"
 
-#: vixipy/templates/rankings/calendar.html:72
+#: vixipy/templates/rankings/calendar.html:74
 #, python-format
 msgid "Day %(day)s"
 msgstr "第 %(day)s 天"
@@ -1032,7 +1029,7 @@ msgstr "第 %(day)s 天"
 msgid "Rankings"
 msgstr "排行榜"
 
-#: vixipy/templates/rankings/main.html:40
+#: vixipy/templates/rankings/main.html:41
 msgid "Content"
 msgstr "內容"
 
@@ -1556,59 +1553,59 @@ msgstr "轉換"
 msgid "Sorry, the Ugoira Converter requires JavaScript."
 msgstr "抱歉，動圖轉換器需要 JavaScript 支援。"
 
-#: vixipy/templates/users/base.html:6
+#: vixipy/templates/users/base.html:15
 #, python-format
 msgid "%(user)s's background"
 msgstr "%(user)s 的背景"
 
-#: vixipy/templates/users/base.html:7
+#: vixipy/templates/users/base.html:16
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
 msgstr "點選在新標籤頁開啟 %(user)s 的橫幅。"
 
-#: vixipy/templates/users/base.html:8
+#: vixipy/templates/users/base.html:17
 #, python-format
 msgid "%(user)s's profile picture"
 msgstr "%(user)s 的頭像"
 
-#: vixipy/templates/users/base.html:9
+#: vixipy/templates/users/base.html:18
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr "點選在新標籤頁開啟 %(user)s 的頭像。"
 
-#: vixipy/templates/users/base.html:35
+#: vixipy/templates/users/base.html:44
 msgid "Edit Profile"
 msgstr "編輯資料"
 
-#: vixipy/templates/users/base.html:59
+#: vixipy/templates/users/base.html:68
 msgid "Profile"
 msgstr "個人資料"
 
-#: vixipy/templates/users/base.html:68
+#: vixipy/templates/users/base.html:77
 msgid "Description"
 msgstr "自我介紹"
 
-#: vixipy/templates/users/base.html:72
+#: vixipy/templates/users/base.html:81
 msgid "This user has no description set"
 msgstr "此使用者沒有自我介紹"
 
-#: vixipy/templates/users/base.html:75
+#: vixipy/templates/users/base.html:84
 #, fuzzy
 msgid "Socials"
 msgstr "社交媒體"
 
-#: vixipy/templates/users/base.html:140
+#: vixipy/templates/users/base.html:149
 msgid ""
 "You should not go to Pawoo, as it contains inappropriate content, "
 "resulting in the instance being added to the federation blacklist and "
 "banned on most federated social media."
 msgstr "請您不要前往 Pawoo，因其包含不妥內容，使此實例被加入到聯邦的黑名單並且被多數聯邦社群媒體封鎖。"
 
-#: vixipy/templates/users/base.html:146
+#: vixipy/templates/users/base.html:155
 msgid "This user did not specify their socials"
 msgstr "使用者未連結社交媒體"
 
-#: vixipy/templates/users/base.html:166 vixipy/templates/users/bookmarks.html:9
+#: vixipy/templates/users/base.html:175 vixipy/templates/users/bookmarks.html:9
 #: vixipy/templates/users/dashboard.html:47
 msgid "Bookmarks"
 msgstr "收藏"
