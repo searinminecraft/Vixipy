@@ -3,8 +3,7 @@ from __future__ import annotations
 from quart import Blueprint, current_app, abort, request, render_template, url_for
 from quart_rate_limiter import RateLimit, rate_limit, timedelta
 
-from ..lib.scrapes import get_ranking_calendar
-from ..api.ranking import get_ranking
+from ..api.ranking import get_ranking, get_ranking_calendar
 
 from datetime import datetime, timedelta
 from typing import TYPE_CHECKING
@@ -44,6 +43,7 @@ async def main():
         "weekly_r18",
         "male_r18",
         "female_r18",
+        "r18g",
     ):
         abort(400)
 
@@ -91,6 +91,7 @@ async def ranking_calendar():
         "weekly_r18",
         "male_r18",
         "female_r18",
+        "r18g"
     ):
         abort(400)
 
@@ -99,7 +100,7 @@ async def ranking_calendar():
     ) and mode in ("daily_r18", "daily_r18_ai", "weekly_r18", "male_r18", "female_r18"):
         abort(403)
 
-    data = await get_ranking_calendar(date, mode)
+    data = await get_ranking_calendar(mode, sel.strftime("%Y%m"))
 
     ar = request.args.copy()
     if "date" in ar:

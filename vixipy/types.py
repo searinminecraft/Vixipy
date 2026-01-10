@@ -237,7 +237,8 @@ class MaskReason(Enum):
 
 class RankingCalendarEntry:
     def __init__(self, d: dict):
-        self.day: int = int(d["day"])
+        self.day_str: str = d["day"]
+        self.day: int = int(self.day_str)
         self.week: str = d["week"]
         self.img: Optional[str] = proxy(d.get("img"))
         self.user_id: Optional[int] = int(d["user_id"]) if d.get("user_id") else None
@@ -254,8 +255,8 @@ class RankingCalendar:
         self.mode: str = d["mode"]
         self.content: str = d["content"]
         self.date: str = d["date"]
-        self.current_year: int = int(d["year_now"])
-        self.current_month: int = int(d["month_now"])
+        self.current_year: int = int(d["now_year"])
+        self.current_month: int = int(d["now_month"])
         self.max_year: int = int(d["max_year"])
         self.max_month: int = int(d["max_month"])
         self.calendar = [RankingCalendarEntry(x) for x in d["calendar"]]

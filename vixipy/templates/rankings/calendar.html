@@ -27,6 +27,7 @@
                     <option value="daily_r18">{{_("Daily R-18")}}</option>
                     <option value="daily_r18_ai">{{_("Daily R-18 (AI)")}}</option>
                     <option value="weekly_r18">{{_("Weekly R-18")}}</option>
+                    <option value="r18g">R-18G</option>
                     {% if g.authorized and g.current_user.premium %}
                     <option value="male_r18">{{_("Popular among male users (R-18)")}}</option>
                     <option value="female_r18">{{_("Popular among female users (R-18)")}}</option>
@@ -64,14 +65,12 @@
     </nav>
 
     <main>
-        {% for x in data if x.active%}
-        <a {% if x.args %}href="{{url_for('rankings.main', mode=x.args['mode'], date=x.args['date'])}}" {% endif %}>
+        {% for x in data.calendar%}
+        <a {% if x.user_id %}href="{{url_for('rankings.main', mode=data.mode, date=data.date|string + x.day_str, content=content)}}" {% endif %}>
             <div class="entry">
-                {% if x.args %}
-                <span>{{x.date}}</span>
-                <img src="{{x.img}}" alt="{{_('Day %(day)s', day=x.date)}}">
-                {% else %}
-                <div class="placeholder">{{x.date}}</div>
+                {% if x.user_id %}
+                <span>{{x.day}}</span>
+                <img src="{{x.img}}" alt="{{_('Day %(day)s', day=x.day)}}">
                 {% endif %}
             </div>
         </a>
