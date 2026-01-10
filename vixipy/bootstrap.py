@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import logging
 import random
+from asyncio import gather
 from aiohttp import DummyCookieJar, ClientSession
+from quart import current_app
 from typing import TYPE_CHECKING
 from . import session as pixiv_session_handler
 
@@ -105,6 +107,47 @@ async def init_clientsession(app: Quart):
     log.debug("HTTP client sessions initialized.")
 
 
+async def _init_user(t: str):
+    try:
+        if current_app.config["PIXIV_DIRECT_CONNECTION"]:
+            r: ClientResponse = await current_app.pixiv.head(
+                "",
+                headers={"Cookie": f"PHPSESSID={t}"},
+                server_hostname="www.pixiv.net",
+                allow_redirects=True,
+            )
+        else:
+            r: ClientResponse = await current_app.pixiv.head(
+                "",
+                headers={"Cookie": f"PHPSESSID={t}"},
+                allow_redirects=True,
+            )
+        r.raise_for_status()
+    except Exception:
+        log.exception("Error at token %s. Skipping.", t)
+        return
+    if current_app.config["PIXIV_DIRECT_CONNECTION"]:
+        r2: ClientResponse = await current_app.pixiv.head(
+            "", allow_redirects=True, server_hostname="www.pixiv.net"
+        )
+    else:
+        r2: ClientResponse = await current_app.pixiv.head(
+            "",
+            allow_redirects=True,
+        )
+    current_app.tokens.append(
+        {
+            "token": t,
+            "p_ab_d_id": r.cookies["p_ab_d_id"].value,
+            "p_ab_id": r.cookies["p_ab_id"].value,
+            "p_ab_id_2": r.cookies["p_ab_id_2"].value,
+            "yuid_b": r2.cookies["yuid_b"].value,
+        }
+    )
+
+    log.info("Initialized user %s", t.split("_")[0])
+
+
 async def credential_init(app: Quart):
     if len(app.config["TOKEN"]) == 0 or app.config["DEBUG"]:
         app.no_token = True
@@ -166,47 +209,8 @@ async def credential_init(app: Quart):
                     }
                 )
     else:
-        for t in app.config["TOKEN"]:
-            t: str
-            log.debug("Initializing token %s", t)
-            try:
-                if app.config["PIXIV_DIRECT_CONNECTION"]:
-                    r: ClientResponse = await app.pixiv.head(
-                        "",
-                        headers={"Cookie": f"PHPSESSID={t}"},
-                        server_hostname="www.pixiv.net",
-                        allow_redirects=True,
-                    )
-                else:
-                    r: ClientResponse = await app.pixiv.head(
-                        "",
-                        headers={"Cookie": f"PHPSESSID={t}"},
-                        allow_redirects=True,
-                    )
-                r.raise_for_status()
-            except Exception:
-                log.exception("Error at token %s. Skipping.", t)
-                continue
-            if app.config["PIXIV_DIRECT_CONNECTION"]:
-                r2: ClientResponse = await app.pixiv.head(
-                    "", allow_redirects=True, server_hostname="www.pixiv.net"
-                )
-            else:
-                r2: ClientResponse = await app.pixiv.head(
-                    "",
-                    allow_redirects=True,
-                )
-            app.tokens.append(
-                {
-                    "token": t,
-                    "p_ab_d_id": r.cookies["p_ab_d_id"].value,
-                    "p_ab_id": r.cookies["p_ab_id"].value,
-                    "p_ab_id_2": r.cookies["p_ab_id_2"].value,
-                    "yuid_b": r2.cookies["yuid_b"].value,
-                }
-            )
-
-            log.info("Initialized user %s", t.split("_")[0])
+        async with app.app_context():
+            await gather(*map(_init_user, app.config["TOKEN"]))
 
         if len(app.tokens) == 0:
             raise RuntimeError("No tokens to use.")
