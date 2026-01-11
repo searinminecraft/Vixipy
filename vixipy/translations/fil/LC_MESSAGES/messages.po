@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-10 13:59+0800\n"
-"PO-Revision-Date: 2025-12-30 02:25+0000\n"
+"PO-Revision-Date: 2026-01-11 06:21+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/user-"
+"interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.15.1\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/routes/login.py:55
@@ -1024,9 +1025,8 @@ msgstr "Araw-araw na R-18"
 
 #: vixipy/templates/rankings/calendar.html:29
 #: vixipy/templates/rankings/main.html:29
-#, fuzzy
 msgid "R-18 AI Generated"
-msgstr "Binuo ng AI"
+msgstr "R-18 na Binuo ng AI"
 
 #: vixipy/templates/rankings/calendar.html:30
 #: vixipy/templates/rankings/main.html:30
@@ -1770,4 +1770,3 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
-
