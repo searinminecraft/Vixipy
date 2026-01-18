@@ -2,7 +2,9 @@ from quart import abort, render_template, Blueprint
 
 from ..api.handler import pixiv_request
 from ..converters import proxy
-from ..types import ArtworkEntry, CollectionEntry, TagTranslation
+from ..abc.artworks import ArtworkEntry
+from ..abc.collection import CollectionEntry
+from ..abc.common import TagTranslation
 
 from enum import Enum
 import logging

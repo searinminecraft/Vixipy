@@ -24,10 +24,7 @@ async def __bootstrapper():
 
 
 async def main(
-    bind: list[str],
-    user: Optional[str],
-    group: Optional[str],
-    umask: Optional[int]
+    bind: list[str], user: Optional[str], group: Optional[str], umask: Optional[int]
 ):
     config = Config.from_mapping(
         include_server_header=False,
@@ -64,7 +61,7 @@ if __name__ == "__main__":
         dest="umask",
         default=None,
         help="Defines umask (permission) for unix sockets",
-        type=int
+        type=int,
     )
     parser.add_argument(
         "-u",

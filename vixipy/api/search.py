@@ -4,7 +4,7 @@ from typing import Union
 from urllib.parse import quote
 
 from .handler import pixiv_request
-from ..types import (
+from ..abc.search import (
     SearchResultsIllust,
     SearchResultsManga,
     SearchResultsNovel,
@@ -12,7 +12,10 @@ from ..types import (
     TagInfo,
 )
 
-async def search(type_: Union["illust", "manga", "novels", "top"], query: str, **kwargs):
+
+async def search(
+    type_: Union["illust", "manga", "novels", "top"], query: str, **kwargs
+):
     _params = []
     for k, v in kwargs.items():
         _params.append((k, v))
@@ -25,12 +28,12 @@ async def search(type_: Union["illust", "manga", "novels", "top"], query: str, *
         "top": SearchResultsTop,
         "illustrations": SearchResultsIllust,
         "manga": SearchResultsManga,
-        "novels": SearchResultsNovel
+        "novels": SearchResultsNovel,
     }
 
     if type_ not in mapping:
         raise ValueError("Invalid search type")
-    
+
     return mapping[type_](data)
 
 

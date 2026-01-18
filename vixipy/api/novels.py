@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from .handler import pixiv_request
-from ..types import Novel, NovelEntry, NovelSeries
+from ..abc.novels import Novel, NovelEntry, NovelSeries
+
 
 async def get_novel(id: int) -> Novel:
     data = await pixiv_request(f"/ajax/novel/{id}")

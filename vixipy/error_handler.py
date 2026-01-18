@@ -44,7 +44,7 @@ async def handle_internal_error(e):
                 return {
                     "error": True,
                     "message": "The requested endpoint could not be found",
-                    "body": []
+                    "body": [],
                 }, 404
             return await api_handle_bad_request(e)
 

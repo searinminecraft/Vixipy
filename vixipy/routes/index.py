@@ -4,7 +4,8 @@ from ..api.handler import pixiv_request
 from ..api.ranking import get_ranking
 from ..converters import proxy
 from ..filters import filter_from_prefs as ff
-from ..types import Tag, ArtworkEntry, TagTranslation, RecommendByTag
+from ..abc.common import Tag, TagTranslation
+from ..abc.artworks import RecommendByTag, ArtworkEntry
 
 import random
 import logging

@@ -49,8 +49,12 @@ class PixivArtwork(PixivisionComponent):
         self.author_name = d.select_one("p.am__work__user-name a").text
         self.image_link = d.select_one("div.am__work__main a").attrs["href"]
         #  my CSS skills put to good use :3
-        self.image = d.select_one(".am__work__illust:not(.am__work__illust--seasonal-effect-animation)").attrs["src"]
-        _decoration = d.select_one(".am__work__illust.am__work__illust--seasonal-effect-animation")
+        self.image = d.select_one(
+            ".am__work__illust:not(.am__work__illust--seasonal-effect-animation)"
+        ).attrs["src"]
+        _decoration = d.select_one(
+            ".am__work__illust.am__work__illust--seasonal-effect-animation"
+        )
         self.decoration = _decoration.attrs["src"] if _decoration else None
 
 
@@ -218,5 +222,9 @@ class Link(PixivisionComponent):
     def __init__(self, d: Tag):
         super().__init__("link")
         self.title = d.select_one(".comment-content .comment-title")
-        self.contents = "\n".join(str(x) for x in d.select_one(".comment-content .fab__paragraph._medium-editor-text"))
-
+        self.contents = "\n".join(
+            str(x)
+            for x in d.select_one(
+                ".comment-content .fab__paragraph._medium-editor-text"
+            )
+        )

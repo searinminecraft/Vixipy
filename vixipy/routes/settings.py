@@ -103,10 +103,13 @@ async def account():
     else:
         return await render_template("settings/account.html")
 
+
 @bp.route("/settings/viewing")
 async def viewing():
     if not current_app.no_token or g.authorized:
-        capabilities_data = await pixiv_request("/ajax/settings/self", ignore_cache=True)
+        capabilities_data = await pixiv_request(
+            "/ajax/settings/self", ignore_cache=True
+        )
 
         can_view_sensitive = (
             not current_app.config["NO_SENSITIVE"]
@@ -190,7 +193,9 @@ async def set_content_filter():
 @bp.route("/settings/language-and-location")
 async def language_location():
     if g.authorized:
-        region = (await pixiv_request("/ajax/settings/self", ignore_cache=True))["user_status"]["location"]
+        region = (await pixiv_request("/ajax/settings/self", ignore_cache=True))[
+            "user_status"
+        ]["location"]
     else:
         region = None
 
@@ -200,12 +205,12 @@ async def language_location():
         current_lang = "en"
 
     locale = babel.Locale(current_lang)
-    region_opts = {
-        x: locale.territories[x] for x in REGIONS
-    }
+    region_opts = {x: locale.territories[x] for x in REGIONS}
 
     langs = {x: babel.Locale(x).language_name for x in current_app.config["LANGUAGES"]}
-    return await render_template("settings/language.html", langs=langs, regions=region_opts, region=region)
+    return await render_template(
+        "settings/language.html", langs=langs, regions=region_opts, region=region
+    )
 
 
 @bp.post("/settings/set_language")
@@ -221,11 +226,14 @@ async def setLocation():
     form = await request.form
     region = form["region"]
 
-    resp = await make_response(redirect(url_for("settings.language_location"), code=303))
+    resp = await make_response(
+        redirect(url_for("settings.language_location"), code=303)
+    )
 
-    await pixiv_request("/ajax/settings/location", "post", json_payload={"location": region})
+    await pixiv_request(
+        "/ajax/settings/location", "post", json_payload={"location": region}
+    )
     return resp
-
 
 
 @bp.get("/settings/about")
@@ -262,7 +270,8 @@ async def acknowledgements():
             "Oliver Tzeng",
             ["zh_Hant"],
             "https://github.com/olivertzeng",
-            "/proxy/3rd_party/profile_image/github/olivertzeng")
+            "/proxy/3rd_party/profile_image/github/olivertzeng",
+        ),
     }
 
     for x in TRANSLATION_CREDITS:

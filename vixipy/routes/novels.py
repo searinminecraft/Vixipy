@@ -21,7 +21,7 @@ from ..api.handler import pixiv_request
 from ..api.user import get_user
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
-from ..types import NovelEntry, NovelSeriesEntry
+from ..abc.novels import NovelEntry, NovelSeriesEntry
 from asyncio import gather
 from datetime import datetime
 from typing import TYPE_CHECKING

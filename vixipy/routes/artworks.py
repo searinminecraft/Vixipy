@@ -23,11 +23,12 @@ from ..api.user import (
 from ..constants import EMOJI_SERIES
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
-from ..types import ArtworkPage
+from ..abc.artworks import ArtworkPage
 from ..util import is_consented
 
 if TYPE_CHECKING:
-    from ..types import Artwork, ArtworkEntry, PartialUser
+    from ..abc.artworks import Artwork, ArtworkEntry
+    from ..abc.users import PartialUser
     from aiohttp import ClientResponse
 
 bp = Blueprint("artworks", __name__)
@@ -82,7 +83,7 @@ async def __attempt_work_extraction(
                     log.debug("%s works!", _orig_uri)
                     _orig = _orig_uri
                     break
-            
+
             if not _orig:
                 log.error("No URLs found to work. Abort.")
                 continue

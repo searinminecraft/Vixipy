@@ -16,6 +16,7 @@ from ..util import add_server_timing_metric
 
 log = logging.getLogger(__name__)
 
+
 class PixivError(Exception):
     def __init__(self, message: str, code: int, path: str):
         self.code: int = code
@@ -23,6 +24,7 @@ class PixivError(Exception):
         self.message: str = message
 
         super().__init__(f"{code}: {message} - {path}")
+
 
 async def pixiv_request(
     endpoint: str,
@@ -73,14 +75,17 @@ async def pixiv_request(
         params = params.copy()
 
         params.append(
-            ("lang", {
-                "en": "en",
-                "ja": "ja",
-                "zh_Hans": "zh",
-                "zh_Hant": "zh_tw",
-                "th": "th",
-                "ms": "ms",
-            }.get(lang, "en"))
+            (
+                "lang",
+                {
+                    "en": "en",
+                    "ja": "ja",
+                    "zh_Hans": "zh",
+                    "zh_Hant": "zh_tw",
+                    "th": "th",
+                    "ms": "ms",
+                }.get(lang, "en"),
+            )
         )
 
     for i, v in enumerate(params):

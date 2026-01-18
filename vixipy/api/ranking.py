@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Union
 
 from .handler import pixiv_request
-from ..types import RankingData, RankingCalendar
+from ..abc.rankings import RankingData, RankingCalendar
 
 MODES_T = Union[
     "daily",

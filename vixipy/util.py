@@ -11,7 +11,7 @@ class ServerTiming:
     def __init__(self, name: str, dur: Union[int, float]):
         self.name = name.replace("/", "_")
         self.dur = dur
-    
+
     @property
     def as_header_value(self):
         return f"{self.name if len(self.name) < 40 else f'{self.name[:39]}...'};dur={self.dur}"
@@ -24,12 +24,16 @@ def is_consented():
 def add_server_timing_metric(name: str, dur: Union[int, float]):
     if not g.get("server_timings"):
         g.server_timings = []
-    
+
     g.server_timings.append(ServerTiming(name, dur))
 
+
 def add_server_timing_header(r):
-    r.headers["Server-Timing"] = ",".join([x.as_header_value for x in g.get("server_timings", [])])
+    r.headers["Server-Timing"] = ",".join(
+        [x.as_header_value for x in g.get("server_timings", [])]
+    )
     return r
+
 
 def init_app(app: Quart):
     app.after_request(add_server_timing_header)

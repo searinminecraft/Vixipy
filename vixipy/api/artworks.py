@@ -3,14 +3,17 @@ from __future__ import annotations
 import logging
 
 from .handler import pixiv_request
-from ..types import (
+from ..abc.artworks import (
     Artwork,
     ArtworkPage,
     ArtworkEntry,
+    NewIllustResponse,
+)
+
+from ..abc.comment import (
     CommentBase,
     Comment,
     CommentBaseResponse,
-    NewIllustResponse,
 )
 
 log = logging.getLogger(__name__)

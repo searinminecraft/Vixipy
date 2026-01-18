@@ -34,10 +34,7 @@ async def tag(id: int):
 
 @bp.route("/pixivision/s/")
 async def search():
-    data, pg = await search_pixivion(
-        request.args["q"],
-        int(request.args.get("p", 1))
-    )
+    data, pg = await search_pixivion(request.args["q"], int(request.args.get("p", 1)))
     return await render_template("pixivision/search.html", data=data, pg=pg)
 
 

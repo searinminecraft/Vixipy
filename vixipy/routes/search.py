@@ -21,11 +21,12 @@ from ..api.search import search, get_tag_info
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
 from ..lib.scrapes import get_popular_tags
-from ..types import ArtworkEntry, RecommendByTag, TagTranslation
+from ..abc.artworks import ArtworkEntry, RecommendByTag
+from ..abc.common import TagTranslation
 
 if TYPE_CHECKING:
     from werkzeug.datastructures import ImmutableMultiDict
-    from ..types import (
+    from ..abc.search import (
         TagInfo,
         SearchResultsTop,
         SearchResultsIllustManga,
@@ -190,9 +191,12 @@ async def search_dashboard():
 
     for _pit in data["recommendTags"]["illust"]:
         if len(_pit["ids"]) == 0:
-            log.error("ids for tag %s is empty (illustration deleted/private?), skipping", _pit["tag"])
+            log.error(
+                "ids for tag %s is empty (illustration deleted/private?), skipping",
+                _pit["tag"],
+            )
             continue
-        
+
         recommend_tags.append(
             RecommendTag(
                 _pit,

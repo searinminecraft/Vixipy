@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from .handler import pixiv_request
-from ..types import ArtworkEntry, UserEntry, PartialUser
+from ..abc.artworks import ArtworkEntry
+from ..abc.users import UserEntry, PartialUser
 from ..filters import filter_from_prefs as ff
+
 
 async def get_discovery(
     mode: str = "all",

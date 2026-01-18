@@ -4,10 +4,10 @@ import logging
 from quart import current_app, request
 from typing import TYPE_CHECKING
 
-from .types import ArtworkEntry
+from .abc.artworks import ArtworkEntry
 
 if TYPE_CHECKING:
-    from .types import NovelEntry, NovelSeriesEntry
+    from .abc.novels import NovelEntry, NovelSeriesEntry
     from typing import Union
 
 log = logging.getLogger("vixipy.filters")

@@ -6,4 +6,4 @@ aiomcache
 materialyoucolor
 pillow
 beautifulsoup4
-git+https://github.com/searinminecraft/quart-compress@import-fix
+quart-compress

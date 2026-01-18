@@ -14,21 +14,22 @@ if TYPE_CHECKING:
 bp = Blueprint("rankings", __name__)
 
 VALID_MODES = (
-        "daily",
-        "weekly",
-        "monthly",
-        "rookie",
-        "male",
-        "female",
-        "original",
-        "daily_ai",
-        "daily_r18_ai",
-        "daily_r18",
-        "weekly_r18",
-        "male_r18",
-        "female_r18",
-        "r18g",
+    "daily",
+    "weekly",
+    "monthly",
+    "rookie",
+    "male",
+    "female",
+    "original",
+    "daily_ai",
+    "daily_r18_ai",
+    "daily_r18",
+    "weekly_r18",
+    "male_r18",
+    "female_r18",
+    "r18g",
 )
+
 
 @bp.route("/rankings")
 @rate_limit(

@@ -14,7 +14,7 @@ from ..api.user import (
 from ..api.handler import pixiv_request
 from ..decorators import tokenless_require_login, require_login
 from ..filters import filter_from_prefs as ff
-from ..types import NovelEntry
+from ..abc.novels import NovelEntry
 
 bp = Blueprint("users", __name__)
 

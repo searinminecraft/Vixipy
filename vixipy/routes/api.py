@@ -44,7 +44,7 @@ async def handle_bad_request(e: HTTPException):
         403: "Insufficient permission to access resource",
         404: "Resource not found or does not exist",
         405: "Method not allowed",
-        429: "Too many requests. Try again another time"
+        429: "Too many requests. Try again another time",
     }
     return make_error(code_map.get(e.code, "Invalid request"), e.code)
 
