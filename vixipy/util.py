@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 class ServerTiming:
     def __init__(self, name: str, dur: Union[int, float]):
         self.name = name.replace("/", "_")
-        self.dur = dur
+        self.dur = round(dur, ndigits=2)
 
     @property
     def as_header_value(self):

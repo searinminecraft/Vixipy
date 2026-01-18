@@ -94,7 +94,7 @@ class MemcacheStore(RateLimiterStoreABC):
 
 
 async def limiter_key_func():
-    if g.authorized:
+    if g.get("authorized", False):
         return g.token
 
     if current_app.config["BEHIND_REVERSE_PROXY"]:
