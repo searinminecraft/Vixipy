@@ -20,3 +20,4 @@ from .jump import bp as jump
 from .pixivision import bp as pixivision
 from .test import bp as test
 from .collection import bp as collection
+from .street import bp as street

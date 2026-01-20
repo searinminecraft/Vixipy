@@ -36,6 +36,7 @@ from .routes import (
     pixivision,
     test,
     collection,
+    street,
 )
 from . import (
     cache_client,
@@ -200,6 +201,7 @@ def create_app():
     app.register_blueprint(pixivision)
     app.register_blueprint(test)
     app.register_blueprint(collection)
+    app.register_blueprint(street)
 
     # =================================
 

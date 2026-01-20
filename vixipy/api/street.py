@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from ..abc.street import StreetData
 from .handler import pixiv_request
 
 from typing import Optional
@@ -16,10 +17,10 @@ async def get_data(
     content_index_prev: Optional[int] = None,
 ):
 
-    vhcs: Optional[str] = ",".join(vhc) or None
-    vhis: Optional[str] = ",".join(vhi) or None
-    vhms: Optional[str] = ",".join(vhm) or None
-    vhns: Optional[str] = ",".join(vhn) or None
+    vhcs: Optional[str] = ",".join(vhc) if vhc else None
+    vhis: Optional[str] = ",".join(vhi) if vhi else None
+    vhms: Optional[str] = ",".join(vhm) if vhm else None
+    vhns: Optional[str] = ",".join(vhn) if vhn else None
 
     payload = {
         "k": k,
@@ -35,4 +36,5 @@ async def get_data(
             "params": {"p": page, "content_index_prev": content_index_prev},
         }
 
-    data = await pixiv_request(json_payload=payload)
+    data = await pixiv_request(method="post", endpoint="/ajax/street/v2/main", json_payload=payload, headers={"Referer": "https://www.pixiv.net"}, ignore_language=True, ignore_cache=True)
+    return StreetData(data)
