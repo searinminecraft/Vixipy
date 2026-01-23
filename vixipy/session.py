@@ -3,9 +3,11 @@ from __future__ import annotations
 import random
 import string
 from asyncio import gather
-from quart import g, request
+from quart import flash, g, make_response, request, redirect, url_for
+from quart_babel import _
 from typing import TYPE_CHECKING
 
+from .api.handler import PixivError
 from .api.user import get_notification_count, get_self_extra, get_user
 
 if TYPE_CHECKING:
@@ -56,9 +58,20 @@ async def get_session_data():
         if request.headers.get("X-Vixipy-Quick-Action") == "true":
             return
 
-        notification_count, user, extra = await gather(
-            get_notification_count(), get_user(g.token.split("_")[0]), get_self_extra()
-        )
+        try:
+            notification_count, user, extra = await gather(
+                get_notification_count(), get_user(g.token.split("_")[0]), get_self_extra()
+            )
+        except PixivError:
+            r = await make_response(redirect(url_for("login.login_page", return_to=request.path), code=303))
+            r.delete_cookie("Vixipy-Token")
+            r.delete_cookie("Vixipy-p_ab_id")
+            r.delete_cookie("Vixipy-p_ab_id_2")
+            r.delete_cookie("Vixipy-p_ab_d_id")
+            r.delete_cookie("Vixipy-yuid_b")
+            r.delete_cookie("Vixipy-CSRF")
+            await flash(_("Session not valid. Please sign in."))
+            return r
 
         notification_count: int
         user: User
