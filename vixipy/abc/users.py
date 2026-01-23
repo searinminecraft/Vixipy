@@ -3,6 +3,7 @@ from __future__ import annotations
 from .artworks import ArtworkEntry
 from ..converters import proxy, convert_pixiv_link
 from bs4 import BeautifulSoup
+from datetime import datetime
 from typing import Optional
 
 

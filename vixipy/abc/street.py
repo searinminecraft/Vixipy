@@ -127,6 +127,44 @@ class StreetIllust(StreetComponent):
         self.pickup: Optional[_StreetPickup] = _StreetPickup(d["pickup"]) if d.get("pickup") else None
 
 
+class _StreetNovelThumb(_StreetThumbCommon):
+    def __init__(self, d: dict):
+        super().__init__(d)
+        self.description: str = d["description"]
+        self.episode_count: int = d["episodeCount"]
+        self.text: str = d["text"]
+        self.thumb: str = proxy(d["url"])
+        self.text_count: int = d["textCount"]
+        self.word_count: int = d["wordCount"]
+        self.use_word_count: bool = d["useWordCount"]
+        self.reading_time: int = d["readingTime"]
+        self.bookmark_count: int = d["bookmarkCount"]
+        self.series_id: Optional[int] = int(d.get("seriesId", 0)) or None
+        self.series_title: Optional[str] = d.get("seriesTitle")
+
+
+class StreetNovel(StreetComponent):
+    def __init__(self, d: dict):
+        super().__init__(d)
+        self.content: _StreetNovelThumb = _StreetNovelThumb(d["thumbnails"][0])
+
+
+class _StreetCollectionThumb(_StreetThumbCommon):
+    def __init__(self, d: dict):
+        super().__init__(d)
+        self.url: str = proxy(d["url"])
+        self.language: str = d["language"]
+        self.spoiler: bool = d["isSpoiler"]
+
+
+class StreetCollection(StreetComponent):
+    def __init__(self, d: dict):
+        super().__init__(d)
+        self.content: _StreetCollectionThumb = _StreetCollectionThumb(d["thumbnails"][0])
+
+
+
+
 class StreetPlaceholderComponent(StreetComponent):
     def __init__(self, d):
         super().__init__(d)
@@ -145,6 +183,8 @@ class StreetData:
             "pixivision": StreetPixivisionComponent,
             "illust": StreetIllust,
             "manga": StreetIllust,
+            "novel": StreetNovel,
+            "collection": StreetCollection,
         }
 
         for x in d["contents"]:
@@ -152,7 +192,6 @@ class StreetData:
                 n = _cmp_map[x["kind"]](x)
                 self.contents.append(n)
                 log.debug("Parsed street cmp %s", n.name)
-                log.debug(dir(n))
             else:
                 self.contents.append(StreetPlaceholderComponent(x))
                 log.warn("Street cmp %s not implemented", x["kind"])
