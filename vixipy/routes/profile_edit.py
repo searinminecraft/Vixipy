@@ -115,4 +115,4 @@ async def edit_profile():
 
     data["profileImage"] = proxy(data["profileImage"])
     data["coverImage"] = proxy(data["coverImage"])
-    return await render_template("edit_profile.html", data=data)
+    return await render_template("edit_profile.html.j2", data=data)

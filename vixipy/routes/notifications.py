@@ -27,4 +27,4 @@ class Notification:
 async def main():
     data = await pixiv_request("/ajax/notification")
     res = [Notification(x) for x in data["items"]]
-    return await render_template("notifications.html", data=res)
+    return await render_template("notifications.html.j2", data=res)

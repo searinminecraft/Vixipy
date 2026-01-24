@@ -1,0 +1,28 @@
+{% extends "layouts/default.html.j2" %}
+{% set title = _("Street") %}
+
+{% block content %}
+<main>
+    <div id="street">
+        {%- include "components/spinner.html.j2" -%}
+        
+        <div id="st-content">
+            <h1>a</h1>
+            <h1>a</h1>
+            <h1>a</h1>
+            <h1>a</h1>
+            <h1>a</h1>
+            <h1>a</h1>
+            <h1>a</h1>
+            <h1>a</h1>
+            <h1>a</h1>
+            <h1>a</h1>
+            <form action="/street/load" method="post"
+            hx-target="#st-content" hx-swap="outerHTML" hx-trigger="revealed">
+                <button type="submit" class="button primary" >{{_("Load More")}}</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

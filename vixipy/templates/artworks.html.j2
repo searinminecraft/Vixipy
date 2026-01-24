@@ -1,0 +1,194 @@
+{% extends "layouts/default.html.j2" %}
+{% set title = _("%(work_name)s by %(author)s", work_name=work.title, author=work.authorName) %}
+
+{% import "components/artwork-entry.html.j2" as artwork_entry %}
+
+{% block head_additional %}
+<meta property="og:title" content='{{_("%(work_name)s by %(author)s", work_name=work.title, author=work.authorName)}}'>
+<meta property="og:site_name" content="{{config['INSTANCE_NAME']}}" />
+<meta property="og:description" content="
+👍 {{work.likeCount|numberformat}} ❤️ {{work.bookmarkCount|numberformat}} 💬 {{work.commentCount|numberformat}}
+
+{% for tag in work.tags %}#{{tag.name}} {% endfor %}
+
+{{work.description_stripped[:64]}}{% if work.description_stripped|length > 64%}...{% endif %}
+" />
+
+{# 
+<!-- Twitter Mosaic -->
+{%- for page in pages if not page.page > 3 %}
+<meta property="twitter:image" content="{{page.reg}}"/>
+{% endfor -%}
+#}
+
+{# Open Graph Image #}
+<meta property="og:image" content="{{pages[0].reg}}" />
+<meta property="twitter:card" content="summary_large_image"/>
+
+{% endblock %}
+
+{% block content %}
+<!--
+<input type="hidden" id="illust_id" value="{{work.id}}">
+<script>getSchemeFromArtwork(document.getElementById("illust_id").value)</script>
+<main class="large">
+    <section id="artwork-main">
+        <main>
+            {% if work.isUgoira %}
+            <video src="/proxy/ugoira/{{work.id}}" loop playsinline autoplay controls poster="{{pages[0].reg}}"></video>
+            {% else %}
+            <div class="works">
+                {% for p in pages %}
+                <div class="work">
+                    <div class="meta">
+                        <div>{{p.width}}x{{p.height}}</div>
+                        {% if pages | length > 1 %}
+                        <div>{{p.page}}/{{work.pages}}</div>
+                        {% endif %}
+                    </div>
+                    <a href="{{p.orig}}" target="_blank">
+                        <img src="{{p.reg}}" alt="{{_('Page %(page)d of %(total)d', page=p.page, total=pages|length)}}">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="userdata">
+                <div class="author">
+                    <div class="author-main">
+                        <a class="author-link" href="/users/{{work.authorId}}">
+                            <img src="{{user.image}}" alt="{{work.authorName}}">
+                            {{work.authorName}}
+                        </a>
+                        {% if g.authorized %}
+                        <form action="/self/action/user/{{user.id}}/{% if not user.followed %}follow{% else %}unfollow{% endif %}"
+                            hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
+                            hx-headers='{"X-Vixipy-Quick-Action": "true"}' method="post">
+                            <input type="hidden" name="return_to" value="{{request.path}}">
+                            <input type="hidden" name="small">
+                            <button type="submit" class="button smaller {%if not user.followed%}primary{%else%}neutral{%endif%}">
+                                {%if not user.followed%}{{_("Follow")}}{%else%}{{_("Following")}}{% endif %}
+                            </button>
+                        </form>
+                        {% endif %}
+                    </div>
+                    <a class="view-all" href="/users/{{work.authorId}}">{{_("View all works")}}</a>
+                </div>
+                <div class="scrolling-container">
+                    {% for w in user_works %}
+                    {{ artwork_entry.entry(w, false, false, true) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+        <aside>
+            <h2>{{work.title}}</h2>
+            <ul class="tags">
+                {% if work.loginonly %}
+                <li><a class="content-label">{{_("Login Only")}}</a></a></li>
+                {% endif %}
+                {% if work.ai %}
+                <li><a class="content-label" href="/tags/AIイラスト">{{_("AI Generated")}}</a></li>
+                {% endif %}
+                {% if work.isUgoira %}
+                <li><a class="content-label" href="/tags/うごイラ">{{_("Ugoira")}}</a></li>
+                {% endif %}
+                {% if work.xrestrict >= 1 %}
+                <li><a class="warning">{{work.xrestrict_friendlyname}}</a></li>
+                {% endif %}
+                {% if work.sensitive and not work.xrestrict >= 1 %}
+                <li><a class="warning">{{_("Sensitivity Level: %(sl)d", sl=work.sl)}}</a></li>
+                {% endif %}
+                {% for t in work.tags %}
+                <li><a href="/tags/{{t.name}}">#{{t.name}}</a> {{t.en or t.romaji or ""}}</li>
+                {% endfor %}
+            </ul>
+            <ul class="data">
+                <li>
+                    {% if g.authorized %}
+                    <form action="/self/action/{%if work.bookmarked%}delete_bookmark/{{work.bookmark_id}}{%else%}works/{{work.id}}/bookmark{%endif%}" method="post"
+                    hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false" hx-indicator="this"
+                    hx-headers='{"X-Vixipy-Quick-Action": "true"}'>
+                        <input type="hidden" name="return_to" value="{{request.path}}">
+                        <input type="hidden" name="bookmark_count" value="{{work.bookmarkCount}}">
+                        <input type="hidden" name="work_id" value="{{work.id}}">
+                        <button type="submit">
+                            {% if work.bookmarked %}
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 2H5a2 2 0 00-2 2v10l5-2.5 5 2.5V4a2 2 0 00-2-2z"/></svg>
+                            {% else %}
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 11.5l5 2.5V4a2 2 0 00-2-2H5a2 2 0 00-2 2v10l5-2.5zm-4 .882l4-2 4 2V4a1 1 0 00-1-1H5a1 1 0 00-1 1v8.382z"/></svg>
+                            {% endif %}
+                            {{work.bookmarkCount}}
+                        </button>
+                    </form>
+                    {% else %}
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 11.5l5 2.5V4a2 2 0 00-2-2H5a2 2 0 00-2 2v10l5-2.5zm-4 .882l4-2 4 2V4a1 1 0 00-1-1H5a1 1 0 00-1 1v8.382z"/></svg>
+                    {{work.bookmarkCount}}
+                    {% endif %}
+                </li>
+                <li>
+                    {% if g.authorized %}
+                    {% if work.liked %}
+                    <svg class="liked" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8a2 2 0 100-4 2 2 0 000 4zM12 8a2 2 0 100-4 2 2 0 000 4zM11.89 10.89a5.5 5.5 0 01-7.78 0 1 1 0 011.415-1.415 3.5 3.5 0 004.95 0 1 1 0 111.414 1.414z"/></svg>
+                    {{work.likeCount}}
+                    {% else %}
+                    <form action="/self/action/works/{{work.id}}/like" method="post"
+                        hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false"
+                        hx-headers='{"X-Vixipy-Quick-Action": "true"}'>
+                        <input type="hidden" name="return_to" value="{{request.path}}">
+                        <input type="hidden" name="like_count" value="{{work.likeCount}}">
+                        <button type="submit">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8a2 2 0 100-4 2 2 0 000 4zM12 8a2 2 0 100-4 2 2 0 000 4zM11.89 10.89a5.5 5.5 0 01-7.78 0 1 1 0 011.415-1.415 3.5 3.5 0 004.95 0 1 1 0 111.414 1.414z"/></svg>
+                            {{work.likeCount}}
+                        </button>
+                    </form>
+                    {% endif %}
+                    {% else %}
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8a2 2 0 100-4 2 2 0 000 4zM12 8a2 2 0 100-4 2 2 0 000 4zM11.89 10.89a5.5 5.5 0 01-7.78 0 1 1 0 011.415-1.415 3.5 3.5 0 004.95 0 1 1 0 111.414 1.414z"/></svg>
+                    {{work.likeCount}}
+                    {% endif %}
+                </li>
+                <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3C4 3 1 8 1 8s3 5 7 5 7-5 7-5-3-5-7-5zm0 7.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg>
+                    {{work.viewCount}}
+                </li>
+                <li>
+                    <a href="{{url_for('artworks.get_comments', id=work.id)}}" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.4 13.409l-2.64.377.333-2.332a6 6 0 112.306 1.955z"/></svg>
+                        {{work.commentCount}}
+                    </a>
+                </li>
+                {% if work.isUgoira %}
+                <li>
+                    <a target="_blank" href="{{url_for('ugoira.converter_main', id=work.id)}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+                        {{_("Convert Ugoira")}}
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+            <p class="create-date">{{work.uploadDate|datetimeformat}}</p>
+        </aside>
+    </section>
+
+    <section id="related">
+        <h2>{{_("Related works")}}</h2>
+        {% if recommend | length > 0 %}
+        <div class="artwork-container">
+            {% for r in recommend %}
+            {{ artwork_entry.entry(r) }}
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>{{_("No recommended works to show.")}}</p>
+        {% endif %}
+    </section>
+</main>
+-->
+
+{% if g.hx_request %}
+{% block h %}
+{% endblock h%}
+{% endif %}
+
+{% endblock %}

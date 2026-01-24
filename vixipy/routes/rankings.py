@@ -63,7 +63,7 @@ async def main():
 
     data = await get_ranking(mode, date, content, page)
 
-    return await render_template("rankings/main.html", data=data)
+    return await render_template("rankings/main.html.j2", data=data)
 
 
 @bp.route("/rankings/calendar")
@@ -112,7 +112,7 @@ async def ranking_calendar():
     )
 
     return await render_template(
-        "rankings/calendar.html",
+        "rankings/calendar.html.j2",
         data=data,
         current=sel,
         nextUrl=nextUrl,

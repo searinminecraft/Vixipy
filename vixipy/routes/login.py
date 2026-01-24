@@ -53,7 +53,7 @@ async def login_page():
             log.debug("Login success, get CSRF next...")
         except PixivError:
             await flash(_("Invalid token"), "error")
-            return await render_template("login.html", bg=proxy(background), id=id)
+            return await render_template("login.html.j2", bg=proxy(background), id=id)
 
         if current_app.config["PIXIV_DIRECT_CONNECTION"]:
             r: ClientResponse = await current_app.pixiv.get(
@@ -80,7 +80,7 @@ async def login_page():
             csrf = re.search(r'\\"token\\":\\"([0-9a-f]+)\\"', t).group(1)
         except IndexError:
             await flash(_("Unable to extract CSRF"))
-            return await render_template("login.html", bg=proxy(background), id=id)
+            return await render_template("login.html.j2", bg=proxy(background), id=id)
 
         p_ab_id = r.cookies["p_ab_id"].value
         p_ab_id_2 = r.cookies["p_ab_id_2"].value
@@ -105,4 +105,4 @@ async def login_page():
         )
         return res
 
-    return await render_template("login.html", bg=proxy(background), id=id)
+    return await render_template("login.html.j2", bg=proxy(background), id=id)

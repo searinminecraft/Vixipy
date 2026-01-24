@@ -132,7 +132,7 @@ async def index():
             pixivision.append(_Pixivision(px["id"], px["title"], px["thumbnailUrl"]))
 
         return await render_template(
-            "index.html",
+            "index.html.j2",
             following=ff(following),
             recommend=ff(recommend),
             rec_tag=recommend_by_tag,
@@ -144,4 +144,4 @@ async def index():
 
     else:
         data = await get_ranking()
-        return await render_template("index_logged_out.html", data=data)
+        return await render_template("index_logged_out.html.j2", data=data)

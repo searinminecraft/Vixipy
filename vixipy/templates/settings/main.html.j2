@@ -1,0 +1,51 @@
+{% extends "settings/index.html.j2" %}
+{% set section = "preferences" %}
+{% set settings_title = _("Vixipy settings") %}
+
+{% block settings_content %}
+<h3>{{_("Vixipy settings")}}</h3>
+<section>
+    <div>
+        {{_("Image Proxy Server")}}
+    </div>
+    <main>
+        <form action="/settings/set_proxy_server" method="post" hx-boost="false">
+            <select name="proxy" class="width-100">
+                {% if is_instance_custom_proxy_server %}
+                <option value="" {% if c.get('Vixipy-Image-Proxy') == None or c.get('Vixipy-Image-Proxy') == '' %}selected{%endif%}>{{_("Use proxy specified by instance")}}</option>
+                <option value="/proxy/i.pximg.net" {% if c.get('Vixipy-Image-Proxy') == '/proxy/i.pximg.net' %}selected{%endif%}>{{_("Use built-in proxy")}}</option>
+                {% else %}
+                <option value="" {% if not c.get('Vixipy-Image-Proxy') %}selected{%endif%}>{{_("Use built-in proxy")}}</option>
+                {% endif %}
+
+                {% for i in proxies %}
+                <option value="{{i}}" {% if c.get('Vixipy-Image-Proxy') == i %}selected{% endif %}>{{i}}</option>
+                {% endfor %}
+            </select>
+	    <br><br>
+            <small class="tip">{{_("An image proxy allows retrieving images from pixiv without making any connection to pixiv servers.")}}</small>
+            <br><br>
+            <button class="button smaller neutral" type="submit">{{_("Use selected proxy")}}</button>
+        </form>
+    </main>
+</section>
+<section>
+    <div>
+        {{_("Color Scheme")}}
+    </div>
+    <main>
+        <form action="/settings/set_color" method="post"  hx-boost="false">
+            {%- set ct = request.cookies.get("Vixipy-Theme") -%}
+            <select class="width-100" name="color" id="">
+                <option value="" {% if not ct %}selected{%endif%}>{{_("Default")}}</option>
+                {% for x in themes %}
+                <option value="{{x}}" {% if x == ct %}selected{% endif %}>{{x}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            
+            <button class="button smaller neutral" type="submit">{{_("Set color scheme")}}</button>
+        </form>
+    </main>
+</section>
+{% endblock %}

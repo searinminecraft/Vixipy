@@ -1,0 +1,26 @@
+{% extends "layouts/default.html.j2" %}
+{% if settings_title %}
+{% set title =  settings_title + " | " + _("Settings") %}
+{% else %}
+{% set title = _("Settings") %}
+{% endif %}
+
+{% set c = request.cookies %}
+
+{% block content %}
+<main class="no-transition" id="settings">
+    <div class="menu">
+        <h2>{{_("Settings")}}</h2>
+        <nav>
+            <a href="/settings">{{_("Vixipy settings")}}</a>
+            <a href="/settings/account">{{_("Account")}}</a>
+            <a href="/settings/viewing">{{_("Display settings")}}</a>
+            <a href="/settings/language-and-location">{{_("Language and location")}}</a>
+            <a href="/settings/about">{{_("About Vixipy")}}</a>
+        </nav>
+    </div>
+    <div class="content">
+        {% block settings_content %}{% endblock %}
+    </div>
+</main>
+{% endblock %}

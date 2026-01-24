@@ -1,0 +1,106 @@
+{% extends "layouts/default.html.j2" %}
+{% set title=_("Comments") %}
+{% from "components/comment.html.j2" import comment %}
+
+{% block content %}
+<main class="no-transition">
+    <h2>{{_("Comments")}}</h2>
+    <div id="comment-area">
+        <div id="poster">
+            {% if g.authorized %}
+            <form action="/self/post_comment" method="post" hx-push-url="false">
+                <input type="hidden" name="target", value="{{id}}">
+                <input type="hidden" name="user" value="{{work.authorId}}">
+                <div class="container">
+                    <img class="profile" src="{{g.current_user.imageBig}}">
+                    <main>
+                        <textarea required name="comment" placeholder="{{_('Post your comment')}}" rows="3" maxlength="140"></textarea>
+                        <label for="expression-picker-t">
+                            <a class="icon-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 2H8a6 6 0 00-6 6v8a6 6 0 006 6h8a6 6 0 006-6V8a6 6 0 00-6-6zM8 4a4 4 0 00-4 4v8a4 4 0 004 4h8a4 4 0 004-4V8a4 4 0 00-4-4H8zm.5 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm8.5-1.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm-8.89 5.39a5.5 5.5 0 007.78 0 1 1 0 00-1.415-1.415 3.5 3.5 0 01-4.95 0 1 1 0 10-1.414 1.414z"/></svg>
+                            </a>
+                        </label>
+                        <button class="button primary" type="submit">{{_("Send")}}</button>
+                    </main>
+                </div>
+            </form>
+            <input type="checkbox" id="expression-picker-t">
+            <div id="expression-picker">
+                <h3>{{_("Emojis and Stickers")}}</h3>
+                {%- macro stamp_button(x) %}
+                <li><button type="submit" name="id" value="{{x}}"><img loading="lazy" src="/proxy/s.pximg.net/common/images/stamp/generated-stamps/{{x}}_s.jpg"></button></li>
+                {% endmacro -%}
+
+                <div class="require-js" id="emojis">
+                    <h4>{{_("Emojis")}}</h4>
+                    <ul>
+                    {% for x in emojis %}
+                    <li><button value="{{x['name']}}"><img loading="lazy" src="/proxy/s.pximg.net/common/images/emoji/{{x['id']}}.png" id></button></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <script src="/static/emoji.js"></script>
+
+                <h4>{{_("Stickers")}}</h4>
+                <form action="/self/post_stamp" method="post">
+                    <input type="hidden" name="target", value="{{id}}">
+                    <input type="hidden" name="user" value="{{work.authorId}}">
+                    <ul id="stamps">
+                        {%- for x in (range(301, 311)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                        {%- for x in (range(401, 411)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                        {%- for x in (range(101, 111)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                        {%- for x in (range(201, 211)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                        {%- for x in (range(701, 711)) %}
+                        {{stamp_button(x)}}
+                        {% endfor -%}
+                    </ul>
+                </form>
+            </div>
+            {% else %}
+            <div class="container">
+                <img class="profile" src="/proxy/s.pximg.net/common/images/no_profile.png">
+                <main>
+                    <textarea disabled required name="comment" placeholder="{{_('Sign in to post comments')}}" rows="3" maxlength="140"></textarea>
+                    <label for="expression-picker-t">
+                        <a class="icon-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 2H8a6 6 0 00-6 6v8a6 6 0 006 6h8a6 6 0 006-6V8a6 6 0 00-6-6zM8 4a4 4 0 00-4 4v8a4 4 0 004 4h8a4 4 0 004-4V8a4 4 0 00-4-4H8zm.5 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm8.5-1.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm-8.89 5.39a5.5 5.5 0 007.78 0 1 1 0 00-1.415-1.415 3.5 3.5 0 01-4.95 0 1 1 0 10-1.414 1.414z"/></svg>
+                        </a>
+                    </label>
+                    <button class="button primary" type="submit" disabled>{{_("Send")}}</button>
+                </main>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="comments">
+            {% for x in data.comments %}
+            {{ comment(x) }}
+            {% else %}
+            <div class="no-content">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.665 21.014l-4.399.629.556-3.887A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 01-4.335-.986z" fill="currentColor"/></svg>
+                {{_("There is no comment yet")}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="paginator">
+        {%- set page = request.args.get("p", 1)|int -%}
+        <a {% if page > 1 %}href="{{url_for('artworks.get_comments', id=id, p=page-1)}}"{% endif %}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m432-480 156 156q11 11 11 28t-11 28q-11 11-28 11t-28-11L348-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 28-11t28 11q11 11 11 28t-11 28L432-480Z"/></svg>
+        </a>
+        <span>{{_("Page %(page)d", page=page)}}</span>
+        <a {% if data.has_next %}href="{{url_for('artworks.get_comments', id=id, p=page+1)}}"{% endif %}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"/></svg>
+        </a>
+    </div>
+</main>
+{% endblock %}

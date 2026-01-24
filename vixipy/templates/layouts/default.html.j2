@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html{% if request.cookies["Vixipy-Language"] %} lang="{{request.cookies[" Vixipy-Language"]}}"{% endif %}>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">
+        {%- include "components/theme-pref.html.j2" -%}
+        <script src="/static/jquery-3.7.1.min.js"></script>
+        <script src="/static/htmx.min.js"></script>
+        <script src="/static/js/common.js"></script>
+        {% if title %}
+        <title>{{title}} | {{config["INSTANCE_NAME"]}}</title>
+        {% else %}
+        <title>{{config["INSTANCE_NAME"]}}</title>
+        {% endif %}
+
+        {% block head_additional %}{% endblock %}
+
+        <noscript>
+            <style>
+                .require-js {
+                    display: none !important
+                }
+
+                .no-js {
+                    display: block !important
+                }
+            </style>
+        </noscript>
+    </head>
+
+    <body hx-swap="innerHTML transition:true" hx-boost="true" hx-indicator="this">
+        <div id="loading"></div>
+        <div class="modal-popover-backdrop"></div>
+        {% include "components/header.html.j2" %}
+        {% block outer %}{% endblock %}
+        <div class="root">
+        {% block content %}{% endblock %}
+        </div>
+    </body>
+
+    </html>

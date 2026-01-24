@@ -13,4 +13,4 @@ async def main():
         abort(501)
 
     data = await get_street_data()
-    return await render_template("street/index.html", data=data)
+    return await render_template("street/index.html.j2", data=data)

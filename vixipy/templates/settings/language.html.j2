@@ -1,0 +1,40 @@
+
+{% extends "settings/index.html.j2" %}
+{% set settings_title = _("Language and location") %}
+
+{% block settings_content %}
+<h3>{{_("Language and location")}}</h3>
+<section>
+    <div>
+        {{_("Language")}}
+    </div>
+    <main>
+        <form action="/settings/set_language" method="post">
+            <select name="lang" class="width-100">
+		        <option value="" {% if not request.cookies.get("Vixipy-Language", "") %}selected{%endif%}>{{_("Use system language")}}</option>
+		        {% for l in langs %}
+		        <option value="{{l}}" {%if request.cookies.get("Vixipy-Language") == l%}selected{%endif%}>{{langs[l]}}</option>
+		        {% endfor %}
+            </select>
+	        <br><br>
+	        <a href="https://translate.codeberg.org/engage/vixipy/">{{_("Help translate Vixipy to your language!")}}</a>
+            <br><br>
+            <button class="button smaller neutral" type="submit">{{_("Set language")}}</button>
+        </form>
+    </main>
+</section>
+{%- if g.authorized -%}
+<section>
+    <div>{{_("Location")}}</div>
+    <form action="/settings/set_region" method="post">
+        <select name="region" class="width-100">
+            {%- for x in regions -%}
+            <option value="{{x}}" {% if region == x %}selected{% endif %}>{{regions[x]}}</option>
+            {%- endfor -%}
+        </select>
+        <br><br>
+        <button type="submit" class="button smaller neutral">{{_("Set location")}}</button>
+    </form>
+</section>
+{%- endif -%}
+{% endblock %}

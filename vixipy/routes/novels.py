@@ -111,7 +111,7 @@ async def novel_root():
     ranking_f = NovelRanking(_ranking_f_date, ff(_ranking_f))
 
     return await render_template(
-        "novels/index.html",
+        "novels/index.html.j2",
         followed=ff(from_followed),
         popular=ff(popular_orig),
         recommend=ff(recommend),
@@ -134,7 +134,7 @@ async def novel_main(id: int):
         get_recommended_novels(id),
     )
     return await render_template(
-        "novels/novel.html", data=data, user=user, recommend=ff(recommend)
+        "novels/novel.html.j2", data=data, user=user, recommend=ff(recommend)
     )
 
 
@@ -155,7 +155,7 @@ async def novel_series_main(id: int):
     if _ > 0:
         pages += 1
     return await render_template(
-        "novels/series.html", data=data, contents=contents, pages=pages
+        "novels/series.html.j2", data=data, contents=contents, pages=pages
     )
 
 

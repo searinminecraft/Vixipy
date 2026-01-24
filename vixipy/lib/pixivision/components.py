@@ -24,12 +24,12 @@ class PixivisionComponent:
         """Renders the component"""
         try:
             return await render_template(
-                f"pixivision/components/{self.component}.html", data=self
+                f"pixivision/components/{self.component}.html.j2", data=self
             )
         except Exception as e:
             log.exception("Failure rendering the component %s", self.component)
             return await render_template(
-                f"pixivision/components/render_error.html", error=e
+                f"pixivision/components/render_error.html.j2", error=e
             )
 
 
@@ -177,7 +177,7 @@ class BrokenComponent(PixivisionComponent):
 
     async def render(self):
         return await render_template(
-            "pixivision/components/render_error.html", error=self.error
+            "pixivision/components/render_error.html.j2", error=self.error
         )
 
 

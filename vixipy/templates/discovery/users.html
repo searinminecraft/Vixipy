@@ -1,9 +1,0 @@
-{% extends "discovery/index.html" %}
-{% set current = 'users' %}
-{% from "components/user-entry.html" import userentry %}
-
-{% block ct %}
-{% for x in data %}
-{{ userentry(x.user, x.illusts) }}
-{% endfor %}
-{% endblock %}

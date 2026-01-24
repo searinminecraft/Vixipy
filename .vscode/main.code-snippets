@@ -20,7 +20,7 @@
 		"scope": "html",
 		"prefix": "templ",
 		"body": [
-			"{% extends \"${1:layouts/default.html}\" %}",
+			"{% extends \"${1:layouts/default.html.j2}\" %}",
 			"{% set title = _(\"$2\") %}",
 			"",
 			"{% block content %}",

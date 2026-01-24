@@ -43,4 +43,4 @@ async def converter_main(id: int):
     if not data.isUgoira:
         abort(400)
 
-    return await render_template("ugoira-converter/main.html", data=data)
+    return await render_template("ugoira-converter/main.html.j2", data=data)

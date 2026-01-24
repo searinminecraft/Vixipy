@@ -136,7 +136,7 @@ async def _get_artwork(id: int):
 
     if (work.r18 or work.sl >= 4) and not is_consented():
         return await render_template(
-            "content_warning.html", url=url_for("artworks._get_artwork", id=id)
+            "content_warning.html.j2", url=url_for("artworks._get_artwork", id=id)
         )
 
     if work.deficient:
@@ -165,7 +165,7 @@ async def _get_artwork(id: int):
     works: list[ArtworkEntry]
 
     return await render_template(
-        "artworks.html",
+        "artworks.html.j2",
         work=work,
         pages=pages,
         recommend=ff(recommend),
@@ -180,11 +180,11 @@ async def get_comments(id: int):
         get_artwork(id), get_artwork_comments(id, int(request.args.get("p", 1)))
     )
     return await render_template(
-        "comments.html", work=work, data=data, id=id, emojis=EMOJI_SERIES
+        "comments.html.j2", work=work, data=data, id=id, emojis=EMOJI_SERIES
     )
 
 
 @bp.get("/artworks/replies/<int:id>")
 async def get_replies(id: int):
     data = await get_artwork_replies(id, int(request.args.get("p", 1)))
-    return await render_template("replies.html", data=data, id=id)
+    return await render_template("replies.html.j2", data=data, id=id)

@@ -74,7 +74,7 @@ async def index():
     log.debug("Recommended: %s", recommended)
 
     return await render_template(
-        "collection/index.html",
+        "collection/index.html.j2",
         recommended=recommended,
         all_collections=all_collections,
         recommend_by_tag=recommend_by_tag,
@@ -109,5 +109,5 @@ async def get_collection(id: int):
     log.debug("Tiles: %s", tiles)
 
     return await render_template(
-        "collection/collection.html", collection=collection, tiles=tiles
+        "collection/collection.html.j2", collection=collection, tiles=tiles
     )

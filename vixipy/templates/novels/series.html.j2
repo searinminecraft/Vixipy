@@ -1,0 +1,55 @@
+{% extends "layouts/default.html.j2" %}
+{% set title = data.title %}
+
+{% from "components/novel-entry.html.j2" import nentry %}
+{% from "components/paginator.html.j2" import paginator %}
+
+{% block content %}
+<main>
+    <div id="novel-series">
+        <div class="info">
+            <a href="{{data.cover}}" target="_blank">
+                <img src="{{data.cover}}">
+            </a>
+            <main>
+                <h2>{{data.title}}</h2>
+                <div class="author">
+                    {%- set user_lnk = url_for('users.user_profile', user=data.user_id) -%}
+                    <a class="profile-img" href="{{user_lnk}}">
+                        <img src="{{data.profile_image}}" alt="{{data.user_name}}">
+                    </a>
+                    <a class="user" href="{{user_lnk}}">
+                        {{data.user_name}}
+                    </a>
+                </div>
+                <pre>{{data.caption or _("No description")}}</pre>
+                <ul class="tags">
+                    {% for t in data.tags %}
+                    <li><a href="{{url_for('search.search_novel', query=t)}}">#{{t}}</a></li>
+                    {% endfor %}
+                </ul>
+                <ul class="metadata">
+                    <li>{{_("%(ep)s Episode(s)", ep=data.published_content_count|numberformat)}}</li>
+                    <li>{{_("Updated on %(date)s", date=data.updated_date|dateformat)}}</li>
+                    <li>{{_("%(cc)s Character(s)", cc=data.published_character_count|numberformat)}}</li>
+                    <li>{{_("%(cc)s Word(s)", cc=data.published_word_count|numberformat)}}</li>
+                </ul>
+            </main>
+        </div>
+
+        <section id="checkpoint">
+            <div class="contents">
+                {% for x in contents %}
+                {{nentry(x, false, false)}}
+                {% endfor %}
+            </div>
+            {{- paginator(
+                request.args.get("p", 1)|int,
+                pages,
+                url_for("novels.novel_series_main", id=data.id, p=request.args.get("p", 1)|int-1),
+                url_for("novels.novel_series_main", id=data.id, p=request.args.get("p", 1)|int+1)
+            ) -}}
+        </section>
+    </div>
+</main>
+{% endblock %}

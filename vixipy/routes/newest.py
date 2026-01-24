@@ -32,7 +32,7 @@ async def newest_main():
         abort(403)
 
     data = await get_newest_works(args.get("type", "illust"), r18=r18)
-    return await render_template("newest/index.html", data=data)
+    return await render_template("newest/index.html.j2", data=data)
 
 
 @bp.route("/new_illust.php")

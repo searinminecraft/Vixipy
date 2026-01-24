@@ -1,0 +1,21 @@
+{% extends "discovery/index.html.j2" %}
+{% set current = 'root' %}
+{% from "components/artwork-entry.html.j2" import entry %}
+
+{% block ct %}
+<section id="checkpoint">
+    {% if data|length > 0 %}
+    <div class="artwork-container">
+        {% for x in data %}
+        {{ entry(x) }}
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>{{_("Nothing to recommend. Sorry!")}}</p>
+    {% endif %}
+    <div class="button-pointer">
+        <a href="" class="button neutral">{{_("Reload")}}</a>
+    </div>
+
+</section>
+{% endblock %}

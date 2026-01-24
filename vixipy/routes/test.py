@@ -14,4 +14,4 @@ async def root(): ...
 
 @bp.route("/dialog")
 async def dialog():
-    return await render_template("test/dialog.html")
+    return await render_template("test/dialog.html.j2")

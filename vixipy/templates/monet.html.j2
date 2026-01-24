@@ -1,0 +1,59 @@
+{% extends "layouts/default.html.j2" %}
+{% set title=_("Material You Generator") %}
+
+{% block content %}
+<style>{{css}}</style>
+<main>
+    <div id="monet-preview">
+        <h2>{{_("Material You Generator")}}</h2>
+
+        <form action="/material-you">
+            {%- set cm = request.args.get("method", "color")-%}
+            <select name="method">
+                <option value="artwork" {%if cm == 'artwork' %}selected{%endif%}>{{_('Artwork ID')}}</option>
+                <option value="color" {%if cm == "color" %}selected{%endif%}>{{_('Color')}}</option>
+            </select>
+            {%- set cs = request.args.get("scheme", "tonal_spot") -%}
+            <select name="scheme">
+                <option value="tonal_spot" {%if cs == 'tonal_spot' %}selected{%endif%}>Tonal Spot</option>
+                <option value="content" {%if cs == 'content' %}selected{%endif%}>Content</option>
+                <option value="expressive" {%if cs == 'expressive' %}selected{%endif%}>Expressive</option>
+                <option value="fidelity" {%if cs == 'fidelity' %}selected{%endif%}>Fidelity</option>
+                <option value="fruit_salad" {%if cs == 'fruit_salad' %}selected{%endif%}>Fruit Salad</option>
+                <option value="monochrome" {%if cs == 'monochrome' %}selected{%endif%}>Monochrome</option>
+                <option value="neutral" {%if cs == 'neutral' %}selected{%endif%}>Neutral</option>
+                <option value="rainbow" {%if cs == 'rainbow' %}selected{%endif%}>Rainbow</option>
+                <option value="vibrant" {%if cs == 'vibrant' %}selected{%endif%}>Vibrant</option>
+            </select>
+
+            <input type="text" name="id" value="{{request.args['id']}}" placeholder="{{_('Artwork ID')}}">
+
+            <input type="color" name="color" value="{{request.args.get('color', '#0096fa')}}">
+            <button class="button primary" type="submit">{{_("Submit")}}</button>
+        </form>
+
+        <h3>{{_("Dark Colors")}}</h3>
+        <ul>
+            {%- for x,y in color_data["dark"].items() %}
+            <li title="{{y}}">
+                <div class="swatch" style="background-color: {{y}};"></div>
+                <code>{{x}}</code>
+            </li>
+            {% endfor -%}
+        </ul>
+
+        <h3>{{_("Light Colors")}}</h3>
+        <ul>
+            {%- for x,y in color_data["light"].items() %}
+            <li title="{{y}}">
+                <div class="swatch" style="background-color: {{y}};"></div>
+                <code>{{x}}</code>
+            </li>
+            {% endfor -%}
+        </ul>
+
+        <h3>CSS</h3>
+        <pre>{{css}}</pre>
+    </div>
+</main>
+{% endblock %}

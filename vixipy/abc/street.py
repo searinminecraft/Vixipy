@@ -59,7 +59,7 @@ class StreetComponent:
         )
 
     async def render(self):
-        return await render_template(f"street/components/{self.name}.html", data=self)
+        return await render_template(f"street/components/{self.name}.html.j2", data=self)
 
 
 class _StreetPixivisionEntry:

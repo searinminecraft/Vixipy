@@ -69,7 +69,7 @@ async def main():
     ]
 
     return await render_template(
-        "settings/main.html",
+        "settings/main.html.j2",
         proxies=proxies,
         is_instance_custom_proxy_server=not current_app.config["IMG_PROXY"].startswith(
             "/proxy/i.pximg.net"
@@ -99,9 +99,9 @@ async def set_color():
 async def account():
     if g.authorized:
         account_data = await pixiv_request("/ajax/settings/self")
-        return await render_template("settings/account.html", account_data=account_data)
+        return await render_template("settings/account.html.j2", account_data=account_data)
     else:
-        return await render_template("settings/account.html")
+        return await render_template("settings/account.html.j2")
 
 
 @bp.route("/settings/viewing")
@@ -131,7 +131,7 @@ async def viewing():
         can_view_ai = True
 
     return await render_template(
-        "settings/display.html",
+        "settings/display.html.j2",
         ai=can_view_ai,
         r18=can_view_r18,
         r18g=can_view_r18g,
@@ -209,7 +209,7 @@ async def language_location():
 
     langs = {x: babel.Locale(x).language_name for x in current_app.config["LANGUAGES"]}
     return await render_template(
-        "settings/language.html", langs=langs, regions=region_opts, region=region
+        "settings/language.html.j2", langs=langs, regions=region_opts, region=region
     )
 
 
@@ -238,7 +238,7 @@ async def setLocation():
 
 @bp.get("/settings/about")
 async def about_page():
-    return await render_template("settings/about.html")
+    return await render_template("settings/about.html.j2")
 
 
 @bp.get("/settings/acknowledgements")
@@ -278,6 +278,6 @@ async def acknowledgements():
         x.translate_languages(language)
 
     return await render_template(
-        "settings/acknowledgements.html",
+        "settings/acknowledgements.html.j2",
         i18n_cred=sorted(TRANSLATION_CREDITS, key=lambda _: _.name),
     )

@@ -18,7 +18,7 @@ log = logging.getLogger("vixipy")
 
 async def on_client_error(e: ClientError):
     log.exception("Network error")
-    return await render_template("no_connection.html", exc=str(e))
+    return await render_template("no_connection.html.j2", exc=str(e))
 
 
 async def handle_ratelimit_error(e):
@@ -32,7 +32,7 @@ async def handle_ratelimit_error(e):
         code = 200
     else:
         code = 429
-    return await render_template("ratelimited.html"), code
+    return await render_template("ratelimited.html.j2"), code
 
 
 async def handle_internal_error(e):
@@ -48,11 +48,11 @@ async def handle_internal_error(e):
                 }, 404
             return await api_handle_bad_request(e)
 
-        return await render_template("http_error.html", error=e), 200 if hx else e.code
+        return await render_template("http_error.html.j2", error=e), 200 if hx else e.code
 
     log.exception("Exception occurred here:")
     return await render_template(
-        "internal_server_error.html", traceback=traceback.format_exc()
+        "internal_server_error.html.j2", traceback=traceback.format_exc()
     ), (200 if hx else 500)
 
 

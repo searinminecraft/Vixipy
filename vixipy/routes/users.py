@@ -24,7 +24,7 @@ bp = Blueprint("users", __name__)
 async def user_profile(user: int):
     data, top = await gather(get_user(user, True), get_user_profile_top(user))
 
-    return await render_template("users/top.html", data=data, top=ff(top))
+    return await render_template("users/top.html.j2", data=data, top=ff(top))
 
 
 @bp.get("/users/<int:user>/illustrations")
@@ -36,7 +36,7 @@ async def user_illusts(user: int):
 
     il.illusts = ff(il.illusts)
 
-    return await render_template("users/illust.html", data=data, il=il)
+    return await render_template("users/illust.html.j2", data=data, il=il)
 
 
 @bp.get("/users/<int:user>/manga")
@@ -51,7 +51,7 @@ async def user_manga(user: int):
 
     il.illusts = ff(il.illusts)
 
-    return await render_template("users/manga.html", data=data, il=il)
+    return await render_template("users/manga.html.j2", data=data, il=il)
 
 
 @bp.get("/users/<int:user>/bookmarks")
@@ -70,7 +70,7 @@ async def user_bookmarks(user: int):
         pages += 1
 
     return await render_template(
-        "users/bookmarks.html", data=data, il=ff(bkdata[1]), pages=pages
+        "users/bookmarks.html.j2", data=data, il=ff(bkdata[1]), pages=pages
     )
 
 
@@ -100,7 +100,7 @@ async def user_novels(user: int):
         pages = 1
 
     return await render_template(
-        "users/novels.html", data=data, novels=ff(novels), pages=pages
+        "users/novels.html.j2", data=data, novels=ff(novels), pages=pages
     )
 
 
@@ -117,7 +117,7 @@ async def following(user: int):
         ),
     )
 
-    return await render_template("users/follow/following.html", user=user, data=data)
+    return await render_template("users/follow/following.html.j2", user=user, data=data)
 
 
 @bp.route("/users/<int:user>/followers")
@@ -130,7 +130,7 @@ async def followers(user: int):
         get_user(user), get_user_followers(user, int(request.args.get("p", 1)))
     )
 
-    return await render_template("users/follow/followers.html", user=user, data=data)
+    return await render_template("users/follow/followers.html.j2", user=user, data=data)
 
 
 @bp.route("/users/<int:user>/mypixiv")
@@ -141,7 +141,7 @@ async def mypixiv(user: int):
         get_user(user), get_user_mypixiv(user, int(request.args.get("p", 1)))
     )
 
-    return await render_template("users/follow/mypixiv.html", user=user, data=data)
+    return await render_template("users/follow/mypixiv.html.j2", user=user, data=data)
 
 
 @bp.get("/u/<int:user>")
@@ -151,4 +151,4 @@ async def pixivcompat_user(user: int):
 
 @bp.get("/self/actions")
 async def user_dashboard():
-    return await render_template("users/dashboard.html")
+    return await render_template("users/dashboard.html.j2")

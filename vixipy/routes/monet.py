@@ -49,4 +49,4 @@ async def color_preview():
         "\n"
     )
 
-    return await render_template("monet.html", color_data=res, css=css)
+    return await render_template("monet.html.j2", color_data=res, css=css)

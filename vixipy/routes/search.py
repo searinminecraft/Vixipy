@@ -54,7 +54,7 @@ async def popular_tags():
     args: ImmutableMultiDict = request.args
     novel = True if args.get("type") == "novel" else False
     data = await get_popular_tags(novel)
-    return await render_template("search/popular_tags.html", data=data)
+    return await render_template("search/popular_tags.html.j2", data=data)
 
 
 @bp.route("/tags/<path:query>")
@@ -76,7 +76,7 @@ async def search_main(query: str):
     data.popular_recent = ff(data.popular_recent)
     data.popular_permanent = ff(data.popular_permanent)
 
-    return await render_template("search/main.html", data=data, tag_info=tag_info)
+    return await render_template("search/main.html.j2", data=data, tag_info=tag_info)
 
 
 @bp.route("/tags/<path:query>/artworks")
@@ -106,7 +106,7 @@ async def search_artworks(query: str):
     data.results = ff(data.results)
 
     return await render_template(
-        "search/illust.html",
+        "search/illust.html.j2",
         data=data,
         tag_info=tag_info,
         page=page,
@@ -133,7 +133,7 @@ async def search_manga(query: str):
     data.results = ff(data.results)
 
     return await render_template(
-        "search/manga.html",
+        "search/manga.html.j2",
         data=data,
         tag_info=tag_info,
         page=page,
@@ -155,7 +155,7 @@ async def search_novel(query: str):
     data.results = ff(data.results)
 
     return await render_template(
-        "search/novel.html",
+        "search/novel.html.j2",
         data=data,
         tag_info=tag_info,
         page=page,
@@ -219,7 +219,7 @@ async def search_dashboard():
     log.debug("Recommend By tag: %s", recommend_by_tag)
 
     return await render_template(
-        "search/dashboard.html",
+        "search/dashboard.html.j2",
         recommend_tags=recommend_tags,
         recommend=recommend_by_tag,
     )

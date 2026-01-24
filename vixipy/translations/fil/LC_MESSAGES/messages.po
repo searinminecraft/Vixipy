@@ -28,116 +28,116 @@ msgstr "Hindi wastong token"
 msgid "Unable to extract CSRF"
 msgstr "Hindi ma-extract ang CSRF"
 
-#: vixipy/templates/artworks.html:2 vixipy/templates/artworks.html:7
+#: vixipy/templates/artworks.html.j2:2 vixipy/templates/artworks.html.j2:7
 #, python-format
 msgid "%(work_name)s by %(author)s"
 msgstr "%(work_name)s ni/ng %(author)s"
 
-#: vixipy/templates/artworks.html:49
+#: vixipy/templates/artworks.html.j2:49
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "Pahina %(page)d/%(total)d"
 
-#: vixipy/templates/artworks.html:69
-#: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:54
+#: vixipy/templates/artworks.html.j2:69
+#: vixipy/templates/components/user-entry.html.j2:20
+#: vixipy/templates/users/base.html.j2:54
 msgid "Follow"
 msgstr "Sundan"
 
-#: vixipy/templates/artworks.html:69
-#: vixipy/templates/components/user-entry.html:20
-#: vixipy/templates/users/base.html:37 vixipy/templates/users/base.html:54
-#: vixipy/templates/users/dashboard.html:13
-#: vixipy/templates/users/follow/base.html:34
+#: vixipy/templates/artworks.html.j2:69
+#: vixipy/templates/components/user-entry.html.j2:20
+#: vixipy/templates/users/base.html.j2:37 vixipy/templates/users/base.html.j2:54
+#: vixipy/templates/users/dashboard.html.j2:13
+#: vixipy/templates/users/follow/base.html.j2:34
 msgid "Following"
 msgstr "Sinusundan"
 
-#: vixipy/templates/artworks.html:74
+#: vixipy/templates/artworks.html.j2:74
 msgid "View all works"
 msgstr "Tignan ang lahat ng mga gawa"
 
-#: vixipy/templates/artworks.html:87
+#: vixipy/templates/artworks.html.j2:87
 msgid "Login Only"
 msgstr "Login Lamang"
 
-#: vixipy/templates/artworks.html:90 vixipy/templates/rankings/calendar.html:26
-#: vixipy/templates/rankings/main.html:26
+#: vixipy/templates/artworks.html.j2:90 vixipy/templates/rankings/calendar.html.j2:26
+#: vixipy/templates/rankings/main.html.j2:26
 msgid "AI Generated"
 msgstr "Binuo ng AI"
 
-#: vixipy/templates/artworks.html:93 vixipy/templates/rankings/main.html:46
+#: vixipy/templates/artworks.html.j2:93 vixipy/templates/rankings/main.html.j2:46
 msgid "Ugoira"
 msgstr "Ugoira"
 
-#: vixipy/templates/artworks.html:99
+#: vixipy/templates/artworks.html.j2:99
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Antas ng sensitivity: %(sl)d"
 
-#: vixipy/templates/artworks.html:164
+#: vixipy/templates/artworks.html.j2:164
 msgid "Convert Ugoira"
 msgstr "I-convert ang Ugoira"
 
-#: vixipy/templates/artworks.html:174 vixipy/templates/novels/novel.html:65
+#: vixipy/templates/artworks.html.j2:174 vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "Mga kaugnay na gawa"
 
-#: vixipy/templates/artworks.html:182
+#: vixipy/templates/artworks.html.j2:182
 msgid "No recommended works to show."
 msgstr "Walang mga inirerekomendang gawa na papakita."
 
-#: vixipy/templates/comments.html:2 vixipy/templates/comments.html:7
-#: vixipy/templates/replies.html:2
+#: vixipy/templates/comments.html.j2:2 vixipy/templates/comments.html.j2:7
+#: vixipy/templates/replies.html.j2:2
 msgid "Comments"
 msgstr "Mga komento"
 
-#: vixipy/templates/comments.html:17
+#: vixipy/templates/comments.html.j2:17
 msgid "Post your comment"
 msgstr "I-post ang iyong komento"
 
-#: vixipy/templates/comments.html:23 vixipy/templates/comments.html:77
+#: vixipy/templates/comments.html.j2:23 vixipy/templates/comments.html.j2:77
 msgid "Send"
 msgstr "Ipadala"
 
-#: vixipy/templates/comments.html:29
+#: vixipy/templates/comments.html.j2:29
 msgid "Emojis and Stickers"
 msgstr "Mga Emoji at Sticker"
 
-#: vixipy/templates/comments.html:35
+#: vixipy/templates/comments.html.j2:35
 msgid "Emojis"
 msgstr "Mga emoji"
 
-#: vixipy/templates/comments.html:44
+#: vixipy/templates/comments.html.j2:44
 msgid "Stickers"
 msgstr "Mga sticker"
 
-#: vixipy/templates/comments.html:71
+#: vixipy/templates/comments.html.j2:71
 msgid "Sign in to post comments"
 msgstr "Mag-sign in para mag-post ng mga komento"
 
-#: vixipy/templates/comments.html:89
+#: vixipy/templates/comments.html.j2:89
 msgid "There is no comment yet"
 msgstr "Wala pang mga komento"
 
-#: vixipy/templates/comments.html:100
-#: vixipy/templates/pixivision/category.html:26
-#: vixipy/templates/pixivision/index.html:238
-#: vixipy/templates/pixivision/search.html:37
-#: vixipy/templates/pixivision/tag.html:23
-#: vixipy/templates/rankings/main.html:74 vixipy/templates/replies.html:23
+#: vixipy/templates/comments.html.j2:100
+#: vixipy/templates/pixivision/category.html.j2:26
+#: vixipy/templates/pixivision/index.html.j2:238
+#: vixipy/templates/pixivision/search.html.j2:37
+#: vixipy/templates/pixivision/tag.html.j2:23
+#: vixipy/templates/rankings/main.html.j2:74 vixipy/templates/replies.html.j2:23
 #, python-format
 msgid "Page %(page)d"
 msgstr "Pahina %(page)d"
 
-#: vixipy/templates/content_warning.html:2
+#: vixipy/templates/content_warning.html.j2:2
 msgid "Content Warning"
 msgstr "Babala sa Nilalaman"
 
-#: vixipy/templates/content_warning.html:8
+#: vixipy/templates/content_warning.html.j2:8
 msgid "Warning: Sensitive Content Ahead!"
 msgstr "Babala: Sensitibong Nilalaman sa Unahan!"
 
-#: vixipy/templates/content_warning.html:9
+#: vixipy/templates/content_warning.html.j2:9
 msgid ""
 "This page contains content not suitable for some people. Do you want to "
 "view it anyway?"
@@ -145,131 +145,131 @@ msgstr ""
 "Naglalaman ng nilalaman na maaaring hindi angkop para sa ibang tao ang "
 "pahina na ito. Gusto mo ba itong itignan?"
 
-#: vixipy/templates/content_warning.html:11 vixipy/templates/http_error.html:9
-#: vixipy/templates/internal_server_error.html:26 vixipy/templates/leave.html:7
+#: vixipy/templates/content_warning.html.j2:11 vixipy/templates/http_error.html.j2:9
+#: vixipy/templates/internal_server_error.html.j2:26 vixipy/templates/leave.html.j2:7
 msgid "Go back"
 msgstr "Bumalik"
 
-#: vixipy/templates/content_warning.html:12
+#: vixipy/templates/content_warning.html.j2:12
 msgid "Proceed"
 msgstr "Magpatuloy"
 
-#: vixipy/templates/edit_profile.html:6
+#: vixipy/templates/edit_profile.html.j2:6
 msgid "Edit profile"
 msgstr "I-edit ang profile"
 
-#: vixipy/templates/edit_profile.html:8
+#: vixipy/templates/edit_profile.html.j2:8
 msgid "Profile images"
 msgstr "Mga larawan ng profile"
 
-#: vixipy/templates/edit_profile.html:11
+#: vixipy/templates/edit_profile.html.j2:11
 msgid "Choose profile picture: "
 msgstr "Pumili ng larawan ng profile: "
 
-#: vixipy/templates/edit_profile.html:13
+#: vixipy/templates/edit_profile.html.j2:13
 msgid "Choose cover image: "
 msgstr "Pumili ng cover image: "
 
-#: vixipy/templates/edit_profile.html:19
+#: vixipy/templates/edit_profile.html.j2:19
 msgid "Max. 5MB"
 msgstr "Max. 5MB"
 
-#: vixipy/templates/edit_profile.html:27
+#: vixipy/templates/edit_profile.html.j2:27
 msgid "Max. 8MB"
 msgstr "Max. 8MB"
 
-#: vixipy/templates/edit_profile.html:32
+#: vixipy/templates/edit_profile.html.j2:32
 msgid "Nickname"
 msgstr "Palayaw"
 
-#: vixipy/templates/edit_profile.html:36
+#: vixipy/templates/edit_profile.html.j2:36
 msgid "Self introduction"
 msgstr "Pagpapakilala sa sarili"
 
-#: vixipy/templates/edit_profile.html:40 vixipy/templates/users/base.html:96
+#: vixipy/templates/edit_profile.html.j2:40 vixipy/templates/users/base.html.j2:96
 msgid "Website"
 msgstr "Website"
 
-#: vixipy/templates/edit_profile.html:44
+#: vixipy/templates/edit_profile.html.j2:44
 msgid "Social media"
 msgstr "Social media"
 
-#: vixipy/templates/edit_profile.html:46
+#: vixipy/templates/edit_profile.html.j2:46
 msgid "Twitter/X ID"
 msgstr "Twitter/X ID"
 
-#: vixipy/templates/edit_profile.html:47
+#: vixipy/templates/edit_profile.html.j2:47
 msgid "Instagram ID"
 msgstr "Instagram ID"
 
-#: vixipy/templates/edit_profile.html:48
+#: vixipy/templates/edit_profile.html.j2:48
 msgid "Tumblr ID"
 msgstr "Tumblr ID"
 
-#: vixipy/templates/edit_profile.html:49
+#: vixipy/templates/edit_profile.html.j2:49
 msgid "Facebook ID"
 msgstr "Facebook ID"
 
-#: vixipy/templates/edit_profile.html:50
+#: vixipy/templates/edit_profile.html.j2:50
 msgid "Circle.ms ID"
 msgstr "Circle.ms ID"
 
-#: vixipy/templates/edit_profile.html:53
+#: vixipy/templates/edit_profile.html.j2:53
 msgid "Gender"
 msgstr "Kasarian"
 
-#: vixipy/templates/edit_profile.html:55
+#: vixipy/templates/edit_profile.html.j2:55
 msgid "Male"
 msgstr "Lalaki"
 
-#: vixipy/templates/edit_profile.html:56
+#: vixipy/templates/edit_profile.html.j2:56
 msgid "Female"
 msgstr "Babae"
 
-#: vixipy/templates/edit_profile.html:57
+#: vixipy/templates/edit_profile.html.j2:57
 msgid "Rather not say"
 msgstr "Sa halip ay hindi sabihin"
 
-#: vixipy/templates/edit_profile.html:60 vixipy/templates/edit_profile.html:74
-#: vixipy/templates/edit_profile.html:82
+#: vixipy/templates/edit_profile.html.j2:60 vixipy/templates/edit_profile.html.j2:74
+#: vixipy/templates/edit_profile.html.j2:82
 msgid "Public"
 msgstr "Pampubliko"
 
-#: vixipy/templates/edit_profile.html:61 vixipy/templates/edit_profile.html:75
-#: vixipy/templates/edit_profile.html:83
+#: vixipy/templates/edit_profile.html.j2:61 vixipy/templates/edit_profile.html.j2:75
+#: vixipy/templates/edit_profile.html.j2:83
 msgid "My pixiv only"
 msgstr "Aking pixiv lamang"
 
-#: vixipy/templates/edit_profile.html:62 vixipy/templates/edit_profile.html:76
-#: vixipy/templates/edit_profile.html:84
+#: vixipy/templates/edit_profile.html.j2:62 vixipy/templates/edit_profile.html.j2:76
+#: vixipy/templates/edit_profile.html.j2:84
 msgid "Private"
 msgstr "Pribado"
 
-#: vixipy/templates/edit_profile.html:66
+#: vixipy/templates/edit_profile.html.j2:66
 msgid "Birthday"
 msgstr "Kaarawan"
 
-#: vixipy/templates/edit_profile.html:72
+#: vixipy/templates/edit_profile.html.j2:72
 msgid "Birth year privacy"
 msgstr "Privacy sa taon ng pagsilang"
 
-#: vixipy/templates/edit_profile.html:80
+#: vixipy/templates/edit_profile.html.j2:80
 msgid "Birthday privacy"
 msgstr "Privacy sa kaarawan"
 
-#: vixipy/templates/edit_profile.html:88
+#: vixipy/templates/edit_profile.html.j2:88
 msgid "Save Changes"
 msgstr "I-save ang Mga Pagbabago"
 
-#: vixipy/templates/error.html:2
+#: vixipy/templates/error.html.j2:2
 msgid "Error"
 msgstr "Error"
 
-#: vixipy/templates/error.html:7
+#: vixipy/templates/error.html.j2:7
 msgid "An error occurred."
 msgstr "May nangyaring error."
 
-#: vixipy/templates/error.html:8
+#: vixipy/templates/error.html.j2:8
 #, python-format
 msgid ""
 "Looks like something went wrong. If you think this is a bug, file a "
@@ -278,38 +278,38 @@ msgstr ""
 "Mukhang may maling nangyari. Kung sa tingin mo ay isa itong bug, mag-file"
 " ng ulat <a href='%(link)s'>dito</a>"
 
-#: vixipy/templates/error.html:10
+#: vixipy/templates/error.html.j2:10
 msgid "Back to home"
 msgstr "Bumalik sa panimula"
 
-#: vixipy/templates/index.html:2 vixipy/templates/index_logged_out.html:2
-#: vixipy/templates/users/base.html:163
+#: vixipy/templates/index.html.j2:2 vixipy/templates/index_logged_out.html.j2:2
+#: vixipy/templates/users/base.html.j2:163
 msgid "Home"
 msgstr "Home"
 
-#: vixipy/templates/index.html:12 vixipy/templates/novels/index.html:12
+#: vixipy/templates/index.html.j2:12 vixipy/templates/novels/index.html.j2:12
 msgid "Works by users you are following"
 msgstr "Mga gawa mula sa mga sinusundang user"
 
-#: vixipy/templates/index.html:22 vixipy/templates/novels/index.html:35
+#: vixipy/templates/index.html.j2:22 vixipy/templates/novels/index.html.j2:35
 msgid "Recommended works"
 msgstr "Mga inirerekomendang gawa"
 
-#: vixipy/templates/index.html:31 vixipy/templates/search/popular_tags.html:3
-#: vixipy/templates/search/popular_tags.html:7
-#: vixipy/templates/users/dashboard.html:115
+#: vixipy/templates/index.html.j2:31 vixipy/templates/search/popular_tags.html.j2:3
+#: vixipy/templates/search/popular_tags.html.j2:7
+#: vixipy/templates/users/dashboard.html.j2:115
 msgid "Popular Tags"
 msgstr "Mga Popular na Tag"
 
-#: vixipy/templates/index.html:56
+#: vixipy/templates/index.html.j2:56
 msgid "pixiv creative media"
 msgstr "Malikhaing media ng pixiv"
 
-#: vixipy/templates/index.html:57
+#: vixipy/templates/index.html.j2:57
 msgid "Newest articles on pixivision"
 msgstr "Mga pinakabagong artikulo sa pixivision"
 
-#: vixipy/templates/index.html:76
+#: vixipy/templates/index.html.j2:76
 #, python-format
 msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
@@ -318,66 +318,66 @@ msgstr ""
 "Mga inirerekomendang illustration na naka-tag na <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 
-#: vixipy/templates/index.html:101 vixipy/templates/users/dashboard.html:70
+#: vixipy/templates/index.html.j2:101 vixipy/templates/users/dashboard.html.j2:70
 msgid "Newest by all"
 msgstr "Pinakabago mula sa lahat"
 
-#: vixipy/templates/index_logged_out.html:9
-#: vixipy/templates/rankings/main.html:7
+#: vixipy/templates/index_logged_out.html.j2:9
+#: vixipy/templates/rankings/main.html.j2:7
 #, python-format
 msgid "Ranking for %(date)s"
 msgstr "Ranking para sa %(date)s"
 
-#: vixipy/templates/index_logged_out.html:17
-#: vixipy/templates/search/main.html:41 vixipy/templates/search/main.html:53
+#: vixipy/templates/index_logged_out.html.j2:17
+#: vixipy/templates/search/main.html.j2:41 vixipy/templates/search/main.html.j2:53
 msgid "View All"
 msgstr "Tignan Lahat"
 
-#: vixipy/templates/internal_server_error.html:8
+#: vixipy/templates/internal_server_error.html.j2:8
 msgid "Internal Server Error"
 msgstr "Panloob na Error sa Server"
 
-#: vixipy/templates/internal_server_error.html:21
+#: vixipy/templates/internal_server_error.html.j2:21
 msgid "Looks like Vixipy broke unexpectedly..."
 msgstr "Mukhang nasira ang Vixipy nang hindi inaasahan…"
 
-#: vixipy/templates/internal_server_error.html:23
+#: vixipy/templates/internal_server_error.html.j2:23
 msgid "An internal error has occurred and Vixipy cannot continue."
 msgstr "May nangyaring panloob na error at hindi makakapagpatuloy ang Vixipy."
 
-#: vixipy/templates/internal_server_error.html:27
+#: vixipy/templates/internal_server_error.html.j2:27
 msgid "Report Issue"
 msgstr "Iulat ang isyu"
 
-#: vixipy/templates/internal_server_error.html:28
-#: vixipy/templates/no_connection.html:9
+#: vixipy/templates/internal_server_error.html.j2:28
+#: vixipy/templates/no_connection.html.j2:9
 msgid "Try Again"
 msgstr "Subukan Muli"
 
-#: vixipy/templates/leave.html:4
+#: vixipy/templates/leave.html.j2:4
 msgid "You are about to leave Vixipy."
 msgstr "Malapit ka nang umalis sa Vixipy."
 
-#: vixipy/templates/leave.html:5
+#: vixipy/templates/leave.html.j2:5
 #, python-format
 msgid "Continuing will direct you to %(url)s"
 msgstr "Ididirekta ka sa %(url)s kapag magpatuloy ka"
 
-#: vixipy/templates/leave.html:8
+#: vixipy/templates/leave.html.j2:8
 msgid "Continue to site"
 msgstr "Magpatuloy sa site"
 
-#: vixipy/templates/login.html:7 vixipy/templates/login.html:57
-#: vixipy/templates/login.html:73 vixipy/templates/settings/account.html:87
-#: vixipy/templates/users/dashboard.html:59
+#: vixipy/templates/login.html.j2:7 vixipy/templates/login.html.j2:57
+#: vixipy/templates/login.html.j2:73 vixipy/templates/settings/account.html.j2:87
+#: vixipy/templates/users/dashboard.html.j2:59
 msgid "Sign in"
 msgstr "Mag-sign in"
 
-#: vixipy/templates/login.html:28
+#: vixipy/templates/login.html.j2:28
 msgid "How do I sign in?"
 msgstr "Paano ako mag-sign in?"
 
-#: vixipy/templates/login.html:29
+#: vixipy/templates/login.html.j2:29
 msgid ""
 "To sign in with your pixiv account, you will need your "
 "<code>PHPSESSID</code> cookie, which can be found by opening your "
@@ -387,36 +387,36 @@ msgstr ""
 "<code>PHPSESSID</code> cookie, na mahahanap sa pamamagitan ng pagbukas ng"
 " iyong mga kagamitan ng developer sa browser:"
 
-#: vixipy/templates/login.html:30
+#: vixipy/templates/login.html.j2:30
 msgid "For Firefox based browsers:"
 msgstr "Para sa mga browser na nakabase sa Firefox:"
 
-#: vixipy/templates/login.html:32 vixipy/templates/login.html:39
+#: vixipy/templates/login.html.j2:32 vixipy/templates/login.html.j2:39
 #, python-format
 msgid "Go to <a href='%(pixiv)s'>pixiv</a> and login/register if not already."
 msgstr ""
 "Pumunta sa <a href='%(pixiv)s'>pixiv</a> at mag-login/magrehistro kung "
 "hindi pa."
 
-#: vixipy/templates/login.html:33 vixipy/templates/login.html:40
+#: vixipy/templates/login.html.j2:33 vixipy/templates/login.html.j2:40
 msgid "Press CTRL+SHIFT+I to open the developer tools"
 msgstr "Pindutin ang CTRL+SHIFT+I para buksan ang mga kagamitan ng developer"
 
-#: vixipy/templates/login.html:34
+#: vixipy/templates/login.html.j2:34
 msgid "Go to the Storage tab and then Cookies and then www.pixiv.net"
 msgstr "Pumunta sa Storage tab, at Cookies, at www.pixiv.net"
 
-#: vixipy/templates/login.html:35 vixipy/templates/login.html:42
+#: vixipy/templates/login.html.j2:35 vixipy/templates/login.html.j2:42
 msgid "Find the cookie named <code>PHPSESSID</code> and copy the contents."
 msgstr ""
 "Hanapin ang cookie na tawag na <code>PHPSESSID</code> at kopyahin ang "
 "nilalaman nito."
 
-#: vixipy/templates/login.html:37
+#: vixipy/templates/login.html.j2:37
 msgid "For Chromium based browsers:"
 msgstr "Para sa mga browser na nakabase sa Chromium:"
 
-#: vixipy/templates/login.html:41
+#: vixipy/templates/login.html.j2:41
 msgid ""
 "Go to the Application tab, on the left side, click Cookies then "
 "www.pixiv.net"
@@ -424,7 +424,7 @@ msgstr ""
 "Pumunta sa Application tab, sa kaliwang banda, i-click ang Cookies, at "
 "www.pixiv.net"
 
-#: vixipy/templates/login.html:44
+#: vixipy/templates/login.html.j2:44
 msgid ""
 "After obtaining the token, you can paste it in here and login. Note: "
 "logging out of that session will destroy the token as well!"
@@ -432,11 +432,11 @@ msgstr ""
 "Pagkatapos makuha ang token, maaari mong i-paste dito at mag-login. "
 "Tandaan: ang pag-log out sa session na iyan ay tatanggalin rin ang token!"
 
-#: vixipy/templates/login.html:45
+#: vixipy/templates/login.html.j2:45
 msgid "Is it safe for me to log in here?"
 msgstr "Ligtas ba na mag-log in ako dito?"
 
-#: vixipy/templates/login.html:46
+#: vixipy/templates/login.html.j2:46
 msgid ""
 "Vixipy will never steal session tokens or personal information. Your "
 "token is stored in your browser as a cookie for 6 months and not the "
@@ -448,11 +448,11 @@ msgstr ""
 "hanggang 6 buwan at hindi sa server. Ang mga pagkakataong magkaroon ng "
 "problema o masuspinde ang iyong account ay hindi rin malamang."
 
-#: vixipy/templates/login.html:47
+#: vixipy/templates/login.html.j2:47
 msgid "What are the advantages of logging in?"
 msgstr "Ano ang mga pakinabang ng pag-log in?"
 
-#: vixipy/templates/login.html:48
+#: vixipy/templates/login.html.j2:48
 msgid ""
 "Logging in to your pixiv account allows for personalized recommendations,"
 " work interaction (like, bookmark, etc.) and following users. It also "
@@ -464,52 +464,52 @@ msgstr ""
 "access sa pag-login lamang ang mga R-18 (kung pinapayagan ng instansya) "
 "na gawa."
 
-#: vixipy/templates/login.html:58
+#: vixipy/templates/login.html.j2:58
 msgid "with your pixiv account."
 msgstr "gamit ang iyong pixiv account."
 
-#: vixipy/templates/login.html:59
+#: vixipy/templates/login.html.j2:59
 msgid "Help"
 msgstr "Tulong"
 
-#: vixipy/templates/login.html:63
+#: vixipy/templates/login.html.j2:63
 msgid "Token"
 msgstr "Token"
 
-#: vixipy/templates/login.html:72
+#: vixipy/templates/login.html.j2:72
 msgid "Return"
 msgstr "Bumalik"
 
-#: vixipy/templates/monet.html:2 vixipy/templates/monet.html:8
-#: vixipy/templates/users/dashboard.html:139
+#: vixipy/templates/monet.html.j2:2 vixipy/templates/monet.html.j2:8
+#: vixipy/templates/users/dashboard.html.j2:139
 msgid "Material You Generator"
 msgstr "Material You Generator"
 
-#: vixipy/templates/monet.html:13 vixipy/templates/monet.html:29
+#: vixipy/templates/monet.html.j2:13 vixipy/templates/monet.html.j2:29
 msgid "Artwork ID"
 msgstr "ID ng Artwork"
 
-#: vixipy/templates/monet.html:14
+#: vixipy/templates/monet.html.j2:14
 msgid "Color"
 msgstr "Kulay"
 
-#: vixipy/templates/monet.html:32
+#: vixipy/templates/monet.html.j2:32
 msgid "Submit"
 msgstr "I-submit"
 
-#: vixipy/templates/monet.html:35
+#: vixipy/templates/monet.html.j2:35
 msgid "Dark Colors"
 msgstr "Mga Madilim na Kulay"
 
-#: vixipy/templates/monet.html:45
+#: vixipy/templates/monet.html.j2:45
 msgid "Light Colors"
 msgstr "Mga Maliwanag na Kulay"
 
-#: vixipy/templates/no_connection.html:6
+#: vixipy/templates/no_connection.html.j2:6
 msgid "Connection Error"
 msgstr "Error sa koneksyon"
 
-#: vixipy/templates/no_connection.html:7
+#: vixipy/templates/no_connection.html.j2:7
 msgid ""
 "Unable to connect to pixiv servers. Check your connection or contact the "
 "instance administrator."
@@ -517,20 +517,20 @@ msgstr ""
 "Hindi makakonekta sa mga server ng pixiv. Suriin ang iyong koneksyon o "
 "makipag-ugnayan sa tagapangasiwa ng instansya."
 
-#: vixipy/templates/components/header.html:17
-#: vixipy/templates/notifications.html:2 vixipy/templates/notifications.html:6
+#: vixipy/templates/components/header.html.j2:17
+#: vixipy/templates/notifications.html.j2:2 vixipy/templates/notifications.html.j2:6
 msgid "Notifications"
 msgstr "Mga Abiso"
 
-#: vixipy/templates/notifications.html:24
+#: vixipy/templates/notifications.html.j2:24
 msgid "No notifications"
 msgstr "Walang mga abiso"
 
-#: vixipy/templates/ratelimited.html:4
+#: vixipy/templates/ratelimited.html.j2:4
 msgid "Too Many Requests"
 msgstr "Masyadong Maraming Hiling"
 
-#: vixipy/templates/ratelimited.html:5
+#: vixipy/templates/ratelimited.html.j2:5
 msgid ""
 "You are sending too many requests. Please slow down and try again. Don't "
 "use scripts or crawlers on this site."
@@ -539,29 +539,29 @@ msgstr ""
 "dahan at subukang muli. Huwag gumamit ng mga script o crawler sa site na "
 "ito."
 
-#: vixipy/templates/replies.html:7
+#: vixipy/templates/replies.html.j2:7
 msgid "Replies"
 msgstr "Mga tugon"
 
-#: vixipy/templates/replies.html:13
+#: vixipy/templates/replies.html.j2:13
 msgid "No replies"
 msgstr "Walang mga tugon"
 
-#: vixipy/templates/collection/collection.html:2
+#: vixipy/templates/collection/collection.html.j2:2
 #, python-format
 msgid "%(title)s | Collection by %(author)s"
 msgstr "%(title)s | Koleksyon ni/ng %(author)s"
 
-#: vixipy/templates/collection/index.html:2
-#: vixipy/templates/users/dashboard.html:105
+#: vixipy/templates/collection/index.html.j2:2
+#: vixipy/templates/users/dashboard.html.j2:105
 msgid "Collections"
 msgstr "Mga Koleksyon"
 
-#: vixipy/templates/collection/index.html:9
+#: vixipy/templates/collection/index.html.j2:9
 msgid "About Collections"
 msgstr "Tungkol sa Mga Koleksyon"
 
-#: vixipy/templates/collection/index.html:10
+#: vixipy/templates/collection/index.html.j2:10
 msgid ""
 "The Collection Feature (Beta) allows you to curate illustrations, manga, "
 "novels, and Ugoira posted on pixiv, links to other pixiv services (e.g., "
@@ -573,7 +573,7 @@ msgstr ""
 "pang serbisyo ng pixiv (hal. pixiv Encyclopedia, BOOTH, pixivFANBOX), mga"
 " panlabas na link, at teksto, at ipakita sila sa iisang pahina."
 
-#: vixipy/templates/collection/index.html:12
+#: vixipy/templates/collection/index.html.j2:12
 msgid ""
 "The Collection Feature on Vixipy, just like on pixiv, is currently "
 "experimental. Things may change or break at any time!"
@@ -582,531 +582,531 @@ msgstr ""
 "eksperimento. Maaring magbago o masira ang mga bagay-bagay sa anumang "
 "oras!"
 
-#: vixipy/templates/collection/index.html:15
+#: vixipy/templates/collection/index.html.j2:15
 msgid "Recommended collections"
 msgstr "Mga inirerekomendang koleksyon"
 
-#: vixipy/templates/collection/index.html:22
+#: vixipy/templates/collection/index.html.j2:22
 msgid "All collections"
 msgstr "Lahat ng mga koleksyon"
 
-#: vixipy/templates/collection/index.html:30
+#: vixipy/templates/collection/index.html.j2:30
 #, python-format
 msgid "Recommended collections tagged #%(tag)s"
 msgstr "Mga inirerekomendang koleksyon na naka-tag na #%(tag)s"
 
-#: vixipy/templates/components/comment.html:5
+#: vixipy/templates/components/comment.html.j2:5
 msgid "Deleted User"
 msgstr "Binura na User"
 
-#: vixipy/templates/components/comment.html:16
+#: vixipy/templates/components/comment.html.j2:16
 msgid "Stamp"
 msgstr "Stamp"
 
-#: vixipy/templates/components/comment.html:23
+#: vixipy/templates/components/comment.html.j2:23
 msgid "View replies"
 msgstr "Tignan ang mga tugon"
 
-#: vixipy/templates/components/header.html:4
+#: vixipy/templates/components/header.html.j2:4
 msgid "Debug"
 msgstr "Debug"
 
-#: vixipy/templates/components/header.html:7
-#: vixipy/templates/search/dashboard.html:2
+#: vixipy/templates/components/header.html.j2:7
+#: vixipy/templates/search/dashboard.html.j2:2
 msgid "Search"
 msgstr "Maghanap"
 
-#: vixipy/templates/components/header.html:10
-#: vixipy/templates/newest/index.html:28 vixipy/templates/novels/index.html:2
-#: vixipy/templates/pixivision/category_name.html:10
-#: vixipy/templates/pixivision/index.html:50
-#: vixipy/templates/search/illust.html:9 vixipy/templates/search/main.html:10
-#: vixipy/templates/search/main.html:46 vixipy/templates/search/manga.html:9
-#: vixipy/templates/search/novel.html:10 vixipy/templates/search/novel.html:15
-#: vixipy/templates/users/base.html:172 vixipy/templates/users/novels.html:9
+#: vixipy/templates/components/header.html.j2:10
+#: vixipy/templates/newest/index.html.j2:28 vixipy/templates/novels/index.html.j2:2
+#: vixipy/templates/pixivision/category_name.html.j2:10
+#: vixipy/templates/pixivision/index.html.j2:50
+#: vixipy/templates/search/illust.html.j2:9 vixipy/templates/search/main.html.j2:10
+#: vixipy/templates/search/main.html.j2:46 vixipy/templates/search/manga.html.j2:9
+#: vixipy/templates/search/novel.html.j2:10 vixipy/templates/search/novel.html.j2:15
+#: vixipy/templates/users/base.html.j2:172 vixipy/templates/users/novels.html.j2:9
 msgid "Novels"
 msgstr "Mga Nobela"
 
-#: vixipy/templates/components/header.html:13
-#: vixipy/templates/discovery/index.html:3
-#: vixipy/templates/discovery/index.html:9
+#: vixipy/templates/components/header.html.j2:13
+#: vixipy/templates/discovery/index.html.j2:3
+#: vixipy/templates/discovery/index.html.j2:9
 msgid "Discovery"
 msgstr "Pagtuklas"
 
-#: vixipy/templates/components/header.html:27
-#: vixipy/templates/search/illust.html:10 vixipy/templates/search/main.html:11
-#: vixipy/templates/search/manga.html:10 vixipy/templates/search/novel.html:11
+#: vixipy/templates/components/header.html.j2:27
+#: vixipy/templates/search/illust.html.j2:10 vixipy/templates/search/main.html.j2:11
+#: vixipy/templates/search/manga.html.j2:10 vixipy/templates/search/novel.html.j2:11
 msgid "User"
 msgstr "Mga User"
 
-#: vixipy/templates/components/novel-entry.html:17
-#: vixipy/templates/rankings/calendar.html:25
-#: vixipy/templates/rankings/main.html:25
+#: vixipy/templates/components/novel-entry.html.j2:17
+#: vixipy/templates/rankings/calendar.html.j2:25
+#: vixipy/templates/rankings/main.html.j2:25
 msgid "Original"
 msgstr "Orihinal"
 
-#: vixipy/templates/components/novel-entry.html:18
-#: vixipy/templates/novels/novel.html:46
+#: vixipy/templates/components/novel-entry.html.j2:18
+#: vixipy/templates/novels/novel.html.j2:46
 msgid "Series"
 msgstr "Serye"
 
-#: vixipy/templates/components/novel-entry.html:19
+#: vixipy/templates/components/novel-entry.html.j2:19
 msgid "Oneshot"
 msgstr "Oneshot"
 
-#: vixipy/templates/components/novel-entry.html:22
+#: vixipy/templates/components/novel-entry.html.j2:22
 msgid "Romance"
 msgstr "Pagmamahalan"
 
-#: vixipy/templates/components/novel-entry.html:24
+#: vixipy/templates/components/novel-entry.html.j2:24
 msgid "Isekai fantasy"
 msgstr "Isekai na pantasya"
 
-#: vixipy/templates/components/novel-entry.html:26
+#: vixipy/templates/components/novel-entry.html.j2:26
 msgid "Contemporary fantasy"
 msgstr "Kontemporaryong pantasya"
 
-#: vixipy/templates/components/novel-entry.html:28
+#: vixipy/templates/components/novel-entry.html.j2:28
 msgid "Mystery"
 msgstr "Misteryo"
 
-#: vixipy/templates/components/novel-entry.html:30
+#: vixipy/templates/components/novel-entry.html.j2:30
 msgid "Horror"
 msgstr "Katatakutan"
 
-#: vixipy/templates/components/novel-entry.html:32
+#: vixipy/templates/components/novel-entry.html.j2:32
 msgid "Sci-fi"
 msgstr "Sayens piksyon"
 
-#: vixipy/templates/components/novel-entry.html:34
+#: vixipy/templates/components/novel-entry.html.j2:34
 msgid "Literature"
 msgstr "Panitikan"
 
-#: vixipy/templates/components/novel-entry.html:36
+#: vixipy/templates/components/novel-entry.html.j2:36
 msgid "Drama"
 msgstr "Dula"
 
-#: vixipy/templates/components/novel-entry.html:38
+#: vixipy/templates/components/novel-entry.html.j2:38
 msgid "Historical pieces"
 msgstr "Makasaysayang mga piraso"
 
-#: vixipy/templates/components/novel-entry.html:40
+#: vixipy/templates/components/novel-entry.html.j2:40
 msgid "BL (yaoi)"
 msgstr "BL (yaoi)"
 
-#: vixipy/templates/components/novel-entry.html:42
+#: vixipy/templates/components/novel-entry.html.j2:42
 msgid "Yuri"
 msgstr "Yuri"
 
-#: vixipy/templates/components/novel-entry.html:44
+#: vixipy/templates/components/novel-entry.html.j2:44
 msgid "For kids"
 msgstr "Para sa mga bata"
 
-#: vixipy/templates/components/novel-entry.html:46
+#: vixipy/templates/components/novel-entry.html.j2:46
 msgid "Poetry"
 msgstr "Tula"
 
-#: vixipy/templates/components/novel-entry.html:48
+#: vixipy/templates/components/novel-entry.html.j2:48
 msgid "Essays/non-fiction"
 msgstr "Mga sanaysay/non-fiction"
 
-#: vixipy/templates/components/novel-entry.html:50
+#: vixipy/templates/components/novel-entry.html.j2:50
 msgid "Screenplays/scripts"
 msgstr "Senaryo/mga script"
 
-#: vixipy/templates/components/novel-entry.html:52
+#: vixipy/templates/components/novel-entry.html.j2:52
 msgid "Reviews/opinion pieces"
 msgstr "Mga review/opinyon"
 
-#: vixipy/templates/components/novel-entry.html:54
+#: vixipy/templates/components/novel-entry.html.j2:54
 msgid "Other"
 msgstr "Iba"
 
-#: vixipy/templates/components/novel-entry.html:75
+#: vixipy/templates/components/novel-entry.html.j2:75
 #, python-format
 msgid "%(wc)s words(s)"
 msgstr "%(wc)s (mga) salita"
 
-#: vixipy/templates/components/novel-entry.html:76
+#: vixipy/templates/components/novel-entry.html.j2:76
 #, python-format
 msgid "%(cc)s character(s)"
 msgstr "%(cc)s (mga) karakter"
 
-#: vixipy/templates/components/paginator.html:6
+#: vixipy/templates/components/paginator.html.j2:6
 #, python-format
 msgid "Page %(current)d of %(last)d"
 msgstr "Pahina %(current)d/%(last)d"
 
-#: vixipy/templates/discovery/illustrations.html:14
+#: vixipy/templates/discovery/illustrations.html.j2:14
 msgid "Nothing to recommend. Sorry!"
 msgstr "Walang irerekomenda. Paumanhin!"
 
-#: vixipy/templates/discovery/illustrations.html:17
+#: vixipy/templates/discovery/illustrations.html.j2:17
 msgid "Reload"
 msgstr "I-reload"
 
-#: vixipy/templates/discovery/index.html:15
+#: vixipy/templates/discovery/index.html.j2:15
 msgid "Recommended illustrations"
 msgstr "Mga inirerekomendang larawan"
 
-#: vixipy/templates/discovery/index.html:21
+#: vixipy/templates/discovery/index.html.j2:21
 msgid "Recommended users"
 msgstr "Mga inirerekomendang user"
 
-#: vixipy/templates/newest/index.html:6
+#: vixipy/templates/newest/index.html.j2:6
 msgid "Newest illustrations by all users"
 msgstr "Mga pinakabagong illustration mula sa lahat ng mga user"
 
-#: vixipy/templates/newest/index.html:8
+#: vixipy/templates/newest/index.html.j2:8
 msgid "Newest manga by all users"
 msgstr "Mga pinakabagong manga mula sa lahat ng mga user"
 
-#: vixipy/templates/newest/index.html:14
+#: vixipy/templates/newest/index.html.j2:14
 msgid "New from All users"
 msgstr "Pinakabago mula sa lahat ng mga user"
 
-#: vixipy/templates/newest/index.html:22
-#: vixipy/templates/pixivision/category_name.html:6
-#: vixipy/templates/pixivision/index.html:27
-#: vixipy/templates/rankings/main.html:44 vixipy/templates/search/illust.html:7
-#: vixipy/templates/search/illust.html:15 vixipy/templates/search/main.html:8
-#: vixipy/templates/search/manga.html:7 vixipy/templates/search/novel.html:8
-#: vixipy/templates/users/base.html:166 vixipy/templates/users/illust.html:9
+#: vixipy/templates/newest/index.html.j2:22
+#: vixipy/templates/pixivision/category_name.html.j2:6
+#: vixipy/templates/pixivision/index.html.j2:27
+#: vixipy/templates/rankings/main.html.j2:44 vixipy/templates/search/illust.html.j2:7
+#: vixipy/templates/search/illust.html.j2:15 vixipy/templates/search/main.html.j2:8
+#: vixipy/templates/search/manga.html.j2:7 vixipy/templates/search/novel.html.j2:8
+#: vixipy/templates/users/base.html.j2:166 vixipy/templates/users/illust.html.j2:9
 msgid "Illustrations"
 msgstr "Mga Larawan"
 
-#: vixipy/templates/newest/index.html:27
-#: vixipy/templates/pixivision/category_name.html:8
-#: vixipy/templates/pixivision/index.html:37
-#: vixipy/templates/rankings/main.html:45 vixipy/templates/search/illust.html:8
-#: vixipy/templates/search/main.html:9 vixipy/templates/search/manga.html:8
-#: vixipy/templates/search/manga.html:13 vixipy/templates/search/novel.html:9
-#: vixipy/templates/users/base.html:169 vixipy/templates/users/manga.html:9
+#: vixipy/templates/newest/index.html.j2:27
+#: vixipy/templates/pixivision/category_name.html.j2:8
+#: vixipy/templates/pixivision/index.html.j2:37
+#: vixipy/templates/rankings/main.html.j2:45 vixipy/templates/search/illust.html.j2:8
+#: vixipy/templates/search/main.html.j2:9 vixipy/templates/search/manga.html.j2:8
+#: vixipy/templates/search/manga.html.j2:13 vixipy/templates/search/novel.html.j2:9
+#: vixipy/templates/users/base.html.j2:169 vixipy/templates/users/manga.html.j2:9
 msgid "Manga"
 msgstr "Mga Manga"
 
-#: vixipy/templates/newest/index.html:32
+#: vixipy/templates/newest/index.html.j2:32
 msgid "General"
 msgstr "General"
 
-#: vixipy/templates/newest/index.html:33
-#: vixipy/templates/search/components/tag-search-filter.html:42
+#: vixipy/templates/newest/index.html.j2:33
+#: vixipy/templates/search/components/tag-search-filter.html.j2:42
 msgid "R-18"
 msgstr "R-18"
 
-#: vixipy/templates/newest/novel.html:2
+#: vixipy/templates/newest/novel.html.j2:2
 msgid "Newest novels by all users"
 msgstr "Mga pinakabagong nobela mula sa lahat ng mga user"
 
-#: vixipy/templates/novels/index.html:26
+#: vixipy/templates/novels/index.html.j2:26
 msgid "Popular original novels"
 msgstr "Mga popular na orihinal na nobela"
 
-#: vixipy/templates/novels/index.html:46
+#: vixipy/templates/novels/index.html.j2:46
 msgid "Daily ranking"
 msgstr "Araw-araw na ranggo"
 
-#: vixipy/templates/novels/index.html:47 vixipy/templates/novels/index.html:60
-#: vixipy/templates/novels/index.html:73
+#: vixipy/templates/novels/index.html.j2:47 vixipy/templates/novels/index.html.j2:60
+#: vixipy/templates/novels/index.html.j2:73
 #, python-format
 msgid "%(date)s ranking"
 msgstr "Ranggo sa %(date)s"
 
-#: vixipy/templates/novels/index.html:59
+#: vixipy/templates/novels/index.html.j2:59
 msgid "Popularity ranking among male users"
 msgstr "Ranggo ng katanyagan sa mga lalaking gumagamit"
 
-#: vixipy/templates/novels/index.html:72
+#: vixipy/templates/novels/index.html.j2:72
 msgid "Popularity ranking among female users"
 msgstr "Ranggo ng katanyagan sa mga babaeng gumagamit"
 
-#: vixipy/templates/novels/novel.html:32 vixipy/templates/novels/series.html:25
+#: vixipy/templates/novels/novel.html.j2:32 vixipy/templates/novels/series.html.j2:25
 msgid "No description"
 msgstr "Walang paglalarawan"
 
-#: vixipy/templates/novels/series.html:32
+#: vixipy/templates/novels/series.html.j2:32
 #, python-format
 msgid "%(ep)s Episode(s)"
 msgstr "%(ep)s (mga) Episode"
 
-#: vixipy/templates/novels/series.html:33
+#: vixipy/templates/novels/series.html.j2:33
 #, python-format
 msgid "Updated on %(date)s"
 msgstr "Na-update noong %(date)s"
 
-#: vixipy/templates/novels/series.html:34
+#: vixipy/templates/novels/series.html.j2:34
 #, python-format
 msgid "%(cc)s Character(s)"
 msgstr "%(cc)s (mga) Karakter"
 
-#: vixipy/templates/novels/series.html:35
+#: vixipy/templates/novels/series.html.j2:35
 #, python-format
 msgid "%(cc)s Word(s)"
 msgstr "%(cc)s (mga) Salita"
 
-#: vixipy/templates/pixivision/category.html:5
-#: vixipy/templates/pixivision/index.html:2
-#: vixipy/templates/pixivision/search.html:3
-#: vixipy/templates/users/dashboard.html:125
+#: vixipy/templates/pixivision/category.html.j2:5
+#: vixipy/templates/pixivision/index.html.j2:2
+#: vixipy/templates/pixivision/search.html.j2:3
+#: vixipy/templates/users/dashboard.html.j2:125
 msgid "pixivision"
 msgstr "pixivision"
 
-#: vixipy/templates/pixivision/category.html:9
+#: vixipy/templates/pixivision/category.html.j2:9
 #, python-format
 msgid "Articles in category \"%(c)s\""
 msgstr "Mga artikulo sa kategoryang \"%(c)s\""
 
-#: vixipy/templates/pixivision/category_name.html:12
-#: vixipy/templates/pixivision/index.html:60
+#: vixipy/templates/pixivision/category_name.html.j2:12
+#: vixipy/templates/pixivision/index.html.j2:60
 msgid "Cosplay"
 msgstr "Cosplay"
 
-#: vixipy/templates/pixivision/category_name.html:14
-#: vixipy/templates/pixivision/index.html:70
+#: vixipy/templates/pixivision/category_name.html.j2:14
+#: vixipy/templates/pixivision/index.html.j2:70
 msgid "Music"
 msgstr "Musika"
 
-#: vixipy/templates/pixivision/category_name.html:16
-#: vixipy/templates/pixivision/index.html:80
+#: vixipy/templates/pixivision/category_name.html.j2:16
+#: vixipy/templates/pixivision/index.html.j2:80
 msgid "Goods"
 msgstr "Mga Bagay"
 
-#: vixipy/templates/pixivision/category_name.html:18
-#: vixipy/templates/pixivision/index.html:90
+#: vixipy/templates/pixivision/category_name.html.j2:18
+#: vixipy/templates/pixivision/index.html.j2:90
 msgid "Tutorials"
 msgstr "Mga Tutorial"
 
-#: vixipy/templates/pixivision/category_name.html:20
-#: vixipy/templates/pixivision/index.html:100
+#: vixipy/templates/pixivision/category_name.html.j2:20
+#: vixipy/templates/pixivision/index.html.j2:100
 msgid "Behind the Art"
 msgstr "Sa Likod ng Larawan"
 
-#: vixipy/templates/pixivision/category_name.html:22
+#: vixipy/templates/pixivision/category_name.html.j2:22
 msgid "Materials"
 msgstr "Mga Materyal"
 
-#: vixipy/templates/pixivision/category_name.html:24
-#: vixipy/templates/pixivision/index.html:120
+#: vixipy/templates/pixivision/category_name.html.j2:24
+#: vixipy/templates/pixivision/index.html.j2:120
 msgid "References"
 msgstr "Mga Sangguni"
 
-#: vixipy/templates/pixivision/category_name.html:26
-#: vixipy/templates/pixivision/index.html:130
+#: vixipy/templates/pixivision/category_name.html.j2:26
+#: vixipy/templates/pixivision/index.html.j2:130
 msgid "Other Guides"
 msgstr "Mga Iba Pang Tagubilin"
 
-#: vixipy/templates/pixivision/category_name.html:28
-#: vixipy/templates/pixivision/index.html:140
+#: vixipy/templates/pixivision/category_name.html.j2:28
+#: vixipy/templates/pixivision/index.html.j2:140
 msgid "Featured"
 msgstr "Tinatampok"
 
-#: vixipy/templates/pixivision/category_name.html:30
-#: vixipy/templates/pixivision/index.html:153
+#: vixipy/templates/pixivision/category_name.html.j2:30
+#: vixipy/templates/pixivision/index.html.j2:153
 msgid "Interviews"
 msgstr "Mga Panayam"
 
-#: vixipy/templates/pixivision/category_name.html:32
-#: vixipy/templates/pixivision/index.html:163
+#: vixipy/templates/pixivision/category_name.html.j2:32
+#: vixipy/templates/pixivision/index.html.j2:163
 msgid "Columns"
 msgstr "Mga Column"
 
-#: vixipy/templates/pixivision/category_name.html:34
-#: vixipy/templates/pixivision/index.html:176
+#: vixipy/templates/pixivision/category_name.html.j2:34
+#: vixipy/templates/pixivision/index.html.j2:176
 msgid "News"
 msgstr "Balita"
 
-#: vixipy/templates/pixivision/category_name.html:36
-#: vixipy/templates/pixivision/index.html:186
+#: vixipy/templates/pixivision/category_name.html.j2:36
+#: vixipy/templates/pixivision/index.html.j2:186
 msgid "Deskwatch"
 msgstr "Deskwatch"
 
-#: vixipy/templates/pixivision/category_name.html:38
-#: vixipy/templates/pixivision/index.html:196
+#: vixipy/templates/pixivision/category_name.html.j2:38
+#: vixipy/templates/pixivision/index.html.j2:196
 msgid "We Tried It!"
 msgstr "Sinubukan Namin!"
 
-#: vixipy/templates/pixivision/index.html:16
-#: vixipy/templates/pixivision/search.html:16
+#: vixipy/templates/pixivision/index.html.j2:16
+#: vixipy/templates/pixivision/search.html.j2:16
 msgid "Search pixivision..."
 msgstr "Maghanap sa pixivision…"
 
-#: vixipy/templates/pixivision/index.html:110
+#: vixipy/templates/pixivision/index.html.j2:110
 msgid "Textures"
 msgstr "Mga Texture"
 
-#: vixipy/templates/pixivision/index.html:209
+#: vixipy/templates/pixivision/index.html.j2:209
 msgid "Spotlight"
 msgstr "Spotlight"
 
-#: vixipy/templates/pixivision/search.html:3
-#: vixipy/templates/pixivision/search.html:20
+#: vixipy/templates/pixivision/search.html.j2:3
+#: vixipy/templates/pixivision/search.html.j2:20
 #, python-format
 msgid "Results for \"%(term)s\""
 msgstr "Mga resulta para sa \"%(term)s\""
 
-#: vixipy/templates/pixivision/tag.html:5
-#: vixipy/templates/pixivision/tag.html:9
+#: vixipy/templates/pixivision/tag.html.j2:5
+#: vixipy/templates/pixivision/tag.html.j2:9
 msgid "List of articles with tag"
 msgstr "Listahan ng mga artikulo na may tag"
 
-#: vixipy/templates/pixivision/components/movie.html:4
+#: vixipy/templates/pixivision/components/movie.html.j2:4
 msgid "To protect your privacy, this embedded video has been blocked."
 msgstr "Para protektahan ang iyong privacy, na-block ang embedded na video na ito."
 
-#: vixipy/templates/pixivision/components/movie.html:5
+#: vixipy/templates/pixivision/components/movie.html.j2:5
 msgid "Click here to watch the video"
 msgstr "Mag-click dito para panoorin ang video"
 
-#: vixipy/templates/pixivision/components/pixiv_artwork.html:8
+#: vixipy/templates/pixivision/components/pixiv_artwork.html.j2:8
 #, python-format
 msgid "By %(author)s"
 msgstr "Ni/ng %(author)s"
 
-#: vixipy/templates/pixivision/components/table_of_contents.html:3
+#: vixipy/templates/pixivision/components/table_of_contents.html.j2:3
 msgid "Index"
 msgstr "Index"
 
-#: vixipy/templates/rankings/calendar.html:2
-#: vixipy/templates/rankings/calendar.html:6
-#: vixipy/templates/users/dashboard.html:90
+#: vixipy/templates/rankings/calendar.html.j2:2
+#: vixipy/templates/rankings/calendar.html.j2:6
+#: vixipy/templates/users/dashboard.html.j2:90
 msgid "Ranking Calendar"
 msgstr "Kalendaryo ng Ranggo"
 
-#: vixipy/templates/rankings/calendar.html:9
-#: vixipy/templates/rankings/main.html:9
+#: vixipy/templates/rankings/calendar.html.j2:9
+#: vixipy/templates/rankings/main.html.j2:9
 msgid "Show options"
 msgstr "Ipakita ang mga opsyon"
 
-#: vixipy/templates/rankings/calendar.html:12
-#: vixipy/templates/rankings/main.html:12
+#: vixipy/templates/rankings/calendar.html.j2:12
+#: vixipy/templates/rankings/main.html.j2:12
 msgid "Options"
 msgstr "Mga opsyon"
 
-#: vixipy/templates/rankings/calendar.html:14
-#: vixipy/templates/rankings/main.html:15
-#: vixipy/templates/search/components/tag-search-filter.html:38
+#: vixipy/templates/rankings/calendar.html.j2:14
+#: vixipy/templates/rankings/main.html.j2:15
+#: vixipy/templates/search/components/tag-search-filter.html.j2:38
 msgid "Mode"
 msgstr "Mode"
 
-#: vixipy/templates/rankings/calendar.html:17
-#: vixipy/templates/rankings/main.html:17
+#: vixipy/templates/rankings/calendar.html.j2:17
+#: vixipy/templates/rankings/main.html.j2:17
 msgid "Daily"
 msgstr "Araw-araw"
 
-#: vixipy/templates/rankings/calendar.html:18
-#: vixipy/templates/rankings/main.html:18
+#: vixipy/templates/rankings/calendar.html.j2:18
+#: vixipy/templates/rankings/main.html.j2:18
 msgid "Weekly"
 msgstr "Lingguhan"
 
-#: vixipy/templates/rankings/calendar.html:19
-#: vixipy/templates/rankings/main.html:19
+#: vixipy/templates/rankings/calendar.html.j2:19
+#: vixipy/templates/rankings/main.html.j2:19
 msgid "Monthly"
 msgstr "Buwanan"
 
-#: vixipy/templates/rankings/calendar.html:20
-#: vixipy/templates/rankings/main.html:20
+#: vixipy/templates/rankings/calendar.html.j2:20
+#: vixipy/templates/rankings/main.html.j2:20
 msgid "Rookie"
 msgstr "Bagito"
 
-#: vixipy/templates/rankings/calendar.html:22
-#: vixipy/templates/rankings/main.html:22
+#: vixipy/templates/rankings/calendar.html.j2:22
+#: vixipy/templates/rankings/main.html.j2:22
 msgid "Popular among male users"
 msgstr "Popular sa mga lalaking gumagamit"
 
-#: vixipy/templates/rankings/calendar.html:23
-#: vixipy/templates/rankings/main.html:23
+#: vixipy/templates/rankings/calendar.html.j2:23
+#: vixipy/templates/rankings/main.html.j2:23
 msgid "Popular among female users"
 msgstr "Popular sa mga babaeng gumagamit"
 
-#: vixipy/templates/rankings/calendar.html:28
-#: vixipy/templates/rankings/main.html:28
+#: vixipy/templates/rankings/calendar.html.j2:28
+#: vixipy/templates/rankings/main.html.j2:28
 msgid "Daily R-18"
 msgstr "Araw-araw na R-18"
 
-#: vixipy/templates/rankings/calendar.html:29
-#: vixipy/templates/rankings/main.html:29
+#: vixipy/templates/rankings/calendar.html.j2:29
+#: vixipy/templates/rankings/main.html.j2:29
 msgid "R-18 AI Generated"
 msgstr "R-18 na Binuo ng AI"
 
-#: vixipy/templates/rankings/calendar.html:30
-#: vixipy/templates/rankings/main.html:30
+#: vixipy/templates/rankings/calendar.html.j2:30
+#: vixipy/templates/rankings/main.html.j2:30
 msgid "Weekly R-18"
 msgstr "Lingguhang R-18"
 
-#: vixipy/templates/rankings/calendar.html:33
-#: vixipy/templates/rankings/main.html:33
+#: vixipy/templates/rankings/calendar.html.j2:33
+#: vixipy/templates/rankings/main.html.j2:33
 msgid "Popular among male users (R-18)"
 msgstr "Popular sa mga lalaking gumagamit (R-18)"
 
-#: vixipy/templates/rankings/calendar.html:34
-#: vixipy/templates/rankings/main.html:34
+#: vixipy/templates/rankings/calendar.html.j2:34
+#: vixipy/templates/rankings/main.html.j2:34
 msgid "Popular among female users (R-18)"
 msgstr "Popular sa mga babaeng gumagamit (R-18)"
 
-#: vixipy/templates/rankings/calendar.html:40
-#: vixipy/templates/rankings/main.html:51
+#: vixipy/templates/rankings/calendar.html.j2:40
+#: vixipy/templates/rankings/main.html.j2:51
 msgid "Date"
 msgstr "Petsa"
 
-#: vixipy/templates/rankings/calendar.html:44
-#: vixipy/templates/rankings/main.html:55
-#: vixipy/templates/search/components/tag-search-filter.html:183
+#: vixipy/templates/rankings/calendar.html.j2:44
+#: vixipy/templates/rankings/main.html.j2:55
+#: vixipy/templates/search/components/tag-search-filter.html.j2:183
 msgid "Apply"
 msgstr "I-apply"
 
-#: vixipy/templates/rankings/calendar.html:74
+#: vixipy/templates/rankings/calendar.html.j2:74
 #, python-format
 msgid "Day %(day)s"
 msgstr "Araw %(day)s"
 
-#: vixipy/templates/rankings/main.html:2
-#: vixipy/templates/users/dashboard.html:80
+#: vixipy/templates/rankings/main.html.j2:2
+#: vixipy/templates/users/dashboard.html.j2:80
 msgid "Rankings"
 msgstr "Mga Ranggo"
 
-#: vixipy/templates/rankings/main.html:41
+#: vixipy/templates/rankings/main.html.j2:41
 msgid "Content"
 msgstr "Nilalaman"
 
-#: vixipy/templates/search/dashboard.html:12
+#: vixipy/templates/search/dashboard.html.j2:12
 msgid "Search works..."
 msgstr "Maghanap ng mga gawa…"
 
-#: vixipy/templates/search/dashboard.html:22
+#: vixipy/templates/search/dashboard.html.j2:22
 msgid "Popular illust tags"
 msgstr "Mga popular na tag ng larawan"
 
-#: vixipy/templates/search/dashboard.html:42
+#: vixipy/templates/search/dashboard.html.j2:42
 #, python-format
 msgid "#%(tag)s recommended works"
 msgstr "Mga inirerekomendang #%(tag)s na gawa"
 
-#: vixipy/templates/search/illust.html:6 vixipy/templates/search/main.html:7
-#: vixipy/templates/search/manga.html:6 vixipy/templates/search/novel.html:7
+#: vixipy/templates/search/illust.html.j2:6 vixipy/templates/search/main.html.j2:7
+#: vixipy/templates/search/manga.html.j2:6 vixipy/templates/search/novel.html.j2:7
 msgid "Top"
 msgstr "Top"
 
-#: vixipy/templates/search/components/tag-search-filter.html:15
-#: vixipy/templates/search/illust.html:12
+#: vixipy/templates/search/components/tag-search-filter.html.j2:15
+#: vixipy/templates/search/illust.html.j2:12
 msgid "Search options"
 msgstr "Mga opsyon sa paghahanap"
 
-#: vixipy/templates/search/illust.html:27 vixipy/templates/search/main.html:59
-#: vixipy/templates/search/manga.html:25 vixipy/templates/search/novel.html:27
+#: vixipy/templates/search/illust.html.j2:27 vixipy/templates/search/main.html.j2:59
+#: vixipy/templates/search/manga.html.j2:25 vixipy/templates/search/novel.html.j2:27
 msgid "No matching results found."
 msgstr "Walang mga tumutugma na resulta na nahanap."
 
-#: vixipy/templates/search/index.html:2
+#: vixipy/templates/search/index.html.j2:2
 #, python-format
 msgid "Results for %(tag)s"
 msgstr "Mga resulta para sa %(tag)s"
 
-#: vixipy/templates/search/index.html:24
+#: vixipy/templates/search/index.html.j2:24
 #, python-format
 msgid "<b>%(total)s</b> Works"
 msgstr "<b>%(total)s</b> (mga) Gawa"
 
-#: vixipy/templates/search/index.html:45
+#: vixipy/templates/search/index.html.j2:45
 msgid ""
 "You can only have at most 10 favorite tags. Please remove one and try "
 "again."
@@ -1114,128 +1114,128 @@ msgstr ""
 "Maaari ka lamang magkaroon ng hindi tataas sa 10 paboritong tag. "
 "Mangyaring tanggalin ang isa at subukan muli."
 
-#: vixipy/templates/search/index.html:46
+#: vixipy/templates/search/index.html.j2:46
 msgid "Add to your favorites"
 msgstr "Idagdag sa mga paborito"
 
-#: vixipy/templates/search/index.html:48
+#: vixipy/templates/search/index.html.j2:48
 msgid "Remove from favorites"
 msgstr "Tanggalin mula sa mga paborito"
 
-#: vixipy/templates/search/main.html:15
+#: vixipy/templates/search/main.html.j2:15
 msgid "Popular Works"
 msgstr "Mga Sikat na Gawa"
 
-#: vixipy/templates/search/main.html:17
+#: vixipy/templates/search/main.html.j2:17
 msgid "Recent"
 msgstr "Kamakailan"
 
-#: vixipy/templates/search/main.html:25
+#: vixipy/templates/search/main.html.j2:25
 msgid "All Time"
 msgstr "Lahat ng Oras"
 
-#: vixipy/templates/search/main.html:34 vixipy/templates/users/top.html:8
+#: vixipy/templates/search/main.html.j2:34 vixipy/templates/users/top.html.j2:8
 msgid "Illustrations and Manga"
 msgstr "Mga Larawan at Manga"
 
-#: vixipy/templates/search/popular_tags.html:28
+#: vixipy/templates/search/popular_tags.html.j2:28
 msgid "Unable to load popular tags."
 msgstr "Hindi ma-load ang mga sikat na tag."
 
-#: vixipy/templates/search/components/tag-search-filter.html:26
+#: vixipy/templates/search/components/tag-search-filter.html.j2:26
 msgid "Keywords"
 msgstr "Mga Keyword"
 
-#: vixipy/templates/search/components/tag-search-filter.html:29
+#: vixipy/templates/search/components/tag-search-filter.html.j2:29
 msgid "Target"
 msgstr "Target"
 
-#: vixipy/templates/search/components/tag-search-filter.html:31
+#: vixipy/templates/search/components/tag-search-filter.html.j2:31
 msgid "Tags (perfect match)"
 msgstr "Mga Tag (perpektong tugma)"
 
-#: vixipy/templates/search/components/tag-search-filter.html:33
+#: vixipy/templates/search/components/tag-search-filter.html.j2:33
 msgid "Tags (partial match)"
 msgstr "Mga Tag (bahagyang tugma)"
 
-#: vixipy/templates/search/components/tag-search-filter.html:34
+#: vixipy/templates/search/components/tag-search-filter.html.j2:34
 msgid "Title/caption"
 msgstr "Paksa/caption"
 
-#: vixipy/templates/search/components/tag-search-filter.html:37
+#: vixipy/templates/search/components/tag-search-filter.html.j2:37
 msgid "Filters"
 msgstr "Mga Filter"
 
-#: vixipy/templates/search/components/tag-search-filter.html:40
+#: vixipy/templates/search/components/tag-search-filter.html.j2:40
 msgid "All"
 msgstr "Lahat"
 
-#: vixipy/templates/search/components/tag-search-filter.html:41
+#: vixipy/templates/search/components/tag-search-filter.html.j2:41
 msgid "Safe"
 msgstr "Ligtas"
 
-#: vixipy/templates/search/components/tag-search-filter.html:45
+#: vixipy/templates/search/components/tag-search-filter.html.j2:45
 msgid "Width"
 msgstr "Lapad"
 
-#: vixipy/templates/search/components/tag-search-filter.html:47
-#: vixipy/templates/search/components/tag-search-filter.html:53
+#: vixipy/templates/search/components/tag-search-filter.html.j2:47
+#: vixipy/templates/search/components/tag-search-filter.html.j2:53
 msgid "min"
 msgstr "min"
 
-#: vixipy/templates/search/components/tag-search-filter.html:48
-#: vixipy/templates/search/components/tag-search-filter.html:54
+#: vixipy/templates/search/components/tag-search-filter.html.j2:48
+#: vixipy/templates/search/components/tag-search-filter.html.j2:54
 msgid "max"
 msgstr "max"
 
-#: vixipy/templates/search/components/tag-search-filter.html:51
+#: vixipy/templates/search/components/tag-search-filter.html.j2:51
 msgid "Height"
 msgstr "Taas"
 
-#: vixipy/templates/search/components/tag-search-filter.html:57
+#: vixipy/templates/search/components/tag-search-filter.html.j2:57
 msgid "Ratio"
 msgstr "Ratio"
 
-#: vixipy/templates/search/components/tag-search-filter.html:59
+#: vixipy/templates/search/components/tag-search-filter.html.j2:59
 msgid "All ratios"
 msgstr "Lahat ng mga ratio"
 
-#: vixipy/templates/search/components/tag-search-filter.html:60
+#: vixipy/templates/search/components/tag-search-filter.html.j2:60
 msgid "Horizontal"
 msgstr "Pahalang"
 
-#: vixipy/templates/search/components/tag-search-filter.html:61
+#: vixipy/templates/search/components/tag-search-filter.html.j2:61
 msgid "Vertical"
 msgstr "Patayo"
 
-#: vixipy/templates/search/components/tag-search-filter.html:62
+#: vixipy/templates/search/components/tag-search-filter.html.j2:62
 msgid "Square"
 msgstr "Parisukat"
 
-#: vixipy/templates/search/components/tag-search-filter.html:65
+#: vixipy/templates/search/components/tag-search-filter.html.j2:65
 msgid "Tool"
 msgstr "Kagamitan"
 
-#: vixipy/templates/search/components/tag-search-filter.html:66
+#: vixipy/templates/search/components/tag-search-filter.html.j2:66
 msgid "All tools"
 msgstr "Lahat ng mga kagamitan"
 
-#: vixipy/templates/search/components/tag-search-filter.html:173
+#: vixipy/templates/search/components/tag-search-filter.html.j2:173
 msgid "Period"
 msgstr "Panahon"
 
-#: vixipy/templates/search/components/tag-search-filter.html:181
-#: vixipy/templates/users/dashboard.html:197
+#: vixipy/templates/search/components/tag-search-filter.html.j2:181
+#: vixipy/templates/users/dashboard.html.j2:197
 msgid "Cancel"
 msgstr "Kanselahin"
 
-#: vixipy/templates/settings/about.html:2
-#: vixipy/templates/settings/about.html:5
-#: vixipy/templates/settings/index.html:19
+#: vixipy/templates/settings/about.html.j2:2
+#: vixipy/templates/settings/about.html.j2:5
+#: vixipy/templates/settings/index.html.j2:19
 msgid "About Vixipy"
 msgstr "Tungkol sa VIxipy"
 
-#: vixipy/templates/settings/about.html:6
+#: vixipy/templates/settings/about.html.j2:6
 #, python-format
 msgid ""
 "Vixipy is a free and open source alternative <a href='%(link)s'>pixiv</a>"
@@ -1247,7 +1247,7 @@ msgstr ""
 "enjoy ng mga gawa mula sa pixiv nang walang pagkagambala, hindi "
 "kinakailangang bloat, at pagsubaybay."
 
-#: vixipy/templates/settings/about.html:7
+#: vixipy/templates/settings/about.html.j2:7
 #, python-format
 msgid ""
 "If you like our work, please consider <a href='%(link)s'>giving us a "
@@ -1256,11 +1256,11 @@ msgstr ""
 "Kung gusto mo ang aming gawa, mangyaring isaalang-alang na <a "
 "href='%(link)s'>bigyan kami ng isang bitwin</a> sa Codeberg!"
 
-#: vixipy/templates/settings/about.html:9
+#: vixipy/templates/settings/about.html.j2:9
 msgid "Why use it?"
 msgstr "Bakit gamitin ito?"
 
-#: vixipy/templates/settings/about.html:11
+#: vixipy/templates/settings/about.html.j2:11
 msgid ""
 "Vixipy allows you to browse pixiv anonymously with all restrictions "
 "removed (including the ability to view original resolution artworks). No "
@@ -1271,7 +1271,7 @@ msgstr ""
 "kakayahang tingnan ang orihinal na resolution ng mga likhang sining). "
 "Walang kinakailangang pixiv account para ma-access ang content."
 
-#: vixipy/templates/settings/about.html:12
+#: vixipy/templates/settings/about.html.j2:12
 msgid ""
 "Vixipy does all the work for you: no connection to pixiv or any third-"
 "party server is made and all processing occurs server-side. No more "
@@ -1282,13 +1282,13 @@ msgstr ""
 "ay nangyayari sa panig ng server. Wala nang pagsubaybay ng Google "
 "Analytics para sa bawat pagkilos!"
 
-#: vixipy/templates/settings/about.html:13
+#: vixipy/templates/settings/about.html.j2:13
 msgid "Vixipy offers a lightweight and fast experience without any distraction."
 msgstr ""
 "Nagaalok ang Vixipy ng isang magaan at mabilis na karanasan nang walang "
 "anumang pagkagambala."
 
-#: vixipy/templates/settings/about.html:14
+#: vixipy/templates/settings/about.html.j2:14
 #, python-format
 msgid ""
 "Vixipy is free and open source, meaning anyone can audit, contribute, "
@@ -1299,11 +1299,11 @@ msgstr ""
 "mag-audit, mag-ambag, magbago, o gumamit nito nang walang paghihigpit (<a"
 " href='%(license_link)s'>hangga't sinusunod mo ang lisensya nito</a>)."
 
-#: vixipy/templates/settings/about.html:17
+#: vixipy/templates/settings/about.html.j2:17
 msgid "How does it work?"
 msgstr "Paano ito gumagana?"
 
-#: vixipy/templates/settings/about.html:18
+#: vixipy/templates/settings/about.html.j2:18
 msgid ""
 "Vixipy retrieves content using pixiv's API, parses it, and displays the "
 "results through own user interface. You remain completely anonymous if "
@@ -1317,7 +1317,7 @@ msgstr ""
 "pinangangasiwaan sa panig ng server, at sumasama sa iba pang mga "
 "aktibidad sa instance."
 
-#: vixipy/templates/settings/about.html:19
+#: vixipy/templates/settings/about.html.j2:19
 msgid ""
 "Even if you log in, pixiv will only see you as if you are using their "
 "official UI, but without any tracking (the same behaviour if you use a "
@@ -1327,11 +1327,11 @@ msgstr ""
 "ang kanilang opisyal na UI, ngunit walang anumang pagsubaybay (kaparehong"
 " gawi kung gumagamit ka ng content blocker gaya ng uBlock Origin)"
 
-#: vixipy/templates/settings/about.html:21
+#: vixipy/templates/settings/about.html.j2:21
 msgid "How do I make it my own?"
 msgstr "Paano ko ito gagawing sarili ko?"
 
-#: vixipy/templates/settings/about.html:22
+#: vixipy/templates/settings/about.html.j2:22
 msgid ""
 "If you want to host your own for personal (if you are concerned about "
 "logs) or public use, you can self-host your own instance, fully within "
@@ -1341,7 +1341,7 @@ msgstr ""
 "aalala ka tungkol sa mga log) o pampublikong paggamit, maaari mong i-host"
 " ang sarili mong instance, ganap na nasa iyong kontrol."
 
-#: vixipy/templates/settings/about.html:23
+#: vixipy/templates/settings/about.html.j2:23
 msgid ""
 "Vixipy can essentially run on almost any platform and operating system "
 "(such as Windows, Linux, FreeBSD, Haiku, Android, and many more), as long"
@@ -1353,23 +1353,23 @@ msgstr ""
 "hangga't maaari nitong patakbuhin ang Python 3.11 at mas bago, at mai-"
 "compile ang mga native na dependency ng Vixipy."
 
-#: vixipy/templates/settings/about.html:25
-#: vixipy/templates/settings/acknowledgements.html:2
-#: vixipy/templates/settings/acknowledgements.html:5
+#: vixipy/templates/settings/about.html.j2:25
+#: vixipy/templates/settings/acknowledgements.html.j2:2
+#: vixipy/templates/settings/acknowledgements.html.j2:5
 msgid "Acknowledgements"
 msgstr "Mga Pasasalamat"
 
-#: vixipy/templates/settings/account.html:2
-#: vixipy/templates/settings/account.html:5
-#: vixipy/templates/settings/index.html:16
+#: vixipy/templates/settings/account.html.j2:2
+#: vixipy/templates/settings/account.html.j2:5
+#: vixipy/templates/settings/index.html.j2:16
 msgid "Account"
 msgstr "Account"
 
-#: vixipy/templates/settings/account.html:8
+#: vixipy/templates/settings/account.html.j2:8
 msgid "Manage pixiv account"
 msgstr "Ipamahala ang pixiv account"
 
-#: vixipy/templates/settings/account.html:9
+#: vixipy/templates/settings/account.html.j2:9
 msgid ""
 "To manage your account information and security settings, go to the "
 "official Account Portal"
@@ -1377,11 +1377,11 @@ msgstr ""
 "Para ipamahala ang impormasyon at mga setting ng seguridad ng iyong "
 "account, pumunta sa opisyal na Account Portal"
 
-#: vixipy/templates/settings/account.html:11
+#: vixipy/templates/settings/account.html.j2:11
 msgid "Go to Account Portal"
 msgstr "Pumunta sa Account Portal"
 
-#: vixipy/templates/settings/account.html:21
+#: vixipy/templates/settings/account.html.j2:21
 #, python-format
 msgid ""
 "You change your nickname and customize your profile in the <a "
@@ -1390,17 +1390,17 @@ msgstr ""
 "Maaari mong baguhin ang iyong nickname at i-customize ang iyong profile "
 "sa <a href='%(link)s'>Editor ng profile</a>."
 
-#: vixipy/templates/settings/account.html:25
+#: vixipy/templates/settings/account.html.j2:25
 msgid "Account Token"
 msgstr "Token ng Account"
 
-#: vixipy/templates/settings/account.html:29
-#: vixipy/templates/settings/account.html:42
-#: vixipy/templates/settings/account.html:64
+#: vixipy/templates/settings/account.html.j2:29
+#: vixipy/templates/settings/account.html.j2:42
+#: vixipy/templates/settings/account.html.j2:64
 msgid "Click to reveal"
 msgstr "I-click para ipakita"
 
-#: vixipy/templates/settings/account.html:34
+#: vixipy/templates/settings/account.html.j2:34
 msgid ""
 "This is the token used to sign into your pixiv account. You may use this "
 "if you forget your token or want to move instances or pixiv frontends."
@@ -1409,11 +1409,11 @@ msgstr ""
 "Maaari mo itong gamitin kung makalimutan mo ang iyong token o gusto mong "
 "lumipat ng mga instansya o pixiv frontend."
 
-#: vixipy/templates/settings/account.html:38
+#: vixipy/templates/settings/account.html.j2:38
 msgid "Email"
 msgstr "Email"
 
-#: vixipy/templates/settings/account.html:55
+#: vixipy/templates/settings/account.html.j2:55
 #, python-format
 msgid ""
 "The pixiv ID is your \"account handle\", which is served as a short "
@@ -1424,23 +1424,23 @@ msgstr ""
 " vanity link sa iyong account. Halimbawa: pixiv.me/%(handle)s (o "
 "%(example)s para sa Vixipy). "
 
-#: vixipy/templates/settings/account.html:58
+#: vixipy/templates/settings/account.html.j2:58
 msgid "Technical information"
 msgstr "Teknikal na impormasyon"
 
-#: vixipy/templates/settings/account.html:60
+#: vixipy/templates/settings/account.html.j2:60
 msgid "CSRF Token"
 msgstr "CSRF Token"
 
-#: vixipy/templates/settings/account.html:72
+#: vixipy/templates/settings/account.html.j2:72
 msgid "pixiv A/B test IDs"
 msgstr "Mga pixiv A/B test ID"
 
-#: vixipy/templates/settings/account.html:85
+#: vixipy/templates/settings/account.html.j2:85
 msgid "You're not logged in"
 msgstr "Hindi ka naka-log in"
 
-#: vixipy/templates/settings/account.html:86
+#: vixipy/templates/settings/account.html.j2:86
 msgid ""
 "Sign in to your pixiv account to experience Vixipy to it's full "
 "potential. Don't worry, we won't steal your session tokens!"
@@ -1449,126 +1449,126 @@ msgstr ""
 "potensyal. Huwag kang mag-alala, hindi namin nanakawin ang iyong mga "
 "session token!"
 
-#: vixipy/templates/settings/acknowledgements.html:7
+#: vixipy/templates/settings/acknowledgements.html.j2:7
 msgid "Projects"
 msgstr "Mga proyekto"
 
-#: vixipy/templates/settings/acknowledgements.html:8
+#: vixipy/templates/settings/acknowledgements.html.j2:8
 msgid "These projects and libraries help shape Vixipy:"
 msgstr "Ang mga proyekto at library na ito ay tumutulong sa pagbuo ng Vixipy:"
 
-#: vixipy/templates/settings/acknowledgements.html:22
+#: vixipy/templates/settings/acknowledgements.html.j2:22
 msgid "Translations"
 msgstr "Mga pagsasalin"
 
-#: vixipy/templates/settings/acknowledgements.html:23
+#: vixipy/templates/settings/acknowledgements.html.j2:23
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
 msgstr "Tumulong ang mga taong ito sa pagsalin ng Vixipy (maraming salamat &lt;3):"
 
-#: vixipy/templates/settings/display.html:2
-#: vixipy/templates/settings/display.html:5
-#: vixipy/templates/settings/index.html:17
+#: vixipy/templates/settings/display.html.j2:2
+#: vixipy/templates/settings/display.html.j2:5
+#: vixipy/templates/settings/index.html.j2:17
 msgid "Display settings"
 msgstr "Mga setting ng pagpapakita"
 
-#: vixipy/templates/settings/display.html:8
+#: vixipy/templates/settings/display.html.j2:8
 msgid "Work content"
 msgstr "Nilalaman ng gawa"
 
-#: vixipy/templates/settings/display.html:22
+#: vixipy/templates/settings/display.html.j2:22
 msgid "Show AI-generated work"
 msgstr "Ipakita ang gawang binuo ng AI"
 
-#: vixipy/templates/settings/display.html:26
+#: vixipy/templates/settings/display.html.j2:26
 msgid "Display works that may contain sensitive content"
 msgstr "Ipakita ang mga gawa na maaaring maglaman ng mga sensitibong nilalaman"
 
-#: vixipy/templates/settings/display.html:30
+#: vixipy/templates/settings/display.html.j2:30
 msgid "Show explicit content (R-18)"
 msgstr "Ipakita ang tahasang nilalaman (R-18)"
 
-#: vixipy/templates/settings/display.html:34
+#: vixipy/templates/settings/display.html.j2:34
 msgid "Show ero-guro content (R-18G)"
 msgstr "Ipakita ang ero-guro na nilalaman (R-18G)"
 
-#: vixipy/templates/settings/display.html:38
+#: vixipy/templates/settings/display.html.j2:38
 msgid "Hide artwork thumbnails (preview mode)"
 msgstr "Itago ang mga thumbnail ng larawan (preview mode)"
 
-#: vixipy/templates/settings/display.html:42
+#: vixipy/templates/settings/display.html.j2:42
 msgid "Blur sensitive works (may cause performance issues!)"
 msgstr ""
 "I-blur ang mga sensitibong gawa (maaaring magdulot ng mga isyu sa "
 "pagganap!)"
 
-#: vixipy/templates/settings/display.html:45
+#: vixipy/templates/settings/display.html.j2:45
 msgid "Save preferences"
 msgstr "I-save ang mga kagustuhan"
 
-#: vixipy/templates/settings/display.html:50
+#: vixipy/templates/settings/display.html.j2:50
 msgid "Ad display settings"
 msgstr "Mga setting sa pagpakita ng mga ad"
 
-#: vixipy/templates/settings/display.html:53
+#: vixipy/templates/settings/display.html.j2:53
 msgid "Display"
 msgstr "Ipakita"
 
-#: vixipy/templates/settings/index.html:3
-#: vixipy/templates/settings/index.html:5
-#: vixipy/templates/settings/index.html:13
-#: vixipy/templates/users/dashboard.html:149
+#: vixipy/templates/settings/index.html.j2:3
+#: vixipy/templates/settings/index.html.j2:5
+#: vixipy/templates/settings/index.html.j2:13
+#: vixipy/templates/users/dashboard.html.j2:149
 msgid "Settings"
 msgstr "Mga Setting"
 
-#: vixipy/templates/settings/index.html:15
-#: vixipy/templates/settings/main.html:3 vixipy/templates/settings/main.html:6
+#: vixipy/templates/settings/index.html.j2:15
+#: vixipy/templates/settings/main.html.j2:3 vixipy/templates/settings/main.html.j2:6
 msgid "Vixipy settings"
 msgstr "Mga setting sa Vixipy"
 
-#: vixipy/templates/settings/index.html:18
-#: vixipy/templates/settings/language.html:3
-#: vixipy/templates/settings/language.html:6
+#: vixipy/templates/settings/index.html.j2:18
+#: vixipy/templates/settings/language.html.j2:3
+#: vixipy/templates/settings/language.html.j2:6
 msgid "Language and location"
 msgstr "Wika at lokasyon"
 
-#: vixipy/templates/settings/language.html:9
+#: vixipy/templates/settings/language.html.j2:9
 msgid "Language"
 msgstr "Wika"
 
-#: vixipy/templates/settings/language.html:14
+#: vixipy/templates/settings/language.html.j2:14
 msgid "Use system language"
 msgstr "Gamitin ang wika ng system"
 
-#: vixipy/templates/settings/language.html:20
+#: vixipy/templates/settings/language.html.j2:20
 msgid "Help translate Vixipy to your language!"
 msgstr "Tumulong sa pagsalin ng Vixipy sa iyong wika!"
 
-#: vixipy/templates/settings/language.html:22
+#: vixipy/templates/settings/language.html.j2:22
 msgid "Set language"
 msgstr "Itakda ang wika"
 
-#: vixipy/templates/settings/language.html:28
+#: vixipy/templates/settings/language.html.j2:28
 msgid "Location"
 msgstr "Lokasyon"
 
-#: vixipy/templates/settings/language.html:36
+#: vixipy/templates/settings/language.html.j2:36
 msgid "Set location"
 msgstr "Itakda ang lokasyon"
 
-#: vixipy/templates/settings/main.html:9
+#: vixipy/templates/settings/main.html.j2:9
 msgid "Image Proxy Server"
 msgstr "Proxy Server ng Larawan"
 
-#: vixipy/templates/settings/main.html:15
+#: vixipy/templates/settings/main.html.j2:15
 msgid "Use proxy specified by instance"
 msgstr "Gamitin ang proxy na tinakda ng instansya"
 
-#: vixipy/templates/settings/main.html:16
-#: vixipy/templates/settings/main.html:18
+#: vixipy/templates/settings/main.html.j2:16
+#: vixipy/templates/settings/main.html.j2:18
 msgid "Use built-in proxy"
 msgstr "Gamitin ang kasamang proxy"
 
-#: vixipy/templates/settings/main.html:26
+#: vixipy/templates/settings/main.html.j2:26
 msgid ""
 "An image proxy allows retrieving images from pixiv without making any "
 "connection to pixiv servers."
@@ -1576,95 +1576,95 @@ msgstr ""
 "Nagbibigay-daan ang proxy ng larawan ang pagkuha ng mga larawan mula sa "
 "pixiv nang hindi gumawa ng anumang koneksyon sa mga server ng pixiv."
 
-#: vixipy/templates/settings/main.html:28
+#: vixipy/templates/settings/main.html.j2:28
 msgid "Use selected proxy"
 msgstr "Gamitin ang piniling proxy"
 
-#: vixipy/templates/settings/main.html:34
+#: vixipy/templates/settings/main.html.j2:34
 msgid "Color Scheme"
 msgstr "Scheme ng Kulay"
 
-#: vixipy/templates/settings/main.html:40
+#: vixipy/templates/settings/main.html.j2:40
 msgid "Default"
 msgstr "Default"
 
-#: vixipy/templates/settings/main.html:47
+#: vixipy/templates/settings/main.html.j2:47
 msgid "Set color scheme"
 msgstr "Itakda ang scheme ng kulay"
 
-#: vixipy/templates/test/dialog.html:28
-#: vixipy/templates/users/dashboard.html:181
-#: vixipy/templates/users/dashboard.html:191
+#: vixipy/templates/test/dialog.html.j2:28
+#: vixipy/templates/users/dashboard.html.j2:181
+#: vixipy/templates/users/dashboard.html.j2:191
 msgid "Log out"
 msgstr "Mag-log out"
 
-#: vixipy/templates/test/dialog.html:31
-#: vixipy/templates/users/dashboard.html:194
+#: vixipy/templates/test/dialog.html.j2:31
+#: vixipy/templates/users/dashboard.html.j2:194
 msgid "Do you wish to log out?"
 msgstr "Gusto mo bang mag-log out?"
 
-#: vixipy/templates/ugoira-converter/main.html:2
-#: vixipy/templates/ugoira-converter/main.html:11
+#: vixipy/templates/ugoira-converter/main.html.j2:2
+#: vixipy/templates/ugoira-converter/main.html.j2:11
 msgid "Ugoira Converter"
 msgstr "Converter ng Ugoira"
 
-#: vixipy/templates/ugoira-converter/main.html:23
+#: vixipy/templates/ugoira-converter/main.html.j2:23
 msgid "GIF (Large File Size)"
 msgstr "GIF (Malaking File Size)"
 
-#: vixipy/templates/ugoira-converter/main.html:24
+#: vixipy/templates/ugoira-converter/main.html.j2:24
 msgid "WebP (Most Efficient)"
 msgstr "WebP (Pinakamahusay)"
 
-#: vixipy/templates/ugoira-converter/main.html:31
+#: vixipy/templates/ugoira-converter/main.html.j2:31
 msgid "Convert"
 msgstr "I-convert"
 
-#: vixipy/templates/ugoira-converter/main.html:35
+#: vixipy/templates/ugoira-converter/main.html.j2:35
 msgid "Sorry, the Ugoira Converter requires JavaScript."
 msgstr "Paumanhin, nangangailangan ng JavaScript ang Converter ng Ugoira."
 
-#: vixipy/templates/users/base.html:15
+#: vixipy/templates/users/base.html.j2:15
 #, python-format
 msgid "%(user)s's background"
 msgstr "Background ni %(user)s"
 
-#: vixipy/templates/users/base.html:16
+#: vixipy/templates/users/base.html.j2:16
 #, python-format
 msgid "Click to open %(user)s's banner in a new tab."
 msgstr "I-click para buksan ang banner ni %(user)s sa bagong tab."
 
-#: vixipy/templates/users/base.html:17
+#: vixipy/templates/users/base.html.j2:17
 #, python-format
 msgid "%(user)s's profile picture"
 msgstr "Larawan ng profile ni %(user)s"
 
-#: vixipy/templates/users/base.html:18
+#: vixipy/templates/users/base.html.j2:18
 #, python-format
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr "I-click para buksan ang larawan ng profile ni %(user)s sa bagong tab."
 
-#: vixipy/templates/users/base.html:44
+#: vixipy/templates/users/base.html.j2:44
 msgid "Edit Profile"
 msgstr "I-edit ang Profile"
 
-#: vixipy/templates/users/base.html:68
+#: vixipy/templates/users/base.html.j2:68
 msgid "Profile"
 msgstr "Profile"
 
-#: vixipy/templates/users/base.html:77
+#: vixipy/templates/users/base.html.j2:77
 msgid "Description"
 msgstr "Paglalarawan"
 
-#: vixipy/templates/users/base.html:81
+#: vixipy/templates/users/base.html.j2:81
 msgid "This user has no description set"
 msgstr "Walang itinakdang deskripsyon ang user na ito"
 
-#: vixipy/templates/users/base.html:84
+#: vixipy/templates/users/base.html.j2:84
 msgid "Socials"
 msgstr "Mga Socials"
 
-#: vixipy/templates/users/base.html:149
+#: vixipy/templates/users/base.html.j2:149
 msgid ""
 "You should not go to Pawoo, as it contains inappropriate content, "
 "resulting in the instance being added to the federation blacklist and "
@@ -1675,31 +1675,31 @@ msgstr ""
 "federation blacklist at pinagbabawal sa halos lahat ng federated social "
 "media."
 
-#: vixipy/templates/users/base.html:155
+#: vixipy/templates/users/base.html.j2:155
 msgid "This user did not specify their socials"
 msgstr "Hindi ibinigay ng user ang kanilang mga socials"
 
-#: vixipy/templates/users/base.html:175 vixipy/templates/users/bookmarks.html:9
-#: vixipy/templates/users/dashboard.html:47
+#: vixipy/templates/users/base.html.j2:175 vixipy/templates/users/bookmarks.html.j2:9
+#: vixipy/templates/users/dashboard.html.j2:47
 msgid "Bookmarks"
 msgstr "Mga Bookmark"
 
-#: vixipy/templates/users/bookmarks.html:27
-#: vixipy/templates/users/illust.html:27 vixipy/templates/users/manga.html:27
-#: vixipy/templates/users/novels.html:27 vixipy/templates/users/top.html:18
+#: vixipy/templates/users/bookmarks.html.j2:27
+#: vixipy/templates/users/illust.html.j2:27 vixipy/templates/users/manga.html.j2:27
+#: vixipy/templates/users/novels.html.j2:27 vixipy/templates/users/top.html.j2:18
 msgid "No works found."
 msgstr "Walang mga nahanap na gawa."
 
-#: vixipy/templates/users/dashboard.html:2
+#: vixipy/templates/users/dashboard.html.j2:2
 msgid "Menu"
 msgstr "Menu"
 
-#: vixipy/templates/users/dashboard.html:13
-#: vixipy/templates/users/follow/base.html:49
+#: vixipy/templates/users/dashboard.html.j2:13
+#: vixipy/templates/users/follow/base.html.j2:49
 msgid "Followers"
 msgstr "Mga Follower"
 
-#: vixipy/templates/users/dashboard.html:25
+#: vixipy/templates/users/dashboard.html.j2:25
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
@@ -1707,66 +1707,66 @@ msgstr ""
 "<b>Hindi ka naka-log in.</b> Mag-sign in sa iyong pixiv account para "
 "maranasan ang Vixipy sa buong potensyal."
 
-#: vixipy/templates/users/dashboard.html:39
+#: vixipy/templates/users/dashboard.html.j2:39
 msgid "Your profile"
 msgstr "Iyong profile"
 
-#: vixipy/templates/users/dashboard.html:159
+#: vixipy/templates/users/dashboard.html.j2:159
 msgid "Send Feedback"
 msgstr "Magpadala ng Feedback"
 
-#: vixipy/templates/users/dashboard.html:169
+#: vixipy/templates/users/dashboard.html.j2:169
 msgid "Source Code"
 msgstr "Source Code"
 
-#: vixipy/templates/users/dashboard.html:198
+#: vixipy/templates/users/dashboard.html.j2:198
 msgid "OK"
 msgstr "OK"
 
-#: vixipy/templates/users/follow/base.html:41
+#: vixipy/templates/users/follow/base.html.j2:41
 msgid "My pixiv"
 msgstr "Aking pixiv"
 
-#: vixipy/templates/users/follow/followers.html:3
+#: vixipy/templates/users/follow/followers.html.j2:3
 #, python-format
 msgid "%(user)s's followers"
 msgstr "Mga follower ni %(user)s"
 
-#: vixipy/templates/users/follow/followers.html:8
-#: vixipy/templates/users/follow/following.html:8
-#: vixipy/templates/users/follow/mypixiv.html:8
+#: vixipy/templates/users/follow/followers.html.j2:8
+#: vixipy/templates/users/follow/following.html.j2:8
+#: vixipy/templates/users/follow/mypixiv.html.j2:8
 #, python-format
 msgid "Users (%(count)d)"
 msgstr "Mga user (%(count)d)"
 
-#: vixipy/templates/users/follow/followers.html:24
+#: vixipy/templates/users/follow/followers.html.j2:24
 msgid "You don't have any followers."
 msgstr "Wala kang anumang mga follower."
 
-#: vixipy/templates/users/follow/following.html:3
+#: vixipy/templates/users/follow/following.html.j2:3
 #, python-format
 msgid "%(user)s's followed users"
 msgstr "Mga sinusunod na user ni/ng %(user)s"
 
-#: vixipy/templates/users/follow/following.html:24
+#: vixipy/templates/users/follow/following.html.j2:24
 msgid "You are not following anyone."
 msgstr "Hindi ka sumusunod sa anumang tao."
 
-#: vixipy/templates/users/follow/following.html:26
+#: vixipy/templates/users/follow/following.html.j2:26
 #, python-format
 msgid "%(user)s isn't following anyone."
 msgstr "Walang anumang sinusunod si/ang %(user)s."
 
-#: vixipy/templates/users/follow/mypixiv.html:3
+#: vixipy/templates/users/follow/mypixiv.html.j2:3
 #, python-format
 msgid "%(user)s's My pixiv"
 msgstr "My pixiv ni/ng %(user)s"
 
-#: vixipy/templates/users/follow/mypixiv.html:24
+#: vixipy/templates/users/follow/mypixiv.html.j2:24
 msgid "You don't have any My pixiv."
 msgstr "Wala kang anumang mga Aking pixiv."
 
-#: vixipy/templates/users/follow/mypixiv.html:26
+#: vixipy/templates/users/follow/mypixiv.html.j2:26
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."

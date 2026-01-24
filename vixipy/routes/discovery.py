@@ -16,7 +16,7 @@ async def discovery_root():
 
     data = await get_discovery(mode=request.args.get("mode", "all"))
 
-    return await render_template("discovery/illustrations.html", data=ff(data))
+    return await render_template("discovery/illustrations.html.j2", data=ff(data))
 
 
 @bp.route("/discovery/users")
@@ -24,4 +24,4 @@ async def discovery_root():
 async def discovery_users():
     data = await get_recommended_users()
     log.debug(data)
-    return await render_template("discovery/users.html", data=data)
+    return await render_template("discovery/users.html.j2", data=data)

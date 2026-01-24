@@ -1,0 +1,62 @@
+{% extends "layouts/default.html.j2" %}
+{% from "components/paginator.html.j2" import paginator %}
+{%- set page = request.args.get('p', 1)|int -%}
+{%- set is_self = g.authorized and g.current_user and user.id == g.current_user.id -%}
+
+{% block content %}
+<section id="prof-user-info-min">
+    {% if user.background %}
+    <img src="{{user.background}}">
+    {% endif %}
+    <main>
+        <div class="wrap">
+            <div class="user">
+                <a href="{{url_for('users.user_profile', user=user.id)}}" class="icon-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.913 16.586a2 2 0 01-2.829 2.828L5.67 12l7.414-7.414a2 2 0 012.829 2.828L11.327 12l4.586 4.586z" fill="currentColor"/></svg>
+                </a>
+                <main>
+                    <img src="{{user.image}}" alt="{{user.name}}">
+                    <span>{{user.name}}</span>
+                </main>
+            </div>
+        </div>
+    </main>
+</section>
+<main class="no-transition">
+    <div class="nav-controller">
+        <nav class="tabs">
+            <a
+                {% if current == "following" %}
+                href="#" class="active"
+                {% else %}
+                href="{{url_for('users.following', user=user.id)}}"
+                {% endif %}
+            >{{_("Following")}}</a>
+            <a
+                {% if current == "mypixiv" %}
+                href="#" class="active"
+                {% else %}
+                href="{{url_for('users.mypixiv', user=user.id)}}"
+                {% endif %}
+            >{{_("My pixiv")}}</a>
+            {% if is_self %}
+            <a
+                {% if current == "followers" %}
+                href="#" class="active"
+                {% else %}
+                href="{{url_for('users.followers', user=user.id)}}"
+                {% endif %}
+            >{{_("Followers")}}</a>
+            {% endif %}
+        </nav>
+        {% if is_self and current == 'following' %}
+        <div class="chip-toggle">
+            <a href="{{url_for('users.following', user=user.id, rest='show')}}" {% if request.args.get('rest', 'show') == 'show' %}class="active"{% endif %}>Public</a>
+            <a href="{{url_for('users.following', user=user.id, rest='hide')}}" {% if request.args['rest'] == 'hide' %}class="active"{% endif %}>Private</a>
+        </div>
+        {% endif %}
+    </div>
+    <br>
+    {% block c %}{% endblock %}
+</main>
+{% endblock %}

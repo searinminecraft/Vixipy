@@ -15,4 +15,4 @@ async def main():
     except (IndexError, KeyError):
         abort(400)
 
-    return await render_template("leave.html", url=dest)
+    return await render_template("leave.html.j2", url=dest)

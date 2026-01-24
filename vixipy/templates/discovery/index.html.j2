@@ -1,0 +1,26 @@
+{% extends "layouts/default.html.j2" %}
+
+{% set title = _("Discovery") %}
+
+{% block content %}
+{% set mode = request.args.get("mode", "all") %}
+
+<main class="large">
+    <h2>{{_("Discovery")}}</h2>
+    <nav class="tabs">
+        <a {% if current == 'root' -%}
+            href="#" class="active"
+            {% else %}
+            href="/discovery"
+            {% endif -%}>{{_("Recommended illustrations")}}</a>
+        
+        <a {% if current == 'users' -%}
+            href="#" class="active"
+            {%- else -%}
+            href="/discovery/users"
+            {%- endif -%}>{{_("Recommended users")}}</a>
+    </nav>
+    <br>
+    {% block ct %}{% endblock %}
+</main>
+{% endblock %}
