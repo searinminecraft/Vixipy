@@ -30,23 +30,33 @@ class StreetAccessData:
         self.ism: int = d["ism"]
         self.aui: Optional[int] = d.get("aui")
         self.tgs: Optional[list[str]] = d.get("tgs")
-        self.rms: Optional[_StreetAccessRms] = _StreetAccessRms(d["rms"]) if d.get("rms") else None
+        self.rms: Optional[_StreetAccessRms] = (
+            _StreetAccessRms(d["rms"]) if d.get("rms") else None
+        )
 
 
 class StreetNextParams:
     def __init__(self, d: dict):
         self.page: int = d["page"]
         self.content_index_prev: int = d["content_index_prev"]
-        self.li: Optional[list[int]] = [int(x) for x in d["li"].split(",")] if d["li"] else None
-        self.li: Optional[list[int]] = [int(x) for x in d["lm"].split(",")] if d["lm"] else None
-        self.ln: Optional[list[int]] = [int(x) for x in d["ln"].split(",")] if d["ln"] else None
+        self.li: Optional[list[int]] = (
+            [int(x) for x in d["li"].split(",")] if d["li"] else None
+        )
+        self.li: Optional[list[int]] = (
+            [int(x) for x in d["lm"].split(",")] if d["lm"] else None
+        )
+        self.ln: Optional[list[int]] = (
+            [int(x) for x in d["ln"].split(",")] if d["ln"] else None
+        )
         self.lc: Optional[list[int]] = int(d["lc"] or 0) or None
 
 
 class StreetComponent:
     def __init__(self, d: dict):
         self.name = d["kind"]
-        self.access: Optional[StreetAccessData] = StreetAccessData(d["access"]) if d.get("access") else None
+        self.access: Optional[StreetAccessData] = (
+            StreetAccessData(d["access"]) if d.get("access") else None
+        )
 
     async def render(self):
         return await render_template(f"street/components/{self.name}.html", data=self)
@@ -64,7 +74,9 @@ class _StreetPixivisionEntry:
 class StreetPixivisionComponent(StreetComponent):
     def __init__(self, d: dict):
         super().__init__(d)
-        self.entries: list[_StreetPixivisionEntry] = [_StreetPixivisionCategory(x) for x in d["thumbnails"]]
+        self.entries: list[_StreetPixivisionEntry] = [
+            _StreetPixivisionCategory(x) for x in d["thumbnails"]
+        ]
 
 
 class _StreetTag:
@@ -82,8 +94,12 @@ class _StreetThumbCommon:
         self.user_id: int = int(d["userId"])
         self.user_name: str = d["userName"]
         self.profile_img: str = proxy(d["profileImageUrl"])
-        self.create_date: datetime = datetime.strptime(d["createDate"], "%Y-%m-%d %H:%M:%S")
-        self.update_date: datetime = datetime.strptime(d["createDate"], "%Y-%m-%d %H:%M:%S")
+        self.create_date: datetime = datetime.strptime(
+            d["createDate"], "%Y-%m-%d %H:%M:%S"
+        )
+        self.update_date: datetime = datetime.strptime(
+            d["createDate"], "%Y-%m-%d %H:%M:%S"
+        )
         self.comments_off: bool = bool(d["commentOffSetting"])
         self.ai: bool = d["aiType"] == 2
         self.bookmarkable: bool = d["bookmarkable"]
@@ -98,6 +114,7 @@ class _StreetPickup:
         self.comment_id: int = d["commentId"]
         self.comment: str = d["comment"]
         self.comment_count: int = d["commentCount"]
+
 
 class _StreetImageUrls:
     def __init__(self, d: dict):
@@ -124,7 +141,9 @@ class StreetIllust(StreetComponent):
     def __init__(self, d: dict):
         super().__init__(d)
         self.content: _StreetIllustThumb = _StreetIllustThumb(d["thumbnails"][0])
-        self.pickup: Optional[_StreetPickup] = _StreetPickup(d["pickup"]) if d.get("pickup") else None
+        self.pickup: Optional[_StreetPickup] = (
+            _StreetPickup(d["pickup"]) if d.get("pickup") else None
+        )
 
 
 class _StreetNovelThumb(_StreetThumbCommon):
@@ -160,9 +179,28 @@ class _StreetCollectionThumb(_StreetThumbCommon):
 class StreetCollection(StreetComponent):
     def __init__(self, d: dict):
         super().__init__(d)
-        self.content: _StreetCollectionThumb = _StreetCollectionThumb(d["thumbnails"][0])
+        self.content: _StreetCollectionThumb = _StreetCollectionThumb(
+            d["thumbnails"][0]
+        )
 
 
+class _StreetTagsCarouselEntry:
+    def __init__(self, d: dict, entry: _StreetIllustThumb):
+        self.name: str = d["name"]
+        self.translated: Optional[str] = d["translatedName"] or None
+        self.count: int = d["taggedCount"]
+        self.entry = entry
+
+
+class StreetTagsCarousel(StreetComponent):
+    def __init__(self, d: dict):
+        super().__init__(d)
+        self.tags: list[_StreetTagsCarouselEntry] = []
+
+        for x, y in enumerate(d["trendTags"]):
+            self.tags.append(
+                _StreetTagsCarouselEntry(y, _StreetIllustThumb(d["thumbnails"][x]))
+            )
 
 
 class StreetPlaceholderComponent(StreetComponent):
@@ -185,11 +223,16 @@ class StreetData:
             "manga": StreetIllust,
             "novel": StreetNovel,
             "collection": StreetCollection,
+            "tags_carousel": StreetTagsCarousel,
         }
 
         for x in d["contents"]:
             if x["kind"] in _cmp_map:
-                n = _cmp_map[x["kind"]](x)
+                try:
+                    n = _cmp_map[x["kind"]](x)
+                except Exception as e:
+                    log.exception("Unable to parse street cmp %s", x["kind"])
+                    raise
                 self.contents.append(n)
                 log.debug("Parsed street cmp %s", n.name)
             else:

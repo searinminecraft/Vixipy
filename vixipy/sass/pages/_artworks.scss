@@ -43,6 +43,11 @@
                     }
                 }
 
+                &:hover .meta {
+                    opacity: 0;
+                    transform: translateY(-5px);
+                }
+
                 .meta {
                     position: absolute;
                     top: 0;
@@ -52,6 +57,9 @@
                     width: 100%;
                     pointer-events: none;
                     column-gap: .5em;
+                    transition-property: opacity, transform;
+                    transition-duration: .15s;
+                    transition-timing-function: ease;
 
                     >div {
                         font-size: 12px;

@@ -46,6 +46,7 @@ from . import (
     session as pixiv_session_handler,
     blacklist,
     util,
+    htmx_header,
 )
 
 if TYPE_CHECKING:
@@ -155,6 +156,7 @@ def create_app():
     app.config.from_prefixed_env("VIXIPY")
     app.config.from_pyfile(app.instance_path + "/config.py", silent=True)
     cfg.convert_config(app)
+    htmx_header.init_app(app)
     csp.init_app(app)
 
     app.tokens: list[Token] = []

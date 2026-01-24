@@ -29,10 +29,9 @@ header {
             font-size: 18px;
 
             .debug-label {
-                color: var(--md-sys-color-error);
-                font-weight: unset;
-                text-transform: uppercase;
-                font-size: 10px;
+                color: var(--md-sys-color-outline);
+                font-weight: normal;
+                font-size: 12px;
                 margin-left: 4px;
             }
         }
