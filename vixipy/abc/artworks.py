@@ -59,6 +59,15 @@ class ArtworkBase:
         return names.get(int(self.xrestrict), "R-18")
 
 
+class _ArtworkImages:
+    def __init__(self, d: dict):
+        self.mini: Optional[str] = proxy(d["mini"])
+        self.thumb: Optional[str] = proxy(d["thumb"])
+        self.small: Optional[str] = proxy(d["small"])
+        self.regular: Optional[str] = proxy(d["regular"])
+        self.original: Optional[str] = proxy(d["original"])
+
+
 class Artwork(ArtworkBase):
     def __init__(self, d):
         super().__init__(d)
@@ -84,7 +93,8 @@ class Artwork(ArtworkBase):
         self.liked = d["likeData"]
         self.commentCount = d["commentCount"]
         self.viewCount = d["viewCount"]
-        self.deficient = d["urls"]["regular"] is None
+        self.image_urls: _ArtworkImages = _ArtworkImages(d["urls"])
+        self.deficient = self.image_urls.regular is None
 
         self.original = d["isOriginal"]
         self.loginonly = d["isLoginOnly"]

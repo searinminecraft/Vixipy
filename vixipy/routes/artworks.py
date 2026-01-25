@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from quart import Blueprint, abort, current_app, render_template, request, url_for
+from quart import Blueprint, abort, current_app, g, make_response, render_template, request, url_for
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
 from asyncio import gather
+from jinja2_fragments.quart import render_block
 import datetime
 import logging
 import re
@@ -108,6 +109,34 @@ async def __attempt_work_extraction(
         return []
 
 
+@bp.get("/_partials/artworks/<int:id>/root")
+async def _root_p(id: int):
+    work: Artwork = await get_artwork(id)
+    return await render_block("artworks.html.j2", "root", work=work)
+
+@bp.get("/_partials/artworks/<int:id>/pages")
+async def _pages_p(id: int):
+    pages: list[ArtworkPage] = await get_artwork_pages(id)
+    return await render_block("artworks.html.j2", "pages", pages=pages)
+
+
+@bp.get("/_partials/artworks/author/<int:id>")
+async def _author_p(id: int):
+    user = await get_user(id)
+    return await render_block("artworks.html.j2", "author", user=user)
+
+
+@bp.get("/_partials/artworks/<int:id>/recommend")
+async def _recommend_p(id: int):
+    data = await get_recommended_works(id)
+    r = await make_response(await render_block("artworks.html.j2", "recommended", recommend=ff(data)))
+
+    if len(data) == 0:
+        r.headers["HX-Reswap"] = "delete"
+    
+    return r
+
+
 @bp.get("/artworks/<int:id>")
 async def _get_artwork(id: int):
     try:
@@ -138,40 +167,45 @@ async def _get_artwork(id: int):
         return await render_template(
             "content_warning.html.j2", url=url_for("artworks._get_artwork", id=id)
         )
+    
 
-    if work.deficient:
-        log.info("Work is deficient, trying to extract pages...")
-        pages, recommend, user, works = await gather(
-            __attempt_work_extraction(id, work.other_works, work.pages),
-            get_recommended_works(id),
-            get_user(work.authorId),
-            get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
+    if not g.hx_request:
+
+        if work.deficient:
+            log.info("Work is deficient, trying to extract pages...")
+            pages, recommend, user, works = await gather(
+                __attempt_work_extraction(id, work.other_works, work.pages),
+                get_recommended_works(id),
+                get_user(work.authorId),
+                get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
+            )
+
+            if len(pages) == 0:
+                log.fatal("Artwork returned no pages. Bailing out!")
+                abort(404)
+        else:
+            pages, recommend, user, works = await gather(
+                get_artwork_pages(id),
+                get_recommended_works(id),
+                get_user(work.authorId),
+                get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
+            )
+
+        pages: list[ArtworkPage]
+        recommend: list[ArtworkEntry]
+        user: PartialUser
+        works: list[ArtworkEntry]
+
+        return await render_template(
+            "artworks.html.j2",
+            work=work,
+            pages=pages,
+            recommend=ff(recommend),
+            user=user,
+            user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id))),
         )
-
-        if len(pages) == 0:
-            log.fatal("Artwork returned no pages. Bailing out!")
-            abort(404)
-    else:
-        pages, recommend, user, works = await gather(
-            get_artwork_pages(id),
-            get_recommended_works(id),
-            get_user(work.authorId),
-            get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
-        )
-
-    pages: list[ArtworkPage]
-    recommend: list[ArtworkEntry]
-    user: PartialUser
-    works: list[ArtworkEntry]
-
-    return await render_template(
-        "artworks.html.j2",
-        work=work,
-        pages=pages,
-        recommend=ff(recommend),
-        user=user,
-        user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id))),
-    )
+    
+    return await render_template("artworks.html.j2", work=work)
 
 
 @bp.get("/artworks/<int:id>/comments")

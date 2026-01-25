@@ -51,7 +51,8 @@ body {
     scroll-behavior: smooth;
     accent-color: var(--md-sys-color-primary);
 
-    &.htmx-request, &.htmx-settling {
+    &.htmx-request,
+    &.htmx-settling {
         cursor: wait;
 
         >#loading {
@@ -95,29 +96,74 @@ body>.root {
         max-width: 1000px;
         padding: 2em 1em;
     }
+
 }
 
+
 #loading {
+    height: .25rem;
+    overflow: hidden;
     position: fixed;
-    top: 0;
     width: 100%;
-    height: 4px;
-    background-image: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary), var(--md-sys-color-primary));
-    animation: loading 2s infinite linear forwards;
+    background-color: var(--md-sys-color-secondary-container);
+    top: 0;
     opacity: 0;
     transition: opacity .2s ease;
     background-size: 50%;
     z-index: 999;
+
+    >.vw, >.m {
+        background-color: var(--md-sys-color-primary);
+        height: 100%;
+    }
+
+    >.vw {
+        animation: hrLoadingIndicatorMove 1.4s infinite, hrLoadingIndicatorVaryWidth 1.3s infinite;
+        animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+        transform-origin: right top;
+        left: -60%;
+        position: absolute
+    }
+
+    >.m {
+        animation: hrLoadingIndicatorMove 1.4s infinite cubic-bezier(.4, 0, .2, 1);
+        animation-delay: .7s;
+        left: -60%;
+        position: absolute;
+        width: 60%
+    }
+}
+
+@keyframes hrLoadingIndicatorMove {
+    0% {
+        left: -60%
+    }
+
+    100% {
+        left: 100%
+    }
+}
+
+@keyframes hrLoadingIndicatorVaryWidth {
+    0% {
+        width: 60%
+    }
+
+    10% {
+        width: 60%
+    }
+
+    66% {
+        width: 1%
+    }
+
+    100% {
+        width: 60%
+    }
 }
 
 .no-js {
     display: none;
-}
-
-@keyframes loading {
-    100% {
-        background-position: right;
-    }
 }
 
 hgroup {
@@ -141,5 +187,19 @@ hgroup {
 @media (min-width: 1920px) {
     body>main.large {
         max-width: 80vw !important;
+    }
+}
+
+.content-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    gap: .5em;
+
+    p {
+        color: var(--md-sys-color-outline);
+        font-size: 12px;
     }
 }

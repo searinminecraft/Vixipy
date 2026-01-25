@@ -37,7 +37,7 @@ def _generate_ab_cookies() -> tuple[str, str, str, str]:
 async def get_session_data():
     if any(
         request.path.startswith(f"/{x}")
-        for x in ("favicon.ico", "robots.txt", "static", "proxy", "sass")
+        for x in ("favicon.ico", "robots.txt", "static", "proxy", "sass", ".well-known")
     ):
         return
 
@@ -53,17 +53,22 @@ async def get_session_data():
         g.p_ab_id_2 = c.get("Vixipy-p_ab_id_2")
         g.yuid_b = c.get("Vixipy-yuid_b")
 
-        if request.path.startswith("/api"):
-            return
-        if request.headers.get("X-Vixipy-Quick-Action") == "true":
+        if (
+            any([request.path.startswith("/" + x) for x in ("api", "_partials")])
+            or request.headers.get("X-Vixipy-Quick-Action") == "true"
+        ):
             return
 
         try:
             notification_count, user, extra = await gather(
-                get_notification_count(), get_user(g.token.split("_")[0]), get_self_extra()
+                get_notification_count(),
+                get_user(g.token.split("_")[0]),
+                get_self_extra(),
             )
         except PixivError:
-            r = await make_response(redirect(url_for("login.login_page", return_to=request.path), code=303))
+            r = await make_response(
+                redirect(url_for("login.login_page", return_to=request.path), code=303)
+            )
             r.delete_cookie("Vixipy-Token")
             r.delete_cookie("Vixipy-p_ab_id")
             r.delete_cookie("Vixipy-p_ab_id_2")
