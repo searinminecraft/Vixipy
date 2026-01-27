@@ -14,8 +14,11 @@
     <title>{{config["INSTANCE_NAME"]}}</title>
     {% endif %}
 </head>
-<body hx-swap="innerHTML transition:true" hx-boost="true" hx-indicator="this">
-    <div id="loading"></div>
+<body hx-swap="innerHTML" hx-boost="true" hx-indicator="this">
+    <div id="loading">
+	<div class="vw"></div>
+	<div class="m"></div>
+    </div>
     <div class="root">
         <div id="no-connection-wrapper">
             <main>
