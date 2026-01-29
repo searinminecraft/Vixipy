@@ -101,7 +101,7 @@ body>.root {
 
 
 #loading {
-    height: .25rem;
+    height: .35rem;
     overflow: hidden;
     position: fixed;
     width: 100%;
@@ -115,6 +115,7 @@ body>.root {
     >.vw, >.m {
         background-color: var(--md-sys-color-primary);
         height: 100%;
+        border-radius: 999px;
     }
 
     >.vw {

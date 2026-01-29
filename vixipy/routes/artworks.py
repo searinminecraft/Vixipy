@@ -116,7 +116,10 @@ async def _root_p(id: int):
 
 @bp.get("/_partials/artworks/<int:id>/pages")
 async def _pages_p(id: int):
-    pages: list[ArtworkPage] = await get_artwork_pages(id)
+    try:
+        pages: list[ArtworkPage] = await get_artwork_pages(id)
+    except Exception as e:
+        return await render_block("artworks.html.j2", "page_error", error=e)
     return await render_block("artworks.html.j2", "pages", pages=pages)
 
 

@@ -55,6 +55,11 @@
             </div>
             {% endblock pages %}
             {% endif %}
+	    {#
+	    <div class="actions">
+	        <div class="wrapper"></div>
+	    </div>
+	    #}
         </main>
         <aside>
             <h2>{{work.title}}</h2>
@@ -80,6 +85,27 @@
             </div>
             {% endblock author %}
             {% endif %}
+	    <ul class="tags">
+	        {%- for x in work.tags -%}
+                <li>
+		    {%- if x.en or x.romaji -%}
+		    <a href="{{url_for('search.search_main', query=x.name)}}">#{{x.name}} <span class="alternate">{{x.en or x.romaji}}</span></a>
+		    {%- else -%}
+		    <a href="{{url_for('search.search_main', query=x.name)}}">#{{x.name}}</a>
+		    {%- endif -%}
+		</li>
+		{%- endfor -%}
+	    </ul>
+	    {% if work.description_stripped|length > 0 %}
+	    <div class="description">
+	    	<input type="checkbox" id="description-collapse" {% if work.description_stripped|length < 300%}checked{% endif %}>
+	        <main>
+                    {{work.description|safe}}
+		</main>
+		<label for="description-collapse">{{_("Show more...")}}</label>
+	    </div>
+	    {% endif %}
+	    <div class="creation-date">{{work.uploadDate|datetimeformat}}</div>
         </aside>
     </div>
 </div>
@@ -107,7 +133,7 @@
     {% endif %}
 </main>
 
-{% endblock root%}
+{% endblock root %}
 
 {% else %}
 <div hx-get="{{url_for('artworks._root_p', id=work.id)}}" hx-trigger="load" hx-swap="outerHTML">
@@ -118,4 +144,11 @@
 
 </section>
 
+{% endblock %}
+
+{% block page_error %}
+<div class="pages-error">
+    <p>{{_("An error occurred trying to get the artwork pages")}}</p>
+    <code>{{error.__class__.__name__}}: {{error}}</code>
+</div>
 {% endblock %}

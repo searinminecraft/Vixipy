@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from .common import Tag
-from ..converters import proxy
+from ..converters import proxy, convert_pixiv_link
+from bs4 import BeautifulSoup
 from datetime import datetime
 import markupsafe
 from typing import TYPE_CHECKING
@@ -99,8 +100,15 @@ class Artwork(ArtworkBase):
         self.original = d["isOriginal"]
         self.loginonly = d["isLoginOnly"]
         self.ai = d["aiType"] == 2
-        self.description = d["illustComment"]
-        self.description_stripped = markupsafe.Markup(self.description).striptags()
+        
+        _description = d["illustComment"]
+        self.description_stripped = markupsafe.Markup(_description).striptags()
+        _s = BeautifulSoup(_description, "html.parser")
+        for x in _s.find_all("a"):
+            href = x.attrs["href"]
+            x.attrs["href"] = convert_pixiv_link(href)
+
+        self.description = _s
 
         self.other_works: list[ArtworkEntry] = []
         self.works_missing: list[int] = []
