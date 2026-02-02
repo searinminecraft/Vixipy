@@ -7,3 +7,4 @@ materialyoucolor
 pillow
 beautifulsoup4
 quart-compress
+jinja2_fragments
