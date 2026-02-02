@@ -162,7 +162,7 @@ async def _get_artwork(id: int):
             and work.xrestrict >= 1
         )
         or (bool(int(request.cookies.get("Vixipy-No-R18", 0))) and work.xrestrict >= 1)
-        or (bool(int(request.cookies.get("Vixipy-No-R18G", 1))) and work.xrestrict == 2)
+        or (bool(int(request.cookies.get("Vixipy-No-R18G", 0))) and work.xrestrict == 2)
     ):
         abort(403)
 
