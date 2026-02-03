@@ -107,6 +107,8 @@ class Artwork(ArtworkBase):
         for x in _s.find_all("a"):
             href = x.attrs["href"]
             x.attrs["href"] = convert_pixiv_link(href)
+            if x.attrs.get("target"):
+                del x.attrs["target"]
 
         self.description = _s
 
