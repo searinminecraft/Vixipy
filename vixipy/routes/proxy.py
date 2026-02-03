@@ -76,9 +76,29 @@ async def ugoira_proxy(id: int):
     return res, response_headers
 
 
+@bp.get("/proxy/fonts.googleapis.com/<path:path>")
+async def google_fonts_api_proxy(path: str):
+    r: ClientResponse = await current_app.content_proxy.get("https://fonts.googleapis.com/" + path, params=request.args)
+
+    r.raise_for_status()
+    data = await r.text()
+
+    data = data.replace("https://fonts.gstatic.com", "/proxy/fonts.gstatic.com")
+
+    return (
+        data,
+        200,
+        {
+            "Content-Length": len(data),
+            "Content-Type": r.headers["content-type"],
+            "Cache-Control": "max-age=31536000",
+        }
+    )
+
+
 @bp.get("/proxy/<path:url>")
 async def perform_proxy_request(url: str):
-    permitted = ("i.pximg.net", "s.pximg.net", "embed.pixiv.net", "source.pixiv.net")
+    permitted = ("i.pximg.net", "s.pximg.net", "embed.pixiv.net", "source.pixiv.net", "fonts.gstatic.com")
     url = url.removeprefix("https://")
     url = url.removeprefix("http://")
 
