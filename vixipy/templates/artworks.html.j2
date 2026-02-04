@@ -105,6 +105,26 @@
 		<label for="description-collapse">{{_("Show more...")}}</label>
 	    </div>
 	    {% endif %}
+	    <ul class="attributes">
+	        {%- if work.loginonly -%}
+		<li>{{_("Sign in required")}}</li>
+		{%- endif -%}
+	        {%- if not work.xrestrict >= 1 and work.sl >= 4 -%}
+	        <li class="error">{{_("Sensitivity Level: %(sl)d", sl=work.sl)}}</li>
+		{%- endif -%}
+		{%- if work.xrestrict >= 1 -%}
+		<li class="error">{{work.xrestrict_friendlyname}}</li>
+		{%- endif -%}
+		{%- if work.ai -%}
+		<li class="tertiary">{{_("AI Generated")}}</li>
+		{%- endif -%}
+		{%- if work.original -%}
+		<li class="primary">{{_("Original")}}</li>
+		{%- endif -%}
+		{%- if work.isUgoira -%}
+		<li class="secondary">{{_("Ugoira")}}</li>
+		{%- endif -%}
+	    </ul>
 	    <div class="creation-date">{{work.uploadDate|datetimeformat}}</div>
         </aside>
     </div>
