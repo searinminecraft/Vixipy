@@ -17,6 +17,7 @@ Disallow: /material-you
 Disallow: /ugoira-converter
 Disallow: /settings
 Disallow: /en
+Disallow: /license
 
 Crawl-delay: 2
 

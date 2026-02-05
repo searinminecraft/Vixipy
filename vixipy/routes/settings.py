@@ -281,3 +281,8 @@ async def acknowledgements():
         "settings/acknowledgements.html.j2",
         i18n_cred=sorted(TRANSLATION_CREDITS, key=lambda _: _.name),
     )
+
+
+@bp.get("/license")
+async def license():
+    return await render_template("license/index.html.j2")

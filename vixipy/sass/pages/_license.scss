@@ -1,0 +1,32 @@
+#license-screen {
+    main {
+        margin: 0 auto;
+        padding: 1.5em;
+        max-width: 2000px;
+        width: 100%;
+
+        #back {
+            width: 32px;
+            height: 32px;
+        }
+
+        h1#title {
+            font-weight: normal;
+            margin-top: 6rem;
+            margin-bottom: 2rem;
+            font-size: 48px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        pre {
+            white-space: pre-wrap;
+        }
+
+        #licenses > * {
+            margin: 4rem 0;
+        }
+    }
+}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-27 10:18+0800\n"
+"POT-Creation-Date: 2026-02-05 16:26+0800\n"
 "PO-Revision-Date: 2025-07-27 10:08+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language: ja\n"
@@ -41,15 +41,51 @@ msgstr ""
 msgid "Page %(page)d of %(total)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html.j2:68
+#: vixipy/templates/artworks.html.j2:73
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
 msgstr ""
 
-#: vixipy/templates/artworks.html.j2:94 vixipy/templates/artworks.html.j2:104
+#: vixipy/templates/artworks.html.j2:105
+msgid "Show more..."
+msgstr ""
+
+#: vixipy/templates/artworks.html.j2:110
+#, fuzzy
+msgid "Sign in required"
+msgstr "サインイン"
+
+#: vixipy/templates/artworks.html.j2:113
+#, python-format
+msgid "Sensitivity Level: %(sl)d"
+msgstr ""
+
+#: vixipy/templates/artworks.html.j2:119
+#: vixipy/templates/rankings/calendar.html.j2:26
+#: vixipy/templates/rankings/main.html.j2:26
+msgid "AI Generated"
+msgstr ""
+
+#: vixipy/templates/artworks.html.j2:122
+#: vixipy/templates/components/novel-entry.html.j2:17
+#: vixipy/templates/rankings/calendar.html.j2:25
+#: vixipy/templates/rankings/main.html.j2:25
+msgid "Original"
+msgstr "オリジナル"
+
+#: vixipy/templates/artworks.html.j2:125
+#: vixipy/templates/rankings/main.html.j2:46
+msgid "Ugoira"
+msgstr ""
+
+#: vixipy/templates/artworks.html.j2:140 vixipy/templates/artworks.html.j2:150
 #: vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "関連作品"
+
+#: vixipy/templates/artworks.html.j2:171
+msgid "An error occurred trying to get the artwork pages"
+msgstr ""
 
 #: vixipy/templates/comments.html.j2:2 vixipy/templates/comments.html.j2:7
 #: vixipy/templates/replies.html.j2:2
@@ -112,7 +148,7 @@ msgstr ""
 
 #: vixipy/templates/content_warning.html.j2:11
 #: vixipy/templates/http_error.html.j2:9
-#: vixipy/templates/internal_server_error.html.j2:26
+#: vixipy/templates/internal_server_error.html.j2:28
 #: vixipy/templates/leave.html.j2:7
 msgid "Go back"
 msgstr ""
@@ -304,23 +340,23 @@ msgstr ""
 msgid "View All"
 msgstr "すべて見る"
 
-#: vixipy/templates/internal_server_error.html.j2:8
+#: vixipy/templates/internal_server_error.html.j2:10
 msgid "Internal Server Error"
 msgstr ""
 
-#: vixipy/templates/internal_server_error.html.j2:21
+#: vixipy/templates/internal_server_error.html.j2:23
 msgid "Looks like Vixipy broke unexpectedly..."
 msgstr ""
 
-#: vixipy/templates/internal_server_error.html.j2:23
+#: vixipy/templates/internal_server_error.html.j2:25
 msgid "An internal error has occurred and Vixipy cannot continue."
 msgstr ""
 
-#: vixipy/templates/internal_server_error.html.j2:27
+#: vixipy/templates/internal_server_error.html.j2:29
 msgid "Report Issue"
 msgstr ""
 
-#: vixipy/templates/internal_server_error.html.j2:28
+#: vixipy/templates/internal_server_error.html.j2:30
 #: vixipy/templates/no_connection.html.j2:9
 msgid "Try Again"
 msgstr ""
@@ -573,12 +609,6 @@ msgstr ""
 msgid "User"
 msgstr "ユーザー"
 
-#: vixipy/templates/components/novel-entry.html.j2:17
-#: vixipy/templates/rankings/calendar.html.j2:25
-#: vixipy/templates/rankings/main.html.j2:25
-msgid "Original"
-msgstr "オリジナル"
-
 #: vixipy/templates/components/novel-entry.html.j2:18
 #: vixipy/templates/novels/novel.html.j2:46
 msgid "Series"
@@ -705,6 +735,19 @@ msgstr "おすすめ作品"
 #: vixipy/templates/discovery/index.html.j2:21
 msgid "Recommended users"
 msgstr "おすすめユーザー"
+
+#: vixipy/templates/license/index.html.j2:14
+#: vixipy/templates/license/index.html.j2:28
+#: vixipy/templates/settings/index.html.j2:20
+msgid "Licenses"
+msgstr ""
+
+#: vixipy/templates/license/index.html.j2:29
+msgid ""
+"Vixipy is made possible using free software and libraries. To ensure your"
+" rights and for license compliance, copies of the copyright and license "
+"notices for the various libraries and software are provided in this page."
+msgstr ""
 
 #: vixipy/templates/newest/index.html.j2:6
 msgid "Newest illustrations by all users"
@@ -1004,11 +1047,6 @@ msgstr "男性に人気ランキング"
 msgid "Popular among female users"
 msgstr "女性に人気ランキング"
 
-#: vixipy/templates/rankings/calendar.html.j2:26
-#: vixipy/templates/rankings/main.html.j2:26
-msgid "AI Generated"
-msgstr ""
-
 #: vixipy/templates/rankings/calendar.html.j2:28
 #: vixipy/templates/rankings/main.html.j2:28
 #, fuzzy
@@ -1064,10 +1102,6 @@ msgstr "デイリーランキング"
 #, fuzzy
 msgid "Content"
 msgstr "ディスカバリー"
-
-#: vixipy/templates/rankings/main.html.j2:46
-msgid "Ugoira"
-msgstr ""
 
 #: vixipy/templates/search/dashboard.html.j2:12
 msgid "Search works..."
@@ -1410,19 +1444,20 @@ msgid ""
 msgstr ""
 
 #: vixipy/templates/settings/acknowledgements.html.j2:7
-msgid "Projects"
-msgstr ""
-
-#: vixipy/templates/settings/acknowledgements.html.j2:8
 msgid "These projects and libraries help shape Vixipy:"
 msgstr ""
 
-#: vixipy/templates/settings/acknowledgements.html.j2:22
+#: vixipy/templates/settings/acknowledgements.html.j2:9
+#, python-format
+msgid "This section has been moved to the <a href='%(link)s'>Licenses page</a>."
+msgstr ""
+
+#: vixipy/templates/settings/acknowledgements.html.j2:11
 #, fuzzy
 msgid "Translations"
 msgstr "イラスト"
 
-#: vixipy/templates/settings/acknowledgements.html.j2:23
+#: vixipy/templates/settings/acknowledgements.html.j2:12
 msgid "These lovely people helped translate Vixipy (thank you so much &lt;3):"
 msgstr ""
 

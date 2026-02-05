@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html{% if request.cookies["Vixipy-Language"] %} lang="{{request.cookies[" Vixipy-Language"]}}"{% endif %}>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/proxy/fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap">
+	<link href="/proxy/fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/style.css">
+        {%- include "components/theme-pref.html.j2" -%}
+        <script src="/static/jquery-3.7.1.min.js"></script>
+        <script src="/static/htmx.min.js"></script>
+        <title>{{_("Licenses")}} | {{config["INSTANCE_NAME"]}}</title>
+    </head>
+
+    <body hx-swap="innerHTML" hx-boost="true" hx-indicator="this">
+        <div id="loading">
+            <div class="vw"></div>
+            <div class="m"></div>
+        </div>
+	<div id="license-screen">
+	    <main>
+                <a href="/" class="icon-button" id="back">
+		<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
+                </a>
+
+		<h1 id="title">{{_("Licenses")}}</h1>
+		<p>{{_("Vixipy is made possible using free software and libraries. To ensure your rights and for license compliance, copies of the copyright and license notices for the various libraries and software are provided in this page.")}}</p>
+		<div id="licenses">
+		{% include "license/notices/vixipy.html" %}
+		{% include "license/notices/quart.html" %}
+		{% include "license/notices/flask-babel.html" %}
+		{% include "license/notices/quart-rate-limiter.html" %}
+		{% include "license/notices/materialyoucolor.html" %}
+		{% include "license/notices/charcoal.html" %}
+		{% include "license/notices/material-design-icons.html" %}
+		{% include "license/notices/hypercorn.html" %}
+		{% include "license/notices/aiohttp.html" %}
+		{% include "license/notices/aiomcache.html" %}
+		{% include "license/notices/jinja2_fragments.html" %}
+		{% include "license/notices/htmx.html" %}
+		{% include "license/notices/jquery.html" %}
+		{% include "license/notices/jszip.html" %}
+		{% include "license/notices/ffmpeg-wasm.html" %}
+		{% include "license/notices/google-sans.html" %}
+		</div>
+	    </main>
+	</div>
+    </body>
+</html>
+
