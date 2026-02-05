@@ -68,7 +68,7 @@ def init_msg(app: Quart):
 
 async def init_clientsession(app: Quart):
     header_common = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0",
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0",
         "Accept-Language": app.config["ACCEPT_LANGUAGE"],
         "Accept-Encoding": "gzip",
     }

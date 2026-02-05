@@ -23,7 +23,7 @@ class PixivError(Exception):
         self.path: str = path
         self.message: str = message
 
-        super().__init__(f"{code}: {message} - {path}")
+        super().__init__(f"code={code}, message={message}, path={path}")
 
 
 async def pixiv_request(
@@ -99,16 +99,19 @@ async def pixiv_request(
     hashed_value = hashlib.md5(bytes(endpoint + _params, "utf-8")).hexdigest()
 
     if cache_enabled and not ignore_cache:
-        cache_result = await current_app.cache_client.get(
-            bytes(f"endpoint_{hashed_value}", "utf-8")
-        )
-        if cache_result:
-            log.info("[hit] %s", endpoint)
-            return json.loads(cache_result)
+        try:
+            cache_result = await current_app.cache_client.get(
+                bytes(f"endpoint_{hashed_value}", "utf-8")
+            )
+            if cache_result:
+                log.info("[hit] %s", endpoint)
+                return json.loads(cache_result)
+        except Exception:
+            log.exception("Unable to get entry from cache")
 
     if touch or endpoint.startswith("/touch/ajax"):
         _headers["User-Agent"] = (
-            "Mozilla/5.0 (Android 10; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0"
+            "Mozilla/5.0 (Android 10; Mobile; rv:147.0) Gecko/147.0 Firefox/147.0"
         )
 
     if raw_payload and not isinstance(raw_payload, MultipartWriter):
@@ -177,27 +180,34 @@ async def pixiv_request(
     try:
         res = await r.json()
         if res.get("error") == True or res.get("isSucceed") == False:
-            log.error("Error: pixiv API returned error %s", res["message"])
+            log.error(
+                "Error: pixiv API returned error %d: %s",
+                r.status,
+                res["message"] or None
+            )
             raise PixivError(res["message"], r.status, endpoint)
 
         if res.get("body"):
             res = res["body"]
     except ContentTypeError:
         if expect_json:
-            raise PixivError(await r.text(), r.status, endpoint)
+            raise PixivError(await r.text(), r.status, endpoint) from e
         res = await r.text()
         pass
 
     if cache_enabled and not ignore_cache:
-        await current_app.cache_client.set(
-            bytes(f"endpoint_{hashed_value}", "utf-8"),
-            bytes(json.dumps(res), "utf-8"),
-            int(current_app.config["CACHE_TTL"]),
-        )
+        try:
+            await current_app.cache_client.set(
+                bytes(f"endpoint_{hashed_value}", "utf-8"),
+                bytes(json.dumps(res), "utf-8"),
+                int(current_app.config["CACHE_TTL"]),
+            )
+        except Exception:
+            log.exception("Unable to store to cache")
 
     done_time = (time.perf_counter() - req_start) * 1000
 
     log.info("[done] [%dms] [%s]", done_time, endpoint)
-    add_server_timing_metric(f"api_{endpoint}", done_time)
+    add_server_timing_metric(f"{endpoint}", done_time)
 
     return res
