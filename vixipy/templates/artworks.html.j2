@@ -33,35 +33,46 @@
 <div id="artwork-root">
     <div class="content">
         <main>
-            {% if g.hx_request %}
-            <div class="pages-placeholder" hx-get="{{url_for('artworks._pages_p', id=work.id)}}" hx-trigger="load"
-                hx-swap="outerHTML">
-                {% include "components/spinner.html.j2" %}
-            </div>
-            {% else %}
-            {% block pages %}
-            <div class="pages">
-                {% for x in pages %}
-                <div class="page">
-                    <div class="meta">
-                    </div>
-                    <a href="{{x.orig}}" target="_blank">
-                        <img loading="lazy" alt="{{_('Page %(page)d of %(total)d', page=x.page, total=pages|length)}}"
-                            src="{{x.reg}}" {%if x.width and x.height%} width="{{x.width}}" height="{{x.height}}" {%
-                            endif %}>
-                    </a>
+            <div class="work-main">
+                {% if g.hx_request %}
+                <div class="pages-placeholder" hx-get="{{url_for('artworks._pages_p', id=work.id)}}" hx-trigger="load"
+                    hx-swap="outerHTML">
+                    {% include "components/spinner.html.j2" %}
                 </div>
-                {% endfor %}
+                {% else %}
+                {% block pages %}
+                <div class="pages">
+                    {% for x in pages %}
+                    <div class="page">
+                        <div class="meta">
+                        </div>
+                        <a href="{{x.orig}}" target="_blank">
+                            <img loading="lazy"
+                                alt="{{_('Page %(page)d of %(total)d', page=x.page, total=pages|length)}}"
+                                src="{{x.reg}}" {%if x.width and x.height%} width="{{x.width}}" height="{{x.height}}" {%
+                                endif %}>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endblock pages %}
+                {% endif %}
             </div>
-            {% endblock pages %}
+            {% if work.series_data %}
+            <div class="series-data"></div>
             {% endif %}
-	    {#
-	    <div class="actions">
-	        <div class="wrapper"></div>
-	    </div>
-	    #}
+            {#
+            <div class="actions">
+                <div class="wrapper"></div>
+            </div>
+            #}
         </main>
         <aside>
+            {% if work.series_data %}
+            <a class="series-link" href="{{url_for('artworks.series', id=work.series_data.id)}}">
+                {{work.series_data.title}} #{{work.series_data.order}}
+            </a>
+            {% endif %}
             <h2>{{work.title}}</h2>
             {% if g.hx_request %}
             <div class="author" hx-get="{{url_for('artworks._author_p', id=work.authorId)}}" hx-trigger="load"
@@ -85,21 +96,23 @@
             </div>
             {% endblock author %}
             {% endif %}
-	    <ul class="tags">
-	        {%- for x in work.tags -%}
+            <ul class="tags">
+                {%- for x in work.tags -%}
                 <li>
-		    {%- if x.en or x.romaji -%}
-		    <a href="{{url_for('search.search_main', query=x.name)}}">#{{x.name}} <span class="alternate">{{x.en or x.romaji}}</span></a>
-		    {%- else -%}
-		    <a href="{{url_for('search.search_main', query=x.name)}}">#{{x.name}}</a>
-		    {%- endif -%}
-		</li>
-		{%- endfor -%}
-	    </ul>
-	    {% if work.description_stripped|length > 0 %}
-	    <div class="description">
-	    	<input type="checkbox" id="description-collapse" {% if work.description_stripped|length < 300%}checked{% endif %}>
-	        <main>
+                    {%- if x.en or x.romaji -%}
+                    <a href="{{url_for('search.search_main', query=x.name)}}">#{{x.name}} <span class="alternate">{{x.en
+                            or x.romaji}}</span></a>
+                    {%- else -%}
+                    <a href="{{url_for('search.search_main', query=x.name)}}">#{{x.name}}</a>
+                    {%- endif -%}
+                </li>
+                {%- endfor -%}
+            </ul>
+            {% if work.description_stripped|length > 0 %}
+            <div class="description">
+                <input type="checkbox" id="description-collapse" {% if work.description_stripped|length < 300%}checked{%
+                    endif %}>
+                <main>
                     {{work.description|safe}}
 		</main>
 		<label for="description-collapse">{{_("Show more...")}}</label>
@@ -146,7 +159,8 @@
     </section>
     {% endblock recommended %}
     {% else %}
-    <section id="related" hx-get="{{url_for('artworks._recommend_p', id=work.id)}}" hx-swap="outerHTML" hx-trigger="revealed">
+    <section id="related" hx-get="{{url_for('artworks._recommend_p', id=work.id)}}" hx-swap="outerHTML"
+        hx-trigger="revealed">
         <h2>{{_("Related works")}}</h2>
         {% include "components/indicator-center.html.j2" %}
     </section>

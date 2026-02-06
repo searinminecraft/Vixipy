@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from quart import Blueprint, abort, current_app, g, make_response, render_template, request, url_for
+from quart import Blueprint, abort, current_app, g, make_response, redirect, render_template, request, url_for
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
 from asyncio import gather
 from jinja2_fragments.quart import render_block
@@ -16,6 +16,7 @@ from ..api.artworks import (
     get_artwork_comments,
     get_artwork_replies,
     get_recommended_works,
+    get_illust_series,
 )
 from ..api.user import (
     get_user,
@@ -225,3 +226,19 @@ async def get_comments(id: int):
 async def get_replies(id: int):
     data = await get_artwork_replies(id, int(request.args.get("p", 1)))
     return await render_template("replies.html.j2", data=data, id=id)
+
+
+@bp.get("/a/<int:id>")
+async def redirect_shortlink(id: int):
+    return redirect(url_for("artworks._get_artwork", id=id))
+
+
+@bp.get("/artworks/series/<int:id>")
+async def series(id: int):
+    data = await get_illust_series(id)
+    return await render_template("illust_series.html.j2", data=data)
+
+
+@bp.get("/user/<user>/series/<int:id>")
+async def useless(user: None, id: int):
+    return redirect(url_for("artworks.series", id=id))

@@ -2,14 +2,16 @@ from __future__ import annotations
 
 import logging
 
+from ..converters import proxy
 from .handler import pixiv_request
 from ..abc.artworks import (
     Artwork,
     ArtworkPage,
     ArtworkEntry,
     NewIllustResponse,
+    IllustSeries,
 )
-
+from ..abc.users import PartialUser
 from ..abc.comment import (
     CommentBase,
     Comment,
@@ -17,6 +19,30 @@ from ..abc.comment import (
 )
 
 log = logging.getLogger(__name__)
+
+
+class IllustSeriesData:
+    def __init__(self, d: dict):
+
+        _p = d["page"]
+        _series: dict[int, IllustSeries] = {
+            int(x["id"]): IllustSeries(x) for x in d["illustSeries"]
+        }
+        _illusts: dict[int, ArtworkEntry] = {
+            int(x["id"]): ArtworkEntry(x) for x in d["thumbnails"]["illust"]
+        }
+
+        self.id: int = _p["seriesId"]
+        self.main: IllustSeries = _series[self.id]
+        self.is_set_cover: bool = _p["isSetCover"]
+        self.other_series: IllustSeries = _series[int(_p["otherSeriesId"])]
+        self.recent_updated_works: list[ArtworkEntry] = [
+            _illusts[x] for x in _p["recentUpdatedWorkIds"]
+        ]
+        self.total: int = _p["total"]
+        self.watched: bool = _p["isWatched"]
+        self.notifying: bool = _p["isNotifying"]
+        self.author: PartialUser = PartialUser(d["users"][0])
 
 
 async def get_artwork(id: int) -> Artwork:
@@ -80,3 +106,8 @@ async def get_newest_works(
     log.debug(data["lastId"])
 
     return NewIllustResponse(data)
+
+
+async def get_illust_series(id: int, page: int = 1):
+    data = await pixiv_request(f"/ajax/series/{id}", params=[("p", page)])
+    return IllustSeriesData(data)

@@ -1,0 +1,72 @@
+@use '../mixins' as *;
+
+#illust-series-info {
+    >.cover {
+        position: relative;
+        width: 100%;
+        height: 450px;
+        margin-bottom: -12.5em;
+        z-index: -1;
+        max-height: 100vh;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            pointer-events: none;
+            user-select: none;
+            -moz-user-select: none;
+        }
+
+        .bg {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, var(--md-sys-color-surface))
+        }
+    }
+
+    main {
+        margin: 0 auto;
+        padding: 3.5em 2em;
+        width: 100%;
+        max-width: 1150px;
+
+        h1 {
+            margin: .35em 0;
+            font-weight: normal;
+            font-size: 48px;
+        }
+
+        >p {
+            color: var(--md-sys-color-outline);
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+
+            a {
+                color: unset;
+            }
+
+            a.img {
+                display: block;
+                color: unset;
+
+                img {
+                    display: block;
+                    @include profile-img(32px);
+                }
+            }
+        }
+
+        .actions {
+            margin: 1.35rem 0;    
+        }
+    }
+}

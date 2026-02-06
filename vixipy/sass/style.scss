@@ -37,6 +37,7 @@
 @use 'pages/pixivision';
 @use 'pages/collection';
 @use 'pages/license';
+@use 'pages/illust_series';
 
 * {
     box-sizing: border-box;
@@ -213,4 +214,14 @@ hgroup {
         color: var(--md-sys-color-outline);
         font-size: 12px;
     }
+}
+
+::selection {
+    color: var(--md-sys-color-on-primary);
+    background-color: var(--md-sys-color-primary);
+}
+
+::-moz-selection {
+    color: var(--md-sys-color-on-primary);
+    background-color: var(--md-sys-color-primary);
 }

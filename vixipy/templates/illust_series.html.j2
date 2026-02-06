@@ -1,0 +1,35 @@
+{% extends "layouts/default.html.j2" %}
+{% set title = data.main.title %}
+
+{% block content %}
+<div id="illust-series-info">
+    {% if data.is_set_cover %}
+    <div class="cover">
+        <img src="{{data.main.thumb}}" alt="{{_('Cover')}}">
+        <div class="bg"></div>
+    </div>
+    {% endif %}
+    <main>
+        <div class="author">
+            {%- set link = url_for('users.user_profile', user=data.author.id) -%}
+            <a class="img" href="{{link}}" alt="{{data.author.name}}">
+                <img src="{{data.author.image}}">
+            </a>
+            <span>{{_("Illust series by <a href='%(link)s'>%(author)s</a>", link=link, author=data.author.name)}}</span>
+        </div>
+        <h1>{{data.main.title}}</h1>
+        <p>{{data.main.description}}</p>
+
+        {% block actions %}
+        <div class="actions">
+            <a class="button neutral" href="{{url_for('artworks._get_artwork', id=data.main.first_illust_id)}}">
+                {{_("Read from beginning")}}
+            </a>
+            <a class="button primary">
+                {{_("Add to Watchlist")}}
+            </a>
+        </div>
+        {% endblock %}
+    </main>
+</div>
+{% endblock %}

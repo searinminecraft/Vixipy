@@ -1,11 +1,16 @@
 from quart import current_app, request, url_for
 import re
+import logging
 from urllib.parse import urlparse, quote
 from typing import Optional
 
 ARTWORKS_M = re.compile(r"\/artworks\/.+")
 NOVEL_M = re.compile(r"\/novel\/show\.php\?id=(\d+).+")
 USERS_M = re.compile(r"\/users\/(\d+)")
+SERIES_M = re.compile(r"\/user\/\d+\/series\/(\d+)")
+
+
+log = logging.getLogger(__name__)
 
 
 def proxy(url: str) -> Optional[str]:
@@ -50,6 +55,8 @@ def convert_pixiv_link(url: str) -> str:
     if url.netloc == "www.pixiv.net":
         if path.startswith("/en/"):
             path = path.replace("/en/", "/")
+        
+        log.debug("pixiv path: %s", path)
 
         if path == "" or path == "/":
             return "/"
@@ -59,6 +66,8 @@ def convert_pixiv_link(url: str) -> str:
             return res.group(0)
         if res := NOVEL_M.search(path):
             return url_for("novels.novel_main", id=res.group(1))
+        if res := SERIES_M.search(path):
+            return url_for("artworks.series", id=res.group(1))
         if res := USERS_M.search(path):
             return url_for("users.user_profile", user=res.group(1))
 

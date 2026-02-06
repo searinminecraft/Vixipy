@@ -111,3 +111,7 @@ async def get_user_mypixiv(id: int, page: int = 1):
     )
 
     return UserFollowRes(data)
+
+
+async def get_series(id: int):
+    data = await pixiv_request(f"/ajax/series/{id}")

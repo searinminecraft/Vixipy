@@ -5,7 +5,7 @@ from ..converters import proxy, convert_pixiv_link
 from bs4 import BeautifulSoup
 from datetime import datetime
 import markupsafe
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
 if TYPE_CHECKING:
     from .common import TagTranslation
@@ -69,6 +69,24 @@ class _ArtworkImages:
         self.original: Optional[str] = proxy(d["original"])
 
 
+class _SeriesNav:
+    def __init__(self, d: dict):
+        self.id: int = int(d["id"])
+        self.title: str = d["title"]
+        self.order: int = d["order"]
+
+
+class _SeriesNavData:
+    def __init__(self, d: dict):
+        self.id: int = int(d["seriesId"])
+        self.title: str = d["title"]
+        self.order: int = d["order"]
+        self.watched: bool = d["isWatched"]
+        self.notifying: bool = d["isNotifying"]
+        self.prev: Optional[_SeriesNav] = _SeriesNav(d["prev"]) if d["prev"] else None
+        self.next: Optional[_SeriesNav] = _SeriesNav(d["next"]) if d["next"] else None
+
+
 class Artwork(ArtworkBase):
     def __init__(self, d):
         super().__init__(d)
@@ -96,11 +114,14 @@ class Artwork(ArtworkBase):
         self.viewCount = d["viewCount"]
         self.image_urls: _ArtworkImages = _ArtworkImages(d["urls"])
         self.deficient = self.image_urls.regular is None
+        self.series_data: Optional[_SeriesNavData] = (
+            _SeriesNavData(d["seriesNavData"]) if d["seriesNavData"] else None
+        )
 
         self.original = d["isOriginal"]
         self.loginonly = d["isLoginOnly"]
         self.ai = d["aiType"] == 2
-        
+
         _description = d["illustComment"]
         self.description_stripped = markupsafe.Markup(_description).striptags()
         _s = BeautifulSoup(_description, "html.parser")
@@ -141,3 +162,23 @@ class RecommendByTag:
         self.illusts = illusts
         self.name = name
         self.translation = translation
+
+
+class IllustSeries:
+    def __init__(self, d: dict):
+        self.id: int = int(d["id"])
+        self.user_id: int = int(d["userId"])
+        self.title: str = d["title"]
+        self.description: str = d["description"]
+        self.thumb: Optional[str] = proxy(d["url"])
+        self.thumb_sensitivity_level: int = d["coverImageSl"]
+        self.thumb_is_sensitive: bool = self.thumb_sensitivity_level >= 4
+        self.first_illust_id: int = int(d["firstIllustId"])
+        self.latest_illust_id: int = int(d["latestIllustId"])
+        self.create_date: datetime = datetime.fromisoformat(d["createDate"])
+        self.update_date: datetime = datetime.fromisoformat(d["updateDate"])
+        self.watch_count: Optional[int] = (
+            int(d["watchCount"]) if d["watchCount"] else None
+        )
+        self.watched: bool = d["isWatched"]
+        self.notifying: bool = d["isNotifying"]
