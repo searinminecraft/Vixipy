@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-02-05 16:26+0800\n"
-"PO-Revision-Date: 2026-01-28 02:21+0000\n"
+"PO-Revision-Date: 2026-02-06 09:29+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
+"user-interface/uk/>\n"
 "Language: uk\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/uk/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -49,17 +50,16 @@ msgstr "Завантаження..."
 
 #: vixipy/templates/artworks.html.j2:105
 msgid "Show more..."
-msgstr ""
+msgstr "Показати ще..."
 
 #: vixipy/templates/artworks.html.j2:110
-#, fuzzy
 msgid "Sign in required"
-msgstr "Увійти"
+msgstr "Потрібно ввійти"
 
 #: vixipy/templates/artworks.html.j2:113
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
-msgstr ""
+msgstr "Рівень чутливості: %(sl)d"
 
 #: vixipy/templates/artworks.html.j2:119
 #: vixipy/templates/rankings/calendar.html.j2:26
@@ -86,7 +86,7 @@ msgstr "Схожі роботи"
 
 #: vixipy/templates/artworks.html.j2:171
 msgid "An error occurred trying to get the artwork pages"
-msgstr ""
+msgstr "Під час отримання сторінки з ілюстраціями виникла помилка"
 
 #: vixipy/templates/comments.html.j2:2 vixipy/templates/comments.html.j2:7
 #: vixipy/templates/replies.html.j2:2
@@ -769,7 +769,7 @@ msgstr "Рекомендовані користувачі"
 #: vixipy/templates/license/index.html.j2:28
 #: vixipy/templates/settings/index.html.j2:20
 msgid "Licenses"
-msgstr ""
+msgstr "Ліцензії"
 
 #: vixipy/templates/license/index.html.j2:29
 msgid ""
@@ -777,6 +777,10 @@ msgid ""
 " rights and for license compliance, copies of the copyright and license "
 "notices for the various libraries and software are provided in this page."
 msgstr ""
+"Vixipy створено з використанням вільного ПЗ та бібліотек. Для захисту ваших "
+"прав і дотримання ліцензійних умов на цій сторінці наведено копії "
+"повідомлень про авторські права та ліцензії для різних бібліотек і "
+"програмного забезпечення."
 
 #: vixipy/templates/newest/index.html.j2:6
 msgid "Newest illustrations by all users"
@@ -1507,7 +1511,7 @@ msgstr "Ці проєкти та бібліотеки допомагають ф�
 #: vixipy/templates/settings/acknowledgements.html.j2:9
 #, python-format
 msgid "This section has been moved to the <a href='%(link)s'>Licenses page</a>."
-msgstr ""
+msgstr "Цей розділ перенесено на сторінку <a href='%(link)s'>«Ліцензії»</a>."
 
 #: vixipy/templates/settings/acknowledgements.html.j2:11
 msgid "Translations"
@@ -1832,4 +1836,3 @@ msgstr "Ви ще нікого не додали до «Мій pixiv»."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "У %(user)s немає «Мій pixiv»."
-

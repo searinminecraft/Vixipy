@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-02-05 16:26+0800\n"
-"PO-Revision-Date: 2026-01-28 02:21+0000\n"
+"PO-Revision-Date: 2026-02-06 09:29+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/vixipy/user-"
+"interface/de/>\n"
 "Language: de\n"
-"Language-Team: German <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/de/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -44,16 +45,15 @@ msgstr "Seite %(page)d von %(total)d"
 #: vixipy/templates/artworks.html.j2:73
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
-msgstr ""
+msgstr "Wird geladen..."
 
 #: vixipy/templates/artworks.html.j2:105
 msgid "Show more..."
-msgstr ""
+msgstr "Mehr anzeigen..."
 
 #: vixipy/templates/artworks.html.j2:110
-#, fuzzy
 msgid "Sign in required"
-msgstr "Anmelden"
+msgstr "Anmeldung erforderlich"
 
 #: vixipy/templates/artworks.html.j2:113
 #, python-format
@@ -154,7 +154,7 @@ msgstr "Zurück"
 
 #: vixipy/templates/content_warning.html.j2:12
 msgid "Proceed"
-msgstr ""
+msgstr "Fortfahren"
 
 #: vixipy/templates/edit_profile.html.j2:6
 msgid "Edit profile"
@@ -738,7 +738,7 @@ msgstr "Empfohlene Nutzer"
 #: vixipy/templates/license/index.html.j2:28
 #: vixipy/templates/settings/index.html.j2:20
 msgid "Licenses"
-msgstr ""
+msgstr "Lizenzen"
 
 #: vixipy/templates/license/index.html.j2:29
 msgid ""
@@ -1439,6 +1439,8 @@ msgstr ""
 #, python-format
 msgid "This section has been moved to the <a href='%(link)s'>Licenses page</a>."
 msgstr ""
+"Dieser Abschnitt wurde auf die Seite <a href='%(link)s'>„Lizenzen“</a> "
+"verschoben."
 
 #: vixipy/templates/settings/acknowledgements.html.j2:11
 msgid "Translations"
@@ -1583,7 +1585,7 @@ msgstr "Feed"
 
 #: vixipy/templates/street/index.html.j2:22
 msgid "Load More"
-msgstr ""
+msgstr "Mehr laden"
 
 #: vixipy/templates/test/dialog.html.j2:28
 #: vixipy/templates/users/dashboard.html.j2:199
@@ -1762,4 +1764,3 @@ msgstr ""
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr ""
-
