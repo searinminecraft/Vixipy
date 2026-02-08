@@ -1,13 +1,14 @@
 #license-screen {
     main {
         margin: 0 auto;
-        padding: 1.5em;
+        padding: 1.5em 3em;
         max-width: 2000px;
         width: 100%;
 
         #back {
-            width: 32px;
-            height: 32px;
+            width: 48px;
+            height: 48px;
+            transform: translateX(-2em)
         }
 
         h1#title {

@@ -31,7 +31,9 @@
             </div>
         </div>
         <main>
+            {% autoescape true %}
             <pre>{{traceback}}</pre>
+            {% endautoescape %}
         </main>
     </div>
     <script>

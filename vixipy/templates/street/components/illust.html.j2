@@ -1,0 +1,22 @@
+<div class="street-cmp illust">
+    <div class="author">
+        <a class="img" href="{{url_for('users.user_profile', user=data.content.user_id)}}">
+            <img alt="{{data.content.user_name}}" src="{{data.content.profile_img}}">
+        </a>
+        <a href="{{url_for('users.user_profile', user=data.content.user_id)}}">{{data.content.user_name}}</a>
+    </div>
+    {% if data.content.page_count > 1 %}
+    <div class="illust-scroller">
+        {% for x in data.content.pages[:3]%}
+        <div class="work">
+            <a href="{{url_for('artworks._get_artwork', id=data.content.id) + '#' + x.page|string}}"></a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <a class="work-main" href="{{url_for('artworks._get_artwork', id=data.content.id)}}">
+        <img src="{{data.content.pages[0].urls.standard}}" width="{{data.content.pages[0].width}}"
+            height="{{data.content.pages[0].height}}">
+    </a>
+    {% endif %}
+</div>

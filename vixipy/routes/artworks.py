@@ -1,6 +1,16 @@
 from __future__ import annotations
 
-from quart import Blueprint, abort, current_app, g, make_response, redirect, render_template, request, url_for
+from quart import (
+    Blueprint,
+    abort,
+    current_app,
+    g,
+    make_response,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
 from quart_rate_limiter import limit_blueprint, timedelta, RateLimit
 from asyncio import gather
 from jinja2_fragments.quart import render_block
@@ -10,23 +20,18 @@ import re
 from typing import TYPE_CHECKING
 
 from ..api.handler import PixivError
-from ..api.artworks import (
-    get_artwork,
-    get_artwork_pages,
-    get_artwork_comments,
-    get_artwork_replies,
-    get_recommended_works,
-    get_illust_series,
-)
+from ..api import artworks
 from ..api.user import (
     get_user,
     get_user_illusts_from_ids,
 )
 from ..constants import EMOJI_SERIES
+from ..decorators import require_login
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
 from ..abc.artworks import ArtworkPage
 from ..util import is_consented
+from ..lib import monet
 
 if TYPE_CHECKING:
     from ..abc.artworks import Artwork, ArtworkEntry
@@ -112,13 +117,14 @@ async def __attempt_work_extraction(
 
 @bp.get("/_partials/artworks/<int:id>/root")
 async def _root_p(id: int):
-    work: Artwork = await get_artwork(id)
+    work: Artwork = await artworks.get_artwork(id)
     return await render_block("artworks.html.j2", "root", work=work)
+
 
 @bp.get("/_partials/artworks/<int:id>/pages")
 async def _pages_p(id: int):
     try:
-        pages: list[ArtworkPage] = await get_artwork_pages(id)
+        pages: list[ArtworkPage] = await artworks.get_artwork_pages(id)
     except Exception as e:
         return await render_block("artworks.html.j2", "page_error", error=e)
     return await render_block("artworks.html.j2", "pages", pages=pages)
@@ -132,19 +138,21 @@ async def _author_p(id: int):
 
 @bp.get("/_partials/artworks/<int:id>/recommend")
 async def _recommend_p(id: int):
-    data = await get_recommended_works(id)
-    r = await make_response(await render_block("artworks.html.j2", "recommended", recommend=ff(data)))
+    data = await artworks.get_recommended_works(id)
+    r = await make_response(
+        await render_block("artworks.html.j2", "recommended", recommend=ff(data))
+    )
 
     if len(data) == 0:
         r.headers["HX-Reswap"] = "delete"
-    
+
     return r
 
 
 @bp.get("/artworks/<int:id>")
 async def _get_artwork(id: int):
     try:
-        work: Artwork = await get_artwork(id)
+        work: Artwork = await artworks.get_artwork(id)
     except PixivError as e:
         abort(e.code)
 
@@ -163,7 +171,7 @@ async def _get_artwork(id: int):
             and work.xrestrict >= 1
         )
         or (bool(int(request.cookies.get("Vixipy-No-R18", 0))) and work.xrestrict >= 1)
-        or (bool(int(request.cookies.get("Vixipy-No-R18G", 0))) and work.xrestrict == 2)
+        or (bool(int(request.cookies.get("Vixipy-No-R18G", 1))) and work.xrestrict == 2)
     ):
         abort(403)
 
@@ -171,7 +179,6 @@ async def _get_artwork(id: int):
         return await render_template(
             "content_warning.html.j2", url=url_for("artworks._get_artwork", id=id)
         )
-    
 
     if not g.hx_request:
 
@@ -179,7 +186,7 @@ async def _get_artwork(id: int):
             log.info("Work is deficient, trying to extract pages...")
             pages, recommend, user, works = await gather(
                 __attempt_work_extraction(id, work.other_works, work.pages),
-                get_recommended_works(id),
+                artworks.get_recommended_works(id),
                 get_user(work.authorId),
                 get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
             )
@@ -189,8 +196,8 @@ async def _get_artwork(id: int):
                 abort(404)
         else:
             pages, recommend, user, works = await gather(
-                get_artwork_pages(id),
-                get_recommended_works(id),
+                artworks.get_artwork_pages(id),
+                artworks.get_recommended_works(id),
                 get_user(work.authorId),
                 get_user_illusts_from_ids(work.authorId, work.works_missing[:50]),
             )
@@ -208,14 +215,14 @@ async def _get_artwork(id: int):
             user=user,
             user_works=ff(sorted(works + work.other_works, key=lambda _: int(_.id))),
         )
-    
+
     return await render_template("artworks.html.j2", work=work)
 
 
 @bp.get("/artworks/<int:id>/comments")
 async def get_comments(id: int):
     work, data = await gather(
-        get_artwork(id), get_artwork_comments(id, int(request.args.get("p", 1)))
+        artworks.get_artwork(id), artworks.get_artwork_comments(id, int(request.args.get("p", 1)))
     )
     return await render_template(
         "comments.html.j2", work=work, data=data, id=id, emojis=EMOJI_SERIES
@@ -224,7 +231,7 @@ async def get_comments(id: int):
 
 @bp.get("/artworks/replies/<int:id>")
 async def get_replies(id: int):
-    data = await get_artwork_replies(id, int(request.args.get("p", 1)))
+    data = await artworks.get_artwork_replies(id, int(request.args.get("p", 1)))
     return await render_template("replies.html.j2", data=data, id=id)
 
 
@@ -235,8 +242,49 @@ async def redirect_shortlink(id: int):
 
 @bp.get("/artworks/series/<int:id>")
 async def series(id: int):
-    data = await get_illust_series(id)
+    data = await artworks.get_illust_series(id, int(request.args.get("p", 1)))
     return await render_template("illust_series.html.j2", data=data)
+
+
+@bp.post("/self/action/series/<int:id>/<op>")
+@require_login
+async def act_illust_series(id: int, op: str):
+    f = await request.form
+
+    mp = {
+        "watch": artworks.watch_illust_series,
+        "unwatch": artworks.unwatch_illust_series,
+        "notify": artworks.notify_illust_series,
+        "unnotify": artworks.remove_notify_illust_series
+    }
+
+    fn = mp.get(op)
+    if fn is None:
+        abort(400)
+
+
+    await fn(id)
+    data = await artworks.get_illust_series(id)
+    
+
+    if g.hx_request:
+        return await render_block("illust_series.html.j2", "watchlist", data=data)
+    
+    return redirect(f["r"], code=303)
+
+
+@bp.get("/_partials/series/<int:id>/material-you")
+async def monet_series_banner(id: int):
+    try:
+        data = await artworks.get_illust_series(id)
+    except Exception:
+        return "", 404
+    
+    if not data.is_set_cover:
+        return "", 400
+    
+    res = await monet.scheme_from_url(data.main.thumb_raw)
+    return res, {"Content-Type": "text/css", "Cache-Control": "max-age=86400"}
 
 
 @bp.get("/user/<user>/series/<int:id>")

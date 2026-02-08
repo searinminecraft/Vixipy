@@ -48,13 +48,12 @@ async def handle_internal_error(e):
                 }, 404
             return await api_handle_bad_request(e)
 
-        return await render_template("http_error.html.j2", error=e), 200 if hx else e.code
+        return await render_template("http_error.html.j2", error=e), e.code
 
     log.exception("Exception occurred here:")
     return await render_template(
         "internal_server_error.html.j2", traceback=traceback.format_exc()
-    ), (200 if hx else 500)
-
+    ), 500
 
 def init_app(app: Quart):
     app.register_error_handler(ClientError, on_client_error)

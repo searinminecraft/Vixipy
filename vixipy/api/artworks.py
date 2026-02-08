@@ -36,13 +36,19 @@ class IllustSeriesData:
         self.main: IllustSeries = _series[self.id]
         self.is_set_cover: bool = _p["isSetCover"]
         self.other_series: IllustSeries = _series[int(_p["otherSeriesId"])]
-        self.recent_updated_works: list[ArtworkEntry] = [
-            _illusts[x] for x in _p["recentUpdatedWorkIds"]
-        ]
         self.total: int = _p["total"]
         self.watched: bool = _p["isWatched"]
         self.notifying: bool = _p["isNotifying"]
         self.author: PartialUser = PartialUser(d["users"][0])
+        self.works: list[ArtworkEntry] = [
+            _illusts[int(x["workId"])] for x in _p["series"]
+        ]
+
+        pages, x = divmod(self.total, 12)
+        if x > 0:
+            pages += 1
+        
+        self.pages = pages
 
 
 async def get_artwork(id: int) -> Artwork:
@@ -111,3 +117,31 @@ async def get_newest_works(
 async def get_illust_series(id: int, page: int = 1):
     data = await pixiv_request(f"/ajax/series/{id}", params=[("p", page)])
     return IllustSeriesData(data)
+
+
+async def watch_illust_series(id: int) -> None:
+    await pixiv_request(f"/ajax/illust/series/{id}/watch", "post", json_payload={})
+    return
+
+
+async def unwatch_illust_series(id: int) -> None:
+    await pixiv_request(f"/ajax/illust/series/{id}/unwatch", "post", json_payload={})
+    return
+
+
+async def notify_illust_series(id: int) -> None:
+    await pixiv_request(
+        f"/ajax/illust/series/{id}/watchlist/notification/turn_on",
+        "post",
+        json_payload={},
+    )
+    return
+
+
+async def remove_notify_illust_series(id: int) -> None:
+    await pixiv_request(
+        f"/ajax/illust/series/{id}/watchlist/notification/turn_off",
+        "post",
+        json_payload={},
+    )
+    return

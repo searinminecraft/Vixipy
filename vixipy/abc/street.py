@@ -3,6 +3,7 @@ from __future__ import annotations
 from ..converters import proxy, convert_pixiv_link
 from datetime import datetime
 import logging
+from pprint import pformat
 from quart import render_template
 from typing import Optional
 
@@ -40,15 +41,62 @@ class StreetNextParams:
         self.page: int = d["page"]
         self.content_index_prev: int = d["content_index_prev"]
         self.li: Optional[list[int]] = (
-            [int(x) for x in d["li"].split(",")] if d["li"] else None
+            [x for x in d["li"].split(",")] if d["li"] else None
         )
-        self.li: Optional[list[int]] = (
-            [int(x) for x in d["lm"].split(",")] if d["lm"] else None
+        self.lm: Optional[list[int]] = (
+            [x for x in d["lm"].split(",")] if d["lm"] else None
         )
         self.ln: Optional[list[int]] = (
-            [int(x) for x in d["ln"].split(",")] if d["ln"] else None
+            [x for x in d["ln"].split(",")] if d["ln"] else None
         )
-        self.lc: Optional[list[int]] = int(d["lc"] or 0) or None
+        self.lc: Optional[list[int]] = (
+            [x for x in d["lc"].split(",")] if d["lc"] else None
+        )
+
+        self.lcs: Optional[str] = ",".join(self.lc) if self.lc else None
+        self.lis: Optional[str] = ",".join(self.li) if self.li else None
+        self.lms: Optional[str] = ",".join(self.lm) if self.lm else None
+        self.lns: Optional[str] = ",".join(self.ln) if self.ln else None
+
+    def __repr__(self):
+        return "<StreetNextParams lc=%s li=%s lm=%s ln=%s>" % (
+            self.lc,
+            self.li,
+            self.lm,
+            self.ln,
+        )
+
+    def update(
+        self,
+        lc: Optional[list[str]] = None,
+        li: Optional[list[str]] = None,
+        lm: Optional[list[str]] = None,
+        ln: Optional[list[str]] = None,
+    ):
+        log.debug(lc)
+        log.debug(li)
+        log.debug(lm)
+        log.debug(ln)
+
+
+        if lc:
+            if not self.lc: self.lc = []
+            self.lc.extend(lc)
+        if li:
+            if not self.li: self.li = []
+            self.li.extend(lm)
+        if lm:
+            if not self.lm: self.lm = []
+            self.lm.extend(lm)
+        if ln:
+            if not self.ln: self.ln = []
+            self.ln.extend(ln)
+        
+
+        self.lcs: Optional[str] = ",".join(self.lc) if self.lc else None
+        self.lis: Optional[str] = ",".join(self.li) if self.li else None
+        self.lms: Optional[str] = ",".join(self.lm) if self.lm else None
+        self.lns: Optional[str] = ",".join(self.ln) if self.ln else None
 
 
 class StreetComponent:
@@ -59,7 +107,9 @@ class StreetComponent:
         )
 
     async def render(self):
-        return await render_template(f"street/components/{self.name}.html.j2", data=self)
+        return await render_template(
+            f"street/components/{self.name}.html.j2", data=self
+        )
 
 
 class _StreetPixivisionEntry:
@@ -75,7 +125,7 @@ class StreetPixivisionComponent(StreetComponent):
     def __init__(self, d: dict):
         super().__init__(d)
         self.entries: list[_StreetPixivisionEntry] = [
-            _StreetPixivisionCategory(x) for x in d["thumbnails"]
+            _StreetPixivisionEntry(x) for x in d["thumbnails"]
         ]
 
 
@@ -106,7 +156,7 @@ class _StreetThumbCommon:
         self.show_tags: bool = d["showTags"]
 
 
-class _StreetPickup:
+class _StreetCommentPickup:
     def __init__(self, d: dict):
         self.user_id: int = int(d["userId"])
         self.user_name: str = d["userName"]
@@ -124,9 +174,10 @@ class _StreetImageUrls:
 
 
 class _StreetImagePage:
-    def __init__(self, d: dict):
+    def __init__(self, d: dict, page: int):
         self.width: int = d["width"]
         self.height: int = d["height"]
+        self.page: int = page
         self.urls: _StreetImageUrls = _StreetImageUrls(d["urls"])
 
 
@@ -134,16 +185,23 @@ class _StreetIllustThumb(_StreetThumbCommon):
     def __init__(self, d: dict):
         super().__init__(d)
         self.page_count: int = d["pageCount"]
-        self.pages: list[_StreetImagePage] = [_StreetImagePage(x) for x in d["pages"]]
+        self.pages: list[_StreetImagePage] = []
+
+        for x, y in enumerate(d["pages"]):
+            self.pages.append(_StreetImagePage(y, x + 1))
 
 
 class StreetIllust(StreetComponent):
     def __init__(self, d: dict):
         super().__init__(d)
         self.content: _StreetIllustThumb = _StreetIllustThumb(d["thumbnails"][0])
-        self.pickup: Optional[_StreetPickup] = (
-            _StreetPickup(d["pickup"]) if d.get("pickup") else None
-        )
+
+        if d.get("pickup") == "comment":
+            self.pickup: Optional[_StreetCommentPickup] = _StreetCommentPickup(
+                d["pickup"]
+            )
+        else:
+            self.pickup = None
 
 
 class _StreetNovelThumb(_StreetThumbCommon):
@@ -232,11 +290,14 @@ class StreetData:
                     n = _cmp_map[x["kind"]](x)
                 except Exception as e:
                     log.exception("Unable to parse street cmp %s", x["kind"])
+                    log.debug("Data:")
+                    for i in pformat(x).splitlines():
+                        log.debug(i)
                     raise
                 self.contents.append(n)
                 log.debug("Parsed street cmp %s", n.name)
             else:
-                self.contents.append(StreetPlaceholderComponent(x))
+                # self.contents.append(StreetPlaceholderComponent(x))
                 log.warn("Street cmp %s not implemented", x["kind"])
 
         self.k: str = self.contents[-1].name

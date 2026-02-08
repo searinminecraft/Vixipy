@@ -1,7 +1,12 @@
 {% extends "layouts/default.html.j2" %}
-{% set title = data.main.title %}
+{% set title = _('"%(title)s" Series by %(user)s', title=data.main.title, user=data.author.name) %}
+
+{% from "components/artwork-entry.html.j2" import entry %}
 
 {% block content %}
+{% if g.hx_request %}
+<style hx-get="{{url_for('artworks.monet_series_banner', id=data.id)}}" hx-swap="textContent" hx-trigger="load"></style>
+{% endif %}
 <div id="illust-series-info">
     {% if data.is_set_cover %}
     <div class="cover">
@@ -19,17 +24,76 @@
         </div>
         <h1>{{data.main.title}}</h1>
         <p>{{data.main.description}}</p>
+        <small class="work-count">{{ngettext("%(num)d work", "%(num)d works", data.total)}}</small>
 
         {% block actions %}
         <div class="actions">
             <a class="button neutral" href="{{url_for('artworks._get_artwork', id=data.main.first_illust_id)}}">
                 {{_("Read from beginning")}}
             </a>
-            <a class="button primary">
-                {{_("Add to Watchlist")}}
-            </a>
+
+            {% block watchlist %}
+            {% if not data.watched %}
+            <form action="{{url_for('artworks.act_illust_series', id=data.id, op='watch')}}" method="post"
+                hx-target="this" hx-push-url="false" hx-swap="outerHTML show:none">
+                <input type="hidden" name="r" value="{{request.path}}">
+                <button type="submit" class="button primary">{{_("Add to Watchlist")}}</button>
+            </form>
+            {% else %}
+            <div id="watched-actions">
+                <form action="{{url_for('artworks.act_illust_series', id=data.id, op='unwatch')}}" method="post"
+                    hx-target="#watched-actions" hx-push-url="false" hx-swap="outerHTML show:none">
+                    <input type="hidden" name="r" value="{{request.path}}">
+                    <button type="submit" class="button neutral">{{_("Already in your watchlist")}}</button>
+                </form>
+
+                {% if data.notifying %}
+                <form action="{{url_for('artworks.act_illust_series', id=data.id, op='unnotify')}}" method="post"
+                    hx-target="#watched-actions" hx-push-url="false" hx-swap="outerHTML show:none">
+                    <input type="hidden" name="r" value="{{request.path}}">
+                    <button type="submit" class="icon-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18 9.25V12l1.561 4.684A1 1 0 0118.613 18H5.387a1 1 0 01-.948-1.316L6 12V9.25C6 5.798 8.686 3 12 3s6 2.798 6 6.25zM12 21a3.001 3.001 0 01-2.83-2h5.66A3.001 3.001 0 0112 21z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </form>
+                {% else %}
+                <form action="{{url_for('artworks.act_illust_series', id=data.id, op='notify')}}" method="post"
+                    hx-target="#watched-actions" hx-push-url="false" hx-swap="outerHTML show:none">
+                    <input type="hidden" name="r" value="{{request.path}}">
+                    <button type="submit" class="icon-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 3a6 6 0 00-6 6v2.844l-1.553 4.851A1 1 0 005.4 18h13.2a1 1 0 00.952-1.305L18 11.844V9a6 6 0 00-6-6zM8 9a4 4 0 118 0v3c0 .103.016.206.047.305L17.23 16H6.77l1.182-3.695A1 1 0 008 12V9z"
+                                fill="currentColor" />
+                            <path d="M9.17 19a3.001 3.001 0 005.66 0H9.17z" fill="currentColor" />
+                        </svg>
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endblock watchlist %}
         </div>
         {% endblock %}
     </main>
 </div>
+
+<main>
+    <h2>{{_("Works")}}</h2>
+    {% from "components/paginator.html.j2" import paginator %}
+    <div class="artwork-container" id="works">
+        {% for x in data.works %}
+        {{entry(x)}}
+        {% endfor %}
+    </div>
+    {{ paginator(
+        request.args.get('p', 1)|int,
+        data.pages, 
+        url_for('artworks.series', id=data.id, p=request.args.get('p', 1)|int - 1) + "#works",
+        url_for('artworks.series', id=data.id, p=request.args.get('p', 1)|int + 1) + "#works"
+        ) }}
+</main>
 {% endblock %}

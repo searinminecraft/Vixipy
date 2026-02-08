@@ -170,7 +170,8 @@ class IllustSeries:
         self.user_id: int = int(d["userId"])
         self.title: str = d["title"]
         self.description: str = d["description"]
-        self.thumb: Optional[str] = proxy(d["url"])
+        self.thumb_raw: Optional[str] = d["url"]
+        self.thumb: Optional[str] = proxy(self.thumb_raw)
         self.thumb_sensitivity_level: int = d["coverImageSl"]
         self.thumb_is_sensitive: bool = self.thumb_sensitivity_level >= 4
         self.first_illust_id: int = int(d["firstIllustId"])

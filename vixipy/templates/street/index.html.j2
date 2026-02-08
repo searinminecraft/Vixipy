@@ -4,24 +4,41 @@
 {% block content %}
 <main>
     <div id="street">
-        {%- include "components/spinner.html.j2" -%}
         
+        {% if g.hx_request %}
+        <form id="st-content" hx-post="/street"
+            hx-target="#st-content" hx-swap="outerHTML" hx-trigger="load">
+            <input type="hidden" name="bootstrap" value="1">
+            {% include 'components/content-loading.html.j2' %}
+        </form>
+
+        {% else %}
+        {% block street_bootstrap %}
         <div id="st-content">
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
-            <form action="/street/load" method="post"
-            hx-target="#st-content" hx-swap="outerHTML" hx-trigger="revealed">
+            {% block entries %}
+            {% for x in data.contents %}
+            {{x.render()}}
+            {% endfor %}
+
+            <form class="loader" action="/street" method="post" hx-post="/street"
+            hx-target="#st-content" hx-swap="beforeend" hx-trigger="revealed" hx-indicator="this">
+                <input type="hidden" name="k" value="{{data.k}}">
+                <input type="hidden" name="page" value="{{data.next_params.page}}">
+                <input type="hidden" name="content_index_prev" value="{{data.next_params.content_index_prev}}">
+                <input type="hidden" name="vhi" value="{{data.next_params.lis or ''}}">
+                <input type="hidden" name="vhm" value="{{data.next_params.lms or ''}}">
+                <input type="hidden" name="vhn" value="{{data.next_params.lns or ''}}">
+                <input type="hidden" name="vhc" value="{{data.next_params.lcs or ''}}">
+
                 <button type="submit" class="button primary" >{{_("Load More")}}</button>
+                <div class="loading">
+                    {% include "components/spinner.html.j2" %}
+                </div>
             </form>
+            {% endblock entries %}
         </div>
+        {% endblock %}
+        {% endif %}
     </div>
 </main>
 
