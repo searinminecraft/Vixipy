@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-08 20:55-0500\n"
+"POT-Creation-Date: 2026-02-09 22:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -298,6 +298,7 @@ msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
 msgstr ""
 
 #: vixipy/templates/illust_series.html.j2:27
+#: vixipy/templates/search/index.html.j2:24
 #, python-format
 msgid "%(num)d work"
 msgid_plural "%(num)d works"
@@ -711,14 +712,20 @@ msgid "Other"
 msgstr ""
 
 #: vixipy/templates/components/novel-entry.html.j2:75
+#: vixipy/templates/novels/series.html.j2:35
 #, python-format
-msgid "%(wc)s words(s)"
-msgstr ""
+msgid "%(num)d word"
+msgid_plural "%(num)d words"
+msgstr[0] ""
+msgstr[1] ""
 
 #: vixipy/templates/components/novel-entry.html.j2:76
+#: vixipy/templates/novels/series.html.j2:34
 #, python-format
-msgid "%(cc)s character(s)"
-msgstr ""
+msgid "%(num)d character"
+msgid_plural "%(num)d characters"
+msgstr[0] ""
+msgstr[1] ""
 
 #: vixipy/templates/components/paginator.html.j2:6
 #, python-format
@@ -872,22 +879,14 @@ msgstr ""
 
 #: vixipy/templates/novels/series.html.j2:32
 #, python-format
-msgid "%(ep)s Episode(s)"
-msgstr ""
+msgid "%(num)d episode"
+msgid_plural "%(num)d episodes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: vixipy/templates/novels/series.html.j2:33
 #, python-format
 msgid "Updated on %(date)s"
-msgstr ""
-
-#: vixipy/templates/novels/series.html.j2:34
-#, python-format
-msgid "%(cc)s Character(s)"
-msgstr ""
-
-#: vixipy/templates/novels/series.html.j2:35
-#, python-format
-msgid "%(cc)s Word(s)"
 msgstr ""
 
 #: vixipy/templates/pixivision/category.html.j2:5
@@ -1149,11 +1148,6 @@ msgstr ""
 #: vixipy/templates/search/index.html.j2:2
 #, python-format
 msgid "Results for %(tag)s"
-msgstr ""
-
-#: vixipy/templates/search/index.html.j2:24
-#, python-format
-msgid "<b>%(total)s</b> Works"
 msgstr ""
 
 #: vixipy/templates/search/index.html.j2:45

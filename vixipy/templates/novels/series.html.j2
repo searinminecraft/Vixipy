@@ -29,10 +29,10 @@
                     {% endfor %}
                 </ul>
                 <ul class="metadata">
-                    <li>{{_("%(ep)s Episode(s)", ep=data.published_content_count|numberformat)}}</li>
+                    <li>{{ngettext("%(num)d episode", "%(num)d episodes", data.published_content_count)}}</li>
                     <li>{{_("Updated on %(date)s", date=data.updated_date|dateformat)}}</li>
-                    <li>{{_("%(cc)s Character(s)", cc=data.published_character_count|numberformat)}}</li>
-                    <li>{{_("%(cc)s Word(s)", cc=data.published_word_count|numberformat)}}</li>
+                    <li>{{ngettext("%(num)d character", "%(num)d characters", data.published_character_count)}}</li>
+                    <li>{{ngettext("%(num)d word", "%(num)d words", data.published_word_count)}}</li>
                 </ul>
             </main>
         </div>

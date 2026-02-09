@@ -21,7 +21,7 @@
                 {% else %}
                 <h2>#{{tag_info.tag}}</h2>
                 {% endif %}
-                <p class="work-count">{{_("<b>%(total)s</b> Works", total=data.total|numberformat)}}</p>
+                <p class="work-count">{{ngettext("%(num)d work", "%(num)d works", data.total)}}</p>
                 {% if tag_info.pixpedia.abstract %}
                 <p class="abstract">{{tag_info.pixpedia.abstract}}</p>
                 {% endif %}

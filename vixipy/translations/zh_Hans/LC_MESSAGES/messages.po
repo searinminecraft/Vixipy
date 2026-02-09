@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-08 20:55-0500\n"
+"POT-Creation-Date: 2026-02-09 22:38+0800\n"
 "PO-Revision-Date: 2026-02-09 14:36+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
-"Language-Team: Chinese (Simplified Han script) <https://"
-"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
+"Language-Team: Chinese (Simplified Han script) "
+"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
+"\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -301,6 +301,7 @@ msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
 msgstr "<a href='%(link)s'>%(author)s</a> 的插画系列"
 
 #: vixipy/templates/illust_series.html.j2:27
+#: vixipy/templates/search/index.html.j2:24
 #, python-format
 msgid "%(num)d work"
 msgid_plural "%(num)d works"
@@ -715,14 +716,18 @@ msgid "Other"
 msgstr "其他"
 
 #: vixipy/templates/components/novel-entry.html.j2:75
-#, python-format
-msgid "%(wc)s words(s)"
-msgstr "%(wc)s 字"
+#: vixipy/templates/novels/series.html.j2:35
+#, fuzzy, python-format
+msgid "%(num)d word"
+msgid_plural "%(num)d words"
+msgstr[0] "%(num)d 作品"
 
 #: vixipy/templates/components/novel-entry.html.j2:76
-#, python-format
-msgid "%(cc)s character(s)"
-msgstr "%(cc)s 字符"
+#: vixipy/templates/novels/series.html.j2:34
+#, fuzzy, python-format
+msgid "%(num)d character"
+msgid_plural "%(num)d characters"
+msgstr[0] "%(cc)s 字"
 
 #: vixipy/templates/components/paginator.html.j2:6
 #, python-format
@@ -775,9 +780,7 @@ msgid ""
 "Vixipy is made possible using free software and libraries. To ensure your"
 " rights and for license compliance, copies of the copyright and license "
 "notices for the various libraries and software are provided in this page."
-msgstr ""
-"Vixipy 的开发使用了自由软件和软件库。为保障你的权利，同时满足许可证合规要求，"
-"本页提供了各软件库及软件的版权及许可证声明副本。"
+msgstr "Vixipy 的开发使用了自由软件和软件库。为保障你的权利，同时满足许可证合规要求，本页提供了各软件库及软件的版权及许可证声明副本。"
 
 #: vixipy/templates/newest/index.html.j2:6
 msgid "Newest illustrations by all users"
@@ -877,24 +880,15 @@ msgid "No description"
 msgstr "无描述"
 
 #: vixipy/templates/novels/series.html.j2:32
-#, python-format
-msgid "%(ep)s Episode(s)"
-msgstr "%(ep)s 话"
+#, fuzzy, python-format
+msgid "%(num)d episode"
+msgid_plural "%(num)d episodes"
+msgstr[0] "%(ep)s 话"
 
 #: vixipy/templates/novels/series.html.j2:33
 #, python-format
 msgid "Updated on %(date)s"
 msgstr "更新于 %(date)s"
-
-#: vixipy/templates/novels/series.html.j2:34
-#, python-format
-msgid "%(cc)s Character(s)"
-msgstr "%(cc)s 字"
-
-#: vixipy/templates/novels/series.html.j2:35
-#, python-format
-msgid "%(cc)s Word(s)"
-msgstr "%(cc)s 词"
 
 #: vixipy/templates/pixivision/category.html.j2:5
 #: vixipy/templates/pixivision/index.html.j2:2
@@ -1156,11 +1150,6 @@ msgstr "未找到匹配结果。"
 #, python-format
 msgid "Results for %(tag)s"
 msgstr "%(tag)s 的搜索结果"
-
-#: vixipy/templates/search/index.html.j2:24
-#, python-format
-msgid "<b>%(total)s</b> Works"
-msgstr "<b>%(total)s</b> 件作品"
 
 #: vixipy/templates/search/index.html.j2:45
 msgid ""
@@ -1792,3 +1781,4 @@ msgstr "您还没有任何我的 pixiv。"
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "%(user)s 没有任何我的 pixiv。"
+

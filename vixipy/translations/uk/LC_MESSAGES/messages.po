@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-08 20:55-0500\n"
+"POT-Creation-Date: 2026-02-09 22:38+0800\n"
 "PO-Revision-Date: 2026-02-09 14:36+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -306,6 +305,7 @@ msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
 msgstr "Серія ілюстрацій автор_ки <a href='%(link)s'>%(author)s</a>"
 
 #: vixipy/templates/illust_series.html.j2:27
+#: vixipy/templates/search/index.html.j2:24
 #, python-format
 msgid "%(num)d work"
 msgid_plural "%(num)d works"
@@ -754,14 +754,22 @@ msgid "Other"
 msgstr "Інше"
 
 #: vixipy/templates/components/novel-entry.html.j2:75
-#, python-format
-msgid "%(wc)s words(s)"
-msgstr "%(wc)s слів"
+#: vixipy/templates/novels/series.html.j2:35
+#, fuzzy, python-format
+msgid "%(num)d word"
+msgid_plural "%(num)d words"
+msgstr[0] "%(num)d робота"
+msgstr[1] "%(num)d роботи"
+msgstr[2] "%(num)d робіт"
 
 #: vixipy/templates/components/novel-entry.html.j2:76
-#, python-format
-msgid "%(cc)s character(s)"
-msgstr "%(cc)s знаків"
+#: vixipy/templates/novels/series.html.j2:34
+#, fuzzy, python-format
+msgid "%(num)d character"
+msgid_plural "%(num)d characters"
+msgstr[0] "%(cc)s знаків"
+msgstr[1] ""
+msgstr[2] ""
 
 #: vixipy/templates/components/paginator.html.j2:6
 #, python-format
@@ -918,24 +926,17 @@ msgid "No description"
 msgstr "Без опису"
 
 #: vixipy/templates/novels/series.html.j2:32
-#, python-format
-msgid "%(ep)s Episode(s)"
-msgstr "%(ep)s епізодів"
+#, fuzzy, python-format
+msgid "%(num)d episode"
+msgid_plural "%(num)d episodes"
+msgstr[0] "%(ep)s епізодів"
+msgstr[1] ""
+msgstr[2] ""
 
 #: vixipy/templates/novels/series.html.j2:33
 #, python-format
 msgid "Updated on %(date)s"
 msgstr "Оновлено %(date)s"
-
-#: vixipy/templates/novels/series.html.j2:34
-#, python-format
-msgid "%(cc)s Character(s)"
-msgstr "%(cc)s знаків"
-
-#: vixipy/templates/novels/series.html.j2:35
-#, python-format
-msgid "%(cc)s Word(s)"
-msgstr "%(cc)s слів"
 
 #: vixipy/templates/pixivision/category.html.j2:5
 #: vixipy/templates/pixivision/index.html.j2:2
@@ -1197,11 +1198,6 @@ msgstr "Не знайдено відповідних результатів."
 #, python-format
 msgid "Results for %(tag)s"
 msgstr "Результати для %(tag)s"
-
-#: vixipy/templates/search/index.html.j2:24
-#, python-format
-msgid "<b>%(total)s</b> Works"
-msgstr "<b>%(total)s</b> робіт"
 
 #: vixipy/templates/search/index.html.j2:45
 msgid ""
@@ -1874,3 +1870,4 @@ msgstr "Ви ще нікого не додали до «Мій pixiv»."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "У %(user)s немає «Мій pixiv»."
+
