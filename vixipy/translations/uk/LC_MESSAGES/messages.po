@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 16:26+0800\n"
+"POT-Creation-Date: 2026-02-08 20:55-0500\n"
 "PO-Revision-Date: 2026-02-06 09:29+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -38,53 +37,53 @@ msgstr "Не вдається витягти CSRF"
 msgid "%(work_name)s by %(author)s"
 msgstr "%(work_name)s автор_ки %(author)s"
 
-#: vixipy/templates/artworks.html.j2:49
+#: vixipy/templates/artworks.html.j2:51
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "Сторінка %(page)d з %(total)d"
 
-#: vixipy/templates/artworks.html.j2:73
+#: vixipy/templates/artworks.html.j2:84
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
 msgstr "Завантаження..."
 
-#: vixipy/templates/artworks.html.j2:105
+#: vixipy/templates/artworks.html.j2:118
 msgid "Show more..."
 msgstr "Показати ще..."
 
-#: vixipy/templates/artworks.html.j2:110
+#: vixipy/templates/artworks.html.j2:123
 msgid "Sign in required"
 msgstr "Потрібно ввійти"
 
-#: vixipy/templates/artworks.html.j2:113
+#: vixipy/templates/artworks.html.j2:126
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Рівень чутливості: %(sl)d"
 
-#: vixipy/templates/artworks.html.j2:119
+#: vixipy/templates/artworks.html.j2:132
 #: vixipy/templates/rankings/calendar.html.j2:26
 #: vixipy/templates/rankings/main.html.j2:26
 msgid "AI Generated"
 msgstr "Створено ШІ"
 
-#: vixipy/templates/artworks.html.j2:122
+#: vixipy/templates/artworks.html.j2:135
 #: vixipy/templates/components/novel-entry.html.j2:17
 #: vixipy/templates/rankings/calendar.html.j2:25
 #: vixipy/templates/rankings/main.html.j2:25
 msgid "Original"
 msgstr "Оригінал"
 
-#: vixipy/templates/artworks.html.j2:125
+#: vixipy/templates/artworks.html.j2:138
 #: vixipy/templates/rankings/main.html.j2:46
 msgid "Ugoira"
 msgstr "Анімація"
 
-#: vixipy/templates/artworks.html.j2:140 vixipy/templates/artworks.html.j2:150
+#: vixipy/templates/artworks.html.j2:153 vixipy/templates/artworks.html.j2:164
 #: vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "Схожі роботи"
 
-#: vixipy/templates/artworks.html.j2:171
+#: vixipy/templates/artworks.html.j2:185
 msgid "An error occurred trying to get the artwork pages"
 msgstr "Під час отримання сторінки з ілюстраціями виникла помилка"
 
@@ -290,6 +289,46 @@ msgstr ""
 #: vixipy/templates/error.html.j2:10
 msgid "Back to home"
 msgstr "Повернутися додому"
+
+#: vixipy/templates/illust_series.html.j2:2
+#, fuzzy, python-format
+msgid "\"%(title)s\" Series by %(user)s"
+msgstr "Колекція %(title)s | %(author)s"
+
+#: vixipy/templates/illust_series.html.j2:13
+#, fuzzy
+msgid "Cover"
+msgstr "Конвертувати"
+
+#: vixipy/templates/illust_series.html.j2:23
+#, python-format
+msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
+msgstr ""
+
+#: vixipy/templates/illust_series.html.j2:27
+#, python-format
+msgid "%(num)d work"
+msgid_plural "%(num)d works"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: vixipy/templates/illust_series.html.j2:32
+msgid "Read from beginning"
+msgstr ""
+
+#: vixipy/templates/illust_series.html.j2:40
+msgid "Add to Watchlist"
+msgstr ""
+
+#: vixipy/templates/illust_series.html.j2:47
+msgid "Already in your watchlist"
+msgstr ""
+
+#: vixipy/templates/illust_series.html.j2:85
+#, fuzzy
+msgid "Works"
+msgstr "Ключові слова"
 
 #: vixipy/templates/index.html.j2:2 vixipy/templates/index_logged_out.html.j2:2
 #: vixipy/templates/users/base.html.j2:163
@@ -777,8 +816,8 @@ msgid ""
 " rights and for license compliance, copies of the copyright and license "
 "notices for the various libraries and software are provided in this page."
 msgstr ""
-"Vixipy створено з використанням вільного ПЗ та бібліотек. Для захисту ваших "
-"прав і дотримання ліцензійних умов на цій сторінці наведено копії "
+"Vixipy створено з використанням вільного ПЗ та бібліотек. Для захисту "
+"ваших прав і дотримання ліцензійних умов на цій сторінці наведено копії "
 "повідомлень про авторські права та ліцензії для різних бібліотек і "
 "програмного забезпечення."
 
@@ -1652,7 +1691,7 @@ msgstr "Застосувати колірну схему"
 msgid "Street"
 msgstr "Стрічка"
 
-#: vixipy/templates/street/index.html.j2:22
+#: vixipy/templates/street/index.html.j2:33
 msgid "Load More"
 msgstr "Завантажити ще"
 
@@ -1836,3 +1875,4 @@ msgstr "Ви ще нікого не додали до «Мій pixiv»."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "У %(user)s немає «Мій pixiv»."
+

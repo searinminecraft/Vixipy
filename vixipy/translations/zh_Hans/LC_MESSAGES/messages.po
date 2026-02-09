@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 16:26+0800\n"
+"POT-Creation-Date: 2026-02-08 20:55-0500\n"
 "PO-Revision-Date: 2026-02-02 07:29+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
 "Language: zh_Hans\n"
@@ -37,54 +37,54 @@ msgstr "无法提取 CSRF 令牌"
 msgid "%(work_name)s by %(author)s"
 msgstr "%(author)s 的 %(work_name)s"
 
-#: vixipy/templates/artworks.html.j2:49
+#: vixipy/templates/artworks.html.j2:51
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "第 %(page)d 页/共 %(total)d 页"
 
-#: vixipy/templates/artworks.html.j2:73
+#: vixipy/templates/artworks.html.j2:84
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
 msgstr "加载中……"
 
-#: vixipy/templates/artworks.html.j2:105
+#: vixipy/templates/artworks.html.j2:118
 msgid "Show more..."
 msgstr ""
 
-#: vixipy/templates/artworks.html.j2:110
+#: vixipy/templates/artworks.html.j2:123
 #, fuzzy
 msgid "Sign in required"
 msgstr "登录"
 
-#: vixipy/templates/artworks.html.j2:113
+#: vixipy/templates/artworks.html.j2:126
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html.j2:119
+#: vixipy/templates/artworks.html.j2:132
 #: vixipy/templates/rankings/calendar.html.j2:26
 #: vixipy/templates/rankings/main.html.j2:26
 msgid "AI Generated"
 msgstr "AI 生成"
 
-#: vixipy/templates/artworks.html.j2:122
+#: vixipy/templates/artworks.html.j2:135
 #: vixipy/templates/components/novel-entry.html.j2:17
 #: vixipy/templates/rankings/calendar.html.j2:25
 #: vixipy/templates/rankings/main.html.j2:25
 msgid "Original"
 msgstr "原创"
 
-#: vixipy/templates/artworks.html.j2:125
+#: vixipy/templates/artworks.html.j2:138
 #: vixipy/templates/rankings/main.html.j2:46
 msgid "Ugoira"
 msgstr "动图"
 
-#: vixipy/templates/artworks.html.j2:140 vixipy/templates/artworks.html.j2:150
+#: vixipy/templates/artworks.html.j2:153 vixipy/templates/artworks.html.j2:164
 #: vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "相关作品"
 
-#: vixipy/templates/artworks.html.j2:171
+#: vixipy/templates/artworks.html.j2:185
 msgid "An error occurred trying to get the artwork pages"
 msgstr ""
 
@@ -286,6 +286,44 @@ msgstr "似乎出错了。若认为是系统问题，请<a href='%(link)s'>在�
 #: vixipy/templates/error.html.j2:10
 msgid "Back to home"
 msgstr "返回首页"
+
+#: vixipy/templates/illust_series.html.j2:2
+#, fuzzy, python-format
+msgid "\"%(title)s\" Series by %(user)s"
+msgstr "%(title)s | %(author)s 的珍藏册"
+
+#: vixipy/templates/illust_series.html.j2:13
+#, fuzzy
+msgid "Cover"
+msgstr "转换"
+
+#: vixipy/templates/illust_series.html.j2:23
+#, python-format
+msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
+msgstr ""
+
+#: vixipy/templates/illust_series.html.j2:27
+#, python-format
+msgid "%(num)d work"
+msgid_plural "%(num)d works"
+msgstr[0] ""
+
+#: vixipy/templates/illust_series.html.j2:32
+msgid "Read from beginning"
+msgstr ""
+
+#: vixipy/templates/illust_series.html.j2:40
+msgid "Add to Watchlist"
+msgstr ""
+
+#: vixipy/templates/illust_series.html.j2:47
+msgid "Already in your watchlist"
+msgstr ""
+
+#: vixipy/templates/illust_series.html.j2:85
+#, fuzzy
+msgid "Works"
+msgstr "关键词"
 
 #: vixipy/templates/index.html.j2:2 vixipy/templates/index_logged_out.html.j2:2
 #: vixipy/templates/users/base.html.j2:163
@@ -1576,7 +1614,7 @@ msgstr "设置配色方案"
 msgid "Street"
 msgstr "动态"
 
-#: vixipy/templates/street/index.html.j2:22
+#: vixipy/templates/street/index.html.j2:33
 msgid "Load More"
 msgstr "加载更多"
 
