@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+from typing import Optional
 
 from ..converters import proxy
 from .handler import pixiv_request
@@ -35,7 +36,7 @@ class IllustSeriesData:
         self.id: int = _p["seriesId"]
         self.main: IllustSeries = _series[self.id]
         self.is_set_cover: bool = _p["isSetCover"]
-        self.other_series: IllustSeries = _series[int(_p["otherSeriesId"])]
+        self.other_series: Optional[IllustSeries] = _series[int(_p["otherSeriesId"])] if int(_p["otherSeriesId"]) != 0 else None
         self.total: int = _p["total"]
         self.watched: bool = _p["isWatched"]
         self.notifying: bool = _p["isNotifying"]

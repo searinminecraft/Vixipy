@@ -58,7 +58,12 @@ async def pixiv_request(
     ignore_language: whether to not pass the `lang` parameter
     """
 
-    ignore_cache = method == "post" or ignore_cache == True
+    ignore_cache = (
+        method == "post"
+        or g.get("request_ignore_cache", False) == True
+        or ignore_cache == True
+    )
+
     cache_enabled = current_app.config["CACHE_PIXIV_REQUESTS"]
 
     _cookies = {**cookies}

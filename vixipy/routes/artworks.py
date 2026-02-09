@@ -264,6 +264,8 @@ async def act_illust_series(id: int, op: str):
 
 
     await fn(id)
+
+    g.request_ignore_cache = True
     data = await artworks.get_illust_series(id)
     
 
