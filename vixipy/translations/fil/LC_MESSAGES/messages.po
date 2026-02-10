@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-02-09 22:38+0800\n"
-"PO-Revision-Date: 2026-02-09 14:36+0000\n"
+"PO-Revision-Date: 2026-02-10 15:29+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/user-"
+"interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -309,7 +310,7 @@ msgstr "Serye ng illust ni/ng <a href='%(link)s'>%(author)s</a>"
 msgid "%(num)d work"
 msgid_plural "%(num)d works"
 msgstr[0] "%(num)d gawa"
-msgstr[1] "%(num)d (na) gawa"
+msgstr[1] "%(num)d mga gawa"
 
 #: vixipy/templates/illust_series.html.j2:32
 msgid "Read from beginning"
@@ -753,19 +754,19 @@ msgstr "Iba"
 
 #: vixipy/templates/components/novel-entry.html.j2:75
 #: vixipy/templates/novels/series.html.j2:35
-#, fuzzy, python-format
+#, python-format
 msgid "%(num)d word"
 msgid_plural "%(num)d words"
-msgstr[0] "%(num)d gawa"
-msgstr[1] "%(num)d (na) gawa"
+msgstr[0] "%(num)d salita"
+msgstr[1] "%(num)d mga salita"
 
 #: vixipy/templates/components/novel-entry.html.j2:76
 #: vixipy/templates/novels/series.html.j2:34
-#, fuzzy, python-format
+#, python-format
 msgid "%(num)d character"
 msgid_plural "%(num)d characters"
-msgstr[0] "%(cc)s (mga) Karakter"
-msgstr[1] ""
+msgstr[0] "%(num)d karakter"
+msgstr[1] "%(num)d mga karakter"
 
 #: vixipy/templates/components/paginator.html.j2:6
 #, python-format
@@ -922,11 +923,11 @@ msgid "No description"
 msgstr "Walang paglalarawan"
 
 #: vixipy/templates/novels/series.html.j2:32
-#, fuzzy, python-format
+#, python-format
 msgid "%(num)d episode"
 msgid_plural "%(num)d episodes"
-msgstr[0] "%(ep)s (mga) Episode"
-msgstr[1] ""
+msgstr[0] "%(num)d episode"
+msgstr[1] "%(num)d mga episode"
 
 #: vixipy/templates/novels/series.html.j2:33
 #, python-format
@@ -1874,4 +1875,3 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
-
