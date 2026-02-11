@@ -31,7 +31,8 @@
             <a class="button neutral" href="{{url_for('artworks._get_artwork', id=data.main.first_illust_id)}}">
                 {{_("Read from beginning")}}
             </a>
-
+            
+	    {% if g.authorized %}
             {% block watchlist %}
             {% if not data.watched %}
             <form action="{{url_for('artworks.act_illust_series', id=data.id, op='watch')}}" method="post"
@@ -76,6 +77,7 @@
             </div>
             {% endif %}
             {% endblock watchlist %}
+	    {% endif %}
         </div>
         {% endblock %}
     </main>

@@ -7,6 +7,12 @@ class Tag:
         self.en = en
         self.romaji = romaji
 
+    def __eq__(self, x):
+        return self.name == x or self.en == x or self.romaji == x
+
+    def __str__(self):
+        return self.name
+
 
 class TagTranslation:
     def __init__(self, orig: str, d):
@@ -16,6 +22,12 @@ class TagTranslation:
         self.zh: Optional[str] = d.get("zh") or None
         self.zh_tw: Optional[str] = d.get("zh_tw") or None
         self.romaji: Optional[str] = d.get("romaji") or None
+
+    def __str__(self):
+        return self.orig
+
+    def __eq__(self, x):
+        return self.orig == x or self.default == x
 
     @property
     def default(self):

@@ -186,6 +186,12 @@ async def set_content_filter():
     r.set_cookie(
         "Vixipy-Blur-Sensitive", str(int(blur)), max_age=MAX_AGE, httponly=True
     )
+    r.set_cookie(
+        "Vixipy-Enable-Seasonal-Effects",
+        str(int(effects)),
+        max_age=MAX_AGE,
+        httponly=True,
+    )
 
     return r
 
@@ -219,6 +225,22 @@ async def set_language():
     r = await make_response(redirect(url_for("settings.language_location"), code=303))
     r.set_cookie("Vixipy-Language", f["lang"], max_age=MAX_AGE, httponly=True)
     return r
+
+
+@bp.post("/settings/set-seasonal-effects")
+async def set_seasonal_effects():
+    f = await request.form
+    effects = f.get("effects") == "on"
+
+    r = await make_response(redirect(url_for("settings.viewing"), code=303))
+    r.set_cookie(
+        "Vixipy-Enable-Seasonal-Effects",
+        str(int(effects)),
+        max_age=MAX_AGE,
+        httponly=True,
+    )
+    return r
+
 
 
 @bp.post("/settings/set_region")

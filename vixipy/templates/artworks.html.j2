@@ -34,27 +34,49 @@
     <div class="content">
         <main>
             <div class="work-main">
-                {% if g.hx_request %}
-                <div class="pages-placeholder" hx-get="{{url_for('artworks._pages_p', id=work.id)}}" hx-trigger="load"
-                    hx-swap="outerHTML">
-                    {% include "components/spinner.html.j2" %}
-                </div>
-                {% else %}
-                {% block pages %}
-                <div class="pages">
-                    {% for x in pages %}
-                    <div class="page" id="{{x.page}}">
-                        <div class="meta">
-                        </div>
-                        <a href="{{x.orig}}" target="_blank">
-                            <img loading="lazy"
-                                alt="{{_('Page %(page)d of %(total)d', page=x.page, total=pages|length)}}"
-                                src="{{x.reg}}" {%if x.width and x.height%} width="{{x.width}}" height="{{x.height}}" {%
-                                endif %}>
-                        </a>
+	        <div class="pages-root">
+		    {% if request.cookies.get("Vixipy-Enable-Seasonal-Effects", "1") == "1" %}
+                    {% if work.has_tag("pixivValentineEffect") %}
+                    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-valentine-effect/effect.png">
+                    {% elif work.has_tag_any(["pixivSnowEffect", "pixivSnow2024"]) %}
+		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-snow-2024/effect.png">
+		    {% elif work.has_tag("pixivRain2024") %}
+		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-rain-2024/effect.webp">
+		    {% elif work.has_tag_any(["pixivSakuraEffect", "pixivSakuraFestival2024"]) %}
+		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-sakura-effect/effect.png">
+		    {% elif work.has_tag_any(["pixivFall2024", "pixivFallEffect"]) %}
+		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-fall-2024/effect.png">
+		    {% elif work.has_tag("TrickOrTreat2024") %}
+		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/trick-or-treat-2024/effect.png">
+		    {% endif %}
+		    {% endif %}
+
+                    {% if g.hx_request %}
+                    <div class="pages-placeholder" hx-get="{{url_for('artworks._pages_p', id=work.id)}}" hx-trigger="load"
+                        hx-swap="outerHTML">
+                        {% include "components/spinner.html.j2" %}
                     </div>
-                    {% endfor %}
-                </div>
+                    {% else %}
+                    {% block pages %}
+                    <div class="pages">
+                        {% for x in pages %}
+                        <div class="page" id="{{x.page}}">
+                            <div class="meta"></div>
+                            <a href="{{x.orig}}" target="_blank">
+                                <img loading="lazy"
+                                    alt="{{_('Page %(page)d of %(total)d', page=x.page, total=pages|length)}}"
+                                   src="{{x.reg}}" {%if x.width and x.height%} width="{{x.width}}" height="{{x.height}}" {%endif %}>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+		</div>
+		{% if pages|length > 1 %}
+		<div class="page-control-view-all">
+		    <input type="checkbox" id="view-all">
+		    <label for="view-all" class="button neutral">{{_("View All")}}</label>
+		</div>
+		{% endif %}
                 {% endblock pages %}
                 {% endif %}
             </div>

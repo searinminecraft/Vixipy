@@ -143,6 +143,13 @@ class Artwork(ArtworkBase):
                 self.other_works.append(ArtworkEntry(d["userIllusts"][x]))
 
 
+    def has_tag(self, tag: str) -> bool:
+        return tag in self.tags
+
+    def has_tag_any(self, tags: list[str]) -> bool:
+        return any([x in self.tags for x in tags])
+
+
 class ArtworkEntry(ArtworkBase):
     def __init__(self, d):
         super().__init__(d)

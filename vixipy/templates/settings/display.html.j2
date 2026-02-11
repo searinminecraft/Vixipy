@@ -47,6 +47,22 @@
     </main>
 </section>
 <section>
+    <div>{{_("Seasonal Effects")}}</div>
+    <main>
+    	<form action="/settings/set-seasonal-effects" method="POST">
+            {%- set effects_enabled = c.get("Vixipy-Enable-Seasonal-Effects", 1)|int == 1 -%}
+            <label class="toggle-switch">
+    	        <input type="checkbox" {% if effects_enabled %}checked{% endif %} name="effects"> {{_("Display")}}
+            </label>
+	    <br>
+	    <small class="tip">{{_("If a specific tag is set on the illustration (e.g. #pixivValentineEffect), effects appropriate for the tag will be shown around the illustration. All effects are permanent and are not time bound.")}}</small>
+	    <br>
+	    <br>
+            <button class="button smaller neutral" type="submit">{{_("Save preferences")}}</button>
+	</form>
+    </main>
+</section>
+<section>
     <div>{{_("Ad display settings")}}</div>
     <main>
         <label class="toggle-switch">
