@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-09 22:38+0800\n"
+"POT-Creation-Date: 2026-02-11 19:07+0800\n"
 "PO-Revision-Date: 2026-02-09 14:36+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
 "Language: zh_Hans\n"
@@ -37,53 +37,60 @@ msgstr "无法提取 CSRF 令牌"
 msgid "%(work_name)s by %(author)s"
 msgstr "%(author)s 的 %(work_name)s"
 
-#: vixipy/templates/artworks.html.j2:51
+#: vixipy/templates/artworks.html.j2:69
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "第 %(page)d 页/共 %(total)d 页"
 
-#: vixipy/templates/artworks.html.j2:84
+#: vixipy/templates/artworks.html.j2:79
+#: vixipy/templates/index_logged_out.html.j2:17
+#: vixipy/templates/search/main.html.j2:41
+#: vixipy/templates/search/main.html.j2:53
+msgid "View All"
+msgstr "查看全部"
+
+#: vixipy/templates/artworks.html.j2:108
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
 msgstr "加载中……"
 
-#: vixipy/templates/artworks.html.j2:118
+#: vixipy/templates/artworks.html.j2:142
 msgid "Show more..."
 msgstr "显示更多……"
 
-#: vixipy/templates/artworks.html.j2:123
+#: vixipy/templates/artworks.html.j2:147
 msgid "Sign in required"
 msgstr "需要登录"
 
-#: vixipy/templates/artworks.html.j2:126
+#: vixipy/templates/artworks.html.j2:150
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "敏感等级：%(sl)d"
 
-#: vixipy/templates/artworks.html.j2:132
+#: vixipy/templates/artworks.html.j2:156
 #: vixipy/templates/rankings/calendar.html.j2:26
 #: vixipy/templates/rankings/main.html.j2:26
 msgid "AI Generated"
 msgstr "AI 生成"
 
-#: vixipy/templates/artworks.html.j2:135
+#: vixipy/templates/artworks.html.j2:159
 #: vixipy/templates/components/novel-entry.html.j2:17
 #: vixipy/templates/rankings/calendar.html.j2:25
 #: vixipy/templates/rankings/main.html.j2:25
 msgid "Original"
 msgstr "原创"
 
-#: vixipy/templates/artworks.html.j2:138
+#: vixipy/templates/artworks.html.j2:162
 #: vixipy/templates/rankings/main.html.j2:46
 msgid "Ugoira"
 msgstr "动图"
 
-#: vixipy/templates/artworks.html.j2:153 vixipy/templates/artworks.html.j2:164
+#: vixipy/templates/artworks.html.j2:177 vixipy/templates/artworks.html.j2:188
 #: vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "相关作品"
 
-#: vixipy/templates/artworks.html.j2:185
+#: vixipy/templates/artworks.html.j2:209
 msgid "An error occurred trying to get the artwork pages"
 msgstr "获取作品页时出错"
 
@@ -311,15 +318,15 @@ msgstr[0] "%(num)d 作品"
 msgid "Read from beginning"
 msgstr "从最初开始阅读"
 
-#: vixipy/templates/illust_series.html.j2:40
+#: vixipy/templates/illust_series.html.j2:41
 msgid "Add to Watchlist"
 msgstr "加入追更列表"
 
-#: vixipy/templates/illust_series.html.j2:47
+#: vixipy/templates/illust_series.html.j2:48
 msgid "Already in your watchlist"
 msgstr "已经加入追更列表"
 
-#: vixipy/templates/illust_series.html.j2:85
+#: vixipy/templates/illust_series.html.j2:87
 msgid "Works"
 msgstr "作品"
 
@@ -368,12 +375,6 @@ msgstr "全部最新作品"
 #, python-format
 msgid "Ranking for %(date)s"
 msgstr "%(date)s 排行榜"
-
-#: vixipy/templates/index_logged_out.html.j2:17
-#: vixipy/templates/search/main.html.j2:41
-#: vixipy/templates/search/main.html.j2:53
-msgid "View All"
-msgstr "查看全部"
 
 #: vixipy/templates/internal_server_error.html.j2:10
 msgid "Internal Server Error"
@@ -1508,16 +1509,30 @@ msgid "Blur sensitive works (may cause performance issues!)"
 msgstr "模糊敏感作品（可能导致性能问题！）"
 
 #: vixipy/templates/settings/display.html.j2:45
+#: vixipy/templates/settings/display.html.j2:61
 msgid "Save preferences"
 msgstr "保存偏好"
 
 #: vixipy/templates/settings/display.html.j2:50
-msgid "Ad display settings"
-msgstr "广告显示设置"
+msgid "Seasonal Effects"
+msgstr ""
 
-#: vixipy/templates/settings/display.html.j2:53
+#: vixipy/templates/settings/display.html.j2:55
+#: vixipy/templates/settings/display.html.j2:69
 msgid "Display"
 msgstr "显示"
+
+#: vixipy/templates/settings/display.html.j2:58
+msgid ""
+"If a specific tag is set on the illustration (e.g. "
+"#pixivValentineEffect), effects appropriate for the tag will be shown "
+"around the illustration. All effects are permanent and are not time "
+"bound."
+msgstr ""
+
+#: vixipy/templates/settings/display.html.j2:66
+msgid "Ad display settings"
+msgstr "广告显示设置"
 
 #: vixipy/templates/settings/index.html.j2:3
 #: vixipy/templates/settings/index.html.j2:5

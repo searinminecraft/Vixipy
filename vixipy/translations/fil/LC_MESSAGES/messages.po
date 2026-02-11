@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-09 22:38+0800\n"
+"POT-Creation-Date: 2026-02-11 19:07+0800\n"
 "PO-Revision-Date: 2026-02-10 15:29+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/user-"
-"interface/fil/>\n"
 "Language: fil\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/fil/>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -37,53 +36,60 @@ msgstr "Hindi ma-extract ang CSRF"
 msgid "%(work_name)s by %(author)s"
 msgstr "%(work_name)s ni/ng %(author)s"
 
-#: vixipy/templates/artworks.html.j2:51
+#: vixipy/templates/artworks.html.j2:69
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "Pahina %(page)d/%(total)d"
 
-#: vixipy/templates/artworks.html.j2:84
+#: vixipy/templates/artworks.html.j2:79
+#: vixipy/templates/index_logged_out.html.j2:17
+#: vixipy/templates/search/main.html.j2:41
+#: vixipy/templates/search/main.html.j2:53
+msgid "View All"
+msgstr "Tignan Lahat"
+
+#: vixipy/templates/artworks.html.j2:108
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
 msgstr "Naglo-load…"
 
-#: vixipy/templates/artworks.html.j2:118
+#: vixipy/templates/artworks.html.j2:142
 msgid "Show more..."
 msgstr "Magpakita ng higit pa…"
 
-#: vixipy/templates/artworks.html.j2:123
+#: vixipy/templates/artworks.html.j2:147
 msgid "Sign in required"
 msgstr "Kinakailangan ang pag-sign in"
 
-#: vixipy/templates/artworks.html.j2:126
+#: vixipy/templates/artworks.html.j2:150
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Antas ng sensitivity: %(sl)d"
 
-#: vixipy/templates/artworks.html.j2:132
+#: vixipy/templates/artworks.html.j2:156
 #: vixipy/templates/rankings/calendar.html.j2:26
 #: vixipy/templates/rankings/main.html.j2:26
 msgid "AI Generated"
 msgstr "Binuo ng AI"
 
-#: vixipy/templates/artworks.html.j2:135
+#: vixipy/templates/artworks.html.j2:159
 #: vixipy/templates/components/novel-entry.html.j2:17
 #: vixipy/templates/rankings/calendar.html.j2:25
 #: vixipy/templates/rankings/main.html.j2:25
 msgid "Original"
 msgstr "Orihinal"
 
-#: vixipy/templates/artworks.html.j2:138
+#: vixipy/templates/artworks.html.j2:162
 #: vixipy/templates/rankings/main.html.j2:46
 msgid "Ugoira"
 msgstr "Ugoira"
 
-#: vixipy/templates/artworks.html.j2:153 vixipy/templates/artworks.html.j2:164
+#: vixipy/templates/artworks.html.j2:177 vixipy/templates/artworks.html.j2:188
 #: vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "Mga kaugnay na gawa"
 
-#: vixipy/templates/artworks.html.j2:185
+#: vixipy/templates/artworks.html.j2:209
 msgid "An error occurred trying to get the artwork pages"
 msgstr "May nangyaring error habang kinukuha ang mga pahina ng artwork"
 
@@ -316,15 +322,15 @@ msgstr[1] "%(num)d mga gawa"
 msgid "Read from beginning"
 msgstr "Basahin mula sa panimula"
 
-#: vixipy/templates/illust_series.html.j2:40
+#: vixipy/templates/illust_series.html.j2:41
 msgid "Add to Watchlist"
 msgstr "Idagdag sa Watchlist"
 
-#: vixipy/templates/illust_series.html.j2:47
+#: vixipy/templates/illust_series.html.j2:48
 msgid "Already in your watchlist"
 msgstr "Nasa watchlist"
 
-#: vixipy/templates/illust_series.html.j2:85
+#: vixipy/templates/illust_series.html.j2:87
 msgid "Works"
 msgstr "Mga gawa"
 
@@ -375,12 +381,6 @@ msgstr "Pinakabago mula sa lahat"
 #, python-format
 msgid "Ranking for %(date)s"
 msgstr "Ranking para sa %(date)s"
-
-#: vixipy/templates/index_logged_out.html.j2:17
-#: vixipy/templates/search/main.html.j2:41
-#: vixipy/templates/search/main.html.j2:53
-msgid "View All"
-msgstr "Tignan Lahat"
 
 #: vixipy/templates/internal_server_error.html.j2:10
 msgid "Internal Server Error"
@@ -1594,16 +1594,30 @@ msgstr ""
 "pagganap!)"
 
 #: vixipy/templates/settings/display.html.j2:45
+#: vixipy/templates/settings/display.html.j2:61
 msgid "Save preferences"
 msgstr "I-save ang mga kagustuhan"
 
 #: vixipy/templates/settings/display.html.j2:50
-msgid "Ad display settings"
-msgstr "Mga setting sa pagpakita ng mga ad"
+msgid "Seasonal Effects"
+msgstr ""
 
-#: vixipy/templates/settings/display.html.j2:53
+#: vixipy/templates/settings/display.html.j2:55
+#: vixipy/templates/settings/display.html.j2:69
 msgid "Display"
 msgstr "Ipakita"
+
+#: vixipy/templates/settings/display.html.j2:58
+msgid ""
+"If a specific tag is set on the illustration (e.g. "
+"#pixivValentineEffect), effects appropriate for the tag will be shown "
+"around the illustration. All effects are permanent and are not time "
+"bound."
+msgstr ""
+
+#: vixipy/templates/settings/display.html.j2:66
+msgid "Ad display settings"
+msgstr "Mga setting sa pagpakita ng mga ad"
 
 #: vixipy/templates/settings/index.html.j2:3
 #: vixipy/templates/settings/index.html.j2:5
@@ -1875,3 +1889,4 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
+
