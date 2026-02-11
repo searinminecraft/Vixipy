@@ -72,15 +72,14 @@
                         </div>
                         {% endfor %}
                     </div>
-		</div>
-		{% if pages|length > 1 %}
-		<div class="page-control-view-all">
-		    <input type="checkbox" id="view-all">
-		    <label for="view-all" class="button neutral">{{_("View All")}}</label>
-		</div>
-		{% endif %}
-                {% endblock pages %}
-                {% endif %}
+                    {% if pages|length > 1 %}
+                    <div class="page-control-view-all">
+		        <input type="checkbox" id="view-all">
+                        <label for="view-all" class="button neutral">{{_("View All")}}</label>
+                    </div>
+                    {% endif %}
+                    {% endblock pages %}
+                    {% endif %}
             </div>
             {% if work.series_data %}
             <div class="series-data"></div>
