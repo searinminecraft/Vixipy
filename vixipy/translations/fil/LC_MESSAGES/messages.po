@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-02-11 19:07+0800\n"
-"PO-Revision-Date: 2026-02-10 15:29+0000\n"
+"PO-Revision-Date: 2026-02-12 10:25+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
+"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy/user-"
+"interface/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino <https://translate.codeberg.org/projects/vixipy"
-"/user-interface/fil/>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -1600,7 +1601,7 @@ msgstr "I-save ang mga kagustuhan"
 
 #: vixipy/templates/settings/display.html.j2:50
 msgid "Seasonal Effects"
-msgstr ""
+msgstr "Mga Pana-panahong Effect"
 
 #: vixipy/templates/settings/display.html.j2:55
 #: vixipy/templates/settings/display.html.j2:69
@@ -1614,6 +1615,10 @@ msgid ""
 "around the illustration. All effects are permanent and are not time "
 "bound."
 msgstr ""
+"Kung may partikular na tag na nakatakda sa ilustrasyon (hal. "
+"#pixivValentineEffect), ang mga effect na naaangkop para sa tag ay ipapakita "
+"sa paligid ng ilustrasyon. Permanente at walang takdang panahon ang lahat ng "
+"mga effect."
 
 #: vixipy/templates/settings/display.html.j2:66
 msgid "Ad display settings"
@@ -1889,4 +1894,3 @@ msgstr "Wala kang anumang mga Aking pixiv."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "Walang anumang mga Aking pixiv si/ang %(user)s."
-
