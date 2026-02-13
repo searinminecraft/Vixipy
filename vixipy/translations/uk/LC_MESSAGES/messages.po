@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-02-11 19:07+0800\n"
-"PO-Revision-Date: 2026-02-12 10:25+0000\n"
+"PO-Revision-Date: 2026-02-13 13:29+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
 "user-interface/uk/>\n"
@@ -331,7 +331,7 @@ msgstr "Додати до списку спостереження"
 
 #: vixipy/templates/illust_series.html.j2:48
 msgid "Already in your watchlist"
-msgstr "Вже у списку спостереження"
+msgstr "У списку спостереження"
 
 #: vixipy/templates/illust_series.html.j2:87
 msgid "Works"
