@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-02-11 19:07+0800\n"
-"PO-Revision-Date: 2026-02-09 14:36+0000\n"
+"PO-Revision-Date: 2026-02-15 04:29+0000\n"
 "Last-Translator: Hayden <hayden@haydenwu.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>\n"
 "Language: zh_Hans\n"
-"Language-Team: Chinese (Simplified Han script) "
-"<https://translate.codeberg.org/projects/vixipy/user-interface/zh_Hans/>"
-"\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -718,17 +718,17 @@ msgstr "其他"
 
 #: vixipy/templates/components/novel-entry.html.j2:75
 #: vixipy/templates/novels/series.html.j2:35
-#, fuzzy, python-format
+#, python-format
 msgid "%(num)d word"
 msgid_plural "%(num)d words"
-msgstr[0] "%(num)d 作品"
+msgstr[0] "%(num)d 词"
 
 #: vixipy/templates/components/novel-entry.html.j2:76
 #: vixipy/templates/novels/series.html.j2:34
-#, fuzzy, python-format
+#, python-format
 msgid "%(num)d character"
 msgid_plural "%(num)d characters"
-msgstr[0] "%(cc)s 字"
+msgstr[0] "%(num)d 字"
 
 #: vixipy/templates/components/paginator.html.j2:6
 #, python-format
@@ -881,10 +881,10 @@ msgid "No description"
 msgstr "无描述"
 
 #: vixipy/templates/novels/series.html.j2:32
-#, fuzzy, python-format
+#, python-format
 msgid "%(num)d episode"
 msgid_plural "%(num)d episodes"
-msgstr[0] "%(ep)s 话"
+msgstr[0] "%(num)d 话"
 
 #: vixipy/templates/novels/series.html.j2:33
 #, python-format
@@ -1515,7 +1515,7 @@ msgstr "保存偏好"
 
 #: vixipy/templates/settings/display.html.j2:50
 msgid "Seasonal Effects"
-msgstr ""
+msgstr "季节特效"
 
 #: vixipy/templates/settings/display.html.j2:55
 #: vixipy/templates/settings/display.html.j2:69
@@ -1529,6 +1529,8 @@ msgid ""
 "around the illustration. All effects are permanent and are not time "
 "bound."
 msgstr ""
+"如果插画设置了特定标签（如 #pixivValentineEffect），插画周围将显示适合该标签"
+"的特效。所有特效都是永久性的，不受时间限制。"
 
 #: vixipy/templates/settings/display.html.j2:66
 msgid "Ad display settings"
@@ -1796,4 +1798,3 @@ msgstr "您还没有任何我的 pixiv。"
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "%(user)s 没有任何我的 pixiv。"
-
