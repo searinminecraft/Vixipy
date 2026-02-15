@@ -166,7 +166,6 @@ class UserSelfData:
         self.reading_status_enabled: bool = ud["readingStatusEnabled"]
         self.location: str = ud["location"]
 
-        self.premium_free_campaign: bool = d["premium"]["freeCampaign"]
         self.development: bool = d["development"]
         self.csrf_token: str = d["token"]
         self.language: str = d["lang"]
