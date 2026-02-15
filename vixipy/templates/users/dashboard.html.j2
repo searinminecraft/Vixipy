@@ -5,9 +5,8 @@
 <main id="user-dash">
     {%- if g.authorized -%}
     {%- set user = g.current_user -%}
-    {%- set ext = g.current_user_extra -%}
     <div class="user-card">
-        <img src="{{user.imageBig}}" alt="{{user.name}}">
+        <img src="{{user.profile_image_big}}" alt="{{user.name}}">
         <main>
             <h2>{{user.name}}</h2>
             <small><b>{{ext.following}}</b> {{_("Following")}} - <b>{{ext.followers}}</b> {{_("Followers")}}</small>

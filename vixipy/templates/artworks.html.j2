@@ -23,6 +23,10 @@
 <meta property="og:image" content="{{work.image_urls.regular}}" />
 <meta property="twitter:card" content="summary_large_image" />
 
+{% if work.has_tag_any(['transgender', 'トランスジェンダー']) %}
+<script src="/static/js/trans-rights.js" defer></script>
+{% endif %}
+
 {% endblock %}
 
 {% block content %}
@@ -145,7 +149,7 @@
 	        {%- if work.loginonly -%}
 		<li>{{_("Sign in required")}}</li>
 		{%- endif -%}
-	        {%- if not work.xrestrict >= 1 and work.sl >= 4 -%}
+	        {%- if not work.xrestrict >= 1 and (work.sl >= 4 or work.sl == 0) -%}
 	        <li class="error">{{_("Sensitivity Level: %(sl)d", sl=work.sl)}}</li>
 		{%- endif -%}
 		{%- if work.xrestrict >= 1 -%}

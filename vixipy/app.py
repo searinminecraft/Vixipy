@@ -171,6 +171,10 @@ def create_app():
 
     def get_user_language():
         if lang := request.cookies.get("Vixipy-Language"):
+            if lang not in app.config["LANGUAGES"]:
+                log.error("User has provided malformed language: %s", lang)
+                return "en"
+
             return lang
 
         return request.accept_languages.best_match(app.config["LANGUAGES"])

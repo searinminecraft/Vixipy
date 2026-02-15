@@ -4,6 +4,7 @@ from quart_rate_limiter import timedelta, rate_limit
 from asyncio import gather
 from ..api.user import (
     get_user,
+    get_self_extra,
     get_user_profile_top,
     get_user_illusts,
     get_user_bookmarks,
@@ -151,4 +152,6 @@ async def pixivcompat_user(user: int):
 
 @bp.get("/self/actions")
 async def user_dashboard():
+    if g.authorized:
+        return await render_template("users/dashboard.html.j2", ext=await get_self_extra())
     return await render_template("users/dashboard.html.j2")

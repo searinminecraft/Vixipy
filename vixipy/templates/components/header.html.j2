@@ -15,7 +15,7 @@
                 {% endif %}
             </a>
             <a id="user" title="{{g.current_user.name}}" href="/self/actions">
-                <img src="{{g.current_user.image}}" alt="{{g.current_user.name}}" loading="lazy">
+                <img src="{{g.current_user.profile_image}}" alt="{{g.current_user.name}}" loading="lazy">
             </a>
             {% else %}
 	    <a id="user" title="{{_('User')}}" href="/self/actions">

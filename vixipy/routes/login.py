@@ -16,6 +16,8 @@ from quart_babel import _
 from ..api.handler import pixiv_request, PixivError
 from ..constants import LOGIN_PAGE_BACKGROUNDS
 from ..converters import proxy
+from ..abc.users import UserSelfData
+from ..session import _generate_ab_cookies
 import logging
 import random
 import re
@@ -49,59 +51,24 @@ async def login_page():
         return_path = f.get("return_to", "/")
 
         try:
-            await pixiv_request("/ajax/user/extra", cookies={"PHPSESSID": token})
-            log.debug("Login success, get CSRF next...")
+            req = await pixiv_request("/ajax/user/self", cookies={"PHPSESSID": token})
+            user = UserSelfData(req)
         except PixivError:
             await flash(_("Invalid token"), "error")
             return await render_template("login.html.j2", bg=proxy(background), id=id)
 
-        if current_app.config["PIXIV_DIRECT_CONNECTION"]:
-            r: ClientResponse = await current_app.pixiv.get(
-                "",
-                allow_redirects=True,
-                headers={"Cookie": f"PHPSESSID={token}"},
-                server_hostname="www.pixiv.net",
-            )
-            unauth_r: ClientResponse = await current_app.pixiv.get(
-                "", allow_redirects=True, server_hostname="www.pixiv.net"
-            )
-        else:
-            r: ClientResponse = await current_app.pixiv.get(
-                "", allow_redirects=True, headers={"Cookie": f"PHPSESSID={token}"}
-            )
-            unauth_r: ClientResponse = await current_app.pixiv.get(
-                "", allow_redirects=True
-            )
-
-        r.raise_for_status()
-        t = await r.text()
-
-        try:
-            csrf = re.search(r'\\"token\\":\\"([0-9a-f]+)\\"', t).group(1)
-        except IndexError:
-            await flash(_("Unable to extract CSRF"))
-            return await render_template("login.html.j2", bg=proxy(background), id=id)
-
-        p_ab_id = r.cookies["p_ab_id"].value
-        p_ab_id_2 = r.cookies["p_ab_id_2"].value
-        p_ab_d_id = r.cookies["p_ab_d_id"].value
-        yuid_b = unauth_r.cookies["yuid_b"].value
-        log.debug("Extracted necessary info:")
-        log.debug("csrf = %s", csrf)
-        log.debug("p_ab_id = %s", p_ab_id)
-        log.debug("p_ab_id_2 = %s", p_ab_id_2)
-        log.debug("p_ab_d_id = %s", p_ab_d_id)
+        gen_c = _generate_ab_cookies()        
 
         res = await make_response(redirect(return_path))
         res.set_cookie("Vixipy-Token", token, max_age=COOKIE_MAXAGE, httponly=True)
-        res.set_cookie("Vixipy-CSRF", csrf, max_age=COOKIE_MAXAGE, httponly=True)
-        res.set_cookie("Vixipy-p_ab_id", p_ab_id, max_age=COOKIE_MAXAGE, httponly=True)
-        res.set_cookie("Vixipy-yuid_b", yuid_b, max_age=COOKIE_MAXAGE, httponly=True)
+        res.set_cookie("Vixipy-CSRF", user.csrf_token, max_age=COOKIE_MAXAGE, httponly=True)
+        res.set_cookie("Vixipy-p_ab_id", gen_c[2], max_age=COOKIE_MAXAGE, httponly=True)
+        res.set_cookie("Vixipy-yuid_b", gen_c[0], max_age=COOKIE_MAXAGE, httponly=True)
         res.set_cookie(
-            "Vixipy-p_ab_id_2", p_ab_id_2, max_age=COOKIE_MAXAGE, httponly=True
+            "Vixipy-p_ab_id_2", gen_c[3], max_age=COOKIE_MAXAGE, httponly=True
         )
         res.set_cookie(
-            "Vixipy-p_ab_d_id", p_ab_d_id, max_age=COOKIE_MAXAGE, httponly=True
+            "Vixipy-p_ab_d_id", str(user.p_ab_d_id), max_age=COOKIE_MAXAGE, httponly=True
         )
         return res
 

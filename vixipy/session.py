@@ -8,11 +8,11 @@ from quart_babel import _
 from typing import TYPE_CHECKING
 
 from .api.handler import PixivError
-from .api.user import get_notification_count, get_self_extra, get_user
+from .api.user import get_notification_count, get_self
 
 if TYPE_CHECKING:
     from quart import Quart
-    from .types import User, UserExtraData
+    from .types import User, UserSelfData
 
 
 def _generate_ab_cookies() -> tuple[str, str, str, str]:
@@ -60,10 +60,9 @@ async def get_session_data():
             return
 
         try:
-            notification_count, user, extra = await gather(
+            notification_count, user = await gather(
                 get_notification_count(),
-                get_user(g.token.split("_")[0]),
-                get_self_extra(),
+                get_self(),
             )
         except PixivError:
             r = await make_response(
@@ -79,12 +78,11 @@ async def get_session_data():
             return r
 
         notification_count: int
-        user: User
-        extra: UserExtraData
+        user: UserSelfData
+
 
         g.current_user = user
         g.notification_count = notification_count
-        g.current_user_extra = extra
 
 
 def init_app(app: Quart):

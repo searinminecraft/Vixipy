@@ -1,7 +1,14 @@
 from __future__ import annotations
 
 from .handler import pixiv_request
-from ..abc.users import User, UserExtraData, PartialUser, UserPageIllusts, UserFollowRes
+from ..abc.users import (
+    User,
+    UserExtraData,
+    PartialUser,
+    UserPageIllusts,
+    UserFollowRes,
+    UserSelfData,
+)
 from ..abc.artworks import ArtworkEntry
 
 
@@ -115,3 +122,8 @@ async def get_user_mypixiv(id: int, page: int = 1):
 
 async def get_series(id: int):
     data = await pixiv_request(f"/ajax/series/{id}")
+
+
+async def get_self():
+    data = await pixiv_request("/ajax/user/self")
+    return UserSelfData(data)

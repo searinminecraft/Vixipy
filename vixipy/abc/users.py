@@ -147,3 +147,30 @@ class UserPageIllusts:
             )
             for x in d["illusts"]
         ]
+
+
+class UserSelfData:
+    def __init__(self, d: dict):
+        ud = d["userData"]
+        self.id: int = int(ud["id"])
+        self.pixiv_id: str = ud["pixivId"]
+        self.name: str = ud["name"]
+        self.profile_image: str = proxy(ud["profileImg"])
+        self.profile_image_big: str = proxy(ud["profileImgBig"])
+        self.premium: bool = ud["premium"]
+        self.x_restrict: int = ud["xRestrict"]
+        self.adult: bool = ud["adult"]
+        self.is_illust_creator: bool = ud["illustCreator"]
+        self.is_novel_creator: bool = ud["novelCreator"]
+        self.hide_ai_works: bool = ud["hideAiWorks"]
+        self.reading_status_enabled: bool = ud["readingStatusEnabled"]
+        self.location: str = ud["location"]
+        
+        self.premium_free_campaign: bool = d["premium"]["freeCampaign"]
+        self.development: bool = d["development"]
+        self.csrf_token: str = d["token"]
+        self.language: str = d["lang"]
+        self.p_ab_d_id: int = d["pAbDId"]
+        self.active_ab_tests: dict[str, bool] = d["activeABTests"]
+        self.active_toggles: dict[str, bool] = d["activeToggles"]
+

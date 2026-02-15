@@ -210,7 +210,10 @@ async def language_location():
     else:
         current_lang = "en"
 
-    locale = babel.Locale(current_lang)
+    try:
+        locale = babel.Locale(current_lang)
+    except Exception:
+        locale = babel.Locale("en")
     region_opts = {x: locale.territories[x] for x in REGIONS}
 
     langs = {x: babel.Locale(x).language_name for x in current_app.config["LANGUAGES"]}
