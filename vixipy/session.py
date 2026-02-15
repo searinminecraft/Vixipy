@@ -80,7 +80,6 @@ async def get_session_data():
         notification_count: int
         user: UserSelfData
 
-
         g.current_user = user
         g.notification_count = notification_count
 

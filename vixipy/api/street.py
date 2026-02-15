@@ -21,10 +21,10 @@ async def get_data(
     content_index_prev: Optional[int] = None,
 ):
 
-    vhis = ','.join(vhi) if vhi else None
-    vhms = ','.join(vhm) if vhm else None
-    vhns = ','.join(vhn) if vhn else None
-    vhcs = ','.join(vhc) if vhc else None
+    vhis = ",".join(vhi) if vhi else None
+    vhms = ",".join(vhm) if vhm else None
+    vhns = ",".join(vhn) if vhn else None
+    vhcs = ",".join(vhc) if vhc else None
 
     payload = {
         "k": k,
@@ -41,5 +41,12 @@ async def get_data(
         }
 
     log.debug(payload)
-    data = await pixiv_request(method="post", endpoint="/ajax/street/v2/main", json_payload=payload, headers={"Referer": "https://www.pixiv.net"}, ignore_language=True, ignore_cache=True)
+    data = await pixiv_request(
+        method="post",
+        endpoint="/ajax/street/v2/main",
+        json_payload=payload,
+        headers={"Referer": "https://www.pixiv.net"},
+        ignore_language=True,
+        ignore_cache=True,
+    )
     return StreetData(data)

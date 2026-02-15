@@ -36,7 +36,9 @@ class IllustSeriesData:
         self.id: int = _p["seriesId"]
         self.main: IllustSeries = _series[self.id]
         self.is_set_cover: bool = _p["isSetCover"]
-        self.other_series: Optional[IllustSeries] = _series[int(_p["otherSeriesId"])] if int(_p["otherSeriesId"]) != 0 else None
+        self.other_series: Optional[IllustSeries] = (
+            _series[int(_p["otherSeriesId"])] if int(_p["otherSeriesId"]) != 0 else None
+        )
         self.total: int = _p["total"]
         self.watched: bool = _p["isWatched"]
         self.notifying: bool = _p["isNotifying"]
@@ -48,7 +50,7 @@ class IllustSeriesData:
         pages, x = divmod(self.total, 12)
         if x > 0:
             pages += 1
-        
+
         self.pages = pages
 
 

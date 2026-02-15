@@ -78,20 +78,22 @@ class StreetNextParams:
         log.debug(lm)
         log.debug(ln)
 
-
         if lc:
-            if not self.lc: self.lc = []
+            if not self.lc:
+                self.lc = []
             self.lc.extend(lc)
         if li:
-            if not self.li: self.li = []
+            if not self.li:
+                self.li = []
             self.li.extend(lm)
         if lm:
-            if not self.lm: self.lm = []
+            if not self.lm:
+                self.lm = []
             self.lm.extend(lm)
         if ln:
-            if not self.ln: self.ln = []
+            if not self.ln:
+                self.ln = []
             self.ln.extend(ln)
-        
 
         self.lcs: Optional[str] = ",".join(self.lc) if self.lc else None
         self.lis: Optional[str] = ",".join(self.li) if self.li else None

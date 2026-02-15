@@ -45,8 +45,16 @@ async def check_user_agent():
 
     if any([ua.__contains__(x) for x in agents]):
         if not request.path.startswith("/static"):
-            ip = request.remote_addr if not current_app.config["BEHIND_REVERSE_PROXY"] else request.headers.get["X-Real-IP"]
-            log.info("User agent %s [%s] has been blocked due to user agent blacklist", str(request.user_agent), ip)
+            ip = (
+                request.remote_addr
+                if not current_app.config["BEHIND_REVERSE_PROXY"]
+                else request.headers.get["X-Real-IP"]
+            )
+            log.info(
+                "User agent %s [%s] has been blocked due to user agent blacklist",
+                str(request.user_agent),
+                ip,
+            )
             abort(403)
 
 

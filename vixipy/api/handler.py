@@ -188,7 +188,7 @@ async def pixiv_request(
             log.error(
                 "Error: pixiv API returned error %d: %s",
                 r.status,
-                res["message"] or None
+                res["message"] or None,
             )
             raise PixivError(res["message"], r.status, endpoint)
 

@@ -99,7 +99,9 @@ async def set_color():
 async def account():
     if g.authorized:
         account_data = await pixiv_request("/ajax/settings/self")
-        return await render_template("settings/account.html.j2", account_data=account_data)
+        return await render_template(
+            "settings/account.html.j2", account_data=account_data
+        )
     else:
         return await render_template("settings/account.html.j2")
 
@@ -243,7 +245,6 @@ async def set_seasonal_effects():
         httponly=True,
     )
     return r
-
 
 
 @bp.post("/settings/set_region")

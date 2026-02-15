@@ -55,7 +55,7 @@ def convert_pixiv_link(url: str) -> str:
     if url.netloc == "www.pixiv.net":
         if path.startswith("/en/"):
             path = path.replace("/en/", "/")
-        
+
         log.debug("pixiv path: %s", path)
 
         if path == "" or path == "/":

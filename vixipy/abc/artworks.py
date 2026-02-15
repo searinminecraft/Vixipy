@@ -142,7 +142,6 @@ class Artwork(ArtworkBase):
             else:
                 self.other_works.append(ArtworkEntry(d["userIllusts"][x]))
 
-
     def has_tag(self, tag: str) -> bool:
         return tag in self.tags
 

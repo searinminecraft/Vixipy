@@ -222,7 +222,8 @@ async def _get_artwork(id: int):
 @bp.get("/artworks/<int:id>/comments")
 async def get_comments(id: int):
     work, data = await gather(
-        artworks.get_artwork(id), artworks.get_artwork_comments(id, int(request.args.get("p", 1)))
+        artworks.get_artwork(id),
+        artworks.get_artwork_comments(id, int(request.args.get("p", 1))),
     )
     return await render_template(
         "comments.html.j2", work=work, data=data, id=id, emojis=EMOJI_SERIES
@@ -255,23 +256,21 @@ async def act_illust_series(id: int, op: str):
         "watch": artworks.watch_illust_series,
         "unwatch": artworks.unwatch_illust_series,
         "notify": artworks.notify_illust_series,
-        "unnotify": artworks.remove_notify_illust_series
+        "unnotify": artworks.remove_notify_illust_series,
     }
 
     fn = mp.get(op)
     if fn is None:
         abort(400)
 
-
     await fn(id)
 
     g.request_ignore_cache = True
     data = await artworks.get_illust_series(id)
-    
 
     if g.hx_request:
         return await render_block("illust_series.html.j2", "watchlist", data=data)
-    
+
     return redirect(f["r"], code=303)
 
 
@@ -281,10 +280,10 @@ async def monet_series_banner(id: int):
         data = await artworks.get_illust_series(id)
     except Exception:
         return "", 404
-    
+
     if not data.is_set_cover:
         return "", 400
-    
+
     res = await monet.scheme_from_url(data.main.thumb_raw)
     return res, {"Content-Type": "text/css", "Cache-Control": "max-age=86400"}
 

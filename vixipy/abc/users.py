@@ -165,7 +165,7 @@ class UserSelfData:
         self.hide_ai_works: bool = ud["hideAiWorks"]
         self.reading_status_enabled: bool = ud["readingStatusEnabled"]
         self.location: str = ud["location"]
-        
+
         self.premium_free_campaign: bool = d["premium"]["freeCampaign"]
         self.development: bool = d["development"]
         self.csrf_token: str = d["token"]
@@ -173,4 +173,3 @@ class UserSelfData:
         self.p_ab_d_id: int = d["pAbDId"]
         self.active_ab_tests: dict[str, bool] = d["activeABTests"]
         self.active_toggles: dict[str, bool] = d["activeToggles"]
-

@@ -10,7 +10,9 @@ if TYPE_CHECKING:
 def add_htmx_request_header():
     g.hx_boosted = request.headers.get("HX-Boosted") == "true"
     g.hx_current_url = request.headers.get("HX-Current-Url")
-    g.hx_history_restore_request = request.headers.get("HX-History-Restore-Request") == "true"
+    g.hx_history_restore_request = (
+        request.headers.get("HX-History-Restore-Request") == "true"
+    )
     g.hx_prompt = request.headers.get("HX-Prompt")
     g.hx_request = request.headers.get("HX-Request") == "true"
     g.hx_target = request.headers.get("HX-Target")
@@ -20,4 +22,3 @@ def add_htmx_request_header():
 
 def init_app(app: Quart):
     app.before_request(add_htmx_request_header)
-

@@ -57,18 +57,23 @@ async def login_page():
             await flash(_("Invalid token"), "error")
             return await render_template("login.html.j2", bg=proxy(background), id=id)
 
-        gen_c = _generate_ab_cookies()        
+        gen_c = _generate_ab_cookies()
 
         res = await make_response(redirect(return_path))
         res.set_cookie("Vixipy-Token", token, max_age=COOKIE_MAXAGE, httponly=True)
-        res.set_cookie("Vixipy-CSRF", user.csrf_token, max_age=COOKIE_MAXAGE, httponly=True)
+        res.set_cookie(
+            "Vixipy-CSRF", user.csrf_token, max_age=COOKIE_MAXAGE, httponly=True
+        )
         res.set_cookie("Vixipy-p_ab_id", gen_c[2], max_age=COOKIE_MAXAGE, httponly=True)
         res.set_cookie("Vixipy-yuid_b", gen_c[0], max_age=COOKIE_MAXAGE, httponly=True)
         res.set_cookie(
             "Vixipy-p_ab_id_2", gen_c[3], max_age=COOKIE_MAXAGE, httponly=True
         )
         res.set_cookie(
-            "Vixipy-p_ab_d_id", str(user.p_ab_d_id), max_age=COOKIE_MAXAGE, httponly=True
+            "Vixipy-p_ab_d_id",
+            str(user.p_ab_d_id),
+            max_age=COOKIE_MAXAGE,
+            httponly=True,
         )
         return res
 

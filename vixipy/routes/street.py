@@ -30,10 +30,10 @@ async def main():
         content_index_prev = f.get("content_index_prev") or None
         bootstrap = f.get("bootstrap") == "1"
 
-        vhi = vhis.split(',') if vhis else None
-        vhm = vhms.split(',') if vhms else None
-        vhn = vhns.split(',') if vhns else None
-        vhc = vhcs.split(',') if vhcs else None
+        vhi = vhis.split(",") if vhis else None
+        vhm = vhms.split(",") if vhms else None
+        vhn = vhns.split(",") if vhns else None
+        vhc = vhcs.split(",") if vhcs else None
 
         data = await get_street_data(
             k=k,
@@ -50,7 +50,9 @@ async def main():
 
         if g.hx_request:
             if bootstrap:
-                return await render_block("street/index.html.j2", "street_bootstrap", data=data)
+                return await render_block(
+                    "street/index.html.j2", "street_bootstrap", data=data
+                )
             return await render_block("street/index.html.j2", "entries", data=data)
         return await render_template("street/index.html.j2", data=data)
 
