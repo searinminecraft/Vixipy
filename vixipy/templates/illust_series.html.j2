@@ -22,8 +22,10 @@
             </a>
             <span>{{_("Illust series by <a href='%(link)s'>%(author)s</a>", link=link, author=data.author.name)}}</span>
         </div>
+	{% autoescape true %}
         <h1>{{data.main.title}}</h1>
         <p>{{data.main.description}}</p>
+	{% endautoescape %}
         <small class="work-count">{{ngettext("%(num)d work", "%(num)d works", data.total)}}</small>
 
         {% block actions %}

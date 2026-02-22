@@ -12,6 +12,7 @@ import os
 import random
 from time import perf_counter
 from typing import TYPE_CHECKING, TypedDict
+from jinja2 import select_autoescape
 
 from .routes import (
     index,
@@ -155,6 +156,14 @@ def create_app():
     )
     app.config.from_prefixed_env("VIXIPY")
     app.config.from_pyfile(app.instance_path + "/config.py", silent=True)
+    app.jinja_options = {
+        "autoescape": select_autoescape(
+            enabled_extensions=("html", "xml", "htm", "j2"),
+            default_for_string=True,
+        )
+    }
+    app.create_jinja_environment()
+
     cfg.convert_config(app)
     htmx_header.init_app(app)
     csp.init_app(app)
