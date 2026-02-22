@@ -12,7 +12,7 @@ from materialyoucolor.scheme.scheme_monochrome import SchemeMonochrome
 from materialyoucolor.scheme.scheme_neutral import SchemeNeutral
 from materialyoucolor.scheme.scheme_rainbow import SchemeRainbow
 from materialyoucolor.scheme.scheme_vibrant import SchemeVibrant
-from materialyoucolor.score.score import Score
+from materialyoucolor.score.score import Score, ScoreOptions
 from materialyoucolor.dynamiccolor.material_dynamic_colors import MaterialDynamicColors
 from materialyoucolor.hct import Hct
 from io import BytesIO
@@ -105,13 +105,13 @@ def get_scheme(data: bytes, scheme: str = "tonal_spot"):
     pixels = image.width * image.height
     log.debug("Image pixels: %d", pixels)
     image_data = image.getdata()
-    pixel_array = [image_data[x] for x in range(0, pixels, 10)]
+    pixel_array = [image_data[x] for x in range(0, pixels, 1)]
 
     start = time.perf_counter()
 
     res = QuantizeCelebi(pixel_array, 128)
 
-    score = Score.score(res)
+    score = Score.score(res, ScoreOptions(dislike_filter=True, desired=7, filter=True, fallback_color_argb=0xff0096fa))
 
     light = SCMAPPING[scheme](Hct.from_int(score[0]), False, 0.0)
     dark = SCMAPPING[scheme](Hct.from_int(score[0]), True, 0.0)
@@ -154,6 +154,7 @@ def get_scheme_css(data: bytes, scheme: str = "tonal_spot"):
         "@media (prefers-color-scheme: dark) {\n"
         ":root {\n" + res_d + "}\n"
         "\n"
+        "}"
     )
 
 
