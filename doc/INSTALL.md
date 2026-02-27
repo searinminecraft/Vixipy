@@ -3,7 +3,7 @@ Installing it is pretty straight forward. These should work on most platforms.
 
 
 ## Regular method
-1. Install Python from your distribution or from python.org. At least version 3.10 is required
+1. Install Python from your distribution or from python.org. At least version 3.10 is required. For PyPy, see [here](#pypy-support)
 2. Clone the repository:
 ```sh
 daiwa@umamusume:~ $ git clone https://codeberg.org/vixipy/Vixipy
@@ -90,3 +90,12 @@ daiwa@umamusume:~/Vixipy $ docker compose up -d
 Vixipy runs on http://127.0.0.1:8000 and http://[::1]:8000 by default. To change the binding address, use the `--bind` argument. You may also use UNIX sockets by adding the `--bind unix:<name>.sock` argument.
 
 If exposing to the internet, it is recommended to use and configure a reverse proxy. See your reverse proxy documentation for details.
+
+# PyPy support
+Vixipy has been tested and works with [PyPy](https://pypy.org) but do
+note that memory usage will be much higher, but performance may be
+faster in that case. Just replace any instance of `python3` with
+`pypy` in the installation guide above.
+
+PyPy support while works is considered experimental. Open any issues
+if something is off!
