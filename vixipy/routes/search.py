@@ -20,7 +20,6 @@ from ..api.handler import pixiv_request
 from ..api.search import search, get_tag_info
 from ..filters import filter_from_prefs as ff
 from ..filters import check_blacklisted_tag
-from ..lib.scrapes import get_popular_tags
 from ..abc.artworks import ArtworkEntry, RecommendByTag
 from ..abc.common import TagTranslation
 
@@ -41,20 +40,6 @@ limit_blueprint(
     bp,
     limits=[RateLimit(1, timedelta(seconds=1)), RateLimit(10, timedelta(seconds=30))],
 )
-
-
-@bp.route("/tags")
-@rate_limit(
-    limits=[
-        RateLimit(1, timedelta(seconds=5)),
-        RateLimit(5, timedelta(seconds=30)),
-    ]
-)
-async def popular_tags():
-    args: ImmutableMultiDict = request.args
-    novel = True if args.get("type") == "novel" else False
-    data = await get_popular_tags(novel)
-    return await render_template("search/popular_tags.html.j2", data=data)
 
 
 @bp.route("/tags/<path:query>")
