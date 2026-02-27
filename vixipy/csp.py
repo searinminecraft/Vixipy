@@ -31,6 +31,7 @@ async def csp_handler(r: Response):
         + "frame-ancestors 'self'; "
         "style-src 'self' 'unsafe-inline'; "
     )
+    r.headers["X-Frame-Options"] = "sameorigin"
     return r
 
 
