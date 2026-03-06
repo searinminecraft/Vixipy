@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from .api.handler import PixivError
 from .routes.api import handle_bad_request as api_handle_bad_request
-from quart import render_template, make_response, request
+from quart import current_app, render_template, make_response, request
 from werkzeug.exceptions import HTTPException
 from http import HTTPStatus
 from aiohttp.client_exceptions import ClientError
@@ -51,9 +51,15 @@ async def handle_internal_error(e):
         return await render_template("http_error.html.j2", error=e), e.code
 
     log.exception("Exception occurred here:")
+
+    tb_str = ""
+    tb_str += f"{e.__class__.__name__}: {e}\n\n"
+    for x in traceback.extract_tb(e.__traceback__)[::-1]:
+        tb_str += f"at {'/'.join(x.filename.split("/")[-2:])}:{x.lineno}:{x.colno} in {x.name + '()' if '<' not in x.name else x.name}\n"
+
     return (
         await render_template(
-            "internal_server_error.html.j2", traceback=traceback.format_exc()
+            "internal_server_error.html.j2", traceback=tb_str if not current_app.config["DEBUG"] else traceback.format_exc()
         ),
         500,
     )
