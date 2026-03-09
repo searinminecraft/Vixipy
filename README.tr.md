@@ -23,7 +23,7 @@ language. This helps make the program more accessible to a wider audience.
 I also want to give a special thanks for those who helped translate Vixipy. You
 guys are awesome.
 
-## License
+## Lisans
 Copyright © 2024-2026 Vyxie and contributors
 
 Vixipy is free software. You can modify and redistribute the code under the
