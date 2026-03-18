@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-02-11 19:07+0800\n"
-"PO-Revision-Date: 2026-03-12 10:29+0000\n"
+"PO-Revision-Date: 2026-03-18 12:29+0000\n"
 "Last-Translator: Adagio <adagio@noreply.codeberg.org>\n"
 "Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/user-"
 "interface/ru/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: vixipy/session.py:78
@@ -93,8 +93,9 @@ msgid "Related works"
 msgstr "Связанные работы"
 
 #: vixipy/templates/artworks.html.j2:209
+#, fuzzy
 msgid "An error occurred trying to get the artwork pages"
-msgstr ""
+msgstr "Ошибка загрузки страницы с работами"
 
 #: vixipy/templates/comments.html.j2:2 vixipy/templates/comments.html.j2:7
 #: vixipy/templates/replies.html.j2:2
@@ -288,13 +289,13 @@ msgid "An error occurred."
 msgstr "Произошла ошибка."
 
 #: vixipy/templates/error.html.j2:8
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Looks like something went wrong. If you think this is a bug, file a "
 "report <a href='%(link)s'>here</a>"
 msgstr ""
-"Кажется, что-то пошло не так. Если вы думаете, что это ошибка, отправьте "
-"отчёт <a href='%(link)s'>сюда</a>"
+"Кажется, что-то пошло не так. Если вы думаете, что это баг, отправьте отчёт "
+"<a href='%(link)s'>сюда</a>"
 
 #: vixipy/templates/error.html.j2:10
 msgid "Back to home"
@@ -328,14 +329,12 @@ msgid "Read from beginning"
 msgstr "Читать с начала"
 
 #: vixipy/templates/illust_series.html.j2:41
-#, fuzzy
 msgid "Add to Watchlist"
-msgstr "Хочу посмотреть"
+msgstr "В список для просмотра"
 
 #: vixipy/templates/illust_series.html.j2:48
-#, fuzzy
 msgid "Already in your watchlist"
-msgstr "В списке для просмотра"
+msgstr "Уже в списке для просмотра"
 
 #: vixipy/templates/illust_series.html.j2:87
 msgid "Works"
@@ -509,7 +508,6 @@ msgid "What are the advantages of logging in?"
 msgstr "В чём преимущество входа в аккаунт?"
 
 #: vixipy/templates/login.html.j2:51
-#, fuzzy
 msgid ""
 "Logging in to your pixiv account allows for personalized recommendations,"
 " work interaction (like, bookmark, etc.) and following users. It also "
@@ -517,9 +515,9 @@ msgid ""
 msgstr ""
 "Вход в аккаунт pixiv позволяет получать персонализированные рекомендации, "
 "взаимодействовать с работами (ставить лайки, закладки и т.д.) и "
-"подписываться на пользователей. Также вход даёт доступ к работам только для "
-"зарегистрированных пользователей и работам с рейтингом R-18 (в частных "
-"случаях)."
+"подписываться на пользователей, а также даёт доступ к работам только для "
+"зарегистрированных пользователей и работам с рейтингом R-18 (если это "
+"разрешено в частных случаях)."
 
 #: vixipy/templates/login.html.j2:61
 msgid "with your pixiv account."
@@ -587,12 +585,11 @@ msgid "Too Many Requests"
 msgstr "Слишком много запросов"
 
 #: vixipy/templates/ratelimited.html.j2:5
-#, fuzzy
 msgid ""
 "You are sending too many requests. Please slow down and try again. Don't "
 "use scripts or crawlers on this site."
 msgstr ""
-"Вы отправляете слишком много запросов. Пожалуйста, остановитесь и попробуйте "
+"Вы отправляете слишком много запросов. Пожалуйста, подождите и попробуйте "
 "снова. Не используйте на этом сайте скрипты или сборщики данных."
 
 #: vixipy/templates/replies.html.j2:7
@@ -792,7 +789,7 @@ msgstr "Вы подписаны"
 
 #: vixipy/templates/discovery/illustrations.html.j2:14
 msgid "Nothing to recommend. Sorry!"
-msgstr ""
+msgstr "Нет рекомендаций. Жаль!"
 
 #: vixipy/templates/discovery/illustrations.html.j2:17
 msgid "Reload"
@@ -1045,7 +1042,7 @@ msgstr ""
 #: vixipy/templates/pixivision/tag.html.j2:5
 #: vixipy/templates/pixivision/tag.html.j2:9
 msgid "List of articles with tag"
-msgstr ""
+msgstr "Список статей с тегом"
 
 #: vixipy/templates/pixivision/components/movie.html.j2:4
 msgid "To protect your privacy, this embedded video has been blocked."
@@ -1053,12 +1050,12 @@ msgstr ""
 
 #: vixipy/templates/pixivision/components/movie.html.j2:5
 msgid "Click here to watch the video"
-msgstr ""
+msgstr "Нажмите сюда для просмотра видео"
 
 #: vixipy/templates/pixivision/components/pixiv_artwork.html.j2:8
 #, python-format
 msgid "By %(author)s"
-msgstr ""
+msgstr "Автор:%(author)s"
 
 #: vixipy/templates/pixivision/components/table_of_contents.html.j2:3
 msgid "Index"
@@ -1068,23 +1065,23 @@ msgstr ""
 #: vixipy/templates/rankings/calendar.html.j2:6
 #: vixipy/templates/users/dashboard.html.j2:108
 msgid "Ranking Calendar"
-msgstr ""
+msgstr "Календарь рейтинга"
 
 #: vixipy/templates/rankings/calendar.html.j2:9
 #: vixipy/templates/rankings/main.html.j2:9
 msgid "Show options"
-msgstr ""
+msgstr "Показать опции"
 
 #: vixipy/templates/rankings/calendar.html.j2:12
 #: vixipy/templates/rankings/main.html.j2:12
 msgid "Options"
-msgstr ""
+msgstr "Опции"
 
 #: vixipy/templates/rankings/calendar.html.j2:14
 #: vixipy/templates/rankings/main.html.j2:15
 #: vixipy/templates/search/components/tag-search-filter.html.j2:38
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 #: vixipy/templates/rankings/calendar.html.j2:17
 #: vixipy/templates/rankings/main.html.j2:17
@@ -1109,12 +1106,12 @@ msgstr ""
 #: vixipy/templates/rankings/calendar.html.j2:22
 #: vixipy/templates/rankings/main.html.j2:22
 msgid "Popular among male users"
-msgstr ""
+msgstr "Популярно среди пользователей мужского пола"
 
 #: vixipy/templates/rankings/calendar.html.j2:23
 #: vixipy/templates/rankings/main.html.j2:23
 msgid "Popular among female users"
-msgstr ""
+msgstr "Популярно среди пользователей женского пола"
 
 #: vixipy/templates/rankings/calendar.html.j2:28
 #: vixipy/templates/rankings/main.html.j2:28
@@ -1124,7 +1121,7 @@ msgstr ""
 #: vixipy/templates/rankings/calendar.html.j2:29
 #: vixipy/templates/rankings/main.html.j2:29
 msgid "R-18 AI Generated"
-msgstr ""
+msgstr "R-18 (сгенерировано ИИ)"
 
 #: vixipy/templates/rankings/calendar.html.j2:30
 #: vixipy/templates/rankings/main.html.j2:30
@@ -1134,33 +1131,33 @@ msgstr ""
 #: vixipy/templates/rankings/calendar.html.j2:33
 #: vixipy/templates/rankings/main.html.j2:33
 msgid "Popular among male users (R-18)"
-msgstr ""
+msgstr "Популярно среди пользователей мужского пола (R-18)"
 
 #: vixipy/templates/rankings/calendar.html.j2:34
 #: vixipy/templates/rankings/main.html.j2:34
 msgid "Popular among female users (R-18)"
-msgstr ""
+msgstr "Популярно среди пользователей женского пола (R-18)"
 
 #: vixipy/templates/rankings/calendar.html.j2:40
 #: vixipy/templates/rankings/main.html.j2:51
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: vixipy/templates/rankings/calendar.html.j2:44
 #: vixipy/templates/rankings/main.html.j2:55
 #: vixipy/templates/search/components/tag-search-filter.html.j2:183
 msgid "Apply"
-msgstr ""
+msgstr "Применить"
 
 #: vixipy/templates/rankings/calendar.html.j2:74
 #, python-format
 msgid "Day %(day)s"
-msgstr ""
+msgstr "День%(day)s"
 
 #: vixipy/templates/rankings/main.html.j2:2
 #: vixipy/templates/users/dashboard.html.j2:98
 msgid "Rankings"
-msgstr ""
+msgstr "Рейтинг"
 
 #: vixipy/templates/rankings/main.html.j2:41
 #, fuzzy
@@ -1169,7 +1166,7 @@ msgstr "Комментарии"
 
 #: vixipy/templates/search/dashboard.html.j2:12
 msgid "Search works..."
-msgstr ""
+msgstr "Поиск по работам..."
 
 #: vixipy/templates/search/dashboard.html.j2:22
 msgid "Popular illust tags"
@@ -1178,69 +1175,71 @@ msgstr ""
 #: vixipy/templates/search/dashboard.html.j2:42
 #, python-format
 msgid "#%(tag)s recommended works"
-msgstr ""
+msgstr "Рекомендуемые работы: #%(tag)s"
 
 #: vixipy/templates/search/illust.html.j2:6
 #: vixipy/templates/search/main.html.j2:7
 #: vixipy/templates/search/manga.html.j2:6
 #: vixipy/templates/search/novel.html.j2:7
 msgid "Top"
-msgstr ""
+msgstr "Лучшее"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:15
 #: vixipy/templates/search/illust.html.j2:12
 msgid "Search options"
-msgstr ""
+msgstr "Опции поиска"
 
 #: vixipy/templates/search/illust.html.j2:27
 #: vixipy/templates/search/main.html.j2:59
 #: vixipy/templates/search/manga.html.j2:25
 #: vixipy/templates/search/novel.html.j2:27
 msgid "No matching results found."
-msgstr ""
+msgstr "Подходящих результатов не найдено."
 
 #: vixipy/templates/search/index.html.j2:2
 #, python-format
 msgid "Results for %(tag)s"
-msgstr ""
+msgstr "Результаты по %(tag)s"
 
 #: vixipy/templates/search/index.html.j2:45
 msgid ""
 "You can only have at most 10 favorite tags. Please remove one and try "
 "again."
 msgstr ""
+"У вас не может быть более 10 любимых тегов. Пожалуйста, уберите один тег из "
+"любимых и попробуйте снова."
 
 #: vixipy/templates/search/index.html.j2:46
 msgid "Add to your favorites"
-msgstr ""
+msgstr "Добавить в любимые"
 
 #: vixipy/templates/search/index.html.j2:48
 msgid "Remove from favorites"
-msgstr ""
+msgstr "Убрать из любимых"
 
 #: vixipy/templates/search/main.html.j2:15
 msgid "Popular Works"
-msgstr ""
+msgstr "Популярные работы"
 
 #: vixipy/templates/search/main.html.j2:17
 msgid "Recent"
-msgstr ""
+msgstr "Недавнее"
 
 #: vixipy/templates/search/main.html.j2:25
 msgid "All Time"
-msgstr ""
+msgstr "За всё время"
 
 #: vixipy/templates/search/main.html.j2:34 vixipy/templates/users/top.html.j2:8
 msgid "Illustrations and Manga"
-msgstr ""
+msgstr "Иллюстрации и манга"
 
 #: vixipy/templates/search/popular_tags.html.j2:28
 msgid "Unable to load popular tags."
-msgstr ""
+msgstr "Не получается загрузить популярные теги."
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:26
 msgid "Keywords"
-msgstr ""
+msgstr "Ключевые слова"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:29
 msgid "Target"
@@ -1248,11 +1247,11 @@ msgstr ""
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:31
 msgid "Tags (perfect match)"
-msgstr ""
+msgstr "Теги (полное совпадение)"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:33
 msgid "Tags (partial match)"
-msgstr ""
+msgstr "Теги (частичное совпадение)"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:34
 msgid "Title/caption"
@@ -1260,11 +1259,11 @@ msgstr ""
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:37
 msgid "Filters"
-msgstr ""
+msgstr "Фильтры"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:40
 msgid "All"
-msgstr ""
+msgstr "Все"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:41
 msgid "Safe"
