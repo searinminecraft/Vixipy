@@ -19,7 +19,10 @@ def proxy(url: str) -> Optional[str]:
 
     url = urlparse(url)
 
-    proxy_cookie = request.cookies.get("Vixipy-Image-Proxy")
+    try:
+        proxy_cookie = request.cookies.get("Vixipy-Image-Proxy")
+    except Exception:
+        proxy_cookie = None
 
     if not proxy_cookie:
         proxy = current_app.config["IMG_PROXY"]

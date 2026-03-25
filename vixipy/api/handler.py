@@ -39,6 +39,7 @@ async def pixiv_request(
     ignore_cache=False,
     expect_json=True,
     ignore_language=False,
+    account=None,
 ):
     """
     Send a request to pixiv
@@ -123,25 +124,40 @@ async def pixiv_request(
         log.debug("Use urlencoded by default")
         _headers["Content-Type"] = "application/x-www-form-urlencoded"
 
-    if g.authorized:
-        _cookies["p_ab_d_id"] = g.p_ab_d_id
-        _cookies["p_ab_id"] = g.p_ab_id
-        _cookies["p_ab_id_2"] = g.p_ab_id_2
-        _cookies["PHPSESSID"] = g.token
-        _cookies["yuid_b"] = g.yuid_b
-
+    if account is not None:
+        _cookies["p_ab_d_id"] = account.p_ab_d_id
+        _cookies["p_ab_id"] = account.p_ab_id
+        _cookies["p_ab_id_2"] = account.p_ab_id_2
+        _cookies["yuid_b"] = account.yuid_b
+        _cookies["PHPSESSID"] = account.token
         if method.lower() == "post":
-            _headers["x-csrf-token"] = g.csrf
+            _headers["x-csrf-token"] = account.csrf
     else:
-        if not g.get("chosen_token", None):
-            g.chosen_token = random.choice(current_app.tokens)
-        log.debug("Using %s", g.chosen_token)
-        _cookies["p_ab_d_id"] = g.chosen_token["p_ab_d_id"]
-        _cookies["p_ab_id"] = g.chosen_token["p_ab_id"]
-        _cookies["p_ab_id_2"] = g.chosen_token["p_ab_id_2"]
-        _cookies["yuid_b"] = g.chosen_token["yuid_b"]
-        if not "PHPSESSID" in _cookies:
-            _cookies["PHPSESSID"] = g.chosen_token["token"]
+        if g.authorized:
+            _cookies["p_ab_d_id"] = g.p_ab_d_id
+            _cookies["p_ab_id"] = g.p_ab_id
+            _cookies["p_ab_id_2"] = g.p_ab_id_2
+            _cookies["PHPSESSID"] = g.token
+            _cookies["yuid_b"] = g.yuid_b
+            if method.lower() == "post":
+                _headers["x-csrf-token"] = g.csrf
+        else:
+            if not account:
+                if not g.get("api_account", None):
+                    g.api_account = random.choice(current_app.accounts)
+                account = g.api_account
+
+            log.debug("Using %s", account)
+            _cookies["p_ab_d_id"] = account.p_ab_d_id
+            _cookies["p_ab_id"] = account.p_ab_id
+            _cookies["p_ab_id_2"] = account.p_ab_id_2
+            _cookies["yuid_b"] = account.yuid_b
+    
+            if not "PHPSESSID" in _cookies:
+                _cookies["PHPSESSID"] = account.token
+
+            if method.lower() == "post" and account.csrf is not None:
+                _headers["x-csrf-token"] = account.csrf
 
     for k, v in _cookies.items():
         cookie_header += f"{k}={v}; "

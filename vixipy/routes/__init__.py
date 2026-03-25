@@ -21,3 +21,4 @@ from .pixivision import bp as pixivision
 from .test import bp as test
 from .collection import bp as collection
 from .street import bp as street
+from .admin import bp as admin

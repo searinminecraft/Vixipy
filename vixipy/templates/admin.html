@@ -1,0 +1,41 @@
+{% extends "layouts/default.html.j2" %}
+{% set title = _("Site Administration") %}
+{% block content %}
+<main>
+    <h1>Site Administration</h1>
+
+    <h2>API Eval</h2>
+    <p>Execute API calls on behalf of all instance accounts</p>
+    <form action="/admin/eval" method="post">
+	<label>Endpoint</label>
+	<input required type="text" spellcheck="false" name="endpoint"></input>
+	<br>
+	<label>Method</label>
+	<select name="method">
+	    <option value="get">GET</option>
+	    <option value="post">POST</option>
+	</select>
+	<br>
+	<label>Content Type</label>
+	<input required type="text" spellcheck="false" name="content-type" value="application/x-www-form-urlencoded"></input>
+	<br>
+	<label>Payload (POST request only)</label>
+	<br>
+	<textarea name="payload"></textarea>
+	<br>
+	<button type="submit">Execute</button>
+    </form>
+
+    {% if api_results %}
+<pre>
+{% for x in api_results%}
+User: {{x[1].userdata.name}}
+ID: {{x[1].userdata.id}}
+Response:
+
+{{x[0]}}
+{% endfor %}
+</pre>
+    {% endif %}
+</main>
+{% endblock content%}

@@ -7,6 +7,7 @@ from aiohttp import DummyCookieJar, ClientSession
 from quart import current_app
 from typing import TYPE_CHECKING
 from . import session as pixiv_session_handler
+from .abc.users import UserSelfData
 
 if TYPE_CHECKING:
     from quart import Quart
@@ -107,45 +108,47 @@ async def init_clientsession(app: Quart):
     log.debug("HTTP client sessions initialized.")
 
 
+class _InstanceAccount:
+    def __init__(self, token, p_ab_d_id, p_ab_id, p_ab_id_2, yuid_b, csrf, data):
+        self.token: str = token
+        self.csrf: str = csrf
+        self.yuid_b: str = yuid_b
+        self.p_ab_d_id: int = int(p_ab_d_id)
+        self.p_ab_id: int = int(p_ab_id)
+        self.p_ab_id_2: int = int(p_ab_id_2)
+        self.userdata: UserSelfData = data
+
+    def __eq__(self, x):
+        return x == self.token
+
+
 async def _init_user(t: str):
     try:
-        if current_app.config["PIXIV_DIRECT_CONNECTION"]:
-            r: ClientResponse = await current_app.pixiv.head(
-                "",
-                headers={"Cookie": f"PHPSESSID={t}"},
-                server_hostname="www.pixiv.net",
-                allow_redirects=True,
-            )
-        else:
-            r: ClientResponse = await current_app.pixiv.head(
-                "",
-                headers={"Cookie": f"PHPSESSID={t}"},
-                allow_redirects=True,
-            )
-        r.raise_for_status()
+        r = await current_app.pixiv.get("/ajax/user/self", headers={"Cookie": "PHPSESSID=" + t})
+        j = await r.json()
+        data = UserSelfData(j)
+        r.close()
     except Exception:
-        log.exception("Error at token %s. Skipping.", t)
+        log.exception("Error at token %s, skipping", t)
         return
-    if current_app.config["PIXIV_DIRECT_CONNECTION"]:
-        r2: ClientResponse = await current_app.pixiv.head(
-            "", allow_redirects=True, server_hostname="www.pixiv.net"
-        )
-    else:
-        r2: ClientResponse = await current_app.pixiv.head(
-            "",
-            allow_redirects=True,
-        )
-    current_app.tokens.append(
-        {
-            "token": t,
-            "p_ab_d_id": r.cookies["p_ab_d_id"].value,
-            "p_ab_id": r.cookies["p_ab_id"].value,
-            "p_ab_id_2": r.cookies["p_ab_id_2"].value,
-            "yuid_b": r2.cookies["yuid_b"].value,
-        }
+
+    yuid_b, p_ab_d_id, p_ab_id, p_ab_id_2 = (
+        pixiv_session_handler._generate_ab_cookies()
     )
 
-    log.info("Initialized user %s", t.split("_")[0])
+    current_app.accounts.append(
+        _InstanceAccount(
+            token=t,
+            p_ab_id=p_ab_id,
+            p_ab_id_2=p_ab_id_2,
+            p_ab_d_id=data.p_ab_d_id,
+            yuid_b=yuid_b,
+            csrf=data.csrf_token,
+            data=data,
+        )
+    )
+
+    log.info("Initialized user %s (%s)", data.id, data.name)
 
 
 async def credential_init(app: Quart):
@@ -157,14 +160,16 @@ async def credential_init(app: Quart):
             yuidb, p_ab_d_id, p_ab_id, p_ab_id_2 = (
                 pixiv_session_handler._generate_ab_cookies()
             )
-            app.tokens.append(
-                {
-                    "token": t_res,
-                    "p_ab_d_id": p_ab_d_id,
-                    "p_ab_id": p_ab_id,
-                    "p_ab_id_2": p_ab_id_2,
-                    "yuid_b": yuidb,
-                }
+            app.accounts.append(
+                _InstanceAccount(
+                    token=t_res,
+                    p_ab_d_id=p_ab_d_id,
+                    p_ab_id=p_ab_id,
+                    p_ab_id_2=p_ab_id_2,
+                    yuid_b=yuidb,
+                    csrf=None,
+                    data=None,
+                )
             )
         else:
             try:
@@ -181,14 +186,16 @@ async def credential_init(app: Quart):
                 else:
                     log.warn("Failed to get PHPSESSID from pixiv. Using random.")
                     t_res = "".join([chr(random.randint(97, 122)) for _ in range(33)])
-                app.tokens.append(
-                    {
-                        "token": t_res,
-                        "p_ab_d_id": r.cookies["p_ab_d_id"].value,
-                        "p_ab_id": r.cookies["p_ab_id"].value,
-                        "p_ab_id_2": r.cookies["p_ab_id_2"].value,
-                        "yuid_b": r.cookies["yuid_b"].value,
-                    }
+                app.accounts.append(
+                    _InstanceAccount(
+                        token=t_res,
+                        p_ab_d_id=r.cookies["p_ab_d_id"].value,
+                        p_ab_id=r.cookies["p_ab_id"].value,
+                        p_ab_id_2=r.cookies["p_ab_id_2"].value,
+                        yuid_b=r.cookies["yuid_b"].value,
+                        csrf=None,
+                        data=None,
+                    )
                 )
             except Exception as e:
                 log.warn(
@@ -199,21 +206,30 @@ async def credential_init(app: Quart):
                 yuidb, p_ab_d_id, p_ab_id, p_ab_id_2 = (
                     pixiv_session_handler._generate_ab_cookies()
                 )
-                app.tokens.append(
-                    {
-                        "token": t_res,
-                        "p_ab_d_id": p_ab_d_id,
-                        "p_ab_id": p_ab_id,
-                        "p_ab_id_2": p_ab_id_2,
-                        "yuid_b": yuidb,
-                    }
+                app.accounts.append(
+                    _InstanceAccount(
+                        token=t_res,
+                        p_ab_d_id=p_ab_d_id,
+                        p_ab_id=p_ab_id,
+                        p_ab_id_2=p_ab_id_2,
+                        yuid_b=yuidb,
+                        csrf=None,
+                        data=None,
+                    )
                 )
     else:
         async with app.app_context():
             await gather(*map(_init_user, app.config["TOKEN"]))
 
-        if len(app.tokens) == 0:
-            raise RuntimeError("No tokens to use.")
+        if len(app.accounts) == 0:
+            raise RuntimeError(
+                (
+                    "No working accounts available to use. "
+                    "Please reconfigure your configuration and check "
+                    "if the token is valid and the account(s) are "
+                    "not banned."
+                )
+            )
 
 
 async def bootstrap(app: Quart):

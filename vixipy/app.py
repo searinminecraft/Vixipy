@@ -38,6 +38,7 @@ from .routes import (
     test,
     collection,
     street,
+    admin,
 )
 from . import (
     cache_client,
@@ -53,14 +54,6 @@ from . import (
 if TYPE_CHECKING:
     from aiohttp import ClientResponse
     from aiomcache import Client
-
-
-class Token(TypedDict):
-    token: str
-    p_ab_id: str
-    p_ab_id_2: str
-    p_ab_d_id: str
-    yuid_b: str
 
 
 class MemcacheStore(RateLimiterStoreABC):
@@ -153,6 +146,7 @@ def create_app():
         ],
         ADDITIONAL_THEMES=[],
         DEFAULT_THEME="",
+        DO_NOT_THE_HONSE=True,
     )
     app.config.from_prefixed_env("VIXIPY")
     app.config.from_pyfile(app.instance_path + "/config.py", silent=True)
@@ -168,7 +162,7 @@ def create_app():
     htmx_header.init_app(app)
     csp.init_app(app)
 
-    app.tokens: list[Token] = []
+    app.accounts = []
     app.no_token = False
 
     log = logging.getLogger("vixipy")
@@ -217,6 +211,7 @@ def create_app():
     app.register_blueprint(test)
     app.register_blueprint(collection)
     app.register_blueprint(street)
+    app.register_blueprint(admin)
 
     # =================================
 
