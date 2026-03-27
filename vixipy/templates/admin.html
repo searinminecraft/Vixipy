@@ -6,7 +6,7 @@
 
     <h2>API Eval</h2>
     <p>Execute API calls on behalf of all instance accounts</p>
-    <form action="/admin/eval" method="post">
+    <form action="/admin/eval" method="post" hx-push-url="false">
 	<label>Endpoint</label>
 	<input required type="text" spellcheck="false" name="endpoint"></input>
 	<br>
@@ -16,14 +16,20 @@
 	    <option value="post">POST</option>
 	</select>
 	<br>
+
+	<h3>POST payload</h3>
 	<label>Content Type</label>
-	<input required type="text" spellcheck="false" name="content-type" value="application/x-www-form-urlencoded"></input>
+	<select name="content-type">
+	    <option value="application/x-www-form-urlencoded">URL Encoded</option>
+	    <option value="application/json">JSON</option>
+	</select>
 	<br>
-	<label>Payload (POST request only)</label>
+	<label>Payload</label>
 	<br>
-	<textarea name="payload"></textarea>
+	<textarea name="payload" style="width: 100%;" rows="6"></textarea>
 	<br>
-	<button type="submit">Execute</button>
+	<br>
+	<button class="button primary" type="submit">Execute</button>
     </form>
 
     {% if api_results %}
@@ -35,6 +41,7 @@ Response:
 
 {{x[0]}}
 {% endfor %}
+
 </pre>
     {% endif %}
 </main>

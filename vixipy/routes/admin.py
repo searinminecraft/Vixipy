@@ -2,8 +2,12 @@ from quart import Blueprint, abort, current_app, g, render_template, request
 from asyncio import gather
 from ..api.handler import pixiv_request
 from pprint import pformat
+import json
 
 bp = Blueprint("admin", __name__, url_prefix="/admin")
+default_headers = {
+    "Referer": "https://www.pixiv.net"
+}
 
 @bp.before_request
 def check_permissions():
@@ -18,9 +22,10 @@ async def _execute_api_job(a, endpoint, method, content_type, payload):
     data = await pixiv_request(
         endpoint,
         method,
-        headers={"Content-Type": content_type},
+        headers={**default_headers, "Content-Type": content_type} if method=="post" else default_headers,
         account=a,
-        raw_payload=payload
+        json_payload=json.loads(payload) if content_type=="application/json" else None,
+        raw_payload=payload if content_type=="application/x-www-form-url-encoded" else None
     )
 
     return pformat(data), a

@@ -152,7 +152,7 @@ async def _init_user(t: str):
 
 
 async def credential_init(app: Quart):
-    if len(app.config["TOKEN"]) == 0 or app.config["DEBUG"]:
+    if len(app.config["TOKEN"]) == 0:
         app.no_token = True
         if not app.config["ACQUIRE_SESSION"]:
             log.info("Skipping session acquisition from pixiv. Using random token.")
