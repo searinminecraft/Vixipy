@@ -1,5 +1,10 @@
-var timeout
+(function(){
+"use strict";
+
+let timeout
 const suggest_list = $(".suggestions")
+
+$(".searchbox input").focus()
 
 function get_suggestions() {
     const query = $(".searchbox input").val()
@@ -21,14 +26,14 @@ function get_suggestions() {
             suggest_list.attr("data-open", "")
 
             for (const res of xhr.responseJSON.body) {
-                li = document.createElement("li")
-                link = document.createElement("a")
+                let li = document.createElement("li")
+                let link = document.createElement("a")
                 link.href = `/tags/${res.name}`
-                span = document.createElement("span")
+                let span = document.createElement("span")
                 span.innerHTML = res.name
                 link.append(span)
                 if (res.sub) {
-                    sub = document.createElement("small")
+                    let sub = document.createElement("small")
                     sub.innerHTML = res.sub
                     link.append(sub)
                 }
@@ -52,3 +57,4 @@ $(".searchbox input").on("input", (e) => {
         timeout = setTimeout(get_suggestions, 200)
     }
 })
+})()
