@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: codeberg-tiny
+    runs-on: codeberg-small
     container:
       env:
         STORAGE_DRIVER: vfs
