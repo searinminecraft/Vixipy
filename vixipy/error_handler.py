@@ -55,7 +55,7 @@ async def handle_internal_error(e):
     tb_str = ""
     tb_str += f"{e.__class__.__name__}: {e}\n\n"
     for x in traceback.extract_tb(e.__traceback__)[::-1]:
-        tb_str += f"at {'/'.join(x.filename.split("/")[-2:])}:{x.lineno}:{x.colno} in {x.name + '()' if '<' not in x.name else x.name}\n"
+        tb_str += f"at {'/'.join(x.filename.split('/')[-2:])}:{x.lineno}:{x.colno} in {x.name + '()' if '<' not in x.name else x.name}\n"
 
     return (
         await render_template(
