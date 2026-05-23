@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from quart import Blueprint, abort, current_app, request, make_response
 
+import asyncio
 import logging
 import traceback
 from typing import TYPE_CHECKING
@@ -46,6 +47,60 @@ def set_header_common(r: Response):
     return r
 
 
+async def perform_proxy(
+    url: str, *, headers: dict = {}, params: dict = {}, raise_for_status: bool = False
+):
+    response_headers = {"Cache-Control": "max-age=31536000"}
+
+    if range_ := request.headers.get("range"):
+        headers["Range"] = range_
+
+    r: ClientResponse = await current_app.content_proxy.get(
+        url, headers=headers, params=params
+    )
+
+    if r.status == 416:
+        if content_range := r.headers.get("content-range"):
+            response_headers["Content-Range"] = content_range
+        del response_headers["Cache-Control"]
+        response_headers["Content-Type"] = "text/plain"
+        return (
+            "Invalid range provided",
+            416,
+            response_headers,
+        )
+
+    if raise_for_status:
+        r.raise_for_status()
+
+    if accept_ranges := r.headers.get("accept-ranges"):
+        response_headers["Accept-Ranges"] = accept_ranges
+    if content_type := r.headers.get("content-type"):
+        response_headers["Content-Type"] = content_type
+    if content_length := r.headers.get("content-length"):
+        response_headers["Content-Length"] = content_length
+    if content_disposition := r.headers.get("content-disposition"):
+        response_headers["Content-Disposition"] = content_disposition
+    if last_modified := r.headers.get("last-modified"):
+        response_headers["Last-Modified"] = last_modified
+    if age := r.headers.get("age"):
+        response_headers["Age"] = age
+
+    async def stream():
+        try:
+            async for chunk in r.content.iter_chunked(10 * 1024):
+                yield chunk
+            r.close()
+        except asyncio.CancelledError:
+            log.warn("Client disconnected while proxing %s", url)
+            r.close()
+
+    res = await make_response(stream())
+    res.timeout = 300
+
+    return res, r.status, response_headers
+
+
 @bp.get("/proxy/ugoira/<int:id>")
 async def ugoira_proxy(id: int):
     endpoint = (
@@ -56,24 +111,7 @@ async def ugoira_proxy(id: int):
 
     log.debug("Proxy ugoira %d: Server %s; Referer %s", id, endpoint, referer)
 
-    response_headers = {"Cache-Control": "max-age=31536000"}
-    r: ClientResponse = await current_app.content_proxy.get(
-        endpoint % id, headers={"Referer": referer}
-    )
-    r.raise_for_status()
-
-    response_headers["Content-Type"] = r.headers["Content-Type"]
-    if content_length := r.headers.get("content-length"):
-        response_headers["Content-Length"] = content_length
-
-    async def stream():
-        async for chunk in r.content.iter_chunked(10 * 1024):
-            yield chunk
-
-    res = await make_response(stream())
-    res.timeout = None
-
-    return res, response_headers
+    return await perform_proxy(endpoint % id, headers={"Referer": referer})
 
 
 @bp.get("/proxy/fonts.googleapis.com/<path:path>")
@@ -110,62 +148,7 @@ async def perform_proxy_request(url: str):
     url = url.removeprefix("https://")
     url = url.removeprefix("http://")
 
-    if url.split("/")[0] not in permitted:
-        return "Nice try :3", 418, {"Content-Type": "text/plain"}
-
-    request_headers = {}
-    response_headers = {"Accept-Ranges": "bytes", "Cache-Control": "max-age=31536000"}
-
-    if range_ := request.headers.get("range"):
-        request_headers["Range"] = range_
-
-    r: ClientResponse = await current_app.content_proxy.get(
-        "https://" + url, params=request.args, headers=request_headers
-    )
-
-    if r.status in (404,):
-        abort(r.status)
-
-    if r.status == 416:
-        if content_range := r.headers.get("content-range"):
-            response_headers["Content-Range"] = content_range
-        del response_headers["Cache-Control"]
-        response_headers["Content-Type"] = "text/plain"
-        return (
-            "Invalid range provided",
-            416,
-            response_headers,
-        )
-
-    r.raise_for_status()
-
-    response_headers["content-type"] = r.headers["Content-Type"]
-
-    if age := r.headers.get("Age"):
-        response_headers["Age"] = age
-
-    if content_length := r.headers.get("content-length"):
-        response_headers["Content-Length"] = content_length
-
-    if content_range := r.headers.get("content-range"):
-        response_headers["Content-Range"] = content_range
-
-    if last_modified := r.headers.get("last-modified"):
-        response_headers["Last-Modified"] = last_modified
-
-    async def stream():
-        async for chunk in r.content.iter_chunked(10 * 1024):
-            yield chunk
-        r.close()
-
-    res = await make_response(stream())
-    res.timeout = None
-
-    return (
-        res,
-        r.status,
-        response_headers,
-    )
+    return await perform_proxy("https://" + url, params=request.args)
 
 
 @bp.get("/proxy/3rd_party/profile_image/<platform>/<username>")
@@ -178,23 +161,4 @@ async def get_3rdparty_profile_image(platform, username):
     if platform not in platform_mapping:
         abort(400)
 
-    response_headers = {"Cache-Control": "max-age=31536000"}
-
-    r: ClientResponse = await current_app.content_proxy.get(
-        platform_mapping[platform] % username
-    )
-    r.raise_for_status()
-
-    response_headers["Content-Type"] = r.headers["Content-Type"]
-    if content_length := r.headers.get("content-length"):
-        response_headers["Content-Length"] = content_length
-
-    async def stream():
-        async for chunk in r.content.iter_chunked(10 * 1024):
-            yield chunk
-        r.close()
-
-    res = await make_response(stream())
-    res.timeout = None
-
-    return res, response_headers
+    return await perform_proxy(platform_mapping[platform] % username)
