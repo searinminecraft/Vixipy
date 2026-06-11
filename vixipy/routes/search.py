@@ -9,7 +9,7 @@ from quart import (
     render_template,
     url_for,
 )
-from quart_rate_limiter import limit_blueprint, timedelta, RateLimit, rate_limit
+from quart_rate_limiter import limit_blueprint, timedelta, RateLimit, rate_limit, rate_exempt
 
 from asyncio import gather
 import logging
@@ -208,3 +208,9 @@ async def search_dashboard():
         recommend_tags=recommend_tags,
         recommend=recommend_by_tag,
     )
+
+
+@bp.route("/search.php")
+@rate_exempt
+def legacy_url_redirect():
+    return redirect(url_for("search.search_main", query=request.args["word"]))
