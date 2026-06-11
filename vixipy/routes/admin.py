@@ -25,7 +25,8 @@ async def _execute_api_job(a, endpoint, method, content_type, payload):
         headers={**default_headers, "Content-Type": content_type} if method=="post" else default_headers,
         account=a,
         json_payload=json.loads(payload) if content_type=="application/json" else None,
-        raw_payload=payload if content_type=="application/x-www-form-url-encoded" else None
+        raw_payload=payload if content_type=="application/x-www-form-url-encoded" else None,
+        ignore_cache=True
     )
 
     return pformat(data), a
