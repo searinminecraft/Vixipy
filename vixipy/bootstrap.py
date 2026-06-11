@@ -123,14 +123,16 @@ class _InstanceAccount:
 
 
 async def _init_user(t: str):
-    try:
-        r = await current_app.pixiv.get("/ajax/user/self", headers={"Cookie": "PHPSESSID=" + t})
-        j = await r.json()
-        data = UserSelfData(j)
+    r = await current_app.pixiv.get("/ajax/user/self", headers={"Cookie": "PHPSESSID=" + t})
+
+    if r.status != 200:
+        log.error("Token %s is not working (banned account?), skipping...", t)
         r.close()
-    except Exception:
-        log.exception("Error at token %s, skipping", t)
         return
+
+    j = await r.json()
+    data = UserSelfData(j)
+    r.close()
 
     yuid_b, p_ab_d_id, p_ab_id, p_ab_id_2 = (
         pixiv_session_handler._generate_ab_cookies()
