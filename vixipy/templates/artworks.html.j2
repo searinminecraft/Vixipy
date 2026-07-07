@@ -44,7 +44,7 @@
                     <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-valentine-effect/effect.png">
                     {% elif work.has_tag_any(["pixivSnowEffect", "pixivSnow2024"]) %}
 		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-snow-2024/effect.png">
-		    {% elif work.has_tag("pixivRain2024") %}
+		    {% elif work.has_tag_any(["pixivRain2024", "pixivRainEffect"]) %}
 		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-rain-2024/effect.webp">
 		    {% elif work.has_tag_any(["pixivSakuraEffect", "pixivSakuraFestival2024"]) %}
 		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-sakura-effect/effect.png">
@@ -54,6 +54,8 @@
 		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/trick-or-treat-2024/effect.png">
 		    {% elif work.has_tag("evaEffect") %}
 		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-eva-effect/effect.png">
+		    {% elif work.has_tag_any(('pixivGlowEffect', 'pixivGlow2024'))%}
+		    <img class="effect" src="/proxy/source.pixiv.net/special/seasonal-effect-tag/pixiv-glow-effect/effect.webp">
 		    {% endif %}
 		    {% endif %}
 
