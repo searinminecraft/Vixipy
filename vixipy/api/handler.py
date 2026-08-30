@@ -23,7 +23,7 @@ class PixivError(Exception):
         self.path: str = path
         self.message: str = message
 
-        super().__init__(f"code={code}, message={message}, path={path}")
+        super().__init__(f"{code=}, {message=!r}, {path=!r}")
 
 
 async def pixiv_request(

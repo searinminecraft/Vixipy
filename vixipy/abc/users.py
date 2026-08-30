@@ -40,6 +40,7 @@ class User(PartialUser):
         self.comment = d["comment"]
         self.webpage = d["webpage"]
         self.official = d["official"]
+        self.publisher = d["publisher"]
         self.social = UserSocials(d["social"])
         self.comment = d["comment"]
 

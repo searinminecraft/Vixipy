@@ -110,6 +110,24 @@
                     .user-stats {
                         color: var(--md-sys-color-outline);
 
+                        .user-badge {
+                            list-style: none;
+                            padding: 0;
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: .45rem;
+
+                            li {
+                                background-color: var(--md-sys-color-primary-container);
+                                color: var(--md-sys-color-on-primary-container);
+                                padding: .4rem .85rem;
+                                font-size: 12px;
+                                border-radius: 256px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                            }
+                        }
+
                         a {
                             color: unset;
                         }

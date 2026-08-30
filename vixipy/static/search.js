@@ -30,15 +30,17 @@ function get_suggestions() {
                 let link = document.createElement("a")
                 link.href = `/tags/${res.name}`
                 let span = document.createElement("span")
-                span.innerHTML = res.name
+                span.textContent = res.name
                 link.append(span)
                 if (res.sub) {
                     let sub = document.createElement("small")
-                    sub.innerHTML = res.sub
+                    sub.textContent = res.sub
                     link.append(sub)
                 }
+
                 li.append(link)
                 suggest_list.append(li)
+		htmx.process(link)
             }
         }
     )

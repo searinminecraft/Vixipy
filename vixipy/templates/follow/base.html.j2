@@ -1,0 +1,17 @@
+{% extends "layouts/default.html.j2" %}
+
+{% block content %}
+<main>
+    <nav class="tabs">
+        <a {% if follow_current == 'illust' %}
+        class="active" href="#"
+        {% else %}
+        href="{{url_for('follow.bookmark_new_illust')}}"
+        {% endif %}>{{_("Users you are following")}}</a>
+        <a>{{_("Works on Watchlist")}}</a>
+        <a>{{_("My pixiv")}}</a>
+    </nav>
+
+    {% block follow_content %}{% endblock follow_content %}
+</main>
+{% endblock content %}

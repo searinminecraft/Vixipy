@@ -5,3 +5,4 @@ pyxiv.sock
 pyxiv.running
 compose.yaml
 instance
+memray*

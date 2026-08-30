@@ -2,6 +2,7 @@ nav.tabs {
     display: flex;
     overflow-x: auto;
     scrollbar-width: none;
+    margin: 1rem 0;
 
     &::-webkit-scrollbar {
         width: 0
@@ -33,6 +34,7 @@ nav.tabs {
     align-items: center;
     justify-content: space-between;
     gap: 1em;
+    margin: 1.35rem 0;
 }
 
 .chip-toggle {
@@ -42,12 +44,16 @@ nav.tabs {
     a {
         color: var(--md-sys-color-outline);
         font-weight: bold;
-        padding: 10px 20px;
+        padding: .75rem 1.5rem;
         transition-property: color, background-color;
         transition-duration: .2s;
         transition-timing-function: ease;
-        font-size: 16px;
+        font-size: 14px;
         border-radius: 999999px;
+        
+        &:not([href]) {
+            cursor: default;
+        }
 
         &.active {
             color: var(--md-sys-color-on-surface);

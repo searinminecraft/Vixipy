@@ -33,6 +33,19 @@
                     <div class="info">
                         <h3>{{data.name}}</h3>
                         <div class="user-stats">
+                            {% if data.premium or data.publisher or data.official %}
+                            <ul class="user-badge">
+                                {% if data.publisher %}
+                                <li title='{{_("This user is an official publisher verified by pixiv")}}'>{{_("Publisher")}}</li>
+                                {% endif %}
+                                {% if data.official %}
+                                <li title='{{_("This user is an account operated by pixiv")}}'>{{_("Official")}}</li>
+                                {% endif %}
+                                {% if data.premium %}
+                                <li title="{{_('This user is a pixiv Premium subscriber')}}">{{_("Premium")}}</li>
+                                {% endif %}
+                            </ul>
+                            {% endif %}
                             <a href="{{url_for('users.following', user=data.id)}}">
                                 <b>{{data.following}}</b> {{_("Following")}}
                             </a>

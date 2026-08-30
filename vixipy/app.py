@@ -39,6 +39,7 @@ from .routes import (
     collection,
     street,
     admin,
+    follow,
 )
 from . import (
     cache_client,
@@ -212,6 +213,7 @@ def create_app():
     app.register_blueprint(collection)
     app.register_blueprint(street)
     app.register_blueprint(admin)
+    app.register_blueprint(follow)
 
     # =================================
 

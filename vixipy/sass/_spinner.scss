@@ -16,21 +16,10 @@
 
             fill: transparent;
 
-            .track {
-                transition: stroke-dasharray .5s 0ms cubic-bezier(0, 0, .2, 1), stroke-dashoffset .5s 0ms cubic-bezier(0, 0, .2, 1), stroke-width .25s 0ms cubic-bezier(.4, 0, .6, 1);
-                cx: calc(var(--EkrYwf, 40px)/2);
-                cy: calc(var(--EkrYwf, 40px)/2);
-                r: calc((40px - 4px)/2);
-                stroke: var(--md-sys-color-secondary-container);
-                stroke-width: 4px;
-                stroke-linecap: round;
-                animation: gm3-cpi-track-grow 6s ease infinite;
-            }
-
             .active {
                 transition: stroke-dasharray .5s 0ms cubic-bezier(0, 0, .2, 1), stroke-width .25s 0ms cubic-bezier(.4, 0, .6, 1);
-                cx: calc(var(--EkrYwf, 40px)/2);
-                cy: calc(var(--EkrYwf, 40px)/2);
+                cx: calc(40px / 2);
+                cy: calc(40px / 2);
                 r: calc((40px - 4px)/2);
                 stroke: var(--md-sys-color-primary);
                 stroke-width: 4px;
