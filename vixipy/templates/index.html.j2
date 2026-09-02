@@ -7,9 +7,40 @@
 {% block content %}
 <main class="large">
     {{ t.tag_list_large(tags) }}
+
+    <div class="nav-controller">
+        <div></div>
+	<div class="chip-toggle">
+            <a
+	      {% if request.args.get('mode', 'all') == "r18" %}
+	      href="/"
+	      {% else %}
+	      class="active"
+	      {% endif %}
+	    >
+	        {{_("All")}}
+	    </a>
+	    <a
+	      {% if request.args.get('mode', 'all') == "r18" %}
+	      class="active"
+	      {% else %}
+	      href="/?mode=r18"
+	      {% endif %}
+	    >
+	        R-18
+	    </a>
+
+	</div>
+    </div>
+
     {% if following | length > 0 %}
     <section id="following">
-        <h2>{{_("Works by users you are following")}}</h2>
+    	<hgroup class="multi">
+	    <main>
+                <h2>{{_("Works by users you are following")}}</h2>
+	    </main>
+	    <a href="{{url_for('follow.bookmark_new_illust')}}">{{_("View All")}}</a>
+	</hgroup>
         <div class="scrolling-container">
             {% for il in following %}
             {{ ae.entry(il) }}
@@ -52,9 +83,12 @@
     {% endif %}
 
     <section id="pixivision">
-        <hgroup>
-            <small>{{_("pixiv creative media")}}</small>
-            <h2>{{_("Newest articles on pixivision")}}</h2>
+        <hgroup class="multi">
+	    <main>
+	        <small>{{_("pixiv creative media")}}</small>
+                <h2>{{_("Newest articles on pixivision")}}</h2>
+	    </main>
+	    <a href="/pixivision">{{_("View All")}}</a>
         </hgroup>
         <div class="carousel large">
             {% for x in pixivision %}

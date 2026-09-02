@@ -105,9 +105,9 @@ async def node_info():
     try:
         git_p = await asyncio.create_subprocess_exec(
             "git",
-            "rev-parse",
-            "--short",
-            "HEAD",
+            "describe",
+            "--tags",
+            "--dirty",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )

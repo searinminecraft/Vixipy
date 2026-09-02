@@ -1,9 +1,11 @@
 from quart import Blueprint, render_template, url_for, redirect, request
 from ..api.follow import get_latest_works_from_following, get_latest_novels_from_following
+from ..decorators import require_login
 
 bp = Blueprint("follow", __name__)
 
 @bp.route("/follow/new")
+@require_login
 async def bookmark_new_illust():
     data, is_last_page = await get_latest_works_from_following(
         request.args.get("p", 1, type=int),
@@ -12,6 +14,7 @@ async def bookmark_new_illust():
     return await render_template("follow/users/illust.html.j2", data=data, is_last=is_last_page)
 
 @bp.route("/follow/novel/new")
+@require_login
 async def novel_bookmark_new():
     data, is_last_page = await get_latest_novels_from_following(
         request.args.get("p", 1, type=int),
