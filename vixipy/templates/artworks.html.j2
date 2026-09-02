@@ -5,9 +5,9 @@
 <meta property="og:title" content='{{_("%(work_name)s by %(author)s", work_name=work.title, author=work.authorName)}}'>
 <meta property="og:site_name" content="{{config['INSTANCE_NAME']}}" />
 <meta property="og:description" content="
-👍 {{work.likeCount|numberformat}} ❤️ {{work.bookmarkCount|numberformat}} 💬 {{work.commentCount|numberformat}}
+👍 {{work.likeCount|numberformat}} ❤️ {{work.bookmarkCount|numberformat}} 💬 {{work.commentCount|numberformat}} 👀 {{work.viewCount|numberformat}}
 
-{% for tag in work.tags %}#{{tag.name}} {% endfor %}
+{% for tag in work.tags %}#{{tag.en or tag.name}} {% endfor %}
 
 {{work.description_stripped[:64]}}{% if work.description_stripped|length > 64%}...{% endif %}
 " />
