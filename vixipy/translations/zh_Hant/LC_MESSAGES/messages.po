@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vixipy 3\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-11 19:07+0800\n"
+"POT-Creation-Date: 2026-09-04 14:17+0800\n"
 "PO-Revision-Date: 2025-11-23 05:42+0000\n"
 "Last-Translator: Vyxie <kitakita@disroot.org>\n"
 "Language: zh_Hant\n"
@@ -20,78 +20,74 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: vixipy/session.py:78
+#: vixipy/session.py:77
 msgid "Session not valid. Please sign in."
 msgstr ""
 
-#: vixipy/routes/login.py:55
+#: vixipy/routes/login.py:57
 msgid "Invalid token"
 msgstr "無效令牌"
-
-#: vixipy/routes/login.py:82
-msgid "Unable to extract CSRF"
-msgstr "無法提取 CSRF 令牌"
 
 #: vixipy/templates/artworks.html.j2:2 vixipy/templates/artworks.html.j2:5
 #, fuzzy, python-format
 msgid "%(work_name)s by %(author)s"
 msgstr "作者：%(author)s"
 
-#: vixipy/templates/artworks.html.j2:69
+#: vixipy/templates/artworks.html.j2:75
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "第 %(page)d 頁/共 %(total)d 頁"
 
-#: vixipy/templates/artworks.html.j2:79
+#: vixipy/templates/artworks.html.j2:84
 #: vixipy/templates/index_logged_out.html.j2:17
 #: vixipy/templates/search/main.html.j2:41
 #: vixipy/templates/search/main.html.j2:53
 msgid "View All"
 msgstr "檢視全部"
 
-#: vixipy/templates/artworks.html.j2:108
+#: vixipy/templates/artworks.html.j2:113
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
 msgstr ""
 
-#: vixipy/templates/artworks.html.j2:142
+#: vixipy/templates/artworks.html.j2:147
 msgid "Show more..."
 msgstr ""
 
-#: vixipy/templates/artworks.html.j2:147
+#: vixipy/templates/artworks.html.j2:152
 #, fuzzy
 msgid "Sign in required"
 msgstr "登入"
 
-#: vixipy/templates/artworks.html.j2:150
+#: vixipy/templates/artworks.html.j2:155
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html.j2:156
+#: vixipy/templates/artworks.html.j2:161
 #: vixipy/templates/rankings/calendar.html.j2:26
 #: vixipy/templates/rankings/main.html.j2:26
 msgid "AI Generated"
 msgstr "AI 生成"
 
-#: vixipy/templates/artworks.html.j2:159
+#: vixipy/templates/artworks.html.j2:164
 #: vixipy/templates/components/novel-entry.html.j2:17
 #: vixipy/templates/rankings/calendar.html.j2:25
 #: vixipy/templates/rankings/main.html.j2:25
 msgid "Original"
 msgstr "原創"
 
-#: vixipy/templates/artworks.html.j2:162
+#: vixipy/templates/artworks.html.j2:167
 #: vixipy/templates/rankings/main.html.j2:46
 msgid "Ugoira"
 msgstr "動圖"
 
-#: vixipy/templates/artworks.html.j2:177 vixipy/templates/artworks.html.j2:188
+#: vixipy/templates/artworks.html.j2:182 vixipy/templates/artworks.html.j2:193
 #: vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "相關作品"
 
-#: vixipy/templates/artworks.html.j2:209
+#: vixipy/templates/artworks.html.j2:214
 msgid "An error occurred trying to get the artwork pages"
 msgstr ""
 
@@ -129,6 +125,8 @@ msgid "There is no comment yet"
 msgstr "暫無評論"
 
 #: vixipy/templates/comments.html.j2:100
+#: vixipy/templates/follow/users/illust.html.j2:31
+#: vixipy/templates/follow/users/novel.html.j2:31
 #: vixipy/templates/pixivision/category.html.j2:26
 #: vixipy/templates/pixivision/index.html.j2:238
 #: vixipy/templates/pixivision/search.html.j2:37
@@ -198,7 +196,7 @@ msgid "Self introduction"
 msgstr "個人簡介"
 
 #: vixipy/templates/edit_profile.html.j2:40
-#: vixipy/templates/users/base.html.j2:96
+#: vixipy/templates/users/base.html.j2:109
 msgid "Website"
 msgstr "網站"
 
@@ -310,32 +308,32 @@ msgstr "轉換"
 msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
 msgstr ""
 
-#: vixipy/templates/illust_series.html.j2:27
+#: vixipy/templates/illust_series.html.j2:29
 #: vixipy/templates/search/index.html.j2:24
 #, python-format
 msgid "%(num)d work"
 msgid_plural "%(num)d works"
 msgstr[0] ""
 
-#: vixipy/templates/illust_series.html.j2:32
+#: vixipy/templates/illust_series.html.j2:34
 msgid "Read from beginning"
 msgstr ""
 
-#: vixipy/templates/illust_series.html.j2:41
+#: vixipy/templates/illust_series.html.j2:43
 msgid "Add to Watchlist"
 msgstr ""
 
-#: vixipy/templates/illust_series.html.j2:48
+#: vixipy/templates/illust_series.html.j2:50
 msgid "Already in your watchlist"
 msgstr ""
 
-#: vixipy/templates/illust_series.html.j2:87
+#: vixipy/templates/illust_series.html.j2:89
 #, fuzzy
 msgid "Works"
 msgstr "關鍵字"
 
 #: vixipy/templates/index.html.j2:2 vixipy/templates/index_logged_out.html.j2:2
-#: vixipy/templates/users/base.html.j2:163
+#: vixipy/templates/users/base.html.j2:176
 msgid "Home"
 msgstr "首頁"
 
@@ -348,9 +346,6 @@ msgid "Recommended works"
 msgstr "推薦作品"
 
 #: vixipy/templates/index.html.j2:31
-#: vixipy/templates/search/popular_tags.html.j2:3
-#: vixipy/templates/search/popular_tags.html.j2:7
-#: vixipy/templates/users/dashboard.html.j2:133
 msgid "Popular Tags"
 msgstr "熱門標籤"
 
@@ -370,7 +365,7 @@ msgid ""
 msgstr "帶標籤 <a href='%(link)s' title='%(title)s'>#%(tag)s</a> 的推薦插畫"
 
 #: vixipy/templates/index.html.j2:101
-#: vixipy/templates/users/dashboard.html.j2:88
+#: vixipy/templates/users/dashboard.html.j2:101
 msgid "Newest by all"
 msgstr "全部最新作品"
 
@@ -417,7 +412,7 @@ msgstr "繼續訪問"
 #: vixipy/templates/login.html.j2:7 vixipy/templates/login.html.j2:60
 #: vixipy/templates/login.html.j2:76
 #: vixipy/templates/settings/account.html.j2:87
-#: vixipy/templates/users/dashboard.html.j2:65
+#: vixipy/templates/users/dashboard.html.j2:70
 msgid "Sign in"
 msgstr "登入"
 
@@ -509,7 +504,7 @@ msgid "Return"
 msgstr "返回"
 
 #: vixipy/templates/monet.html.j2:2 vixipy/templates/monet.html.j2:8
-#: vixipy/templates/users/dashboard.html.j2:157
+#: vixipy/templates/users/dashboard.html.j2:160
 msgid "Material You Generator"
 msgstr "Material You 生成器"
 
@@ -577,7 +572,7 @@ msgid "%(title)s | Collection by %(author)s"
 msgstr "%(title)s | %(author)s 的珍藏冊"
 
 #: vixipy/templates/collection/index.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:123
+#: vixipy/templates/users/dashboard.html.j2:136
 msgid "Collections"
 msgstr "珍藏冊"
 
@@ -739,14 +734,14 @@ msgid "Page %(current)d of %(last)d"
 msgstr "第 %(current)d 頁/共 %(last)d 頁"
 
 #: vixipy/templates/components/user-entry.html.j2:20
-#: vixipy/templates/users/base.html.j2:54
+#: vixipy/templates/users/base.html.j2:67
 msgid "Follow"
 msgstr "關注"
 
 #: vixipy/templates/components/user-entry.html.j2:20
-#: vixipy/templates/users/base.html.j2:37
-#: vixipy/templates/users/base.html.j2:54
-#: vixipy/templates/users/dashboard.html.j2:13
+#: vixipy/templates/users/base.html.j2:50
+#: vixipy/templates/users/base.html.j2:67
+#: vixipy/templates/users/dashboard.html.j2:12
 #: vixipy/templates/users/follow/base.html.j2:34
 msgid "Following"
 msgstr "正在關注"
@@ -761,7 +756,7 @@ msgstr "重新載入"
 
 #: vixipy/templates/discovery/index.html.j2:3
 #: vixipy/templates/discovery/index.html.j2:9
-#: vixipy/templates/users/dashboard.html.j2:72
+#: vixipy/templates/users/dashboard.html.j2:80
 msgid "Discovery"
 msgstr "發現"
 
@@ -772,6 +767,57 @@ msgstr "推薦插畫"
 #: vixipy/templates/discovery/index.html.j2:21
 msgid "Recommended users"
 msgstr "推薦使用者"
+
+#: vixipy/templates/follow/base.html.j2:10
+#, fuzzy
+msgid "Users you are following"
+msgstr "關注使用者的作品"
+
+#: vixipy/templates/follow/base.html.j2:11
+#, fuzzy
+msgid "Works on Watchlist"
+msgstr "作品內容"
+
+#: vixipy/templates/follow/base.html.j2:12
+#: vixipy/templates/users/follow/base.html.j2:41
+msgid "My pixiv"
+msgstr "好P友"
+
+#: vixipy/templates/follow/users/illust.html.j2:3
+#: vixipy/templates/follow/users/novel.html.j2:3
+#, fuzzy
+msgid "Works by users you're following"
+msgstr "關注使用者的作品"
+
+#: vixipy/templates/follow/users/illust.html.j2:9
+#: vixipy/templates/follow/users/novel.html.j2:9
+#: vixipy/templates/search/main.html.j2:34 vixipy/templates/users/top.html.j2:8
+msgid "Illustrations and Manga"
+msgstr "插畫與漫畫"
+
+#: vixipy/templates/follow/users/illust.html.j2:10
+#: vixipy/templates/follow/users/novel.html.j2:10
+#: vixipy/templates/newest/index.html.j2:28
+#: vixipy/templates/novels/index.html.j2:2
+#: vixipy/templates/pixivision/category_name.html.j2:10
+#: vixipy/templates/pixivision/index.html.j2:50
+#: vixipy/templates/search/illust.html.j2:9
+#: vixipy/templates/search/main.html.j2:10
+#: vixipy/templates/search/main.html.j2:46
+#: vixipy/templates/search/manga.html.j2:9
+#: vixipy/templates/search/novel.html.j2:10
+#: vixipy/templates/search/novel.html.j2:15
+#: vixipy/templates/users/base.html.j2:185
+#: vixipy/templates/users/dashboard.html.j2:91
+#: vixipy/templates/users/novels.html.j2:9
+msgid "Novels"
+msgstr "小說"
+
+#: vixipy/templates/follow/users/illust.html.j2:13
+#: vixipy/templates/follow/users/novel.html.j2:13
+#: vixipy/templates/search/components/tag-search-filter.html.j2:40
+msgid "All"
+msgstr "全部"
 
 #: vixipy/templates/license/index.html.j2:14
 #: vixipy/templates/license/index.html.j2:28
@@ -807,7 +853,7 @@ msgstr "所有使用者最新內容"
 #: vixipy/templates/search/main.html.j2:8
 #: vixipy/templates/search/manga.html.j2:7
 #: vixipy/templates/search/novel.html.j2:8
-#: vixipy/templates/users/base.html.j2:166
+#: vixipy/templates/users/base.html.j2:179
 #: vixipy/templates/users/illust.html.j2:9
 msgid "Illustrations"
 msgstr "插畫"
@@ -821,26 +867,10 @@ msgstr "插畫"
 #: vixipy/templates/search/manga.html.j2:8
 #: vixipy/templates/search/manga.html.j2:13
 #: vixipy/templates/search/novel.html.j2:9
-#: vixipy/templates/users/base.html.j2:169
+#: vixipy/templates/users/base.html.j2:182
 #: vixipy/templates/users/manga.html.j2:9
 msgid "Manga"
 msgstr "漫畫"
-
-#: vixipy/templates/newest/index.html.j2:28
-#: vixipy/templates/novels/index.html.j2:2
-#: vixipy/templates/pixivision/category_name.html.j2:10
-#: vixipy/templates/pixivision/index.html.j2:50
-#: vixipy/templates/search/illust.html.j2:9
-#: vixipy/templates/search/main.html.j2:10
-#: vixipy/templates/search/main.html.j2:46
-#: vixipy/templates/search/manga.html.j2:9
-#: vixipy/templates/search/novel.html.j2:10
-#: vixipy/templates/search/novel.html.j2:15
-#: vixipy/templates/users/base.html.j2:172
-#: vixipy/templates/users/dashboard.html.j2:78
-#: vixipy/templates/users/novels.html.j2:9
-msgid "Novels"
-msgstr "小說"
 
 #: vixipy/templates/newest/index.html.j2:32
 msgid "General"
@@ -897,7 +927,7 @@ msgstr "更新於 %(date)s"
 #: vixipy/templates/pixivision/category.html.j2:5
 #: vixipy/templates/pixivision/index.html.j2:2
 #: vixipy/templates/pixivision/search.html.j2:3
-#: vixipy/templates/users/dashboard.html.j2:143
+#: vixipy/templates/users/dashboard.html.j2:146
 msgid "pixivision"
 msgstr "pixivision"
 
@@ -1018,7 +1048,7 @@ msgstr "索引"
 
 #: vixipy/templates/rankings/calendar.html.j2:2
 #: vixipy/templates/rankings/calendar.html.j2:6
-#: vixipy/templates/users/dashboard.html.j2:108
+#: vixipy/templates/users/dashboard.html.j2:121
 msgid "Ranking Calendar"
 msgstr "排行榜日曆"
 
@@ -1111,7 +1141,7 @@ msgid "Day %(day)s"
 msgstr "第 %(day)s 天"
 
 #: vixipy/templates/rankings/main.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:98
+#: vixipy/templates/users/dashboard.html.j2:111
 msgid "Rankings"
 msgstr "排行榜"
 
@@ -1182,14 +1212,6 @@ msgstr "最新"
 msgid "All Time"
 msgstr "全部時間"
 
-#: vixipy/templates/search/main.html.j2:34 vixipy/templates/users/top.html.j2:8
-msgid "Illustrations and Manga"
-msgstr "插畫與漫畫"
-
-#: vixipy/templates/search/popular_tags.html.j2:28
-msgid "Unable to load popular tags."
-msgstr "無法載入熱門標籤。"
-
 #: vixipy/templates/search/components/tag-search-filter.html.j2:26
 msgid "Keywords"
 msgstr "關鍵字"
@@ -1213,10 +1235,6 @@ msgstr "標題/說明"
 #: vixipy/templates/search/components/tag-search-filter.html.j2:37
 msgid "Filters"
 msgstr "篩選"
-
-#: vixipy/templates/search/components/tag-search-filter.html.j2:40
-msgid "All"
-msgstr "全部"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:41
 msgid "Safe"
@@ -1273,7 +1291,7 @@ msgid "Period"
 msgstr "時段"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:181
-#: vixipy/templates/users/dashboard.html.j2:215
+#: vixipy/templates/users/dashboard.html.j2:218
 msgid "Cancel"
 msgstr "取消"
 
@@ -1544,7 +1562,7 @@ msgstr "廣告顯示設定"
 #: vixipy/templates/settings/index.html.j2:3
 #: vixipy/templates/settings/index.html.j2:5
 #: vixipy/templates/settings/index.html.j2:13
-#: vixipy/templates/users/dashboard.html.j2:167
+#: vixipy/templates/users/dashboard.html.j2:170
 msgid "Settings"
 msgstr "設定"
 
@@ -1623,7 +1641,7 @@ msgid "Set color scheme"
 msgstr "設定配色方案"
 
 #: vixipy/templates/street/index.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:53
+#: vixipy/templates/users/dashboard.html.j2:56
 #, fuzzy
 msgid "Street"
 msgstr "目標"
@@ -1633,13 +1651,13 @@ msgid "Load More"
 msgstr ""
 
 #: vixipy/templates/test/dialog.html.j2:28
-#: vixipy/templates/users/dashboard.html.j2:199
-#: vixipy/templates/users/dashboard.html.j2:209
+#: vixipy/templates/users/dashboard.html.j2:202
+#: vixipy/templates/users/dashboard.html.j2:212
 msgid "Log out"
 msgstr "登出"
 
 #: vixipy/templates/test/dialog.html.j2:31
-#: vixipy/templates/users/dashboard.html.j2:212
+#: vixipy/templates/users/dashboard.html.j2:215
 msgid "Do you wish to log out?"
 msgstr "您確定要登出嗎？"
 
@@ -1684,41 +1702,67 @@ msgstr "%(user)s 的頭像"
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr "點選在新標籤頁開啟 %(user)s 的頭像。"
 
-#: vixipy/templates/users/base.html.j2:44
+#: vixipy/templates/users/base.html.j2:39
+msgid "This user is an official publisher verified by pixiv"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:39
+#, fuzzy
+msgid "Publisher"
+msgstr "公開"
+
+#: vixipy/templates/users/base.html.j2:42
+msgid "This user is an account operated by pixiv"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:42
+#, fuzzy
+msgid "Official"
+msgstr "社交媒體"
+
+#: vixipy/templates/users/base.html.j2:45
+msgid "This user is a pixiv Premium subscriber"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:45
+msgid "Premium"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:57
 msgid "Edit Profile"
 msgstr "編輯資料"
 
-#: vixipy/templates/users/base.html.j2:68
+#: vixipy/templates/users/base.html.j2:81
 msgid "Profile"
 msgstr "個人資料"
 
-#: vixipy/templates/users/base.html.j2:77
+#: vixipy/templates/users/base.html.j2:90
 msgid "Description"
 msgstr "自我介紹"
 
-#: vixipy/templates/users/base.html.j2:81
+#: vixipy/templates/users/base.html.j2:94
 msgid "This user has no description set"
 msgstr "此使用者沒有自我介紹"
 
-#: vixipy/templates/users/base.html.j2:84
+#: vixipy/templates/users/base.html.j2:97
 #, fuzzy
 msgid "Socials"
 msgstr "社交媒體"
 
-#: vixipy/templates/users/base.html.j2:149
+#: vixipy/templates/users/base.html.j2:162
 msgid ""
 "You should not go to Pawoo, as it contains inappropriate content, "
 "resulting in the instance being added to the federation blacklist and "
 "banned on most federated social media."
 msgstr "請您不要前往 Pawoo，因其包含不妥內容，使此實例被加入到聯邦的黑名單並且被多數聯邦社群媒體封鎖。"
 
-#: vixipy/templates/users/base.html.j2:155
+#: vixipy/templates/users/base.html.j2:168
 msgid "This user did not specify their socials"
 msgstr "使用者未連結社交媒體"
 
-#: vixipy/templates/users/base.html.j2:175
+#: vixipy/templates/users/base.html.j2:188
 #: vixipy/templates/users/bookmarks.html.j2:9
-#: vixipy/templates/users/dashboard.html.j2:47
+#: vixipy/templates/users/dashboard.html.j2:46
 msgid "Bookmarks"
 msgstr "收藏"
 
@@ -1734,37 +1778,33 @@ msgstr "找不到作品。"
 msgid "Menu"
 msgstr "選單"
 
-#: vixipy/templates/users/dashboard.html.j2:13
+#: vixipy/templates/users/dashboard.html.j2:12
 #: vixipy/templates/users/follow/base.html.j2:49
 msgid "Followers"
 msgstr "關注者"
 
-#: vixipy/templates/users/dashboard.html.j2:25
+#: vixipy/templates/users/dashboard.html.j2:24
 #, fuzzy
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
 msgstr "<b>您尚未登入。</b> 登入 pixiv 帳號以體驗 Vixipy 的全部功能。"
 
-#: vixipy/templates/users/dashboard.html.j2:39
+#: vixipy/templates/users/dashboard.html.j2:38
 msgid "Your profile"
 msgstr "您的個人資料"
 
-#: vixipy/templates/users/dashboard.html.j2:177
+#: vixipy/templates/users/dashboard.html.j2:180
 msgid "Send Feedback"
 msgstr "傳送回饋"
 
-#: vixipy/templates/users/dashboard.html.j2:187
+#: vixipy/templates/users/dashboard.html.j2:190
 msgid "Source Code"
 msgstr "原始碼"
 
-#: vixipy/templates/users/dashboard.html.j2:216
+#: vixipy/templates/users/dashboard.html.j2:219
 msgid "OK"
 msgstr "確認"
-
-#: vixipy/templates/users/follow/base.html.j2:41
-msgid "My pixiv"
-msgstr "好P友"
 
 #: vixipy/templates/users/follow/followers.html.j2:3
 #, python-format

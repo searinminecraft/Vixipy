@@ -7,91 +7,86 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-11 19:07+0800\n"
+"POT-Creation-Date: 2026-09-04 14:17+0800\n"
 "PO-Revision-Date: 2026-03-26 09:57+0000\n"
 "Last-Translator: Adagio <adagio@noreply.codeberg.org>\n"
-"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy/user-"
-"interface/ru/>\n"
 "Language: ru\n"
+"Language-Team: Russian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/ru/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: vixipy/session.py:78
+#: vixipy/session.py:77
 msgid "Session not valid. Please sign in."
 msgstr "Сессия недействительна. Пожалуйста, войдите в аккаунт."
 
-#: vixipy/routes/login.py:55
+#: vixipy/routes/login.py:57
 msgid "Invalid token"
 msgstr "Недействительный токен"
-
-#: vixipy/routes/login.py:82
-msgid "Unable to extract CSRF"
-msgstr "Не удалось извлечь CSRF"
 
 #: vixipy/templates/artworks.html.j2:2 vixipy/templates/artworks.html.j2:5
 #, python-format
 msgid "%(work_name)s by %(author)s"
 msgstr "%(work_name)sот автора%(author)s"
 
-#: vixipy/templates/artworks.html.j2:69
+#: vixipy/templates/artworks.html.j2:75
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "Страница%(page)dиз%(total)d"
 
-#: vixipy/templates/artworks.html.j2:79
+#: vixipy/templates/artworks.html.j2:84
 #: vixipy/templates/index_logged_out.html.j2:17
 #: vixipy/templates/search/main.html.j2:41
 #: vixipy/templates/search/main.html.j2:53
 msgid "View All"
 msgstr "Смотреть все"
 
-#: vixipy/templates/artworks.html.j2:108
+#: vixipy/templates/artworks.html.j2:113
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
 msgstr "Загрузка..."
 
-#: vixipy/templates/artworks.html.j2:142
+#: vixipy/templates/artworks.html.j2:147
 msgid "Show more..."
 msgstr "Показать больше..."
 
-#: vixipy/templates/artworks.html.j2:147
+#: vixipy/templates/artworks.html.j2:152
 msgid "Sign in required"
 msgstr "Требуется вход"
 
-#: vixipy/templates/artworks.html.j2:150
+#: vixipy/templates/artworks.html.j2:155
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr ""
 
-#: vixipy/templates/artworks.html.j2:156
+#: vixipy/templates/artworks.html.j2:161
 #: vixipy/templates/rankings/calendar.html.j2:26
 #: vixipy/templates/rankings/main.html.j2:26
 msgid "AI Generated"
 msgstr "Сгенерировано ИИ"
 
-#: vixipy/templates/artworks.html.j2:159
+#: vixipy/templates/artworks.html.j2:164
 #: vixipy/templates/components/novel-entry.html.j2:17
 #: vixipy/templates/rankings/calendar.html.j2:25
 #: vixipy/templates/rankings/main.html.j2:25
 msgid "Original"
 msgstr "Оригинал"
 
-#: vixipy/templates/artworks.html.j2:162
+#: vixipy/templates/artworks.html.j2:167
 #: vixipy/templates/rankings/main.html.j2:46
 msgid "Ugoira"
 msgstr "Анимированные картинки"
 
-#: vixipy/templates/artworks.html.j2:177 vixipy/templates/artworks.html.j2:188
+#: vixipy/templates/artworks.html.j2:182 vixipy/templates/artworks.html.j2:193
 #: vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "Связанные работы"
 
-#: vixipy/templates/artworks.html.j2:209
+#: vixipy/templates/artworks.html.j2:214
 msgid "An error occurred trying to get the artwork pages"
 msgstr "Ошибка загрузки страницы с изображениями"
 
@@ -129,6 +124,8 @@ msgid "There is no comment yet"
 msgstr "Здесь пока нет комментариев"
 
 #: vixipy/templates/comments.html.j2:100
+#: vixipy/templates/follow/users/illust.html.j2:31
+#: vixipy/templates/follow/users/novel.html.j2:31
 #: vixipy/templates/pixivision/category.html.j2:26
 #: vixipy/templates/pixivision/index.html.j2:238
 #: vixipy/templates/pixivision/search.html.j2:37
@@ -153,8 +150,8 @@ msgid ""
 "This page contains content not suitable for some people. Do you want to "
 "view it anyway?"
 msgstr ""
-"Содержимое этой страницы может быть неприемлемым для некоторых людей. Всё "
-"равно отобразить?"
+"Содержимое этой страницы может быть неприемлемым для некоторых людей. Всё"
+" равно отобразить?"
 
 #: vixipy/templates/content_warning.html.j2:11
 #: vixipy/templates/http_error.html.j2:9
@@ -200,7 +197,7 @@ msgid "Self introduction"
 msgstr "О себе"
 
 #: vixipy/templates/edit_profile.html.j2:40
-#: vixipy/templates/users/base.html.j2:96
+#: vixipy/templates/users/base.html.j2:109
 msgid "Website"
 msgstr "Вебсайт"
 
@@ -292,8 +289,8 @@ msgid ""
 "Looks like something went wrong. If you think this is a bug, file a "
 "report <a href='%(link)s'>here</a>"
 msgstr ""
-"Кажется, что-то пошло не так. Если вы думаете, что это баг, отправьте отчёт "
-"<a href='%(link)s'>сюда</a>"
+"Кажется, что-то пошло не так. Если вы думаете, что это баг, отправьте "
+"отчёт <a href='%(link)s'>сюда</a>"
 
 #: vixipy/templates/error.html.j2:10
 msgid "Back to home"
@@ -313,7 +310,7 @@ msgstr "Обложка"
 msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
 msgstr ""
 
-#: vixipy/templates/illust_series.html.j2:27
+#: vixipy/templates/illust_series.html.j2:29
 #: vixipy/templates/search/index.html.j2:24
 #, python-format
 msgid "%(num)d work"
@@ -322,24 +319,24 @@ msgstr[0] "%(num)dработа"
 msgstr[1] "%(num)dработы"
 msgstr[2] "%(num)dработ"
 
-#: vixipy/templates/illust_series.html.j2:32
+#: vixipy/templates/illust_series.html.j2:34
 msgid "Read from beginning"
 msgstr "Читать с начала"
 
-#: vixipy/templates/illust_series.html.j2:41
+#: vixipy/templates/illust_series.html.j2:43
 msgid "Add to Watchlist"
 msgstr "В список для просмотра"
 
-#: vixipy/templates/illust_series.html.j2:48
+#: vixipy/templates/illust_series.html.j2:50
 msgid "Already in your watchlist"
 msgstr "Уже в списке для просмотра"
 
-#: vixipy/templates/illust_series.html.j2:87
+#: vixipy/templates/illust_series.html.j2:89
 msgid "Works"
 msgstr "Работы"
 
 #: vixipy/templates/index.html.j2:2 vixipy/templates/index_logged_out.html.j2:2
-#: vixipy/templates/users/base.html.j2:163
+#: vixipy/templates/users/base.html.j2:176
 msgid "Home"
 msgstr "Главная"
 
@@ -352,9 +349,6 @@ msgid "Recommended works"
 msgstr "Рекомендуемые работы"
 
 #: vixipy/templates/index.html.j2:31
-#: vixipy/templates/search/popular_tags.html.j2:3
-#: vixipy/templates/search/popular_tags.html.j2:7
-#: vixipy/templates/users/dashboard.html.j2:133
 msgid "Popular Tags"
 msgstr "Популярные теги"
 
@@ -372,11 +366,11 @@ msgid ""
 "Recommended illustrations tagged <a href='%(link)s' "
 "title='%(title)s'>#%(tag)s</a>"
 msgstr ""
-"Рекомендуемые иллюстрации под тегом<a href='%(link)s' title='%(title)s'>#%"
-"(tag)s</a>"
+"Рекомендуемые иллюстрации под тегом<a href='%(link)s' "
+"title='%(title)s'>#%(tag)s</a>"
 
 #: vixipy/templates/index.html.j2:101
-#: vixipy/templates/users/dashboard.html.j2:88
+#: vixipy/templates/users/dashboard.html.j2:101
 msgid "Newest by all"
 msgstr "Новейшие работы"
 
@@ -423,7 +417,7 @@ msgstr "Перейти на сайт"
 #: vixipy/templates/login.html.j2:7 vixipy/templates/login.html.j2:60
 #: vixipy/templates/login.html.j2:76
 #: vixipy/templates/settings/account.html.j2:87
-#: vixipy/templates/users/dashboard.html.j2:65
+#: vixipy/templates/users/dashboard.html.j2:70
 msgid "Sign in"
 msgstr "Вход"
 
@@ -448,8 +442,8 @@ msgstr "Для браузеров на основе Firefox:"
 #, python-format
 msgid "Go to <a href='%(pixiv)s'>pixiv</a> and login/register if not already."
 msgstr ""
-"Перейдите на<a href='%(pixiv)s'>pixiv</a>и войдите/зарегистрируйтесь, если "
-"ещё не сделали этого."
+"Перейдите на<a href='%(pixiv)s'>pixiv</a>и войдите/зарегистрируйтесь, "
+"если ещё не сделали этого."
 
 #: vixipy/templates/login.html.j2:36 vixipy/templates/login.html.j2:43
 msgid "Press CTRL+SHIFT+I to open the developer tools"
@@ -496,10 +490,10 @@ msgid ""
 "server. The chances of your account getting in trouble or suspended are "
 "highly unlikely as well."
 msgstr ""
-"Vixipy никогда не крадёт токены сессии или личные данные. Ваш токен хранится "
-"в вашем браузере как файл cookie в течение 6 месяцев. Он не хранится на "
-"нашем сервере. Возникновение проблем или блокировка вашего аккаунта также "
-"маловероятны."
+"Vixipy никогда не крадёт токены сессии или личные данные. Ваш токен "
+"хранится в вашем браузере как файл cookie в течение 6 месяцев. Он не "
+"хранится на нашем сервере. Возникновение проблем или блокировка вашего "
+"аккаунта также маловероятны."
 
 #: vixipy/templates/login.html.j2:50
 msgid "What are the advantages of logging in?"
@@ -511,8 +505,8 @@ msgid ""
 " work interaction (like, bookmark, etc.) and following users. It also "
 "allows accessing login only and R-18 (if allowed by instance) works."
 msgstr ""
-"Вход в аккаунт pixiv позволяет получать персонализированные рекомендации, "
-"взаимодействовать с работами (ставить лайки, закладки и т.д.) и "
+"Вход в аккаунт pixiv позволяет получать персонализированные рекомендации,"
+" взаимодействовать с работами (ставить лайки, закладки и т.д.) и "
 "подписываться на пользователей, а также даёт доступ к работам только для "
 "зарегистрированных пользователей и работам с рейтингом R-18 (если это "
 "разрешено в частных случаях)."
@@ -534,7 +528,7 @@ msgid "Return"
 msgstr "Назад"
 
 #: vixipy/templates/monet.html.j2:2 vixipy/templates/monet.html.j2:8
-#: vixipy/templates/users/dashboard.html.j2:157
+#: vixipy/templates/users/dashboard.html.j2:160
 msgid "Material You Generator"
 msgstr "Генератор интерфейса Material You"
 
@@ -567,8 +561,8 @@ msgid ""
 "Unable to connect to pixiv servers. Check your connection or contact the "
 "instance administrator."
 msgstr ""
-"Нет соединения с серверами pixiv. Проверьте своё интернет-подключение или "
-"обратитесь к системному администратору."
+"Нет соединения с серверами pixiv. Проверьте своё интернет-подключение или"
+" обратитесь к системному администратору."
 
 #: vixipy/templates/components/header.html.j2:11
 #: vixipy/templates/notifications.html.j2:2
@@ -589,8 +583,8 @@ msgid ""
 "You are sending too many requests. Please slow down and try again. Don't "
 "use scripts or crawlers on this site."
 msgstr ""
-"Вы отправляете слишком много запросов. Пожалуйста, подождите и попробуйте "
-"снова. Не используйте на этом сайте скрипты или сборщики данных."
+"Вы отправляете слишком много запросов. Пожалуйста, подождите и попробуйте"
+" снова. Не используйте на этом сайте скрипты или сборщики данных."
 
 #: vixipy/templates/replies.html.j2:7
 msgid "Replies"
@@ -606,7 +600,7 @@ msgid "%(title)s | Collection by %(author)s"
 msgstr "%(title)s | Коллекция от автора%(author)s"
 
 #: vixipy/templates/collection/index.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:123
+#: vixipy/templates/users/dashboard.html.j2:136
 msgid "Collections"
 msgstr "Коллекции"
 
@@ -622,9 +616,9 @@ msgid ""
 "showcase them on a single page."
 msgstr ""
 "Функция Коллекции (бета-тестирование) позволяет подбирать иллюстрации, "
-"анимированные изображения, мангу и новеллы, опубликованные на pixiv, ссылки "
-"на другие сервисы pixiv (напр., pixiv Encyclopedia, BOOTH, pixivFANBOX), "
-"внешние ссылки и текст для отображения на одной странице."
+"анимированные изображения, мангу и новеллы, опубликованные на pixiv, "
+"ссылки на другие сервисы pixiv (напр., pixiv Encyclopedia, BOOTH, "
+"pixivFANBOX), внешние ссылки и текст для отображения на одной странице."
 
 #: vixipy/templates/collection/index.html.j2:12
 msgid ""
@@ -778,14 +772,14 @@ msgid "Page %(current)d of %(last)d"
 msgstr "Страница%(current)dиз%(last)d"
 
 #: vixipy/templates/components/user-entry.html.j2:20
-#: vixipy/templates/users/base.html.j2:54
+#: vixipy/templates/users/base.html.j2:67
 msgid "Follow"
 msgstr "Подписаться"
 
 #: vixipy/templates/components/user-entry.html.j2:20
-#: vixipy/templates/users/base.html.j2:37
-#: vixipy/templates/users/base.html.j2:54
-#: vixipy/templates/users/dashboard.html.j2:13
+#: vixipy/templates/users/base.html.j2:50
+#: vixipy/templates/users/base.html.j2:67
+#: vixipy/templates/users/dashboard.html.j2:12
 #: vixipy/templates/users/follow/base.html.j2:34
 msgid "Following"
 msgstr "Вы подписаны"
@@ -800,7 +794,7 @@ msgstr "Перезагрузить"
 
 #: vixipy/templates/discovery/index.html.j2:3
 #: vixipy/templates/discovery/index.html.j2:9
-#: vixipy/templates/users/dashboard.html.j2:72
+#: vixipy/templates/users/dashboard.html.j2:80
 msgid "Discovery"
 msgstr ""
 
@@ -811,6 +805,57 @@ msgstr "Рекомендуемые иллюстрации"
 #: vixipy/templates/discovery/index.html.j2:21
 msgid "Recommended users"
 msgstr "Рекомендуемые пользователи"
+
+#: vixipy/templates/follow/base.html.j2:10
+#, fuzzy
+msgid "Users you are following"
+msgstr "Работы от пользователей, на которых вы подписаны"
+
+#: vixipy/templates/follow/base.html.j2:11
+#, fuzzy
+msgid "Works on Watchlist"
+msgstr "В список для просмотра"
+
+#: vixipy/templates/follow/base.html.j2:12
+#: vixipy/templates/users/follow/base.html.j2:41
+msgid "My pixiv"
+msgstr "Мой pixiv"
+
+#: vixipy/templates/follow/users/illust.html.j2:3
+#: vixipy/templates/follow/users/novel.html.j2:3
+#, fuzzy
+msgid "Works by users you're following"
+msgstr "Работы от пользователей, на которых вы подписаны"
+
+#: vixipy/templates/follow/users/illust.html.j2:9
+#: vixipy/templates/follow/users/novel.html.j2:9
+#: vixipy/templates/search/main.html.j2:34 vixipy/templates/users/top.html.j2:8
+msgid "Illustrations and Manga"
+msgstr "Иллюстрации и манга"
+
+#: vixipy/templates/follow/users/illust.html.j2:10
+#: vixipy/templates/follow/users/novel.html.j2:10
+#: vixipy/templates/newest/index.html.j2:28
+#: vixipy/templates/novels/index.html.j2:2
+#: vixipy/templates/pixivision/category_name.html.j2:10
+#: vixipy/templates/pixivision/index.html.j2:50
+#: vixipy/templates/search/illust.html.j2:9
+#: vixipy/templates/search/main.html.j2:10
+#: vixipy/templates/search/main.html.j2:46
+#: vixipy/templates/search/manga.html.j2:9
+#: vixipy/templates/search/novel.html.j2:10
+#: vixipy/templates/search/novel.html.j2:15
+#: vixipy/templates/users/base.html.j2:185
+#: vixipy/templates/users/dashboard.html.j2:91
+#: vixipy/templates/users/novels.html.j2:9
+msgid "Novels"
+msgstr "Новеллы"
+
+#: vixipy/templates/follow/users/illust.html.j2:13
+#: vixipy/templates/follow/users/novel.html.j2:13
+#: vixipy/templates/search/components/tag-search-filter.html.j2:40
+msgid "All"
+msgstr "Все"
 
 #: vixipy/templates/license/index.html.j2:14
 #: vixipy/templates/license/index.html.j2:28
@@ -824,10 +869,10 @@ msgid ""
 " rights and for license compliance, copies of the copyright and license "
 "notices for the various libraries and software are provided in this page."
 msgstr ""
-"Vixipy существует благодаря бесплатным ПО и библиотекам. Для гарантии ваших "
-"прав и соответствия лицензионным требованиям на этой странице предоставлены "
-"копии уведомлений об авторских правах и лицензиях для различных библиотек и "
-"ПО."
+"Vixipy существует благодаря бесплатным ПО и библиотекам. Для гарантии "
+"ваших прав и соответствия лицензионным требованиям на этой странице "
+"предоставлены копии уведомлений об авторских правах и лицензиях для "
+"различных библиотек и ПО."
 
 #: vixipy/templates/newest/index.html.j2:6
 msgid "Newest illustrations by all users"
@@ -850,7 +895,7 @@ msgstr "Новое от всех пользователей"
 #: vixipy/templates/search/main.html.j2:8
 #: vixipy/templates/search/manga.html.j2:7
 #: vixipy/templates/search/novel.html.j2:8
-#: vixipy/templates/users/base.html.j2:166
+#: vixipy/templates/users/base.html.j2:179
 #: vixipy/templates/users/illust.html.j2:9
 msgid "Illustrations"
 msgstr "Иллюстрации"
@@ -864,26 +909,10 @@ msgstr "Иллюстрации"
 #: vixipy/templates/search/manga.html.j2:8
 #: vixipy/templates/search/manga.html.j2:13
 #: vixipy/templates/search/novel.html.j2:9
-#: vixipy/templates/users/base.html.j2:169
+#: vixipy/templates/users/base.html.j2:182
 #: vixipy/templates/users/manga.html.j2:9
 msgid "Manga"
 msgstr "Манга"
-
-#: vixipy/templates/newest/index.html.j2:28
-#: vixipy/templates/novels/index.html.j2:2
-#: vixipy/templates/pixivision/category_name.html.j2:10
-#: vixipy/templates/pixivision/index.html.j2:50
-#: vixipy/templates/search/illust.html.j2:9
-#: vixipy/templates/search/main.html.j2:10
-#: vixipy/templates/search/main.html.j2:46
-#: vixipy/templates/search/manga.html.j2:9
-#: vixipy/templates/search/novel.html.j2:10
-#: vixipy/templates/search/novel.html.j2:15
-#: vixipy/templates/users/base.html.j2:172
-#: vixipy/templates/users/dashboard.html.j2:78
-#: vixipy/templates/users/novels.html.j2:9
-msgid "Novels"
-msgstr "Новеллы"
 
 #: vixipy/templates/newest/index.html.j2:32
 msgid "General"
@@ -942,7 +971,7 @@ msgstr "Обновлено%(date)s"
 #: vixipy/templates/pixivision/category.html.j2:5
 #: vixipy/templates/pixivision/index.html.j2:2
 #: vixipy/templates/pixivision/search.html.j2:3
-#: vixipy/templates/users/dashboard.html.j2:143
+#: vixipy/templates/users/dashboard.html.j2:146
 msgid "pixivision"
 msgstr "pixivision"
 
@@ -1065,7 +1094,7 @@ msgstr ""
 
 #: vixipy/templates/rankings/calendar.html.j2:2
 #: vixipy/templates/rankings/calendar.html.j2:6
-#: vixipy/templates/users/dashboard.html.j2:108
+#: vixipy/templates/users/dashboard.html.j2:121
 msgid "Ranking Calendar"
 msgstr "Календарь рейтинга"
 
@@ -1157,7 +1186,7 @@ msgid "Day %(day)s"
 msgstr "День%(day)s"
 
 #: vixipy/templates/rankings/main.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:98
+#: vixipy/templates/users/dashboard.html.j2:111
 msgid "Rankings"
 msgstr "Рейтинг"
 
@@ -1208,8 +1237,8 @@ msgid ""
 "You can only have at most 10 favorite tags. Please remove one and try "
 "again."
 msgstr ""
-"У вас не может быть более 10 любимых тегов. Пожалуйста, уберите один тег из "
-"любимых и попробуйте снова."
+"У вас не может быть более 10 любимых тегов. Пожалуйста, уберите один тег "
+"из любимых и попробуйте снова."
 
 #: vixipy/templates/search/index.html.j2:46
 msgid "Add to your favorites"
@@ -1230,14 +1259,6 @@ msgstr "Недавнее"
 #: vixipy/templates/search/main.html.j2:25
 msgid "All Time"
 msgstr "За всё время"
-
-#: vixipy/templates/search/main.html.j2:34 vixipy/templates/users/top.html.j2:8
-msgid "Illustrations and Manga"
-msgstr "Иллюстрации и манга"
-
-#: vixipy/templates/search/popular_tags.html.j2:28
-msgid "Unable to load popular tags."
-msgstr "Не получается загрузить популярные теги."
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:26
 msgid "Keywords"
@@ -1262,10 +1283,6 @@ msgstr "Название/подпись"
 #: vixipy/templates/search/components/tag-search-filter.html.j2:37
 msgid "Filters"
 msgstr "Фильтры"
-
-#: vixipy/templates/search/components/tag-search-filter.html.j2:40
-msgid "All"
-msgstr "Все"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:41
 msgid "Safe"
@@ -1322,7 +1339,7 @@ msgid "Period"
 msgstr "Период"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:181
-#: vixipy/templates/users/dashboard.html.j2:215
+#: vixipy/templates/users/dashboard.html.j2:218
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -1339,10 +1356,10 @@ msgid ""
 " frontend, allowing you to view and enjoy works from pixiv distraction-"
 "free without unnecessary bloat and tracking."
 msgstr ""
-"Vixipy - это бесплатная альтернатива с открытым исходным кодом для внешнего "
-"интерфейса <a href='%(link)s'>pixiv</a>, позволяющая просматривать работы на "
-"pixiv без отвлекающих факторов, излишней траты места в хранилище и без "
-"отслеживания."
+"Vixipy - это бесплатная альтернатива с открытым исходным кодом для "
+"внешнего интерфейса <a href='%(link)s'>pixiv</a>, позволяющая "
+"просматривать работы на pixiv без отвлекающих факторов, излишней траты "
+"места в хранилище и без отслеживания."
 
 #: vixipy/templates/settings/about.html.j2:7
 #, python-format
@@ -1350,8 +1367,8 @@ msgid ""
 "If you like our work, please consider <a href='%(link)s'>giving us a "
 "star</a> on Codeberg!"
 msgstr ""
-"Если вам нравится наша работа, вы можете <a href='%(link)s'>поставить нам "
-"звёздочку</a> на Codeberg!"
+"Если вам нравится наша работа, вы можете <a href='%(link)s'>поставить нам"
+" звёздочку</a> на Codeberg!"
 
 #: vixipy/templates/settings/about.html.j2:9
 msgid "Why use it?"
@@ -1364,8 +1381,8 @@ msgid ""
 "pixiv account required to access content."
 msgstr ""
 "Vixipy позволяет пользоваться pixiv анонимно и без ограничений (включая "
-"возможность просматривать изображения в оригинальном качестве). Для доступа "
-"к контенту не требуется аккаунт pixiv."
+"возможность просматривать изображения в оригинальном качестве). Для "
+"доступа к контенту не требуется аккаунт pixiv."
 
 #: vixipy/templates/settings/about.html.j2:12
 msgid ""
@@ -1388,9 +1405,10 @@ msgid ""
 "modify, or use it without restriction (as long as you follow its <a "
 "href='%(license_link)s'>license</a>)."
 msgstr ""
-"Vixipy бесплатен и имеет открытый исходный код, поэтому любой пользователь "
-"может проверять, добавлять, изменять или использовать его содержимое без "
-"ограничений (при условии следования <a href='%(license_link)s'>лицензии</a>)."
+"Vixipy бесплатен и имеет открытый исходный код, поэтому любой "
+"пользователь может проверять, добавлять, изменять или использовать его "
+"содержимое без ограничений (при условии следования <a "
+"href='%(license_link)s'>лицензии</a>)."
 
 #: vixipy/templates/settings/about.html.j2:17
 msgid "How does it work?"
@@ -1403,11 +1421,11 @@ msgid ""
 "you use public instances as all requests are handled server side, and "
 "blends in with other activities in the instance."
 msgstr ""
-"Vixipy использует программный интерфейс pixiv для извлечения контента, его "
-"систематизации и отображения результатов с помощью собственного "
+"Vixipy использует программный интерфейс pixiv для извлечения контента, "
+"его систематизации и отображения результатов с помощью собственного "
 "пользовательского интерфейса. Если вы используете открытый сервер, вы "
-"остаётесь анонимными, так как все запросы обрабатываются на стороне сервера "
-"и смешиваются с другими действиями на сервере."
+"остаётесь анонимными, так как все запросы обрабатываются на стороне "
+"сервера и смешиваются с другими действиями на сервере."
 
 #: vixipy/templates/settings/about.html.j2:19
 msgid ""
@@ -1415,8 +1433,8 @@ msgid ""
 "official UI, but without any tracking (the same behaviour if you use a "
 "content blocker such as uBlock Origin)"
 msgstr ""
-"Даже при входе в аккаунт pixiv будет видеть вас так, будто вы используете "
-"официальный пользовательский интерфейс без отслеживания (как если бы вы "
+"Даже при входе в аккаунт pixiv будет видеть вас так, будто вы используете"
+" официальный пользовательский интерфейс без отслеживания (как если бы вы "
 "использовали блокировщик контента, например, uBlock Origin)"
 
 #: vixipy/templates/settings/about.html.j2:21
@@ -1601,7 +1619,7 @@ msgstr ""
 #: vixipy/templates/settings/index.html.j2:3
 #: vixipy/templates/settings/index.html.j2:5
 #: vixipy/templates/settings/index.html.j2:13
-#: vixipy/templates/users/dashboard.html.j2:167
+#: vixipy/templates/users/dashboard.html.j2:170
 msgid "Settings"
 msgstr ""
 
@@ -1678,7 +1696,7 @@ msgid "Set color scheme"
 msgstr ""
 
 #: vixipy/templates/street/index.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:53
+#: vixipy/templates/users/dashboard.html.j2:56
 msgid "Street"
 msgstr ""
 
@@ -1687,13 +1705,13 @@ msgid "Load More"
 msgstr ""
 
 #: vixipy/templates/test/dialog.html.j2:28
-#: vixipy/templates/users/dashboard.html.j2:199
-#: vixipy/templates/users/dashboard.html.j2:209
+#: vixipy/templates/users/dashboard.html.j2:202
+#: vixipy/templates/users/dashboard.html.j2:212
 msgid "Log out"
 msgstr ""
 
 #: vixipy/templates/test/dialog.html.j2:31
-#: vixipy/templates/users/dashboard.html.j2:212
+#: vixipy/templates/users/dashboard.html.j2:215
 msgid "Do you wish to log out?"
 msgstr ""
 
@@ -1738,42 +1756,68 @@ msgstr ""
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr ""
 
-#: vixipy/templates/users/base.html.j2:44
+#: vixipy/templates/users/base.html.j2:39
+msgid "This user is an official publisher verified by pixiv"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:39
+#, fuzzy
+msgid "Publisher"
+msgstr "Публичный"
+
+#: vixipy/templates/users/base.html.j2:42
+msgid "This user is an account operated by pixiv"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:42
+#, fuzzy
+msgid "Official"
+msgstr "Соц. сети"
+
+#: vixipy/templates/users/base.html.j2:45
+msgid "This user is a pixiv Premium subscriber"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:45
+msgid "Premium"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:57
 msgid "Edit Profile"
 msgstr ""
 
-#: vixipy/templates/users/base.html.j2:68
+#: vixipy/templates/users/base.html.j2:81
 #, fuzzy
 msgid "Profile"
 msgstr "Отредактировать профиль"
 
-#: vixipy/templates/users/base.html.j2:77
+#: vixipy/templates/users/base.html.j2:90
 msgid "Description"
 msgstr ""
 
-#: vixipy/templates/users/base.html.j2:81
+#: vixipy/templates/users/base.html.j2:94
 msgid "This user has no description set"
 msgstr ""
 
-#: vixipy/templates/users/base.html.j2:84
+#: vixipy/templates/users/base.html.j2:97
 #, fuzzy
 msgid "Socials"
 msgstr "Соц. сети"
 
-#: vixipy/templates/users/base.html.j2:149
+#: vixipy/templates/users/base.html.j2:162
 msgid ""
 "You should not go to Pawoo, as it contains inappropriate content, "
 "resulting in the instance being added to the federation blacklist and "
 "banned on most federated social media."
 msgstr ""
 
-#: vixipy/templates/users/base.html.j2:155
+#: vixipy/templates/users/base.html.j2:168
 msgid "This user did not specify their socials"
 msgstr ""
 
-#: vixipy/templates/users/base.html.j2:175
+#: vixipy/templates/users/base.html.j2:188
 #: vixipy/templates/users/bookmarks.html.j2:9
-#: vixipy/templates/users/dashboard.html.j2:47
+#: vixipy/templates/users/dashboard.html.j2:46
 msgid "Bookmarks"
 msgstr ""
 
@@ -1789,36 +1833,32 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html.j2:13
+#: vixipy/templates/users/dashboard.html.j2:12
 #: vixipy/templates/users/follow/base.html.j2:49
 msgid "Followers"
 msgstr "Подписчики"
 
-#: vixipy/templates/users/dashboard.html.j2:25
+#: vixipy/templates/users/dashboard.html.j2:24
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html.j2:39
+#: vixipy/templates/users/dashboard.html.j2:38
 msgid "Your profile"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html.j2:177
+#: vixipy/templates/users/dashboard.html.j2:180
 msgid "Send Feedback"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html.j2:187
+#: vixipy/templates/users/dashboard.html.j2:190
 msgid "Source Code"
 msgstr ""
 
-#: vixipy/templates/users/dashboard.html.j2:216
+#: vixipy/templates/users/dashboard.html.j2:219
 msgid "OK"
 msgstr ""
-
-#: vixipy/templates/users/follow/base.html.j2:41
-msgid "My pixiv"
-msgstr "Мой pixiv"
 
 #: vixipy/templates/users/follow/followers.html.j2:3
 #, python-format
@@ -1863,3 +1903,4 @@ msgstr ""
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr ""
+

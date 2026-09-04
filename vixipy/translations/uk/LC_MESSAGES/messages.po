@@ -7,91 +7,86 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-11 19:07+0800\n"
+"POT-Creation-Date: 2026-09-04 14:17+0800\n"
 "PO-Revision-Date: 2026-02-13 13:29+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
-"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
-"user-interface/uk/>\n"
 "Language: uk\n"
+"Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy"
+"/user-interface/uk/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.15.2\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: vixipy/session.py:78
+#: vixipy/session.py:77
 msgid "Session not valid. Please sign in."
 msgstr "Сеанс недійсний. Будь ласка, ввійдіть."
 
-#: vixipy/routes/login.py:55
+#: vixipy/routes/login.py:57
 msgid "Invalid token"
 msgstr "Недійсний токен"
-
-#: vixipy/routes/login.py:82
-msgid "Unable to extract CSRF"
-msgstr "Не вдається витягти CSRF"
 
 #: vixipy/templates/artworks.html.j2:2 vixipy/templates/artworks.html.j2:5
 #, python-format
 msgid "%(work_name)s by %(author)s"
 msgstr "%(work_name)s автор_ки %(author)s"
 
-#: vixipy/templates/artworks.html.j2:69
+#: vixipy/templates/artworks.html.j2:75
 #, python-format
 msgid "Page %(page)d of %(total)d"
 msgstr "Сторінка %(page)d з %(total)d"
 
-#: vixipy/templates/artworks.html.j2:79
+#: vixipy/templates/artworks.html.j2:84
 #: vixipy/templates/index_logged_out.html.j2:17
 #: vixipy/templates/search/main.html.j2:41
 #: vixipy/templates/search/main.html.j2:53
 msgid "View All"
 msgstr "Переглянути всі"
 
-#: vixipy/templates/artworks.html.j2:108
+#: vixipy/templates/artworks.html.j2:113
 #: vixipy/templates/components/content-loading.html.j2:3
 msgid "Loading..."
 msgstr "Завантаження..."
 
-#: vixipy/templates/artworks.html.j2:142
+#: vixipy/templates/artworks.html.j2:147
 msgid "Show more..."
 msgstr "Показати ще..."
 
-#: vixipy/templates/artworks.html.j2:147
+#: vixipy/templates/artworks.html.j2:152
 msgid "Sign in required"
 msgstr "Потрібно ввійти"
 
-#: vixipy/templates/artworks.html.j2:150
+#: vixipy/templates/artworks.html.j2:155
 #, python-format
 msgid "Sensitivity Level: %(sl)d"
 msgstr "Рівень чутливості: %(sl)d"
 
-#: vixipy/templates/artworks.html.j2:156
+#: vixipy/templates/artworks.html.j2:161
 #: vixipy/templates/rankings/calendar.html.j2:26
 #: vixipy/templates/rankings/main.html.j2:26
 msgid "AI Generated"
 msgstr "Створено ШІ"
 
-#: vixipy/templates/artworks.html.j2:159
+#: vixipy/templates/artworks.html.j2:164
 #: vixipy/templates/components/novel-entry.html.j2:17
 #: vixipy/templates/rankings/calendar.html.j2:25
 #: vixipy/templates/rankings/main.html.j2:25
 msgid "Original"
 msgstr "Оригінал"
 
-#: vixipy/templates/artworks.html.j2:162
+#: vixipy/templates/artworks.html.j2:167
 #: vixipy/templates/rankings/main.html.j2:46
 msgid "Ugoira"
 msgstr "Анімація"
 
-#: vixipy/templates/artworks.html.j2:177 vixipy/templates/artworks.html.j2:188
+#: vixipy/templates/artworks.html.j2:182 vixipy/templates/artworks.html.j2:193
 #: vixipy/templates/novels/novel.html.j2:65
 msgid "Related works"
 msgstr "Схожі роботи"
 
-#: vixipy/templates/artworks.html.j2:209
+#: vixipy/templates/artworks.html.j2:214
 msgid "An error occurred trying to get the artwork pages"
 msgstr "Під час отримання сторінки з ілюстраціями виникла помилка"
 
@@ -129,6 +124,8 @@ msgid "There is no comment yet"
 msgstr "Коментарів ще немає"
 
 #: vixipy/templates/comments.html.j2:100
+#: vixipy/templates/follow/users/illust.html.j2:31
+#: vixipy/templates/follow/users/novel.html.j2:31
 #: vixipy/templates/pixivision/category.html.j2:26
 #: vixipy/templates/pixivision/index.html.j2:238
 #: vixipy/templates/pixivision/search.html.j2:37
@@ -199,7 +196,7 @@ msgid "Self introduction"
 msgstr "Про себе"
 
 #: vixipy/templates/edit_profile.html.j2:40
-#: vixipy/templates/users/base.html.j2:96
+#: vixipy/templates/users/base.html.j2:109
 msgid "Website"
 msgstr "Вебсайт"
 
@@ -312,7 +309,7 @@ msgstr "Обкладинка"
 msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
 msgstr "Серія ілюстрацій автор_ки <a href='%(link)s'>%(author)s</a>"
 
-#: vixipy/templates/illust_series.html.j2:27
+#: vixipy/templates/illust_series.html.j2:29
 #: vixipy/templates/search/index.html.j2:24
 #, python-format
 msgid "%(num)d work"
@@ -321,24 +318,24 @@ msgstr[0] "%(num)d робота"
 msgstr[1] "%(num)d роботи"
 msgstr[2] "%(num)d робіт"
 
-#: vixipy/templates/illust_series.html.j2:32
+#: vixipy/templates/illust_series.html.j2:34
 msgid "Read from beginning"
 msgstr "Читати з початку"
 
-#: vixipy/templates/illust_series.html.j2:41
+#: vixipy/templates/illust_series.html.j2:43
 msgid "Add to Watchlist"
 msgstr "Додати до списку спостереження"
 
-#: vixipy/templates/illust_series.html.j2:48
+#: vixipy/templates/illust_series.html.j2:50
 msgid "Already in your watchlist"
 msgstr "У списку спостереження"
 
-#: vixipy/templates/illust_series.html.j2:87
+#: vixipy/templates/illust_series.html.j2:89
 msgid "Works"
 msgstr "Роботи"
 
 #: vixipy/templates/index.html.j2:2 vixipy/templates/index_logged_out.html.j2:2
-#: vixipy/templates/users/base.html.j2:163
+#: vixipy/templates/users/base.html.j2:176
 msgid "Home"
 msgstr "Домівка"
 
@@ -351,9 +348,6 @@ msgid "Recommended works"
 msgstr "Рекомендовані роботи"
 
 #: vixipy/templates/index.html.j2:31
-#: vixipy/templates/search/popular_tags.html.j2:3
-#: vixipy/templates/search/popular_tags.html.j2:7
-#: vixipy/templates/users/dashboard.html.j2:133
 msgid "Popular Tags"
 msgstr "Популярні теги"
 
@@ -375,7 +369,7 @@ msgstr ""
 "title='%(title)s'>#%(tag)s</a>"
 
 #: vixipy/templates/index.html.j2:101
-#: vixipy/templates/users/dashboard.html.j2:88
+#: vixipy/templates/users/dashboard.html.j2:101
 msgid "Newest by all"
 msgstr "Нове від усіх"
 
@@ -422,7 +416,7 @@ msgstr "Перейти на сайт"
 #: vixipy/templates/login.html.j2:7 vixipy/templates/login.html.j2:60
 #: vixipy/templates/login.html.j2:76
 #: vixipy/templates/settings/account.html.j2:87
-#: vixipy/templates/users/dashboard.html.j2:65
+#: vixipy/templates/users/dashboard.html.j2:70
 msgid "Sign in"
 msgstr "Увійти"
 
@@ -536,7 +530,7 @@ msgid "Return"
 msgstr "Назад"
 
 #: vixipy/templates/monet.html.j2:2 vixipy/templates/monet.html.j2:8
-#: vixipy/templates/users/dashboard.html.j2:157
+#: vixipy/templates/users/dashboard.html.j2:160
 msgid "Material You Generator"
 msgstr "Генератор Material You"
 
@@ -608,7 +602,7 @@ msgid "%(title)s | Collection by %(author)s"
 msgstr "Колекція %(title)s | %(author)s"
 
 #: vixipy/templates/collection/index.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:123
+#: vixipy/templates/users/dashboard.html.j2:136
 msgid "Collections"
 msgstr "Колекції"
 
@@ -779,14 +773,14 @@ msgid "Page %(current)d of %(last)d"
 msgstr "Сторінка %(current)d з %(last)d"
 
 #: vixipy/templates/components/user-entry.html.j2:20
-#: vixipy/templates/users/base.html.j2:54
+#: vixipy/templates/users/base.html.j2:67
 msgid "Follow"
 msgstr "Стежити"
 
 #: vixipy/templates/components/user-entry.html.j2:20
-#: vixipy/templates/users/base.html.j2:37
-#: vixipy/templates/users/base.html.j2:54
-#: vixipy/templates/users/dashboard.html.j2:13
+#: vixipy/templates/users/base.html.j2:50
+#: vixipy/templates/users/base.html.j2:67
+#: vixipy/templates/users/dashboard.html.j2:12
 #: vixipy/templates/users/follow/base.html.j2:34
 msgid "Following"
 msgstr "Відстежувані"
@@ -801,7 +795,7 @@ msgstr "Оновити"
 
 #: vixipy/templates/discovery/index.html.j2:3
 #: vixipy/templates/discovery/index.html.j2:9
-#: vixipy/templates/users/dashboard.html.j2:72
+#: vixipy/templates/users/dashboard.html.j2:80
 msgid "Discovery"
 msgstr "Огляд"
 
@@ -812,6 +806,57 @@ msgstr "Рекомендовані ілюстрації"
 #: vixipy/templates/discovery/index.html.j2:21
 msgid "Recommended users"
 msgstr "Рекомендовані користувачі"
+
+#: vixipy/templates/follow/base.html.j2:10
+#, fuzzy
+msgid "Users you are following"
+msgstr "Роботи користувачів, за якими ви стежите"
+
+#: vixipy/templates/follow/base.html.j2:11
+#, fuzzy
+msgid "Works on Watchlist"
+msgstr "Додати до списку спостереження"
+
+#: vixipy/templates/follow/base.html.j2:12
+#: vixipy/templates/users/follow/base.html.j2:41
+msgid "My pixiv"
+msgstr "Мій pixiv"
+
+#: vixipy/templates/follow/users/illust.html.j2:3
+#: vixipy/templates/follow/users/novel.html.j2:3
+#, fuzzy
+msgid "Works by users you're following"
+msgstr "Роботи користувачів, за якими ви стежите"
+
+#: vixipy/templates/follow/users/illust.html.j2:9
+#: vixipy/templates/follow/users/novel.html.j2:9
+#: vixipy/templates/search/main.html.j2:34 vixipy/templates/users/top.html.j2:8
+msgid "Illustrations and Manga"
+msgstr "Ілюстрації і манґа"
+
+#: vixipy/templates/follow/users/illust.html.j2:10
+#: vixipy/templates/follow/users/novel.html.j2:10
+#: vixipy/templates/newest/index.html.j2:28
+#: vixipy/templates/novels/index.html.j2:2
+#: vixipy/templates/pixivision/category_name.html.j2:10
+#: vixipy/templates/pixivision/index.html.j2:50
+#: vixipy/templates/search/illust.html.j2:9
+#: vixipy/templates/search/main.html.j2:10
+#: vixipy/templates/search/main.html.j2:46
+#: vixipy/templates/search/manga.html.j2:9
+#: vixipy/templates/search/novel.html.j2:10
+#: vixipy/templates/search/novel.html.j2:15
+#: vixipy/templates/users/base.html.j2:185
+#: vixipy/templates/users/dashboard.html.j2:91
+#: vixipy/templates/users/novels.html.j2:9
+msgid "Novels"
+msgstr "Романи"
+
+#: vixipy/templates/follow/users/illust.html.j2:13
+#: vixipy/templates/follow/users/novel.html.j2:13
+#: vixipy/templates/search/components/tag-search-filter.html.j2:40
+msgid "All"
+msgstr "Усі"
 
 #: vixipy/templates/license/index.html.j2:14
 #: vixipy/templates/license/index.html.j2:28
@@ -851,7 +896,7 @@ msgstr "Нове від усіх користувачів"
 #: vixipy/templates/search/main.html.j2:8
 #: vixipy/templates/search/manga.html.j2:7
 #: vixipy/templates/search/novel.html.j2:8
-#: vixipy/templates/users/base.html.j2:166
+#: vixipy/templates/users/base.html.j2:179
 #: vixipy/templates/users/illust.html.j2:9
 msgid "Illustrations"
 msgstr "Ілюстрації"
@@ -865,26 +910,10 @@ msgstr "Ілюстрації"
 #: vixipy/templates/search/manga.html.j2:8
 #: vixipy/templates/search/manga.html.j2:13
 #: vixipy/templates/search/novel.html.j2:9
-#: vixipy/templates/users/base.html.j2:169
+#: vixipy/templates/users/base.html.j2:182
 #: vixipy/templates/users/manga.html.j2:9
 msgid "Manga"
 msgstr "Манґа"
-
-#: vixipy/templates/newest/index.html.j2:28
-#: vixipy/templates/novels/index.html.j2:2
-#: vixipy/templates/pixivision/category_name.html.j2:10
-#: vixipy/templates/pixivision/index.html.j2:50
-#: vixipy/templates/search/illust.html.j2:9
-#: vixipy/templates/search/main.html.j2:10
-#: vixipy/templates/search/main.html.j2:46
-#: vixipy/templates/search/manga.html.j2:9
-#: vixipy/templates/search/novel.html.j2:10
-#: vixipy/templates/search/novel.html.j2:15
-#: vixipy/templates/users/base.html.j2:172
-#: vixipy/templates/users/dashboard.html.j2:78
-#: vixipy/templates/users/novels.html.j2:9
-msgid "Novels"
-msgstr "Романи"
 
 #: vixipy/templates/newest/index.html.j2:32
 msgid "General"
@@ -943,7 +972,7 @@ msgstr "Оновлено %(date)s"
 #: vixipy/templates/pixivision/category.html.j2:5
 #: vixipy/templates/pixivision/index.html.j2:2
 #: vixipy/templates/pixivision/search.html.j2:3
-#: vixipy/templates/users/dashboard.html.j2:143
+#: vixipy/templates/users/dashboard.html.j2:146
 msgid "pixivision"
 msgstr "pixivision"
 
@@ -1064,7 +1093,7 @@ msgstr "Індекс"
 
 #: vixipy/templates/rankings/calendar.html.j2:2
 #: vixipy/templates/rankings/calendar.html.j2:6
-#: vixipy/templates/users/dashboard.html.j2:108
+#: vixipy/templates/users/dashboard.html.j2:121
 msgid "Ranking Calendar"
 msgstr "Календар рейтингів"
 
@@ -1156,7 +1185,7 @@ msgid "Day %(day)s"
 msgstr "День %(day)s"
 
 #: vixipy/templates/rankings/main.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:98
+#: vixipy/templates/users/dashboard.html.j2:111
 msgid "Rankings"
 msgstr "Рейтинги"
 
@@ -1229,14 +1258,6 @@ msgstr "Нещодавні"
 msgid "All Time"
 msgstr "За весь час"
 
-#: vixipy/templates/search/main.html.j2:34 vixipy/templates/users/top.html.j2:8
-msgid "Illustrations and Manga"
-msgstr "Ілюстрації і манґа"
-
-#: vixipy/templates/search/popular_tags.html.j2:28
-msgid "Unable to load popular tags."
-msgstr "Не вдалося завантажити популярні теги."
-
 #: vixipy/templates/search/components/tag-search-filter.html.j2:26
 msgid "Keywords"
 msgstr "Ключові слова"
@@ -1260,10 +1281,6 @@ msgstr "Назва/опис"
 #: vixipy/templates/search/components/tag-search-filter.html.j2:37
 msgid "Filters"
 msgstr "Фільтри"
-
-#: vixipy/templates/search/components/tag-search-filter.html.j2:40
-msgid "All"
-msgstr "Усі"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:41
 msgid "Safe"
@@ -1320,7 +1337,7 @@ msgid "Period"
 msgstr "Період"
 
 #: vixipy/templates/search/components/tag-search-filter.html.j2:181
-#: vixipy/templates/users/dashboard.html.j2:215
+#: vixipy/templates/users/dashboard.html.j2:218
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -1623,7 +1640,7 @@ msgstr "Налаштування показу реклами"
 #: vixipy/templates/settings/index.html.j2:3
 #: vixipy/templates/settings/index.html.j2:5
 #: vixipy/templates/settings/index.html.j2:13
-#: vixipy/templates/users/dashboard.html.j2:167
+#: vixipy/templates/users/dashboard.html.j2:170
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -1701,7 +1718,7 @@ msgid "Set color scheme"
 msgstr "Застосувати колірну схему"
 
 #: vixipy/templates/street/index.html.j2:2
-#: vixipy/templates/users/dashboard.html.j2:53
+#: vixipy/templates/users/dashboard.html.j2:56
 msgid "Street"
 msgstr "Стрічка"
 
@@ -1710,13 +1727,13 @@ msgid "Load More"
 msgstr "Завантажити ще"
 
 #: vixipy/templates/test/dialog.html.j2:28
-#: vixipy/templates/users/dashboard.html.j2:199
-#: vixipy/templates/users/dashboard.html.j2:209
+#: vixipy/templates/users/dashboard.html.j2:202
+#: vixipy/templates/users/dashboard.html.j2:212
 msgid "Log out"
 msgstr "Вийти"
 
 #: vixipy/templates/test/dialog.html.j2:31
-#: vixipy/templates/users/dashboard.html.j2:212
+#: vixipy/templates/users/dashboard.html.j2:215
 msgid "Do you wish to log out?"
 msgstr "Бажаєте вийти?"
 
@@ -1761,27 +1778,53 @@ msgstr "Зображення профілю %(user)s"
 msgid "Click to open %(user)s's profile picture in a new tab."
 msgstr "Натисніть, щоб відкрити зображення профілю %(user)s у новій вкладці."
 
-#: vixipy/templates/users/base.html.j2:44
+#: vixipy/templates/users/base.html.j2:39
+msgid "This user is an official publisher verified by pixiv"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:39
+#, fuzzy
+msgid "Publisher"
+msgstr "Загальнодоступний"
+
+#: vixipy/templates/users/base.html.j2:42
+msgid "This user is an account operated by pixiv"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:42
+#, fuzzy
+msgid "Official"
+msgstr "Соцмережі"
+
+#: vixipy/templates/users/base.html.j2:45
+msgid "This user is a pixiv Premium subscriber"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:45
+msgid "Premium"
+msgstr ""
+
+#: vixipy/templates/users/base.html.j2:57
 msgid "Edit Profile"
 msgstr "Редагувати профіль"
 
-#: vixipy/templates/users/base.html.j2:68
+#: vixipy/templates/users/base.html.j2:81
 msgid "Profile"
 msgstr "Профіль"
 
-#: vixipy/templates/users/base.html.j2:77
+#: vixipy/templates/users/base.html.j2:90
 msgid "Description"
 msgstr "Опис"
 
-#: vixipy/templates/users/base.html.j2:81
+#: vixipy/templates/users/base.html.j2:94
 msgid "This user has no description set"
 msgstr "Цей користувач не вказав опис"
 
-#: vixipy/templates/users/base.html.j2:84
+#: vixipy/templates/users/base.html.j2:97
 msgid "Socials"
 msgstr "Соцмережі"
 
-#: vixipy/templates/users/base.html.j2:149
+#: vixipy/templates/users/base.html.j2:162
 msgid ""
 "You should not go to Pawoo, as it contains inappropriate content, "
 "resulting in the instance being added to the federation blacklist and "
@@ -1791,13 +1834,13 @@ msgstr ""
 "екземпляр додано до чорного списку і заблоковано в більшості федеративних"
 " соціальних мереж."
 
-#: vixipy/templates/users/base.html.j2:155
+#: vixipy/templates/users/base.html.j2:168
 msgid "This user did not specify their socials"
 msgstr "Цей користувач не вказав свої соцмережі"
 
-#: vixipy/templates/users/base.html.j2:175
+#: vixipy/templates/users/base.html.j2:188
 #: vixipy/templates/users/bookmarks.html.j2:9
-#: vixipy/templates/users/dashboard.html.j2:47
+#: vixipy/templates/users/dashboard.html.j2:46
 msgid "Bookmarks"
 msgstr "Закладки"
 
@@ -1813,12 +1856,12 @@ msgstr "Не знайдено робіт."
 msgid "Menu"
 msgstr "Меню"
 
-#: vixipy/templates/users/dashboard.html.j2:13
+#: vixipy/templates/users/dashboard.html.j2:12
 #: vixipy/templates/users/follow/base.html.j2:49
 msgid "Followers"
 msgstr "Cтежать"
 
-#: vixipy/templates/users/dashboard.html.j2:25
+#: vixipy/templates/users/dashboard.html.j2:24
 msgid ""
 "<b>You are not logged in.</b> Sign in to your pixiv account to experience"
 " Vixipy in its full potential."
@@ -1826,25 +1869,21 @@ msgstr ""
 "<b>Ви не ввійшли в систему.</b> Увійдіть у свій обліковий запис pixiv, "
 "щоб скористатися всіма можливостями Vixipy."
 
-#: vixipy/templates/users/dashboard.html.j2:39
+#: vixipy/templates/users/dashboard.html.j2:38
 msgid "Your profile"
 msgstr "Ваш профіль"
 
-#: vixipy/templates/users/dashboard.html.j2:177
+#: vixipy/templates/users/dashboard.html.j2:180
 msgid "Send Feedback"
 msgstr "Зворотний зв’язок"
 
-#: vixipy/templates/users/dashboard.html.j2:187
+#: vixipy/templates/users/dashboard.html.j2:190
 msgid "Source Code"
 msgstr "Вихідний код"
 
-#: vixipy/templates/users/dashboard.html.j2:216
+#: vixipy/templates/users/dashboard.html.j2:219
 msgid "OK"
 msgstr "OK"
-
-#: vixipy/templates/users/follow/base.html.j2:41
-msgid "My pixiv"
-msgstr "Мій pixiv"
 
 #: vixipy/templates/users/follow/followers.html.j2:3
 #, python-format
@@ -1889,3 +1928,4 @@ msgstr "Ви ще нікого не додали до «Мій pixiv»."
 #, python-format
 msgid "%(user)s doesn't have any My pixiv."
 msgstr "У %(user)s немає «Мій pixiv»."
+
