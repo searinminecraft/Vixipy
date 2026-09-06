@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-09-04 14:17+0800\n"
-"PO-Revision-Date: 2026-09-05 06:25+0000\n"
+"PO-Revision-Date: 2026-09-06 08:25+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language: uk\n"
 "Language-Team: Ukrainian <https://translate.codeberg.org/projects/vixipy/"
@@ -1778,29 +1778,27 @@ msgstr "Натисніть, щоб відкрити зображення про�
 
 #: vixipy/templates/users/base.html.j2:39
 msgid "This user is an official publisher verified by pixiv"
-msgstr ""
+msgstr "Це офіційний видавець, підтверджений сервісом pixiv"
 
 #: vixipy/templates/users/base.html.j2:39
-#, fuzzy
 msgid "Publisher"
-msgstr "Загальнодоступний"
+msgstr "Видавець"
 
 #: vixipy/templates/users/base.html.j2:42
 msgid "This user is an account operated by pixiv"
-msgstr ""
+msgstr "Цей обліковий запис ведеться сервісом pixiv"
 
 #: vixipy/templates/users/base.html.j2:42
-#, fuzzy
 msgid "Official"
-msgstr "Соцмережі"
+msgstr "Офіційний"
 
 #: vixipy/templates/users/base.html.j2:45
 msgid "This user is a pixiv Premium subscriber"
-msgstr ""
+msgstr "Цей користувач є передплатником pixiv Premium"
 
 #: vixipy/templates/users/base.html.j2:45
 msgid "Premium"
-msgstr ""
+msgstr "Преміум"
 
 #: vixipy/templates/users/base.html.j2:57
 msgid "Edit Profile"

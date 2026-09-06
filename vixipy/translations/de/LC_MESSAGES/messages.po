@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-09-04 14:17+0800\n"
-"PO-Revision-Date: 2026-09-05 06:25+0000\n"
+"PO-Revision-Date: 2026-09-06 08:25+0000\n"
 "Last-Translator: SomeTr <sometr@noreply.codeberg.org>\n"
 "Language: de\n"
 "Language-Team: German <https://translate.codeberg.org/projects/vixipy/user-"
@@ -175,7 +175,7 @@ msgstr "Profilbild Auswählen "
 
 #: vixipy/templates/edit_profile.html.j2:13
 msgid "Choose cover image: "
-msgstr "Banner auswählen "
+msgstr "Titelbild auswählen "
 
 #: vixipy/templates/edit_profile.html.j2:19
 msgid "Max. 5MB"
@@ -294,19 +294,18 @@ msgid "Back to home"
 msgstr "Zurück zur Startseite"
 
 #: vixipy/templates/illust_series.html.j2:2
-#, fuzzy, python-format
+#, python-format
 msgid "\"%(title)s\" Series by %(user)s"
-msgstr "%(title)s | Sammlung von %(author)s"
+msgstr "Serie „%(title)s“ von %(user)s"
 
 #: vixipy/templates/illust_series.html.j2:13
-#, fuzzy
 msgid "Cover"
-msgstr "Konvertieren"
+msgstr "Titelbild"
 
 #: vixipy/templates/illust_series.html.j2:23
 #, python-format
 msgid "Illust series by <a href='%(link)s'>%(author)s</a>"
-msgstr ""
+msgstr "Illustrationsserie von <a href='%(link)s'>%(author)s</a>"
 
 #: vixipy/templates/illust_series.html.j2:29
 #: vixipy/templates/search/index.html.j2:24
@@ -1703,29 +1702,27 @@ msgstr "Klicke, um %(user)s's Profilbild in einem neuen Tab zu öffnen."
 
 #: vixipy/templates/users/base.html.j2:39
 msgid "This user is an official publisher verified by pixiv"
-msgstr ""
+msgstr "Dieser Nutzer ist ein von pixiv verifizierter offizieller Verleger"
 
 #: vixipy/templates/users/base.html.j2:39
-#, fuzzy
 msgid "Publisher"
-msgstr "Öffentlich"
+msgstr "Verleger"
 
 #: vixipy/templates/users/base.html.j2:42
 msgid "This user is an account operated by pixiv"
-msgstr ""
+msgstr "Dieser Nutzer ist ein von pixiv betriebenes Konto"
 
 #: vixipy/templates/users/base.html.j2:42
-#, fuzzy
 msgid "Official"
-msgstr "Soziale Medien"
+msgstr "Offiziell"
 
 #: vixipy/templates/users/base.html.j2:45
 msgid "This user is a pixiv Premium subscriber"
-msgstr ""
+msgstr "Dieser Nutzer ist ein pixiv-Premium-Abonnent"
 
 #: vixipy/templates/users/base.html.j2:45
 msgid "Premium"
-msgstr ""
+msgstr "Premium"
 
 #: vixipy/templates/users/base.html.j2:57
 msgid "Edit Profile"
