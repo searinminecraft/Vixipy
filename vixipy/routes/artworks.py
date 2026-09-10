@@ -52,7 +52,7 @@ limit_blueprint(
 async def __attempt_work_extraction(
     id: int, userIllusts: list[ArtworkEntry], pagesCount: int
 ):
-    uil_to_dict: list[ArtworkEntry] = {int(i.id): i for i in userIllusts}
+    uil_to_dict: dict[int, ArtworkEntry] = {int(i.id): i for i in userIllusts}
     result: list[ArtworkPage] = []
 
     def pz(n: int):
