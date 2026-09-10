@@ -103,22 +103,46 @@ async def node_info():
     account = not current_app.no_token
 
     try:
-        git_p = await asyncio.create_subprocess_exec(
+        rev, rev_err = await (await asyncio.create_subprocess_exec(
+            "git",
+            "rev-parse",
+            "--short",
+            "HEAD",
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )).communicate()
+        if rev_err:
+            raise RuntimeError(rev_err.decode("utf-8"))
+        ver, ver_err = await (await asyncio.create_subprocess_exec(
             "git",
             "describe",
             "--tags",
             "--dirty",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
-        )
-        git_o, err = await git_p.communicate()
-        if err:
-            raise RuntimeError(err.decode("utf-8"))
+        )).communicate()
+        if ver_err:
+            raise RuntimeError(ver_err.decode("utf-8"))
+        remote, remote_err = await (await asyncio.create_subprocess_exec(
+            "git",
+            "remote",
+            "get-url",
+            "origin",
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )).communicate()
+        if remote_err:
+            raise RuntimeError(remote_err.decode("utf-8"))
     except Exception:
         log.exception("Failure retrieving commit")
         rev = None
+        ver = None
+        remote = None
     else:
-        rev = str(git_o.decode("utf-8")).rstrip()
+        rev = str(rev.decode("utf-8")).rstrip()
+        ver = str(ver.decode("utf-8")).rstrip()
+        remote = str(remote.decode("utf-8")).rstrip()
+
 
     return make_json_response(
         body={
@@ -129,11 +153,11 @@ async def node_info():
             and not current_app.config["NO_R18"],
             "sensitiveWorks": not current_app.config["NO_SENSITIVE"],
             "ratelimiting": current_app.config["QUART_RATE_LIMITER_ENABLED"],
-            "repo": "https://codeberg.org/vixipy/Vixipy",
+            "repo": remote,
             "usesAccount": account,
             "logHttp": current_app.config["LOG_HTTP"],
             "logPixiv": current_app.config["LOG_PIXIV"],
-            "version": current_app.config["VIXIPY_VERSION"],
+            "version": ver,
             "bypassCloudflare": current_app.config["PIXIV_DIRECT_CONNECTION"],
             "imageProxy": current_app.config["IMG_PROXY"],
         }
