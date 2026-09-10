@@ -3,10 +3,14 @@ from __future__ import annotations
 from quart import Blueprint, make_response, request, redirect, url_for, g, abort
 
 from ..api.handler import pixiv_request
+from ..api.artworks import get_artwork
+from ..api.user import get_user
 from ..api.search import get_tag_info
 from typing import TYPE_CHECKING
 from urllib.parse import quote
 from quart_babel import lazy_gettext as _l
+from jinja2_fragments.quart import render_block
+from asyncio import gather
 
 if TYPE_CHECKING:
     from typing import Union
@@ -46,20 +50,6 @@ async def follow_unfollow(id: int, action: Union["follow", "unfollow"]):
                 "Origin": "https://www.pixiv.net",
             },
         )
-        if isQuickAction:
-            return f"""
-<form action="/self/action/user/{id}/unfollow"
-    hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
-    hx-headers='{HX_HEADER}' method="post">
-    <input type="hidden" name="return_to" value="{rt}">
-    {"<input type='hidden' name='small'>" if 'small' in f else ''}
-    <button type="submit" class="button {'smaller' if 'small' in f else ''} neutral">
-        {_l("Following")}
-    </button>
-</form>
-"""
-        else:
-            return redirect(rt, code=303)
     elif action == "unfollow":
         await pixiv_request(
             "/touch/ajax_api/ajax_api.php",
@@ -70,20 +60,13 @@ async def follow_unfollow(id: int, action: Union["follow", "unfollow"]):
                 "Origin": "https://www.pixiv.net",
             },
         )
-        if isQuickAction:
-            return f"""
-<form action="/self/action/user/{id}/follow"
-    hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
-    hx-headers='{HX_HEADER}' method="post">
-    <input type="hidden" name="return_to" value="{rt}">
-    {"<input type='hidden' name='small'>" if 'small' in f else ''}
-    <button type="submit" class="button {'smaller' if 'small' in f else ''} primary">
-        {_l("Follow")}
-    </button>
-</form>
-"""
-        else:
-            return redirect(rt, code=303)
+
+    if isQuickAction:
+        g.request_ignore_cache = True
+        user = await get_user(id)
+        return await render_block("users/base.html.j2", "follow_button", data=user)
+    else:
+        return redirect(rt, code=303)
 
 
 @bp.post("/self/action/works/<int:id>/<action>")
@@ -104,38 +87,14 @@ async def perform_work_action(id: int, action: Union["bookmark", "like"]):
                 "tags": [],
             },
         )
+        g.request_ignore_cache = True
+        work = await get_artwork(id)
 
         if isQuickAction:
-
             if withinArtwork:
-                return f"""
-                <form action="/self/action/delete_bookmark/{data['last_bookmark_id']}" method="post"
-                    hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false"
-                    hx-headers='{HX_HEADER}'>
-
-                    <input type="hidden" name="return_to" id="{request.path}">
-                    <input type="hidden" name="work_id" value="{id}">
-                    <input type="hidden" name="within_illust" value="1">
-
-                    <button type="submit" class="bookmarked">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-147q-14 0-28.5-5T426-168l-69-63q-106-97-191.5-192.5T80-634q0-94 63-157t157-63q53 0 100 22.5t80 61.5q33-39 80-61.5T660-854q94 0 157 63t63 157q0 115-85 211T602-230l-68 62q-11 11-25.5 16t-28.5 5Z"/></svg>
-                    </button>
-                </form>
-                """
-
-            return f"""
-<form action="/self/action/delete_bookmark/{data['last_bookmark_id']}" method="post"
-hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false" hx-indicator="this"
-hx-headers='{HX_HEADER}'>
-    <input type="hidden" name="return_to" id="{request.path}">
-    <input type="hidden" name="bookmark_count" value="{int(f["bookmark_count"]) + 1}">
-    <input type="hidden" name="work_id" value="{id}">
-    <button type="submit">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 2H5a2 2 0 00-2 2v10l5-2.5 5 2.5V4a2 2 0 00-2-2z"/></svg>
-        {int(f["bookmark_count"]) + 1}
-    </button>
-</form>
-"""
+                return await render_block(
+                    "components/artwork-entry.html.j2", "bookmark_button", data=work
+                )
         else:
             return redirect(rt, code=303)
 
@@ -153,8 +112,8 @@ hx-headers='{HX_HEADER}'>
             return redirect(rt, code=303)
 
 
-@bp.post("/self/action/remove_favorite_tag")
-async def remove_favorite_tag():
+@bp.post("/self/action/favorite-tags/<act>")
+async def favorite_tag_act(act: Union["add" | "remove"]):
     f = await request.form
     isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
     rt = f.get("return_to", "/")
@@ -164,10 +123,19 @@ async def remove_favorite_tag():
         abort(400)
 
     tag_info = await get_tag_info(tag)
-    if not tag_info.is_favorite:
-        abort(400)
 
-    tag_info.favorite_tags.remove(tag)
+    if act == "remove":
+        if not tag_info.is_favorite:
+            abort(400)
+        tag_info.favorite_tags.remove(tag)
+        tag_info.is_favorite = False
+    elif act == "add":
+        if tag_info.is_favorite:
+            abort(400)
+        tag_info.favorite_tags.append(tag)
+        tag_info.is_favorite = True
+    else:
+        abort(400)
 
     await pixiv_request(
         "/ajax/favorite_tags/save",
@@ -176,52 +144,9 @@ async def remove_favorite_tag():
     )
 
     if isQuickAction:
-        return f"""
-        <form id="favorites-action" action="/self/action/add_favorite_tag" method="post" hx-push-url="false"
-                hx-swap="outerHTML show:none" hx-target="this" hx-headers='{HX_HEADER}'>
-
-                <input type="hidden" name="tag" value="{tag}">
-                <input type="hidden" name="return_to" value="{rt}">
-
-                <button type="submit" class="button primary">{_l("Add to your favorites")}</button>
-        </form>
-        """
-
-
-@bp.post("/self/action/add_favorite_tag")
-async def add_favorite_tag():
-    f = await request.form
-    isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
-    rt = f.get("return_to", "/")
-    tag = f.get("tag")
-
-    if not tag:
-        abort(400)
-
-    tag_info = await get_tag_info(tag)
-    if tag_info.is_favorite:
-        abort(400)
-
-    tag_info.favorite_tags.append(tag)
-
-    await pixiv_request(
-        "/ajax/favorite_tags/save",
-        "post",
-        json_payload={"tags": tag_info.favorite_tags},
-    )
-
-    if isQuickAction:
-        return f"""
-        <form id="favorites-action" action="/self/action/remove_favorite_tag" method="post" hx-push-url="false"
-                hx-swap="outerHTML show:none" hx-target="this" hx-headers='{HX_HEADER}'>
-
-                <input type="hidden" name="tag" value="{tag}">
-                <input type="hidden" name="return_to" value="{rt}">
-
-                <button type="submit" class="button neutral">{_l("Remove from favorites")}</button>
-        </form>
-        """
-
+        return await render_block(
+            "search/index.html.j2", "favorite_button", tag_info=tag_info
+        )
 
 @bp.post("/self/action/delete_bookmark/<int:id>")
 async def delete_bookmark(id: int):
@@ -229,42 +154,18 @@ async def delete_bookmark(id: int):
     isQuickAction = request.headers.get("X-Vixipy-Quick-Action") == "true"
     withinArtwork = f.get("within_illust")
     rt = f.get("return_to", "/")
+    work_id = f["work_id"]
 
     await pixiv_request(
         "/ajax/illusts/bookmarks/delete", "post", raw_payload=f"bookmark_id={id}"
     )
+    work = await get_artwork(work_id)
 
     if isQuickAction:
         if withinArtwork:
-            return f"""
-                <form action="/self/action/works/{f['work_id']}/bookmark" method="post"
-                    hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false"
-                    hx-headers='{HX_HEADER}'>
-
-                    <input type="hidden" name="return_to" id="{request.path}">
-                    <input type="hidden" name="work_id" value="{f['work_id']}">
-                    <input type="hidden" name="within_illust" value="1">
-
-
-                    <button type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-147q-14 0-28.5-5T426-168l-69-63q-106-97-191.5-192.5T80-634q0-94 63-157t157-63q53 0 100 22.5t80 61.5q33-39 80-61.5T660-854q94 0 157 63t63 157q0 115-85 211T602-230l-68 62q-11 11-25.5 16t-28.5 5Zm-38-543q-29-41-62-62.5T300-774q-60 0-100 40t-40 100q0 52 37 110.5T285.5-410q51.5 55 106 103t88.5 79q34-31 88.5-79t106-103Q726-465 763-523.5T800-634q0-60-40-100t-100-40q-47 0-80 21.5T518-690q-7 10-17 15t-21 5q-11 0-21-5t-17-15Zm38 189Z"/></svg>
-                    </button>
-                </form>
-                """
-
-        return f"""
-<form action="/self/action/works/{f['work_id']}/bookmark" method="post"
-hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false" hx-indicator="this"
-hx-headers='{HX_HEADER}'>
-    <input type="hidden" name="return_to" id="{request.path}">
-    <input type="hidden" name="bookmark_count" value="{int(f["bookmark_count"]) - 1}">
-    <input type="hidden" name="work_id" value="{f['work_id']}">
-    <button type="submit">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 11.5l5 2.5V4a2 2 0 00-2-2H5a2 2 0 00-2 2v10l5-2.5zm-4 .882l4-2 4 2V4a1 1 0 00-1-1H5a1 1 0 00-1 1v8.382z"/></svg>
-        {int(f["bookmark_count"]) - 1}
-    </button>
-</form>
-"""
+            return await render_block(
+                "components/artwork-entry.html.j2", "bookmark_button", data=work
+            )
     else:
         return redirect(rt, code=303)
 

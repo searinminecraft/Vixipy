@@ -57,6 +57,7 @@
                         <a href="/self/edit_profile" class="button neutral">{{_("Edit Profile")}}</a>
                         {% else %}
                         {% if g.authorized %}
+                        {% block follow_button scoped %}
                         <form
                             action="/self/action/user/{{data.id}}/{% if not data.followed %}follow{% else %}unfollow{% endif %}"
                             hx-push-url="false" hx-swap="outerHTML show:none" hx-target="this" hx-indicator="this"
@@ -67,6 +68,7 @@
                                 {%if not data.followed%}{{_("Follow")}}{%else%}{{_("Following")}}{% endif %}
                             </button>
                         </form>
+                        {% endblock %}
                         {% endif %}
                         {% endif %}
                     </div>

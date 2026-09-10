@@ -36,6 +36,7 @@
         </div>
         {% if g.authorized %}
         <div class="require-js bookmark-button">
+            {% block bookmark_button scoped %}
             <form action="/self/action/{%if data.bookmarked%}delete_bookmark/{{data.bookmark_id}}{%else%}works/{{data.id}}/bookmark{%endif%}" method="post"
                     hx-swap="outerHTML show:none" hx-target="this" hx-push-url="false"
                     hx-headers='{"X-Vixipy-Quick-Action": "true"}'>
@@ -52,6 +53,7 @@
                         {% endif %}
                     </button>
             </form>
+            {% endblock bookmark_button %}
         </div>
         {% endif %}
         <a href="{{url_for('artworks._get_artwork', id=data.id)}}">

@@ -22,7 +22,7 @@
 
         >main {
             flex: 60%;
-            
+
             >* {
                 background-color: var(--md-sys-color-surface-container-low);
                 border-radius: 32px;
@@ -68,9 +68,10 @@
 
                 &:has(.page-control-view-all>input#view-all:checked) {
                     >.pages-root {
-                        > img.effect {
+                        >img.effect {
                             display: none;
                         }
+
                         >.pages {
                             mask-image: none;
                             -webkit-mask-image: none;
@@ -92,6 +93,7 @@
 
                 >.pages-root {
                     position: relative;
+
                     >img.effect {
                         position: absolute;
                         pointer-events: none;
@@ -130,15 +132,15 @@
                         &.htmx-settling {
                             opacity: 0;
                         }
-  
+
                         >.page {
                             position: relative;
                             margin: 1em 0;
-  
+
                             &:first-child {
                                 margin-top: 0;
                             }
-    
+
                             &:last-child {
                                 margin-bottom: 0;
                             }
@@ -148,13 +150,13 @@
                                 width: 100%;
                                 align-items: center;
                                 justify-content: center;
+                                cursor: zoom-in;
 
                                 >img {
                                     display: block;
                                     width: auto;
                                     height: auto;
                                     max-height: 100vh;
-                                    border-radius: 28px;
                                     background-color: var(--md-sys-color-surface-container-lowest);
                                     max-width: 100%;
                                     object-fit: contain;
@@ -277,7 +279,7 @@
                 font-size: 12px;
                 margin: 1em 0;
             }
-            
+
             ul.attributes {
                 margin: 1em 0;
                 display: flex;
@@ -297,19 +299,22 @@
                         background-color: var(--md-sys-color-primary-container);
                         color: var(--md-sys-color-on-primary-container);
                     }
+
                     &.secondary {
                         background-color: var(--md-sys-color-secondary-container);
                         color: var(--md-sys-color-on-secondary-container);
                     }
+
                     &.tertiary {
                         background-color: var(--md-sys-color-tertiary-container);
                         color: var(--md-sys-color-on-tertiary-container);
                     }
+
                     &.error {
                         background-color: var(--md-sys-color-error-container);
                         color: var(--md-sys-color-on-error-container);
                     }
-               }
+                }
             }
         }
     }

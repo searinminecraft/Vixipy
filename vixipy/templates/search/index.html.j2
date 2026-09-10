@@ -27,14 +27,15 @@
                 {% endif %}
             </article>
             {% if g.authorized %}
+            {% block favorite_button %}
 
             {%- if tag_info.is_favorite %}
-            {% set action="remove_favorite_tag"%}
+            {% set action="remove"%}
             {% else %}
-            {% set action="add_favorite_tag"%}
+            {% set action="add"%}
             {% endif -%}
 
-            <form id="favorites-action" action="/self/action/{{action}}" method="post" hx-push-url="false"
+            <form id="favorites-action" action="/self/action/favorite-tags/{{action}}" method="post" hx-push-url="false"
                 hx-swap="outerHTML show:none" hx-target="this" hx-headers='{"X-Vixipy-Quick-Action": "true"}'>
 
                 <input type="hidden" name="tag" value="{{tag_info.tag}}">
@@ -47,8 +48,8 @@
                 {% else %}
                 <button type="submit" class="button neutral">{{_("Remove from favorites")}}</button>
                 {% endif -%}
-
             </form>
+            {% endblock %}
 
             {% endif %}
         </div>
