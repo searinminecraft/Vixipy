@@ -72,9 +72,12 @@ def parse_article_entries(t: Tag) -> list[PixivisionEntry]:
     for card in t.find_all("li", class_="article-card-container"):
         main = card.article
 
-        image = BG_IMG_RE.search(
-            main.find("div", class_="_thumbnail").attrs["style"].replace(" ", "")
-        ).group(1)
+        try:
+            image = BG_IMG_RE.search(
+                main.find("div", class_="_thumbnail").attrs["style"].replace(" ", "")
+            ).group(1)
+        except Exception:
+            image = None
         date = datetime.strptime(main.find("time").text, "%Y.%m.%d")
         title_element = main.find("h2", class_="arc__title")
         id = int(title_element.a.attrs["data-gtm-label"])
