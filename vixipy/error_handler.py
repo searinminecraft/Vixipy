@@ -9,6 +9,7 @@ from http import HTTPStatus
 from aiohttp.client_exceptions import ClientError
 import logging
 import traceback
+import sys
 
 if TYPE_CHECKING:
     from quart import Quart
@@ -54,8 +55,13 @@ async def handle_internal_error(e):
 
     tb_str = ""
     tb_str += f"{e.__class__.__name__}: {e}\n\n"
-    for x in traceback.extract_tb(e.__traceback__)[::-1]:
-        tb_str += f"at {'/'.join(x.filename.split('/')[-2:])}:{x.lineno}:{x.colno} in {x.name + '()' if '<' not in x.name else x.name}\n"
+
+    if sys.version_info.major == 3 and sys.version_info.minor >= 11:
+        for x in traceback.extract_tb(e.__traceback__)[::-1]:
+            tb_str += f"at {'/'.join(x.filename.split('/')[-2:])}:{x.lineno}:{x.colno} in {x.name + '()' if '<' not in x.name else x.name}\n"
+        tb_str += "\n(Run Vixipy in debug mode to see full traceback)"
+    else:
+        tb_str += "Instance is using Python 3.11 or below. Contact the system administrator to get a traceback."
 
     return (
         await render_template(
