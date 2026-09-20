@@ -12,7 +12,6 @@ from quart import abort, current_app, request
 import time
 from typing import TYPE_CHECKING, Callable
 
-
 log = logging.getLogger("vixipy.lib.pixivision")
 
 

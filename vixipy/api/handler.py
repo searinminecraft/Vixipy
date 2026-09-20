@@ -152,7 +152,7 @@ async def pixiv_request(
             _cookies["p_ab_id"] = account.p_ab_id
             _cookies["p_ab_id_2"] = account.p_ab_id_2
             _cookies["yuid_b"] = account.yuid_b
-    
+
             if not "PHPSESSID" in _cookies:
                 _cookies["PHPSESSID"] = account.token
 
@@ -167,27 +167,21 @@ async def pixiv_request(
     log.info("[%s] %s%s", method, endpoint, _params)
 
     req_start = time.perf_counter()
+    tries = 0
     while True:
         try:
-            if current_app.config["PIXIV_DIRECT_CONNECTION"]:
-                r: ClientResponse = await current_app.pixiv.request(
-                    method,
-                    endpoint + _params,
-                    server_hostname="www.pixiv.net",
-                    headers=_headers,
-                    data=raw_payload,
-                    json=json_payload,
-                )
-            else:
-                r: ClientResponse = await current_app.pixiv.request(
-                    method,
-                    endpoint + _params,
-                    headers=_headers,
-                    data=raw_payload,
-                    json=json_payload,
-                )
+            r: ClientResponse = await current_app.pixiv.request(
+                method,
+                endpoint + _params,
+                headers=_headers,
+                data=raw_payload,
+                json=json_payload,
+            )
         except ServerDisconnectedError:
+            if tries == 5:
+                raise
             log.error("[%s] Got ServerDisconnectedError, trying again...", endpoint)
+            tries += 1
             continue
         else:
             break
@@ -210,7 +204,7 @@ async def pixiv_request(
 
         if res.get("body"):
             res = res["body"]
-    except ContentTypeError:
+    except ContentTypeError as e:
         if expect_json:
             raise PixivError(await r.text(), r.status, endpoint) from e
         res = await r.text()

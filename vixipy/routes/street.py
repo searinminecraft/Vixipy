@@ -5,7 +5,6 @@ from jinja2_fragments.quart import render_block
 from ..api.street import get_data as get_street_data
 from ..decorators import require_login
 
-
 bp = Blueprint("street", __name__)
 log = logging.getLogger(__name__)
 

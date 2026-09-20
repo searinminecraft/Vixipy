@@ -9,7 +9,13 @@ from quart import (
     render_template,
     url_for,
 )
-from quart_rate_limiter import limit_blueprint, timedelta, RateLimit, rate_limit, rate_exempt
+from quart_rate_limiter import (
+    limit_blueprint,
+    timedelta,
+    RateLimit,
+    rate_limit,
+    rate_exempt,
+)
 
 from asyncio import gather
 import logging

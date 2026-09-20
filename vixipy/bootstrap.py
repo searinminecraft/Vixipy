@@ -73,23 +73,13 @@ async def init_clientsession(app: Quart):
         "Accept-Language": app.config["ACCEPT_LANGUAGE"],
         "Accept-Encoding": "gzip",
     }
-    if not app.config["PIXIV_DIRECT_CONNECTION"]:
-        app.pixiv: ClientSession = ClientSession(
-            "https://www.pixiv.net",
-            headers=header_common,
-            connector_owner=False,
-            cookie_jar=DummyCookieJar(),
-            proxy=app.config.get("PROXY"),
-        )
-    else:
-        app.pixiv: ClientSession = ClientSession(
-            "https://210.140.139.155",
-            headers={**header_common, "Host": "www.pixiv.net"},
-            connector_owner=False,
-            cookie_jar=DummyCookieJar(),
-            proxy=app.config.get("PROXY"),
-        )
-        log.debug("Using direct connection to pixiv.")
+    app.pixiv: ClientSession = ClientSession(
+        "https://www.pixiv.net",
+        headers=header_common,
+        connector_owner=False,
+        cookie_jar=DummyCookieJar(),
+        proxy=app.config.get("PROXY"),
+    )
 
     app.content_proxy: ClientSession = ClientSession(
         headers={**header_common, "Referer": "https://www.pixiv.net"},
@@ -123,7 +113,9 @@ class _InstanceAccount:
 
 
 async def _init_user(t: str):
-    r = await current_app.pixiv.get("/ajax/user/self", headers={"Cookie": "PHPSESSID=" + t})
+    r = await current_app.pixiv.get(
+        "/ajax/user/self", headers={"Cookie": "PHPSESSID=" + t}
+    )
 
     if r.status != 200:
         log.error("Token %s is not working (banned account?), skipping...", t)
@@ -134,9 +126,7 @@ async def _init_user(t: str):
     data = UserSelfData(j)
     r.close()
 
-    yuid_b, p_ab_d_id, p_ab_id, p_ab_id_2 = (
-        pixiv_session_handler._generate_ab_cookies()
-    )
+    yuid_b, p_ab_d_id, p_ab_id, p_ab_id_2 = pixiv_session_handler._generate_ab_cookies()
 
     current_app.accounts.append(
         _InstanceAccount(
@@ -175,12 +165,7 @@ async def credential_init(app: Quart):
             )
         else:
             try:
-                if app.config["PIXIV_DIRECT_CONNECTION"]:
-                    r: ClientResponse = await app.pixiv.head(
-                        "", allow_redirects=True, server_hostname="www.pixiv.net"
-                    )
-                else:
-                    r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
+                r: ClientResponse = await app.pixiv.head("", allow_redirects=True)
                 r.raise_for_status()
                 if phpsessid := r.cookies.get("PHPSESSID"):
                     log.info("Got initial PHPSESSID: %s", phpsessid.value)

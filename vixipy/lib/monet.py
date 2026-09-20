@@ -111,7 +111,9 @@ def get_scheme(data: bytes, scheme: str = "tonal_spot"):
 
     res = QuantizeCelebi(pixel_array, 128)
 
-    score = Score.score(res, ScoreOptions(desired=7, filter=True, fallback_color_argb=0xff0096fa))
+    score = Score.score(
+        res, ScoreOptions(desired=7, filter=True, fallback_color_argb=0xFF0096FA)
+    )
 
     light = SCMAPPING[scheme](Hct.from_int(score[0]), False, 0.0)
     dark = SCMAPPING[scheme](Hct.from_int(score[0]), True, 0.0)

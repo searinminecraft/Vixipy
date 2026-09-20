@@ -6,7 +6,6 @@ from .handler import pixiv_request
 import logging
 from typing import Optional
 
-
 log = logging.getLogger(__name__)
 
 

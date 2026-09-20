@@ -65,7 +65,10 @@ async def handle_internal_error(e):
 
     return (
         await render_template(
-            "internal_server_error.html.j2", traceback=tb_str if not current_app.config["DEBUG"] else traceback.format_exc()
+            "internal_server_error.html.j2",
+            traceback=(
+                tb_str if not current_app.config["DEBUG"] else traceback.format_exc()
+            ),
         ),
         500,
     )

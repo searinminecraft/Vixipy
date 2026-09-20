@@ -175,13 +175,7 @@ async def _get_artwork(id: int):
     ):
         abort(403)
 
-    if (work.r18 or work.sl >= 4) and not is_consented():
-        return await render_template(
-            "content_warning.html.j2", url=url_for("artworks._get_artwork", id=id)
-        )
-
     if not g.hx_request:
-
         if work.deficient:
             log.info("Work is deficient, trying to extract pages...")
             pages, recommend, user, works = await gather(

@@ -7,7 +7,6 @@ from pprint import pformat
 from quart import render_template
 from typing import Optional
 
-
 log = logging.getLogger(__name__)
 
 
