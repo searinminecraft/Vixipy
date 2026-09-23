@@ -25,7 +25,7 @@
 
             >* {
                 background-color: var(--md-sys-color-surface-container-low);
-                border-radius: 32px;
+                border-radius: 24px;
             }
 
             .series-data {
@@ -135,14 +135,20 @@
 
                         >.page {
                             position: relative;
-                            margin: 1em 0;
+                            margin: .65rem 0;
+                            border-radius: 12px;
+                            overflow: hidden;
 
                             &:first-child {
                                 margin-top: 0;
+                                border-top-left-radius: 24px;
+                                border-top-right-radius: 24px;
                             }
 
                             &:last-child {
                                 margin-bottom: 0;
+                                border-bottom-left-radius: 24px;
+                                border-bottom-right-radius: 24px;
                             }
 
                             >a {
@@ -170,15 +176,46 @@
             .actions {
                 position: sticky;
                 bottom: 0;
-                padding-bottom: 1em;
+                width: 100%;
+                padding: 1rem .6rem;
+                display: flex;
+                justify-content: flex-end;
 
                 .wrapper {
-                    width: 95%;
-                    margin: 0 auto;
+                    display: flex;
+                    gap: .85rem;
+                    align-items: center;
                     background-color: var(--md-sys-color-surface-container);
+                    border-radius: 64px;
+                    padding: .6rem 1rem;
 
-                    border-radius: 14px;
-                    height: 48px;
+                    form {
+                        display: flex;
+                        align-items: center;
+                    }
+
+
+                    svg {
+                        display: block;
+                    }
+
+                    button {
+                        font-family: inherit;
+                        border: unset;
+                        background: unset;
+                        color: var(--md-sys-color-on-surface);
+                        padding: unset;
+                    }
+
+                    .like-indicator {
+                        display: flex;
+                        align-items: center;
+                        gap: .5rem;
+                        
+                        &.active {
+                            color: var(--md-sys-color-primary)
+                        }
+                    }
                 }
             }
         }

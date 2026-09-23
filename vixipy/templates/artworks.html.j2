@@ -87,14 +87,39 @@
                     {% endblock pages %}
                     {% endif %}
             </div>
-            {% if work.series_data %}
-            <div class="series-data"></div>
-            {% endif %}
-            {#
-            <div class="actions">
-                <div class="wrapper"></div>
+	    {% block work_fab scoped %}
+	    {% if g.authorized %}
+            <div class="actions" hx-target="this" hx-push-url="false" hx-swap="outerHTML show:none", hx-headers='{"X-Vixipy-Quick-Action": "true"}'>
+                <div class="wrapper">
+                    {% if work.liked %}
+		    <div class="like-indicator active">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.707 8.293a1 1 0 00-1.414 1.414L7 12.414l5.707-5.707a1 1 0 00-1.414-1.414L7 9.586 5.707 8.293z" fill="currentColor"/></svg>
+                        <span>{{_("Like")}}</span>
+                    </div>
+                    {% else %}
+		    <form action="{{url_for('user_action.perform_work_action', id=work.id, action='like')}}" method="post">
+	                <input type="hidden" name="rt" value="{{request.path}}">
+			<button type="submit" class="like-indicator">
+		            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8a2 2 0 100-4 2 2 0 000 4zM12 8a2 2 0 100-4 2 2 0 000 4zM11.89 10.89a5.5 5.5 0 01-7.78 0 1 1 0 011.415-1.415 3.5 3.5 0 004.95 0 1 1 0 111.414 1.414z" fill="currentColor"/></svg>
+			    <span>{{_("Like")}}</span>
+			</button>
+		    </form>
+                    {% endif %}
+                    <form action="{% if work.bookmarked %}{{url_for('user_action.delete_bookmark', id=work.bookmark_id)}}{% else %}{{url_for('user_action.perform_work_action', id=work.id, action='bookmark')}}"{% endif %}" method="post">
+                        <input type="hidden" name="rt" value="{{request.path}}">
+			<input type=hidden name="work_id" value="{{work.id}}">
+			<button type="submit">
+			    {% if work.bookmarked %}
+			    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 9.023A6.023 6.023 0 018.023 3c1.486 0 2.88.68 3.977 1.677C13.096 3.68 14.49 3 15.977 3A6.023 6.023 0 0122 9.023c0 4.908-3.22 8.893-8.807 12.018a2.443 2.443 0 01-2.386 0C5.22 17.916 2 13.931 2 9.023z" fill="var(--md-sys-color-primary)"/></svg>
+			    {% else %}
+			    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 8.91A3.91 3.91 0 0016.09 5c-1.115 0-2.38.723-3.287 1.943L12 8.021l-.803-1.078C10.29 5.723 9.025 5 7.91 5A3.91 3.91 0 004 8.91c0 3.86 2.482 7.342 7.889 10.366a.229.229 0 00.222 0C17.518 16.252 20 12.77 20 8.91z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13.087 21.021C18.792 17.831 22 13.81 22 8.91A5.91 5.91 0 0016.09 3c-1.529 0-2.976.747-4.09 1.834C10.886 3.747 9.439 3 7.91 3A5.91 5.91 0 002 8.91c0 4.9 3.208 8.92 8.913 12.111a2.227 2.227 0 002.174 0zM16.09 5A3.91 3.91 0 0120 8.91c0 3.86-2.482 7.342-7.889 10.366a.229.229 0 01-.222 0C6.482 16.252 4 12.77 4 8.91A3.91 3.91 0 017.91 5c1.115 0 2.38.723 3.287 1.943L12 8.021l.803-1.078C13.71 5.723 14.975 5 16.09 5z" fill="#000" /></svg>
+			    {% endif %}
+			</button>
+                    </form>
+                </div>
             </div>
-            #}
+	    {% endif %}
+	    {% endblock work_fab %}
         </main>
         <aside>
             {% if work.series_data %}

@@ -77,6 +77,7 @@ async def perform_work_action(id: int, action: Union["bookmark", "like"]):
     rt = f.get("return_to", "/")
 
     if action == "bookmark":
+        g.request_ignore_cache = True
         data = await pixiv_request(
             "/ajax/illusts/bookmarks/add",
             "post",
@@ -87,7 +88,6 @@ async def perform_work_action(id: int, action: Union["bookmark", "like"]):
                 "tags": [],
             },
         )
-        g.request_ignore_cache = True
         work = await get_artwork(id)
 
         if isQuickAction:
@@ -95,6 +95,7 @@ async def perform_work_action(id: int, action: Union["bookmark", "like"]):
                 return await render_block(
                     "components/artwork-entry.html.j2", "bookmark_button", data=work
                 )
+            return await render_block("artworks.html.j2", "work_fab", work=work)
         else:
             return redirect(rt, code=303)
 
@@ -102,12 +103,12 @@ async def perform_work_action(id: int, action: Union["bookmark", "like"]):
         await pixiv_request(
             "/ajax/illusts/like", "post", json_payload={"illust_id": str(id)}
         )
+        g.request_ignore_cache = True
+        work = await get_artwork(id)
+
 
         if isQuickAction:
-            return f"""
-<svg class="liked" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8a2 2 0 100-4 2 2 0 000 4zM12 8a2 2 0 100-4 2 2 0 000 4zM11.89 10.89a5.5 5.5 0 01-7.78 0 1 1 0 011.415-1.415 3.5 3.5 0 004.95 0 1 1 0 111.414 1.414z"/></svg>
-{int(f['like_count']) + 1}
-"""
+            return await render_block("artworks.html.j2", "work_fab", work=work)
         else:
             return redirect(rt, code=303)
 
@@ -166,6 +167,7 @@ async def delete_bookmark(id: int):
             return await render_block(
                 "components/artwork-entry.html.j2", "bookmark_button", data=work
             )
+        return await render_block("artworks.html.j2", "work_fab", work=work)
     else:
         return redirect(rt, code=303)
 
