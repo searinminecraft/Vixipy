@@ -225,6 +225,8 @@ def create_app():
 
         @app.after_request
         async def log_req(r):
+            if app.config["DEBUG"]:
+                return r
             g.req_end = perf_counter()
             g.time_taken = (g.req_end - g.req_start) * 1000
 

@@ -50,6 +50,9 @@ def set_header_common(r: Response):
 async def perform_proxy(
     url: str, *, headers: dict = {}, params: dict = {}, raise_for_status: bool = False
 ):
+    headers = headers.copy()
+    params = params.copy()
+
     response_headers = {"Cache-Control": "max-age=31536000"}
 
     if range_ := request.headers.get("range"):
@@ -71,6 +74,7 @@ async def perform_proxy(
         )
 
     if raise_for_status:
+        r.close()
         r.raise_for_status()
 
     if accept_ranges := r.headers.get("accept-ranges"):
@@ -90,10 +94,11 @@ async def perform_proxy(
         try:
             async for chunk in r.content.iter_chunked(10 * 1024):
                 yield chunk
+        except asyncio.CancelledError as e:
+            log.warn("Client disconnected while proxying %s", url)
+        finally:
             r.close()
-        except asyncio.CancelledError:
-            log.warn("Client disconnected while proxing %s", url)
-            r.close()
+            
 
     res = await make_response(stream())
     res.timeout = 300

@@ -189,11 +189,11 @@ async def pixiv_request(
     req_time = (req_end - req_start) * 1000
 
     if req_time >= 500:
-        log.warning("[%s] Request took %dms", endpoint, req_time)
-    log.info("[%dms] [%s] %d", req_time, endpoint, r.status)
+        log.warning("[%s] Connection took %dms", endpoint, req_time)
 
     try:
         res = await r.json()
+        r.close()
         if res.get("error") == True or res.get("isSucceed") == False:
             log.error(
                 "Error: pixiv API returned error %d: %s",
@@ -205,10 +205,10 @@ async def pixiv_request(
         if res.get("body"):
             res = res["body"]
     except ContentTypeError as e:
-        if expect_json:
-            raise PixivError(await r.text(), r.status, endpoint) from e
         res = await r.text()
-        pass
+        r.close()
+        if expect_json:
+            raise PixivError(res, r.status, endpoint) from e
 
     if cache_enabled and not ignore_cache:
         try:
@@ -222,7 +222,7 @@ async def pixiv_request(
 
     done_time = (time.perf_counter() - req_start) * 1000
 
-    log.info("[done] [%dms] [%s]", done_time, endpoint)
+    log.info("[%dms] %s", done_time, endpoint)
     add_server_timing_metric(f"{endpoint}", done_time)
 
     return res
