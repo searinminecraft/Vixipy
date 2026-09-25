@@ -102,7 +102,10 @@ async def pixiv_request(
         else:
             _params += f"&{v[0]}={v[1]}"
 
-    hashed_value = hashlib.md5(bytes(endpoint + _params, "utf-8")).hexdigest()
+    if g.authorized:
+        hashed_value = hashlib.md5(bytes(g.token + endpoint + _params, "utf-8")).hexdigest()
+    else:
+        hashed_value = hashlib.md5(bytes(endpoint + _params, "utf-8")).hexdigest()
 
     if cache_enabled and not ignore_cache:
         try:
