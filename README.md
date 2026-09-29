@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo](./vixipy/static/logo.png)
+<img width="192" height="192" src="./vixipy/static/logo.png">
 
 # Vixipy
 
